@@ -25,5 +25,5 @@ NuGet packages are available:
 
 See the [online help content](http://EWSoftware.github.io/PDI/index.html) for usage and API information.
 
-See the [Project Wiki](https://github.com/EWSoftware/ListControls/wiki) for information on requirements for
+See the [Project Wiki](https://github.com/EWSoftware/PDI/wiki) for information on requirements for
 building the code and contributing to the project.
