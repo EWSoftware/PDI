@@ -17,8 +17,11 @@ x64/
 x86/
 build/
 bld/
-[Bb]in/
 [Oo]bj/
+
+# Ignore bin/ content but keep web app references
+**/[Bb]in/*
+!**/[Bb]in/*.refresh
 
 # Roslyn cache directories
 *.ide/
