@@ -1,0 +1,1167 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:Lakers 2004-05
+PRODID:-//Apple Computer\, Inc//iCal 2.0//EN
+X-WR-RELCALID:C86ABE8F-0F5E-449F-97A6-4765A3E556EB
+X-WR-TIMEZONE:America/Los_Angeles
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALDESC:Season Schedule
+BEGIN:VTIMEZONE
+TZID:America/Los_Angeles
+LAST-MODIFIED:20051122T035430Z
+BEGIN:STANDARD
+DTSTART:20041031T090000
+TZOFFSETTO:-0800
+TZOFFSETFROM:+0000
+TZNAME:PST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20050403T010000
+TZOFFSETTO:-0700
+TZOFFSETFROM:-0800
+TZNAME:PDT
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+LOCATION:THE ARENA IN OAKLAND
+DTSTAMP:20050421T221946Z
+UID:C98ACCFA-23B7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050418T193000
+SUMMARY:Lakers @ Golden State                   Warriors   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050418T223000
+DESCRIPTION:GAME 81 - Final Score: GS 126 Lakers 99\n\n        GS       
+          Lakers\nPts-  Pietrus 25    Bryant 22    \nReb- Foyle 13       
+ Jones 11\nAst-  Davis 13      Vujacic  7  \n\n(Local TV-KCAL-CH 9 IN LA)
+ 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041223T192043Z
+UID:15D1C0C8-23AA-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041222T193000
+SUMMARY:Lakers vs. New Orleans                Hornets
+DTEND;TZID=America/Los_Angeles:20041222T223000
+DESCRIPTION:GAME 25 - Final Score: Lakers 101 NO 89\n\n         New Orle
+ ans     Lakers\nPts-  Wesley 20         Atkins 30    \nReb- Brown 17    
+       Mihm 21\nAst-  Wesley 6           3 Tied at 4\n\n(Local TV-FSN Wes
+ t)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041204T193802Z
+UID:DF6CB86E-23A7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041203T193000
+SUMMARY:Lakers vs. Golden State                 Warriors
+DTEND;TZID=America/Los_Angeles:20041203T223000
+DESCRIPTION:GAME 17 - Final Score : Lakers 97 Golden St 88\n\n         G
+ olden St            Lakers\nPts-  Richardson 22     Butler 27    \nReb- 
+ Murphy 13          Bryant 12\nAst-  Richardson 7       Bryant 10\n\n(Loc
+ al TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050126T211114Z
+UID:AC69BD6A-23AD-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050125T193000
+SUMMARY:Lakers vs. Seattle                          Supersonics   (TV-NB
+ ALP)
+DTEND;TZID=America/Los_Angeles:20050125T223000
+DESCRIPTION:GAME 39 - Final Score: Seattle 104 Lakers 93\n\n        Seat
+ tle                    Lakers\nPts-  Radmanovic 26      2 Tied at 19    
+ \nReb- Evans 13               Odom 13 \nAst-  Ridnour 7              Odo
+ m 8  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050130T200550Z
+UID:0DE027E2-23AE-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050128T193000
+SUMMARY:Lakers vs. New Jersey                   Nets   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050128T223000
+DESCRIPTION:GAME 41 - Final Score: Nets 109 Lakers 103\n\n        Nets  
+            Lakers\nPts-  Carter 30     Butler 31    \nReb- Buford 6     
+  Odom 13 \nAst-  Kidd 11       Odom 8  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050415T200221Z
+UID:2D1A0102-23B7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050411T193000
+SUMMARY:Lakers vs. Phoenix                        Suns   (TV-NBATV)
+DTEND;TZID=America/Los_Angeles:20050411T223000
+DESCRIPTION:GAME 78 - Final Score: Phoenix 108 Lakers 97\n\n        Phoe
+ nix           Lakers\nPts-  Johnson 26     Bryant 20    \nReb- Marion 13
+        Butler 11\nAst-  Nash 16          Bryant  10  \n\n(Local TV-FSN W
+ est)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050328T225203Z
+UID:2FB25443-23B5-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050327T163000
+SUMMARY:Lakers vs. Philadelphia                  76'ers   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20050327T193000
+DESCRIPTION:GAME 69 - Final Score: Philly 96 Lakers 89\n\n         Phill
+ y               Lakers\nPts-  Iverson 20        Bryant 34    \nReb- Webb
+ y 14         Mihm 11\nAst-  Iverson 15        Bryant 5  \n\n(Local TV-FS
+ N West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050418T193447Z
+UID:95BA5C5C-23B7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050417T123000
+SUMMARY:Lakers vs. Dallas                           Mavericks   (TV-ABC)
+ 
+DTEND;TZID=America/Los_Angeles:20050417T153000
+DESCRIPTION:GAME 80 - Final Score: Dallass 114 Lakers 112\n\n        Dal
+ lass             Lakers\nPts-  Nowitzki 24     Bryant 33    \nReb- Nowit
+ zki 8       Jones 9\nAst-  Terry 10          Bryant  9  \n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:CONTINENTAL AIRLINES ARENA
+DTSTAMP:20050211T210824Z
+UID:966DD74E-23AF-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050209T163000
+SUMMARY:Lakers @ New Jersey                     Nets   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050209T193000
+DESCRIPTION:GAME 47 - Final Score: Lakers 104 NJ 103OT\n\n        NJ    
+           Lakers\nPts-  Kidd 28     Jones 20    \nReb- Kidd 12    Odom 1
+ 9\nAst-  Kidd 12    Odom 8  \n\n(Local TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050201T045051Z
+UID:436A9E20-23AE-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050130T183000
+SUMMARY:Lakers vs. Charlotte                     Bobcats   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050130T213000
+DESCRIPTION:GAME 42 - Final Score: Lakers 101 Charlotte 90\n\n        Ch
+ arlotte          Lakers\nPts-  Brezec 15         2 Tied at 20    \nReb- 
+ Sampson 12     Mihm 12\nAst-  Hart 7              Odom 7  \n   \n(Local 
+ TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:SBC CENTER
+DTSTAMP:20050105T204320Z
+UID:280D66E9-23AB-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050104T173000
+SUMMARY:Lakers @ San Antonio                    Spurs   (TV-NBATV)
+DTEND;TZID=America/Los_Angeles:20050104T203000
+DESCRIPTION:GAME 29 - Final Score: SA 100 Lakers 83\n\n         SA      
+            Lakers\nPts-  Bowen 24      Bryant 17    \nReb- Duncan 15    
+ Odom 8\nAst-  Parker 10      Brown 5  \n\n(Local TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041108T220434Z
+UID:40AE7DC4-23A0-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041105T193000
+SUMMARY:Lakers vs. San Antonio                   Spurs   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20041105T223000
+DESCRIPTION:GAME 3 - Final Score : Spurs 105 Lakers 96\n\n        SA    
+                Lakers\nPts-  Duncan 26      Bryant 28\nReb- Duncan 15   
+    Odom 11\nAst-  Ginobili  6      Odom   4\n\nLocal TV-FSN West
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:PHILLIPS ARENA
+DTSTAMP:20050208T195425Z
+UID:51431F6E-23AF-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050207T163000
+SUMMARY:Lakers @ Atlanta                           Hawks   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050207T193000
+DESCRIPTION:GAME 46 - Final Score: Atlanta 114 Lakers 108\n\n        Atl
+ anta            Lakers\nPts-  Walker 26       Odom 28    \nReb- Childres
+ s 11   Cook 10\nAst-  Delk 8             Atkins 5  \n\n(Local TV-KCAL-CH
+  9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:TARGET CENTER
+DTSTAMP:20050112T015020Z
+UID:E0D41902-23AB-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050110T170000
+SUMMARY:Lakers @ Minnesota                      Timberwolves   (TV-NBATV
+ )
+DTEND;TZID=America/Los_Angeles:20050110T200000
+DESCRIPTION:GAME 32 -Final Score: Lakers 105 Minnesota 96\n\n         Mi
+ nn              Lakers\nPts-  Garnett 23     Bryant 31             \nReb
+ - Garnett 13     Mihm 17\nAst-  Garnett 7       Atkins 7  \n\n(Local TV-
+ KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:PEPSI CENTER
+DTSTAMP:20050328T224925Z
+UID:DC6D96A8-23B4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050324T180000
+SUMMARY:Lakers @ Denver                           Nuggets   (TV-NBATV)
+DTEND;TZID=America/Los_Angeles:20050324T210000
+DESCRIPTION:GAME 68 - Final Score: Denver 117 Lakers 96\n\n         Denv
+ er               Lakers\nPts-  Boykins 21         Butler 22    \nReb- Na
+ jera 7             2 Tied at 9\nAst-  Miller 6              3 Tied at 4 
+  \n\n(Local TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:THE PYRAMID
+DTSTAMP:20050404T190555Z
+UID:1DF58364-23B6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:2
+DTSTART;TZID=America/Los_Angeles:20050403T170000
+SUMMARY:Lakers @ Memphis                       Grizzlies     (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050403T200000
+DESCRIPTION:GAME 73 - Final Score: Memphis 102 Lakers 82\n\n        Memp
+ his         Lakers\nPts-  Miller 22         Butler 18    \nReb- Gasol 10
+          Jones 10\nAst-  2 Tied at 6      2 Tied at 5  \n\n(Local TV-KCA
+ L-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041213T195955Z
+UID:A35E912F-23A8-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041212T183000
+SUMMARY:Lakers vs. Orlando                        Magic
+DTEND;TZID=America/Los_Angeles:20041212T213000
+DESCRIPTION:GAME 20 - Final Score: Lakers 105 Orlando 98\n\n         Orl
+ ando         Lakers\nPts-  Francis 27      Mihm\, Jones 25    \nReb- Bat
+ tie 12        Mihm 14\nAst-  Francis 13      Brown 8\n\n(Local TV-FSN We
+ st)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050418T193249Z
+UID:6854F3CC-23B7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050415T193000
+SUMMARY:Lakers vs. Sacramento                   Kings   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20050415T223000
+DESCRIPTION:GAME 79 - Final Score: Sac 115 Lakers 106\n\n        Sac    
+            Lakers\nPts-  Bibby 26       Butler 34    \nReb- Thomas 9    
+  Walton 12\nAst-  Mobley 10    Walton  9  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041123T060918Z
+UID:09E2CA5D-23A6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041121T183000
+SUMMARY:Lakers vs. Chicago                        Bulls
+DTEND;TZID=America/Los_Angeles:20041121T213000
+DESCRIPTION:GAME 11 - Final Score : Lakers 102 Chicago 93\n\n        Chi
+ cago        Lakers\nPts-  Hinrich 24    Bryant 29   \nReb- Curry 11     
+  Odom 12\nAst-  Hinrich 12    Bryant 7\n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:ARCO ARENA
+DTSTAMP:20041217T065041Z
+UID:5E6C772C-23A9-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041216T193000
+SUMMARY:Lakers @ Sacramento                    Kings   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20041216T223000
+DESCRIPTION:GAME 22 - Final Score: Lakers 115 Sac 99\n\n         Sac    
+               Lakers\nPts-  2 Tied at 20     Bryant 31    \nReb- Songail
+ a 10      Mihm 8\nAst-  Christie 7         Bryant 12\n\n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:TOYOTA CENTER
+DTSTAMP:20050207T203314Z
+UID:10A73FB2-23AF-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050206T123000
+SUMMARY:Lakers @ Houston                          Rockets   (TV-ABC)
+DTEND;TZID=America/Los_Angeles:20050206T153000
+DESCRIPTION:GAME 45 - Final Score: Houston 103 Lakers 102\n\n        Hou
+ ston      Lakers\nPts-  Yao 23       Odom 22    \nReb- Sura 12      Jone
+ s 13\nAst-  Sura 8       Odom 8  \n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041221T184540Z
+UID:E8556850-23A9-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041220T193000
+SUMMARY:Lakers vs. Memphis                       Grizzlies
+DTEND;TZID=America/Los_Angeles:20041220T223000
+DESCRIPTION:GAME 24 - Final Score: Memphis 82 Lakers 72\n\n         Memp
+ his        Lakers\nPts-  Battier 17        Butler 16    \nReb- Gasol 11 
+         Odom 12\nAst-  Watson 6        Bryant 8\n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:WACHOVIA CENTER
+DTSTAMP:20050317T222645Z
+UID:B8DB899A-23B3-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:2
+DTSTART;TZID=America/Los_Angeles:20050315T160000
+SUMMARY:Lakers @ Philadelphia                    76'ers   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050315T190000
+DESCRIPTION:GAME 63 - Final Score: Philly 108 Lakers 91\n\n         Phil
+ ly                 Lakers\nPts-  Iverson 36         Bryant 20    \nReb- 
+ Dalembert 11    Medvedenko 9\nAst-  Iverson 9           Vujacic 5  \n\n(
+ Local TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050108T195419Z
+UID:ABFCE57C-23AB-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050107T193000
+SUMMARY:Lakers vs. Houston                       Rockets   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20050107T223000
+DESCRIPTION:GAME 31 - Final Score: Lakers 111 Houston 104\n\n         Ho
+ uston           Lakers\nPts-  McGrady 26      Bryant 27             \nRe
+ b- Howard 9         Odom 12\nAst-  2 Tied at 8        Bryant 10  \n\n(Lo
+ cal TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041210T054040Z
+UID:1DCFC7AD-23A8-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041208T193000
+SUMMARY:Lakers vs. Phoenix                        Suns
+DTEND;TZID=America/Los_Angeles:20041208T223000
+DESCRIPTION:GAME 18 - Final Score: Phoenix 113 Lakers 110\n\n         Ph
+ oenix             Lakers\nPts-  Johnson 25        Bryant 20    \nReb- St
+ oudemire 10   Bryant 14\nAst-  Nash 10            Bryant 11\n\n(Local TV
+ -FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:UNITED CENTER
+DTSTAMP:20041202T193645Z
+UID:A1D98304-23A7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041201T173000
+SUMMARY:Lakers @ Chicago                          Bulls
+DTEND;TZID=America/Los_Angeles:20041201T203000
+DESCRIPTION:GAME 16 - Final Score : Chicago 92 Lakers 84\n\n         Chi
+ cago           Lakers\nPts-  2 Tied at 18     Bryant 28    \nReb- Chandl
+ er 18     Odom 11\nAst-  Hinrich 7         Bryant 10\n\n(Local TV-KCAL-C
+ H 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050127T194833Z
+UID:D6BA5585-23AD-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050126T193000
+SUMMARY:Lakers @ Los Angeles                     Clippers   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050126T223000
+DESCRIPTION:GAME 40 - Final Score: Clips 105 Lakers 89\n\n        Clips 
+             Lakers\nPts-  Brand 28      Atkins 17    \nReb- Kaman 16    
+  Jones 7 \nAst-  Jaric 11        Atkins 4  \n\n(Local TV-KCAL-CH 9 IN LA
+ )
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:AMERICAN AIRLINES CENTER
+DTSTAMP:20050312T192233Z
+UID:E22567CA-23B2-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050310T183000
+SUMMARY:Lakers @ Dallas                             Mavericks   (TV-TNT)
+ 
+DTEND;TZID=America/Los_Angeles:20050310T213000
+DESCRIPTION:GAME 60 - Final Score: Lakers 100 Dallas 95\n\n        Dalla
+ s                 Lakers\nPts-  Nowitzki 25        Bryant 36    \nReb- H
+ enderson 17    Odom 14\nAst-  Terry 6               Odom 7  \n\n(Local T
+ V-KCAL-CH 9 IN LA)\n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:PEPSI CENTER
+DTSTAMP:20050114T220952Z
+UID:317F185D-23AC-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050112T180000
+SUMMARY:Lakers @ Denver                           Nuggets   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050112T210000
+DESCRIPTION:GAME 33 - Final Score: Denver 95 Lakers 83\n\n         Denve
+ r         Lakers\nPts-  Martin 18     Butler 18             \nReb- Camby
+  15    Odom 12\nAst-  Miller 7        Bryant 7  \n\n(Local TV-KCAL-CH 9 
+ IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:CONSECO FIELDHOUSE
+DTSTAMP:20050319T211643Z
+UID:32BD7ED0-23B4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050318T163000
+SUMMARY:Lakers @ Indiana                           Pacers   (TV-ESPN2)
+DTEND;TZID=America/Los_Angeles:20050318T193000
+DESCRIPTION:GAME 65 - Final Score: Indiana 103 Lakers 97\n\n         Ind
+ iana             Lakers\nPts-  Miller 39           Atkins 23    \nReb- F
+ oster 17          Butler 10\nAst-  Johnson 11       Bryant 4  \n\n(Local
+  TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:SBC CENTER
+DTSTAMP:20050404T190252Z
+UID:D69A64B6-23B5-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050402T173000
+SUMMARY:Lakers @ San Antonio                    Spurs   (TV-NBATV)
+DTEND;TZID=America/Los_Angeles:20050402T203000
+DESCRIPTION:GAME 72 - Final Score: SA 95 Lakers 94\n\n         SA       
+          Lakers\nPts-  Barry 20        Butler 27    \nReb- 3 Tied at 8  
+   2 Tied at 8\nAst-  Parker 9        Bryant 6  \n\n(Local TV-KCAL-CH 9 I
+ N LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:AMERICAN AIRLINES CENTER
+DTSTAMP:20050106T200403Z
+UID:6905EAB6-23AB-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050105T173000
+SUMMARY:Lakers @ Dallas                            Mavericks
+DTEND;TZID=America/Los_Angeles:20050105T203000
+DESCRIPTION:GAME 30 - Final Score: Dallas 118 Lakers 104\n\n         Dal
+ las            Lakers\nPts-  Terry 28         Bryant 32    \nReb- Dampie
+ r 13    Jones 13\nAst-  Terry 5           Atkins 7  \n\n(Local TV-KCAL-C
+ H 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050122T232757Z
+UID:788574DC-23AD-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050121T193000
+SUMMARY:Lakers vs. Golden State                 Warriors   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050121T223000
+DESCRIPTION:GAME 38 - Final Score: Lakers 105 GS 101\n\n        GS      
+                  Lakers\nPts-  Richardson 26     Atkins 26    \nReb- Mur
+ phy 10          2 Tied at 9 \nAst-  Fisher 7              Atkins 10  \n\
+ n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041229T221754Z
+UID:4412F87A-23AA-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041225T120000
+SUMMARY:Lakers vs. Miami                             Heat   (TV-ABC)
+DTEND;TZID=America/Los_Angeles:20041225T150000
+DESCRIPTION:GAME 26 -Final Score: Miami 104 Lakers 102OT\n\n         Mia
+ mi             Lakers\nPts-  Wade 29          Bryant 42    \nReb- 2 Tied
+  at 11    Mihm 14\nAst-  Wade 10         Atkins 7 \n\nSHAQ VS KOBE 1....
+ .Merry Christmas!!!
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:BRADLEY CENTER
+DTSTAMP:20041201T055648Z
+UID:4B638796-23A7-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041130T170000
+SUMMARY:Lakers @ Milwaukee                      Bucks
+DTEND;TZID=America/Los_Angeles:20041130T200000
+DESCRIPTION:GAME 15 - Final Score : Lakers 95 Milwaukee 90\n\n         M
+ ilw                  Lakers\nPts-  Mason 32           Cook 25    \nReb- 
+ Van Horn 10       2 tied at 11\nAst-  Williams 11        Bryant 11\n\n(L
+ ocal TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041127T201854Z
+UID:7393100F-23A6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041126T193000
+SUMMARY:Lakers vs. Sacramento                   Kings   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20041126T223000
+DESCRIPTION:GAME 13 - Final Score : Sac 109 Lakers 106\n\n         Sac  
+                   Lakers\nPts-  Stojakovic 26     Bryant 40   \nReb- Web
+ ber 16         Odom 14\nAst-  Webber 7           Bryant 8\n\n(Local TV-F
+ SN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:AMERICAN AIRLINES ARENA
+DTSTAMP:20050318T212013Z
+UID:F14EB889-23B3-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050317T170000
+SUMMARY:Lakers @ Miami                            Heat   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20050317T200000
+DESCRIPTION:GAME 64 - Final Score: Miami 102 Lakers 89\n\n         Miami
+              Lakers\nPts-  Wade 27         Bryant 26    \nReb- O'Neal 12
+        Odom 11\nAst-  Wade 5           Atkins 6  \n\nSHAQ VS KOBE 2.....
+ Happy St. Patricks Day!!!
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:THE PALACE OF AUBURN HILLS
+DTSTAMP:20050211T210610Z
+UID:D78E0895-23AF-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050210T170000
+SUMMARY:Lakers @ Detroit                           Pistons   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20050210T200000
+DESCRIPTION:GAME 48 - Final Score: Detroit 103 Lakers 81\n\n        Detr
+ oit            Lakers\nPts-  Prince 25       Odom 17    \nReb- 2 Tied at
+  15   Odom 9\nAst-  Billups 11      Atkins 5  \n\n(Local TV-KCAL-CH 9 IN
+  LA)\n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041103T233731Z
+UID:C56D3DE6-239E-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041102T193000
+SUMMARY:Lakers vs. Denver                            Nuggets   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20041102T223000
+DESCRIPTION:REGULAR SEASON/HOME OPENER\n\nGAME 1 - Final Score : Lakers 
+ 89 Nuggets 78\n\n        Denver              Lakers\nPts-  Anthony 20   
+     Bryant 25\nReb- Camby 16         Odom 13\nAst-  Martin 5           B
+ ryant 7\n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050118T191613Z
+UID:11C501F2-23AD-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050117T193000
+SUMMARY:Lakers vs. Utah                             Jazz   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050117T223000
+DESCRIPTION:GAME 36 - Final Score: Utah 102 Lakers 94\n\n        Utah   
+              Lakers\nPts-  Harpring 19    Butler 26    \nReb- Okur 12   
+        Odom 10\nAst-  Lopez 9          Odom 6  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:THE PYRAMID
+DTSTAMP:20041111T053401Z
+UID:2443E03C-23A4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041110T170000
+SUMMARY:Lakers @ Memphis                         Grizzlies
+DTEND;TZID=America/Los_Angeles:20041110T200000
+DESCRIPTION:GAME 6 - Final Score : Grizzlies 110 Lakers 87\n\n        Me
+ mphis           Lakers\nPts-  Gasol 22           Bryant 20\nReb- Swift 1
+ 0            Odom 11\nAst-  2 tied at 6         2 tied at 4\n\n(Local TV
+ -KCAL-CH9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:CHARLOTTE BOBCATS BASKETBALL CENTER
+DTSTAMP:20050313T050651Z
+UID:2C7C052D-23B3-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:2
+DTSTART;TZID=America/Los_Angeles:20050312T160000
+SUMMARY:Lakers @ Charlotte                        Bobcats   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050312T190000
+DESCRIPTION:GAME 61 -Final Score: Lakers 117 Charlotte 116\n\n        Ch
+ arlotte          Lakers\nPts-  Okafor 30        Bryant 32    \nReb- Okaf
+ or 11        Odom 1\nAst-  Knight 17        Bryant 9  \n\n(Local TV-KCAL
+ -CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:ARCO ARENA
+DTSTAMP:20050411T050859Z
+UID:FDBEE58C-23B6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050410T123000
+SUMMARY:Lakers @ Sacramento                    Kings   (TV-ABC)
+DTEND;TZID=America/Los_Angeles:20050410T153000
+DESCRIPTION:GAME 77 - Final Score: Sac 124 Lakers 105\n\n        Sac    
+                Lakers\nPts-  Thomas 32      Bryant 18    \nReb- Thomas 1
+ 4      2 Tied at 5\nAst-  Bibby 8            Atkins  9  \n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041120T200534Z
+UID:4CCF18DA-23A5-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041117T193000
+SUMMARY:Lakers vs. Los Angeles                Clippers
+DTEND;TZID=America/Los_Angeles:20041117T223000
+DESCRIPTION:GAME 9 - Final Score : Lakers 103 Clippers 89\n\n        Cli
+ ppers          Lakers\nPts-  Maggette 24   Bryant 23   \nReb- Brand 11  
+       Grant 7\nAst-  Jaric 7            Bryant 11\n\n(Local TV-FSN West)
+ 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041108T220811Z
+UID:ECA5ED5C-23A2-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041107T183000
+SUMMARY:Lakers vs. Atlanta                            Hawks
+DTEND;TZID=America/Los_Angeles:20041107T213000
+DESCRIPTION:GAME 4 - Final Score : Lakers 106 Hawks 90\n\n         Atlan
+ ta              Lakers\nPts-  Harrington 22    Bryant 24\nReb- Smith 6  
+             Odom 11\nAst-  Diaw  6              Bryant   6\n\n\nLocal TV
+ -FSN West
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041212T213019Z
+UID:4D60E552-23A8-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041211T193000
+SUMMARY:Lakers @ Los Angeles                    Clippers   (TV-NBATV)
+DTEND;TZID=America/Los_Angeles:20041211T223000
+DESCRIPTION:GAME 19 - Final Score: Lakers 89 Clippers 87\n\n         Cli
+ ppers            Lakers\nPts-  Maggette 27      Bryant 37    \nReb- Moor
+ e 14          Odom 12\nAst-  Jaric 10             Bryant 5\n\n(Local TV-
+ KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:MADISON SQUARE GARDEN
+DTSTAMP:20050301T201428Z
+UID:AE93C552-23B1-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050228T163000
+SUMMARY:Lakers @ New York                       Knicks   (TV-NBATV-High 
+ Def)
+DTEND;TZID=America/Los_Angeles:20050228T193000
+DESCRIPTION:GAME 55 - Final Score: NY 117 Lakers 115OT\n\n        New Yo
+ rk         Lakers\nPts-  Thomas 35      Bryant 30    \nReb- 2 Tied at 12
+      Odom 15\nAst-  Marbury 12     Bryant 8  \n\n(Local TV-KCAL-CH 9 IN 
+ LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050224T023324Z
+UID:60405662-23B0-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050215T193000
+SUMMARY:Lakers vs. Utah                              Jazz   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050215T223000
+DESCRIPTION:GAME 50 - Final Score: Lakers 102 Utah 95\n\n        Utah   
+           Lakers\nPts-  Okur 20       Bryant 40    \nReb- Okur 8        
+  Medvedenko 9\nAst-  Eisley 9        Bryant 8  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050402T010013Z
+UID:A51335A6-23B5-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050331T193000
+SUMMARY:Lakers vs. Minnesota                    Timberwolves   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20050331T223000
+DESCRIPTION:GAME 71 - Final Score: Minn 105 Lakers 96\n\n         Minn  
+              Lakers\nPts-  Garnett 23       Bryant 26    \nReb- Garnett 
+ 12       Mihm 10\nAst-  3 Tied at 6       Bryant 6  \n\n(Local TV-FSN We
+ st)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050330T201308Z
+UID:7BD6F160-23B5-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050329T193000
+SUMMARY:Lakers vs. New York                      Knicks   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050329T223000
+DESCRIPTION:GAME 70 - Final Score: Lakers 117 NY 107\n\n         New Yor
+ k           Lakers\nPts-  Marbury 45        Bryant 32    \nReb- Thomas 1
+ 5        Mihm 8\nAst-  Marbury 10       2 Tied at 5  \n\n(Local TV-FSN W
+ est)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:NEW ORLEANS ARENA
+DTSTAMP:20041110T203739Z
+UID:6AEC8852-23A3-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041109T170000
+SUMMARY:Lakers @ New Orleans                   Hornets
+DTEND;TZID=America/Los_Angeles:20041109T200000
+DESCRIPTION:GAME 5 - Final Score : Lakers 106 Hornets 98\n\n        New 
+ Orleans           Lakers\nPts-  Davis 23                Bryant 31\nReb- 
+ Magliore 11           Butler 9\nAst-  2 tied at 5             Atkins 6\n
+ \n\n(Local TV-KCAL-CH9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050408T184451Z
+UID:8954EE46-23B6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050407T193000
+SUMMARY:Lakers vs. Houston                       Rockets   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20050407T223000
+DESCRIPTION:GAME 75 - Final Score: Houston 114 Lakers 100\n\n        Hou
+ ston             Lakers\nPts-  McGrady 27        Butler 24    \nReb- Mut
+ umbo 11      Butler 12\nAst-  McGrady 7          Bryant  10  \n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:FLEET CENTER
+DTSTAMP:20050305T214514Z
+UID:09D0231A-23B2-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050302T163000
+SUMMARY:Lakers @ Boston                            Celtics   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050302T193000
+DESCRIPTION:GAME 56 - Final Score: Boston 104 Lakers 101\n\n        Bost
+ on               Lakers\nPts-  2 Tied at 29      Atkins 29    \nReb- Wal
+ ker 13         Odom 13\nAst-  Banks 8            Odom 4  \n\n(Local TV-K
+ CAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050224T034913Z
+UID:9A4C6726-23B0-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050222T193000
+SUMMARY:Lakers vs. Boston                              Celtics   (TV-NBA
+ TV-HighDef)
+DTEND;TZID=America/Los_Angeles:20050222T223000
+DESCRIPTION:GAME 51 - Final Score: Lakers 104 Boston 95\n\n        Bosto
+ n             Lakers\nPts-  2 Tied at 25     2 Tied at 21    \nReb- LaFr
+ entz 7       Mihm 15\nAst-  Payton 5          Walton 7  \n\n(Local TV-FS
+ N West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:AMERICA WEST ARENA
+DTSTAMP:20050407T204415Z
+UID:53C45AB8-23B6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050405T190000
+SUMMARY:Lakers @ Phoenix                          Suns   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050405T220000
+DESCRIPTION:GAME 74 - Final Score: Phoenix 125 Lakers 99\n\n        Phoe
+ nix              Lakers\nPts-  Richardson 25    Butler 30    \nReb- Maro
+ n 12           2 Tied at 7\nAst-  Nash 9               Atkins  8  \n\n(L
+ ocal TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:TOYOTA CENTER
+DTSTAMP:20041115T012946Z
+UID:E42A0AD0-23A4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041113T173000
+SUMMARY:Lakers @ Houston                            Rockets   (TV-NBATV)
+ 
+DTEND;TZID=America/Los_Angeles:20041113T203000
+DESCRIPTION:GAME 8 - Final Score : Lakers 84 Rockets 79\n\n        Houst
+ on        Lakers\nPts-  Yao 32          Odom 20\nReb- 2 tied at 7    Odo
+ m 13\nAst-  Ward 9         Odom 5\n\n(Local TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:THE ARENA IN OAKLAND
+DTSTAMP:20050116T205011Z
+UID:D220D38B-23AC-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050115T193000
+SUMMARY:Lakers @ Golden State                   Warriors   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050115T223000
+DESCRIPTION:GAME 35 - Final Score: Lakers 104 GS 102\n\n        GS      
+              Lakers\nPts-  Fisher 29        Odom 27    \nReb- Murphy 19 
+      2 Tied at 12\nAst-  Claxton 10     3 Tied at 3  \n\n(Local TV-KCAL-
+ CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050114T221302Z
+UID:7B41961B-23AC-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050113T193000
+SUMMARY:Lakers vs. Cleveland                     Cavaliers   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20050113T223000
+DESCRIPTION:GAME 34 - Final Score: Lakers 98 Cleveland 94\n\n        Cle
+ veland         Lakers\nPts-  James 28         Odom 24    \nReb- Ilqauska
+ s 15    Butler 11\nAst-  James 9           Odom 7  \n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:ROSE GARDEN
+DTSTAMP:20050421T222307Z
+UID:0EA36A81-23B8-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050420T190000
+SUMMARY:Lakers @ Portland                         Trailblazers   (TV-NBA
+ LP)
+DTEND;TZID=America/Los_Angeles:20050420T220000
+DESCRIPTION:GAME 82\nLAST GAME OF THE REGULAR SEASON\n\n Final Score: Po
+ rtland 106 Lakers 103\n\n        Portland            Lakers\nPts-  Outla
+ w 20         Bryant 37    \nReb- Khrjapa 7          Mihm 10\nAst-  Telfa
+ ir 11          2 Tied at  7  \n\n(Local TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050312T191942Z
+UID:A5B9721A-23B2-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050308T193000
+SUMMARY:Lakers vs. Los Angeles                   Clippers   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050308T223000
+DESCRIPTION:GAME 59 - Final Score: Clips 110 Lakers 101\n\n        Clips
+                   Lakers\nPts-  Maggette 30      Bryant 41    \nReb- Bra
+ nd 15           Jones 8\nAst-  2 Tied at 7        Atkins 6   \n\n(Local 
+ TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:DELTA CENTER
+DTSTAMP:20050323T190337Z
+UID:A6BE852E-23B4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050322T180000
+SUMMARY:Lakers @ Utah                               Jazz   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050322T210000
+DESCRIPTION:GAME 67 - Final Score: Utah 115 Lakers 107\n\n         Utah 
+               Lakers\nPts-  Okur 27          Bryant 43    \nReb- Okur 15
+           Grant 8\nAst-  McLeod 6        Butler 5  \n\n(Local TV-KCAL-CH
+  9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050120T211522Z
+UID:3DCBF7FE-23AD-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050119T193000
+SUMMARY:Lakers vs. Minnesota                     Timberwolves   (TV-ESPN
+ )
+DTEND;TZID=America/Los_Angeles:20050119T223000
+DESCRIPTION:GAME 37 - Final Score: Lakers 93 Minn 90\n\n        Minn    
+           Lakers\nPts-  Garnett 27     Atkins 25    \nReb- Garnett 9    
+    Jones 8\nAst-  Carter 8         Atkins 11  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050307T191700Z
+UID:7C4927B4-23B2-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050306T183000
+SUMMARY:Lakers vs. Indiana                         Pacers   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050306T213000
+DESCRIPTION:GAME 58 - Final Score: Lakers 103 Indiana 94\n\n        Indi
+ ana             Lakers\nPts-  Jackson 29       Bryant 37    \nReb- Davis
+  10          2 Tied at 10\nAst-  2 Tied at 5       Odom 7  \n\n(Local TV
+ -FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050321T194424Z
+UID:78133A9D-23B4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050320T183000
+SUMMARY:Lakers vs. Seattle                          Supersonics   (TV-NB
+ ALP)
+DTEND;TZID=America/Los_Angeles:20050320T213000
+DESCRIPTION:GAME 66 - Final Score: Seattle 102 Lakers 100\n\n         Se
+ attle             Lakers\nPts-  Lewis 27          Bryant 30    \nReb- Le
+ wis 11          Medvedenko 7\nAst-  Ridnour 7        Atkins 7  \n\n(Loca
+ l TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041218T221320Z
+UID:B82AC7C6-23A9-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041217T193000
+SUMMARY:Lakers vs. Washington                   Wizards
+DTEND;TZID=America/Los_Angeles:20041217T223000
+DESCRIPTION:GAME 23 - Final Score: Wash 120 Lakers 116OT\n\n         Was
+ h               Lakers\nPts-  Arenas 37        Bryant 36    \nReb- James
+ on 7       2 Tied at 10\nAst-  Arenas 7         Bryant 14\n\n(Local TV-F
+ SN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:MCI CENTER
+DTSTAMP:20050315T024811Z
+UID:804B1AB0-23B3-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:2
+DTSTART;TZID=America/Los_Angeles:20050314T160000
+SUMMARY:Lakers @ Washington                    Wizards   (TV-NBALP)
+DTEND;TZID=America/Los_Angeles:20050314T190000
+DESCRIPTION:GAME 62 - Final Score: Wash 95 Lakers 81\n\n        Wash    
+               Lakers\nPts-  2 Tied at 21       Butler 20    \nReb- Hughe
+ s 12         Butler 11\nAst-  Hughes 7           Bryant 6  \n\n(Local TV
+ -KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:GUND ARENA
+DTSTAMP:20050224T023024Z
+UID:109CDB15-23B0-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050213T123000
+SUMMARY:Lakers @ Cleveland                        Cavaliers   (TV-ABC)
+DTEND;TZID=America/Los_Angeles:20050213T153000
+DESCRIPTION:GAME 49 - Final Score: Cleveland 103 Lakers 89\n\n        Cl
+ eveland            Lakers\nPts-  Ilgauskas 30       Bryant 26    \nReb- 
+ Ilgauskas 11       Odom 9\nAst-  2 Tied at 9         Bryant 6  \n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050204T210853Z
+UID:DE044080-23AE-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050203T193000
+SUMMARY:Lakers vs. San Antonio                  Spurs   (TV-TNT)
+DTEND;TZID=America/Los_Angeles:20050203T223000
+DESCRIPTION:GAME 44 - Final Score: SA 103 Lakers 91\n\n        SA       
+            Lakers\nPts-  Parker 22       Odom 23    \nReb- Rose 11      
+    Odom 13\nAst-  2 Tied at 9     Walton 6  \n
+END:VEVENT
+BEGIN:VEVENT
+DURATION:PT1H
+LOCATION:STAPLES CENTER
+DTSTAMP:20041129T210247Z
+UID:C1E186E2-23A6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:1
+DTSTART;TZID=America/Los_Angeles:20041128T150000
+SUMMARY:Lakers vs. New Orleans                  Hornets
+DESCRIPTION:GAME 14 - Final Score : Lakers 89 NO 76\n\n         NO      
+                Lakers\nPts-  Armstrong 21     Bryant 20    \nReb- Brown 
+ 11            Odom 14\nAst-  Armstrong 5       Bryant 7\n\n(Local TV-FSN
+  West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050204T210615Z
+UID:ACE2DFE0-23AE-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050201T193000
+SUMMARY:Lakers vs. Portland                        Trailblazers   (TV-NB
+ ALP)
+DTEND;TZID=America/Los_Angeles:20050201T223000
+DESCRIPTION:GAME 43 - Final Score: Lakers 92 Portland 79\n\n        Port
+ land               Lakers\nPts-  Stoudamire 25     2 Tied at 19    \nReb
+ - Przybilla 11         2 Tied at 11\nAst-  Van Exel 6           Brown 9 
+  \n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:TD WATERHOUSE CENTRE
+DTSTAMP:20041113T221916Z
+UID:82CE3820-23A4-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041112T160000
+SUMMARY:Lakers @ Orlando                           Magic
+DTEND;TZID=America/Los_Angeles:20041112T190000
+DESCRIPTION:GAME 7 - Final Score : Magic 122 Lakers 113\n\n        Orlan
+ do           Lakers\nPts-  Francis 32       Bryant 41\nReb- Howard 15   
+    Odom 8\nAst-  Francis 9         Bryant 8\n\n(Local TV-KCAL-CH9 IN LA)
+ 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050226T191721Z
+UID:24AE62CA-23B1-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050225T193000
+SUMMARY:Lakers vs. Detroit                          Pistons   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20050225T223000
+DESCRIPTION:GAME 53 - Final Score: Detroit 111 Lakers 90\n\n        Detr
+ oit            Lakers\nPts-  Prince 26        Bryant 20    \nReb- Wallac
+ e 13      Odom 9\nAst-  2 Tied at  8     Bryant 11  \n\n(Local TV-FSN We
+ st)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041229T221703Z
+UID:C1297BB4-23AA-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041228T193000
+SUMMARY:Lakers vs. Toronto                        Raptors
+DTEND;TZID=America/Los_Angeles:20041228T223000
+DESCRIPTION:GAME 27 - Final Score: Lakers 117 Toronto 99\n\n        Toro
+ nto             Lakers\nPts-  Alston 13          Bryant 48    \nReb- 2 T
+ ied at 10      Odom 13\nAst-  Alston 11          Atkins 7  \n\n(Local TV
+ -FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:AIR CANADA CENTRE
+DTSTAMP:20050228T211230Z
+UID:6175E96C-23B1-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050227T100000
+SUMMARY:Lakers @ Toronto                          Raptors
+DTEND;TZID=America/Los_Angeles:20050227T130000
+DESCRIPTION:GAME 54 - Final Score: Toronto 108 Lakers 102\n\n        Tor
+ onto         Lakers\nPts-  Rose 26        Bryant 31    \nReb- Bosh 15   
+      2 Tied at 8\nAst-  Polacio 7      Bryant 8  \n\n(Local TV-KCAL-CH 9
+  IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20041124T062017Z
+UID:3D3A84A2-23A6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041123T193000
+SUMMARY:Lakers vs. Milwaukee                     Bucks
+DTEND;TZID=America/Los_Angeles:20041123T223000
+DESCRIPTION:GAME 12 - Final Score : Lakers 100 Milw 96\n\n        Milwau
+ kee       Lakers\nPts-  Mason 26        Bryant 30   \nReb- Gadzuric 11  
+   Odom 9\nAst-  James 11        Brown 6\n\n(Local TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050104T041212Z
+UID:F572E3EF-23AA-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050102T183000
+SUMMARY:Lakers vs. Denver                          Nuggets
+DTEND;TZID=America/Los_Angeles:20050102T213000
+DESCRIPTION:GAME 28 - Final Score: Lakers 99 Denver 91\n\n         Denve
+ r            Lakers\nPts-  Anthony 27     Bryant 42    \nReb- Nene 11   
+        Odom 15\nAst-  Miller 8           3 Tied at 4  \n\n(Local TV-FSN 
+ West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:KEY ARENA
+DTSTAMP:20050411T050641Z
+UID:C1F53922-23B6-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050408T193000
+SUMMARY:Lakers @ Seattle                             Supersonics   (TV-N
+ BALP)
+DTEND;TZID=America/Los_Angeles:20050408T223000
+DESCRIPTION:GAME 76 - Final Score: Lakers 117 Seattle 94\n\n        Seat
+ tle              Lakers\nPts-  Allen 30           Bryant 42    \nReb- 2 
+ Tied at 11     Jones 12\nAst-  Murray 7          2 Tied at 5  \n\n(Local
+  TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:DELTA CENTER
+DTSTAMP:20041108T220421Z
+UID:B4C88075-239F-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20041103T193000
+SUMMARY:Lakers @ Utah                                 Jazz   (TV-ESPN)
+DTEND;TZID=America/Los_Angeles:20041103T223000
+DESCRIPTION:GAME 2 - Final Score : Jazz 104 Lakers 78\n\n        Utah   
+            Lakers\nPts-  Boozer 27     Bryant 38\nReb- Boozer 11     Odo
+ m 9\nAst-  McLeod 8      Brown 2\n\n(Local TV-KCAL-CH 9 IN LA)\n
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:STAPLES CENTER
+DTSTAMP:20050307T191752Z
+UID:42E7E086-23B2-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:4
+DTSTART;TZID=America/Los_Angeles:20050304T193000
+SUMMARY:Lakers vs. Dallas                          Mavericks   (TV-ESPN)
+ 
+DTEND;TZID=America/Los_Angeles:20050304T223000
+DESCRIPTION:GAME 57 - Final Score: Lakers 108 Dallas 103\n\n        Dall
+ as                Lakers\nPts-  Nowitzki 23       Bryant 40    \nReb- No
+ witzki 13      Odom 11\nAst-  Terry 6              Atkins 10  \n\n(Local
+  TV-FSN West)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:ROSE GARDEN
+DTSTAMP:20050224T232849Z
+UID:D93D29C1-23B0-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20050223T190000
+SUMMARY:Lakers @ Portland                         Trailblazers   (TV-NBA
+ LP)
+DTEND;TZID=America/Los_Angeles:20050223T220000
+DESCRIPTION:GAME 52 - Final Score: Lakers 86 Portland 83\n\n        Port
+ land              Lakers\nPts-  Stoudamire 25    Kobe 31    \nReb- Przyb
+ illa 10        Odom 12\nAst-  Van Exel 7          2 Tied at 6  \n\n(Loca
+ l TV-KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:AMERICA WEST ARENA
+DTSTAMP:20041120T200439Z
+UID:CA34E552-23A5-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041119T180000
+SUMMARY:Lakers @ Phoenix                         Suns
+DTEND;TZID=America/Los_Angeles:20041119T210000
+DESCRIPTION:GAME 10 - Final Score :Phoenix 107 Lakers 102\n\n         Ph
+ oenix             Lakers\nPts-  Stoudemire 33   Bryant 29   \nReb- Mario
+ n 15          Odom 15\nAst-  Nash 16             Bryant 10\n\n(Local TV-
+ KCAL-CH 9 IN LA)
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:KEY ARENA
+DTSTAMP:20041216T183738Z
+UID:D1E53679-23A8-11D9-B32B-003065BCFD94-9518DF66-EA65-4E92-B99E-FFDE6B4
+ 7F98A
+SEQUENCE:3
+DTSTART;TZID=America/Los_Angeles:20041214T190000
+SUMMARY:Lakers @ Seattle                            Supersonics
+DTEND;TZID=America/Los_Angeles:20041214T220000
+DESCRIPTION:GAME 21 - Final Score: Seattle 108 Lakers 93\n\n         Sea
+ ttle          Lakers\nPts-  Lewis 37       Bryant 35    \nReb- 2 Tied at
+  7    2 Tied at 9\nAst-  Ridnour 11   Bryant 5\n\n(Local TV-KCAL-CH 9 IN
+  LA)
+END:VEVENT
+END:VCALENDAR

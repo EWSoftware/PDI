@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- The application menu.  See AppMenu.xsd for the schema. -->
+<AppMenu>
+	<MenuItem>
+		<MenuText>Holidays</MenuText>
+		<MenuLink>HolidayTestForm.aspx</MenuLink>
+		<MenuTip>Holiday detection demo</MenuTip>
+	</MenuItem>
+	<MenuItem>
+		<MenuText>Time Zones</MenuText>
+		<MenuLink>VTimeZoneTestForm.aspx</MenuLink>
+		<MenuTip>Time zone demo</MenuTip>
+	</MenuItem>
+	<MenuItem>
+		<MenuText>Recurrence</MenuText>
+		<MenuLink>RRuleTestForm.aspx</MenuLink>
+		<MenuTip>Recurrence engine demo</MenuTip>
+	</MenuItem>
+	<MenuItem>
+		<MenuText>Calendar Recurrence</MenuText>
+		<MenuLink>EventRecurTestForm.aspx</MenuLink>
+		<MenuTip>iCalendar component recurrence demo</MenuTip>
+	</MenuItem>
+	<MenuItem>
+		<MenuText>vCard Browser</MenuText>
+		<MenuLink>VCardBrowser.aspx</MenuLink>
+		<MenuTip>vCard browser demo</MenuTip>
+	</MenuItem>
+	<MenuItem>
+		<MenuText>Calendar Browser</MenuText>
+		<MenuLink>CalendarBrowser.aspx</MenuLink>
+		<MenuTip>vCalendar/iCalendar browser demo</MenuTip>
+	</MenuItem>
+</AppMenu>

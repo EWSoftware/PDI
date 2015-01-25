@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Xenon Testname\, Programmer Analyst
+N:Testname;Xenon
+ORG:EWSoftware\, Private Company;Work;Play
+TITLE:Analyst Programmer\, CEO
+ADR:;;123 some street\, Anywhere
+NOTE:This is a comment\, with some\, commas
+REV:2005-03-07T16:24:17Z
+UID:34B416B6-78D6-4E85-A766-A6D2D27B79C3
+END:VCARD

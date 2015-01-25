@@ -1,0 +1,91 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="PDIWebDemoCS.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head id="Head1" runat="server">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta http-equiv="Content-Language" content="en-us" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="author" content="Eric Woodruff" />
+
+	<title>Untitled Page</title>
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css" />
+	<!-- Bootstrap theme -->
+	<link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css" />
+
+	<!-- Custom styles for this template -->
+	<link rel="stylesheet" type="text/css" href="Content/Styles.css" />
+
+</head>
+
+<body>
+	<!-- Wrap all page content here -->
+	<div id="wrap">
+		<!-- Fixed navbar -->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<img src="EWSPDI.png" class="pull-left" alt="EWSoftware.PDI Demo" title="EWSoftware.PDI Demo"
+						style="width: 32px; height: 32px; margin-top: 10px; margin-right: 15px;"/>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand Anchor" href="Default.aspx" title="About">PDI Web Demo</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Click for examples">Examples <strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<asp:Repeater ID="rptMenu" runat="server">
+									<ItemTemplate>
+										<li><a href="<%# DataBinder.Eval(Container.DataItem, "MenuLink") %>"
+											title="<%# DataBinder.Eval(Container.DataItem, "MenuTip") %>">
+											<%# DataBinder.Eval(Container.DataItem, "MenuText") %></a></li>
+									</ItemTemplate>
+								</asp:Repeater>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!--/.nav-collapse -->
+			</div>
+		</div>
+
+		<!-- Begin page content -->
+		<div class="container">
+			<div class="page-header">
+				<h1><asp:Label ID="lblPageTitle" runat="server" /></h1>
+			</div>
+
+			<form id="pageForm" runat="server">
+				<asp:ContentPlaceHolder ID="cpContent" runat="server">
+				</asp:ContentPlaceHolder>
+				<br />
+			</form>
+		</div>
+	</div>
+
+	<asp:ContentPlaceHolder ID="cpOtherForms" runat="server">
+	</asp:ContentPlaceHolder>
+
+	<div id="footer">
+		<div class="container">
+			<p class="text-muted credit"><span class="FloatLeft"><em>Version: <asp:Label ID="lblVersion" runat="server" /></em></span>
+<span class="FloatRight">Send mail to <a class="Small" href="mailto:Eric@EWoodruff.us">Eric@EWoodruff.us</a></span></p>
+		</div>
+	</div>
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script type="text/javascript" src='<% =ResolveUrl("~/Scripts/jquery-2.1.3.min.js") %>'></script>
+	<script type="text/javascript" src='<% =ResolveUrl("~/Scripts/bootstrap.min.js") %>'></script>
+</body>
+</html>

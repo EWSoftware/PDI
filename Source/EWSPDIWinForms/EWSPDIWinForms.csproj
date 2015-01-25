@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>EWSoftware.PDI.Windows.Forms</AssemblyName>
+    <AssemblyOriginatorKeyFile>..\EWSPDI.snk</AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Flow</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EWSoftware.PDI.Windows.Forms</RootNamespace>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>bin\Debug\EWSoftware.PDI.Windows.Forms.xml</DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\EWSPDI.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\EWSoftware.PDI.Windows.Forms.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ReleaseNoDoc|AnyCPU'">
+    <OutputPath>bin\ReleaseNoDoc\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <DocumentationFile>bin\Release\EWSoftware.PDI.Windows.Forms.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>true</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <ProjectReference Include="..\EWSPDI\EWSPDI.csproj">
+      <Name>EWSPDI</Name>
+      <Project>{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}</Project>
+      <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\EWSPDI\Properties\AssemblyInfoShared.cs">
+      <Link>Properties\AssemblyInfoShared.cs</Link>
+    </Compile>
+    <Compile Include="AdvancedPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdvancedPattern.Designer.cs">
+      <DependentUpon>AdvancedPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DailyPattern.Designer.cs">
+      <DependentUpon>DailyPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HolidayManager.Designer.cs">
+      <DependentUpon>HolidayManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HolidayPropertiesDlg.Designer.cs">
+      <DependentUpon>HolidayPropertiesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HourlyPattern.Designer.cs">
+      <DependentUpon>HourlyPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MinutelyPattern.Designer.cs">
+      <DependentUpon>MinutelyPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyPattern.Designer.cs">
+      <DependentUpon>MonthlyPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PDIWinForms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDIWinForms.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BrowseControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BrowseControl.Designer.cs">
+      <DependentUpon>BrowseControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DailyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HolidayManager.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HolidayPropertiesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HourlyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="LocalizedResources.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MinutelyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MonthlyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RecurrencePattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RecurrencePattern.Designer.cs">
+      <DependentUpon>RecurrencePattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RecurrencePropertiesDlg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecurrencePropertiesDlg.Designer.cs">
+      <DependentUpon>RecurrencePropertiesDlg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SecondlyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SecondlyPattern.Designer.cs">
+      <DependentUpon>SecondlyPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WeeklyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WeeklyPattern.Designer.cs">
+      <DependentUpon>WeeklyPattern.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YearlyPattern.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="YearlyPattern.Designer.cs">
+      <DependentUpon>YearlyPattern.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AdvancedPattern.resx">
+      <DependentUpon>AdvancedPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrowseControl.bmp" />
+    <EmbeddedResource Include="BrowseControl.resx">
+      <DependentUpon>BrowseControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DailyPattern.resx">
+      <DependentUpon>DailyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HolidayManager.bmp" />
+    <EmbeddedResource Include="HolidayManager.resx">
+      <DependentUpon>HolidayManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HolidayPropertiesDlg.resx">
+      <DependentUpon>HolidayPropertiesDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HourlyPattern.resx">
+      <DependentUpon>HourlyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MinutelyPattern.resx">
+      <DependentUpon>MinutelyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyPattern.resx">
+      <DependentUpon>MonthlyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDIWinForms.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PDIWinForms.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecurrencePattern.bmp" />
+    <EmbeddedResource Include="RecurrencePattern.resx">
+      <DependentUpon>RecurrencePattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RecurrencePropertiesDlg.resx">
+      <DependentUpon>RecurrencePropertiesDlg.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SecondlyPattern.resx">
+      <DependentUpon>SecondlyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WeeklyPattern.resx">
+      <DependentUpon>WeeklyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YearlyPattern.resx">
+      <DependentUpon>YearlyPattern.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\EWSPDI.snk">
+      <Link>EWSPDI.snk</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>IF NOT EXIST "$(SolutionDir)..\Deployment" MD "$(SolutionDir)..\Deployment"
+
+COPY "$(SolutionDir)EWSPDI\bin\$(Configuration)\EWSoftware.PDI.dll" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDI\bin\$(Configuration)\EWSoftware.PDI.xml" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDIData\bin\$(Configuration)\EWSoftware.PDI.Data.dll" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDIData\bin\$(Configuration)\EWSoftware.PDI.Data.xml" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDIWeb\bin\$(Configuration)\EWSoftware.PDI.Web.Controls.dll" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDIWeb\bin\$(Configuration)\EWSoftware.PDI.Web.Controls.xml" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDIWinForms\bin\$(Configuration)\EWSoftware.PDI.Windows.Forms.dll" "$(SolutionDir)..\Deployment"
+COPY "$(SolutionDir)EWSPDIWinForms\bin\$(Configuration)\EWSoftware.PDI.Windows.Forms.xml" "$(SolutionDir)..\Deployment"
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

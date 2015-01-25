@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Application menu schema -->
+<xs:schema id="AppMenu" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="AppMenu" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="MenuItem">
+					<xs:complexType>
+						<xs:sequence>
+							<!-- Each menu item contains the following elements:
+									 MenuText - The text to display for the menu item
+									 MenuLink - The URL to use when the link is clicked
+									 MenuTip  - The tool tip to show when the mouse is over it -->
+							<xs:element name="MenuText" type="xs:string" minOccurs="0" />
+							<xs:element name="MenuLink" type="xs:string" minOccurs="0" />
+							<xs:element name="MenuTip" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

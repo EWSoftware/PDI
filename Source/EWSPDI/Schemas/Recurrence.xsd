@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Recurrence" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Recurrence" nillable="true" type="Recurrence" />
+    <xs:complexType name="Recurrence">
+        <xs:complexContent>
+            <xs:restriction base="xs:string">
+            </xs:restriction>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

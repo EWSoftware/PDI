@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="8885fe94-537b-45a2-84e9-112fa9c976ff" revisionNumber="1">
+	<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>The topics in this section describe the various changes made to the <legacyBold> EWSoftware Personal
+Data Interchange (PDI) Library </legacyBold> over the life of the project.</para>
+		</introduction>
+
+		<section>
+			<title>Version History</title>
+			<content>
+				<para>Select a version below to see a description of its changes.</para>
+
+				<list class="bullet">
+					<listItem>
+						<para>
+							<link xlink:href="6389a8d6-8432-4ee5-8d28-870a37c043f2" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="c43f585a-7baf-4ec2-857d-d9ead022178f" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="2de67fc9-1a0a-4067-8485-d6fcc64a414a" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="e5c0dc1b-dd8d-4a0d-86dd-45b5478efe67" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="82612031-8214-4b84-89fe-684aab93b0ce" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="eede655f-2b43-4bdb-b381-9b06f79db11e" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="0a257d08-fb75-40de-8018-44bc8ae4657d" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="f79d6ab7-02a5-484f-83b2-33101de18677" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="5fbcea4d-4fba-405d-99e2-901e2998d097" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="d28eec35-77d2-4b6f-a175-e98685848db6" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="058ee13b-9ae9-45e5-a0e5-81dafafe7865" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="1325664b-8413-497c-b36a-8f131c3c78b7" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="99deb580-65c5-40ae-a0dd-ad5c97c694cd" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="074cc788-d710-4365-9d43-5efc768c5153" />
+						</para>
+					</listItem>
+					<listItem>
+						<para>
+							<link xlink:href="a22fdb5a-8681-46a1-8853-6979160a5bc6" />
+						</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="84784fc0-1a4e-4780-9a61-4abfda5592c1" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

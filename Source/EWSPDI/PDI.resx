@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            <xsd:complexType>
+                <xsd:choice maxOccurs="unbounded">
+                    <xsd:element name="data">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" />
+                            <xsd:attribute name="type" type="xsd:string" />
+                            <xsd:attribute name="mimetype" type="xsd:string" />
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="resheader">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                            </xsd:sequence>
+                            <xsd:attribute name="name" type="xsd:string" use="required" />
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:choice>
+            </xsd:complexType>
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="ResMimeType">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="Version">
+        <value>1.0.0.0</value>
+    </resheader>
+    <resheader name="Reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="Writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="HCNewYearsDay">
+        <value>New Year's Day</value>
+    </data>
+    <data name="HCMLKDay">
+        <value>Martin Luther King Day</value>
+    </data>
+    <data name="HCPresidentsDay">
+        <value>President's Day</value>
+    </data>
+    <data name="HCMemorialDay">
+        <value>Memorial Day</value>
+    </data>
+    <data name="HCIndependenceDay">
+        <value>Independence Day</value>
+    </data>
+    <data name="HCLaborDay">
+        <value>Labor Day</value>
+    </data>
+    <data name="HCVeteransDay">
+        <value>Veteran's Day</value>
+    </data>
+    <data name="HCThanksgiving">
+        <value>Thanksgiving Day</value>
+    </data>
+    <data name="HCDayAfterTG">
+        <value>Day After Thanksgiving</value>
+    </data>
+    <data name="HCChristmas">
+        <value>Christmas Day</value>
+        <comment>HolidayCollection standard US holiday descriptions</comment>
+    </data>
+    <data name="DOFirst">
+        <value>First</value>
+        <comment>DayOccurrence enum descriptions</comment>
+    </data>
+    <data name="DOSecond">
+        <value>Second</value>
+    </data>
+    <data name="DOThird">
+        <value>Third</value>
+    </data>
+    <data name="DOFourth">
+        <value>Fourth</value>
+    </data>
+    <data name="DOLast">
+        <value>Last</value>
+    </data>
+    <data name="DWWeekdays">
+        <value>Weekday</value>
+    </data>
+    <data name="DWWeekends">
+        <value>Weekend day</value>
+    </data>
+    <data name="DWEveryDay">
+        <value>Day</value>
+        <comment>DaysOfWeek enum value combination descriptions</comment>
+    </data>
+    <data name="ExPeriodInvalidISOFormat">
+        <value>Invalid ISO 8601 period format.</value>
+    </data>
+    <data name="ExPeriodBadCompareObject">
+        <value>The object to compare must be a Period</value>
+    </data>
+    <data name="ExRDTYearOutOfRange">
+        <value>Year is out of the range of DateTime</value>
+    </data>
+    <data name="ExRDTBadMonth">
+        <value>Month should be between 0 and 11</value>
+    </data>
+    <data name="ExRDTBadDay">
+        <value>Day should be between 1 and 31</value>
+    </data>
+    <data name="ExRDTBadHour">
+        <value>Hour should be between 0 and 23</value>
+    </data>
+    <data name="ExRDTBadMinute">
+        <value>Minute should be between 0 and 59</value>
+    </data>
+    <data name="ExRDTBadSecond">
+        <value>Second should be between 0 and 59</value>
+    </data>
+    <data name="ExRDTInvalidDateTime">
+        <value>An invalid recurrence date has been encountered</value>
+    </data>
+    <data name="ExRDTBadCompareObject">
+        <value>The object to compare must be a RecurDateTime</value>
+    </data>
+    <data name="ExRecurNegativeCount">
+        <value>Maximum occurrences cannot be negative</value>
+    </data>
+    <data name="ExRecurBadInterval">
+        <value>Interval must be greater than zero</value>
+    </data>
+    <data name="ExRecurBadDOW">
+        <value>Invalid day of week specified</value>
+    </data>
+    <data name="ExRecurUnknownRuleFormat">
+        <value>Unknown recurrence rule format</value>
+    </data>
+    <data name="ExRecurBadBYDAYRule">
+        <value>Day values in BYDAY should be SU, MO, TU, WE, TH, FR, or SA</value>
+    </data>
+    <data name="ExRecurBadDayOfMonth">
+        <value>Day of the month should be between 1 and 31</value>
+    </data>
+    <data name="ExRecurBadMonth">
+        <value>Month should be between 1 and 12</value>
+    </data>
+    <data name="ExRecurInvalidDayForMonth">
+        <value>Day of the month should be valid for the month</value>
+    </data>
+    <data name="ExUICValueOutOfRange">
+        <value>Value is outside the range allowed for the collection</value>
+    </data>
+    <data name="ExUICZerosNotAllowed">
+        <value>Zeros are not allowed</value>
+    </data>
+    <data name="ExDUBadWeekNumber">
+        <value>Week value must be between 1 and 53</value>
+    </data>
+    <data name="ExDUBadJulianYear">
+        <value>Year value must be greater than or equal to 326 for the Julian calculation method</value>
+    </data>
+    <data name="ExDUBadOrthGregYear">
+        <value>Year value must be between 1583 and 4099 for the Orthodox and Gregorian calculation methods</value>
+    </data>
+    <data name="ExDUBadISOFormat">
+        <value>Invalid ISO 8601 date format</value>
+    </data>
+    <data name="ExDUBadISOTZFormat">
+        <value>Invalid ISO 8601 time zone format</value>
+    </data>
+    <data name="ExDurBadISOFormat">
+        <value>Invalid ISO 8601 duration format</value>
+    </data>
+    <data name="ExDurBadCompareObject">
+        <value>The object to compare must be a Duration</value>
+    </data>
+    <data name="ExDIBadInstanceValue">
+        <value>Instance value should be between -53 and 53</value>
+        <comment>Exception messages</comment>
+    </data>
+    <data name="ExHolBadMonthValue">
+        <value>Month value must be between 1 and 12</value>
+    </data>
+    <data name="ExHolBadDayValueForMonth">
+        <value>Day value is not valid for the current month</value>
+    </data>
+    <data name="ExRecurBadWeekStart">
+        <value>WKST value should be SU, MO, TU, WE, TH, FR, or SA</value>
+    </data>
+    <data name="ExDIInvalidDayOfWeek">
+        <value>Invalid day of week specified</value>
+    </data>
+    <data name="DWNone">
+        <value>None</value>
+    </data>
+    <data name="DurYear">
+        <value> year</value>
+    </data>
+    <data name="DurYears">
+        <value> years</value>
+    </data>
+    <data name="DurMonth">
+        <value> month</value>
+    </data>
+    <data name="DurMonths">
+        <value> months</value>
+    </data>
+    <data name="DurWeek">
+        <value> week</value>
+    </data>
+    <data name="DurWeeks">
+        <value> weeks</value>
+    </data>
+    <data name="DurDay">
+        <value> day</value>
+        <comment>Duration part descriptions</comment>
+    </data>
+    <data name="DurDays">
+        <value> days</value>
+    </data>
+    <data name="DurHour">
+        <value> hour</value>
+    </data>
+    <data name="DurHours">
+        <value> hours</value>
+    </data>
+    <data name="DurMinute">
+        <value> minute</value>
+    </data>
+    <data name="DurMinutes">
+        <value> minutes</value>
+    </data>
+    <data name="DurSecond">
+        <value> second</value>
+    </data>
+    <data name="DurSeconds">
+        <value> seconds</value>
+    </data>
+    <data name="DurNegative">
+        <value>Negative</value>
+    </data>
+    <data name="DIFirst">
+        <value>st</value>
+    </data>
+    <data name="DISecond">
+        <value>nd</value>
+    </data>
+    <data name="DIThird">
+        <value>rd</value>
+    </data>
+    <data name="DINth">
+        <value>th</value>
+    </data>
+    <data name="DIAny">
+        <value>Any</value>
+        <comment>DayInstance description strings</comment>
+    </data>
+    <data name="DIFromEnd">
+        <value>from end</value>
+    </data>
+    <data name="DONone">
+        <value>None</value>
+    </data>
+    <data name="ExDUOccurIsNone">
+        <value>DayOccurrence parameter cannot be None</value>
+    </data>
+    <data name="RDUndefined">
+        <value>The recurrence is undefined.</value>
+    </data>
+    <data name="RDSecondly">
+        <value>Recur every {0} second(s)</value>
+    </data>
+    <data name="RDMinutely">
+        <value>Recur every {0} minute(s)</value>
+    </data>
+    <data name="RDHourly">
+        <value>Recur every {0} hour(s)</value>
+    </data>
+    <data name="RDDaily">
+        <value>Recur every {0} day(s)</value>
+    </data>
+    <data name="RDEveryWeekday">
+        <value>Recur every weekday</value>
+    </data>
+    <data name="RDWeekly">
+        <value>Recur every {0} week(s)</value>
+    </data>
+    <data name="RDOn">
+        <value> on </value>
+    </data>
+    <data name="RDAnd">
+        <value> and </value>
+    </data>
+    <data name="RDForever">
+        <value> forever</value>
+    </data>
+    <data name="RDMaxOccur">
+        <value> for a maximum of {0} occurrences</value>
+    </data>
+    <data name="RDRecurUntil">
+        <value> until {0}</value>
+    </data>
+    <data name="RDNoHolidays">
+        <value>.  Instances cannot occur on a defined holiday.</value>
+    </data>
+    <data name="RDWeekStart">
+        <value>.  Weeks start on a {0}</value>
+    </data>
+    <data name="RDMonthlyDayX">
+        <value>Recur on day {0} of every {1} month(s)</value>
+    </data>
+    <data name="RDMonthlyDOW">
+        <value>Recur on the {0} {1} of every {2} month(s)</value>
+    </data>
+    <data name="RDYearlyDayX">
+        <value>Recur on {0} {1}{2} every {3} year(s)</value>
+    </data>
+    <data name="RDYearlyDOW">
+        <value>Recur on the {0} {1} in {2} every {3} year(s)</value>
+    </data>
+    <data name="RDMonthly">
+        <value>Recur every {0} month(s)</value>
+    </data>
+    <data name="RDYearly">
+        <value>Recur every {0} year(s)</value>
+    </data>
+    <data name="RDByMonth">
+        <value> the month(s) of </value>
+    </data>
+    <data name="RDByWeekNo">
+        <value> week(s) of the year</value>
+    </data>
+    <data name="RDByYearDay">
+        <value> day(s) of the year</value>
+    </data>
+    <data name="RDByMonthDay">
+        <value> day(s) of the month</value>
+    </data>
+    <data name="RDByDay">
+        <value> the day(s) of the week </value>
+    </data>
+    <data name="RDByHour">
+        <value> hour(s)</value>
+    </data>
+    <data name="RDByMinute">
+        <value> minute(s)</value>
+    </data>
+    <data name="RDBySecond">
+        <value> second(s)</value>
+    </data>
+    <data name="RDBySetPos">
+        <value> set position(s)</value>
+    </data>
+    <data name="RDLimitedTo">
+        <value>  Instances are limited to</value>
+    </data>
+    <data name="RDThe">
+        <value> the </value>
+    </data>
+</root>

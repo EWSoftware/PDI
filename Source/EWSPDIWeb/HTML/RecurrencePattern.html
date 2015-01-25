@@ -1,0 +1,79 @@
+<div class="EWS_RP_Panel">
+	<div class="EWS_RP_PanelHeading">
+		<h1 class="EWS_RP_PanelTitle">Recurrence Pattern</h1>
+	</div>
+	<div class="EWS_RP_PanelBody">
+		<table style="width: 100%; padding: 2px; border: none;">
+			<tr>
+				<td style="width: 20%; vertical-align: top;">
+					<input id="@_RP_RB_YEAR" type="radio" value="Yearly" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(1)" language="javascript" /><label
+						id="@_RP_RB_YEARLBL" for="@_RP_RB_YEAR">Yearly</label><br/>
+					<input id="@_RP_RB_MON" type="radio" value="Monthly" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(2)" language="javascript" /><label
+						id="@_RP_RB_MONLBL" for="@_RP_RB_MON">Monthly</label><br/>
+					<input id="@_RP_RB_WEEK" type="radio" value="Weekly" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(3)" language="javascript" /><label
+						id="@_RP_RB_WEEKLBL" for="@_RP_RB_WEEK">Weekly</label><br/>
+					<input id="@_RP_RB_DAY" type="radio" value="Daily" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(4)" language="javascript" /><label
+						id="@_RP_RB_DAYLBL" for="@_RP_RB_DAY">Daily</label><br/>
+					<input id="@_RP_RB_HOUR" type="radio" value="Hourly" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(5)" language="javascript" /><label
+						id="@_RP_RB_HOURLBL" for="@_RP_RB_HOUR">Hourly</label><br/>
+					<input id="@_RP_RB_MIN" type="radio" value="Minutely" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(6)" language="javascript" /><label
+						id="@_RP_RB_MINLBL" for="@_RP_RB_MIN">Minutely</label><br/>
+					<input id="@_RP_RB_SEC" type="radio" value="Secondly" name="@_RBL_RPAT"
+						onclick="javascript: @.SelectPattern(7)" language="javascript" /><label
+						id="@_RP_RB_SECLBL" for="@_RP_RB_SEC">Secondly</label></td>
+				<td style="vertical-align: top;" rowspan="2"><@Secondly@><@Minutely@><@Hourly@><@Daily@><@Weekly@><@Monthly@><@Yearly@><@Advanced@></td>
+			</tr>
+			<tr>
+				<td style="vertical-align: bottom;"><span id="@_RP_SPN_ADV"><br/>
+					<input id="@_RP_CHK_ADV" type="checkbox" onclick="javascript: @.SetAdvancedState();" />
+					<label for="@_RP_CHK_ADV">Advanced</label></span>&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="EWS_RP_Panel">
+	<div class="EWS_RP_PanelHeading">
+		<h1 class="EWS_RP_PanelTitle">Range of Recurrence</h1>
+	</div>
+	<div class="EWS_RP_PanelBody">
+		<table style="width: 100%; padding: 2px; border: none;">
+			<tr>
+				<td>
+					<input id="@_RP_RNG_NONE" type="radio" name="@_RBL_RNG" onclick="javascript: @.SetRangeCtlState(0);" />
+					<label for="@_RP_RNG_NONE">No end date</label>
+					<br/>
+					<input id="@_RP_RNG_OCC" type="radio" name="@_RBL_RNG" onclick="javascript: @.SetRangeCtlState(1);" />
+					<label for="@_RP_RNG_OCC">Ends after&nbsp;</label>
+					<input class="EWS_RP_Input" type="text" maxlength="3" size="3" id="@_RP_RNG_ENDOCC" />&nbsp;occurrence(s)<br/>
+					<input id="@_RP_RNG_DATE" type="radio" name="@_RBL_RNG" onclick="javascript: @.SetRangeCtlState(2);" />
+					<label for="@_RP_RNG_DATE">End by&nbsp;</label>
+					<input class="EWS_RP_Input" type="text" maxlength="10" size="10" id="@_RP_RNG_ENDDT" />
+					<br/>
+					<span id="@_RP_RNG_OCCVAL" class="EWS_RP_ErrorMessage"
+						style="display:none;">A number of occurrences is required and must be between 1 and 999</span>
+					<span id="@_RP_RNG_DTVAL" class="EWS_RP_ErrorMessage"
+						style="display:none;">A valid end date is required</span></td>
+				<td style="vertical-align: top;"><span id="@_RP_SPN_WSD">Week Start Day&nbsp;
+					<select id="@_RP_RNG_WSD" class="EWS_RP_Select">
+						<option>Sunday</option>
+						<option>Monday</option>
+						<option>Tuesday</option>
+						<option>Wednesday</option>
+						<option>Thursday</option>
+						<option>Friday</option>
+						<option>Saturday</option>
+					</select>&nbsp;<br /><br /></span>
+					<span id="@_RP_SPN_COH">
+						<input id="@_RP_RNG_COH" type="checkbox" />
+						<label for="@_RP_RNG_COH">Can occur on holidays</label></span>&nbsp;</td>
+			</tr>
+		</table>
+	</div>
+</div>

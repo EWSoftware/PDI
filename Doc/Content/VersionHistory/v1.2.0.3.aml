@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="058ee13b-9ae9-45e5-a0e5-81dafafe7865" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Version 1.2.0.3 was released on June 25th, 2005.</para>
+		</introduction>
+
+		<section>
+			<title>Changes in This Release</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>Fixed a bug in the recurrence engine that could cause it to miss instances in the weekly,
+hourly, minutely, and secondly patterns on occasion.</para>
+					</listItem>
+
+					<listItem>
+						<para>Adjusted the parser for vCalendar 1.0 alarm properties to take into account that not all
+parameters may be present.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added a <codeInline>NextInstance</codeInline> method to the <codeInline>Recurrence</codeInline>
+class to allow retrieval of the next recurrence instance on or after a specified date.</para>
+					</listItem>
+
+					<listItem>
+						<para>Modified the calendar objects so that under vCalendar 1.0 the objects no longer write out a
+unique ID unless one has been created.  This makes it conform to the specification which does not require a
+unique ID.  iCalendar 2.0 requires a unique ID and one will always be generated if necessary for each calendar
+object.</para>
+					</listItem>
+
+				</list>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

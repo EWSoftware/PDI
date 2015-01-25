@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ExBPBadEncodingValue" xml:space="preserve">
+    <value>The encoding method was not a recognized value</value>
+  </data>
+  <data name="ExParseNullReader" xml:space="preserve">
+    <value>The text reader cannot be null</value>
+  </data>
+  <data name="ExParseSepNotFound" xml:space="preserve">
+    <value>Property value separator ':' not found</value>
+  </data>
+  <data name="ExParseUnexpectedError" xml:space="preserve">
+    <value>Unexpected error while parsing PDI data stream</value>
+  </data>
+  <data name="ExParseNoFilename" xml:space="preserve">
+    <value>A filename must be specified</value>
+  </data>
+  <data name="ExVTZIDNotFound" xml:space="preserve">
+    <value>The collection does not contain a time zone with the specified ID</value>
+  </data>
+  <data name="ExRONegativeDuration" xml:space="preserve">
+    <value>Cannot have a negative duration</value>
+  </data>
+  <data name="ExPDIOVersionNotSet" xml:space="preserve">
+    <value>An attempt was made to retrieve the version while it was set to None.</value>
+  </data>
+  <data name="ExPDIOVersionSetToNone" xml:space="preserve">
+    <value>A version other than None must be specified</value>
+  </data>
+  <data name="ExPDIOVersionCombo" xml:space="preserve">
+    <value>Combinations of version values cannot be set</value>
+  </data>
+  <data name="ExPDIOVersionNotSupported" xml:space="preserve">
+    <value>The specified version is not supported by this object</value>
+  </data>
+  <data name="ExCOPUnexpectedEnd" xml:space="preserve">
+    <value>Unexpected END.  Expected {0} but found {1}</value>
+  </data>
+  <data name="ExCOPNotImplemented" xml:space="preserve">
+    <value>Need to handle nested objects in other item types</value>
+  </data>
+  <data name="ExParseNullObject" xml:space="preserve">
+    <value>The {0} to load cannot be null</value>
+  </data>
+  <data name="ExParseNoBeginProp" xml:space="preserve">
+    <value>No {0} property seen before {1}</value>
+  </data>
+  <data name="ExParseUnrecognizedTagValue" xml:space="preserve">
+    <value>Unrecognized value for {0} tag: {1}</value>
+  </data>
+  <data name="ExParseUnrecognizedVersion" xml:space="preserve">
+    <value>Unrecognized {0} version: {1}</value>
+  </data>
+  <data name="ExParseUnexpectedGroupTag" xml:space="preserve">
+    <value>Expected group value '{0}' but found '{1}' on END tag</value>
+  </data>
+  <data name="ExNoComponentStartDate" xml:space="preserve">
+    <value>The component has no start date</value>
+  </data>
+  <data name="ExCustomNoName" xml:space="preserve">
+    <value>The custom name cannot be null</value>
+  </data>
+  <data name="ExPriorityBadValue" xml:space="preserve">
+    <value>Priority value must be between 0 and 9</value>
+  </data>
+  <data name="ExFNCannotBeNull" xml:space="preserve">
+    <value>The FormattedName property cannot be null</value>
+  </data>
+  <data name="ExNCannotBeNull" xml:space="preserve">
+    <value>The name (N) property cannot be null</value>
+  </data>
+  <data name="ExPercentageBadValue" xml:space="preserve">
+    <value>Percentage value must be between 0 and 100</value>
+  </data>
+  <data name="ExDTIBadCompareObject" xml:space="preserve">
+    <value>The object to compare must be a DateTimeInstance</value>
+  </data>
+  <data name="ExUIDNotFound" xml:space="preserve">
+    <value>A component with the specified Unique ID was The collection does not contain a component with the specified unique ID</value>
+  </data>
+  <data name="ExAddrNotInCollection" xml:space="preserve">
+    <value>The specified address is not in the collection</value>
+  </data>
+  <data name="ExAddrInvalidIndex" xml:space="preserve">
+    <value>The specified address index is out bounds</value>
+    <comment>Exception messages</comment>
+  </data>
+  <data name="ExEAddrNotInCollection" xml:space="preserve">
+    <value>The specified e-mail address is not in the collection</value>
+  </data>
+  <data name="ExEAddrInvalidIndex" xml:space="preserve">
+    <value>The specified e-mail address index is out of bounds</value>
+  </data>
+  <data name="ExPhoneNotInCollection" xml:space="preserve">
+    <value>The specified phone number is not in the collection</value>
+  </data>
+  <data name="ExPhoneInvalidIndex" xml:space="preserve">
+    <value>The specified phone number index is out of bounds</value>
+  </data>
+  <data name="ExLabelNotInCollection" xml:space="preserve">
+    <value>The specified label is not in the collection</value>
+  </data>
+  <data name="ExLabelInvalidIndex" xml:space="preserve">
+    <value>The specified label index is out of bounds</value>
+  </data>
+  <data name="ExTZIDCannotBeNull" xml:space="preserve">
+    <value>The TZID value cannot be null or an empty string</value>
+  </data>
+  <data name="ExSeqNumbBadValue" xml:space="preserve">
+    <value>Sequence number cannot be negative</value>
+  </data>
+  <data name="ExRptCountBadValue" xml:space="preserve">
+    <value>Repeat count cannot be negative</value>
+  </data>
+  <data name="ExRNumBadValue" xml:space="preserve">
+    <value>The recurrence count cannot be negative</value>
+  </data>
+  <data name="ExCPropIDNotFound" xml:space="preserve">
+    <value>A custom property with the specified name does not exist in the collection</value>
+  </data>
+</root>

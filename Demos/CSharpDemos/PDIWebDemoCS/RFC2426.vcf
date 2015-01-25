@@ -1,0 +1,324 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//EWSoftware//PDI Class Library//EN
+FN:Christine d'Aboville
+N:d'Aboville;Christine
+SORT-STRING:Aboville
+REV:2005-01-24T06:30:34Z
+UID:3C833780-20E3-4DAD-A3FB-921A1657A861
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Dr. Ted Ashton
+N:Ashton;Ted;;Dr.
+ORG:Oxford Medical Clinic
+TITLE:Head of Surgery
+ROLE:ENT
+CATEGORIES:Business
+TEL;TYPE=WORK:301-431-9342
+REV:2002-08-26T22:03:26
+UID:41AB4917-9196-4987-99CD-B8A407A9A7C7
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Barnes & Noble
+N:Barnes & Noble
+CATEGORIES:Business
+TEL;TYPE=PREF:410-203-9001
+REV:2005-01-24T01:49:30Z
+UID:C93E920E-1B06-4F55-9CB1-7211990F1395
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Julie Barnes
+N:Barnes;Julie
+ORG:Virage\, Inc.
+TITLE:Business Development Manager.  This is a long description that exists
+  on a long line.
+CATEGORIES:Business
+ADR:;Suite 520;177 Bovet Road;San Mateo;CA;94402
+TEL;TYPE=WORK:650-573-3215
+TEL;TYPE=FAX:650-573-3244
+EMAIL:jbarnes@virage.com
+UID:B53DCB3D-DEB0-4BC3-BEFE-BE6C5C332CA8
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Best Buy
+N:Best Buy
+CATEGORIES:Business
+TEL;TYPE=PREF:410-312-4900
+UID:96C497FB-72CB-4377-9C2B-885AD2D7B9D2
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Clark's Do It Center
+N:Clark's Do It Center
+CATEGORIES:Business
+TEL;TYPE=PREF:410-313-8100
+UID:D5D6D3F7-48E5-4CDF-8D13-52FC77F288BA
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Frank Dawson
+N:Dawson;Frank
+ORG:Lotus Development Corporation
+ADR;TYPE=POSTAL,PARCEL,WORK:;;6544 Battleford Drive;Raleigh;NC;27613-3502;U
+ .S.A.
+LABEL;TYPE=POSTAL,PARCEL,WORK:6544 Battleford Drive\nRaleigh NC 27613-3502\
+ nU.S.A.
+TEL;TYPE=WORK,VOICE,MSG:+1-919-676-9515
+TEL;TYPE=WORK,FAX:+1-919-676-9564
+EMAIL;TYPE=PREF,INTERNET:Frank_Dawson@Lotus.com
+EMAIL:fdawson@earthlink.net
+URL:http://home.earthlink.net/~fdawson
+REV:2005-01-24T01:00:51Z
+UID:287EA6C9-17F7-4FD7-8205-2108F7116DA8
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Hickory Ridge Hair Cuttery
+N:Hair Cuttery;Hickory Ridge
+CATEGORIES:Business
+TEL;TYPE=PREF:410-531-5781
+REV:2002-08-26T22:04:54
+UID:F08540B2-F611-4081-ABFF-96F585B13275
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Rene van der Harten
+N:van der Harten;Rene;J.;Sir;R.D.O.N.
+SORT-STRING:Harten
+UID:A9C85C53-716B-4AA1-8E01-3E09A963400F
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Jane Hatfield
+N:Hatfield;Jane
+ORG:Coca Cola\, Inc.
+TITLE:VP Marketing
+CATEGORIES:Business,Personal
+ADR;TYPE=HOME:;;98 Crater Drive;Denver;CO;80301
+ADR;TYPE=WORK:Mail Stop 9;Suite 105;1001 Pop Road;Denver;CO;80301
+TEL;TYPE=WORK,CELL:439-994-3928
+TEL;TYPE=HOME,CELL:439-344-4323
+TEL;TYPE=FAX:439-344-9543
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Home Depot
+N:Home Depot
+CATEGORIES:Business
+TEL;TYPE=PREF:410-750-2199
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Tim Howes
+N:Howes;Tim
+ORG:Netscape Communications Corp.
+ADR;TYPE=WORK:;;501 E. Middlefield Rd.;Mountain View;CA; 94043;U.S.A.
+LABEL;TYPE=WORK:501 E. Middlefield Rd.\nMountain View CA 94043\nU.S.A.
+TEL;TYPE=WORK,VOICE,MSG:+1-415-937-3419
+TEL;TYPE=WORK,FAX:+1-415-528-4164
+EMAIL:howes@netscape.com
+REV:2005-01-24T01:00:20Z
+UID:96EDBDE4-2D86-4C0D-8CDB-9F86E6A4669F
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Osamu Koura
+N:Koura;Osamu
+SORT-STRING:Koura
+UID:EE7EE452-B9E5-42D2-A373-06F2587F2AC3
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Robert Pau Shou Chang
+N:Pau;Shou Chang;Robert
+SORT-STRING:Pau
+UID:2942DB60-EC24-4EA3-A812-6B1F5BBC9232
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Oscar del Pozo
+N:del Pozo Triscon;Oscar
+SORT-STRING:Pozo
+UID:E9E6D6D6-7F8F-4D3A-9C44-449991E193D9
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+PROFILE:VCARD
+PRODID:-//EWSoftware//PDI Class Library//EN
+FN:Mr. John Q. Public\, Esq.
+N:Public;John;Quinlan;Mr.;Esq.
+NICKNAME:Robbie
+BDAY:1996-04-15
+ORG:ABC\, Inc.;North American Division;Marketing
+TITLE:Director\, Research and Development
+ROLE:Programmer
+CLASS:PUBLIC
+CATEGORIES:TRAVEL AGENT
+AGENT:BEGIN:VCARD\nVERSION:3.0\nFN:Joe Friday\nN:Unknown\nTITLE:Area Admini
+ strator\\\, Assistant\nTEL:+1-919-555-7878\nEMAIL:jfriday@host.com\nEND:VC
+ ARD\n
+NOTE:This fax number is operational 0800 to 1715 EST\, Mon-Fri.
+URL:http://www.swbyps.restaurant.french/~chezchic.html
+TZ:-05:00
+GEO:37.386013;-122.082932
+MAILER:PigeonMail 2.1
+REV:2005-01-24T19:34:50Z
+UID:19950401-080045-40000F192713-0052
+KEY;ENCODING=B;TYPE=X509:
+ MIICajCCAdOgAwIBAgICBEUwDQYJKoZIhvcNAQEEBQAwdzELMAkGA1UEBhMCVVMxLDAqBgNVBA
+ oTI05ldHNjYXBlIENvbW11bmljYXRpb25zIENvcnBvcmF0aW9uMRwwGgYDVQQLExNJbmZvcm1h
+ dGlvbiBTeXN0ZW1zMRwwGgYDVQQDExNyb290Y2EubmV0c2NhcGUuY29tMB4XDTk3MDYwNjE5ND
+ c1OVoXDTk3MTIwMzE5NDc1OVowgYkxCzAJBgNVBAYTAlVTMSYwJAYDVQQKEx1OZXRzY2FwZSBD
+ b21tdW5pY2F0aW9ucyBDb3JwLjEYMBYGA1UEAxMPVGltb3RoeSBBIEhvd2VzMSEwHwYJKoZIhv
+ cNAQkBFhJob3dlc0BuZXRzY2FwZS5jb20xFTATBgoJkiaJk/IsZAEBEwVob3dlczBcMA0GCSqG
+ SIb3DQEBAQUAA0sAMEgCQQC0JZf6wkg8pLMXHHCUvMfL5H6zjSk4vTTXZpYyrdN2dXcoX49LKi
+ OmgeJSzoiFKHtLOIboyludF90CgqcxtwKnAgMBAAGjNjA0MBEGCWCGSAGG+EIBAQQEAwIAoDAf
+ BgNVHSMEGDAWgBT84FToB/GV3jr3mcau+hUMbsQukjANBgkqhkiG9w0BAQQFAAOBgQBexv7o7m
+ i3PLXadkmNP9LcIPmx93HGp0Kgyx1jIVMyNgsemeAwBM+MSlhMfcpbTrONwNjZYW8vJDSoi//y
+ rZlVt9bJbs7MNYZVsyF1unsqaln4/vy6Uawfg8VUMk1U7jt8LYpo4YULU7UZHPYVUaSgVttImO
+ HZIKi4hlPXBOhcUQ==
+PHOTO;ENCODING=B;TYPE=BMP:
+ Qk0WCAAAAAAAAHYAAAAoAAAAPQAAAD0AAAABAAQAAAAAAAAAAAB0EgAAdBIAABAAAAAQAAAAAA
+ AA/wAAgP8AgAD/AICA/4AAAP+AAID/gIAA/4CAgP/AwMD/AAD//wD/AP8A/////wAA//8A////
+ /wD///////////////////////////////////////////////8A//////////////////////
+ ///////////////////wD////////////////////////////////////////3AP//////////
+ //////////////////////////////8A/////////////////////////////////////////w
+ D/////////////////////////////////////////AP//////////////////////////////
+ //////////8A/////////////////////////////////////////wD///////////////////
+ //////////////////////AP////////////////////////////////////////8A////////
+ /////////////////////////////////wD///////////////////////////////////////
+ //AP////////////////////////////////////////8A////////////////////////////
+ /////////////wD/////////////////////////////////////////AP////////////////
+ ////////////////////////8A/////////////////////////////////////////wD/////
+ ////////////////////////////////////AP////////////////////////////////////
+ ////8A/////////////////////////////////////////wD/////////////////////////
+ ////////////////AP////////////AAAAAAAAAAAAAAAA////////////8A////////8AAAB3
+ d3d3d3d3d3d3d3cAAAD////////wD/////8AAAd3d3d3d3d3d3d3d3d3d3d3dwAA//////AP//
+ //8HBwcHd3d3d3d3d3d3d3d3d3d3d3d3cP////8A////8ABwcHB3d3d3d3d3d3d3d3d3d3d3d3
+ d3D////wD////wdwcHB3d3d3d3d3d3d3d3d3d3d3d3d3cP///wAP////8AcHBwd3d3d3d3d3d3
+ d3d3d3d3d3d3cP////AA/////wAABwcHd3d3d3d3d3d3d3d3d3d3cAAA////8AD/////Du7gAA
+ AHd3d3d3d3d3d3d3dwAAAN3dD////wAP/////w7u7u4KAAAAAAAAAAAAAAAADd3d3dD/////AA
+ //////Du7u7gqqqqqqqqC7u7u7u7sN3d3d0P////8AD//////w7u7u4KqqqqqqoLu7u7u7sN3d
+ 3d0P/////wAP//////Du7u7gqqqqqqqgu7u7u7uw3d3d3Q//////AA///////w7u7u4Kqqqqqq
+ C7u7u7uw3d3d3Q//////8AD///////8O7u7gqqqqqqoLu7u7u7Dd3d3Q///////wAP////////
+ Du7u4Kqqqqqgu7u7u7Dd3d3Q////////AA/////////wDu7uCqqqqqC7u7u7Dd3d0A////////
+ 8AD//////////w7u4KqqqqoLu7u7sN3d0P/////////wAP//////////8A7uAKqqqgu7u7AN3d
+ AP//////////AA////////////8ADuCqqqC7u7Dd0AD///////////8AD//////////////wAA
+ CqoLuwAQAP/////////////wAP////////+I//////AAAAAAAA////////////////AA//////
+ //iP/////////wgP//////////////////9wD///////j/8AAAAAAAD/CA/wAAAAAAAP+P////
+ ///1AP//////+P8IiIiIiIiAAAAAiIiIiIiID/j///////QA////////j/AAAAAAAA////8AAA
+ AAAAD/+P//////+gD///////////////////////////////iP///////3AP//////////////
+ ///////////////4j/////////0A////////////////////////////////////////9wD///
+ /////////////////////////////////////wAP//////////////////////////////////
+ //////EA////////////////////////////////////////+gD///////////////////////
+ /////////////////5AP////////////////////////////////////////4A////////////
+ /////////////////////////////wD/////////////////////////////////////////AP
+ ////////////////////////////////////////8A////////////////////////////////
+ ////////8wD////////////////////////////////////////3AP////////////////////
+ ////////////////////YA
+SOUND;VALUE=URI;TYPE=BASIC:CID:JOHNQPUBLIC.part8.19960229T080000.xyzMail@ho
+ st1.com
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Jim A. Smith
+N:Smith;Jim;Alvin;Mr.
+BDAY:1977-01-27
+TITLE:This is a long description that exists on a long line.
+CATEGORIES:Family
+ADR;TYPE=WORK:;Suite 900;11 5th Street;Coco Beach;FL;32082
+ADR;TYPE=HOME:;;198 Elm Street;Coco Beach;FL;32082
+TEL;TYPE=WORK:904-555-9384
+TEL;TYPE=HOME:904-873-0394
+TEL;TYPE=CELL:904-934-3429
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Dr. John Philip\,Paul Stevenson Jr.\,M.D.\,A.C.P.
+N:Stevenson;John;Philip\,Paul;Dr.;Jr.\,M.D.\,A.C.P.
+NICKNAME:Jim;Jimmie
+BDAY;VALUE=DATE-TIME:1953-10-15T23:10:00Z
+CLASS:PRIVATE
+CATEGORIES:INTERNET,IETF,INDUSTRY,INFORMATION TECHNOLOGY
+AGENT;VALUE=URI:CID:JQPUBLIC.part3.960129T083020.xyzMail@host3.com
+TZ;VALUE=TEXT:-05:00\; EST\; Raleigh/North America
+REV;VALUE=DATE:1997-11-15
+UID:0D8A8699-CB5D-4E5B-AFF5-B61F254B8B5E
+KEY;ENCODING=B;TYPE=x509:dGhpcyBjb3VsZCBiZSAKbXkgY2VydGlmaWNhdGUK
+PHOTO;ENCODING=B;TYPE=GIF:
+ R0lGODlhogBNAPEAAP////+AgP8AAAAAACH5BAEAAAAALAAAAACiAE0AAAL/BISpy+1iopy02o
+ uz3rzTB4aMR5bmiXriCqbuC8cVSy/yjeddzev+/+PRgMRiTLgyKpckZIgJjWKcD6n1eqCOsFyo
+ 1tYNG7+J0+B8FqszZEgJDV/LP18T/D7PG+qku18/p2XnFwcoRzVImGa45mSmuMiohvQIKXlYk2
+ J52TjkQsgZyAKDF4opYpp6kqTauvPkGrsBK1tr0WKbO+Og2yvB6xucBfYT+TZQobihHLOJspXz
+ 11coAWlMYY2smX2toiCTrRFeza1Nzl1ZfhKgEPBZbo6tbgB/XR+/fI/fEcCO0L8N3QV49PRF0L
+ dvIEIT/fw1DDjOAkGEaSjmK3UOo4eG/+w4NmMmbt7BehMiKtRYktpGjiw/guIgMGXMjC8lSjuZ
+ UAPLnaRAhvQpzxrOm0FVniyxk+cLZz+J2gQqs2ZUo0+RJm35TmoGpk+dJoNa0OvXnBeuKoWIEg
+ PXsWKnUgUAdiwJs2fTpR361i2apnfjBl1J1yPavGzv6u1WtK/WG4HrHluMd+9WvyMXr43R2PE0
+ yF0N0yRc2etlGJk1dxhdGHTYtp8lt0b8onRSu6pfkw3tGTdV1Chkz07EOnFt3qvTEmfo2zTf2r
+ pdR4ZtW7hz0smVT+acenp26M27CZVR/beH491vFx8O9Tv18FjHUz5sHu57+ZbJc2AvHub88su1
+ S//3bp9O+FnXGXPn+Qdff4ipl8KA+SkYH3/XBXfgggGW5SCB/0VYYXzHXWYSchm2B+Fp830YV4
+ iAjSjYRRRGN2FuHRb4ogUsPvgch/S9iCJ2MyVDwY040shdgjGqxiB8iu0j5JBKRqiibdxF2aFI
+ ETTppEVSbqLllrtRxCSWpnVZJZcLPZnXmRKIOSSZO5L0JkFoIhjnhcLokeSd8ugJVy/m6AgFoB
+ Jt5YOgyxykRjyGvlEoEIs2Co42Ff3pmmSTyofpOat9lak9kXyq1qeWImMMNYVcGsciqkpKKqsl
+ jUQPogXNmimtrnYaqq2yghorp32KqmufsQJbq7C9GktpsMeL/imrscLiw6yzkqrVbELROlvNq9
+ kie2y3z2q7bLXijsvted5GK81t11JaabPgnhtuWPBiqyi5625bbr74xmsttfzie+279MabLbTz
+ Enxvtwkjiy64t3470LirkpsSObCWyyyxBku8MLv00drpqB6HXKq1E5OM6V4InlrpxKa2DG2ryU
+ 56a5F8ykIACgA7
+LOGO;ENCODING=B;TYPE=GIF:
+ R0lGODlhogBNAPEAAP////+AgP8AAAAAACH5BAEAAAAALAAAAACiAE0AAAL/BISpy+1iopy02o
+ uz3rzTB4aMR5bmiXriCqbuC8cVSy/yjeddzev+/+PRgMRiTLgyKpckZIgJjWKcD6n1eqCOsFyo
+ 1tYNG7+J0+B8FqszZEgJDV/LP18T/D7PG+qku18/p2XnFwcoRzVImGa45mSmuMiohvQIKXlYk2
+ J52TjkQsgZyAKDF4opYpp6kqTauvPkGrsBK1tr0WKbO+Og2yvB6xucBfYT+TZQobihHLOJspXz
+ 11coAWlMYY2smX2toiCTrRFeza1Nzl1ZfhKgEPBZbo6tbgB/XR+/fI/fEcCO0L8N3QV49PRF0L
+ dvIEIT/fw1DDjOAkGEaSjmK3UOo4eG/+w4NmMmbt7BehMiKtRYktpGjiw/guIgMGXMjC8lSjuZ
+ UAPLnaRAhvQpzxrOm0FVniyxk+cLZz+J2gQqs2ZUo0+RJm35TmoGpk+dJoNa0OvXnBeuKoWIEg
+ PXsWKnUgUAdiwJs2fTpR361i2apnfjBl1J1yPavGzv6u1WtK/WG4HrHluMd+9WvyMXr43R2PE0
+ yF0N0yRc2etlGJk1dxhdGHTYtp8lt0b8onRSu6pfkw3tGTdV1Chkz07EOnFt3qvTEmfo2zTf2r
+ pdR4ZtW7hz0smVT+acenp26M27CZVR/beH491vFx8O9Tv18FjHUz5sHu57+ZbJc2AvHub88su1
+ S//3bp9O+FnXGXPn+Qdff4ipl8KA+SkYH3/XBXfgggGW5SCB/0VYYXzHXWYSchm2B+Fp830YV4
+ iAjSjYRRRGN2FuHRb4ogUsPvgch/S9iCJ2MyVDwY040shdgjGqxiB8iu0j5JBKRqiibdxF2aFI
+ ETTppEVSbqLllrtRxCSWpnVZJZcLPZnXmRKIOSSZO5L0JkFoIhjnhcLokeSd8ugJVy/m6AgFoB
+ Jt5YOgyxykRjyGvlEoEIs2Co42Ff3pmmSTyofpOat9lak9kXyq1qeWImMMNYVcGsciqkpKKqsl
+ jUQPogXNmimtrnYaqq2yghorp32KqmufsQJbq7C9GktpsMeL/imrscLiw6yzkqrVbELROlvNq9
+ kie2y3z2q7bLXijsvted5GK81t11JaabPgnhtuWPBiqyi5625bbr74xmsttfzie+279MabLbTz
+ Enxvtwkjiy64t3470LirkpsSObCWyyyxBku8MLv00drpqB6HXKq1E5OM6V4InlrpxKa2DG2ryU
+ 56a5F8ykIACgA7
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Verizon Wireless
+N:Verizon Wireless
+CATEGORIES:Business
+TEL;TYPE=PREF:410-872-7200
+NOTE:To reload the roaming table\, dial *228 and select option 2.
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:WBJC 91.5
+N:WBJC 91.5
+CATEGORIES:Business
+TEL;TYPE=PREF:410-462-8444
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//EWSoftware//PDI Class Library//EN
+FN:Eric Woodruff
+N:Woodruff;Eric;;Mr.
+ORG:EWSoftware
+TITLE:Analyst/Programmer
+ROLE:Analyst/Programmer
+ADR;TYPE=HOME,PREF:;;16719 Lakeside Drive;Medical Lake;WA;99022;USA
+LABEL;TYPE=HOME,PREF:16719 Lakeside Drive\nMedical Lake\, WA 99022\nUSA
+EMAIL;TYPE=PREF,INTERNET:Eric@EWoodruff.us
+NOTE:Just a little test note
+URL:http://www.ewoodruff.us
+TZ;VALUE=TEXT:(GMT-08:00) Pacific Time (US & Canada)\; Tijuana
+GEO:47.551324;-117.644544
+REV:2005-01-24T22:47:38Z
+UID:687DF7A7-8168-4BD8-928C-5665B6AEED74
+LOGO;VALUE=URI;TYPE=PNG:https://github.com/EWSoftware/PDI/blob/master/NuGet/EWSPDI.png
+END:VCARD

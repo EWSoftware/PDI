@@ -1,0 +1,33 @@
+<div id="@_RP_MON_PAT" style="display: none;">
+<input id="@_RP_MP_XOFY" type="radio" name="@_RBL_MON" onclick="javascript: @.SetMonthlyCtlState(true);" />
+<label for="@_RP_MP_XOFY">Day&nbsp;</label>
+<input class="EWS_RP_Input" type="text" maxlength="2" size="2" id="@_RP_MP_DAY" />&nbsp;of every&nbsp;
+<input class="EWS_RP_Input" type="text" maxlength="3" size="3" id="@_RP_MP_INT" />&nbsp;month(s)<br/><br/>
+<input id="@_RP_MP_NTH" type="radio" name="@_RBL_MON" onclick="javascript: @.SetMonthlyCtlState(false);" />
+<label for="@_RP_MP_NTH">The&nbsp;</label>
+<select id="@_RP_MP_INST" class="EWS_RP_Select">
+	<option>First</option>
+	<option>Second</option>
+	<option>Third</option>
+	<option>Fourth</option>
+	<option>Last</option>
+</select>
+<select id="@_RP_MP_DOW" class="EWS_RP_Select">
+	<option>Sunday</option>
+	<option>Monday</option>
+	<option>Tuesday</option>
+	<option>Wednesday</option>
+	<option>Thursday</option>
+	<option>Friday</option>
+	<option>Saturday</option>
+	<option>Weekday</option>
+	<option>Weekend day</option>
+	<option>Day</option>
+</select>
+&nbsp;of every&nbsp;
+<input class="EWS_RP_Input" type="text" maxlength="3" size="3" id="@_RP_MP_NTHINT" />&nbsp;month(s)<br/>
+<span id="@_RP_MP_DAY_VAL" class="EWS_RP_ErrorMessage"
+	style="display:none;">A day of the month is required and must be between 1 and 31<br/></span>
+<span id="@_RP_MP_INT_VAL" class="EWS_RP_ErrorMessage"
+	style="display:none;">A monthly interval is required and must be between 1 and 999</span>
+</div>

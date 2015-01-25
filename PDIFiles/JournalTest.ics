@@ -1,0 +1,73 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ABC Corporation//NONSGML My Product//EN
+
+BEGIN:VJOURNAL
+UID:19970901T130000Z-123405@host.com
+DTSTAMP:19970901T1300Z
+DTSTART;VALUE=DATE:19970317
+SUMMARY:Staff meeting minutes
+CONTACT;ALTREP="ldap://host.com:6666/o=3DABC%20Industries\,
+ c=3DUS??(cn=3DBJim%20Dolittle)":Jim Dolittle\, ABC Industries\,
+  +1-919-555-1234
+COMMENT:This iCalendar file contains busy time information for
+  the next three months.
+DESCRIPTION:1. Staff meeting: Participants include Joe\, Lisa
+  and Bob. Aurora project plans were reviewed. There is currently
+  no budget reserves for this project. Lisa will escalate to
+  management. Next meeting on Tuesday.\n
+ 2. Telephone Conference: ABC Corp. sales representative called
+  to discuss new printer. Promised to get us a demo by Friday.\n
+ 3. Henry Miller (Handsoff Insurance): Car was totaled by tree.
+  Is looking into a loaner car. 654-2323 (tel).
+ATTACH;FMTTYPE=IMAGE/GIF;ENCODING=BASE64;VALUE=BINARY:
+  R0lGODlhogBNAPEAAP////+AgP8AAAAAACH5BAEAAAAALAAAAACiAE0AAAL/BISpy+1i
+  opy02ouz3rzTB4aMR5bmiXriCqbuC8cVSy/yjeddzev+/+PRgMRiTLgyKpckZIgJjWKc
+  D6n1eqCOsFyo1tYNG7+J0+B8FqszZEgJDV/LP18T/D7PG+qku18/p2XnFwcoRzVImGa4
+  5mSmuMiohvQIKXlYk2J52TjkQsgZyAKDF4opYpp6kqTauvPkGrsBK1tr0WKbO+Og2yvB
+  6xucBfYT+TZQobihHLOJspXz11coAWlMYY2smX2toiCTrRFeza1Nzl1ZfhKgEPBZbo6t
+  bgB/XR+/fI/fEcCO0L8N3QV49PRF0LdvIEIT/fw1DDjOAkGEaSjmK3UOo4eG/+w4NmMm
+  bt7BehMiKtRYktpGjiw/guIgMGXMjC8lSjuZUAPLnaRAhvQpzxrOm0FVniyxk+cLZz+J
+  2gQqs2ZUo0+RJm35TmoGpk+dJoNa0OvXnBeuKoWIEgPXsWKnUgUAdiwJs2fTpR361i2a
+  pnfjBl1J1yPavGzv6u1WtK/WG4HrHluMd+9WvyMXr43R2PE0yF0N0yRc2etlGJk1dxhd
+  GHTYtp8lt0b8onRSu6pfkw3tGTdV1Chkz07EOnFt3qvTEmfo2zTf2rpdR4ZtW7hz0smV
+  T+acenp26M27CZVR/beH491vFx8O9Tv18FjHUz5sHu57+ZbJc2AvHub88su1S//3bp9O
+  +FnXGXPn+Qdff4ipl8KA+SkYH3/XBXfgggGW5SCB/0VYYXzHXWYSchm2B+Fp830YV4iA
+  jSjYRRRGN2FuHRb4ogUsPvgch/S9iCJ2MyVDwY040shdgjGqxiB8iu0j5JBKRqiibdxF
+  2aFIETTppEVSbqLllrtRxCSWpnVZJZcLPZnXmRKIOSSZO5L0JkFoIhjnhcLokeSd8ugJ
+  Vy/m6AgFoBJt5YOgyxykRjyGvlEoEIs2Co42Ff3pmmSTyofpOat9lak9kXyq1qeWImMM
+  NYVcGsciqkpKKqsljUQPogXNmimtrnYaqq2yghorp32KqmufsQJbq7C9GktpsMeL/imr
+  scLiw6yzkqrVbELROlvNq9kie2y3z2q7bLXijsvted5GK81t11JaabPgnhtuWPBiqyi5
+  625bbr74xmsttfzie+279MabLbTzEnxvtwkjiy64t3470LirkpsSObCWyyyxBku8MLv0
+  0drpqB6HXKq1E5OM6V4InlrpxKa2DG2ryU56a5F8ykIACgA7
+REQUEST-STATUS:2.0;Success
+END:VJOURNAL
+
+BEGIN:VJOURNAL
+DTSTAMP:19970324T120000Z
+UID:uid5@host1.com
+ORGANIZER:MAILTO:jsmith@host.com
+STATUS:DRAFT
+CLASS:PUBLIC
+CATEGORY:Project Report, XYZ, Weekly Meeting
+CONTACT;ALTREP="http://host.com/pdi/jdoe.vcf":Jim Dolittle\, ABC Industries
+ \, +1-919-555-1234
+COMMENT:The meeting really needs to include both ourselves
+  and the customer. We can't hold this meeting without them.
+  As a matter of fact\, the venue for the meeting ought to be at
+  their site. - - John
+DESCRIPTION:Project xyz Review Meeting Minutes\n
+ Agenda\n1. Review of project version 1.0 requirements.\n2.
+  Definition of project processes.\n3. Review of project schedule.\n
+ Participants: John Smith, Jane Doe, Jim Dandy\n- It was
+  decided that the requirements need to be signed off by
+  product marketing.\n- Project processes were accepted.\n
+ - Project schedule needs to account for scheduled holidays
+  and employee vacation time. Check with HR for specific
+  dates.\n- New schedule will be distributed by Friday.\n-
+  Next weeks meeting is cancelled. No meeting until 3/23.
+RELATED-TO;RELTYPE=SIBLING:19970901T130000Z-123405@host.com
+REQUEST-STATUS:3.1;Invalid property value;DTSTART:96-Apr-01
+END:VJOURNAL
+
+END:VCALENDAR

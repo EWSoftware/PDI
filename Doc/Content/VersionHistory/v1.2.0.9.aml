@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="82612031-8214-4b84-89fe-684aab93b0ce" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Version 1.2.0.9 was released on April, 17th, 2006.</para>
+		</introduction>
+
+		<section>
+			<title>Changes in This Release</title>
+			<content>
+				<para>Added static <codeInline>VCalendar.TimeZoneTimeToUtc</codeInline> and <codeInline>VCalendar.UtcToTimeZoneTime</codeInline>
+methods to convert time zone date/times to/from universal time.  Fixed <codeInline>VCalendar.TimeZoneToTimeZone</codeInline>
+so that it correctly converts times between time zones near the standard time/daylight saving time shift.</para>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

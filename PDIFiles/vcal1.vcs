@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN
+VERSION:1.0
+DAYLIGHT:TRUE;-06;19960407T025959;19961027T010000;EST;EDT
+BEGIN:VEVENT
+DTSTART:20030401T160000Z
+DTEND:20030401T180000Z
+LOCATION;ENCODING=QUOTED-PRINTABLE:http://support.microsoft.com/default.aspx?scid=3Dhttp://support.microsoft.com/servicedesks/webcasts/wc040103/wcblurb040103.asp
+UID:040000008200E00074C5B7101A82E00800000000608F426F9C7CC1010000000000000000100 00000E53FEF6F759F2D44A00E231FBC5EFE69
+DESCRIPTION;ENCODING=QUOTED-PRINTABLE:Microsoft Exchange 2000: Troubleshooting Public Folder Performance Problems Related to Access Control Lists Conversion=0D=0A=0D=0Ahttp://support.microsoft.com/default.aspx?scid=3Dhttp://support.microsoft.com/servicedesks/webcasts/wc040103/wcblurb040103.asp=0D=0A=0D=0AThis Support WebCast will discuss performance problems that can occur on Microsoft Exchange 2000 public folder servers, if problems occur while trying to resolve public folder access control lists (ACLs). It will explain three different types of problems and the appropriate solutions or workarounds that are available. =0D=0A=0D=0AFor information on all upcoming Support WebCasts and access to all archived Support WebCast content, please visit http://support.microsoft.com/WebCasts=0D=0A=0D=0AWe hope you enjoy the broadcast! =0D=0A=0D=0ASincerely, =0D=0AThe Support WebCast Team =0D=0AMicrosoft Online Support =0D=0Asupweb@microsoft.com =0D=0A=0D=0A=0D=0A=0D=0A=0D=0A=0D=0A
+SUMMARY;ENCODING=QUOTED-PRINTABLE:Support WebCast: Microsoft Exchange 2000: Troubleshooting Public Folder Performance Problems Related to Access Control Lists Conversion
+PRIORITY:3
+AALARM;TYPE=WAVE;VALUE=URL:19960415T235959;;;file:///mmedia/taps.wav
+AALARM;TYPE=WAVE;VALUE=CONTENT-ID:19960903T060000;PT15M;4;<jsmith.part2.
+ 960901T083000.xyzMail@host1.com>
+DALARM:19960415T235000;PT5M;2;Your Taxes Are Due !!!
+MALARM:19960416T000000;PT1H;24;IRS@us.gov;The Check Is In The Mail!
+PALARM;VALUE=URL:19960415T235000;PT5M;2;file:///myapps/shockme.exe
+END:VEVENT
+END:VCALENDAR

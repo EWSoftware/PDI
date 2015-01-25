@@ -1,0 +1,56 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PDIDatesTest", "PDIDatesTest\PDIDatesTest.vbproj", "{CAC384EA-8A67-4A81-9B65-7C8FAC77CDD2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PDIParserTest", "PDIParserTest\PDIParserTest.vbproj", "{8DE797C8-0D9D-402F-9B3B-55CB3EF3E97B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RFC2445RecurTest", "RFC2445RecurTest\RFC2445RecurTest.vbproj", "{A60B4D1A-216B-4CA7-B078-91F6F27DADE4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PDIWinFormsTest", "PDIWinFormsTest\PDIWinFormsTest.vbproj", "{32B39562-144C-4272-9251-1FC72D7D4303}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "vCardBrowser", "vCardBrowser\vCardBrowser.vbproj", "{DC514DED-802F-4871-A220-661C0E697A54}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CalendarBrowser", "CalendarBrowser\CalendarBrowser.vbproj", "{45A94A5D-36E8-41CC-A013-88B44A97F5E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E4FCD09-D7DE-448A-B2DD-DE5168D6A54B}"
+	ProjectSection(SolutionItems) = preProject
+		..\EWSPDIDemos.ruleset = ..\EWSPDIDemos.ruleset
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAC384EA-8A67-4A81-9B65-7C8FAC77CDD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAC384EA-8A67-4A81-9B65-7C8FAC77CDD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAC384EA-8A67-4A81-9B65-7C8FAC77CDD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAC384EA-8A67-4A81-9B65-7C8FAC77CDD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DE797C8-0D9D-402F-9B3B-55CB3EF3E97B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DE797C8-0D9D-402F-9B3B-55CB3EF3E97B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DE797C8-0D9D-402F-9B3B-55CB3EF3E97B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DE797C8-0D9D-402F-9B3B-55CB3EF3E97B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A60B4D1A-216B-4CA7-B078-91F6F27DADE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A60B4D1A-216B-4CA7-B078-91F6F27DADE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A60B4D1A-216B-4CA7-B078-91F6F27DADE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A60B4D1A-216B-4CA7-B078-91F6F27DADE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32B39562-144C-4272-9251-1FC72D7D4303}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B39562-144C-4272-9251-1FC72D7D4303}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B39562-144C-4272-9251-1FC72D7D4303}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B39562-144C-4272-9251-1FC72D7D4303}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC514DED-802F-4871-A220-661C0E697A54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC514DED-802F-4871-A220-661C0E697A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC514DED-802F-4871-A220-661C0E697A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC514DED-802F-4871-A220-661C0E697A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45A94A5D-36E8-41CC-A013-88B44A97F5E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45A94A5D-36E8-41CC-A013-88B44A97F5E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45A94A5D-36E8-41CC-A013-88B44A97F5E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45A94A5D-36E8-41CC-A013-88B44A97F5E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,2128 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:F1 2005
+PRODID:-//Apple Computer\, Inc//iCal 2.0//EN
+X-WR-RELCALID:543BAD63-E0E9-4C44-A85D-8C966422E359
+X-WR-TIMEZONE:Europe/London
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALDESC:\n*****************************\nUPDATE - 22/02/05\n*******
+ **********************\n\nAll 2004 stats in place as follows:\nOn each G
+ P weekend\, the overall \"weekend\" marker contains circuit details\, an
+ d an excellent new feature - online graphics links to circuit maps\, gri
+ ds and lapcharts.\nThe \"Practice\" slot on Fridays (Monaco - Thursday) 
+ contains the stats from the 2nd practice sessions from 2004.\n\"Qualifyi
+ ng\" - an arbitrary slot for Saturday (Q1) contains the final grid posit
+ ions from 2004 events.\n\"Quali 2 & Race\"\, the Sunday event slot conta
+ ins the final FIA classified race results from 2004 where applicable. Th
+ ese may be altered to clarify DNFs etc...\n\nThere are also a series of 
+ season-start infobits in the week leading up to the Australian GP at the
+  beginning of March. These include team lineups\, regulation changes\, a
+ n overall 2005 event schedule and the drivers and constructors final sta
+ ndings from 2004.\nConfirmed dates from FIA official schedule in place.\
+ nRequests for extra stats and info for inclusion to gbouch@mac.com\n\nFo
+ r other F1 iCal info and info on iKnow F1 for iPods\, go to http://www.k
+ imistuff.com
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050821
+DTEND;VALUE=DATE:20050822
+SUMMARY:Quali 2 & Race
+UID:AB6F1220-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T093557Z
+DESCRIPTION:N/A\n\nNo 2004 stats available: new event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050519
+DTEND;VALUE=DATE:20050520
+SUMMARY:Practice
+UID:DBE1B52C-599E-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T133811Z
+DESCRIPTION:Second practice times from Monaco 2004\n\n1 M.SCHUMACHER  \n
+ Ferrari     \n1m14.741s  \n2 DAVIDSON      \nBAR         \n1m15.141s  \n
+ 3 BARRICHELLO   \nFerrari     \n1m15.319s  \n4 TRULLI        \nRenault  
+    \n1m15.472s  \n5 RAIKKONEN     \nMcLaren     \n1m15.479s  \n6 BUTTON 
+        \nBAR         \n1m15.520s  \n7 SATO          \nBAR         \n1m15
+ .664s  \n8 ZONTA         \nToyota      \n1m15.690s  \n9 ALONSO        \n
+ Renault     \n1m15.701s  \n10 MONTOYA      \nWilliams    \n1m16.097s  \n
+ 11 COULTHARD    \nMcLaren     \n1m16.229s  \n12 R.SCHUMACHER \nWilliams 
+    \n1m16.556s  \n13 DA MATTA     \nToyota      \n1m16.743s  \n14 FISICH
+ ELLA   \nSauber      \n1m16.748s  \n15 PANIS        \nToyota      \n1m17
+ .007s  \n16 PANTANO      \nJordan      \n1m17.309s  \n17 MASSA        \n
+ Sauber      \n1m17.422s  \n18 GLOCK        \nJordan      \n1m17.756s  \n
+ 19 HEIDFELD     \nJordan      \n1m17.873s  \n20 KLIEN        \nJaguar   
+    \n1m17.988s  \n21 BRUNI        \nMinardi     \n1m18.822s \n22 BAUMGAR
+ TNER  \nMinardi     \n1m18.829s  \n23 LEINDERS     \nMinardi     \n1m20.
+ 370s \n24 WEBBER       \nJaguar      \nNo time \n25 WIRDHEIM     \nJagua
+ r      \nNo time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050731
+DTEND;VALUE=DATE:20050801
+SUMMARY:Quali 2 & Race
+UID:9DC3CCBE-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T093451Z
+DESCRIPTION:Hungarian Grand Prix result (70 laps) 2004\n\n1 M.SCHUMACHER
+   \nFerrari   \n1h35m26.131s\n2 BARRICHELLO   \nFerrari   \n+ 04.696s\n3
+  ALONSO        \nRenault   \n+ 44.599s\n4 MONTOYA       \nWilliams  \n+ 
+ 1m02.613s\n5 BUTTON        \nBAR       \n+ 1m07.439s\n6 SATO          \n
+ BAR       \n+ 1 lap \n7 PIZZONIA      \nWilliams  \n+ 1 lap\n8 FISICHELL
+ A    \nSauber    \n+ 1 lap\n9 COULTHARD     \nMcLaren   \n+ 1 lap\n10 WE
+ BBER       \nJaguar    \n+ 1 lap \n11 PANIS        \nToyota    \n+ 1 lap
+ \n12 HEIDFELD     \nJordan    \n+ 2 laps\n13 KLIEN        \nJaguar    \n
+ + 2 laps\n14 BRUNI        \nMinardi   \n+ 4 laps\n15 BAUMGARTNER  \nMina
+ rdi   \n+ 5 laps\n16 PANTANO      \nJordan    \n+ 22 laps\n17 TRULLI    
+    \nRenault   \n+ 29 laps \n18 ZONTA        \nToyota    \n+ 39 laps\n19
+  MASSA        \nSauber    \n+ 49 laps\n20 RAIKKONEN    \nMcLaren   \n+ 5
+ 7 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050701
+DTEND;VALUE=DATE:20050702
+SUMMARY:F1 links
+UID:F344ADF0-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095701Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050302
+DTEND;VALUE=DATE:20050303
+SUMMARY:04 Drivers Chamionship - final standings
+UID:A9F681D6-5978-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+DTSTAMP:20041230T103010Z
+DESCRIPTION:****************************\n\n2004 DRIVERS CHAMPIONSHIP\nF
+ inal Standings\n(Name\, Team and Points)\n\n\nMichael Schumacher\nFerrar
+ i\n148\n\nRubens Barrichello\nFerrari\n114\n\nJenson Button\nBAR\n85\n\n
+ Fernando Alonso\nRenault\n59\n\nJuan Pablo Montoya\nWilliams\n58\n\nJarn
+ o Trulli\nRenault & Toyota\n46\n\nKimi Raikkonen\nMcLaren\n45\n\nTakuma 
+ Sato\nBAR\n34\n\nDavid Coulthard\nMcLaren\n24\n\nRalf Schumacher\nWillia
+ ms\n24\n\nGiancarlo Fisichella\nSauber\n22\n\nFelipe Massa\nSauber\n12\n
+ \nMark Webber\nJaguar\n7\n\nOlivier Panis\nToyota\n6\n\nAntonio Pizzonia
+ \nWilliams\n6\n\nCristiano da Matta\nToyota\n3\n\nNick Heidfeld\nJordan\
+ n3\n\nChristian Klien\nJaguar\n3\n\nTimo Glock\nJordan\n2\n\nZsolt Baumg
+ artner\nMinardi\n1\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050723
+DTEND;VALUE=DATE:20050724
+SUMMARY:Qualifying
+UID:B07918B7-5A44-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T092517Z
+DESCRIPTION:German Grand Prix grid 2004\n\n1 M.SCHUMACHER  \nFerrari    
+  \n1m13.306s \n2 MONTOYA       \nWilliams    \n1m13.667s \n3 BUTTON     
+    \nBAR         \n1m13.673s*\n4 RAIKKONEN     \nMcLaren     \n1m13.690s
+  \n5 COULTHARD     \nMcLaren     \n1m13.821s\n6 ALONSO        \nRenault 
+     \n1m13.874s\n7 TRULLI        \nRenault     \n1m14.134s\n8 BARRICHELL
+ O   \nFerrari     \n1m14.278s\n9 SATO          \nBAR         \n1m14.287s
+ \n10 PANIS        \nToyota      \n1m14.367s\n11 PIZZONIA     \nWilliams 
+    \n1m14.556s\n12 WEBBER       \nJaguar      \n1m14.802s\n13 KLIEN     
+    \nJaguar      \n1m15.011s\n14 FISICHELLA   \nSauber      \n1m15.395s\
+ n15 DA MATTA     \nToyota      \n1m15.454s\n16 MASSA        \nSauber    
+   \n1m15.616s\n17 PANTANO      \nJordan      \n1m16.192s\n18 HEIDFELD   
+   \nJordan      \n1m16.310s\n19 BRUNI        \nMinardi     \n1m18.055s\n
+ 20 BAUMGARTNER  \nMinardi     \n1m18.400s\n\n* Button to start 13th due 
+ to engine change\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050911
+DTEND;VALUE=DATE:20050912
+SUMMARY:Quali 2 & Race
+UID:C4AFFF75-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+DTSTAMP:20041230T095143Z
+DESCRIPTION:Belgian Grand Prix result (44 laps) 2004\n\n1 RAIKKONEN    \
+ nMcLaren  \n1h32m35.274s\n2 M.SCHUMACHER \nFerrari  \n+ 3.132s\n3 BARRIC
+ HELLO  \nFerrari  \n+ 4.371s\n4 MASSA        \nSauber   \n+ 12.504s\n5 F
+ ISICHELLA   \nSauber   \n+ 14.104s\n6 KLIEN        \nJaguar   \n+ 14.614
+ s\n7 COULTHARD    \nMcLaren  \n+ 17.970s\n8 PANIS        \nToyota   \n+ 
+ 18.693s\n9 TRULLI       \nRenault  \n+ 22.115s\n10 ZONTA       \nToyota 
+   \n+ 3 laps\n11 HEIDFELD    \nJordan   \n+ 4 laps  \n12 MONTOYA     \nW
+ illiams \n+ 7 laps \n13 PIZZONIA    \nWilliams \n+ 13 laps  \n14 BUTTON 
+      \nBAR      \n+ 15 laps \n15 BAUMGARTNER \nMinardi  \n+ 16 laps\n16 
+ ALONSO      \nRenault  \n+ 33 laps\n17 WEBBER      \nJaguar   \n+ 44 lap
+ s \n18 SATO        \nBAR      \n+ 44 laps\n19 BRUNI       \nMinardi  \n+
+  44 laps\n20 PANTANO     \nJordan   \n+ 44 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050722
+DTEND;VALUE=DATE:20050723
+SUMMARY:Practice
+UID:9B2FB7DE-5A44-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T092456Z
+DESCRIPTION:Friday second practice times from Hockenheim 2004\n\n1 M.SCH
+ UMACHER  \nFerrari     \n1m15.001s\n2 RAIKKONEN     \nMcLaren     \n1m15
+ .045s\n3 MONTOYA       \nWilliams    \n1m15.167s \n4 BUTTON        \nBAR
+          \n1m15.379s\n5 PIZZONIA      \nWilliams    \n1m15.470s\n6 DAVID
+ SON      \nBAR         \n1m15.576s\n7 SATO          \nBAR         \n1m15
+ .657s \n8 ALONSO        \nRenault     \n1m15.677s \n9 BARRICHELLO   \nFe
+ rrari     \n1m15.738s\n10 ZONTA        \nToyota      \n1m16.200s\n11 COU
+ LTHARD    \nMcLaren     \n1m16.265s\n12 WIRDHEIM     \nJaguar      \n1m1
+ 6.342s\n13 WEBBER       \nJaguar      \n1m16.514s\n14 TRULLI       \nRen
+ ault     \n1m16.660s \n15 KLIEN        \nJaguar      \n1m16.854s\n16 MAS
+ SA        \nSauber      \n1m16.865s\n17 FISICHELLA   \nSauber      \n1m1
+ 7.026s\n18 DA MATTA     \nToyota      \n1m17.300s\n19 PANIS        \nToy
+ ota      \n1m17.419s\n20 GLOCK        \nJordan      \n1m17.724s\n21 PANT
+ ANO      \nJordan      \n1m17.869s\n22 BAUMGARTNER  \nMinardi     \n1m18
+ .098s \n23 LEINDERS     \nMinardi     \n1m18.224s \n24 HEIDFELD     \nJo
+ rdan      \n1m18.243s\n25 BRUNI        \nMinardi     \n1m18.309s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050909
+DTEND;VALUE=DATE:20050910
+SUMMARY:F1 links
+UID:3EAAFBCE-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095900Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050610
+DTEND;VALUE=DATE:20050611
+SUMMARY:Practice
+UID:805B9E01-59A0-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T135003Z
+DESCRIPTION:Friday second practice times from Montreal 2004\n\n1 SATO   
+        \nBAR       \n1m14.086s\n2 ALONSO        \nRenault   \n1m14.426s 
+ \n3 M.SCHUMACHER  \nFerrari   \n1m14.535s\n4 RAIKKONEN     \nMcLaren   \
+ n1m14.581s \n5 BARRICHELLO   \nFerrari   \n1m14.705s\n6 ZONTA         \n
+ Toyota    \n1m14.871s\n7 DA MATTA      \nToyota    \n1m15.146s\n8 BUTTON
+         \nBAR       \n1m15.152s\n9 COULTHARD     \nMcLaren   \n1m15.164s
+ \n10 FISICHELLA   \nSauber    \n1m15.293s\n11 TRULLI       \nRenault   \
+ n1m15.492s\n12 DAVIDSON     \nBAR       \n1m15.513s\n13 PANIS        \nT
+ oyota    \n1m15.538s\n14 R.SCHUMACHER \nWilliams  \n1m15.803s\n15 WEBBER
+        \nJaguar    \n1m15.926s\n16 MASSA        \nSauber    \n1m16.119s\
+ n17 BRUNI        \nMinardi   \n1m16.235s\n18 HEIDFELD     \nJordan    \n
+ 1m16.508s\n19 GLOCK        \nJordan    \n1m16.524s\n20 MONTOYA      \nWi
+ lliams  \n1m16.564s\n21 KLIEN        \nJaguar    \n1m16.815s\n22 BAUMGAR
+ TNER  \nMinardi   \n1m16.981s\n23 LEINDERS     \nMinardi   \n1m17.697s \
+ n24 WIRDHEIM     \nJaguar    \n1m19.260s
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140330Z
+UID:725A536C-597B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.autodromoimla.com
+DTSTART;VALUE=DATE:20050422
+SUMMARY:San Marino GP weekend
+DTEND;VALUE=DATE:20050425
+DESCRIPTION:SAN MARINO\n\nCircuit Length:\n3.063 miles (4.931 km)\nPerma
+ nent road course\nAnti-clockwise\nSpectator capacity: \n60000 General ad
+ mission\nFirst Grand Prix:14 Sep 1980\n\nwww.autodromoimla.com\n\n\nONLI
+ NE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com/image
+ s/04general/san_marino04.gif\n2004 grid\nhttp://www.kimistuff.com/images
+ /04grids/60790512__SAN_Grid_2004.gif\n2004 lapchart\nhttp://www.kimistuf
+ f.com/images/04lapcharts/1455492851__SAN_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050506
+DTEND;VALUE=DATE:20050507
+SUMMARY:F1 links
+UID:BB35C4FF-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095524Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050910
+DTEND;VALUE=DATE:20050911
+SUMMARY:Qualifying
+UID:4A75CB8D-5A48-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T095112Z
+DESCRIPTION:Belgian Grand Prix grid 2004\n\n1 TRULLI        \nRenault   
+  \n1m56.232s\n2 M.SCHUMACHER  \nFerrari    \n1m56.304s \n3 ALONSO       
+  \nRenault    \n1m56.686s\n4 COULTHARD     \nMcLaren    \n1m57.990s\n5 F
+ ISICHELLA    \nSauber     \n1m58.040s \n6 BARRICHELLO   \nFerrari    \n1
+ m58.175s\n7 WEBBER        \nJaguar     \n1m58.729s\n8 MASSA         \nSa
+ uber     \n1m59.008s\n9 PANIS         \nToyota     \n1m59.552s\n10 RAIKK
+ ONEN    \nMcLaren    \n1m59.635s\n11 MONTOYA      \nWilliams   \n1m59.68
+ 1s \n12 BUTTON       \nBAR        \n2m00.237s\n13 KLIEN        \nJaguar 
+     \n2m01.246s\n14 PIZZONIA     \nWilliams   \n2m01.447s\n15 SATO      
+    \nBAR        \n2m01.813s\n16 HEIDFELD     \nJordan     \n2m02.645s\n1
+ 7 BRUNI        \nMinardi    \n2m02.651s\n18 BAUMGARTNER  \nMinardi    \n
+ 2m03.303s\n19 PANTANO      \nJordan     \n2m03.833s\n20 ZONTA        \nT
+ oyota     \n2m03.895s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050708
+DTEND;VALUE=DATE:20050709
+SUMMARY:F1 links
+UID:FD607ABC-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095710Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050528
+DTEND;VALUE=DATE:20050529
+SUMMARY:Qualifying
+UID:E3D1FEBD-599F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T134536Z
+DESCRIPTION:Grid for the European Grand Prix 2004\n\n1 M.SCHUMACHER  \nF
+ errari  \n1m28.351s\n2 SATO          \nBAR      \n1m28.986s\n3 TRULLI   
+      \nRenault  \n1m29.135s \n4 RAIKKONEN     \nMcLaren  \n1m29.137s\n5 
+ BUTTON        \nBAR      \n1m29.245s\n6 ALONSO        \nRenault  \n1m29.
+ 313s\n7 BARRICHELLO   \nFerrari  \n1m29.353s\n8 MONTOYA       \nWilliams
+  \n1m29.354s\n9 R.SCHUMACHER  \nWilliams \n1m29.459s\n10 PANIS        \n
+ Toyota   \n1m29.697s\n11 DA MATTA     \nToyota   \n1m29.706s\n12 WEBBER 
+       \nJaguar   \n1m30.797s\n13 KLIEN        \nJaguar   \n1m31.431s\n14
+  HEIDFELD     \nJordan   \n1m31.604s\n15 PANTANO      \nJordan   \n1m31.
+ 979s\n16 MASSA        \nSauber   \n1m31.982s\n17 BRUNI        \nMinardi 
+  \n1m34.022s \n18 BAUMGARTNER  \nMinardi  \n1m34.398s\n19 FISICHELLA   \
+ nSauber   \nno time\n20 COULTHARD    \nMcLaren  \nno time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050923
+DTEND;VALUE=DATE:20050924
+SUMMARY:F1 links
+UID:4723CD86-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095913Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050318
+DTEND;VALUE=DATE:20050319
+SUMMARY:F1 links
+UID:9D8D2C93-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095430Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050617
+DTEND;VALUE=DATE:20050618
+SUMMARY:Practice
+UID:CCF5CA72-59A3-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T141333Z
+DESCRIPTION:Friday second practice times from Indianapolis 2004\n\n1 BAR
+ RICHELLO   \nFerrari   \n1m10.365s\n2 DAVIDSON      \nBAR       \n1m10.9
+ 67s\n3 MONTOYA       \nWilliams  \n1m10.982s\n4 M.SCHUMACHER  \nFerrari 
+   \n1m11.036s\n5 BUTTON        \nBAR       \n1m11.230s\n6 R.SCHUMACHER  
+ \nWilliams  \n1m11.530s\n7 DA MATTA      \nToyota    \n1m11.893s\n8 PANI
+ S         \nToyota    \n1m11.994s\n9 ZONTA         \nToyota    \n1m12.01
+ 9s\n10 RAIKKONEN    \nMcLaren   \n1m12.197s\n11 WEBBER       \nJaguar   
+  \n1m12.438s\n12 TRULLI       \nRenault   \n1m12.441s\n13 FISICHELLA   \
+ nSauber    \n1m12.537s\n14 SATO         \nBAR       \n1m12.601s\n15 WIRD
+ HEIM     \nJaguar    \n1m12.761s\n16 KLIEN        \nJaguar    \n1m12.950
+ s\n17 MASSA        \nSauber    \n1m13.196s \n18 BAUMGARTNER  \nMinardi  
+  \n1m13.384s\n19 GLOCK        \nJordan    \n1m13.446s\n20 ALONSO       \
+ nRenault   \n1m13.732s \n21 HEIDFELD     \nJordan    \n1m13.961s\n22 PAN
+ TANO      \nJordan    \n1m14.407s\n23 LEINDERS     \nMinardi   \n1m14.40
+ 9s\n24 BRUNI        \nMinardi   \n1m14.428s
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050902
+DTEND;VALUE=DATE:20050903
+SUMMARY:Practice
+UID:3FB4F6DF-5A47-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T094333Z
+DESCRIPTION:Friday second practice times from Monza 2004\n\n1  RAIKKONEN
+     \nMcLaren     \n1m20.846s\n2  BARRICHELLO  \nFerrari     \n1m20.899s
+  \n3  M.SCHUMACHER \nFerrari     \n1m21.080s \n4  BUTTON       \nBAR    
+      \n1m21.124s\n5  PIZZONIA     \nWilliams    \n1m21.264s\n6  SATO    
+      \nBAR         \n1m21.313s\n7  MONTOYA      \nWilliams    \n1m21.419
+ s\n8  DAVIDSON     \nBAR         \n1m21.544s\n9  ALONSO       \nRenault 
+     \n1m21.630s \n10 COULTHARD    \nMcLaren     \n1m22.052s\n11 TRULLI  
+      \nRenault     \n1m22.191s\n12 BRISCOE      \nToyota      \n1m22.197
+ s\n13 MASSA        \nSauber      \n1m22.258s\n14 ZONTA        \nToyota  
+     \n1m22.298s\n15 FISICHELLA   \nSauber      \n1m22.302s\n16 GLOCK    
+     \nJordan      \n1m22.332s\n17 WEBBER       \nJaguar      \n1m22.392s
+ \n18 PANIS        \nToyota      \n1m22.813s\n19 WIRDHEIM     \nJaguar   
+    \n1m22.914s\n20 KLIEN        \nJaguar      \n1m23.199s\n21 PANTANO   
+    \nJordan      \n1m23.818s \n22 LEINDERS     \nMinardi     \n1m24.045s
+ \n23 BAUMGARTNER  \nMinardi     \n1m24.063s\n24 BRUNI        \nMinardi  
+    \n1m24.225s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T141434Z
+UID:082124E8-597E-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.icsh.sh.cn/en/
+DTSTART;VALUE=DATE:20051014
+SUMMARY:Chinese GP weekend
+DTEND;VALUE=DATE:20051017
+DESCRIPTION:CHINA\n\nSepang - Circuit info\nOpened: 2004\nCircuit Length
+ : 5.45km\nPermanent road course\nClockwise\nTurns: 14\, 7 left and 7 rig
+ ht\nTotal capacity: 200 000 \nmain grandstand: 29.5\ngrandstands arena: 
+ 20\,60000\ntemporary and natural stands: 150\,000\n\nwww.icsh.sh.cn/en/\
+ n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuf
+ f.com/images/04general/china04.gif \n2004 grid\nhttp://www.kimistuff.com
+ /images/04grids/china_Grid_2004.gif\n2004 lapchart\nhttp://www.kimistuff
+ .com/images/04lapcharts/china_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050302
+DTEND;VALUE=DATE:20050303
+SUMMARY:04 Constructors Championship - final standings
+UID:8D03AD22-5A4D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T103022Z
+DESCRIPTION:\n****************************\n\n2004 CONSTRUCTORS CHAMPION
+ SHIP\n(Team and Points)\n\nFerrari\n262\n\nBAR\n119\n\nRenault\n105\n\nW
+ illiams\n88\n\nMcLaren\n69\n\nSauber\n34\n\nJaguar\n10\n\nToyota\n9\n\nJ
+ ordan\n5\n\nMinardi\n1
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050703
+DTEND;VALUE=DATE:20050704
+SUMMARY:Quali 2 & Race
+UID:351BD6B4-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:5
+DTSTAMP:20041230T090433Z
+DESCRIPTION:French GP result (70 laps) 2004\n\n1 M.SCHUMACHER  \nFerrari
+    \n1h30m18.133s\n2 ALONSO        \nRenault   \n+ 0m08.329s\n3 BARRICHE
+ LLO   \nFerrari   \n+ 0m31.622s\n4 TRULLI        \nRenault   \n+ 0m32.08
+ 2s \n5 BUTTON        \nBAR       \n+ 0m32.482s\n6 COULTHARD     \nMcLare
+ n   \n+ 0m35.520s \n7 RAIKKONEN     \nMcLaren   \n+ 0m36.230s\n8 MONTOYA
+        \nWilliams  \n+ 0m43.419s \n9 WEBBER        \nJaguar    \n+ 0m52.
+ 394s \n10 GENE         \nWilliams  \n+ 0m58.166s\n11 KLIEN        \nJagu
+ ar    \n+ 1 lap  \n12 FISICHELLA   \nSauber    \n+ 1 lap \n13 MASSA     
+    \nSauber    \n+ 1 lap  \n14 DA MATTA     \nToyota    \n+ 1 lap \n15 P
+ ANIS        \nToyota    \n+ 2 laps\n16 HEIDFELD     \nJordan    \n+ 2 la
+ ps \n17 PANTANO      \nJordan    \n+ 3 laps \n18 BRUNI        \nMinardi 
+   \n+ 4 laps\n19 BAUMGARTNER  \nMinardi   \n+ 39 laps\n20 SATO         \
+ nBAR       \n+ 55 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051014
+DTEND;VALUE=DATE:20051015
+SUMMARY:F1 links
+UID:5A0F6ABE-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095948Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051014
+DTEND;VALUE=DATE:20051015
+SUMMARY:Practice
+UID:00DEEC66-5A4B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T101032Z
+DESCRIPTION:Friday second practice times from Shanghai 2004\n\n1 DAVIDSO
+ N      \nBAR        \n1m33.289s\n2 BUTTON        \nBAR        \n1m34.174
+ s \n3 RAIKKONEN     \nMcLaren    \n1m34.289s\n4 COULTHARD     \nMcLaren 
+    \n1m34.362s\n5 BARRICHELLO   \nFerrari    \n1m34.448s\n6 FISICHELLA  
+   \nSauber     \n1m34.680s\n7 R.SCHUMACHER  \nWilliams   \n1m34.714s\n8 
+ M.SCHUMACHER  \nFerrari    \n1m34.776s\n9 ZONTA         \nToyota     \n1
+ m34.868s\n10 PANIS        \nToyota     \n1m34.870s\n11 BRISCOE      \nTo
+ yota     \n1m34.881s\n12 MASSA        \nSauber     \n1m34.959s\n13 ALONS
+ O       \nRenault    \n1m35.514s\n14 MONTOYA      \nWilliams   \n1m35.64
+ 6s \n15 VILLENEUVE   \nRenault    \n1m35.851s\n16 WEBBER       \nJaguar 
+     \n1m35.886s\n17 WIRDHEIM     \nJaguar     \n1m36.363s\n18 HEIDFELD  
+    \nJordan     \n1m36.630s\n19 BAUMGARTNER  \nMinardi    \n1m37.076s\n2
+ 0 KLIEN        \nJaguar     \n1m37.111s\n21 BRUNI        \nMinardi    \n
+ 1m37.431s\n22 GLOCK        \nJordan     \n1m37.728s\n23 LEINDERS     \nM
+ inardi    \n1m38.522s\n24 DOORNBOS     \nJordan     \n1m39.051s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050902
+DTEND;VALUE=DATE:20050903
+SUMMARY:F1 links
+UID:355ADBC2-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095844Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050722
+DTEND;VALUE=DATE:20050723
+SUMMARY:F1 links
+UID:05C7D0C6-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095725Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050909
+DTEND;VALUE=DATE:20050910
+SUMMARY:Practice
+UID:41E001E8-5A48-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T095047Z
+DESCRIPTION:Friday second practice times from Spa 2004\n\n1 RAIKKONEN   
+   \nMcLaren      \n1m44.701s\n2 BUTTON        \nBAR          \n1m45.010s
+ \n3 M.SCHUMACHER  \nFerrari      \n1m45.137s\n4 DAVIDSON      \nBAR     
+      \n1m45.430s\n5 SATO          \nBAR          \n1m45.451s\n6 COULTHAR
+ D     \nMcLaren      \n1m45.510s\n7 PIZZONIA      \nWilliams     \n1m45.
+ 600s\n8 BARRICHELLO   \nFerrari      \n1m45.625s\n9 ALONSO        \nRena
+ ult      \n1m45.658s\n10 MONTOYA      \nWilliams     \n1m45.680s\n11 MAS
+ SA        \nSauber       \n1m45.960s\n12 FISICHELLA   \nSauber       \n1
+ m45.990s\n13 WEBBER       \nJaguar       \n1m46.480s\n14 PANIS        \n
+ Toyota       \n1m46.530s\n15 ZONTA        \nToyota       \n1m46.900s\n16
+  TRULLI       \nRenault      \n1m47.010s\n17 WIRDHEIM     \nJaguar      
+  \n1m47.270s\n18 KLIEN        \nJaguar       \n1m47.380s\n19 BRISCOE    
+   \nToyota       \n1m47.634s\n20 BAUMGARTNER  \nMinardi      \n1m48.690s
+ \n21 HEIDFELD     \nJordan       \n1m48.800s\n22 GLOCK        \nJordan  
+      \n1m48.810s\n23 PANTANO      \nJordan       \n1m48.980s\n24 LEINDER
+ S     \nMinardi      \n1m49.480s\n25 BRUNI        \nMinardi      \n1m49.
+ 750s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050924
+DTEND;VALUE=DATE:20050925
+SUMMARY:Qualifying
+UID:FE21F9F8-5A48-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T095603Z
+DESCRIPTION:Brazilian Grand Prix grid 2004\n\n1 BARRICHELLO  \nFerrari  
+  \n1m10.646s \n2 MONTOYA      \nWilliams  \n1m10.850s\n3 RAIKKONEN    \n
+ McLaren   \n1m10.892s \n4 MASSA        \nSauber    \n1m10.922s\n5 BUTTON
+        \nBAR       \n1m11.092s\n6 SATO         \nBAR       \n1m11.120s\n
+ 7 R.SCHUMACHER \nWilliams  \n1m11.131s\n8 ALONSO       \nRenault   \n1m1
+ 1.454s\n9 TRULLI       \nToyota    \n1m11.483s\n10 FISICHELLA   \nSauber
+    \n1m11.571s\n11 WEBBER       \nJaguar   \n1m11.665s \n12 COULTHARD   
+  \nMcLaren  \n1m11.750s\n13 VILLENEUVE   \nRenault  \n1m11.836s\n14 ZONT
+ A        \nToyota   \n1m11.974s\n15 KLIEN        \nJaguar   \n1m12.211s\
+ n16 HEIDFELD     \nJordan   \n1m12.829s\n17 GLOCK        \nJordan   \n1m
+ 13.502s\n18 M.SCHUMACHER \nFerrari  \n1m11.386s*\n19 BAUMGARTNER  \nMina
+ rdi  \n1m13.550s\n20 BRUNI        \nMinardi  \nno time\n\n*Given 10 plac
+ e grid penalty for changing engine\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050423
+DTEND;VALUE=DATE:20050424
+SUMMARY:Qualifying
+UID:76772D26-599C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T132109Z
+DESCRIPTION:Grid for the San Marino Grand Prix\n2004\n\n1 Button        
+ \nBAR       \n1m19.753s\n2 M.Schumacher  \nFerrari   \n1m20.011s \n3 Mon
+ toya       \nWilliams  \n1m20.212s \n4 Barrichello   \nFerrari   \n1m20.
+ 451s \n5 R.Schumacher  \nWilliams  \n1m20.538s \n6 Alonso        \nRenau
+ lt   \n1m20.895s \n7 Sato          \nBAR       \n1m20.913s \n8 Webber   
+      \nJaguar    \n1m20.921s \n9 Trulli        \nRenault   \n1m21.034s \
+ n1 da Matta      \nToyota    \n1m21.087s \n11 Coulthard    \nMcLaren   \
+ n1m21.091s \n12 Massa        \nSauber    \n1m21.532s \n13 Panis        \
+ nToyota    \n1m21.558s \n14 Klien        \nJaguar    \n1m21.949s \n15 Pa
+ ntano      \nJordan    \n1m23.352s \n16 Heidfeld     \nJordan    \n1m23.
+ 488s \n17 Bruni        \nMinardi   \n1m26.899s \n18 Baumgartner  \nMinar
+ di   \n1m46.299s \n19 Raikkonen    \nMcLaren   \nNo Time \n20 Fisichella
+    \nSauber    \nNo Time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050619
+DTEND;VALUE=DATE:20050620
+SUMMARY:Quali 2 & Race
+UID:263CBB64-4CE1-11D9-A75E-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T141819Z
+DESCRIPTION:US Grand Prix result (73 laps) 2004\n\n1 M.SCHUMACHER  \nFer
+ rari   \n1h40m29.914s\n2 BARRICHELLO   \nFerrari   \n+ 2.950s\n3 SATO   
+        \nBAR       \n+ 22.036s\n4 TRULLI        \nRenault   \n+ 34.544s\
+ n5 PANIS         \nToyota    \n+ 37.534s\n6 RAIKKONEN     \nMcLaren   \n
+ + 1 lap\n7 COULTHARD     \nMcLaren   \n+ 1 lap\n8 BAUMGARTNER   \nMinard
+ i   \n+ 3 laps\n9 FISICHELLA    \nSauber    \n+ 8 laps\n10 WEBBER       
+ \nJaguar    \n+ 13 laps \n11 MONTOYA      \nWilliams  \n+ 16 laps\n12 HE
+ IDFELD     \nJordan    \n+ 30 laps\n13 BUTTON       \nBAR       \n+ 47 l
+ aps\n14 DA MATTA     \nToyota    \n+ 56 laps\n15 R.SCHUMACHER \nWilliams
+   \n+ 64 laps\n16 ALONSO       \nRenault   \n+ 65 laps\n17 KLIEN        
+ \nJaguar    \n+ 73 laps \n18 MASSA        \nSauber    \n+ 73 laps\n19 PA
+ NTANO      \nJordan    \n+ 73 laps\n20 BRUNI        \nMinardi   \n+ 73 l
+ aps\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050306
+DTEND;VALUE=DATE:20050307
+SUMMARY:Quali 2 & Race
+UID:13A7A47E-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T103235Z
+DESCRIPTION:Full race result from Melbourne\n2004\n\n1  M.SCHUMACHER \nF
+ errari   \n1h24m15.757s\n2  BARRICHELLO  \nFerrari   \n+ 0m13.605s\n3  A
+ LONSO       \nRenault   \n+ 0m34.612s\n4  R.SCHUMACHER \nWilliams  \n+ 1
+ m00.444s\n5  MONTOYA      \nWilliams  \n+ 1m08.590s\n6  BUTTON       \nB
+ AR       \n+ 1m10.512s\n7  TRULLI       \nRenault   \n+ 1 lap\n8  COULTH
+ ARD    \nMcLaren   \n+ 1 lap\n9  SATO         \nBAR       \n+ 1 lap  \n1
+ 0 FISICHELLA   \nSauber    \n+ 1 lap \n11 KLIEN        \nJaguar    \n+ 2
+  laps  \n12 DA MATTA     \nToyota    \n+ 2 laps  \n13 PANIS        \nToy
+ ota    \n+ 2 laps \n14 PANTANO      \nJordan    \n+ 3 laps    \n15 MASSA
+         \nSauber    \n+ 14 laps  \n16 HEIDFELD     \nJordan    \n+ 15 la
+ ps \n17 BRUNI        \nMinardi   \n+ 15 laps \n18 WEBBER       \nJaguar 
+    \n+ 29 laps\n19 BAUMGARTNER  \nMinardi   \n+ 45 laps \n20 RAIKKONEN  
+   \nMcLaren   \n+ 49 laps  
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050730
+DTEND;VALUE=DATE:20050731
+SUMMARY:Qualifying
+UID:F8D102CA-5A45-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T093429Z
+DESCRIPTION:Grid for the Hungarian GP 2004\n\n1 M.SCHUMACHER  \nFerrari 
+   \n1m19.146s\n2 BARRICHELLO   \nFerrari   \n1m19.323s\n3 SATO          
+ \nBAR       \n1m19.693s\n4 BUTTON        \nBAR       \n1m19.700s\n5 ALON
+ SO        \nRenault   \n1m19.996s\n6 PIZZONIA      \nWilliams  \n1m20.17
+ 0s\n7 MONTOYA       \nWilliams  \n1m20.199s \n8 FISICHELLA    \nSauber  
+   \n1m20.324s\n9 TRULLI        \nRenault   \n1m20.411s \n10 RAIKKONEN   
+  \nMcLaren   \n1m20.570s\n11 WEBBER       \nJaguar    \n1m20.730s\n12 CO
+ ULTHARD    \nMcLaren   \n1m20.897s\n13 PANIS        \nToyota    \n1m21.0
+ 68s\n14 KLIEN        \nJaguar    \n1m21.118s\n15 ZONTA        \nToyota  
+   \n1m21.135s\n16 HEIDFELD     \nJordan    \n1m22.180s\n17 PANTANO      
+ \nJordan    \n1m22.356s\n18 BAUMGARTNER  \nMinardi   \n1m24.329s\n19 BRU
+ NI        \nMinardi   \n1m24.679s\n20 MASSA        \nSauber    \nno time
+ \n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050729
+DTEND;VALUE=DATE:20050730
+SUMMARY:F1 links
+UID:1FA5A5A1-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095810Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050701
+DTEND;VALUE=DATE:20050702
+SUMMARY:Practice
+UID:AB355F2C-5A41-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T090339Z
+DESCRIPTION:Friday second practice times from Magny-Cours 2004\n\n1 DA M
+ ATTA      \nToyota    \n1m15.518s\n2 TRULLI        \nRenault   \n1m16.20
+ 6s\n3 DAVIDSON      \nBAR       \n1m16.231s\n4 BUTTON        \nBAR      
+  \n1m16.397s\n5 M.SCHUMACHER  \nFerrari   \n1m16.397s\n6 ALONSO        \
+ nRenault   \n1m16.454s \n7 COULTHARD     \nMcLaren   \n1m16.464s\n8 WEBB
+ ER        \nJaguar    \n1m16.745s\n9 RAIKKONEN     \nMcLaren   \n1m16.79
+ 4s\n10 BARRICHELLO  \nFerrari   \n1m17.094s\n11 PANIS        \nToyota   
+  \n1m17.303s\n12 FISICHELLA   \nSauber    \n1m17.324s\n13 MONTOYA      \
+ nWilliams  \n1m17.556s\n14 GENE         \nWilliams  \n1m17.688s\n15 ZONT
+ A        \nToyota    \n1m17.735s\n16 KLIEN        \nJaguar    \n1m17.936
+ s\n17 SATO         \nBAR       \n1m17.967s\n18 MASSA        \nSauber    
+ \n1m18.614s\n19 PANTANO      \nJordan    \n1m18.711s\n20 WIRDHEIM     \n
+ Jaguar    \n1m19.179s\n21 HEIDFELD     \nJordan    \n1m19.270s \n22 BRUN
+ I        \nMinardi   \n1m19.349s\n23 GLOCK        \nJordan    \n1m19.490
+ s\n24 BAUMGARTNER  \nMinardi   \n1m19.636s\n25 LEINDERS     \nMinardi   
+ \n1m19.914s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051008
+DTEND;VALUE=DATE:20051009
+SUMMARY:Qualifying
+UID:124536AD-5A4A-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T100359Z
+DESCRIPTION:Japanese Grand Prix starting grid 2004\n\n1 M.SCHUMACHER  \n
+ Ferrari    \n1m33.542s\n2 R.SCHUMACHER  \nWilliams   \n1m34.032s\n3 WEBB
+ ER        \nJaguar     \n1m34.571s\n4 SATO          \nBAR        \n1m34.
+ 897s\n5 BUTTON        \nBAR        \n1m35.157s\n6 TRULLI        \nToyota
+      \n1m35.213s\n7 FISICHELLA    \nSauber     \n1m36.136s\n8 COULTHARD 
+     \nMcLaren    \n1m36.156s\n9 VILLENEUVE    \nRenault    \n1m36.274s\n
+ 10 PANIS        \nToyota     \n1m36.420s\n11 ALONSO       \nRenault    \
+ n1m36.663s\n12 RAIKKONEN    \nMcLaren    \n1m36.820s\n13 MONTOYA      \n
+ Williams   \n1m37.653s\n14 KLIEN        \nJaguar     \n1m38.258s\n15 BAR
+ RICHELLO  \nFerrari    \n1m38.637s\n16 HEIDFELD     \nJordan     \n1m41.
+ 953s\n17 GLOCK        \nJordan     \n1m43.533s\n18 BRUNI        \nMinard
+ i    \n1m48.069s\n19 BAUMGARTNER  \nMinardi    \nno time\n20 MASSA      
+   \nSauber     \nno time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050402
+DTEND;VALUE=DATE:20050403
+SUMMARY:Qualifying
+UID:33ABA900-5986-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T104145Z
+DESCRIPTION:Final qualifying times from Bahrain 2004\n\n1 M.SCHUMACHER  
+ \nFerrari   \n1m30.139s\n2 BARRICHELLO   \nFerrari   \n1m30.530s\n3 MONT
+ OYA       \nWilliams  \n1m30.581s\n4 R.SCHUMACHER  \nWilliams  \n1m30.63
+ 3s\n5 SATO          \nBAR       \n1m30.827s\n6 BUTTON        \nBAR      
+  \n1m30.856s\n7 TRULLI        \nRenault   \n1m30.971s\n8 PANIS         \
+ nToyota    \n1m31.686s\n9 DA MATTA      \nToyota    \n1m31.717s\n10 COUL
+ THARD    \nMcLaren   \n1m31.719s\n11 FISICHELLA   \nSauber    \n1m31.731
+ s\n12 KLIEN        \nJaguar    \n1m32.332s\n13 MASSA        \nSauber    
+ \n1m32.536s\n14 WEBBER       \nJaguar    \n1m32.625s\n15 HEIDFELD     \n
+ Jordan    \n1m33.503s\n16 PANTANO      \nJordan    \n1m34.105s\n17 ALONS
+ O       \nRenault   \n1m34.130s\n18 BRUNI        \nMinardi   \n1m34.584s
+ \n19 BAUMGARTNER  \nMinardi   \n1m35.787s\n20 RAIKKONEN    \nMcLaren   \
+ nno time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050507
+DTEND;VALUE=DATE:20050508
+SUMMARY:Qualifying
+UID:DF1F9336-599D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T133109Z
+DESCRIPTION:Grid for Spanish Grand Prix 2004\n\n1 M.Schumacher  \nFerrar
+ i   \n1m15.022s \n2 Montoya       \nWilliams  \n1m15.639s\n3 Sato       
+    \nBAR       \n1m15.809s\n4 Trulli        \nRenault   \n1m16.144s\n5 B
+ arrichello   \nFerrari   \n1m16.272s\n6 R.Schumacher  \nWilliams  \n1m16
+ .293s\n7 Panis         \nToyota    \n1m16.313s\n8 Alonso        \nRenaul
+ t   \n1m16.422s\n9 Webber        \nJaguar    \n1m16.514s\n10 Coulthard  
+   \nMcLaren   \n1m16.636s\n11 da Matta     \nToyota    \n1m17.038s\n12 F
+ isichella   \nSauber    \n1m17.444s\n13 Raikkonen    \nMcLaren   \n1m17.
+ 445s\n14 Button       \nBAR       \n1m17.575s\n15 Heidfeld     \nJordan 
+    \n1m17.802s\n16 Klien        \nJaguar    \n1m17.812s\n17 Massa       
+  \nSauber    \n1m17.866s\n18 Bruni        \nMinardi   \n1m19.817s\n19 Pa
+ ntano      \nJordan    \n1m20.607s\n20 Baumgartner  \nMinardi   \n1m21.4
+ 70s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140259Z
+UID:323DF811-597B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.bahraingp.com.bh
+DTSTART;VALUE=DATE:20050401
+SUMMARY:Bahrain GP weekend
+DTEND;VALUE=DATE:20050404
+DESCRIPTION:BAHRAIN\n\nCircuit Info\nOpened: 2004\nCircuit Length: \n5.4
+ 75km\nPermanent road course\nClockwise\nTurns: 16\nSpectator capacity:\n
+ Total: 50 000 \nMain grandstand: 10\,000\n\nwww.bahraingp.com.bh\n\n\nON
+ LINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com/ima
+ ges/04general/bahrain04.gif \n2004 grid\nhttp://www.kimistuff.com/images
+ /04grids/bahrain_Grid.gif\n2004 lapchart\nhttp://www.kimistuff.com/image
+ s/04lapcharts/bahrain_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050819
+DTEND;VALUE=DATE:20050820
+SUMMARY:F1 links
+UID:2C297CA7-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095830Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T141211Z
+UID:F2921FA2-597D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.suzukacircuit.co.jp
+DTSTART;VALUE=DATE:20051007
+SUMMARY:Japanese GP weekend
+DTEND;VALUE=DATE:20051010
+DESCRIPTION:JAPANESE\n\nCircuit Length:\n3.644 miles (5.864 km)\nPermane
+ nt road circuit\nClockwise\nTurns: 16\nSpectator capacity:\n100000 Gener
+ al admission\nFirst Grand Prix:\n01 Nov 1987\n\nwww.suzukacircuit.co.jp\
+ n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuf
+ f.com/images/04general/japan04.gif\n2004 grid\nhttp://www.kimistuff.com/
+ images/04grids/Japan_Grid_2004.gif\n2004 lapchart\nhttp://www.kimistuff.
+ com/images/04lapcharts/Japan_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041229T102607Z
+UID:6FC079BB-5983-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+URL;VALUE=URI:http://www.fia.com
+DTSTART;VALUE=DATE:20050303
+SUMMARY:Rules & Regs
+DTEND;VALUE=DATE:20050304
+DESCRIPTION:The following regulations will apply to  the 2005 Formula 1 
+ Season \n(changes from the 2004  F1 regulations) :  \n\n Engines:\nEach 
+ engine must last for two complete Events. \nFrom the 2005 Formula 1 Spor
+ ting Regulations:\nSpare Cars and Engines\n85)\nEach driver may use no m
+ ore than one engine for two  consecutive Events. Should it become necess
+ ary for a driver to use another  engine he will drop ten places on the s
+ tarting grid at that Event and may  not use another engine until the end
+  of the next Event. Any driver who  failed to finish the race at the fir
+ st of the two Events may start the  second with a different engine witho
+ ut incurring a penalty. \n However\, should an engine change be carried 
+ out after the first qualifying  practice session but before the race at 
+ either of the two Events\, any  drivers concerned will be required to st
+ art the relevant race from the back  of the starting grid in accordance 
+ with Article 126. \n After consultation with the relevant engine supplie
+ r the FIA will attach  seals to each engine in order to ensure that no s
+ ignificant moving parts can  be rebuilt or replaced. Following the first
+  of the two Events further seals  will be applied in order to ensure tha
+ t the engine cannot be run until the  second Event unless it is installe
+ d in the car concerned. \n Other than the straightforward replacement of
+  one engine unit with another\,  a change will also be deemed to have ta
+ ken place if any of the FIA seals are damaged or removed from the origin
+ al engine after it has been used for the  first time.\n\nTyres:\nOne set
+  of tyres must complete qualifying and the race.\nFrom the 2005 Formula 
+ 1 Sporting Regulations:\n74)\nQuantity and type of tyres\na)\nDuring the
+  Event no driver may use more than four sets of  dry-weather tyres\, fou
+ r sets of wet weather tyres and three sets of  extreme-weather tyres. \n
+  If a driver change is made during an Event the tyres allocated to the  
+ original driver must be used by the new driver. \n From the four sets of
+  dry-weather tyres each driver will be allocated two  sets of differing 
+ specification for use on the first day of practice. \n For the purposes 
+ of the above a set of tyres will be deemed to comprise two front and two
+  rear tyres of the same specification. \n Before 08.00 (or 07.00 during 
+ Events taking place in North America) on the second day of practice each
+  driver must nominate which specification of tyre  he will use for the r
+ emainder of the Event. However\, if both free practice  sessions on the 
+ first day of practice are declared wet this decision may be  deferred un
+ til 12.00 (or 11.00 during Events taking place in North America).\nUnles
+ s the use of wet or extreme-weather tyres is necessary one of the remain
+ ing unused sets of dry-weather tyres must be used for both of the qualif
+ ying sessions\, all reconnaissance laps and the entire race. Unless a pr
+ ecautionary tyre change is necessary for clear and genuine safety reason
+ s\,  only a punctured or damaged tyre may be changed during a race. No r
+ efuelling  will be permitted whilst a car is in the pits for the purpose
+ s of changing a  tyre.\n\nAerodynamics:\nBodywork Changes to the bodywor
+ k (aerodynamics) to raise the  front wing\, bring the rear wing forward\
+ , reduce the diffuser height and cut  back the bodywork in front of the 
+ rear wheels.\nFrom the 2005 Formula 1 Sporting Regulations:\n3.7\nFront 
+ bodywork height \n3.7.1\nAll bodywork situated forward of a point lying 
+ 330mm  behind the front wheel centre line\, and more than 250mm from the
+   centre line of the car\, must be no less than 150mm and no more than  
+ 350mm above the reference plane. \n3.7.2\nAll bodywork situated forward 
+ of the front wheel centre  line must be no less than 50mm above the refe
+ rence plane. \n3.8\nBodywork in front of the rear  wheels\n3.8.4\nWith t
+ he rear wheels removed and when viewed from  above\, no bodywork more th
+ an 500mm from the car centre line may lie  between the rear wheel centre
+  line and a point 400mm forward of it.  Any bodywork forming the forward
+  inner corner of these areas may have  a radius no greater than 140mm.\n
+ 3.10\nHeight behind the rear wheel  centre line\n3.10.1\nAny part of the
+  car behind the centre line of the rear  wheels must not be more than 80
+ 0mm above the reference plane. \n3.10.2\nNo bodywork behind the centre l
+ ine of the rear wheels\,  and more than 150mm each side of the longitudi
+ nal centre line of the  car\, may be less than 300mm above the reference
+  plane. \n3.10.3\nAny bodywork more than 150mm behind the rear wheel  ce
+ ntre line which is between 300mm and 600mm above the reference  plane\, 
+ and between 75mm and 480mm from the car centre line\, must lie  in an ar
+ ea when viewed from the side of the car that is situated  between 300mm 
+ and 375mm above the reference plane and between 150mm  and 500mm behind 
+ the rear wheel centre line. When viewed from the side  of the car no lon
+ gitudinal cross section may have more than one closed  section in the lo
+ wer area. \nAny bodywork behind the rear wheel centre line which is more
+  than  375mm above the reference plane\, and between 75mm and 480mm from
+  the  car centre line\, must lie in an area when viewed from the side of
+  the  car that is situated between 600mm and 800mm above the reference p
+ lane  and between the rear wheel centre line and a point 350mm behind it
+ .  When viewed from the side of the car\, no longitudinal cross section 
+  may have more than two closed sections in the upper area. Furthermore\,
+   the distance between adjacent sections at any longitudinal plane must 
+  not exceed 15mm at their closest position. \nIn side view\, the project
+ ed area of any bodywork lying between  300mm and 800mm above the referen
+ ce plane and between the rear wheel  centre line and a point 600mm behin
+ d it must be greater than  230000mm².\n3.12\nBodywork facing the ground\
+ n3.12.6\nTo help overcome any possible manufacturing problems\, and not 
+  to permit any design which may contravene any part of these regulations
+ \,  dimensional tolerances are permitted on bodywork situated between a 
+ point  lying 330mm behind the front wheel centre line and the rear wheel
+  centre line.  A vertical tolerance of +/- 5mm is permissible across the
+  surfaces lying on  the reference and step planes and a horizontal toler
+ ance of 5mm is permitted  when assessing whether a surface is visible fr
+ om beneath the car. \n3.12.7\nNo bodywork more than 150mm from the car c
+ entre line\,  which is visible from beneath the car and which lies betwe
+ en the rear  wheel centre line and a point 330mm forward of it may be mo
+ re than  125mm above the reference plane. Any intersection of the surfac
+ es in  this area with a lateral or longitudinal vertical plane should fo
+ rm  one continuous line which is visible from beneath the car. Additiona
+ lly\, any bodywork in this area must produce uniform\, solid\,  hard\, c
+ ontinuous\, rigid (no degree of freedom in relation to the  body/chassis
+  unit)\, impervious surfaces under all circumstances.\n\n\n*************
+ ********************\n\n\n2005 Formula 1 Qualifying System\n(correct at 
+ 28_12_04)\n\nSaturday Afternoon Session (13:00 to 14:00 )\nSingle lap qu
+ alifying with the cars going out in the reverse order of their  finishin
+ g positions at the previous race.\nNo restrictions on fuel load\n\nSunda
+ y Morning Session (10:00 to 11:00 )\nSingle lap qualifying with the cars
+  going out in the reverse order of the  qualifying on Saturday (fastest 
+ car on Saturday goes out last on Sunday)\nSession to run with race fuel 
+ load. (no refuelling allowed prior to the start  of the race)  \n\nTimes
+  from the two sessions are added and the grid is determined with the  sh
+ ortest aggregate time on pole.
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050527
+DTEND;VALUE=DATE:20050528
+SUMMARY:Practice
+UID:B98019E7-599F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T134422Z
+DESCRIPTION:Friday second practice times from the Nurburgring 2004\n\n1 
+ RAIKKONEN     \nMcLaren  \n1m29.355s\n2 BUTTON        \nBAR      \n1m29.
+ 618s  \n3 R.SCHUMACHER  \nWilliams \n1m29.677s  \n4 COULTHARD     \nMcLa
+ ren  \n1m29.700s \n5 TRULLI        \nRenault  \n1m29.919s  \n6 BARRICHEL
+ LO   \nFerrari  \n1m29.943s \n7 DAVIDSON      \nBAR      \n1m30.028s\n8 
+ ALONSO        \nRenault  \n1m30.163s  \n9 M.SCHUMACHER  \nFerrari  \n1m3
+ 0.227s  \n10 SATO         \nBAR      \n1m30.283s\n11 MONTOYA      \nWill
+ iams \n1m30.337s \n12 WEBBER       \nJaguar   \n1m30.466s\n13 PANIS     
+    \nToyota   \n1m30.497s \n14 DA MATTA     \nToyota   \n1m30.531s \n15 
+ ZONTA        \nToyota   \n1m30.949s  \n16 FISICHELLA   \nSauber   \n1m30
+ .974s \n17 WIRDHEIM     \nJaguar   \n1m31.780s\n18 GLOCK        \nJordan
+    \n1m32.080s\n19 KLIEN        \nJaguar   \n1m32.217s\n20 MASSA        
+ \nSauber   \n1m32.310s\n21 BRUNI        \nMinardi  \n1m32.643s\n22 BAUMG
+ ARTNER  \nMinardi  \n1m32.986s \n23 HEIDFELD     \nJordan   \n1m33.175s 
+ \n24 PANTANO      \nJordan   \n1m33.393s\n25 LEINDERS     \nMinardi  \n1
+ m34.538s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140455Z
+UID:E309A796-597B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.grandprix.ca
+DTSTART;VALUE=DATE:20050610
+SUMMARY:Canadian GP weekend
+DTEND;VALUE=DATE:20050613
+DESCRIPTION:CANADA\n\nHeld at Circuit Gilles Villeneuve\,\nIsle de Notre
+  Dame\, Montreal\n\nCircuit Length:\n2.747 miles (4.421 km)\nTemporary s
+ reet course\nClockwise\nSpectator capacity:\n100000 General admission \n
+ First Grand Prix:\n08 Oct 1978\n\nwww.grandprix.ca\n\n\n\nONLINE GRAPHIC
+ S\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com/images/04genera
+ l/canada04.gif \n2004 grid\nhttp://www.kimistuff.com/images/04grids/Cana
+ da_grid_04.gif\n2004 lapchart\nhttp://www.kimistuff.com/images/04lapchar
+ ts/canada_lapchart_04.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050424
+DTEND;VALUE=DATE:20050425
+SUMMARY:Quali 2 & Race
+UID:43C24B44-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T132229Z
+DESCRIPTION:San Marino Grand Prix result (62 laps) 2004\n\n1  M.Schumach
+ er  \nFerrari   \n1h26:19.670s\n2  Button        \nBAR       \n+ 9.702s\
+ n3  Montoya       \nWilliams  \n+ 21.617s\n4  Alonso        \nRenault   
+ \n+ 23.654s\n5  Trulli        \nRenault   \n+ 36.216s\n6  Barrichello   
+ \nFerrari   \n+ 36.683s\n7  R.Schumacher  \nWilliams  \n+ 55.730s\n8  Ra
+ ikkonen     \nMcLaren   \n+ 1 lap\n9  Fisichella    \nSauber    \n+ 1 la
+ p\n10  Massa        \nSauber    \n+ 1 lap\n11  Panis        \nToyota    
+ \n+ 1 lap\n12  Coulthard    \nMcLaren   \n+ 1 lap\n13  Webber       \nJa
+ guar    \n+ 1 lap\n14  Klien        \nJaguar    \n+ 2 laps\n15  Baumgart
+ ner  \nMinardi   \n+ 4 laps\n16  Sato         \nBAR       \n+ 6 laps\n17
+   Heidfeld     \nJordan    \n+ 14 laps\n18  Da Matta     \nToyota    \n+
+  30 laps\n19  Bruni        \nMinardi   \n+ 40 laps\n20  Pantano      \nJ
+ ordan    \n+ 56 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050617
+DTEND;VALUE=DATE:20050618
+SUMMARY:F1 links
+UID:E4F459F8-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095632Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050611
+DTEND;VALUE=DATE:20050612
+SUMMARY:Qualifying
+UID:C9222772-59A0-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T135200Z
+DESCRIPTION:Grid for the Canadian GP 2004\n\n1 R.SCHUMACHER  \nWilliams 
+  \n1m12.275s\n2 BUTTON        \nBAR       \n1m12.341s\n3 TRULLI        \
+ nRenault   \n1m13.023s \n4 MONTOYA       \nWilliams  \n1m13.072s\n5 ALON
+ SO        \nRenault   \n1m13.308s\n6 M.SCHUMACHER  \nFerrari   \n1m13.35
+ 5s\n7 BARRICHELLO   \nFerrari   \n1m13.562s\n8 RAIKKONEN     \nMcLaren  
+  \n1m13.595s\n9 COULTHARD     \nMcLaren   \n1m13.681s\n10 KLIEN        \
+ nJaguar    \n1m14.532s\n11 FISICHELLA   \nSauber    \n1m14.674s\n12 DA M
+ ATTA     \nToyota    \n1m14.851s\n13 PANIS        \nToyota    \n1m14.891
+ s\n14 WEBBER       \nJaguar    \n1m15.148s \n15 HEIDFELD     \nJordan   
+  \n1m15.321s\n16 GLOCK        \nJordan    \n1m16.323s\n17 SATO         \
+ nBAR       \n1m17.004s\n18 BAUMGARTNER  \nMinardi   \n1m17.064s\n19 MASS
+ A        \nSauber    \nno time\n20 BRUNI        \nMinardi   \nno time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050610
+DTEND;VALUE=DATE:20050611
+SUMMARY:F1 links
+UID:DA26C785-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095614Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050522
+DTEND;VALUE=DATE:20050523
+SUMMARY:Quali 2 & Race
+UID:59F3610C-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T134211Z
+DESCRIPTION:Monaco GP result (77 laps) 2004\n\n1 TRULLI        \nRenault
+   \n1h45m46.601s  \n2 BUTTON        \nBAR      \n+ 0.497s  \n3 BARRICHEL
+ LO   \nFerrari  \n+ 1m15.766s  \n4 MONTOYA       \nWilliams \n+ 1 lap \n
+ 5 MASSA         \nSauber   \n+ 1 lap \n6 DA MATTA      \nToyota   \n+ 1 
+ lap\n7 HEIDFELD      \nJordan   \n+ 2 laps\n8 PANIS         \nToyota   \
+ n+ 3 laps\n9 BAUMGARTNER   \nMinardi  \n+ 6 laps  \n10 R.SCHUMACHER \nWi
+ lliams \n+ 8 laps\n11 M.SCHUMACHER \nFerrari  \n+ 32 laps\n12 ALONSO    
+    \nRenault  \n+ 36 laps \n13 RAIKKONEN    \nMcLaren  \n+ 50 laps \n14 
+ BRUNI        \nMinardi  \n+ 62 laps \n15 PANTANO      \nJordan   \n+ 65 
+ laps \n16 WEBBER       \nJaguar   \n+ 66 laps\n17 SATO         \nBAR    
+   \n+ 75 laps \n18 COULTHARD    \nMcLaren  \n+ 75 laps \n19 FISICHELLA  
+  \nSauber   \n+ 75 laps\n20 KLIEN        \nJaguar   \n+ 78 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140955Z
+UID:BF9F7DF8-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.hockenheimring.de
+DTSTART;VALUE=DATE:20050722
+SUMMARY:German GP weekend
+DTEND;VALUE=DATE:20050725
+DESCRIPTION:GERMAN\n\nCircuit Length:\n4.574km (2.842 miles)\nPermanent 
+ road course\nClockwise\nSpectator capacity:\n100000 General admission\n8
+ 0000 Grandstand seats\n\nFirst Grand Prix:\n02 Aug 1970\n\nwww.hockenhei
+ mring.de\n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www
+ .kimistuff.com/images/04general/germany04.gif\n2004 grid\nhttp://www.kim
+ istuff.com/images/04grids/germany_grid_04.gif\n2004 lapchart\nhttp://www
+ .kimistuff.com/images/04lapcharts/germany_lapchart_04.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050724
+DTEND;VALUE=DATE:20050725
+SUMMARY:Quali 2 & Race
+UID:95018C7C-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+DTSTAMP:20041230T092553Z
+DESCRIPTION:German Grand Prix result (66 laps) 2004\n\n1 M.SCHUMACHER  \
+ nFerrari    \n1h23m54.848s\n2 BUTTON        \nBAR        \n+ 0m08.388s\n
+ 3 ALONSO        \nRenault    \n+ 0m16.351s \n4 COULTHARD     \nMcLaren  
+   \n+ 0m19.231s\n5 MONTOYA       \nWilliams   \n+ 0m23.055s \n6 WEBBER  
+       \nJaguar     \n+ 0m41.108s\n7 PIZZONIA      \nWilliams   \n+ 0m41.
+ 956s\n8 SATO          \nBAR        \n+ 0m46.842s\n9 FISICHELLA    \nSaub
+ er     \n+ 1m07.102s\n10 KLIEN        \nJaguar     \n+ 1m08.578s\n11 TRU
+ LLI       \nRenault    \n+ 1m10.258s\n12 BARRICHELLO  \nFerrari    \n+ 1
+ m13.252s\n13 MASSA        \nSauber     \n+ 1 lap\n14 PANIS        \nToyo
+ ta     \n+ 1 lap\n15 PANTANO      \nJordan     \n+ 3 laps\n16 BAUMGARTNE
+ R  \nMinardi    \n+ 4 laps\n17 BRUNI        \nMinardi    \n+ 4 laps \n18
+  HEIDFELD     \nJordan     \n+ 24 laps\n19 DA MATTA     \nToyota     \n+
+  28 laps\n20 RAIKKONEN    \nMcLaren    \n+ 53 laps\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050702
+DTEND;VALUE=DATE:20050703
+SUMMARY:Qualifying
+UID:B40CAB6E-5A41-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T090406Z
+DESCRIPTION:Grid for the French Grand Prix 2004\n\n1 ALONSO        \nRen
+ ault    \n1m13.698s\n2 M.SCHUMACHER  \nFerrari    \n1m13.971s\n3 COULTHA
+ RD     \nMcLaren    \n1m13.987s\n4 BUTTON        \nBAR        \n1m13.995
+ s \n5 TRULLI        \nRenault    \n1m14.070s\n6 MONTOYA       \nWilliams
+    \n1m14.172s\n7 SATO          \nBAR        \n1m14.240s\n8 GENE        
+   \nWilliams   \n1m14.275s\n9 RAIKKONEN     \nMcLaren    \n1m14.346s\n10
+  BARRICHELLO  \nFerrari    \n1m14.478s \n11 DA MATTA     \nToyota     \n
+ 1m14.553s\n12 WEBBER       \nJaguar     \n1m14.798s \n13 KLIEN        \n
+ Jaguar     \n1m15.065s\n14 PANIS        \nToyota     \n1m15.130s\n15 FIS
+ ICHELLA   \nSauber     \n1m16.177s \n16 MASSA        \nSauber     \n1m16
+ .200s\n17 HEIDFELD     \nJordan     \n1m16.807s\n18 PANTANO      \nJorda
+ n     \n1m17.462s\n19 BRUNI        \nMinardi    \n1m17.913s\n20 BAUMGART
+ NER  \nMinardi    \n1m18.247s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T141118Z
+UID:83422C2E-597D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.spa-francorchamps.be
+DTSTART;VALUE=DATE:20050909
+SUMMARY:Belgian GP weekend
+DTEND;VALUE=DATE:20050912
+DESCRIPTION:BELGIAN\n\nCircuit Length:\n4.329 miles (6.96 km)\nPart perm
+ anent road\, part public road\nClockwise\nTurns: 16\nSpectator capacity:
+ \n70000 General admission\nFirst Grand Prix:\n18 Jun 1950\n\nwww.spa-fra
+ ncorchamps.be\n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp:
+ //www.kimistuff.com/images/04general/belgium04.gif \n2004 grid\nhttp://w
+ ww.kimistuff.com/images/04grids/belgium_grid_2004.gif\n2004 lapchart\nht
+ tp://www.kimistuff.com/images/04lapcharts/belgium_lapchart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050923
+DTEND;VALUE=DATE:20050924
+SUMMARY:Practice
+UID:EFD6467E-5A48-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T095539Z
+DESCRIPTION:Friday second practice times from Interlagos 2004\n\n1 BARRI
+ CHELLO   \nFerrari   \n1m11.166s\n2 M.SCHUMACHER  \nFerrari   \n1m11.334
+ s\n3 RAIKKONEN     \nMcLaren   \n1m11.526s\n4 BUTTON        \nBAR       
+ \n1m11.731s\n5 DAVIDSON      \nBAR       \n1m11.920s\n6 SATO          \n
+ BAR       \n1m11.988s\n7 ALONSO        \nRenault   \n1m12.005s\n8 MASSA 
+         \nSauber    \n1m12.183s\n9 BRISCOE       \nToyota    \n1m12.209s
+ \n10 R.SCHUMACHER \nWilliams  \n1m12.235s\n11 MONTOYA      \nWilliams  \
+ n1m12.280s\n12 VILLENEUVE   \nRenault   \n1m12.316s\n13 DOORNBOS     \nJ
+ ordan    \n1m12.345s\n14 ZONTA        \nToyota    \n1m12.347s\n15 COULTH
+ ARD    \nMcLaren   \n1m12.430s\n16 TRULLI       \nToyota    \n1m12.545s\
+ n17 FISICHELLA   \nSauber    \n1m12.631s\n18 WEBBER       \nJaguar    \n
+ 1m12.816s\n19 HEIDFELD     \nJordan    \n1m13.114s\n20 BRUNI        \nMi
+ nardi   \n1m13.467s\n21 KLIEN        \nJaguar    \n1m13.509s\n22 GLOCK  
+       \nJordan    \n1m13.966s\n23 BAUMGARTNER  \nMinardi   \n1m13.979s\n
+ 24 WIRDHEIM     \nJaguar    \n1m14.303s\n25 LEINDERS     \nMinardi   \n1
+ m14.754s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050618
+DTEND;VALUE=DATE:20050619
+SUMMARY:Qualifying
+UID:2BFD2B6D-59A4-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T141614Z
+DESCRIPTION:Grid for the US Grand Prix 2004\n\n1 BARRICHELLO   \nFerrari
+    \n1m10.223s\n2 M.SCHUMACHER  \nFerrari   \n1m10.400s\n3 SATO         
+  \nBAR       \n1m10.601s\n4 BUTTON        \nBAR       \n1m10.820s \n5 MO
+ NTOYA       \nWilliams  \n1m11.062s\n6 R.SCHUMACHER  \nWilliams  \n1m11.
+ 106s\n7 RAIKKONEN     \nMcLaren   \n1m11.137s\n8 PANIS         \nToyota 
+    \n1m11.167s\n9 ALONSO        \nRenault   \n1m11.185s\n10 WEBBER      
+  \nJaguar    \n1m11.286s\n11 DA MATTA     \nToyota    \n1m11.691s\n12 CO
+ ULTHARD    \nMcLaren   \n1m12.026s\n13 KLIEN        \nJaguar    \n1m12.1
+ 70s\n14 FISICHELLA   \nSauber    \n1m12.470s\n15 MASSA        \nSauber  
+   \n1m12.721s\n16 HEIDFELD     \nJordan    \n1m13.147s \n17 PANTANO     
+  \nJordan    \n1m13.375s\n18 BRUNI        \nMinardi   \n1m14.010s\n19 BA
+ UMGARTNER  \nMinardi   \n1m14.812s\n20 TRULLI       \nRenault   \nno tim
+ e\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050506
+DTEND;VALUE=DATE:20050507
+SUMMARY:Practice
+UID:8BF9512A-599D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T132854Z
+DESCRIPTION:Friday second practice times from Barcelona\n2004\n\n1 Butto
+ n         \nBAR       \n1m15.935s\n2 Davidson       \nBAR       \n1m16.1
+ 88s\n3 Zonta          \nToyota    \n1m16.360s\n4 R.Schumacher   \nWillia
+ ms  \n1m16.433s\n5 Alonso         \nRenault   \n1m16.534s\n6 Barrichello
+     \nFerrari   \n1m16.698s\n7 M.Schumacher   \nFerrari   \n1m16.729s\n8
+  Trulli         \nRenault   \n1m16.734s\n9 Raikkonen      \nMcLaren   \n
+ 1m16.798s\n10 da Matta      \nToyota    \n1m16.833s\n11 Panis         \n
+ Toyota    \n1m16.925s\n12 Montoya       \nWilliams  \n1m17.067s\n13 Coul
+ thard     \nMcLaren   \n1m17.069s\n14 Webber        \nJaguar    \n1m17.1
+ 78s\n15 Glock         \nJordan    \n1m17.608s\n16 Wirdheim      \nJaguar
+     \n1m17.676s\n17 Massa         \nSauber    \n1m17.906s\n18 Sato      
+     \nBAR       \n1m17.970s\n19 Fisichella    \nSauber    \n1m18.001s\n2
+ 0 Heidfeld      \nJordan    \n1m18.117s\n21 Pantano       \nJordan    \n
+ 1m18.726s\n22 Bruni         \nMinardi   \n1m19.149s\n23 Baumgartner   \n
+ Minardi   \n1m20.313s\n24 Leinders      \nMinardi   \n1m22.189s\n25 Klie
+ n         \nJaguar    \nno time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050820
+DTEND;VALUE=DATE:20050821
+SUMMARY:Qualifying
+UID:2887CD67-5A46-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T093545Z
+DESCRIPTION:N/A\n\nNo 2004 stats available: new event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050403
+DTEND;VALUE=DATE:20050404
+SUMMARY:Quali 2 & Race
+UID:291097F8-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T104357Z
+DESCRIPTION:Full result of the Bahrain GP (57 laps) 2004\n\n1 M.SCHUMACH
+ ER \nFerrari    \n1h28m34.875s\n2 BARRICHELLO  \nFerrari    \n+ 1.367s\n
+ 3 BUTTON       \nBAR        \n+ 26.687s\n4 TRULLI       \nRenault    \n+
+  32.214s\n5 SATO         \nBAR        \n+ 52.460s\n6 ALONSO       \nRena
+ ult    \n+ 53.156s\n7 R.SCHUMACHER \nWilliams   \n+ 58.155s\n8 WEBBER   
+     \nJaguar     \n+ 1 lap\n9 PANIS        \nToyota     \n+ 1 lap\n10 DA
+  MATTA    \nToyota     \n+ 1 lap\n11 FISICHELLA  \nSauber     \n+ 1 lap\
+ n12 MASSA       \nSauber     \n+ 1 lap\n13 MONTOYA     \nWilliams   \n+ 
+ 1 lap\n14 KLIEN       \nJaguar     \n+ 1 lap\n15 HEIDFELD    \nJordan   
+   \n+ 1 lap\n16 PANTANO     \nJordan     \n+ 2 laps\n17 BRUNI       \nMi
+ nardi    \n+ 5 laps\n18 COULTHARD   \nMcLaren    \n+ 6 laps\n19 BAUMGART
+ NER \nMinardi    \n+ 12 laps\n20 RAIKKONEN   \nMcLaren    \n+ 49 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050729
+DTEND;VALUE=DATE:20050730
+SUMMARY:Practice
+UID:EBCF0EC4-5A45-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T093406Z
+DESCRIPTION:Friday second practice times from Hungary 2004\n\n1 RAIKKONE
+ N     \nMcLaren   \n1m20.884s\n2 M.SCHUMACHER  \nFerrari   \n1m21.009s \
+ n3 MONTOYA       \nWilliams  \n1m21.185s\n4 COULTHARD     \nMcLaren   \n
+ 1m21.203s\n5 PANIS         \nToyota    \n1m21.352s\n6 SATO          \nBA
+ R       \n1m21.364s\n7 PIZZONIA      \nWilliams  \n1m21.574s\n8 BUTTON  
+       \nBAR       \n1m21.685s\n9 BARRICHELLO   \nFerrari   \n1m21.712s \
+ n10 ALONSO       \nRenault   \n1m21.948s\n11 WEBBER       \nJaguar    \n
+ 1m21.999s\n12 DAVIDSON     \nBAR       \n1m22.356s\n13 WIRDHEIM     \nJa
+ guar    \n1m22.559s\n14 HEIDFELD     \nJordan    \n1m22.651s\n15 GLOCK  
+       \nJordan    \n1m22.697s\n16 FISICHELLA   \nSauber    \n1m22.743s\n
+ 17 TRULLI       \nRenault   \n1m22.788s\n18 ZONTA        \nToyota    \n1
+ m22.808s\n19 PANTANO      \nJordan    \n1m22.937s\n20 KLIEN        \nJag
+ uar    \n1m23.003s\n21 BRISCOE      \nToyota    \n1m23.170s\n22 MASSA   
+      \nSauber    \n1m23.188s\n23 LEINDERS     \nMinardi   \n1m25.339s\n2
+ 4 BAUMGARTNER  \nMinardi   \n1m25.450s\n25 BRUNI        \nMinardi   \n1m
+ 26.365s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050318
+DTEND;VALUE=DATE:20050319
+SUMMARY:Practice
+UID:32E3B393-5985-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T103435Z
+DESCRIPTION:Friday second practice times from Sepang 2004\n\n1 RAIKKONEN
+     \nMcLaren  \n1m34.395s  \n2 R.SCHUMACHER \nWilliams \n1m34.693s    \
+ n3 WEBBER       \nJaguar   \n1m35.054s    \n4 M.SCHUMACHER \nFerrari  \n
+ 1m35.094s   \n5 MONTOYA      \nWilliams \n1m35.100s   \n6 TRULLI       \
+ nRenault  \n1m35.115s   \n7 MASSA        \nSauber   \n1m35.288s    \n8 A
+ LONSO       \nRenault  \n1m35.300s    \n9 COULTHARD    \nMcLaren  \n1m35
+ .301s    \n10 BARRICHELLO \nFerrari  \n1m35.373s   \n11 BUTTON      \nBA
+ R      \n1m35.407s    \n12 PANIS       \nToyota   \n1m35.524s   \n13 ZON
+ TA       \nToyota   \n1m35.850s   \n14 KLIEN       \nJaguar   \n1m35.996
+ s    \n15 SATO        \nBAR      \n1m36.292s    \n16 FISICHELLA  \nSaube
+ r   \n1m36.353s    \n17 DAVIDSON    \nBAR      \n1m36.708s    \n18 WIRDH
+ EIM    \nJaguar   \n1m36.883s   \n19 DA MATTA    \nToyota   \n1m36.907s 
+    \n20 HEIDFELD    \nJordan   \n1m37.725s    \n21 BRUNI       \nMinardi
+   \n1m37.818s   \n22 BAUMGARTNER \nMinardi  \n1m38.588s  \n23 GLOCK     
+   \nJordan   \n1m38.796s    \n24 PANTANO     \nJordan   \n1m39.324s   \n
+ 25 LEINDERS    \nMinardi  \n1m41.485s \n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050303
+DTEND;VALUE=DATE:20050304
+SUMMARY:2005 Races
+UID:E47DEF68-5A4B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T101720Z
+DESCRIPTION:SUMMARY OF 2005 RACE EVENTS\n(Confirmed - FIA)\n\n6 March   
+  \nAustralia\n\n20 March    \nMalaysia\n\n3 April     \nBahrain \n\n24 A
+ pril    \nSan Marino\n\n8 May     \nSpain\n\n22 May    \nMonaco\n\n29 Ma
+ y    \nEurope\n\n12 June    \nCanada\n\n19 June    \nUnited States\n\n3 
+ July     \nFrance\n\n10 July     \nGreat Britain\n\n24 July     \nGerman
+ y\n\n31 July     \nHungary\n\n21 August    \nTurkey\n\n4 September    \n
+ Italy\n\n11 September    \nBelgium\n\n25 September    \nBrazil\n\n9 Octo
+ ber    \nJapan\n \n16 October    \nChina
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140934Z
+UID:7B482A79-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.silverstonemotorsport.co.uk
+DTSTART;VALUE=DATE:20050708
+SUMMARY:British GP weekend
+DTEND;VALUE=DATE:20050711
+DESCRIPTION:BRITISH\n\nCircuit Length:\n3.194 miles (5.140 km)\nPermanen
+ t road course\nClockwise\nSpectator capacity:\n90000 General admission\n
+ 60000 Grandstand seats \nFirst Grand Prix:\n13 May 1950\n\nwww.silversto
+ nemotorsport.co.uk\n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\n
+ http://www.kimistuff.com/images/04general/britain04.gif\n2004 grid\nhttp
+ ://www.kimistuff.com/images/04grids/british_grid_04.gif\n2004 lapchart\n
+ http://www.kimistuff.com/images/04lapcharts/british_lapchart_04.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T141052Z
+UID:FFB9D09B-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.monzanet.it
+DTSTART;VALUE=DATE:20050902
+SUMMARY:Italian GP weekend
+DTEND;VALUE=DATE:20050905
+DESCRIPTION:ITALIAN\n\nCircuit Length:\n3.604 miles (5.770 km) \nPermane
+ nt road course\nClockwise\nFirst Grand Prix:\n03 Sep 1950\n\nwww.monzane
+ t.it\n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kim
+ istuff.com/images/04general/italy04.gif\n2004 grid\nhttp://www.kimistuff
+ .com/images/04grids/italy_Grid_2004.gif\n2004 lapchart\nhttp://www.kimis
+ tuff.com/images/04lapcharts/italy_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050710
+DTEND;VALUE=DATE:20050711
+SUMMARY:Quali 2 & Race
+UID:8390F050-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+DTSTAMP:20041230T091408Z
+DESCRIPTION:British Grand Prix result (60 laps) 2004\n\n1 M.SCHUMACHER  
+ \nFerrari    \n1h24m42.700s\n2 RAIKKONEN     \nMcLaren    \n+ 0m02.130s\
+ n3 BARRICHELLO   \nFerrari    \n+ 0m03.114s\n4 BUTTON        \nBAR      
+   \n+ 0m10.683s\n5 MONTOYA       \nWilliams   \n+ 0m12.173s\n6 FISICHELL
+ A    \nSauber     \n+ 0m12.888s\n7 COULTHARD     \nMcLaren    \n+ 0m19.6
+ 68s\n8 WEBBER        \nJaguar     \n+ 0m23.701s\n9 MASSA         \nSaube
+ r     \n+ 0m24.023s\n10 ALONSO       \nRenault    \n+ 0m24.835s\n11 SATO
+          \nBAR        \n+ 0m33.736s\n12 GENE         \nWilliams   \n+ 0m
+ 34.303s\n13 DA MATTA     \nToyota     \n+ 1 lap\n14 KLIEN        \nJagua
+ r     \n+ 1 lap\n15 HEIDFELD     \nJordan     \n+ 1 lap\n16 BRUNI       
+  \nMinardi    \n+ 4 laps\n17 PANTANO      \nJordan     \n+ 13 laps\n18 T
+ RULLI       \nRenault    \n+ 21 laps\n19 BAUMGARTNER  \nMinardi    \n+ 3
+ 1 laps \n20 PANIS        \nToyota     \n+ 44 laps\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050708
+DTEND;VALUE=DATE:20050709
+SUMMARY:Practice
+UID:021B0974-5A43-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T091312Z
+DESCRIPTION:Friday second practice times from Silverstone 2004\n\n1 RAIK
+ KONEN     \nMcLaren    \n1m18.655s\n2 FISICHELLA    \nSauber     \n1m18.
+ 660s\n3 M.SCHUMACHER  \nFerrari    \n1m19.162s\n4 COULTHARD     \nMcLare
+ n    \n1m19.287s\n5 BUTTON        \nBAR        \n1m19.401s\n6 BARRICHELL
+ O   \nFerrari    \n1m19.473s\n7 GENE          \nWilliams   \n1m19.540s\n
+ 8 TRULLI        \nRenault    \n1m19.601s\n9 SATO          \nBAR        \
+ n1m19.611s\n10 MASSA        \nSauber     \n1m19.676s\n11 MONTOYA      \n
+ Williams   \n1m19.746s \n12 ALONSO       \nRenault    \n1m19.874s\n13 ZO
+ NTA        \nToyota     \n1m20.095s \n14 PANIS        \nToyota     \n1m2
+ 0.489s\n15 DA MATTA     \nToyota     \n1m20.829s\n16 DAVIDSON     \nBAR 
+        \n1m20.861s\n17 KLIEN        \nJaguar     \n1m21.073s\n18 WEBBER 
+       \nJaguar     \n1m21.352s \n19 WIRDHEIM     \nJaguar     \n1m21.353
+ s\n20 HEIDFELD     \nJordan     \n1m22.365s\n21 GLOCK        \nJordan   
+   \n1m22.500s\n22 BRUNI        \nMinardi    \n1m22.516s\n23 PANTANO     
+  \nJordan     \n1m22.586s\n24 LEINDERS     \nMinardi    \n1m22.792s\n25 
+ BAUMGARTNER  \nMinardi    \n1m23.436s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050903
+DTEND;VALUE=DATE:20050904
+SUMMARY:Qualifying
+UID:4C88262C-5A47-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T094355Z
+DESCRIPTION:Italian GP grid 2004\n\n1 BARRICHELLO   \nFerrari     \n1m20
+ .089s\n2 MONTOYA       \nWilliams    \n1m20.620s\n3 M.SCHUMACHER  \nFerr
+ ari     \n1m20.637s\n4 ALONSO        \nRenault     \n1m20.645s\n5 SATO  
+         \nBAR         \n1m20.715s\n6 BUTTON        \nBAR         \n1m20.
+ 786s \n7 RAIKKONEN     \nMcLaren     \n1m20.877s\n8 PIZZONIA      \nWill
+ iams    \n1m20.888s\n9 TRULLI        \nRenault     \n1m21.027s\n10 COULT
+ HARD    \nMcLaren     \n1m21.049s\n11 ZONTA        \nToyota      \n1m21.
+ 520s\n12 WEBBER       \nJaguar      \n1m21.602s\n13 PANIS        \nToyot
+ a      \n1m21.841s\n14 KLIEN        \nJaguar      \n1m21.989s\n15 FISICH
+ ELLA   \nSauber      \n1m22.239s\n16 MASSA        \nSauber      \n1m22.2
+ 87s\n17 HEIDFELD     \nJordan      \n1m22.301s \n18 PANTANO      \nJorda
+ n      \n1m23.239s\n19 BAUMGARTNER  \nMinardi     \n1m24.808s\n20 BRUNI 
+        \nMinardi     \n1m24.940s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140700Z
+UID:49A3B4E4-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.magnyf1.com
+DTSTART;VALUE=DATE:20050701
+SUMMARY:French GP weekend
+DTEND;VALUE=DATE:20050704
+DESCRIPTION:FRANCE\nMagny Cours Circuit\n\nOpened: 1961\nCircuit Length:
+ \n2.641 miles (4.250 km)\nPermanent road course\nClockwise\nSpectator ca
+ pacity:\n60000 General admission\n43000 Seats\n\nwww.magnyf1.com\n\n\n\n
+ ONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com/i
+ mages/04general/france04.gif\n2004 grid\nhttp://www.kimistuff.com/images
+ /04grids/france_Grid_2004.gif\n2004 lapchart\nhttp://www.kimistuff.com/i
+ mages/04lapcharts/france_lapchart_04.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050612
+DTEND;VALUE=DATE:20050613
+SUMMARY:Quali 2 & Race
+UID:78A44384-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T135356Z
+DESCRIPTION:Canadian GP result (70 laps) 2004\n\n1 M.SCHUMACHER  \nFerra
+ ri  \n1h28m24.803s\n 2 BARRICHELLO   \nFerrari  \n+ 5.108s\n3 BUTTON    
+     \nBAR      \n+ 20.409s\n4 FISICHELLA    \nSauber   \n+ 1 lap\n5 RAIK
+ KONEN     \nMcLaren  \n+ 1 lap\n6 COULTHARD     \nMcLaren  \n+ 1 lap\n7 
+ GLOCK         \nJordan   \n+ 2 laps\n8 HEIDFELD      \nJordan   \n+ 2 la
+ ps\n9 KLIEN         \nJaguar   \n+ 3 laps\n10 BAUMGARTNER  \nMinardi  \n
+ + 4 laps\n11 MASSA        \nSauber   \n+ 8 laps\n12 SATO         \nBAR  
+     \n+ 22 laps\n13 ALONSO       \nRenault  \n+ 26 laps\n14 BRUNI       
+  \nMinardi  \n+ 40 laps\n15 WEBBER       \nJaguar   \n+ 64 laps\n16 TRUL
+ LI       \nRenault  \n+ 70 laps\nDQ R.SCHUMACHER \nWilliams \nDQ\nDQ MON
+ TOYA      \nWilliams \nDQ\nDQ DA MATTA     \nToyota   \nDQ\nDQ PANIS    
+     \nToyota   \nDQ
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050401
+DTEND;VALUE=DATE:20050402
+SUMMARY:Practice
+UID:008E6A97-5986-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T104021Z
+DESCRIPTION:Friday second practice times from Bahrain 2004\n \n1 BARRICH
+ ELLO   \nFerrari     \n1m31.450s\n2 MONTOYA       \nWilliams    \n1m31.4
+ 51s \n3 DAVIDSON      \nBAR-Honda   \n1m31.488s \n4 M.SCHUMACHER  \nFerr
+ ari     \n1m31.732s \n5 KLIEN         \nJaguar      \n1m31.789s \n6 R.SC
+ HUMACHER  \nWilliams    \n1m31.842s \n7 BUTTON        \nBAR-Honda   \n1m
+ 31.879s \n8 WEBBER        \nJaguar      \n1m32.041s \n9 ALONSO        \n
+ Renault     \n1m32.234s \n10 ZONTA        \nToyota      \n1m32.335s \n11
+  COULTHARD    \nMcLaren     \n1m32.495s\n12 SATO         \nBAR         \
+ n1m32.680s \n13 PANTANO      \nJordan      \n1m32.761s \n15 MASSA       
+  \nSauber      \n1m33.031s \n16 PANIS        \nToyota      \n1m33.049s \
+ n17 FISICHELLA   \nSauber      \n1m33.061s \n18 TRULLI       \nRenault  
+    \n1m33.437s\n19 GLOCK         \nJordan     \n1m33.695s \n20 BAUMGARTN
+ ER   \nMinardi    \n1m34.054s \n21 WIRDHEIM      \nJaguar     \n1m34.317
+ s \n22 BRUNI         \nMinardi    \n1m34.791s \n23 LEINDERS      \nMinar
+ di    \n1m36.248s \n24 HEIDFELD      \nJordan     \n1m40.573s \n25 RAIKK
+ ONEN     \nMcLaren    \nno time 
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140426Z
+UID:A9B28EFC-597B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.acm.mc
+DTSTART;VALUE=DATE:20050519
+SUMMARY:Monaco GP weekend
+DTEND;VALUE=DATE:20050523
+DESCRIPTION:MONACO\n\nCircuit Length:\n2.092 miles (3.367 km)\nStreet ci
+ rcuit\nClockwise\nSpectator capacity:\n120000 General admission\nFirst G
+ rand Prix:\n21 May 1950\n\nwww.acm.mc\n\n\nONLINE GRAPHICS\n\nCircuit ma
+ p and 2004 info\nhttp://www.kimistuff.com/images/04general/monaco04.gif\
+ n2004 grid\nhttp://www.kimistuff.com/images/04grids/monaco_grid.gif\n200
+ 4 lapchart\nhttp://www.kimistuff.com/images/04lapcharts/monaco_lapchart.
+ gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050709
+DTEND;VALUE=DATE:20050710
+SUMMARY:Qualifying
+UID:0F3A0B64-5A43-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T091335Z
+DESCRIPTION:Grid for the British Grand Prix 2004\n\n1 RAIKKONEN     \nMc
+ Laren    \n1m18.233s\n2 BARRICHELLO   \nFerrari    \n1m18.305s\n3 BUTTON
+         \nBAR        \n1m18.580s\n4 M.SCHUMACHER  \nFerrari    \n1m18.71
+ 0s\n5 TRULLI        \nRenault    \n1m18.715s\n6 ALONSO        \nRenault 
+    \n1m18.811s*\n7 COULTHARD     \nMcLaren    \n1m19.148s\n8 MONTOYA    
+    \nWilliams   \n1m19.378s\n9 SATO          \nBAR        \n1m19.688s\n1
+ 0 WEBBER       \nJaguar     \n1m20.004s\n11 MASSA        \nSauber     \n
+ 1m20.202s\n12 PANIS        \nToyota     \n1m20.335s**\n13 GENE         \
+ nWilliams   \n1m20.335s\n14 DA MATTA     \nToyota     \n1m20.545s \n15 K
+ LIEN        \nJaguar     \n1m21.559s\n16 PANTANO      \nJordan     \n1m2
+ 2.458s\n17 HEIDFELD     \nJordan     \n1m22.677s\n18 BRUNI        \nMina
+ rdi    \n1m23.437s\n19 BAUMGARTNER  \nMinardi    \n1m24.117s\n20 FISICHE
+ LLA   \nSauber     \nno time\n\n*Alonso demoted 10 places due to engine 
+ change.\n** Panis sent to the back for blocking Felipe Massa
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050110
+DTEND;VALUE=DATE:20050111
+SUMMARY:F1 Testing resumes
+UID:6D029674-5A4C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T102034Z
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050303
+DTEND;VALUE=DATE:20050304
+SUMMARY:2005 Teams
+UID:6295D872-5A4D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20050222T113531Z
+DESCRIPTION:(*information correct 22_02_05)\n\n\nFERRARI\nMichael Schuma
+ cher\, Rubens Barrichello\n\nMcLAREN\nKimi Raikkonen\, Juan Pablo Montoy
+ a\n\nWILLIAMS\nMark Webber\, Nick Heidfeld\n\nRENAULT\nFernando Alonso\,
+  Giancarlo Fisichella\n\nBAR\nJenson Button\, Takuma Sato\n\nSAUBER\n Ja
+ cques Villeneuve\, Felipe Massa\n\nTOYOTA\nRalf Schumacher\, Jarno Trull
+ i\n\nRED BULL\nDavid Coulthard\, Christian Klien\n\nJORDAN\nNarian Karth
+ ikeyan\, Tiago Montieri\n\nMINARDI\nChristijan Albers\, Patrick Friesach
+ er
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050520
+DTEND;VALUE=DATE:20050521
+SUMMARY:F1 links
+UID:C63CCC04-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095541Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050527
+DTEND;VALUE=DATE:20050528
+SUMMARY:F1 links
+UID:D228602F-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095558Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050819
+DTEND;VALUE=DATE:20050820
+SUMMARY:Practice
+UID:154E73D1-5A46-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T093526Z
+DESCRIPTION:N/A\n\nNo 2004 stats available: new event
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050422
+DTEND;VALUE=DATE:20050423
+SUMMARY:Practice
+UID:44920AF2-599C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T131939Z
+DESCRIPTION:Second practice times from Imola\n2004\n \n1 Button         
+ \nBAR        \n1m20.966s \n2 Sato           \nBAR        \n1m21.159s \n3
+  M.Schumacher   \nFerrari    \n1m21.164s \n4 Raikkonen      \nMclaren   
+  \n1m21.586s \n5 Trulli         \nRenault    \n1m21.604s \n6 Davidson   
+     \nBAR        \n1m21.643s \n7 Montoya        \nWilliams   \n1m21.661s
+  \n8 Alonso         \nRenault    \n1m21.788s \n9 Coulthard      \nMcLare
+ n    \n1m21.795s \n10 R.Schumacher  \nWilliams   \n1m22.057s \n11 Barric
+ hello   \nFerrari    \n1m22.096s \n12 Webber        \nJaguar     \n1m22.
+ 167s \n13 Panis         \nToyota     \n1m22.768s \n14 Da Matta      \nTo
+ yota     \n1m22.780s\n15 Massa         \nSauber     \n1m23.043s \n16 Kli
+ en         \nJaguar     \n1m23.211s \n17 Fisichella    \nSauber     \n1m
+ 23.335s \n18 Wirdheim      \nJaguar     \n1m23.470s \n19 Zonta         \
+ nToyota     \n1m23.500s \n20 Heidfeld      \nJordan     \n1m23.866s \n21
+  Pantano       \nJordan     \n1m24.091s \n22 Bruni         \nMinardi    
+ \n1m25.653s \n23 Baumgartner   \nMinardi    \n1m25.760s \n24 Leinders   
+    \nMinardi    \n1m27.025s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140358Z
+UID:91D05E85-597B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.circuitcat.com
+DTSTART;VALUE=DATE:20050506
+SUMMARY:Spanish GP weekend
+DTEND;VALUE=DATE:20050509
+DESCRIPTION:SPAIN\n\nCircuit Length: \n2.937 miles (4.727 km)\nPermanent
+  road course\nClockwise\nSpectator capacity: \n104000 General admission\
+ n43770 Grandstand seats\nFirst Grand Prix:\n29 Sep 1991\n\nwww.circuitca
+ t.com\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimi
+ stuff.com/images/04general/spain04.gif\n2004 grid\nhttp://www.kimistuff.
+ com/images/04grids/spain_grid.gif\n2004 lapchart\nhttp://www.kimistuff.c
+ om/images/04lapcharts/spain_lapchart.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140535Z
+UID:3170E298-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.usgpindy.com
+DTSTART;VALUE=DATE:20050617
+SUMMARY:United States GP weekend
+DTEND;VALUE=DATE:20050620
+DESCRIPTION:USA\n\nCircuit Length:\n4.192km (2.605 miles)\nFirst Grand P
+ rix:\n30 May 1950\n\nwww.usgpindy.com\n\n\n\nONLINE GRAPHICS\n\nCircuit 
+ map and 2004 info\nhttp://www.kimistuff.com/images/04general/usa04.gif\n
+ 2004 grid\nhttp://www.kimistuff.com/images/04grids/US_Grid_2004.gif\n200
+ 4 lapchart\nhttp://www.kimistuff.com/images/04lapcharts/US_Lap_Chart_200
+ 4.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050319
+DTEND;VALUE=DATE:20050320
+SUMMARY:Qualifying
+UID:75E914D9-5985-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T103627Z
+DESCRIPTION:Final qualifying times from Sepang 2004\n\n1 M.SCHUMACHER \n
+ Ferrari  \n1m33.074s\n2 WEBBER       \nJaguar   \n1m33.715s\n3 BARRICHEL
+ LO  \nFerrari  \n1m33.756s\n4 MONTOYA      \nWilliams \n1m34.054s\n5 RAI
+ KKONEN    \nMcLaren  \n1m34.164s\n6 BUTTON       \nBAR      \n1m34.221s\
+ n7 R.SCHUMACHER \nWilliams \n1m34.234s\n8 TRULLI       \nRenault  \n1m34
+ .413s\n9 COULTHARD    \nMcLaren  \n1m34.602s\n10 DA MATTA    \nToyota   
+ \n1m34.917s\n11 MASSA       \nSauber   \n1m35.039s\n12 FISICHELLA  \nSau
+ ber   \n1m35.061s\n13 KLIEN       \nJaguar   \n1m35.158s\n14 PANIS      
+  \nToyota   \n1m35.617s\n15 HEIDFELD    \nJordan   \n1m36.569s\n16 BRUNI
+        \nMinardi  \n1m38.577s\n17 BAUMGARTNER \nMinardi  \n1m39.272s\n18
+  PANTANO     \nJordan   \n1m39.902s\n19 SATO        \nBAR      \nNo time
+ \n20 ALONSO      \nRenault  \nNo time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050925
+DTEND;VALUE=DATE:20050926
+SUMMARY:Quali 2 & Race
+UID:D23708D0-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T095633Z
+DESCRIPTION:Brazilian Grand Prix result (71 laps) 2004\n\n1 MONTOYA     
+   \nWilliams  \n1h28m01.451s\n2 RAIKKONEN     \nMcLaren   \n+ 01.022s\n3
+  BARRICHELLO   \nFerrari   \n+ 24.099s\n4 ALONSO        \nRenault   \n+ 
+ 48.908s\n5 R.SCHUMACHER  \nWilliams  \n+ 49.740s\n6 SATO          \nBAR 
+       \n+ 50.248s\n7 M.SCHUMACHER  \nFerrari   \n+ 50.626s\n8 MASSA     
+     \nSauber    \n+ 1m02.310s \n9 FISICHELLA    \nSauber    \n+ 1m03.842
+ s\n10 VILLENEUVE   \nRenault   \n+ 1 lap\n11 COULTHARD    \nMcLaren   \n
+ + 1 lap\n12 TRULLI       \nToyota    \n+ 1 lap\n13 ZONTA        \nToyota
+     \n+ 1 lap \n14 KLIEN        \nJaguar    \n+ 2 laps\n15 GLOCK        
+ \nJordan    \n+ 2 laps\n16 BAUMGARTNER  \nMinardi   \n+ 4 laps\n17 BRUNI
+         \nMinardi   \n+ 4 laps\n18 WEBBER       \nJaguar    \n+ 48 laps\
+ n19 HEIDFELD     \nJordan    \n+ 56 laps\n20 BUTTON       \nBAR       \n
+ + 68 laps\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051015
+DTEND;VALUE=DATE:20051016
+SUMMARY:Qualifying
+UID:10A88A0C-5A4B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T101054Z
+DESCRIPTION:Grid for the Chinese GP 2004\n\n1 BARRICHELLO   \nFerrari   
+  \n1m34.012s\n2 RAIKKONEN     \nMcLaren    \n1m34.178s \n3 BUTTON       
+  \nBAR        \n1m34.295s\n4 MASSA         \nSauber     \n1m34.759s\n5 R
+ .SCHUMACHER  \nWilliams   \n1m34.891s\n6 ALONSO        \nRenault    \n1m
+ 34.917s \n7 FISICHELLA    \nSauber     \n1m34.951s\n8 PANIS         \nTo
+ yota     \n1m34.975s \n9 SATO          \nBAR        \n1m34.993s\n10 COUL
+ THARD    \nMcLaren    \n1m35.029s\n11 MONTOYA      \nWilliams   \n1m35.2
+ 45s\n12 WEBBER       \nJaguar     \n1m35.286s\n13 VILLENEUVE   \nRenault
+     \n1m35.384s \n14 ZONTA        \nToyota     \n1m35.410s\n15 HEIDFELD 
+     \nJordan     \n1m36.507s \n16 KLIEN        \nJaguar     \n1m36.535s\
+ n17 GLOCK        \nJordan     \n1m37.140s\n18 BAUMGARTNER  \nMinardi    
+ \n1m40.240s \n19 M.SCHUMACHER \nFerrari    \nno time\n20 BRUNI        \n
+ Minardi    \nno time\n\n* Sato to be dropped 10 places for changing engi
+ nes\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051007
+DTEND;VALUE=DATE:20051008
+SUMMARY:Practice
+UID:0A883CF7-5A4A-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T100334Z
+DESCRIPTION:Friday second practice times from Suzuka 2004\n\n1 M.SCHUMAC
+ HER   \nFerrari  \n1m45.388s\n2 FISICHELLA     \nSauber   \n1m46.102s\n3
+  RAIKKONEN      \nMcLaren  \n1m46.749s\n4 BARRICHELLO    \nFerrari  \n1m
+ 46.874s\n5 COULTHARD      \nMcLaren  \n1m48.033s\n6 GLOCK          \nJor
+ dan   \n1m49.277s\n7 HEIDFELD       \nJordan   \n1m49.286s\n8 SATO      
+      \nBAR      \n1m49.370s\n9 DAVIDSON       \nBAR      \n1m49.598s\n10
+  VILLENEUVE    \nRenault  \n1m49.672s\n11 ALONSO        \nRenault  \n1m4
+ 9.712s\n12 R.SCHUMACHER  \nWilliams \n1m49.736s\n13 MONTOYA       \nWill
+ iams \n1m50.060s\n14 TRULLI        \nToyota   \n1m50.386s\n15 WEBBER    
+     \nJaguar   \n1m50.666s\n16 DOORNBOS      \nJordan   \n1m51.007s\n17 
+ KLIEN         \nJaguar   \n1m52.232s\n18 LEINDERS      \nMinardi  \n1m52
+ .942s\n19 BRUNI         \nMinardi  \n1m53.194s\n20 BUTTON        \nBAR  
+     \n1m53.482s\n21 BAUMGARTNER   \nMinardi  \n1m54.703s\n22 MASSA      
+    \nSauber   \nno time\n23 PANIS         \nToyota   \nno time\n24 WIRDH
+ EIM      \nJaguar   \nno time\n25 BRISCOE       \nToyota   \nno time\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050304
+DTEND;VALUE=DATE:20050305
+SUMMARY:F1 links
+UID:8DC0B106-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095409Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140000Z
+UID:3C126C1C-597A-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.malaysiangp.com.my
+DTSTART;VALUE=DATE:20050318
+SUMMARY:Malaysian GP weekend
+DTEND;VALUE=DATE:20050321
+DESCRIPTION:MALAYSIA\n\nCircuit Length:\n3.444 miles (5.542 km)\nPermane
+ nt road course\nClockwise\nTurns: 14\nSpectator capacity:\n33000 in main
+  'double' grandstand\n100000 in 4 'natural' stands \nFirst Grand Prix:\n
+ 17 Oct 1999\n\nwww.malaysiangp.com.my\n\n\nONLINE GRAPHICS\n\nCircuit ma
+ p and 2004 info\nhttp://www.kimistuff.com/images/04general/malaysia04.gi
+ f\n2004 grid\nhttp://www.kimistuff.com/images/04grids/1708978574__MAL_Gr
+ id.gif\n2004 lapchart\nhttp://www.kimistuff.com/images/04lapcharts/28677
+ 1110__MAL_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050521
+DTEND;VALUE=DATE:20050522
+SUMMARY:Qualifying
+UID:0EA226F6-599F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T133939Z
+DESCRIPTION:Final qualifying times from Monaco 2004\n\n1 TRULLI        \
+ nRenault    \n1m13.985s  \n2 BUTTON        \nBAR        \n1m14.396s  \n3
+  ALONSO        \nRenault    \n1m14.408s  \n4 M.SCHUMACHER  \nFerrari    
+ \n1m14.516s  \n5 RAIKKONEN     \nMcLaren    \n1m14.592s  \n6 BARRICHELLO
+    \nFerrari    \n1m14.716s  \n7 SATO          \nBAR        \n1m14.827s 
+  \n8 COULTHARD     \nMcLaren    \n1m14.951s  \n9 MONTOYA       \nWilliam
+ s   \n1m15.039s  \n10 FISICHELLA   \nSauber     \n1m15.352s  \n11 WEBBER
+        \nJaguar     \n1m15.725s  \n12 PANIS        \nToyota     \n1m15.8
+ 59s  \n13 KLIEN        \nJaguar     \n1m15.919s \n14 DA MATTA     \nToyo
+ ta     \n1m16.169s  \n15 MASSA        \nSauber     \n1m16.248s \n16 HEID
+ FELD     \nJordan     \n1m16.488s  \n17 PANTANO      \nJordan     \n1m17
+ .443s  \n18 BAUMGARTNER  \nMinardi    \n1m20.060s  \n19 BRUNI        \nM
+ inardi    \n1m20.115s\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T135922Z
+UID:1C4E6B8E-597A-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.grandprix.com.au
+DTSTART;VALUE=DATE:20050304
+SUMMARY:Australian GP weekend
+DTEND;VALUE=DATE:20050307
+DESCRIPTION:AUSTRALIA\n\nCircuit Length:\n3.294 miles (5.302 km)\nTempor
+ ary road course\nClockwise\nTurns: 16\nSpectator capacity: \n80000 \nFir
+ st Grand Prix: \n10 Mar 1996\n\nwww.grandprix.com.au\n\n\nONLINE GRAPHIC
+ S\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com/images/04genera
+ l/australia04.gif \n2004 grid\nhttp://www.kimistuff.com/images/04grids/A
+ US_Grid.gif\n2004 lapchart\nhttp://www.kimistuff.com/images/04lapcharts/
+ AUS_Lap_Chart.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051007
+DTEND;VALUE=DATE:20051008
+SUMMARY:F1 links
+UID:4FA6BA9E-5980-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095932Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050508
+DTEND;VALUE=DATE:20050509
+SUMMARY:Quali 2 & Race
+UID:52216ECE-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T133446Z
+DESCRIPTION:Spanish GP result (66 laps) 2004\n\n1 M.Schumacher  \nFerrar
+ i  \n1h27m32.841s\n2 Barrichello   \nFerrari  \n+ 13.290s\n3 Trulli     
+    \nRenault  \n+ 32.229s\n4 Alonso        \nRenault  \n+ 32.952s\n5 Sat
+ o          \nBAR      \n+ 42.332s\n6 R.Schumacher  \nWilliams \n+ 1m13.8
+ 04s\n7 Fisichella    \nSauber   \n+ 1m17.108s\n8 Button        \nBAR    
+   \n+ 1 lap\n9 Massa         \nSauber   \n+ 1 lap\n10 Coulthard    \nMcL
+ aren  \n+ 1 lap\n11 Raikkonen    \nMcLaren  \n+ 1 lap\n12 Webber       \
+ nJaguar   \n+ 1 lap\n13 da Matta     \nToyota   \n+ 1 lap\n14 Pantano   
+    \nJordan   \n+ 15 laps\n15 Montoya      \nWilliams \n+ 20 laps\n16 Kl
+ ien        \nJaguar   \n+ 23 laps\n17 Panis        \nToyota   \n+ 33 lap
+ s\n18 Heidfeld     \nJordan   \n+ 33 laps\n19 Bruni        \nMinardi  \n
+ + 35 laps\n20 Baumgartner  \nMinardi  \n+ 45 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050401
+DTEND;VALUE=DATE:20050402
+SUMMARY:F1 links
+UID:A6511E82-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095445Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050422
+DTEND;VALUE=DATE:20050423
+SUMMARY:F1 links
+UID:AFB78093-597F-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T095501Z
+DESCRIPTION:Recommended F1 sites...\n\nNEWS ETC:\nhttp://www.planet-f1.c
+ om\nhttp://www.f1-live.com\nhttp://www.itv-f1.com\nhttp://www.f1i.com\nh
+ ttp://www.fia.com\nhttp://www.formula1.com\nhttp://www.grandprix.com\nht
+ tp://www.autosport.com\nhttp://www.automodica.com\nhttp://www.f1central.
+ net\n\nOTHER INFO & SHOPPING:\nhttp://drive.to/circuits\nhttp://www.cbel
+ .com/formula_one/\nhttp://www.grandprixlegends.com\nhttp://www.minichamp
+ s.com\nhttp://www.alexreade.net\n\n\nThe author's own site...\nhttp://ww
+ w.kimistuff.com\n\nFeedback etc to gbouch@mac.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T140626Z
+UID:C6EB2A68-597B-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.nuerburgring.de
+DTSTART;VALUE=DATE:20050527
+SUMMARY:European GP weekend
+DTEND;VALUE=DATE:20050530
+DESCRIPTION:EUROPEAN\n\nCircuit Length:\n2.831 miles (4.556 km)\nPermane
+ nt road course\nClockwise\nTurns: 14\nSpectator capacity:\n140000 Grands
+ tand seats \nFirst Grand Prix:\n29 Jul 1951\n\nwww.nuerburgring.de\n\n\n
+ \nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com
+ /images/04general/europe04.gif\n2004 grid\nhttp://www.kimistuff.com/imag
+ es/04grids/europe_grid04.gif\n2004 lapchart\nhttp://www.kimistuff.com/im
+ ages/04lapcharts/europe_lapchart04.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051016
+DTEND;VALUE=DATE:20051017
+SUMMARY:Quali 2 & Race
+UID:71173292-4CE1-11D9-A75E-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T101118Z
+DESCRIPTION:Chinese Grand Prix result (56 laps) 2004\n\n1 BARRICHELLO   
+ \nFerrari    \n1h29'12\"420s\n2 BUTTON        \nBAR        \n+ 1.035s\n3
+  RAIKKONEN     \nMcLaren    \n+ 1.469s\n4 ALONSO        \nRenault    \n+
+  32.510s\n5 MONTOYA       \nWilliams   \n+ 45.193s\n6 SATO          \nBA
+ R        \n+ 54.791s\n7 FISICHELLA    \nSauber     \n+ 1m05.464s\n8 MASS
+ A         \nSauber     \n+ 1'20.080s \n9 COULTHARD     \nMcLaren    \n+ 
+ 1m20.619s \n10 WEBBER       \nJaguar     \n+ 1 lap\n11 VILLENEUVE   \nRe
+ nault    \n+ 1 lap  \n12 M.SCHUMACHER \nFerrari    \n+ 1 lap \n13 HEIDFE
+ LD     \nJordan     \n+ 1 lap\n14 PANIS        \nToyota     \n+ 1 lap \n
+ 15 GLOCK        \nJordan     \n+ 1 lap  \n16 BAUMGARTNER  \nMinardi    \
+ n+ 3 laps\n17 BRUNI        \nMinardi    \n+ 18 laps\n18 R.SCHUMACHER \nW
+ illiams   \n+ 19 laps\n19 ZONTA        \nToyota     \n+ 21 laps \n20 KLI
+ EN        \nJaguar     \n+ 45 laps
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T141018Z
+UID:D79DECB2-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.hungarinfo.com/formel1
+DTSTART;VALUE=DATE:20050729
+SUMMARY:Hungarian GP weekend
+DTEND;VALUE=DATE:20050801
+DESCRIPTION:HUNGARIAN\n\nCircuit Length: \n2.467 miles (3.971 km)\nPerma
+ nent road course\nClockwise\nTurns: 16\nSpectator capacity: \n120000 Gen
+ eral admission \nFirst Grand Prix:\n10 Aug 1986\n\nwww.hungarinfo.com/fo
+ rmel1\n\n\n\nONLINE GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.ki
+ mistuff.com/images/04general/hungary04.gif\n2004 grid\nhttp://www.kimist
+ uff.com/images/04grids/hungary_Grid_2004.gif\n2004 lapchart\nhttp://www.
+ kimistuff.com/images/04lapcharts/hungary_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050529
+DTEND;VALUE=DATE:20050530
+SUMMARY:Quali 2 & Race
+UID:108F0D5C-4CE1-11D9-A75E-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T134651Z
+DESCRIPTION:Race result from the Nurburgring (60 laps) 2004\n\n1 M.SCHUM
+ ACHER  \nFerrari  \n1h32m35.101s\n2 BARRICHELLO   \nFerrari  \n+ 17.989s
+ \n3 BUTTON        \nBAR      \n+ 22.533s\n4 TRULLI        \nRenault  \n+
+  53.673s\n5 ALONSO        \nRenault  \n+ 1m00.987s\n6 FISICHELLA    \nSa
+ uber   \n+ 1m13.448s\n7 WEBBER        \nJaguar   \n+ 1m16.206s\n8 MONTOY
+ A       \nWilliams \n+ 1 lap\n9 MASSA         \nSauber   \n+ 1 lap\n10 H
+ EIDFELD     \nJordan   \n+ 1 lap\n11 PANIS        \nToyota   \n+ 1 lap\n
+ 12 KLIEN        \nJaguar   \n+ 1 lap \n13 PANTANO      \nJordan   \n+ 2 
+ laps \n14 BRUNI        \nMinardi  \n+ 3 laps\n15 BAUMGARTNER  \nMinardi 
+  \n+ 3 laps\n16 SATO         \nBAR      \n+ 13 laps\n17 COULTHARD    \nM
+ cLaren  \n+ 35 laps\n18 RAIKKONEN    \nMcLaren  \n+ 51 laps \n19 R.SCHUM
+ ACHER \nWilliams \n+ 60 laps\n20 DA MATTA     \nToyota   \n+ 60 laps\n\n
+ 
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041229T094129Z
+UID:EF9CABD6-597C-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:3
+URL;VALUE=URI:http://www.turkeygrandprix.com
+DTSTART;VALUE=DATE:20050819
+SUMMARY:Turkish GP weekend
+DTEND;VALUE=DATE:20050822
+DESCRIPTION:TURKEY\n\nKurtkoy International Circuit\nRacing circuit leng
+ th - 5\,378(m) \nCircuit direction - clockwise\nTotal number of turns - 
+ 13 \nTheoretical maximum speed - 320.58 km/h \nMain grandstand capacity 
+ - 30\,000 Seats\nTemporary grandstand capacity - 60\,000 Seats\nNatural 
+ grandstand capacity - 60\,000 Seats\nCapacity of the VIP lounges - 5\,00
+ 0 Seats\n\nwww.turkeygrandprix.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050305
+DTEND;VALUE=DATE:20050306
+SUMMARY:Qualifying
+UID:A9AB15FC-5984-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T103050Z
+DESCRIPTION:Full grid for the Australian GP 2004\n\n1 M.SCHUMACHER \nFer
+ rari  \n1m24.408s\n2 BARRICHELLO  \nFerrari  \n1m24.482s\n3 MONTOYA     
+  \nWilliams \n1m24.998s\n4 BUTTON       \nBAR      \n1m24.998s\n5 ALONSO
+        \nRenault  \n1m25.699s\n6 WEBBER       \nJaguar   \n1m25.805s\n7 
+ SATO         \nBAR      \n1m25.851s\n8 R.SCHUMACHER \nWilliams \n1m25.92
+ 5s\n9 TRULLI       \nRenault  \n1m26.290s\n10 RAIKKONEN   \nMcLaren  \n1
+ m26.297s\n11 MASSA       \nSauber   \n1m27.065s\n12 COULTHARD   \nMcLare
+ n  \n1m27.294s\n13 DA MATTA    \nToyota   \n1m27.823s\n14 FISICHELLA  \n
+ Sauber   \n1m27.845s\n15 HEIDFELD    \nJordan   \n1m28.178s\n16 PANTANO 
+     \nJordan   \n1m30.140s\n17 BAUMGARTNER \nMinardi  \n1m30.681s\n18 PA
+ NIS       \nToyota   \nno time \n19 KLIEN       \nJaguar   \nno time\n20
+  BRUNI       \nMinardi  \nno time
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050904
+DTEND;VALUE=DATE:20050905
+SUMMARY:Quali 2 & Race
+UID:B5D361F8-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T094420Z
+DESCRIPTION:Italian GP result (53 laps) 2004\n\n1 BARRICHELLO   \nFerrar
+ i   \n1h15m18.448s\n2 M.SCHUMACHER  \nFerrari   \n+ 0m01.347s\n3 BUTTON 
+        \nBAR       \n+ 0m10.197s\n4 SATO          \nBAR       \n+ 0m15.3
+ 70s\n5 MONTOYA       \nWilliams  \n+ 0m32.352s\n6 COULTHARD     \nMcLare
+ n   \n+ 0m33.439s\n7 PIZZONIA      \nWilliams  \n+ 0m33.752s\n8 FISICHEL
+ LA    \nSauber    \n+ 0m35.431s\n9 WEBBER        \nJaguar    \n+ 0m56.76
+ 1s\n10 TRULLI       \nRenault   \n+ 1m06.316s\n11 ZONTA        \nToyota 
+    \n+ 1m22.531s\n12 MASSA        \nSauber    \n+ 1 lap  \n13 KLIEN     
+    \nJaguar    \n+ 1 lap \n14 HEIDFELD     \nJordan    \n+ 1 lap\n15 BAU
+ MGARTNER  \nMinardi   \n+ 3 laps\n16 ALONSO       \nRenault   \n+ 13 lap
+ s\n17 PANTANO      \nJordan    \n+ 20 laps\n18 BRUNI        \nMinardi   
+ \n+ 24 laps \n19 RAIKKONEN    \nMcLaren   \n+ 40 laps \n20 PANIS        
+ \nToyota    \n+ 53 laps\n\n
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20051009
+DTEND;VALUE=DATE:20051010
+SUMMARY:Quali 2 & Race
+UID:DC63F042-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041230T100425Z
+DESCRIPTION:Japanese Grand Prix result (53 laps) 2004\n\n1 M.SCHUMACHER 
+  \nFerrari    \n1h24m26.985s\n2 R.SCHUMACHER  \nWilliams   \n+ 14.008s\n
+ 3 BUTTON        \nBAR        \n+ 19.662s\n4 SATO          \nBAR        \
+ n+ 31.781s\n5 ALONSO        \nRenault    \n+ 37.767s \n6 RAIKKONEN     \
+ nMcLaren    \n+ 39.302s \n7 MONTOYA       \nWilliams   \n+ 55.347s\n8 FI
+ SICHELLA    \nSauber     \n+ 56.276s\n9 MASSA         \nSauber     \n+ 1
+ m29.656s\n10 VILLENEUVE   \nRenault    \n+ 1 lap  \n11 TRULLI       \nTo
+ yota     \n+ 1 lap \n12 KLIEN        \nJaguar     \n+ 1 lap  \n13 HEIDFE
+ LD     \nJordan     \n+ 1 lap \n14 PANIS        \nToyota     \n+ 2 laps 
+ \n15 GLOCK        \nJordan     \n+ 2 laps  \n16 BRUNI        \nMinardi  
+   \n+ 3 laps  \n17 BAUMGARTNER  \nMinardi    \n+ 12 laps  \n18 COULTHARD
+     \nMcLaren    \n+ 15 laps \n19 BARRICHELLO  \nFerrari    \n+ 15 laps\
+ n20 WEBBER       \nJaguar     \n+ 33 laps \n
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20041230T141147Z
+UID:D9C854B9-597D-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:5
+URL;VALUE=URI:http://www.ainterlagos.com
+DTSTART;VALUE=DATE:20050923
+SUMMARY:Brazilian GP weekend
+DTEND;VALUE=DATE:20050926
+DESCRIPTION:BRAZIL\n\nCircuit Length:\n2.667 miles (4.292 km)\nPermanent
+  road course\nAnti-clockwise\nSpectator capacity:\n119000 General admiss
+ ion\nFirst Grand Prix:\n11 Feb 1973\n\nwww.ainterlagos.com\n\n\n\nONLINE
+  GRAPHICS\n\nCircuit map and 2004 info\nhttp://www.kimistuff.com/images/
+ 04general/brazil04.gif \n2004 grid\nhttp://www.kimistuff.com/images/04gr
+ ids/brazil_Grid_2004.gif\n2004 lapchart\nhttp://www.kimistuff.com/images
+ /04lapcharts/brazil_Lap_Chart_2004.gif
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050304
+DTEND;VALUE=DATE:20050305
+SUMMARY:Practice
+UID:6D2CC06A-5984-11D9-8F34-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T102905Z
+DESCRIPTION:Friday second practice times from Melbourne 2004\n\n1  M.SCH
+ UMACHER \nFerrari   \n1m24.718s  \n2  BARRICHELLO  \nFerrari   \n1m24.82
+ 6s\n3  TRULLI       \nRenault   \n1m25.757s\n4  BUTTON       \nBAR      
+  \n1m25.786s\n5  ALONSO       \nRenault   \n1m25.853s\n6  R.SCHUMACHER \
+ nWilliams  \n1m25.882s\n7  MONTOYA      \nWilliams  \n1m26.206s\n8  COUL
+ THARD    \nMcLaren   \n1m26.215s \n9  WEBBER       \nJaguar    \n1m26.31
+ 2s \n10 RAIKKONEN    \nMcLaren   \n1m26.579s \n11 FISICHELLA   \nSauber 
+    \n1m26.601s \n12 SATO         \nBAR       \n1m26.967s  \n13 MASSA    
+     \nSauber    \n1m26.969s  \n14 ZONTA        \nToyota    \n1m27.165s \
+ n15 DAVIDSON     \nBAR       \n1m27.516s\n16 PANIS        \nToyota    \n
+ 1m27.710s \n17 KLIEN        \nJaguar    \n1m27.724s\n18 DA MATTA     \nT
+ oyota    \n1m27.807s\n19 HEIDFELD     \nJordan    \n1m27.826s\n20 WIRDHE
+ IM     \nJaguar    \n1m28.781s\n21 BRUNI        \nMinardi   \n1m28.991s 
+ \n22 BAUMGARTNER  \nMinardi   \n1m29.708s \n23 PANTANO      \nJordan    
+ \n1m30.061s \n24 GLOCK        \nJordan    \n1m30.291s
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20050320
+DTEND;VALUE=DATE:20050321
+SUMMARY:Quali 2 & Race
+UID:1DA36FEA-42C6-11D9-9E4F-000D93357428-ADEF4E9F-09D3-4E18-83B5-CF4E3F3
+ 2B393
+SEQUENCE:2
+DTSTAMP:20041229T103751Z
+DESCRIPTION:Full race result from Sepang 2004\n\n1  M.SCHUMACHER \nFerra
+ ri  \n1h31m07.490s \n2  MONTOYA      \nWilliams \n+ 5.022s\n3  BUTTON   
+     \nBAR      \n+ 11.568s \n4  BARRICHELLO  \nFerrari  \n+ 13.616s \n5 
+  TRULLI       \nRenault  \n+ 37.360s \n6  COULTHARD    \nMcLaren  \n+ 53
+ .098s \n7  ALONSO       \nRenault  \n+ 1m07.877s  \n8  MASSA        \nSa
+ uber   \n+ 1 lap                \n9  DA MATTA     \nToyota   \n+ 1 lap  
+              \n10 KLIEN        \nJaguar   \n+ 1 lap             \n11 FIS
+ ICHELLA   \nSauber   \n+ 1 lap             \n12 PANIS        \nToyota   
+ \n+ 1 lap                \n13 PANTANO      \nJordan   \n+ 2 laps \n14 BR
+ UNI        \nMinardi  \n+ 3 laps \n15 SATO         \nBAR      \n+ 4 laps
+ \n16 BAUMGARTNER  \nMinardi  \n+ 4 laps \n17 RAIKKONEN    \nMcLaren  \n+
+  16 laps \n18 HEIDFELD     \nJordan   \n+ 22 laps\n19 R.SCHUMACHER \nWil
+ liams \n+ 29 laps\n20 WEBBER       \nJaguar   \n+ 33 laps
+END:VEVENT
+END:VCALENDAR

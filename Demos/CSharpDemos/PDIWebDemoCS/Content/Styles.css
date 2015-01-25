@@ -1,0 +1,171 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+	height: 100%;
+	/* The HTML and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by its height */
+	margin: 0 auto -60px;
+	/* Pad bottom by footer height */
+	padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+	height: 60px;
+	background-color: #222222;
+}
+
+/* Bootstrap standard style overrides
+-------------------------------------------------- */
+
+.navbar-brand {
+	float: left;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	margin-top: 0px;
+	margin-bottom: -1px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+}
+
+#wrap > .container {
+	padding: 60px 15px 0;
+}
+
+.container .credit {
+	margin: 20px 0;
+}
+
+#footer > .container {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.form-control {
+	display: inline;
+	width: inherit;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555555;
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	-webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+	transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+code {
+	font-family: "Consolas", "Courier New", Courier, monospace, serif;
+	font-size: 100%;
+	color: #000066;
+	background-color: white;
+}
+
+pre {
+	font-family: "Consolas", "Courier New", Courier, monospace, serif;
+}
+
+dt {
+	font-weight: bold;
+	margin-top: 10px;
+}
+
+li {
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+span.radio-inline {
+	padding: 0px;
+	margin-left: 15px;
+}
+
+span.radio-inline > input[type="radio"] {
+	margin: 3px 0px 25px 0px;
+}
+
+span.radio-inline > label {
+	float: left;
+	margin-right: 15px;
+	padding: 0px 5px 0px 10px;
+	font-weight: normal;
+}
+
+input[type="radio"] {
+	margin: 10px;
+}
+
+input[type="checkbox"] {
+	margin: 10px;
+}
+
+label {
+	font-weight: normal;
+}
+
+.btn-min-width {
+	min-width: 0.90in;
+	margin: 2px;
+}
+
+/* Application-specific styles
+-------------------------------------------------- */
+
+.table-noborder {
+	border: none;
+}
+
+.table-noborder > thead > tr > th,
+.table-noborder > tbody > tr > th,
+.table-noborder > tfoot > tr > th,
+.table-noborder > thead > tr > td,
+.table-noborder > tbody > tr > td,
+.table-noborder > tfoot > tr > td {
+	border: none;
+	padding: 5px;
+}
+
+td.control-label {
+	font-weight: bold;
+	text-align: right;
+}
+
+td.control-label-left {
+	font-weight: bold;
+}
+
+span.control-label {
+	font-weight: bold;
+}
+
+span.FloatLeft {
+	float: left;
+}
+
+span.FloatRight {
+	float: right;
+	text-align: right;
+}

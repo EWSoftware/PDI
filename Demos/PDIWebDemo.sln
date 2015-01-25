@@ -1,0 +1,68 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PDIWebDemoCS", "CSharpDemos\PDIWebDemoCS\", "{60252946-B338-4A43-B49A-350776966EAB}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/PDIWebDemoCS"
+		Debug.AspNetCompiler.PhysicalPath = "CSharpDemos\PDIWebDemoCS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PDIWebDemoCS\"
+		Debug.AspNetCompiler.Updateable = "false"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PDIWebDemoCS"
+		Release.AspNetCompiler.PhysicalPath = "CSharpDemos\PDIWebDemoCS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PDIWebDemoCS\"
+		Release.AspNetCompiler.Updateable = "false"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1069"
+		SlnRelativePath = "CSharpDemos\PDIWebDemoCS\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PDIWebDemoVB", "VBNetDemos\PDIWebDemoVB\", "{6EE94951-05F3-4B9B-9595-890681E2DD0B}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/PDIWebDemoVB"
+		Debug.AspNetCompiler.PhysicalPath = "VBNetDemos\PDIWebDemoVB\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PDIWebDemoVB\"
+		Debug.AspNetCompiler.Updateable = "false"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/PDIWebDemoVB"
+		Release.AspNetCompiler.PhysicalPath = "VBNetDemos\PDIWebDemoVB\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\PDIWebDemoVB\"
+		Release.AspNetCompiler.Updateable = "false"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1070"
+		SlnRelativePath = "VBNetDemos\PDIWebDemoVB\"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{760BE66F-D967-4913-87A7-9D88C9201DB4}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60252946-B338-4A43-B49A-350776966EAB}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{60252946-B338-4A43-B49A-350776966EAB}.Release|.NET.ActiveCfg = Debug|Any CPU
+		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Release|.NET.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

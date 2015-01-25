@@ -1,0 +1,157 @@
+BEGIN:VCARD
+VERSION:3.0
+PROFILE:VCARD
+PRODID:-//EWSoftware//PDI Class Library//EN
+FN:Mr. John Q. Public\, Esq.
+N:Public;John;Quinlan;Mr.;Esq.
+NICKNAME:Robbie
+PHOTO;VALUE=uri:http://www.abc.com/pub/photos/jqpublic.gif
+BDAY:1996-04-15
+MAILER:PigeonMail 2.1
+TZ:-05:00
+GEO:37.386013;-122.082932
+TITLE:Director\, Research and Development
+ROLE:Programmer
+LOGO;VALUE=uri:http://www.abc.com/pub/logos/abccorp.jpg
+ORG:ABC\, Inc.;North American Division;Marketing
+CATEGORIES:TRAVEL AGENT
+NOTE:This fax number is operational 0800 to 1715
+  EST\, Mon-Fri.
+REV:1995-10-31T22:27:10Z
+SOUND;TYPE=BASIC;VALUE=uri:CID:JOHNQPUBLIC.part8.19960229T080000.
+ xyzMail@host1.com
+UID:19950401-080045-40000F192713-0052
+URL:http://www.swbyps.restaurant.french/~chezchic.html
+CLASS:PUBLIC
+key;type=X509;encoding=b:MIICajCCAdOgAwIBAgICBEUwDQYJKoZIhvcNAQEEBQ
+ AwdzELMAkGA1UEBhMCVVMxLDAqBgNVBAoTI05ldHNjYXBlIENvbW11bmljYXRpb25zI
+ ENvcnBvcmF0aW9uMRwwGgYDVQQLExNJbmZvcm1hdGlvbiBTeXN0ZW1zMRwwGgYDVQQD
+ ExNyb290Y2EubmV0c2NhcGUuY29tMB4XDTk3MDYwNjE5NDc1OVoXDTk3MTIwMzE5NDc
+ 1OVowgYkxCzAJBgNVBAYTAlVTMSYwJAYDVQQKEx1OZXRzY2FwZSBDb21tdW5pY2F0aW
+ 9ucyBDb3JwLjEYMBYGA1UEAxMPVGltb3RoeSBBIEhvd2VzMSEwHwYJKoZIhvcNAQkBF
+ hJob3dlc0BuZXRzY2FwZS5jb20xFTATBgoJkiaJk/IsZAEBEwVob3dlczBcMA0GCSqG
+ SIb3DQEBAQUAA0sAMEgCQQC0JZf6wkg8pLMXHHCUvMfL5H6zjSk4vTTXZpYyrdN2dXc
+ oX49LKiOmgeJSzoiFKHtLOIboyludF90CgqcxtwKnAgMBAAGjNjA0MBEGCWCGSAGG+E
+ IBAQQEAwIAoDAfBgNVHSMEGDAWgBT84FToB/GV3jr3mcau+hUMbsQukjANBgkqhkiG9
+ w0BAQQFAAOBgQBexv7o7mi3PLXadkmNP9LcIPmx93HGp0Kgyx1jIVMyNgsemeAwBM+M
+ SlhMfcpbTrONwNjZYW8vJDSoi//yrZlVt9bJbs7MNYZVsyF1unsqaln4/vy6Uawfg8V
+ UMk1U7jt8LYpo4YULU7UZHPYVUaSgVttImOHZIKi4hlPXBOhcUQ==
+AGENT:BEGIN:VCARD\nFN:Joe Friday\nTEL:+1-919-555-7878\n
+ TITLE:Area Administrator\, Assistant\nEMAIL\;TYPE=INTERNET:
+ jfriday@host.com\nEND:VCARD\n
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+N:Stevenson;John;Philip,Paul;Dr.;Jr.,M.D.,A.C.P.
+NICKNAME:Jim,Jimmie
+key;type=x509;encoding=B:dGhpcyBjb3VsZCBiZSAKbXkgY2VydGlmaWNhdGUK
+PHOTO;ENCODING=b;TYPE=GIF:
+    R0lGODlhogBNAPEAAP////+AgP8AAAAAACH5BAEAAAAALAAAAACiAE0AAAL/BISpy+1i
+    opy02ouz3rzTB4aMR5bmiXriCqbuC8cVSy/yjeddzev+/+PRgMRiTLgyKpckZIgJjWKc
+    D6n1eqCOsFyo1tYNG7+J0+B8FqszZEgJDV/LP18T/D7PG+qku18/p2XnFwcoRzVImGa4
+    5mSmuMiohvQIKXlYk2J52TjkQsgZyAKDF4opYpp6kqTauvPkGrsBK1tr0WKbO+Og2yvB
+    6xucBfYT+TZQobihHLOJspXz11coAWlMYY2smX2toiCTrRFeza1Nzl1ZfhKgEPBZbo6t
+    bgB/XR+/fI/fEcCO0L8N3QV49PRF0LdvIEIT/fw1DDjOAkGEaSjmK3UOo4eG/+w4NmMm
+    bt7BehMiKtRYktpGjiw/guIgMGXMjC8lSjuZUAPLnaRAhvQpzxrOm0FVniyxk+cLZz+J
+    2gQqs2ZUo0+RJm35TmoGpk+dJoNa0OvXnBeuKoWIEgPXsWKnUgUAdiwJs2fTpR361i2a
+    pnfjBl1J1yPavGzv6u1WtK/WG4HrHluMd+9WvyMXr43R2PE0yF0N0yRc2etlGJk1dxhd
+    GHTYtp8lt0b8onRSu6pfkw3tGTdV1Chkz07EOnFt3qvTEmfo2zTf2rpdR4ZtW7hz0smV
+    T+acenp26M27CZVR/beH491vFx8O9Tv18FjHUz5sHu57+ZbJc2AvHub88su1S//3bp9O
+    +FnXGXPn+Qdff4ipl8KA+SkYH3/XBXfgggGW5SCB/0VYYXzHXWYSchm2B+Fp830YV4iA
+    jSjYRRRGN2FuHRb4ogUsPvgch/S9iCJ2MyVDwY040shdgjGqxiB8iu0j5JBKRqiibdxF
+    2aFIETTppEVSbqLllrtRxCSWpnVZJZcLPZnXmRKIOSSZO5L0JkFoIhjnhcLokeSd8ugJ
+    Vy/m6AgFoBJt5YOgyxykRjyGvlEoEIs2Co42Ff3pmmSTyofpOat9lak9kXyq1qeWImMM
+    NYVcGsciqkpKKqsljUQPogXNmimtrnYaqq2yghorp32KqmufsQJbq7C9GktpsMeL/imr
+    scLiw6yzkqrVbELROlvNq9kie2y3z2q7bLXijsvted5GK81t11JaabPgnhtuWPBiqyi5
+    625bbr74xmsttfzie+279MabLbTzEnxvtwkjiy64t3470LirkpsSObCWyyyxBku8MLv0
+    0drpqB6HXKq1E5OM6V4InlrpxKa2DG2ryU56a5F8ykIACgA7
+LOGO;ENCODING=b;TYPE=GIF:
+    R0lGODlhogBNAPEAAP////+AgP8AAAAAACH5BAEAAAAALAAAAACiAE0AAAL/BISpy+1i
+    opy02ouz3rzTB4aMR5bmiXriCqbuC8cVSy/yjeddzev+/+PRgMRiTLgyKpckZIgJjWKc
+    D6n1eqCOsFyo1tYNG7+J0+B8FqszZEgJDV/LP18T/D7PG+qku18/p2XnFwcoRzVImGa4
+    5mSmuMiohvQIKXlYk2J52TjkQsgZyAKDF4opYpp6kqTauvPkGrsBK1tr0WKbO+Og2yvB
+    6xucBfYT+TZQobihHLOJspXz11coAWlMYY2smX2toiCTrRFeza1Nzl1ZfhKgEPBZbo6t
+    bgB/XR+/fI/fEcCO0L8N3QV49PRF0LdvIEIT/fw1DDjOAkGEaSjmK3UOo4eG/+w4NmMm
+    bt7BehMiKtRYktpGjiw/guIgMGXMjC8lSjuZUAPLnaRAhvQpzxrOm0FVniyxk+cLZz+J
+    2gQqs2ZUo0+RJm35TmoGpk+dJoNa0OvXnBeuKoWIEgPXsWKnUgUAdiwJs2fTpR361i2a
+    pnfjBl1J1yPavGzv6u1WtK/WG4HrHluMd+9WvyMXr43R2PE0yF0N0yRc2etlGJk1dxhd
+    GHTYtp8lt0b8onRSu6pfkw3tGTdV1Chkz07EOnFt3qvTEmfo2zTf2rpdR4ZtW7hz0smV
+    T+acenp26M27CZVR/beH491vFx8O9Tv18FjHUz5sHu57+ZbJc2AvHub88su1S//3bp9O
+    +FnXGXPn+Qdff4ipl8KA+SkYH3/XBXfgggGW5SCB/0VYYXzHXWYSchm2B+Fp830YV4iA
+    jSjYRRRGN2FuHRb4ogUsPvgch/S9iCJ2MyVDwY040shdgjGqxiB8iu0j5JBKRqiibdxF
+    2aFIETTppEVSbqLllrtRxCSWpnVZJZcLPZnXmRKIOSSZO5L0JkFoIhjnhcLokeSd8ugJ
+    Vy/m6AgFoBJt5YOgyxykRjyGvlEoEIs2Co42Ff3pmmSTyofpOat9lak9kXyq1qeWImMM
+    NYVcGsciqkpKKqsljUQPogXNmimtrnYaqq2yghorp32KqmufsQJbq7C9GktpsMeL/imr
+    scLiw6yzkqrVbELROlvNq9kie2y3z2q7bLXijsvted5GK81t11JaabPgnhtuWPBiqyi5
+    625bbr74xmsttfzie+279MabLbTzEnxvtwkjiy64t3470LirkpsSObCWyyyxBku8MLv0
+    0drpqB6HXKq1E5OM6V4InlrpxKa2DG2ryU56a5F8ykIACgA7
+BDAY;VALUE=DATE-TIME:1953-10-15T23:10:00Z
+TZ;VALUE=text:-05:00\; EST\; Raleigh/North America
+AGENT;VALUE=uri:CID:JQPUBLIC.part3.960129T083020.xyzMail@host3.com
+CATEGORIES:INTERNET,IETF,INDUSTRY,INFORMATION TECHNOLOGY
+REV;VALUE=DATE:1997-11-15
+CLASS:PRIVATE
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Rene van der Harten
+N:van der Harten;Rene;J.;Sir;R.D.O.N.
+SORT-STRING:Harten
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Robert Pau Shou Chang
+N:Pau;Shou Chang;Robert
+SORT-STRING:Pau
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Osamu Koura
+N:Koura;Osamu
+SORT-STRING:Koura
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Oscar del Pozo
+N:del Pozo Triscon;Oscar
+SORT-STRING:Pozo
+END:VCARD
+
+BEGIN:VCARD
+VERSION:3.0
+FN:Christine d'Aboville
+N:d'Aboville;Christine
+SORT-STRING:Aboville
+END:VCARD
+
+BEGIN:vCard
+VERSION:3.0
+FN:Frank Dawson
+ORG:Lotus Development Corporation
+ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive
+ ;Raleigh;NC;27613-3502;U.S.A.
+LABEL;TYPE=WORK,POSTAL,PARCEL:6544 Battleford Drive\nRaleigh NC 27613-350
+ 2\nU.S.A.
+TEL;TYPE=VOICE,MSG,WORK:+1-919-676-9515
+TEL;TYPE=FAX,WORK:+1-919-676-9564
+EMAIL;TYPE=INTERNET,PREF:Frank_Dawson@Lotus.com
+EMAIL;TYPE=INTERNET:fdawson@earthlink.net
+URL:http://home.earthlink.net/~fdawson
+END:vCard
+
+BEGIN:vCard
+VERSION:3.0
+FN:Tim Howes
+ORG:Netscape Communications Corp.
+ADR;TYPE=WORK:;;501 E. Middlefield Rd.;Mountain View;
+ CA; 94043;U.S.A.
+LABEL;TYPE=WORK:501 E. Middlefield Rd.\nMountain View CA 94043\nU.S.A.
+TEL;TYPE=VOICE,MSG,WORK:+1-415-937-3419
+TEL;TYPE=FAX,WORK:+1-415-528-4164
+EMAIL;TYPE=INTERNET:howes@netscape.com
+END:vCard

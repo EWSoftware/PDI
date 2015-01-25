@@ -1,0 +1,9 @@
+<div id="@_RP_DAY_PAT" style="display: none;">
+<input id="@_RP_DP_INST" type="radio" name="@_RBL_DAILY" onclick="javascript: @.SetDailyCtlState(true);" />
+<label for="@_RP_DP_INST">Every&nbsp;</label>
+<input class="EWS_RP_Input" type="text" maxlength="3" size="3" id="@_RP_DP_INT" />&nbsp;day(s)<br/><br/>
+<input id="@_RP_DP_WD" type="radio" name="@_RBL_DAILY" onclick="javascript: @.SetDailyCtlState(false);" />
+<label for="@_RP_DP_WD">Every weekday</label><br/>
+<span id="@_RP_DP_VAL" class="EWS_RP_ErrorMessage"
+	style="display: none;">A daily interval is required and must be between 1 and 999</span>
+</div>

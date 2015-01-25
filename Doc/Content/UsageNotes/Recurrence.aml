@@ -1,0 +1,935 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="3f7e1bcc-3afe-4978-95e7-e6515eae45df" revisionNumber="1">
+	<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>This topic describes the interactions of the various recurrence rule parts with the recurrence
+frequencies.</para>
+
+			<autoOutline excludeRelatedTopics="true" lead="none" />
+		</introduction>
+
+		<section address="Overview">
+			<title>Overview</title>
+			<content>
+				<para>The following table maps the recurrence rule (<codeInline>RRULE</codeInline>) parts to their
+corresponding properties in the <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Recurrence</codeEntityReference>
+class.  Refer to the class properties for more information about their valid values and usage.  Because the
+recurrence class is implemented separately from the other calendar classes, it can be used by itself to generate
+a single set of recurring date/times without the need of a containing calendar object such as
+<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VEvent</codeEntityReference>.  If you need
+support for multiple recurrence rules, recurrence dates (<codeInline>RDATE</codeInline>), exception rules
+(<codeInline>EXRULE</codeInline>), and/or exception dates (<codeInline>EXDATE</codeInline>), you will need to use
+the calendar objects to generate the recurrence sets.  See the
+<codeEntityReference qualifyHint="true">N:EWSoftware.PDI.Objects</codeEntityReference> and
+<codeEntityReference qualifyHint="true">N:EWSoftware.PDI.Properties</codeEntityReference> namespaces for more
+information.</para>
+
+				<table>
+					<tableHeader>
+						<row>
+							<entry>
+								<para>RRULE Property</para>
+							</entry>
+							<entry>
+								<para>EWSoftware.PDI.Recurrence Property</para>
+							</entry>
+						</row>
+					</tableHeader>
+					<row>
+						<entry>
+							<para>
+								<codeInline>FREQ</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.Frequency</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>INTERVAL</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.Interval</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYMONTH</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByMonth</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYWEEKNO</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByWeekNo</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYYEARDAY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByYearDay</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYMONTHDAY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByMonthDay</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYDAY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByDay</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYHOUR</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByHour</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYMINUTE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.ByMinute</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYSECOND</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.BySecond</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BYSETPOS</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.BySetPos</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>UNTIL</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.RecurUntil</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>COUNT</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.MaximumOccurrences</codeEntityReference></para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>WKST</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.WeekStart</codeEntityReference></para>
+						</entry>
+					</row>
+				</table>
+
+				<para>The following class properties have no matching recurrence rule parts.</para>
+				
+				<list class="bullet">
+					<listItem>
+						<para>The <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.StartDateTime</codeEntityReference>
+property is equivalent to the <codeInline>DTSTART</codeInline> property of a calendar object
+(<codeInline>VEVENT</codeInline>, <codeInline>VTODO</codeInline>, <codeInline>VJOURNAL</codeInline>).  Set it to
+indicate the date and time at which the recurrence starts.  Note that when recurrences are resolved via a
+calendar object, the calendar object will set the recurrence start date/time automatically in each of its rules
+based on its <codeInline>DTSTART</codeInline> value.</para>
+					</listItem>
+
+					<listItem>
+						<para>The <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.CanOccurOnHoliday</codeEntityReference>
+property is a custom rule that is not defined by the iCalendar specification.  Use this rule extension to filter
+out recurrence instances that fall on a defined set of holiday dates.  This rule is applied after all of the
+other standard recurrence rule parts have been applied.</para>
+					</listItem>
+
+					<listItem>
+						<para>The <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Recurrence.Holidays</codeEntityReference>
+property defines the holiday dates that are used in conjunction with the <codeInline>CanOccurOnHoliday</codeInline>
+property.  This property is static and the collection is shared by all instances of the <codeInline>Recurrence</codeInline>
+class.</para>
+					</listItem>
+				</list>
+
+				<para>When used separately from the calendar objects, the following <codeInline>Recurrence</codeInline>
+class methods can be used to define and generate recurrence instances:</para>
+
+				<list class="bullet">
+					<listItem>
+						<para>The <codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.Parse(System.String)</codeEntityReference>
+method can be used to parse recurrence properties from a string in vCalendar basic grammar format or iCalendar
+<codeInline>RRULE</codeInline> format.</para>
+					</listItem>
+
+					<listItem>
+						<para><codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.RecurDaily(System.Int32)</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.RecurEveryWeekday</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.RecurWeekly(System.Int32,EWSoftware.PDI.DaysOfWeek)</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.RecurMonthly(EWSoftware.PDI.DayOccurrence,EWSoftware.PDI.DaysOfWeek,System.Int32)</codeEntityReference>,
+and <codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.RecurYearly(EWSoftware.PDI.DayOccurrence,EWSoftware.PDI.DaysOfWeek,System.Int32,System.Int32)</codeEntityReference>
+can be used to quickly set up common recurrence patterns rather than setting the properties individually.  They
+define patterns similar to those that can be defined in Microsoft Outlook.  For finer control over the recurrence
+pattern, you can set the individual properties directly.</para>
+					</listItem>
+
+					<listItem>
+						<para><codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.AllInstances</codeEntityReference>
+can be used to return a collection of date/times that represent all instances generated by the recurrence pattern.</para>
+					</listItem>
+
+					<listItem>
+						<para><codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.OccursOn(System.DateTime,System.Boolean)</codeEntityReference>
+can be used to see if a specific date/time is generated by the recurrence pattern.</para>
+					</listItem>
+
+					<listItem>
+						<para><codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.InstancesBetween(System.DateTime,System.DateTime)</codeEntityReference>
+can be used to return a collection of date/times that represent all instances occurring between two specified
+dates/times.</para>
+					</listItem>
+
+					<listItem>
+						<para><codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.NextInstance(System.DateTime,System.Boolean)</codeEntityReference>
+can be used to return a single instance of the recurrence that occurs on or after a specified date/time.</para>
+					</listItem>
+
+					<listItem>
+						<para>Although the <codeInline>Recurrence</codeInline> class is not itself a collection and does not
+implement the <codeInline>IEnumerable</codeInline> interface, it does provide a type-safe enumerator via the
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Recurrence.GetEnumerator</codeEntityReference>
+method so that you can use a recurrence object in a <codeInline>foreach</codeInline> loop to enumerate the entire
+set of date/times generated by a recurrence pattern.</para>
+					</listItem>
+				</list>
+			</content>
+		</section>
+
+		<section address="IntervalDuration">
+			<title>Recurrence Interval and Duration</title>
+			<content>
+				<para>The <codeInline>INTERVAL</codeInline> parameter defines the interval between occurrences (i.e. an
+interval of 2 on a daily pattern means every other day).  The <codeInline>COUNT</codeInline> and
+<codeInline>UNTIL</codeInline> parameters are mutually exclusive and are used to define the duration of the
+recurrence pattern.  If <codeInline>COUNT</codeInline> is specified, it defines the number of occurrences that
+will be generated.  If <codeInline>UNTIL</codeInline> is defined, it defines the date/time after which no more
+instances will be generated.  If neither is defined, the recurrence will continue forever.</para>
+
+			</content>
+		</section>
+
+		<section address="FreqRuleInt">
+			<title>Frequency and Rule Part Interactions</title>
+			<content>
+				<para>Below is a chart summarizing the effect of each recurrence rule part when used with the different
+recurrence frequencies.  The iCalendar 2.0 specification is rather vague about the interactions of some of the
+rules when used together on the <codeInline>YEARLY</codeInline> frequency.  It is likely that some combinations
+of frequency and rules are either not valid or do not make sense.  However, the recurrence class will handle them
+as best it can based on examples given in the specification.  The <codeInline>SECONDLY</codeInline> through
+<codeInline>WEEKLY</codeInline> frequencies are fairly straightforward.  Rule parts representing units of time
+smaller than the frequency expand the number of instances generated. Rule parts representing units of time larger
+than or equal to the frequency filter the number of instances generated.  The <codeInline>MONTHLY</codeInline>
+and <codeInline>YEARLY</codeInline> frequencies have some distinct variations and are explained in the sections
+below.  For all frequencies, if a rule part is omitted, the corresponding value is take from the
+<codeInline>StartDate</codeInline> (<codeInline>DTSTART</codeInline>) property. For example, if no
+<codeInline>BYHOUR</codeInline> rule is specified, the hour for all instances generated is defaulted to the hour
+specified in <codeInline>StartDate</codeInline> (<codeInline>DTSTART</codeInline>).</para>
+
+				<para>The order of evaluation for the rule parts is from left to right. <codeInline>BYWEEKNO</codeInline>
+is only used by the <codeInline>YEARLY</codeInline> frequency.  The <codeInline>BYSETPOS</codeInline> rule, not shown
+in the table, always filters the results for all frequencies and is always evaluated last.</para>
+
+				<table>
+					<tableHeader>
+						<row>
+							<entry>
+								<para>&#160;</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYMONTH</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYWEEKNO</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYYEARDAY</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYMONTHDAY</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYDAY</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYHOUR</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYMINUTE</codeInline>
+								</para>
+							</entry>
+							<entry>
+								<para>
+									<codeInline>BYSECOND</codeInline>
+								</para>
+							</entry>
+						</row>
+					</tableHeader>
+					<row>
+						<entry>
+							<para>
+								<codeInline>SECONDLY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>N/A</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>MINUTELY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>N/A</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>HOURLY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>N/A</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>DAILY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>N/A</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>WEEKLY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>N/A</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>MONTHLY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>N/A</para>
+						</entry>
+						<entry>
+							<para>Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand/Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>YEARLY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand/Filter</para>
+						</entry>
+						<entry>
+							<para>Expand/Filter</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+						<entry>
+							<para>Expand</para>
+						</entry>
+					</row>
+				</table>
+
+			</content>
+		</section>
+
+		<section address="MonthlyFreq">
+			<title>MONTHLY Frequency Notes</title>
+			<content>
+				<para>If the <codeInline>BYMONTHDAY</codeInline> and <codeInline>BYDAY</codeInline> rules are specified
+together, the recurrence is expanded using <codeInline>BYMONTHDAY</codeInline> and then filtered using
+<codeInline>BYDAY</codeInline>.  If only one or the other of those rules is present, the recurrence is expanded
+by that rule.</para>
+
+				<para>Examples from the iCalendar 2.0 specification (RFC 2445).  The "<codeInline>r</codeInline>"
+variable is an instance of the <codeInline>Recurrence</codeInline> class:</para>
+
+<code language="none">
+Every other month on the 1st and last Sunday of the month for 10 occurrences:
+
+    DTSTART:19970907T090000
+    RRULE:FREQ=MONTHLY;INTERVAL=2;COUNT=10;BYDAY=1SU,-1SU
+
+    r.StartDateTime = new DateTime(1997, 9, 7, 9, 0, 0);
+    r.Frequency = RecurFrequency.Monthly;
+    r.Interval = 2;
+    r.MaximumOccurrences = 10;
+    r.ByDay.AddRange(new DayInstance[] { new DayInstance(1, DayOfWeek.Sunday),
+        new DayInstance(-1, DayOfWeek.Sunday) });
+
+    ==&gt; (1997 9:00 AM) September 7, 28; November 2, 30
+        (1998 9:00 AM) January 4, 25; March 1, 29; May 3, 31
+
+Monthly on the 2nd and 15th of the month for 10 occurrences:
+
+    DTSTART:19970902T090000
+    RRULE:FREQ=MONTHLY;COUNT=10;BYMONTHDAY=2,15
+
+    r.StartDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
+    r.Frequency = RecurFrequency.Monthly;
+    r.MaximumOccurrences = 10;
+    r.ByMonthDay.AddRange(new int[] { 2, 15 });
+
+    ==&gt; (1997 9:00 AM) September 2, 15; October 2, 15; November 2, 15; December 2, 15
+        (1998 9:00 AM) January 2, 15
+
+Every Friday the 13th, forever.  Here, BYDAY is used to filter the BYMONTHDAY
+rule rather than expand the frequency:
+
+    DTSTART:19970902T090000
+    RRULE:FREQ=MONTHLY;BYDAY=FR;BYMONTHDAY=13
+
+    r.StartDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
+    r.Frequency = RecurFrequency.Monthly;
+    r.ByDay.Add(DayOfWeek.Friday);
+    r.ByMonthDay.Add(13);
+
+    ==&gt; (1998 9:00 AM) February 13; March 13; November 13
+        (1999 9:00 AM) August 13
+        (2000 9:00 AM) October 13
+</code>
+
+			</content>
+		</section>
+
+		<section address="YearlyFreq">
+			<title>YEARLY Frequency Notes</title>
+			<content>
+				<para>For the <codeInline>YEARLY</codeInline> frequency, the <codeInline>BYMONTH</codeInline>,
+<codeInline>BYWEEKNO</codeInline>, and <codeInline>BYYEARDAY</codeInline> rules are expanded separately from each
+other if specified.</para>
+
+				<para>If the <codeInline>BYMONTH</codeInline> rule is specified, the following occurs.  If the
+<codeInline>BYMONTHDAY</codeInline> and <codeInline>BYDAY</codeInline> rules are specified together, the
+<codeInline>BYMONTH</codeInline> recurrence set is expanded using <codeInline>BYMONTHDAY</codeInline> and then
+filtered using <codeInline>BYDAY</codeInline>.  If only one or the other of those rules is present, the
+recurrence set is expanded by that rule.  If the <codeInline>BYDAY</codeInline> rule is used as an expansion, the
+recurrence instances are expanded only in the months specified in the <codeInline>BYMONTH</codeInline> rule.</para>
+
+				<para>If the <codeInline>BYMONTH</codeInline> rule is not specified, the following occurs.  The
+recurrence is expanded separately using the <codeInline>BYMONTHDAY</codeInline> rule if it is specified.  If the
+<codeInline>BYDAY</codeInline> rule has been specified and the <codeInline>BYWEEKNO</codeInline> rule has not
+been specified, the recurrence is expanded separately using the <codeInline>BYDAY</codeInline> rule.</para>
+
+				<para>If the <codeInline>BYWEEKNO</codeInline> rule has been specified, it is expanded separately.  If
+the <codeInline>BYDAY</codeInline> rule has been specified in conjunction with the <codeInline>BYWEEKNO</codeInline>
+rule, its recurrence set is expanded by the specified days of the week in the those week numbers.</para>
+
+				<para>If <codeInline>BYYEARDAY</codeInline> is specified, it is expanded separately.</para>
+
+				<para>Once all of the above expansions have taken place, each of the separate result sets is combined
+into a single set and it is expanded by the <codeInline>BYHOUR</codeInline>, <codeInline>BYMINUTE</codeInline>,
+and <codeInline>BYSECOND</codeInline> rules if they are specified.</para>
+
+				<para>Examples from the iCalendar 2.0 specification (RFC 2445).  The "<codeInline>r</codeInline>"
+variable is an instance of the <codeInline>Recurrence</codeInline> class:</para>
+
+<code language="none">
+Every day in January, for 3 years:
+
+    DTSTART:19980101T090000
+    RRULE:FREQ=YEARLY;UNTIL=20000131T090000Z;BYMONTH=1;
+    BYDAY=SU,MO,TU,WE,TH,FR,SA
+
+    r.StartDateTime = new DateTime(1998, 1, 1, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.RecurUntil = new DateTime(2000, 1, 31, 9, 0, 0);
+    r.ByMonth.Add(1);
+
+    ==&gt; (1998 9:00 AM) January 1-31
+        (1999 9:00 AM) January 1-31
+        (2000 9:00 AM) January 1-31
+
+Yearly in June and July for 10 occurrences:
+
+    DTSTART:19970610T090000
+    RRULE:FREQ=YEARLY;COUNT=10;BYMONTH=6,7
+
+    r.StartDateTime = new DateTime(1997, 6, 10, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.MaximumOccurrences = 10;
+    r.ByMonth.AddRange(new int[] { 6, 7 });
+
+    ==&gt; (1997 9:00 AM) June 10; July 10
+        (1998 9:00 AM) June 10; July 10
+        (1999 9:00 AM) June 10; July 10
+        (2000 9:00 AM) June 10; July 10
+        (2001 9:00 AM) June 10; July 10
+				
+    Note: Since none of the BYDAY, BYMONTHDAY or BYYEARDAY components are specified,
+    the day of the month (10) is taken from DTSTART.
+
+Every other year on January, February, and March for 10 occurrences:
+
+    DTSTART:19970310T090000
+    RRULE:FREQ=YEARLY;INTERVAL=2;COUNT=10;BYMONTH=1,2,3
+
+    r.StartDateTime = new DateTime(1997, 3, 10, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.Interval = 2;
+    r.MaximumOccurrences = 10;
+    r.ByMonth.AddRange(new int[] { 1, 2, 3 });
+
+    ==&gt; (1997 9:00 AM) March 10
+        (1999 9:00 AM) January 10; February 10; March 10
+        (2001 9:00 AM) January 10; February 10; March 10
+        (2003 9:00 AM) January 10; February 10; March 10
+
+Every 3rd year on the 1st, 100th and 200th day for 10 occurrences:
+
+    DTSTART:19970101T090000
+    RRULE:FREQ=YEARLY;INTERVAL=3;COUNT=10;BYYEARDAY=1,100,200
+
+    r.StartDateTime = new DateTime(1997, 1, 1, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.Interval = 3;
+    r.MaximumOccurrences = 10;
+    r.ByYearDay.AddRange(new int[] { 1, 100, 200 });
+
+    ==&gt; (1997 9:00 AM) January 1; April 10; July 19
+        (2000 9:00 AM) January 1; April 9; July 18
+        (2003 9:00 AM) January 1; April 10; July 19
+        (2006 9:00 AM) January 1
+
+Every 20th Monday of the year, forever:
+
+    DTSTART:19970519T090000
+    RRULE:FREQ=YEARLY;BYDAY=20MO
+
+    r.StartDateTime = new DateTime(1997, 5, 19, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.ByDay.Add(20, DayOfWeek.Monday);
+
+    ==&gt; (1997 9:00 AM) May 19
+        (1998 9:00 AM) May 18
+        (1999 9:00 AM) May 17
+        ...
+
+Monday of week number 20 (where the default start of the week is Monday), forever:
+
+    DTSTART:19970512T090000
+    RRULE:FREQ=YEARLY;BYWEEKNO=20;BYDAY=MO
+
+    r.StartDateTime = new DateTime(1997, 5, 12, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.ByWeekNo.Add(20);
+    r.ByDay.Add(DayOfWeek.Monday);
+
+    ==&gt; (1997 9:00 AM) May 12
+        (1998 9:00 AM) May 11
+        (1999 9:00 AM) May 17
+        ...
+
+Every Thursday in March, forever:
+
+    DTSTART:19970313T090000
+    RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=TH
+
+    r.StartDateTime = new DateTime(1997, 3, 13, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.ByMonth.Add(3);
+    r.ByDay.Add(DayOfWeek.Thursday);
+
+    ==&gt; (1997 9:00 AM) March 13, 20, 27
+        (1998 9:00 AM) March 5, 12, 19, 26
+        (1999 9:00 AM) March 4, 11, 18, 25
+        ...
+
+Every Thursday, but only during June, July, and August, forever:
+
+    DTSTART:19970605T090000
+    RRULE:FREQ=YEARLY;BYDAY=TH;BYMONTH=6,7,8
+
+    r.StartDateTime = new DateTime(1997, 6, 5, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.ByMonth.AddRange(new int[] { 6, 7, 8 });
+    r.ByDay.Add(DayOfWeek.Thursday);
+
+    ==&gt; (1997 9:00 AM) June 5, 12, 19, 26; July 3, 10, 17, 24, 31; August 7, 14, 21, 28
+        (1998 9:00 AM) June 4, 11, 18, 25; July 2, 9, 16, 23, 30; August 6, 13, 20, 27
+        (1999 9:00 AM) June 3, 10, 17, 24; July 1, 8, 15, 22, 29; August 5, 12, 19, 26
+        ...
+
+Every four years, the first Tuesday after a Monday in November, forever (U.S. Presidential
+Election day):
+
+    DTSTART:19961105T090000
+    RRULE:FREQ=YEARLY;INTERVAL=4;BYMONTH=11;BYDAY=TU;BYMONTHDAY=2,3,4,5,6,7,8
+
+    r.StartDateTime = new DateTime(1996, 11, 5, 9, 0, 0);
+    r.Frequency = RecurFrequency.Yearly;
+    r.Interval = 4;
+    r.ByMonth.Add(11);
+    r.ByDay.Add(DayOfWeek.Tuesday);
+    r.ByMonthDay.AddRange(new int[] { 2, 3, 4, 5, 6, 7, 8 });
+
+    ==&gt; (1996 9:00 AM) November 5
+        (2000 9:00 AM) November 7
+        (2004 9:00 AM) November 2
+        ...
+</code>
+
+			</content>
+		</section>
+
+		<section address="BySetPos">
+			<title>BYSETPOS Rule Notes</title>
+			<content>
+				<para>Once a recurrence has been expanded, the <codeInline>BYSETPOS</codeInline> rule is used to select
+specific instances from the set if it is specified.  This occurs at each interval.  For example:</para>
+
+<code language="none">
+The 2nd to last weekday of the month:
+
+    DTSTART:19970929T090000
+    RRULE:FREQ=MONTHLY;BYDAY=MO,TU,WE,TH,FR;BYSETPOS=-2
+
+    r.StartDateTime = new DateTime(1997, 9, 29, 9, 0, 0);
+    r.Frequency = RecurFrequency.Monthly;
+    r.BySetPos.Add(-2);
+    r.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Monday, DayOfWeek.Tuesday,
+        DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday });
+
+    ==&gt; (1997 9:00 AM) September 29; October 30; November 27; December 30
+        (1998 9:00 AM) January 29; February 26; March 30
+        ...
+</code>
+
+			</content>
+		</section>
+
+		<section address="WeekStart">
+			<title>WKST Rule Notes</title>
+			<content>
+				<para>For recurrence rules, a week is defined as a seven day period that starts on the day specified by
+the <codeInline>WKST</codeInline> rule part.  Week number one of the calendar year is the first seven day period
+starting on the specified day of the week that contains at least four (4) days in that calendar year.</para>
+
+				<para>Valid values for <codeInline>WKST</codeInline> are <codeInline>MO</codeInline>, <codeInline>TU</codeInline>,
+<codeInline>WE</codeInline>, <codeInline>TH</codeInline>, <codeInline>FR</codeInline>, <codeInline>SA</codeInline>
+and <codeInline>SU</codeInline>.  The default value is <codeInline>MO</codeInline> (Monday).  This is significant
+when a <codeInline>WEEKLY</codeInline> recurrence has an interval greater than one and a <codeInline>BYDAY</codeInline>
+rule part is specified.  It is also significant in a <codeInline>YEARLY</codeInline> recurrence when a
+<codeInline>BYWEEKNO</codeInline> rule part is specified.</para>
+
+				<para>Examples from the iCalendar 2.0 specification (RFC 2445):</para>
+
+<code language="none">
+An example where the days generated makes a difference because of WKST:
+
+    DTSTART:19970805T090000
+    RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=4;BYDAY=TU,SU;WKST=MO
+
+    // Uses default week start of Monday
+    r.StartDateTime = new DateTime(1997, 8, 5, 9, 0, 0);
+    r.Frequency = RecurFrequency.Weekly;
+    r.Interval = 2;
+    r.MaximumOccurrences = 4;
+    r.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+
+    ==&gt; (1997)Aug 5, 10, 19, 24
+
+Changing only WKST from MO to SU, yields different results:
+
+    DTSTART:19970805T090000
+    RRULE:FREQ=WEEKLY;INTERVAL=2;COUNT=4;BYDAY=TU,SU;WKST=SU
+
+    r.StartDateTime = new DateTime(1997, 8, 5, 9, 0, 0);
+    r.Frequency = RecurFrequency.Weekly;
+    r.Interval = 2;
+    r.MaximumOccurrences = 4;
+    r.WeekStart = DayOfWeek.Sunday;
+    r.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+
+    ==&gt; (1997)August 5, 17, 19, 31
+</code>
+
+				<para>When using Monday as the starting date, the first week is August 4th (Monday) to August 10th
+(Sunday).  As such, it picks August 5th and August 10th, skips two weeks and picks up August 19th and August 24th
+and stops as it has its four days.</para>
+
+				<para>When using Sunday as the starting date, the first week is August 3rd (Sunday) to August 9th
+(Saturday).  Since the pattern starts on August 5th (Tuesday), it won't pick up August 3rd as it is before the
+pattern start date.  It then skips two weeks and picks up August 17th and August 19th, skips another two weeks
+and picks up August 31st and stops as it has its four days.</para>
+
+			</content>
+		</section>
+
+		<section address="InvalidDates">
+			<title>Duplicate and Invalid Dates</title>
+			<content>
+				<para>During the course of generating instances, duplicate and/or invalid date/times may be encountered.
+Such instances are discarded and will not become part of the final recurrence set.  The returned set will only
+include unique occurrences of valid date/time values.  For example, the following monthly recurrence pattern will
+not generate instances for months with less than 31 days:</para>
+
+<code language="none">
+The 31st day of every month:
+
+    DTSTART:20041016T000000
+    RRULE:FREQ=MONTHLY;COUNT=20;BYMONTHDAY=31
+
+    r.StartDateTime = new DateTime(2004, 10, 16);
+    r.Frequency = RecurFrequency.Monthly;
+    r.MaximumOccurrences = 20;
+    r.ByMonthDay.Add(31);
+
+    ==&gt; 10/31/2004, 12/31/2004, 01/31/2004, 03/31/2004, ...
+</code>
+
+			</content>
+		</section>
+
+		<section address="Examples">
+			<title>Working Examples</title>
+			<content>
+				<para>See the <localUri>RFC2445RecurTest</localUri> demo application for many examples of setting up and
+using the <codeInline>Recurrence</codeInline> class in code.  The demo shows using the <codeInline>Recurrence</codeInline>
+class by itself as well as in conjunction with the calendar classes with full time zone support.  The Windows
+Forms demo application (<localUri>PDIWinFormsTest</localUri>) also contains some test forms that show examples of
+parsing and calculating recurrence patterns from iCalendar properties.  In addition, it also demonstrates the
+<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Windows.Forms.RecurrencePattern</codeEntityReference>
+user control and the <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Windows.Forms.RecurrencePropertiesDlg</codeEntityReference>
+dialog box that can be used to modify recurrence properties in a more user-friendly fashion.</para>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="695cc5b6-0937-42cd-9e7a-2f8aab4f09b0" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

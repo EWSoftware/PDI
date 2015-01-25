@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="ada69918-d59a-4340-8c77-28b9726a7205" revisionNumber="1">
+	<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>To the best of my knowledge, all specifications are fully implemented except for the following noted
+limitations.  The four specifications contain a large amount of information and it is possible that I may have
+missed something.  If you do find something that is not implemented or is not correct, please let me know and I
+will do my best to correct the problem.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<definitionTable>
+					<definedTerm>vCard 2.1 and vCard 3.0</definedTerm>
+					<definition>
+						<para>vCard object and vCard property group names are parsed and stored and are written back out when
+saved.  However, full use of the grouping name as defined in the specifications is not supported.</para>
+
+						<para>Inline binary encoded properties such as <codeInline>PHOTO</codeInline>, <codeInline>LOGO</codeInline>,
+<codeInline>SOUND</codeInline>, and <codeInline>KEY</codeInline> give you access to a byte array that represents
+the inline decoded binary data but it is up to you to convert the byte array into something more useful such as
+an image, sound, digital certificate, file, etc.  The demo applications provide some examples of this.</para>
+					</definition>
+
+					<definedTerm>vCalendar 1.0 and iCalendar 2.0</definedTerm>
+					<definition>
+						<para>Recurrence rules in vCalendar 1.0 basic format are supported.  The vCalendar 1.0 extended
+recurrence rule format is not supported.</para>
+
+						<para>The vCalendar 1.0 <codeInline>RNUM</codeInline>, <codeInline>DAYLIGHT</codeInline>, and
+<codeInline>TZ</codeInline> properties are parsed and stored in the calendar object and are written back out when
+saved but they are not used for anything.  All iCalendar 2.0 recurrence and time zone properties are supported
+and utilized though.</para>
+
+						<para>Inline binary encoded properties such as <codeInline>ATTACH</codeInline> give you access to a
+byte array that represents the inline decoded binary data but it is up to you to convert the byte array into
+something more useful such as a file.  The demo applications provide some examples of this.</para>
+
+						<para>All calendar-related objects are compatible with RFC 2446 (iCalendar Transport-Independent
+Interoperability Protocol) and RFC 2447 (iCalendar Message-Based Interoperability Protocol) and implement all 
+the necessary properties.  However, there is currently no support for validating objects against RFC 2446 rules.
+Support for this may be considered at a later date.</para>
+					</definition>
+
+					<definedTerm>All specifications</definedTerm>
+					<definition>
+						<para>Custom properties (anything not recognized as part of one of the specifications) are stored in
+a <codeInline>CustomProperties</codeInline> property on each object. It is up to you to search the collection for
+custom properties that may be of interested to you.</para>
+
+						<para>Custom parameters (anything not recognized as part of one of the specifications) are stored in
+a <codeInline>CustomParameters</codeInline> string property on each property object.  It is up to you to parse
+the string for custom parameters that may be of interest to you.</para>
+					</definition>
+
+				</definitionTable>
+
+				<para>For more information and copies of the specifications, please refer to the <externalLink>
+					<linkText>Internet Mail Consortium</linkText>
+					<linkUri>http://www.imc.org/pdi/</linkUri>
+					<linkTarget>_blank</linkTarget>
+				</externalLink> web site or the <externalLink>
+					<linkText>Internet Engineering Task Force</linkText>
+					<linkUri>http://www.ietf.org/</linkUri>
+					<linkTarget>_blank</linkTarget>
+				</externalLink> web site.</para>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="695cc5b6-0937-42cd-9e7a-2f8aab4f09b0" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

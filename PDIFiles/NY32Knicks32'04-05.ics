@@ -1,0 +1,1056 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+X-WR-CALNAME:NY Knicks '04-05
+PRODID:-//Apple Computer\, Inc//iCal 1.5//EN
+X-WR-RELCALID:87B07046-0B5A-11D9-AC45-000A95DBAEAA-CALP
+X-WR-TIMEZONE:America/New_York
+CALSCALE:GREGORIAN
+X-WR-CALDESC:2004-05 Knicks Schedule
+BEGIN:VTIMEZONE
+TZID:America/New_York
+LAST-MODIFIED:20050419T012644Z
+BEGIN:DAYLIGHT
+DTSTART:20040404T070000
+TZOFFSETTO:-0400
+TZOFFSETFROM:+0000
+TZNAME:EDT
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:20041031T020000
+TZOFFSETTO:-0500
+TZOFFSETFROM:-0400
+TZNAME:EST
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:20050403T010000
+TZOFFSETTO:-0400
+TZOFFSETFROM:-0500
+TZNAME:EDT
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+LOCATION:Delta Center
+DTSTAMP:20041020T074447Z
+UID:9EFC7D4E-0B5A-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041019T210000
+SUMMARY:@ Utah Jazz
+DTEND;TZID=America/New_York:20041019T230000
+DESCRIPTION:Preseason Game\n\nFinal Score:\n\nNY Knicks (2-1)...89\nJazz
+  (2-0)..........113\n\nPoints: R. Bell (UTA)..........18\n           M. 
+ Sweetney (NY)...18\n\nRebounds: M. Harpring (UTA)...10 \n               
+   M. Sweetney (NY)......6\n\nAssists: C. Arroyo (UTA)...6\n             
+ S. Marbury (NY)...5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:American Airlines Center
+DTSTAMP:20041022T040843Z
+UID:AF32F6C0-0B5A-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041021T203000
+SUMMARY:@ Dallas Mavericks
+DTEND;TZID=America/New_York:20041021T223000
+DESCRIPTION:Preseason Game\n\nFinal Score:\n\nNY Knicks (2-2).....74\nMa
+ vericks (1-3)...112\n\nPoints: J. Terry (DAL).......17\n           J. Cr
+ awford (NY)...14\n\nRebounds: N. Mohammed (NY)...9 \n                 T.
+  Ariza (NY)..............9\n                 E. Dampier (DAL).......8\n\
+ nAssists: S. Marbury (NY)...8\n            M. Finley (DAL).....8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Siox Falls Arena
+DTSTAMP:20041023T043133Z
+UID:C1044F6E-0B5A-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041022T200000
+SUMMARY:vs. Minnesota Timberwolves
+DTEND;TZID=America/New_York:20041022T220000
+DESCRIPTION:Preseason Game\n\nFinal Score:\n\nNY Knicks (2-3)...........
+ 82\nTimberwolves (3-2)...102\n\nPoints: K. Garnett (MIN)...21\n         
+   K. Thomas (NY)....16\n\nRebounds: K. Garnett (MIN)...9\n              
+    K. Thomas (NY)....9\n\nAssists: K. Garnett (MIN)...7\n             M.
+  Norris (NY)......4
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041025T012738Z
+UID:D5655461-0B5A-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041024T190000
+SUMMARY:vs. Dallas Mavericks
+DTEND;TZID=America/New_York:20041024T210000
+DESCRIPTION:Preseason Game\n\nFinal Score:\n\nNY Knicks (3-3)...102\nMav
+ ericks (2-4).....86\n\nPoints: J. Crawford (NY)......22\n           D. N
+ owitzki (DAL)....17\n\nRebounds: C. Booth (DAL)..........8\n            
+      N. Mohammed (NY)...7\n\nAssists: S. Marbury (NY).......8\n         
+     D. Nowitzki (DAL)...3
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Continental Airlines Arena
+DTSTAMP:20041027T042348Z
+UID:E7F32C87-0B5A-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041026T193000
+SUMMARY:@ New Jersey Nets
+DTEND;TZID=America/New_York:20041026T213000
+DESCRIPTION:Preseason Game\n\nFinal Score:\n\nNY Knicks (4-3)...86\nNJ N
+ ets (3-4).......79\n\nPoints: R. Mercer (NJ)......30\n           S. Marb
+ ury (NY)...14\n\nRebounds: K. Thomas (NY)...10\n                 R. Merc
+ er (NJ)......10\n\nAssists: J. Vaughn (NJ)...5\n            T. Ariza (NY
+ ).....4
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041029T021038Z
+UID:F7DD189C-0B5A-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041028T193000
+SUMMARY:vs. Utah Jazz
+DTEND;TZID=America/New_York:20041028T213000
+DESCRIPTION:Last Preseason Game\n\nFinal Score:\n\nNY Knicks (5-3)...89\
+ nJazz (3-4)............83\n\nPoints: T. Thomas (NY).......23\n          
+  M. Harpring (UTA)...17\n\nRebounds: C. Boozer (UTA)...10\n             
+     T. Ariza (NY)..........9\n\nAssists: S. Marbury (NY)...7\n          
+   M. Okur (UTA)......5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Target Center
+DTSTAMP:20041104T032852Z
+UID:9DD89B7C-0B5B-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041103T200000
+SUMMARY:@ Minnesota Timberwolves
+DTEND;TZID=America/New_York:20041103T222000
+DESCRIPTION:Season Opener\n\nFinal Score:\n\nNY Knicks (0-1).........93\
+ nTimberwolves (1-0)...99\n\nPoints: K. Garnett (MIN)...28\n           S.
+  Marbury (NY)....27\n\nRebounds: K. Garnett (MIN)...20\n                
+  K. Thomas (NY)....15\n\nAssists: S. Cassell (MIN)...11\n             S.
+  Marbury (NY)..10
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041107T165323Z
+UID:B8065240-0B5B-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041106T193000
+SUMMARY:vs. Boston Celtics
+DTEND;TZID=America/New_York:20041106T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (0-2)....73\nCeltics (1-2).......1
+ 07\n\nPoints: P. Pierce (BOS).......28\n           M. Sweetney (NY)...18
+ \n\nRebounds: P. Pierce (BOS)...10\n                 K. Thomas (NY)...9\
+ n\nAssists: P. Pierce (BOS).....8\n             S. Marbury (NY)...8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041110T064944Z
+UID:D10E384E-0B5B-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041109T193000
+SUMMARY:vs. Philadelphia 76ers
+DTEND;TZID=America/New_York:20041109T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (1-2)...96\n76ers (1-3)..........8
+ 8\n\nPoints: A. Iverson (PHI).....29\n            J. Crawford (NY)...22\
+ n\nRebounds: K. Thomas (NY)...11\n                 A. Iguodala (PHI)...7
+ \n\nAssists: S. Marbury (NY)...12\n             A. Iverson (PHI)...10
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041113T034904Z
+UID:E1AEE610-0B5B-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041112T193000
+SUMMARY:vs. L.A. Clippers
+DTEND;TZID=America/New_York:20041112T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (2-2)...110\nLA Clippers (3-3)...9
+ 6\n\nPoints: C. Maggette (LAC)...29\n            S. Marbury (NY)......21
+ \n\nRebounds: K. Thomas (NY)...9\n                 E. Brand (LAC).....9\
+ n\nAssists: S. Marbury (NY)...10\n             E. Brand (LAC).......4
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041122T025949Z
+UID:F087291A-0B5B-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041121T193000
+SUMMARY:vs. Cleveland Cavaliers
+DTEND;TZID=America/New_York:20041121T213000
+DESCRIPTION:NBATV\n\nFinal Score:\n\nNY Knicks (4-5)...98\nCavaliers (6-
+ 4)....88\n\nPoints: D. Gooden (CLE)....25\n             J. Crawford (NY)
+ ...24\n\nRebounds: D. Gooden (CLE)...16\n                  K. Thomas (NY
+ )....12\n\nAssists: S. Marbury (NY)...10\n             L. James (CLE)...
+ ..10
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041124T025558Z
+UID:030A1CF5-0B5C-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041123T193000
+SUMMARY:vs. Atlanta Hawks
+DTEND;TZID=America/New_York:20041123T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (5-5)...104\nHawks (2-8)..........
+ 88\n\nPoints: A. Walker (ATL).........20\n           N. Mohammed (NY)...
+ 18\n\nRebounds: N. Mohammed (NY)...14\n                 A. Walker (ATL).
+ ..........8\n\nAssists: S. Marbury (NY)....11\n             J. Childress
+  (ATL)...5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041127T202103Z
+UID:115C0026-0B5C-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041127T130000
+SUMMARY:vs. Toronto Raptors
+DTEND;TZID=America/New_York:20041127T150000
+DESCRIPTION:Final Score:\n\nNY Knicks (6-6)...108\nRaptors (6-8).......1
+ 02\n\nPoints: J. Crawford (NY)...30\n           V. Carter (TOR).....19\n
+ \nRebounds: K. Thomas (NY)....11\n                  L. Woods (TOR)...10\
+ n\nAssists: S. Marbury (NY)...15\n             M. Palacio (TOR)...8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041202T025321Z
+UID:1D2474D1-0B5C-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041201T193000
+SUMMARY:vs. Memphis Grizzlies
+DTEND;TZID=America/New_York:20041201T215000
+DESCRIPTION:Final Score:\n\nNY Knicks (8-6)...90\nGrizzlies (5-11)...82\
+ n\nPoints: S. Marbury (NY)...26\n            B. Wells (MEM)....16\n\nReb
+ ounds: K. Thomas (NY)...14\n                  P. Gasol (MEM)....14\n\nAs
+ sists: J. Williams (MEM)...9\n             S. Marbury (NY).....5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041204T045148Z
+UID:2A529902-0B5C-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041203T193000
+SUMMARY:vs. Orlando Magic
+DTEND;TZID=America/New_York:20041203T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (8-7)...98\nMagic (10-5).....104\n
+ \nPoints: C. Mobley (ORL)...34\n            S. Marbury (NY)...28\n\nRebo
+ unds: N. Mohammed (NY)...12\n                  K. Cato (ORL)............
+ 10\n\nAssists: S. Marbury (NY)...8\n             S. Francis (ORL)...6
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Conseco Fielhouse
+DTSTAMP:20041114T201225Z
+UID:702BF732-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041113T200000
+SUMMARY:@ Indiana Pacers
+DTEND;TZID=America/New_York:20041113T220000
+DESCRIPTION:Final Score:\n\nNY Knicks (2-3)....97\nPacers (5-2)........1
+ 03\n\nPoints: S. Marbury (NY)...37\n            J. O'Neal (IND).....33\n
+ \nRebounds: N. Mohammed (NY)...15\n                  J. O'Neal (IND)....
+ ......12\n\nAssists: J. Tinsley (IND)...9\n            S. Marbury (NY)..
+ .5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:SBC Center
+DTSTAMP:20041117T040304Z
+UID:7C59B36F-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041116T203000
+SUMMARY:@ San Antonio Spurs
+DTEND;TZID=America/New_York:20041116T230000
+DESCRIPTION:Final Score:\n\nNY Knicks (2-4)...81\nSpurs (6-1)..........9
+ 9\n\nPoints: T. Parker (SA).......18\n            J. Crawford (NY)...16\
+ n\nRebounds: K. Thomas (NY)...11\n                 T. Duncan (SA)....10\
+ n\nAssists: T. Parker (SA)......9\n             S. Marbury (NY)...7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Toyota Center
+DTSTAMP:20041120T063911Z
+UID:8C162EA3-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041118T213000
+SUMMARY:@ Houston Rockets
+DTEND;TZID=America/New_York:20041118T233000
+DESCRIPTION:NBA on TNT\n\nFinal Score:\n\nNY Knicks (3-4)...93\nRockets 
+ (4-6)......92\n\nPoints: T. McGrady (HOU)...24\n           K. Thomas (NY
+ ).......23\n\nRebounds: N. Mohammed (NY)...17                     \n    
+              Y. Ming (HOU)...........11\n\nAssists: S. Marbury (NY).....
+ 10\n             T. McGrady (HOU)...8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:American Airlines Center
+DTSTAMP:20041120T063219Z
+UID:A23B5092-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041119T203000
+SUMMARY:@ Dallas Mavericks
+DTEND;TZID=America/New_York:20041119T223000
+DESCRIPTION:Final Score:\n\nNY Knicks (3-5)...101\nRockets (8-2)......10
+ 3\n\nPoints: D. Nowitzki (DAL)...30\n            J. Crawford (NY).....26
+ \n\nRebounds: J.Howard (DAL)...13\n                T.Thomas (NY)......9\
+ n\nAssists: S. Marbury (NY)........8\n             J.Stackhouse (DAL)...
+ 6
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Air Canada Centre
+DTSTAMP:20041125T053639Z
+UID:B089874F-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041124T190000
+SUMMARY:@ Toronto Raptors
+DTEND;TZID=America/New_York:20041124T210000
+DESCRIPTION:Final Score:\n\nNY Knicks (5-6)...91\nRaptors (6-7).....114\
+ n\nPoints: S. Marbury (NY)...25\n           V. Carter (TOR)....22\n\nReb
+ ounds: N. Mohammed (NY)...14\n                 L. Woods (TOR).........10
+ \n\nAssists: S. Marbury (NY)...8\n            M. Palacio (TOR)...7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Philips Arena
+DTSTAMP:20041201T033556Z
+UID:C01773E1-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041130T193000
+SUMMARY:@ Atlanta Hawks
+DTEND;TZID=America/New_York:20041130T223000
+DESCRIPTION:Final Score (OT):\n\nNY Knicks (7-6)...110\nHawks (2-12)....
+ ..109\n\nPoints: A. Walker (ATL).... 36\n            S. Marbury (NY)...3
+ 2\n\nRebounds: N. Mohammed (NY)...17\n                  A. Walker (ATL).
+ ........14\n\nAssists: K. Thomas (NY)...6\n             A. Walker (ATL).
+ ..4
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Charlotte Arena
+DTSTAMP:20041206T004228Z
+UID:CCB06A75-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041204T190000
+SUMMARY:@ Charlotte Bobcats
+DTEND;TZID=America/New_York:20041204T210000
+DESCRIPTION:Final Score:\n\nNY Knicks (8-8)...101\nBobcats (4-10)....107
+ \n\nPoints: J. Crawford (NY)...41\n           E. Okafor (CHA)....20\n\nR
+ ebounds: E. Okafor (CHA)........18\n                 N. Mohammed(NY)...1
+ 0\n\nAssists: B. Knight (CHA)...18\n             S. Marbury (NY)...11
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:FedEx Forum
+DTSTAMP:20041209T030418Z
+UID:EB6A1E33-0B5D-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041207T200000
+SUMMARY:@ Memphis Grizzlies
+DTEND;TZID=America/New_York:20041207T220000
+DESCRIPTION:Final Score:\n\nNY Knicks (8-9)...88\nGrizzlies (7-12)...96\
+ n\nPoints: E. Watson (MEM)...22\n            J. Crawford (NY)...17\n\nRe
+ bounds: N. Mohammed (NY)...12\n                  P. Gasol (MEM).........
+ ..8\n\nAssists: S. Marbury (NY)...9\n             P. Gasol (MEM)....7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:New Orleans Arena
+DTSTAMP:20041209T031919Z
+UID:FA8DDC5A-0B5D-11D9-AC45-000A95DBAEAA-RID
+DTSTART;TZID=America/New_York:20041208T200000
+SUMMARY:@ New Orleans Hornets
+DTEND;TZID=America/New_York:20041208T220000
+DESCRIPTION:Final Score:\n\nNY Knicks (9-9)...86\nHornets (1-16)....79\n
+ \nPoints: S. Marbury (NY)...22\n            L. Nailon (NO).....17\n\nReb
+ ounds: K. Thomas (NY)......15\n                 C. Andersen (NO)...11\n\
+ nAssists: S. Marbury (NY)...9\n             D. Wesley (NO)....6
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:MCI Center
+DTSTAMP:20041211T184052Z
+UID:071B426C-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041210T190000
+SUMMARY:@ Washington Wizards
+DTEND;TZID=America/New_York:20041210T210000
+DESCRIPTION:Final Score:\n\nNY Knicks (9-10)...104\nWizards (11-6)......
+ 106\n\nPoints: A. Jamison (WAS)......25\n           N. Mohammed (NY)...2
+ 0\n\nRebounds: B. Haywood (WAS).....14\n                 N. Mohammed (NY
+ )...11\n\nAssists: L. Hughes (WAS)...9\n             S. Marbury (NY)....
+ 7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041215T020139Z
+UID:19A53762-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041212T120000
+SUMMARY:vs. Denver Nuggets
+DTEND;TZID=America/New_York:20041212T140000
+DESCRIPTION:Final Score:\n\nNY Knicks (10-10)...107\nNuggets (12-8).....
+ ....96\n\nPoints: J. Crawford (NY).....31\n           C. Anthony (DEN)..
+ .26\n\nRebounds: K. Thomas (NY)....18\n                 M. Camby (DEN)..
+ .14\n\nAssists: S. Marbury (NY)...11\n             A. Miller (DEN)......
+ 6
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041216T033643Z
+UID:29B2469A-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041215T200000
+SUMMARY:vs. Detroit Pistons
+DTEND;TZID=America/New_York:20041215T220000
+DESCRIPTION:NBA on ESPN\n\nFinal Score:\n\nNY Knicks (11-11)...93\nPisto
+ ns (11-10).......94\n\nPoints: R. Hamilton (DET)...29\n            J. Cr
+ awford (NY).....25\n\nRebounds: B. Wallace (DET)...13\n                 
+ K. Thomas (NY)....10\n\nAssists: S. Marbury (NY)...7\n             L. Hu
+ nter (DET)...5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041219T224549Z
+UID:332E5A62-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041219T150000
+SUMMARY:vs. Utah Jazz
+DTEND;TZID=America/New_York:20041219T170000
+DESCRIPTION:Final Score:\n\nNY Knicks (13-11)...94\nJazz (10-15)........
+ ....93\n\nPoints: J. Crawford (NY).....24\n          M. Harpring (UTA)..
+ .21\n\nRebounds: K. Thomas (NY)...14\n                 M. Okur (UTA)....
+ .14\n\nAssists: S. Marbury (NY)...12\n             R. Lopez (UTA)......4
+ 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041222T223808Z
+UID:3E55C539-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041221T193000
+SUMMARY:vs. Dallas Mavericks
+DTEND;TZID=America/New_York:20041221T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (13-12)....94\nMavericks (17-9)...
+ .123\n\nPoints: J. Howard (DAL)........26\n          N. Mohammed (NY)...
+ 14\n\nRebounds: J. Howard (DAL)........16\n                N. Mohammed (
+ NY)...11\n\nAssists: J. Terry (DAL)......7\n            S. Marbury (NY).
+ ..7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041226T202914Z
+UID:48D6F935-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041226T130000
+SUMMARY:vs. Charlotte Bobcats
+DTEND;TZID=America/New_York:20041226T150000
+DESCRIPTION:Final Score:\n\nNY Knicks (14-13)...91\nBobcats (7-16)......
+ ..82\n\nPoints: E. Okafor (CHA)...23\n           T. Thomas (NY)...20\n\n
+ Rebounds: E. Okafor (CHA).......15\n                 N. Mohammed (NY)...
+ 9\n\nAssists: S. Marbury (NY)...6\n             J. Hart (CHA).......6
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041230T025146Z
+UID:6174F244-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041229T193000
+SUMMARY:vs. Minnesota Timberwolves
+DTEND;TZID=America/New_York:20041229T215000
+DESCRIPTION:NBATV\n\nFinal Score:\n\nNY Knicks (16-13).......100\nTimber
+ wolves (16-11)...87\n\nPoints: S. Marbury (NY)....32\n           L. Spre
+ well (MIN)...22\n\nRebounds: K. Garnett (MIN)......13\n                 
+ N. Mohammed (NY)...9\n\nAssists: S. Marbury (NY)...11\n             K. G
+ arnett (MIN)....8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:TD Waterhouse Centre
+DTSTAMP:20041228T024623Z
+UID:73C1E5C1-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041227T190000
+SUMMARY:@ Orlando Magic
+DTEND;TZID=America/New_York:20041227T214000
+DESCRIPTION:Final Score:\n\nNY Knicks (15-13)...119\nMagic (15-11)......
+ ...111\n\nPoints: S. Marbury (NY)....34\n            S. Francis (ORL)...
+ 25\n\nRebounds: T. Battie (ORL)...10\n                 K. Thomas (NY)...
+ 9\n\nAssists: S. Marbury (NY)...7\n             S. Francis (ORL)...5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Fleet Center
+DTSTAMP:20041226T203206Z
+UID:81D5674A-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041222T180000
+SUMMARY:@ Boston Celtics
+DTEND;TZID=America/New_York:20041222T200000
+DESCRIPTION:Final Score:\n\nNY Knicks (13-13)...109\nCeltics (12-13)....
+ ....114\n\nPoints: J. Crawford (NY)...25\n          M. Blount (BOS).....
+ 22\n\nRebounds: N. Mohammed (NY)...18\n                  K. Perkins (BOS
+ )........13\n\nAssists: S. Marbury (NY)...10\n             G. Payton (BO
+ S).....5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Wachovia Center
+DTSTAMP:20041219T225012Z
+UID:90AFF9F9-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041217T190000
+SUMMARY:@ Philadelphia 76ers
+DTEND;TZID=America/New_York:20041217T210000
+DESCRIPTION:Final Score (OT):\n\nNY Knicks (12-11)..113\n76ers (9-13)...
+ ........107\n\nPoints: S. Marbury (NY)...27\n           K. Thomas (PHI).
+ ..26\n\nRebounds: K. Thomas (NY)...11\n                 M. Jackson (PHI)
+ ....9\n\nAssists: A. Iverson (PHI)....8\n             S. Marbury (NY)...
+ 7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Continental Airlines Arena
+DTSTAMP:20041215T032036Z
+UID:A02B0AE0-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20041214T193000
+SUMMARY:@ New Jersey Nets
+DTEND;TZID=America/New_York:20041214T220500
+DESCRIPTION:Final Score:\n\nNY Knicks (11-10)...87\nNJ Nets (7-14)......
+ ...79\n\nPoints: J. Crawford (NY)...30\n           R. Jefferson (NJ)....
+ 22\n\nRebounds: J. Collins (NJ).......15\n                 K. Thomas (NY
+ )...12\n\nAssists: R. Jefferson (NJ)...6\n            M. Norris (NY)....
+ ..5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20050103T033751Z
+UID:D421153C-0B5E-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050101T193000
+SUMMARY:vs. New Jersey Nets
+DTEND;TZID=America/New_York:20050101T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (16-14)...87\nNJ Nets (11-18).....
+ ..93\n\nPoints: S. Marbury (NY)...31\n           R. Jefferson (NJ)...17\
+ n\nRebounds: N. Mohammed (NY)...13\n                 N. Krstic (NJ).....
+ ..........7\n\nAssists: S. Marbury (NY)...8\n             V. Carter (NJ)
+ .......5
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20050116T182133Z
+UID:5E18EE2C-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050104T193000
+SUMMARY:vs. Sacramento Kings
+DTEND;TZID=America/New_York:20050104T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (16-15)...98\nKings (20-9)........
+ ..105\n\nPoints: S. Marbury (NY)....26\n           C. Webber (SAC)...22\
+ n\nRebounds: C. Webber (SAC)........11\n                 N. Mohammed (NY
+ )...11\n\nAssists: M. Bibby (SAC).....7\n             S. Marbury (NY)...
+ 7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20050116T180751Z
+UID:6B3C0852-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050109T193000
+SUMMARY:vs. Portland Trailblazers
+DTEND;TZID=America/New_York:20050109T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (17-17)......113\nTrailblazers (14
+ -18)...105\n\nPoints: Z. Randolph (POR)...27\n           A. Houston (NY)
+ ......25\n\nRebounds: Z. Randolph (POR)...10\n                 N. Mohamm
+ ed (NY)...6\n\nAssists: S. Marbury (NY)...12\n             S. Telfair (P
+ OR)......7
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20050116T180457Z
+UID:7F9B1624-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050111T193000
+SUMMARY:vs. New Orleans Hornets
+DTEND;TZID=America/New_York:20050111T213000
+DESCRIPTION:NBATV\n\nFinal Score:\n\nNY Knicks (17-18)...82\nHornets (4-
+ 29)........88\n\nPoints: B. Davis (NO).......21\n           A. Houston (
+ NY)...17\n\nRebounds: P. Brown (NO)...........12\n                 N. Mo
+ hammed (NY)...12\n\nAssists: S. Marbury (NY)...13\n             B. Davis
+  (NO)......10
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20050118T010826Z
+UID:8E76F0BD-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050117T130000
+SUMMARY:vs. Chicago Bulls
+DTEND;TZID=America/New_York:20050117T150000
+DESCRIPTION:Final Score:\n\nNY Knicks (17-20)...86\nBulls (17-18).......
+ ....88\n\nPoints: S. Marbury (NY)...25\n           L. Deng (CHI).......1
+ 9\n\nRebounds: T. Chandler (CHI)....13\n                 N. Mohammed (NY
+ )...9\n\nAssists: K. Hinrich (CHI)...8\n             S. Marbury (NY)...7
+ 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041016T033102Z
+UID:9669F1C8-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050121T193000
+SUMMARY:vs. Houston Rockets
+DTEND;TZID=America/New_York:20050121T213000
+DESCRIPTION:Final Score:\n\nNY Knicks\nRockets\n\nPoints: \n\nRebounds:\
+ n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041016T033107Z
+UID:A499A0EE-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050123T150000
+SUMMARY:vs. Milwaukee Bucks
+DTEND;TZID=America/New_York:20050123T170000
+DESCRIPTION:Final Score:\n\nNY Knicks\nBucks\n\nPoints: \n\nRebounds:\n\
+ nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041016T033114Z
+UID:AD5C2C94-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050125T193000
+SUMMARY:vs. Phoenix Suns
+DTEND;TZID=America/New_York:20050125T213000
+DESCRIPTION:NBATV\n\nFinal Score:\n\nNY Knicks\nSuns\n\nPoints: \n\nRebo
+ unds:\n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20041016T033124Z
+UID:B58E99BC-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050128T190000
+SUMMARY:vs. Cleveland Cavaliers
+DTEND;TZID=America/New_York:20050128T210000
+DESCRIPTION:NBA on ESPN\n\nFinal Score:\n\nNY Knicks\nCavaliers\n\nPoint
+ s: \n\nRebounds:\n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:American Airlines Arena
+DTSTAMP:20050116T181544Z
+UID:C2662454-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050105T193000
+SUMMARY:@ Miami Heat
+DTEND;TZID=America/New_York:20050105T213000
+DESCRIPTION:Final Score:\n\nNY Knicks (16-16)...94\nHeat (26-8).........
+ ...102\n\nPoints: S. O'Neal (MIA).....33\n            S. Marbury (NY)...
+ 28\n\nRebounds: S. O'Neal (MIA)....18\n                 K. Thomas (NY)..
+ .12\n\nAssists: D. Wade (MIA).....9\n             S. Marbury (NY)...8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Gund Arena
+DTSTAMP:20050116T181139Z
+UID:D014D449-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050108T133000
+SUMMARY:@ Cleveland Cavaliers
+DTEND;TZID=America/New_York:20050108T153000
+DESCRIPTION:NBA on ABC\n\nFinal Score:\n\nNY Knicks (16-17)...79\nCavali
+ ers (20-12)...104\n\nPoints: L. James (CLE).....22\n           T. Thomas
+  (NY)...17\n\nRebounds: K. Thomas (NY)...14\n                 A. Varejao
+  (CLE)...10\n\nAssists: S. Marbury (NY)...12\n             E. Snow (CLE)
+ ........8
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:United Center
+DTSTAMP:20050116T180201Z
+UID:DD5BC1B8-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050115T153000
+SUMMARY:@ Chicago Bulls
+DTEND;TZID=America/New_York:20050115T173000
+DESCRIPTION:Final Score:\n\nNY Knicks (17-19)...84\nBulls (16-18).......
+ ....86\n\nPoints: S. Marbury (NY)...25\n           E. Curry (CHI)......1
+ 7\n\nRebounds: T. Chandler (CHI)...10\n                 T. Ariza (NY)...
+ .........9\n\nAssists: K. Hinrich (CHI)....11\n             S. Marbury (
+ NY)...10
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Air Canada Centre
+DTSTAMP:20041016T033054Z
+UID:EC9F96D4-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050119T190000
+SUMMARY:@ Toronto Raptors
+DTEND;TZID=America/New_York:20050119T210000
+DESCRIPTION:Final Score:\n\nNY Knicks\nRaptors\n\nPoints: \n\nRebounds:\
+ n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Palace Of Auburn Hills
+DTSTAMP:20041016T033130Z
+UID:FDB52116-0B5F-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050129T193000
+SUMMARY:@ Detroit Pistons
+DTEND;TZID=America/New_York:20050129T213000
+DESCRIPTION:Final Score:\n\nNY Knicks\nPistons\n\nPoints: \n\nRebounds:\
+ n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+DURATION:PT1H
+LOCATION:Staples Center
+DTSTAMP:20041016T033149Z
+UID:1D92328A-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050131T223000
+SUMMARY:@ L.A. Clippers
+DESCRIPTION:Final Score:\n\nNY Knicks\nClippers\n\nPoints: \n\nRebounds:
+ \n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Pepsi Center
+DTSTAMP:20041016T033216Z
+UID:B3C616A6-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050201T210000
+SUMMARY:@ Denver Nuggets
+DTEND;TZID=America/New_York:20050201T230000
+DESCRIPTION:Final Score:\n\nNY Knicks\nNuggets\n\nPoints: \n\nRebounds:\
+ n\nAssists: 
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Arco Arena
+DTSTAMP:20040920T235731Z
+UID:C0A2293C-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050204T220000
+SUMMARY:@ Sacramento Kings
+DTEND;TZID=America/New_York:20050204T233000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:America West Arena
+DTSTAMP:20040920T235801Z
+UID:DC400A25-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050205T210000
+SUMMARY:@ Phoenix Suns
+DTEND;TZID=America/New_York:20050205T230000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Delta Center
+DTSTAMP:20040920T235821Z
+UID:E7A6753B-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050207T210000
+SUMMARY:@ Utah Jazz
+DTEND;TZID=America/New_York:20050207T230000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000209Z
+UID:F5FD183D-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050209T193000
+SUMMARY:vs. Miami Heat
+DTEND;TZID=America/New_York:20050209T213000
+DESCRIPTION:NBATV
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Fleet Center
+DTSTAMP:20040920T235849Z
+UID:F7E430F8-0B60-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050211T193000
+SUMMARY:@ Boston Celtics
+DTEND;TZID=America/New_York:20050211T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Wachovia Center
+DTSTAMP:20040920T235913Z
+UID:0457C5F4-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050214T190000
+SUMMARY:@ Philadelphia 76ers
+DTEND;TZID=America/New_York:20050214T210000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Palace Of Auburn Hills
+DTSTAMP:20040920T235941Z
+UID:12D4251C-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050222T193000
+SUMMARY:@ Detroit Pistons
+DTEND;TZID=America/New_York:20050222T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000003Z
+UID:263B6286-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050213T180000
+SUMMARY:vs. Charlotte Bobcats
+DTEND;TZID=America/New_York:20050213T200000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000019Z
+UID:31033947-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050216T193000
+SUMMARY:vs. Milwaukee Bucks
+DTEND;TZID=America/New_York:20050216T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000036Z
+UID:3B984E47-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050224T190000
+SUMMARY:vs. Philadelphia 76ers
+DTEND;TZID=America/New_York:20050224T210000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000121Z
+UID:45034EF3-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050226T193000
+SUMMARY:vs. Indiana Pacers
+DTEND;TZID=America/New_York:20050226T213000
+DESCRIPTION:NBATV
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000115Z
+UID:4D3D0F86-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050228T193000
+SUMMARY:vs. L.A. Lakers
+DTEND;TZID=America/New_York:20050228T213000
+DESCRIPTION:NBA on TNT\nNBATV
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Pepsi Center\, Denver CO.
+DTSTAMP:20040921T000246Z
+UID:88313749-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;VALUE=DATE:20050218
+SUMMARY:All-Star Break
+DTEND;VALUE=DATE:20050221
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:TD Waterhouse Centre
+DTSTAMP:20040921T000507Z
+UID:DA4C015C-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050304T190000
+SUMMARY:@ Orlando Magic
+DTEND;TZID=America/New_York:20050304T210000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Philips Arena
+DTSTAMP:20040921T000528Z
+UID:E5D1736E-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050318T193000
+SUMMARY:@ Atlanta Hawks
+DTEND;TZID=America/New_York:20050318T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:American Airlines Arena
+DTSTAMP:20040921T000549Z
+UID:F2493C1E-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050319T193000
+SUMMARY:@ Miami Heat
+DTEND;TZID=America/New_York:20050319T213000
+END:VEVENT
+BEGIN:VEVENT
+DURATION:PT1H
+LOCATION:Key Arena
+DTSTAMP:20040921T001009Z
+UID:FEAB3B94-0B61-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050325T223000
+SUMMARY:Seattle Supersonics
+DESCRIPTION:NBA on ESPN
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Rose Garden
+DTSTAMP:20040921T000652Z
+UID:10878DD2-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050326T220000
+SUMMARY:@ Portland Trailblazers
+DTEND;TZID=America/New_York:20050326T233000
+END:VEVENT
+BEGIN:VEVENT
+DURATION:PT1H
+LOCATION:The Arena In Oakland
+DTSTAMP:20040921T000720Z
+UID:247EA46C-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050328T223000
+SUMMARY:@ Golden State Warriors
+END:VEVENT
+BEGIN:VEVENT
+DURATION:PT1H
+LOCATION:Staples Center
+DTSTAMP:20040921T000813Z
+UID:3AD72E47-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050329T223000
+SUMMARY:@ L.A. Lakers
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000834Z
+UID:574CA61E-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050306T193000
+SUMMARY:vs. Golden State Warriors
+DTEND;TZID=America/New_York:20050306T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000854Z
+UID:62972F9C-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050308T193000
+SUMMARY:vs. Washington Wizards
+DTEND;TZID=America/New_York:20050308T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000910Z
+UID:6E2EFF0E-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050313T180000
+SUMMARY:vs. Seattle Supersonics
+DTEND;TZID=America/New_York:20050313T200000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000927Z
+UID:7719C8DB-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050315T193000
+SUMMARY:vs. Miami Heat
+DTEND;TZID=America/New_York:20050315T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T001016Z
+UID:819508F0-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050321T193000
+SUMMARY:vs. San Antonio Spurs
+DTEND;TZID=America/New_York:20050321T213000
+DESCRIPTION:NBATV
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T000955Z
+UID:8A9AA3B4-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050323T193000
+SUMMARY:vs. Boston Celtics
+DTEND;TZID=America/New_York:20050323T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T001055Z
+UID:AC7114F0-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050401T200000
+SUMMARY:vs. New Jersey Nets
+DTEND;TZID=America/New_York:20050401T220000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T001111Z
+UID:B6BB7FE9-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050405T193000
+SUMMARY:vs. Indiana Pacers
+DTEND;TZID=America/New_York:20050405T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T001125Z
+UID:BF2268EB-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050408T200000
+SUMMARY:vs. Chicago Bulls
+DTEND;TZID=America/New_York:20050408T220000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T001422Z
+UID:C80F6247-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050412T193000
+SUMMARY:vs. Toronto Raptors
+DTEND;TZID=America/New_York:20050412T213000
+DESCRIPTION:NBATV
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20050417T193000
+LOCATION:Madison Square Garden
+DTEND;TZID=America/New_York:20050417T213000
+SUMMARY:vs. Atlanta Hawks
+UID:D5CDD3F6-0B62-11D9-AC45-000A95DBAEAA-RID
+DTSTAMP:20040921T001206Z
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Madison Square Garden
+DTSTAMP:20040921T001227Z
+UID:DF55B4F5-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050420T193000
+SUMMARY:vs. Washington Wizards
+DTEND;TZID=America/New_York:20050420T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Continental Airlines Arena
+DTSTAMP:20040921T001251Z
+UID:ED96E3E8-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050407T193000
+SUMMARY:@ New Jersey Nets
+DTEND;TZID=America/New_York:20050407T213000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Bradley Center
+DTSTAMP:20040921T001458Z
+UID:FA087591-0B62-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050403T130000
+SUMMARY:@ Milwaukee Bucks
+DTEND;TZID=America/New_York:20050403T150000
+DESCRIPTION:NBA on ABC
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Gund Arena
+DTSTAMP:20040921T001417Z
+UID:03EBDF57-0B63-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050414T200000
+SUMMARY:@ Cleveland Cavaliers
+DTEND;TZID=America/New_York:20050414T220000
+DESCRIPTION:NBA on TNT
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Charlotte Arena
+DTSTAMP:20040921T001346Z
+UID:0F9EF909-0B63-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050416T130000
+SUMMARY:@ Charlotte Bobcats
+DTEND;TZID=America/New_York:20050416T150000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:United Center
+DTSTAMP:20040921T001408Z
+UID:1AE5A2E9-0B63-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050419T203000
+SUMMARY:@ Chicago Bulls
+DTEND;TZID=America/New_York:20050419T223000
+END:VEVENT
+BEGIN:VEVENT
+LOCATION:Conseco Fieldhouse
+DTSTAMP:20050410T173246Z
+UID:321F7AF1-0B63-11D9-AC45-000A95DBAEAA-RID
+STATUS:CONFIRMED
+DTSTART;TZID=America/New_York:20050410T153000
+SUMMARY:@ Indiana Pacers
+DTEND;TZID=America/New_York:20050410T173000
+DESCRIPTION:NBA on ABC
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="bcfa7d27-b157-4387-a4a6-74f9aa12416f" revisionNumber="1">
+	<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>The <codeInline>VJournal</codeInline> class represents a journal component in a calendar.  This
+component is used by iCalendar 2.0 only.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<table>
+					<tableHeader>
+						<row>
+							<entry>
+								<para>PDI Tag</para>
+							</entry>
+							<entry>
+								<para>Component Property</para>
+							</entry>
+							<entry>
+								<para>EWSoftware PDI Class</para>
+							</entry>
+							<entry>
+								<para>Data Value Property</para>
+							</entry>
+							<entry>
+								<para>Notes</para>
+							</entry>
+						</row>
+					</tableHeader>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VJOURNAL</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VJournal</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VJournalCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>ATTACH</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Attachments</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.AttachProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.AttachPropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttachProperty.FormatType</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Properties.AttachProperty.GetAttachmentBytes</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Properties.AttachProperty.SetAttachmentBytes(System.Byte[])</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>If the value location is inline, the data value is a binary encoded string representing the
+attachment.  If not inline, the <codeInline>Value</codeInline> property refers to something like a URI where the
+attachment can be found.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>ATTENDEE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Attendees</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.AttendeeProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.AttendeePropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.CalendarUserType</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.OrganizerProperty.CommonName</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.DelegatedFrom</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.DelegatedTo</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.OrganizerProperty.DirectoryEntry</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.Expectation</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.Membership</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.ParticipationStatus</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.Role</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.AttendeeProperty.Rsvp</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.OrganizerProperty.SentBy</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>CATEGORIES</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Categories</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CategoriesProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.CategoriesProperty.Categories</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.CategoriesProperty.CategoriesString</codeEntityReference>
+						</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>CLASS</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Classification</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ClassificationProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>COMMENT</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Comment</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CommentProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseAltRepProperty.AlternateRepresentation</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>CONTACT</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Contacts</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ContactProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ContactPropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseAltRepProperty.AlternateRepresentation</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>DESCRIPTION</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Description</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.DescriptionProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseAltRepProperty.AlternateRepresentation</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>DTSTAMP</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.TimeStamp</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.TimeStampProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.DateTimeValue</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>DTSTART</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.StartDateTime</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.StartDateProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.DateTimeValue</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.IsFloating</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.TimeZoneDateTime</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.TimeZoneId</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>EXDATE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.RecurringObject.ExceptionDates</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ExDateProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ExDatePropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.DateTimeValue</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.IsFloating</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.TimeZoneDateTime</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.TimeZoneId</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>EXRULE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.RecurringObject.ExceptionRules</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ExRuleProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RRulePropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RRuleProperty.Recurrence</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>LAST-MODIFIED</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.LastModified</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.LastModifiedProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.DateTimeValue</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>ORGANIZER</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Organizer</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.OrganizerProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.OrganizerProperty.CommonName</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.OrganizerProperty.DirectoryEntry</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.OrganizerProperty.SentBy</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>RDATE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.RecurringObject.RecurDates</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RDateProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RDatePropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RDateProperty.DateTimeValue</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RDateProperty.IsFloating</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RDateProperty.PeriodValue</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RDateProperty.TimeZoneDateTime</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RDateProperty.TimeZoneId</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>RECURRENCE-ID</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.RecurrenceId</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RecurrenceIdProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RecurrenceIdProperty.Range</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>RELATED-TO</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.RelatedTo</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RelatedToProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RelatedToPropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RelatedToProperty.OtherRelationship</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RelatedToProperty.RelationshipType</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>REQUEST-STATUS</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.RequestStatuses</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RequestStatusProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RequestStatusPropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RequestStatusProperty.ExtendedData</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RequestStatusProperty.StatusCode</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RequestStatusProperty.StatusMessage</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>RRULE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.RecurringObject.RecurrenceRules</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RRuleProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RRulePropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RRuleProperty.Recurrence</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>SEQUENCE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Sequence</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.SequenceProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.SequenceProperty.SequenceNumber</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>STATUS</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Status</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.StatusProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseAltRepProperty.AlternateRepresentation</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.StatusProperty.StatusValue</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>SUMMARY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Summary</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.SummaryProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseAltRepProperty.AlternateRepresentation</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>UID</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.UniqueId</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.UniqueIdProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.UniqueIdProperty.Value</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>URL</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.Url</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.UrlProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>X-???</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VJournal.CustomProperties</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CustomProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CustomPropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.CustomProperty.CustomName</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>This property class represents custom or extended properties that are not part of the
+specification.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>END:VJOURNAL</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VJournal</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VJournalCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+				</table>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="7ea5cd94-fa8a-4070-ba20-6d8c3b40d7c3" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

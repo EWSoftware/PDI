@@ -1,0 +1,1 @@
+<%@ Application Inherits="PDIWebDemoVB.Global" Language="VB" %>

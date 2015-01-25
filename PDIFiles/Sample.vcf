@@ -1,0 +1,119 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Dr. Ted Ashton
+N:Ashton;Ted;;Dr.
+ORG:Oxford Medical Clinic
+TITLE:Head of Surgery
+ROLE:ENT
+CATEGORIES:Business
+TEL;TYPE=WORK:301-431-9342
+REV:2002-08-26T22:03:26
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Barnes & Noble
+N:Barnes & Noble
+CATEGORIES:Business
+TEL;TYPE=PREF:410-203-9001
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Julie Barnes
+N:Barnes;Julie
+ORG:Virage\, Inc.
+TITLE:Business Development Manager.  This is a long description that exists
+  on a long line.
+CATEGORIES:Business
+ADR:;Suite 520;177 Bovet Road;San Mateo;CA;94402
+TEL;TYPE=WORK:650-573-3215
+TEL;TYPE=FAX:650-573-3244
+EMAIL:jbarnes@virage.com
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Best Buy
+N:Best Buy
+CATEGORIES:Business
+TEL;TYPE=PREF:410-312-4900
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Clark's Do It Center
+N:Clark's Do It Center
+CATEGORIES:Business
+TEL;TYPE=PREF:410-313-8100
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Hickory Ridge Hair Cuttery
+N:Hair Cuttery;Hickory Ridge
+CATEGORIES:Business
+TEL;TYPE=PREF:410-531-5781
+REV:2002-08-26T22:04:54
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Jane Hatfield
+N:Hatfield;Jane
+ORG:Coca Cola\, Inc.
+TITLE:VP Marketing
+CATEGORIES:Business,Personal
+ADR;TYPE=HOME:;;98 Crater Drive;Denver;CO;80301
+ADR;TYPE=WORK:Mail Stop 9;Suite 105;1001 Pop Road;Denver;CO;80301
+TEL;TYPE=WORK,CELL:439-994-3928
+TEL;TYPE=HOME,CELL:439-344-4323
+TEL;TYPE=FAX:439-344-9543
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Home Depot
+N:Home Depot
+CATEGORIES:Business
+TEL;TYPE=PREF:410-750-2199
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Jim A. Smith
+N:Smith;Jim;Alvin;Mr.
+BDAY:1977-01-27
+TITLE:This is a long description that exists on a long line.
+CATEGORIES:Family
+ADR;TYPE=WORK:;Suite 900;11 5th Street;Coco Beach;FL;32082
+ADR;TYPE=HOME:;;198 Elm Street;Coco Beach;FL;32082
+TEL;TYPE=WORK:904-555-9384
+TEL;TYPE=HOME:904-873-0394
+TEL;TYPE=CELL:904-934-3429
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Verizon Wireless
+N:Verizon Wireless
+CATEGORIES:Business
+TEL;TYPE=PREF:410-872-7200
+NOTE:To reload the roaming table\, dial *228 and select option 2.
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:WBJC 91.5
+N:WBJC 91.5
+CATEGORIES:Business
+TEL;TYPE=PREF:410-462-8444
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+FN:Eric Woodruff
+N:Woodruff;Eric;;Mr.
+ORG:EWSoftware
+TITLE:Analyst/Programmer
+ROLE:Analyst/Programmer
+ADR;TYPE=HOME,PREF:;;16719 Lakeside Drive;Medical Lake;WA;99022;USA
+LABEL;TYPE=HOME,PREF:16719 Lakeside Drive\nMedical Lake\, WA 99022\nUSA
+EMAIL;TYPE=PREF,INTERNET:Eric@EWoodruff.us
+NOTE:Just a little test note
+URL:http://www.ewoodruff.us
+TZ;VALUE=TEXT:(GMT-08:00) Pacific Time (US & Canada)\; Tijuana
+GEO:47.551324;-117.644544
+REV:2014-12-27T23:56:07Z
+UID:687DF7A7-8168-4BD8-928C-5665B6AEED74
+LOGO;VALUE=URI;TYPE=PNG:https://github.com/EWSoftware/PDI/blob/master/NuGet/EWSPDI.png
+END:VCARD

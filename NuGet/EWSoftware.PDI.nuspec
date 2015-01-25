@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>EWSoftware.PDI</id>
+		<version>2015.1.19.0</version>
+		<title>EWSoftware PDI Library</title>
+		<authors>Eric Woodruff</authors>
+		<owners>Eric Woodruff</owners>
+		<licenseUrl>https://github.com/EWSoftware/PDI/blob/master/LICENSE</licenseUrl>
+		<projectUrl>https://github.com/EWSoftware/PDI</projectUrl>
+		<iconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/NuGet/EWSPDI.png</iconUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>This library contains the core set of useful Personal Data Interchange (PDI) and date utility classes for .NET applications.  They can be used for calculating holiday dates, recurrences, etc.  See the project website for the code, a help file, and demos.</description>
+		<copyright>Eric Woodruff (c) 2003-2015</copyright>
+		<tags>PDI personal data interchange holiday calculation date recurrence</tags>
+		<frameworkAssemblies>
+			<frameworkAssembly assemblyName="System.Data" />
+			<frameworkAssembly assemblyName="System.Xml" />
+		</frameworkAssemblies>
+	</metadata>
+	<files>
+		<file src="..\Deployment\EWSoftware.PDI.dll" target="lib\net40" />
+		<file src="..\Deployment\EWSoftware.PDI.xml" target="lib\net40" />
+		<file src="ReadMe_PDI.txt" target="ReadMe.txt" />
+	</files>
+</package>

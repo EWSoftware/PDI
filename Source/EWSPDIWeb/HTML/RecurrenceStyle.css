@@ -1,0 +1,9 @@
+/* EWSoftware Recurrence Pattern web server control default styles */
+.EWS_RP_Panel { margin-bottom: 10px; }
+.EWS_RP_PanelHeading { background-color: lightgray; padding: 2px; }
+.EWS_RP_PanelTitle { font-size: 12pt; padding: 2px; margin: 0px;}
+.EWS_RP_PanelBody { border: .5px solid black; }
+.EWS_RP_Input {  }
+.EWS_RP_Select {  }
+.EWS_RP_ErrorMessage { color: #dc143c; }
+.EWS_RP_Button { min-width: 0.8in; margin: 2px;}

@@ -1,0 +1,13 @@
+Begin : vcard
+VERSION:2.1
+N:Smith;John;M.;Mr.;Esq.
+X-TEST; X-p1 = 12\;34 ; X-p2 = 543 :Folded Test Data.
+ More Test Data.
+  Yet more test data.
+X-TEST2;QUOTED-PRINTABLE:Test QP [=40=E9=BF=23] Data.=
+ QP Soft Break=0D=0AHard Break
+TEL;WORK;VOICE;MSG:+1 (919) 555-1234
+TEL;CELL:+1 (919) 554-6758
+TEL;WORK;FAX:+1 (919) 555-9876
+ADR;WORK;PARCEL;POSTAL;DOM:Suite 101;1 Central St.;Any Town;NC;27654
+END:VCARD

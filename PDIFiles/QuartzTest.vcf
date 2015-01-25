@@ -1,0 +1,27 @@
+BEGIN:VCARD
+VERSION:2.1
+N:Car;Nickpda;Mr;
+TITLE:
+ORG:;
+BDAY:
+TEL;HOME;VOICE:02 5940 9403
+TEL;WORK;VOICE:02 5940 9404
+TEL;CELL;VOICE:0428594832
+TEL;CAR;VOICE:
+TEL;PAGER:
+TEL;HOME;FAX:
+TEL;WORK;FAX:
+TEL;VOICE:
+EMAIL:ndcar@hotmail.com
+URL:http://www.me.com
+NOTE;ENCODING=QUOTED-PRINTABLE:A rather short test comment=0D=0A=
+=0D=0A=
+=0D=0A=
+from tim=0D=0A=
+=0D=0A=
+=0D=0A=
+
+ADR;HOME:;;48 Boomerang Close;Bellbird;NSW;2325;Australia
+ADR;WORK:;;;;;;
+ADR:;;;;;;
+END:VCARD

@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="6fc4dbbe-a274-4221-af50-680db3717693" revisionNumber="1">
+	<developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+		<introduction>
+			<para>The <codeInline>VCalendar</codeInline> class represents a vCalendar or an iCalendar.  The
+<codeInline>Version</codeInline> property determines the actual calendar type.  The <codeInline>VCalendar</codeInline>
+class contains all of the other calendar objects listed below.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<table>
+					<tableHeader>
+						<row>
+							<entry>
+								<para>PDI Tag</para>
+							</entry>
+							<entry>
+								<para>Component Property</para>
+							</entry>
+							<entry>
+								<para>EWSoftware PDI Class</para>
+							</entry>
+							<entry>
+								<para>Data Value Property</para>
+							</entry>
+							<entry>
+								<para>Notes</para>
+							</entry>
+						</row>
+					</tableHeader>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VCALENDAR</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VCalendar</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>This class can represent a vCalendar or an iCalendar.  The <codeInline>Version</codeInline>
+property determines the actual calendar type.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>GEO</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.VCalendarGeographicPosition</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.GeographicPositionProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.GeographicPositionProperty.Latitude</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.GeographicPositionProperty.Longitude</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>vCalendar 1.0 only.  For iCalendar 2.0, the <codeInline>GEO</codeInline> property is on the
+<codeInline>VEVENT</codeInline> and <codeInline>VTODO</codeInline> components.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>CALSCALE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.CalendarScale</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CalendarScaleProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>iCalendar 2.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>DAYLIGHT</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.VCalendarDaylightRule</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.DaylightProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.DaylightProperty.DaylightDesignation</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.DaylightProperty.EndDateTime</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.DaylightProperty.Offset</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.DaylightProperty.StandardDesignation</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.DaylightProperty.StartDateTime</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.DaylightProperty.UsesDaylightSavingTime</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>vCalendar 1.0 only.  iCalendar 2.0 uses <codeInline>VTIMEZONE</codeInline> components
+instead.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>METHOD</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.Method</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.MethodProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>iCalendar 2.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>PRODID</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.ProductId</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ProductIdProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ProductIdProperty.KeywordDescription</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ProductIdProperty.ProductLanguage</codeEntityReference>,
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ProductIdProperty.OwnerName</codeEntityReference>,
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ProductIdProperty.IsRegistered</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>TZ</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.VCalendarTimeZone</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.TimeZoneProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.TimeZoneProperty.TimeSpanValue</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCalendar 1.0 only.  iCalendar 2.0 uses <codeInline>VTIMEZONE</codeInline> components
+instead.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>VERSION</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.CalendarObject.Version</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VCalendar</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>Version will be <codeInline>vCalendar10</codeInline> or <codeInline>iCalendar20</codeInline>.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>X-???</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.CustomProperties</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CustomProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.CustomPropertyCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.CustomProperty.CustomName</codeEntityReference>
+and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>This property class represents custom or extended properties that are not part of the specification.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VEVENT</codeInline> to <codeInline>END:VEVENT</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.Events</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VEvent</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VEventCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>See the <link xlink:href="91d0576f-e904-4e75-9f95-38a9dd368871" /> topic for more information.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VFREEBUSY</codeInline> to <codeInline>END:VFREEBUSY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.FreeBusys</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VFreeBusy</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VFreeBusyCollection</codeEntityReference>
+						</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>iCalendar 2.0 only. See the <link xlink:href="fe961450-54b4-474a-962f-9e91083eb9ec" /> topic
+for more information.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VJOURNAL</codeInline> to <codeInline>END:VJOURNAL</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.Journals</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VJournal</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VJournalCollection</codeEntityReference>
+						</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>iCalendar 2.0 only. See the <link xlink:href="bcfa7d27-b157-4387-a4a6-74f9aa12416f" /> topic
+for more information.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VTIMEZONE</codeInline> to <codeInline>END:VTIMEZONE</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.TimeZones</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VTimeZone</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VTimeZoneCollection</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>iCalendar 2.0 only. See the <link xlink:href="b4c78e51-f041-4490-a637-10638ca9d748" /> topic
+for more information.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>BEGIN:VTODO</codeInline> to <codeInline>END:VTODO</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCalendar.ToDos</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para><codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VToDo</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VToDoCollection</codeEntityReference></para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>See the <link xlink:href="3b06a002-6294-40b9-b43c-93af3e3ae046" /> topic for more information.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>END:CALENDAR</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Objects.VCalendar</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+						<entry>
+							<para>&#160;</para>
+						</entry>
+					</row>
+				</table>
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="7ea5cd94-fa8a-4070-ba20-6d8c3b40d7c3" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

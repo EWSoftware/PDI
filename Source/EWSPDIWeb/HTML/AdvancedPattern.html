@@ -1,0 +1,90 @@
+<div id="@_RP_ADV_PAT" style="display: none;">
+<table style="padding: 2px; border: none;">
+	<tr>
+		<td colspan="3">Recur every&nbsp;<input class="EWS_RP_Input" type="text" maxlength="3" size="3" id="@_RP_AP_INT" />
+			<span id="@_RP_AP_INTLBL">&nbsp;year(s)</span>
+			<br/>
+			<span id="@_RP_AP_INTVAL" class="EWS_RP_ErrorMessage"
+				style="display:none;">An interval is required and must be between 1 and 999</span>
+			<hr /></td>
+	</tr>
+	<tr>
+		<td>By Month</td>
+		<td colspan="2" style="padding: 2px;">By Day&nbsp;<input class="EWS_RP_Input" type="text" maxlength="3" size="3" id="@_RP_AP_DAY" />&nbsp;
+			<select id="@_RP_AP_DOW" class="EWS_RP_Select">
+				<option>Sunday</option>
+				<option>Monday</option>
+				<option>Tuesday</option>
+				<option>Wednesday</option>
+				<option>Thursday</option>
+				<option>Friday</option>
+				<option>Saturday</option>
+			</select></td>
+	</tr>
+	<tr>
+		<td style="vertical-align: top;">
+			<select size="12" multiple="multiple" id="@_RP_AP_MOS"
+				onblur="javascript: @.SetDayInstanceState();" class="EWS_RP_Select">
+				<option>January</option>
+				<option>February</option>
+				<option>March</option>
+				<option>April</option>
+				<option>May</option>
+				<option>June</option>
+				<option>July</option>
+				<option>August</option>
+				<option>September</option>
+				<option>October</option>
+				<option>November</option>
+				<option>December</option>
+			</select>&nbsp;</td>
+		<td>&nbsp;<select size="12" id="@_RP_AP_INSTLST"  class="EWS_RP_Select" style="width: 2in;"></select></td>
+		<td style="vertical-align: top;"><input type="button" value="Add" id="@_RP_AP_ADDINST"
+			class="EWS_RP_Button" onclick="javascript: @.AddDayInstance();" />
+			<br/>
+			<input type="button" value="Remove" id="@_RP_AP_DELINST"
+				class="EWS_RP_Button" onclick="javascript: @.RemoveDayInstance();" />
+			<br/>
+			<input type="button" value="Clear" id="@_RP_AP_CLRINST"
+				class="EWS_RP_Button" onclick="javascript: @.ClearDayInstances();" /></td>
+	</tr>
+	<tr>
+		<td colspan="3"><span id="@_RP_AP_DAYVAL" class="EWS_RP_ErrorMessage"
+			style="display:none;">A day instance is required and must be between -53 and 53</span>&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="3"><hr/>
+		Enter comma-separated values/ranges (i.e. 1, 3, 8-10, 12, 15-20).</td>
+	</tr>
+	<tr>
+		<td>By Week #</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYWKNO"
+			onblur="javascript: @.SetDayInstanceState();" /></td>
+	</tr>
+	<tr>
+		<td>By Year Day</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYYRDAY" /></td>
+	</tr>
+	<tr>
+		<td>By Month Day</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYMODAY"
+			onblur="javascript: @.SetDayInstanceState();" /></td>
+	</tr>
+	<tr>
+		<td>By Hour</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYHOUR" /></td>
+	</tr>
+	<tr>
+		<td>By Minute</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYMIN" /></td>
+	</tr>
+	<tr>
+		<td>By Second</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYSEC" /></td>
+	</tr>
+	<tr>
+		<td>By Set Position</td>
+		<td colspan="2"><input class="EWS_RP_Input" type="text" size="40" id="@_RP_AP_BYPOS" /></td>
+	</tr>
+</table>
+</div>

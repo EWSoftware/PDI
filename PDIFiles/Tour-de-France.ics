@@ -1,0 +1,707 @@
+BEGIN:VCALENDAR
+CALSCALE:GREGORIAN
+X-WR-TIMEZONE;VALUE=TEXT:America/New_York
+X-WR-CALDESC;VALUE=TEXT:This calendar contains the official route of the 
+ 2003 Tour de France.\n\nTOUR INFORMATION\n+ Departure and arrival 
+ cities\n+ Route distance\n+ City descriptions\n\nTV SCHEDULES\n+ Schedule 
+ for all tour-related television coverage on the OLN cable channel\n+ 
+ Schedules for CBS and ESPN coverage (when announced)\n+ All shows include 
+ 15 minute alarms\n\nSend updates and corrections to 
+ patrick@icalshare.com. Ideas are welcome too!\r\rhttp://iCalShare.com
+PRODID:-//Apple Computer\, Inc//iCal 1.0//EN
+X-WR-CALNAME;VALUE=TEXT:Tour de France
+X-WR-RELCALID;VALUE=TEXT:557463C8-1E62-11D7-B51B-000393BCF7D2-CALP
+VERSION:2.0
+BEGIN:VEVENT
+DTSTAMP:20021011T040320Z
+SUMMARY:2003 Tour de France Route Announcement\n\nWatch it on OLNtv!
+DTEND;TZID=America/New_York:20021024T210016
+DTSTART;TZID=America/New_York:20021024T203016
+UID:557523FE-1E62-11D7-B51B-000393BCF7D2-RID
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021024T194235Z
+SUMMARY:Paris (8 km) Prologue
+UID:55752BC2-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:PARIS\nThe 2003 Tour de France begins and ends in 
+ Paris.\n\nThe first finish took place on the pink track of the Parc des 
+ Princes\, then on the Bois de Vincennes municipal track (the \"Cipale\"\, 
+ Jacques Anquetil Velodrome).\n\nSince 1975\, the finish takes place 
+ against the prestigious backdrop of the Champs-Elysées (\"the most 
+ beautiful avenue in the world\"). \r\n\nThe road opened in the XVIth 
+ Century by Marie de Médicis is now the most famous in Paris\, situated 
+ between Concorde and the Arc-de-Triomphe.
+DTSTART;VALUE=DATE:20030705
+DTEND;VALUE=DATE:20030706
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040105Z
+SUMMARY:Saint-Denis/Montgeron -> Meaux (160 km) STAGE 1
+UID:55752E9A-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:SAINT-DENIS\nStage in 1984 (1. Hoste). Seine-Saint-Denis 
+ regional county town\, situated on the Seine and the Saint-Denis Canal 
+ (91\,000 inhabitants).\r\n\nOne of the highest demographic explosions in 
+ the Paris region. The population of Saint-Denis has increased tenfold 
+ since the middle of the XIXth Century. Important manufacturing town in 
+ the Northern suburbs\, this industrial sub-prefecture is also a Mecca of 
+ spirituality. It owes its name to the first Bishop of Lutèce who 
+ evangelised it. The basilica\, a royal necropolis\, is the burial place 
+ of French Kings\, from Dagobert to Louis XVIII.\r\n\nThe Stade de France: 
+ Inaugurated on the 28th of January 1998\, the Stade de France was the 
+ last great construction of the XXth Century. Situated at the entrance to 
+ the capital\, it is a temple to football (1998 World Cup) and rugby (Six 
+ Nations Tournament) and will\, in 2003\, receive the Tour caravan. Its 45 
+ kilometres of terraced seats can house from 80\,000 to 105\,000 
+ spectators.\n\nMONTGERON\rStart of the first Tour de France (1903). 
+ Essonne regional county town (23\,000 inhabitants).\r\rMontgeron became 
+ part of the \"Cycling Legend\" on the 1st of July 1903\, with the 
+ inaugural start of the Tour de France in front of the \"Réveil Matin\"\, 
+ a worshipped place that the giants of cycling return to one hundred years 
+ later.\r\rThis town which is a county in itself is also the town of open 
+ spaces. The Sénart forest covers 50% of its territory.\r\rMEAUX\rThis 
+ town will greet the Tour for the first time. Seine-et-Marne regional 
+ county town\, situated on the river Marne (49\,000 
+ inhabitants).\r\rFormer domain of Champagne Counts and an agricultural 
+ market\, in the heart of a cereal growing region famous for its Brie 
+ cheese.\r\rIts Episcopal centre perpetuates the memory of Bossuet\, 
+ Bishop of Meaux and author of \"Oraisons funèbres\" (Funeral Orations).
+DTSTART;VALUE=DATE:20030706
+DTEND;VALUE=DATE:20030707
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040115Z
+SUMMARY:La Ferté-sous-Jouarre -> Sedan (195 km) STAGE 2
+UID:55753106-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:LA FERTÉ-SOUS-JOUARRE\nThis town will greet the Tour for the 
+ first time. Seine-et-Marne regional county town\, at the confluent of the 
+ Marne and the Petit-Morin (8\,300 inhabitants).\r\n\nThis little town 
+ situated between Meaux and Château-Thierry suffered greatly at the 
+ beginning of the 1914-1918 war\, and was one of the strategic sectors in 
+ the Battle of the Marne. Taken over by the Germans in August 1914\, it 
+ was taken back by the British in September after a violent 
+ combat.\r\n\nIts church is built of millstone\, the county 
+ stone.\n\nSEDAN\rThis town will also greet the Tour for the first time. 
+ Ardennes regional county town\, on the river Meuse. (22\,500 
+ inhabitants).\r\rSituated near the Belgian frontier\, Sedan occupied a 
+ strategic position on the route of the invasions. The Germans won two 
+ decisive battles over the French army here in 1870 and in 1940.\r\rThe 
+ great Turenne was born here.
+DTSTART;VALUE=DATE:20030707
+DTEND;VALUE=DATE:20030708
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040121Z
+SUMMARY:Charleville-Mézières -> Saint-Dizier (68 km) STAGE 3
+UID:55753376-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:CHARLEVILLE-MÉZIÈRES\rStage for the first time in 1927 (1. 
+ H. Martin) and for the last time in 1969 (1. Leman).\n\nPrefecture of the 
+ Ardennes region\, situated on the river Meuse (60\,000 
+ inhabitants).\r\n\nCharleville the bourgeois town and Mézières the 
+ administrative city were brought together in 1966 to form an 
+ agglomeration that remains very attached to its military 
+ past.\r\n\nHomeland of the poet Arthur Rimbaud.\n\nSAINT-DIZIER\rThis 
+ town will greet the Tour for the first time.\n\nHaute-Marne regional 
+ county town\, situated on the river Marne (35\,000 inhabitants). 
+ Industrial town renowned for its forges and former fortress town.\r\rIn 
+ 1544\, the 2.500 soldiers of the garrison resisted Charles-Quint's army 
+ made up of 100\,000 men. Napoleon the 1st won his last victory here 
+ before his departure for the Island of Elbe.\r\rFrom the start of the 
+ century\, Saint-Dizier has perpetuated the tradition of artistic 
+ smelting.
+DTSTART;VALUE=DATE:20030708
+DTEND;VALUE=DATE:20030709
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040353Z
+SUMMARY:Joinville -> Saint-Dizier (68 km) — STAGE 4 (TEAM TIME TRIAL)
+UID:55753606-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:JOINVILLE\rThe Tour will pass through this town for the first 
+ time.\n\nHaute-Marne regional county town (5.200 inhabitants).\r\rThe 
+ feudal château of Joinville was the birthplace of the Dukes of Guise and 
+ it is in this little town that the chiefs of the League signed an 
+ alliance treaty with Philippe II of Spain during the Religious 
+ Wars.\r\rHomeland of Jean\, Lord of Joinville\, a famous chronicler in 
+ the Middle Ages who accompanied Saint-Louis during the 7th 
+ crusade.\r\rSAINT-DIZIER\rThis town will greet the Tour for the first 
+ time.\n\nHaute-Marne regional county town\, situated on the river Marne 
+ (35\,000 inhabitants). Industrial town renowned for its forges and former 
+ fortress town.\r\rIn 1544\, the 2.500 soldiers of the garrison resisted 
+ Charles-Quint's army made up of 100\,000 men. Napoleon the 1st won his 
+ last victory here before his departure for the Island of Elbe.\r\rFrom 
+ the start of the century\, Saint-Dizier has perpetuated the tradition of 
+ artistic smelting.
+DTSTART;VALUE=DATE:20030709
+DTEND;VALUE=DATE:20030710
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040202Z
+SUMMARY:Troyes -> Nevers (196 km) STAGE 5
+UID:5575388A-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:TROYES\rStage for the first time in 1939 (1. Le Grevès) and 
+ for the last time in 2000 (1. Zabel).\n\nPrefecture of the Aube and 
+ former Champagne capital\, situated on the river Seine (60\,000 
+ inhabitants\; including the suburbs 125\,000).\r\rSpared by Attila in the 
+ Vth Century\, delivered to the English by Isabeau de Bavière in 1420 and 
+ freed by Jeanne d'Arc nine years later\, Troyes became a flourishing 
+ artistic centre under the Renaissance.\r\rIts nine classified churches 
+ add to their architectural richness stained glass windows created by 
+ master glaziers from the Champagne area.\r\rSince the beginning of the 
+ XVIth Century\, the economy of Troyes is based on the textile and hosiery 
+ trades.\r\rSpecialities: Champagne and andouillette. Homeland of Marcel 
+ Bidot and the Simon brothers.\r\rNEVERS\rStage for the first time in 1962 
+ (1. Bruni) and for the last time in 1986 (1. Bontempi).\n\nPrefecture of 
+ the Nièvre\, situated at the confluent of the Loire and the Nièvre 
+ (44\,000 inhabitants).\r\rThe city of the Dukes of Nevers was one of the 
+ most ancient Gallic towns. Selected by Caesar to house the supplies of 
+ the Roman army\, it became the capital of the region and retained its 
+ autonomy up to the Revolution.\r\rIt is in Nevers that the first French 
+ earthenware manufacture was created in the XVIth Century. \r\rIn the 
+ Saint-Gildard convent lies Bernadette Soubirous\, Saint-Bernadette of 
+ Lourdes\, whose body is miraculously conserved.
+DTSTART;VALUE=DATE:20030710
+DTEND;VALUE=DATE:20030711
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040215Z
+SUMMARY:Lyon -> Morzine (226.5 km) STAGE 7
+UID:55753B06-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:LYON\rOldest of the Tour de France stages. Stage for the 
+ first time in 1903 (1. Garin) and for the last time in 1991 (1. T. Marie 
+ / Abdoujaparov). Grand start in 1991.\r\rPrefecture of the Rhône region 
+ and county town of the Rhône-Alpes region\, situated at the merging of 
+ the Rhône and the Saône. Third largest town in France (420\,000 
+ inhabitants) and second agglomeration (1\,260\,000 inhabitants) for the 
+ urban community of 55 towns of which Villeurbanne.\r\rFormer Gaul 
+ capital\, the homeland of silk manufacturing\, an industrial and 
+ university crossroads town\, this \"international city\" is renowned for 
+ its gastronomy\, of which the famous Beaujolais is an integral 
+ part.\r\rIts sporting heritage gives a wide berth to football and cycling 
+ (A. Rolland\, Forestier\, Anglade).\r\rMORZINE\rStage for the first time 
+ in 1977 (1. Wellens) and for the last time in 2000 (1. Virenque). A 
+ health and Winter sports resort created in 1934.\n\nCapital of the 
+ Haut-Chablais region\, situated at the convergence of six valleys (3\,000 
+ inhabitants).\r\rIn Winter\, Morzine\, along with Avoriaz\, is part of 
+ the \"Portes du Soleil\" skiing domain to which Jean Vuarnet\, native of 
+ the town\, gave its true dimension.\rMagnificent panorama over the Mont 
+ Blanc.
+DTSTART;VALUE=DATE:20030712
+DTEND;VALUE=DATE:20030713
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040209Z
+SUMMARY:Nevers -> Lyon (230 km) STAGE 6
+UID:55753D78-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:NEVERS\rStage for the first time in 1962 (1. Bruni) and for 
+ the last time in 1986 (1. Bontempi).\n\nPrefecture of the Nièvre\, 
+ situated at the confluent of the Loire and the Nièvre (44\,000 
+ inhabitants).\r\rThe city of the Dukes of Nevers was one of the most 
+ ancient Gallic towns. Selected by Caesar to house the supplies of the 
+ Roman army\, it became the capital of the region and retained its 
+ autonomy up to the Revolution.\r\rIt is in Nevers that the first French 
+ earthenware manufacture was created in the XVIth Century. \r\rIn the 
+ Saint-Gildard convent lies Bernadette Soubirous\, Saint-Bernadette of 
+ Lourdes\, whose body is miraculously conserved.\n\nLYON\rOldest of the 
+ Tour de France stages. Stage for the first time in 1903 (1. Garin) and 
+ for the last time in 1991 (1. T. Marie / Abdoujaparov). Grand start in 
+ 1991.\r\rPrefecture of the Rhône region and county town of the 
+ Rhône-Alpes region\, situated at the merging of the Rhône and the 
+ Saône. Third largest town in France (420\,000 inhabitants) and second 
+ agglomeration (1\,260\,000 inhabitants) for the urban community of 55 
+ towns of which Villeurbanne.\r\rFormer Gaul capital\, the homeland of 
+ silk manufacturing\, an industrial and university crossroads town\, this 
+ \"international city\" is renowned for its gastronomy\, of which the 
+ famous Beaujolais is an integral part.\r\rIts sporting heritage gives a 
+ wide berth to football and cycling (A. Rolland\, Forestier\, Anglade)
+DTSTART;VALUE=DATE:20030711
+DTEND;VALUE=DATE:20030712
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040221Z
+SUMMARY:Sallanches -> L'Alpe d'Huez (211 km) STAGE 8
+UID:55753FF6-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:SALLANCHES\rThis town will greet the Tour for the first time. 
+ Finish in Sallanches-Cordon in 1968 (1. Hoban).\n\nHaute-Savoie regional 
+ county town (13\,000 inhabitants). Important excursion centre at the 
+ entrance to the cluse de l'Arve\, situated next to the Massif du Mont 
+ Blanc and the Plateau d'Assy.\r\rRenowned for its pure and invigorating 
+ air\, this typically Savoyard town has a long cycling vocation. Jan 
+ Janssen in 1964 and Bernard Hinault in 1980\, were world champions 
+ here.\r\rThe Bassin de Sallanches has a distinguishing feature unique in 
+ the Alps : a difference in altitude of 4\,000 metres for a horizontal 
+ distance of only 20 kilometres.\r\rL'ALPE-D'HUEZ\rStage for the first 
+ time in 1952 (1. F. Coppi) and for the last time in 2001 (1. 
+ Armstrong).\r\rThis Winter and Summer resort\, created in 1936\, is the 
+ oldest of altitude finishes. The role played by it in the history of the 
+ Tour has turned it into a place of myth. Curiously\, Armstrong\, along 
+ with Coppi\, is the only rider to have won the Alpe stage and the Tour de 
+ France in the same year.\r\rKnown as: \"The Juan-les-Pins of the Alps\" 
+ because of its sunshine and \"The Dutch Mountain\" because of the 
+ numerous victories won by Dutch riders\, encouraged by the always 
+ numerous Dutch tourists.
+DTSTART;VALUE=DATE:20030713
+DTEND;VALUE=DATE:20030714
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040229Z
+SUMMARY:Le Bourg d'Oisans -> Gap (195 km) STAGE 9
+UID:55754264-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:LE BOURG D'OISANS\rStage in 1966 (1. Otano). Numerous starts 
+ from this town between 1952 and 2001.\n\rIsère county town and capital 
+ of the Oisans region (3\,000 inhabitants).\r\rSituated at the foot of the 
+ Alpe d'Huez\, this tourist and commercial centre is also the town of 
+ mineralogy. The annual crystal fair combines the work of artisans from 
+ the region with the enthusiasm of an ever increasing 
+ clientele.\r\rGAP\rStage for the first time in 1931 (1. Demuysère) and 
+ for the last time in 1996 (1. Zabel).\n\nPrefecture of the Hautes-Alpes\, 
+ situated on the route Napoléon\, at the foot of the Col Bayard and the 
+ Orcières-Merlette resort (36\,000 inhabitants). Gap is the highest 
+ situated Prefecture in France (altitude : 700 metres).\r\rThis cheerful 
+ town\, whose origins date from prehistoric times\, boomed in the XXth 
+ Century\, via tourism\, to become the most active capital and centre of 
+ the Southern Alps.\r\rSituated at the entrance to Provence\, it has a 
+ mild climate and is very sunny.\rIts sporting vocation is directly linked 
+ to the Tour de France. \rIt is one of the strategic points on the Alpine 
+ stages.
+DTSTART;VALUE=DATE:20030714
+DTEND;VALUE=DATE:20030715
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040237Z
+SUMMARY:Gap -> Marseille (195 km) STAGE 10
+UID:557544CA-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:GAP\rStage for the first time in 1931 (1. Demuysère) and for 
+ the last time in 1996 (1. Zabel).\n\nPrefecture of the Hautes-Alpes\, 
+ situated on the route Napoléon\, at the foot of the Col Bayard and the 
+ Orcières-Merlette resort (36\,000 inhabitants). Gap is the highest 
+ situated Prefecture in France (altitude : 700 metres).\r\rThis cheerful 
+ town\, whose origins date from prehistoric times\, boomed in the XXth 
+ Century\, via tourism\, to become the most active capital and centre of 
+ the Southern Alps.\r\rSituated at the entrance to Provence\, it has a 
+ mild climate and is very sunny.\rIts sporting vocation is directly linked 
+ to the Tour de France. \rIt is one of the strategic points on the Alpine 
+ stages.\r\rMARSEILLE\rStage for the first time in 1903 (1. Aucouturier) 
+ and for the last time in 1993 (1. Roscioli).\n\nPrefecture of the 
+ Bouches-du-Rhône region and regional county town of the 
+ Provence-Alpes-Côte d'Azur. Top French commercial and passenger port. 
+ Second largest town in France (807\,000 inhabitants) and third 
+ agglomeration (1\,231\,000 inhabitants).\r\rTwenty five centuries of 
+ history make Marseille the most ancient of the large French towns. 
+ Founded in 600 B.C by the Greeks of Asia Minor (the Phocaeans)\, it 
+ developed around an inlet overlooking the chalky Estaque chain of 
+ mountains. The ancient Massilia\, occupied by Caesar in 49 B.C. became 
+ French in 1841. \r\rDominated by the Notre-Dame de la Garde Basilica\, 
+ crossed by the famous Canebière which terminates in the Vieux Port\, 
+ Marseille is a very lively town with colourful folklore\, the embodiment 
+ of the Provencal spirit. \r\rIts specialities\, derived from seafood and 
+ olive oil (bouillabaisse and aioli) place it at the head of the pack of 
+ towns in terms of gastronomy.
+DTSTART;VALUE=DATE:20030715
+DTEND;VALUE=DATE:20030716
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021024T191207Z
+SUMMARY:Transfer to Narbonne - REST DAY
+UID:5575475E-1E62-11D7-B51B-000393BCF7D2-RID
+DTSTART;VALUE=DATE:20030716
+DTEND;VALUE=DATE:20030717
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040254Z
+SUMMARY:Narbonne -> Toulouse (160 km) STAGE 11
+UID:557549CC-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:NARBONNE\rStage for the first time in 1935 (1. Le Grevès) 
+ and for the last time in 1955 (1. Caput).\n\nAude regional county town\, 
+ situated on the Robine canal (47\,000 inhabitants).\r\rSet up seven 
+ centuries before J. C.\, capital of Gaul in the Narbonne region\, then 
+ Duchy of Gothie founded by Charlemagne\, Narbonne was also the residence 
+ of the Wisigoths Kings.\r\rThis former sea port\, very prosperous in the 
+ Roman and Middle Ages\, was little by little \"pushed\" inland through 
+ the accumulation of alluvial deposits. Ruined in the XIVth Century by the 
+ modification of the flowing of the Aude\, wounded by the Hundred Years 
+ War and ravaged by the plague\, the Languedoc Episcopal City regained 
+ prosperity through the wine market.\r\rThe Narbonne-Plage seaside resort 
+ was stage town in 1981 (1. Maertens).\r\rTOULOUSE\rStage for the first 
+ time in 1903 (1. Aucouturier) and for the last time in 1985 (1. Vichot). 
+ Colomiers\, Blagnac and Saint-Orens de Gameville\, in the Toulouse 
+ suburbs\, were also stage towns or starting towns.\r\rPrefecture of the 
+ Haute-Garonne and Midi-Pyrénées regional county town. Former capital of 
+ Languedoc and Aquitaine\, situated on the Garonne (360\,000 inhabitants\, 
+ including the suburbs 650\,000). The \"Pink City\". Its harmonious 
+ constructions enhance the beauty of the brick\, particular to the region. 
+ \r\rA Roman colony in the Second Century B.C. and third largest Gallic 
+ town after Lyon and Lutèce\, Toulouse was incorporated into the realm of 
+ France in 1271. Having experienced its initial golden age in the XVth 
+ Century\, via the production of pastel (blue colouring)\, after the 
+ 1914-1918 war it became the capital of aeronautics and the birthplace of 
+ the French airmail service\, then the centre of aerospace science in the 
+ second half of the XXth Century. With Airbus\, heir to Caravelle\, 
+ Concorde and top European aeroplane\, the Airbus group industry is a 
+ leader in aeronautic construction. A technological sector which includes 
+ the remarkable Cité de l'Espace.
+DTSTART;VALUE=DATE:20030717
+DTEND;VALUE=DATE:20030718
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040320Z
+SUMMARY:Galliac -> Cap' Découverte (48.5 km) — STAGE 12 (TIME TRIAL)
+UID:55754C52-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:GAILLAC\rThe Tour will pass through this town for the first 
+ time.\n\rTarn regional county town\, situated on the right bank of the 
+ Tarn (10.600 inhabitants).\r\rThis charming picturesque little town with 
+ its rustic houses and its squares and fountains is at the heart of a 
+ renowned vineyard that is one of the oldest in France. It developed from 
+ the Xth Century onwards under the Benedictine monks who founded the 
+ Saint-Michel Abbey in the VIIth Century.\r\rGaillac and its umbrella 
+ pines already herald the Mediterranean South.\r\rCAP'DÉCOUVERTE (CAPE 
+ DISCOVERY)\rThe Tour will pass through this town for the first 
+ time.\r\rSet up near to Carmaux\, on the site of a former open coal 
+ mine\, Cap'Découverte is the top European leisure park. Situated in an 
+ immense natural setting\, this theme park unites cultural\, musical and 
+ sporting activities in an enchanting environment.\r\rIt is at one and the 
+ same time a museum\, a place of discovery\, (as its name indicates) and a 
+ holiday town which fits perfectly into the framework of the Tour de 
+ France.
+DTSTART;VALUE=DATE:20030718
+DTEND;VALUE=DATE:20030719
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040411Z
+SUMMARY:Toulouse (Cité de l'Espace) -> Plateau de Bonascre (197.5 km) 
+ STAGE 13
+UID:55754EBE-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:TOULOUSE\rStage for the first time in 1903 (1. Aucouturier) 
+ and for the last time in 1985 (1. Vichot). Colomiers\, Blagnac and 
+ Saint-Orens de Gameville\, in the Toulouse suburbs\, were also stage 
+ towns or starting towns.\r\rPrefecture of the Haute-Garonne and 
+ Midi-Pyrénées regional county town. Former capital of Languedoc and 
+ Aquitaine\, situated on the Garonne (360\,000 inhabitants\, including the 
+ suburbs 650\,000). The \"Pink City\". Its harmonious constructions 
+ enhance the beauty of the brick\, particular to the region. \r\rA Roman 
+ colony in the Second Century B.C. and third largest Gallic town after 
+ Lyon and Lutèce\, Toulouse was incorporated into the realm of France in 
+ 1271. Having experienced its initial golden age in the XVth Century\, via 
+ the production of pastel (blue colouring)\, after the 1914-1918 war it 
+ became the capital of aeronautics and the birthplace of the French 
+ airmail service\, then the centre of aerospace science in the second half 
+ of the XXth Century. With Airbus\, heir to Caravelle\, Concorde and top 
+ European aeroplane\, the Airbus group industry is a leader in aeronautic 
+ construction. A technological sector which includes the remarkable Cité 
+ de l'Espace.\r\rPLATEAU DE BONASCRE\rStage in 2001 (1. Cardenas).\n\nThis 
+ Ariège resort is part of the Ax-les-Thermes skiing domain. Nestled in 
+ the heart of the forest near to the Trois Vallées and characterised by 
+ its family atmosphere\, it is the authentic izard territory (protected 
+ species).\r\rIt includes 75 kilometres of slopes and is equipped with 
+ snow canons.\r
+DTSTART;VALUE=DATE:20030719
+DTEND;VALUE=DATE:20030720
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040419Z
+SUMMARY:Saint-Girons -> Loudenvielle (191.5 km) STAGE 14
+UID:5575515A-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:SAINT-GIRONS\rStart of a stage in 1984\, 1988 and 
+ 1995.\n\nAriège regional county town\, situated on the river Salat 
+ (7.700 inhabitants).\r\rCommercial and tourist centre of the Couserans\, 
+ Saint-Girons (formerly Bourg-sous-Vic) owes its name to the apostle who 
+ evangelised the region in the 5th Century.\r\rIts economy is polyvalent: 
+ paper making\, exploitation of marble quarries\, sawmills and dairy 
+ production (cheese). \r\rIt is also one of the top French towns for 
+ potholing.\r\rLOUDENVIELLE\rStage in 1997 (1. Brochard).\n\nA mountain 
+ village attached to its traditions\, to sport and to discovery\, 
+ Loudenvielle is an integral part of the Vallée du Louron\, where 
+ priority is given to the protection of nature and heritage\; a little 
+ region of a thousand inhabitants\, masters in the art of combining the 
+ past\, the present and the future.\r\rThe churches of Louron\, restored 
+ with the support of the Ministry of Arts\, are pure jewels of Roman 
+ architecture.
+DTSTART;VALUE=DATE:20030720
+DTEND;VALUE=DATE:20030721
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040431Z
+SUMMARY:Bagnères-de-Bigorre -> Luz-Ardiden (159.5 km) STAGE 15
+UID:557553D0-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:BAGNÈRES-DE-BIGORRE\rStage for the first time in 1952 (1. 
+ Geminiani) and for the last time in 1965 (1. J. Jimenez). Start of a 
+ stage in 1970\, 1974\, 1994 and 2000.\n\nRegional county town and 
+ Hautes-Pyrénées spa town\, situated on the river Adour (8.500 
+ inhabitants).\r\rRenowned from very ancient times for the quality of its 
+ water\, \"The Pearl of Bigorre\"\, still referred to as \"the Athens of 
+ the Pyrénées\" bloomed in the XIXth Century to become one of the 
+ worldly meeting places of the Romantics.\r\rVery attached to its 
+ folklore\, it is the birthplace of a group of singers from the Pyrénées 
+ created in 1832 and immortalised by the song \"Les montagnards sont là\" 
+ (The mountain folk are here). Bagnères-de-Bigorre this year inaugurated 
+ its permanent cycling exhibition under the name \"Citécycle\". 
+ \r\rLUZ-ARDIDEN\rStage for the first time in 1985 (1. Delgado) and for 
+ the last time in 2001 (1. Laiseka).\n\nA Hautes-Pyrénées Winter sports 
+ resort that overlooks Luz-Saint-Sauveur\, in an exceptional environment. 
+ With upmarket equipment\, it is a polyvalent resort with downhill and 
+ cross country skiing\, but also snowshoe walking\, paragliding and 
+ rafting.\r\rIts slogans: Mountain Passion and Happyrénées.
+DTSTART;VALUE=DATE:20030721
+DTEND;VALUE=DATE:20030722
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021024T193134Z
+SUMMARY:Pau - REST DAY
+UID:5575560C-1E62-11D7-B51B-000393BCF7D2-RID
+DTSTART;VALUE=DATE:20030722
+DTEND;VALUE=DATE:20030723
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040442Z
+SUMMARY:Pau -> Bayonne (197.5 km) STAGE 16
+UID:55755860-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:PAU\rStage for the first time in 1930 (1. Binda) and for the 
+ last time in 2002 (1. Halgand).\r\rPrefecture of the Pyrénées-Atlantic 
+ region and former Béarn capital\, on the Gave de Pau (84\,000 
+ inhabitants (including the suburbs (145\,000 inhabitants).\r\rIdeally 
+ situated\, at the foot of the Pyrénées\, Pau is a historical stage in 
+ the Tour\, via its strategic role\, its past and its list of 
+ prize-winners.\rThis rugby city is a pleasant holiday town. \r\rThe 
+ mildness of its climate attracted the English who introduced golf to Pau 
+ in the middle of the XIXth Century.  The \"most British of French towns\" 
+ was the birthplace of King Henri IV and Bernadotte\, Marshal of the 
+ Empire\, future King of Sweden.\r\rBAYONNE\rStage for the first time in 
+ 1906 (1. Dortignacq) and for the last time in 1972 (1. 
+ Duyndam).\r\rPyrénées-Atlantic regional county town\, situated on the 
+ river Adour (42\,000 inhabitants\, including suburbs: 
+ 160\,000).\r\rEnglish for three centuries\, following the marriage of 
+ Aliénor of Aquitaine with Henri Plantagenêt\, Bayonne became French in 
+ 1451\, after the Hundred Years War\, and flourished in the XVIIIth 
+ Century\, via fishing and commerce. It is today the top French port 
+ exporting sulphur and corn. It is famous for its ironware merchants. The 
+ bayonet was invented here\, at the beginning of the XVIIIth 
+ Century.\r\rTraditional Pyrénées stage during the twenties\, it is the 
+ birthplace of Roger Lapébie.
+DTSTART;VALUE=DATE:20030723
+DTEND;VALUE=DATE:20030724
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040448Z
+SUMMARY:Dax -> Bordeaux (165 km) STAGE 17
+UID:55755AC2-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:DAX\rStage for the first time in 1951 (1. W. Van Est) and for 
+ the last time in 2000 (1. Bettini).\r\rRegional county town and Landes 
+ spa town\, situated on the river Adour (19.500 inhabitants).\r\rA town 
+ steeped in history whose origins precede Roman occupation. It is situated 
+ on the site of an ancient lakeside city and its springs are famous since 
+ ancient times. \r\rThis town is the top French health resort for the 
+ treatment of rheumatism\, in the heart of a region famous for its 
+ gastronomy. Its specialities : duck confit\, foie gras and 
+ armagnac.\r\rHomeland of Saint-Vincent de Paul and the former world 
+ champion André Darrigade.\r\rBORDEAUX\rStage for the first time in 1903 
+ (1. Laeser) and for the last time in 1999 (1. Steels).\r\rPrefecture of 
+ the Gironde. Aquitaine regional county town and former Guyenne capital\, 
+ situated on the Garonne (213\,000 inhabitants and almost 700\,000 
+ including the suburbs).\r\rPermanently incorporated into the realm of 
+ France at the end of the Hundred Years War\, in 1453\, after a long 
+ occupation by the English\, the great South West fishing port is an 
+ important commercial and tourist turntable. The richness of its monuments 
+ and its cultural heritage also make it a town of art. \"It's Versailles 
+ and Anvers at one and the same time\"\, said Victor Hugo.\r\rCapital of a 
+ world famous wine\, Bordeaux is also a Mecca for sport. The Girondins 
+ football team and the Lac velodrome\, where the Open des Nations takes 
+ place\, are part of history.
+DTSTART;VALUE=DATE:20030724
+DTEND;VALUE=DATE:20030725
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040459Z
+SUMMARY:Bordeaux -> Saint-Maixent-l'Ecole (200 km) STAGE 18
+UID:55755D18-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:BORDEAUX\rStage for the first time in 1903 (1. Laeser) and 
+ for the last time in 1999 (1. Steels).\r\rPrefecture of the Gironde. 
+ Aquitaine regional county town and former Guyenne capital\, situated on 
+ the Garonne (213\,000 inhabitants and almost 700\,000 including the 
+ suburbs).\r\rPermanently incorporated into the realm of France at the end 
+ of the Hundred Years War\, in 1453\, after a long occupation by the 
+ English\, the great South West fishing port is an important commercial 
+ and tourist turntable. The richness of its monuments and its cultural 
+ heritage also make it a town of art. \"It's Versailles and Anvers at one 
+ and the same time\"\, said Victor Hugo.\r\rCapital of a world famous 
+ wine\, Bordeaux is also a Mecca for sport. The Girondins football team 
+ and the Lac velodrome\, where the Open des Nations takes place\, are part 
+ of history.\r\rSAINT-MAIXENT-L'ECOLE\rThis town will greet the Tour for 
+ the first time.\r\rDeux-Sèvres regional county town\, situated on the 
+ Sèvre (8.600 inhabitants). Saint-Maixent\, developed around a Vth 
+ Century Abbey\, is\, after Niort in 1950\, the second town in the 
+ Deux-Sèvres region to receive the Tour de France. \r\rA long military 
+ tradition is attached to its name. An infantry school for the formation 
+ of officers was set up here in 1881. It was replaced in 1963 by the 
+ National School of active non commissioned officers.
+DTSTART;VALUE=DATE:20030725
+DTEND;VALUE=DATE:20030726
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040516Z
+SUMMARY:Pornic -> Nantes (49 km) — STAGE 19 (TIME TRIAL)
+UID:55755F6E-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:PORNIC\rThe Tour will pass through this town for the first 
+ time.\n\rRegional county town and seaside resort of the Loire-Atlantic 
+ region (10\,000 inhabitants).\r\rA former stronghold dominated by a 
+ hill\, this fishing and holiday port enchants visitors with the charm of 
+ its ramparts\, its opulent villas and its gardens.\rThe two coast roads 
+ that surround the inlet fit perfectly into the surrounding 
+ countryside.\r\rIts XIIIth Century castle\, modified in the XIXth 
+ Century\, was one of the residences of Gilles de Rais\, Jeanne d'Arc's 
+ former companion in arms\, revived in legend in the character of 
+ Blue-Beard.\r\rNANTES\rStage for the first time in 1903 (1. Garin) and 
+ for the last time in 2000 (1. Steels). Grand start in 1957.\r\rPrefecture 
+ of the Loire-Atlantic region\, county town of the Loire area and 
+ historical capital of the Dukes of Brittany\, situated at the confluence 
+ of the Loire\, the Nantes Sèvre and the Erdre (250\,000 inhabitants and 
+ including the suburbs\, 550\,000). Henri IV signed the famous Edict of 
+ Nantes here in 1598 which put an end to the Religious Wars.\r\rTop French 
+ port in the XVIIIth Century\, Nantes suffered greatly during the 
+ Revolution and the Second World War.\r\rThis industrial centre\, 
+ stimulated by a large population increase\, forms with Saint-Nazaire\, 
+ the new Atlantic France\, 60 kilometres long. Specialities : biscuits\, 
+ white wines (Muscadet).\r\rBirthplace of Duchess Anne of Brittany\, Queen 
+ of France\, of Jules Verne and of the ex-Tour de France rider Pierre 
+ Barbotin.
+DTSTART;VALUE=DATE:20030726
+DTEND;VALUE=DATE:20030727
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20021106T040639Z
+SUMMARY:Ville d'Avray -> Paris @ Champs-Elysées (160 km) STAGE 
+ 20\n\nTotal distance covered in this year's tour: 3350km!
+UID:557561D2-1E62-11D7-B51B-000393BCF7D2-RID
+DESCRIPTION:VILLE D'AVRAY\rReal finish of the last stage of the Tour de 
+ France in 1903 (1. Garin)\, prolonged by a lap of honour in the Parc des 
+ Princes.\rHauts-de-Seine town (11\,600 inhabitants).\r\rSituated between 
+ Paris and Versailles\, near to the Forêt de Fausses-Reposes\, this 
+ little residential town has attracted writers and artists of the XIXth 
+ Century such as Musset\, Chopin and Corot\, the last of whom painted 
+ frescoes of the Saint-Nicolas church and remarkable paintings of the 
+ Ville d'Avray ponds.\n\nPARIS\nThe 2003 Tour de France begins and ends in 
+ Paris.\n\nThe first finish took place on the pink track of the Parc des 
+ Princes\, then on the Bois de Vincennes municipal track (the \"Cipale\"\, 
+ Jacques Anquetil Velodrome).\n\nSince 1975\, the finish takes place 
+ against the prestigious backdrop of the Champs-Elysées (\"the most 
+ beautiful avenue in the world\"). \r\n\nThe road opened in the XVIth 
+ Century by Marie de Médicis is now the most famous in Paris\, situated 
+ between Concorde and the Arc-de-Triomphe.
+DTSTART;VALUE=DATE:20030727
+DTEND;VALUE=DATE:20030728
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20030313T014157Z
+SUMMARY:OLN: Road to the Tour
+UID:61F732AE-54F2-11D7-93F8-000393BCF7D2-RID
+DTSTART;TZID=America/New_York:20030602T190000
+DURATION:PT1H
+RRULE:FREQ=WEEKLY;UNTIL=20030701T035959;INTERVAL=1;BYDAY=MO,TH
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Event reminder
+END:VALARM
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ATTACH;VALUE=URI:Blow
+ACTION:AUDIO
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20030602T020000
+DTSTAMP:20030313T014144Z
+SUMMARY:OLN: Road to the Tour
+UID:C2BD07E2-54F2-11D7-93F8-000393BCF7D2-RID
+DTEND;TZID=America/New_York:20030602T030000
+RRULE:FREQ=WEEKLY;UNTIL=20030701T035959;INTERVAL=1;BYDAY=MO,TH
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Event reminder
+END:VALARM
+BEGIN:VALARM
+ATTACH;VALUE=URI:Blow
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:AUDIO
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20030313T014033Z
+SUMMARY:OLN: LIVE 2003 Tour covergage
+UID:0293FFF4-54F4-11D7-93F8-000393BCF7D2-RID
+DTSTART;TZID=America/New_York:20030705T090000
+DURATION:PT2H30M
+RRULE:FREQ=DAILY;UNTIL=20030727T035959;INTERVAL=1
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Event reminder
+END:VALARM
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ATTACH;VALUE=URI:Blow
+ACTION:AUDIO
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20030313T014023Z
+SUMMARY:OLN: 2003 Tour covergage (Repeat)
+UID:3AEC7F41-54F4-11D7-93F8-000393BCF7D2-RID
+DTSTART;TZID=America/New_York:20030705T150000
+DURATION:PT2H
+RRULE:FREQ=DAILY;UNTIL=20030727T035959;INTERVAL=1
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Event reminder
+END:VALARM
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ATTACH;VALUE=URI:Blow
+ACTION:AUDIO
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20030705T200000
+DTSTAMP:20030313T014050Z
+SUMMARY:OLN: Pre-race show on OLN
+UID:54ACA2B8-54F4-11D7-93F8-000393BCF7D2-RID
+DTEND;TZID=America/New_York:20030705T203000
+RRULE:FREQ=DAILY;UNTIL=20030727T035959;INTERVAL=1
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Event reminder
+END:VALARM
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ATTACH;VALUE=URI:Blow
+ACTION:AUDIO
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=America/New_York:20030705T203000
+DTSTAMP:20030313T014042Z
+SUMMARY:OLN: Racing coverage and commentary
+UID:9905A3CA-54F4-11D7-93F8-000393BCF7D2-RID
+DTEND;TZID=America/New_York:20030705T230000
+RRULE:FREQ=DAILY;UNTIL=20030727T035959;INTERVAL=1
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Event reminder
+END:VALARM
+BEGIN:VALARM
+TRIGGER;VALUE=DURATION:-PT15M
+ATTACH;VALUE=URI:Blow
+ACTION:AUDIO
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+DTSTAMP:20030313T014337Z
+SUMMARY:OLN: Final Stage of the 2003 Tour de France
+UID:17A13754-54F5-11D7-BAE4-000393BCF7D2-RID
+DTSTART;TZID=America/New_York:20030727T210000
+DURATION:PT2H
+DESCRIPTION:Let me guess... no live coverage of the final stage because 
+ CBS is carrying the tour that day. Sigh.
+END:VEVENT
+END:VCALENDAR

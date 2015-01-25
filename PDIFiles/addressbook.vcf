@@ -1,0 +1,16 @@
+BEGIN:VCARD
+NAME:Test MIME name
+SOURCE;CONTEXT=LDAP:ldap://ldap.host/cn=Babs%20Jensen\,%20o=Babsco\,%20c=US
+FN:Yann Duponchel
+N:Duponchel;Yann
+EMAIL;INTERNET:duponchel@users.sourceforge.net
+NICKNAME:Yann
+END:VCARD
+
+BEGIN:VCARD
+FN:Toto
+N:Duchnoque;Toto
+EMAIL;INTERNET:duchnoque@email.com
+TEL;TYPE=HOME,MOBILE:+41 1 555 1234
+NICKNAME:Toto
+END:VCARD

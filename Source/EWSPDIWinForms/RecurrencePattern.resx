@@ -1,0 +1,870 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="grpPattern.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="chkAdvanced.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="chkAdvanced.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="chkAdvanced.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 240</value>
+  </data>
+  <data name="chkAdvanced.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="chkAdvanced.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="chkAdvanced.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="&gt;&gt;chkAdvanced.Name" xml:space="preserve">
+    <value>chkAdvanced</value>
+  </data>
+  <data name="&gt;&gt;chkAdvanced.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkAdvanced.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;chkAdvanced.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbSecondly.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbSecondly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 168</value>
+  </data>
+  <data name="rbSecondly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbSecondly.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="rbSecondly.Text" xml:space="preserve">
+    <value>Secondly</value>
+  </data>
+  <data name="&gt;&gt;rbSecondly.Name" xml:space="preserve">
+    <value>rbSecondly</value>
+  </data>
+  <data name="&gt;&gt;rbSecondly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbSecondly.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbSecondly.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbMinutely.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbMinutely.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 144</value>
+  </data>
+  <data name="rbMinutely.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbMinutely.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="rbMinutely.Text" xml:space="preserve">
+    <value>Minutely</value>
+  </data>
+  <data name="&gt;&gt;rbMinutely.Name" xml:space="preserve">
+    <value>rbMinutely</value>
+  </data>
+  <data name="&gt;&gt;rbMinutely.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbMinutely.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbMinutely.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="rbHourly.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbHourly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 120</value>
+  </data>
+  <data name="rbHourly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbHourly.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="rbHourly.Text" xml:space="preserve">
+    <value>Hourly</value>
+  </data>
+  <data name="&gt;&gt;rbHourly.Name" xml:space="preserve">
+    <value>rbHourly</value>
+  </data>
+  <data name="&gt;&gt;rbHourly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbHourly.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbHourly.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="gbSeparator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <data name="gbSeparator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>109, 16</value>
+  </data>
+  <data name="gbSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>2, 248</value>
+  </data>
+  <data name="gbSeparator.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;gbSeparator.Name" xml:space="preserve">
+    <value>gbSeparator</value>
+  </data>
+  <data name="&gt;&gt;gbSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gbSeparator.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;gbSeparator.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ucSecondly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucSecondly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 56</value>
+  </data>
+  <data name="ucSecondly.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucSecondly.Name" xml:space="preserve">
+    <value>ucSecondly</value>
+  </data>
+  <data name="&gt;&gt;ucSecondly.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.SecondlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucSecondly.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucSecondly.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ucHourly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucHourly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 56</value>
+  </data>
+  <data name="ucHourly.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucHourly.Name" xml:space="preserve">
+    <value>ucHourly</value>
+  </data>
+  <data name="&gt;&gt;ucHourly.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.HourlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucHourly.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucHourly.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ucMinutely.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucMinutely.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 56</value>
+  </data>
+  <data name="ucMinutely.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucMinutely.Name" xml:space="preserve">
+    <value>ucMinutely</value>
+  </data>
+  <data name="&gt;&gt;ucMinutely.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.MinutelyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucMinutely.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucMinutely.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ucDaily.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucDaily.Size" type="System.Drawing.Size, System.Drawing">
+    <value>185, 80</value>
+  </data>
+  <data name="ucDaily.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucDaily.Name" xml:space="preserve">
+    <value>ucDaily</value>
+  </data>
+  <data name="&gt;&gt;ucDaily.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.DailyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucDaily.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucDaily.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ucWeekly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucWeekly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>408, 104</value>
+  </data>
+  <data name="ucWeekly.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucWeekly.Name" xml:space="preserve">
+    <value>ucWeekly</value>
+  </data>
+  <data name="&gt;&gt;ucWeekly.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.WeeklyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucWeekly.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucWeekly.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ucMonthly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucMonthly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>460, 88</value>
+  </data>
+  <data name="ucMonthly.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucMonthly.Name" xml:space="preserve">
+    <value>ucMonthly</value>
+  </data>
+  <data name="&gt;&gt;ucMonthly.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.MonthlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucMonthly.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucMonthly.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ucYearly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="ucYearly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>430, 112</value>
+  </data>
+  <data name="ucYearly.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;ucYearly.Name" xml:space="preserve">
+    <value>ucYearly</value>
+  </data>
+  <data name="&gt;&gt;ucYearly.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.YearlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucYearly.Parent" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;ucYearly.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="pnlPatterns.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 16</value>
+  </data>
+  <data name="pnlPatterns.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 128</value>
+  </data>
+  <data name="pnlPatterns.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;pnlPatterns.Name" xml:space="preserve">
+    <value>pnlPatterns</value>
+  </data>
+  <data name="&gt;&gt;pnlPatterns.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pnlPatterns.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;pnlPatterns.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="rbYearly.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbYearly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 24</value>
+  </data>
+  <data name="rbYearly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbYearly.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbYearly.Text" xml:space="preserve">
+    <value>Yearly</value>
+  </data>
+  <data name="&gt;&gt;rbYearly.Name" xml:space="preserve">
+    <value>rbYearly</value>
+  </data>
+  <data name="&gt;&gt;rbYearly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbYearly.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbYearly.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="rbMonthly.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbMonthly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 48</value>
+  </data>
+  <data name="rbMonthly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbMonthly.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rbMonthly.Text" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
+  <data name="&gt;&gt;rbMonthly.Name" xml:space="preserve">
+    <value>rbMonthly</value>
+  </data>
+  <data name="&gt;&gt;rbMonthly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbMonthly.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbMonthly.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="rbWeekly.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbWeekly.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 72</value>
+  </data>
+  <data name="rbWeekly.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbWeekly.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="rbWeekly.Text" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
+  <data name="&gt;&gt;rbWeekly.Name" xml:space="preserve">
+    <value>rbWeekly</value>
+  </data>
+  <data name="&gt;&gt;rbWeekly.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbWeekly.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbWeekly.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="rbDaily.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbDaily.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 96</value>
+  </data>
+  <data name="rbDaily.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 24</value>
+  </data>
+  <data name="rbDaily.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="rbDaily.Text" xml:space="preserve">
+    <value>Daily</value>
+  </data>
+  <data name="&gt;&gt;rbDaily.Name" xml:space="preserve">
+    <value>rbDaily</value>
+  </data>
+  <data name="&gt;&gt;rbDaily.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbDaily.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;rbDaily.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ucAdvanced.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="ucAdvanced.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ucAdvanced.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 24</value>
+  </data>
+  <data name="ucAdvanced.Size" type="System.Drawing.Size, System.Drawing">
+    <value>472, 240</value>
+  </data>
+  <data name="ucAdvanced.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ucAdvanced.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ucAdvanced.Name" xml:space="preserve">
+    <value>ucAdvanced</value>
+  </data>
+  <data name="&gt;&gt;ucAdvanced.Type" xml:space="preserve">
+    <value>EWSoftware.PDI.Windows.Forms.AdvancedPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+  </data>
+  <data name="&gt;&gt;ucAdvanced.Parent" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;ucAdvanced.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="grpPattern.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 8</value>
+  </data>
+  <data name="grpPattern.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 272</value>
+  </data>
+  <data name="grpPattern.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grpPattern.Text" xml:space="preserve">
+    <value>&amp;Recurrence Pattern</value>
+  </data>
+  <data name="&gt;&gt;grpPattern.Name" xml:space="preserve">
+    <value>grpPattern</value>
+  </data>
+  <data name="&gt;&gt;grpPattern.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpPattern.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpPattern.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grpRange.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left, Right</value>
+  </data>
+  <data name="cboWeekStartDay.ItemHeight" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="cboWeekStartDay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>445, 24</value>
+  </data>
+  <data name="cboWeekStartDay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 24</value>
+  </data>
+  <data name="cboWeekStartDay.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;cboWeekStartDay.Name" xml:space="preserve">
+    <value>cboWeekStartDay</value>
+  </data>
+  <data name="&gt;&gt;cboWeekStartDay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cboWeekStartDay.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;cboWeekStartDay.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblWeekStartDay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblWeekStartDay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>323, 24</value>
+  </data>
+  <data name="lblWeekStartDay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 23</value>
+  </data>
+  <data name="lblWeekStartDay.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="lblWeekStartDay.Text" xml:space="preserve">
+    <value>&amp;Week Start Day</value>
+  </data>
+  <data name="lblWeekStartDay.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;lblWeekStartDay.Name" xml:space="preserve">
+    <value>lblWeekStartDay</value>
+  </data>
+  <data name="&gt;&gt;lblWeekStartDay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblWeekStartDay.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;lblWeekStartDay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="udcOccurrences.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 51</value>
+  </data>
+  <data name="udcOccurrences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 22</value>
+  </data>
+  <data name="udcOccurrences.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="udcOccurrences.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;udcOccurrences.Name" xml:space="preserve">
+    <value>udcOccurrences</value>
+  </data>
+  <data name="&gt;&gt;udcOccurrences.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udcOccurrences.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;udcOccurrences.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dtpEndDate.CustomFormat" xml:space="preserve">
+    <value>MM/dd/yyyy hh:mm:ss tt</value>
+  </data>
+  <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>98, 79</value>
+  </data>
+  <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
+  <data name="dtpEndDate.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Name" xml:space="preserve">
+    <value>dtpEndDate</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;dtpEndDate.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>152, 50</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 23</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>occurrence(s)</value>
+  </data>
+  <data name="label2.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="rbEndByDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbEndByDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 77</value>
+  </data>
+  <data name="rbEndByDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 24</value>
+  </data>
+  <data name="rbEndByDate.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="rbEndByDate.Text" xml:space="preserve">
+    <value>End &amp;by</value>
+  </data>
+  <data name="&gt;&gt;rbEndByDate.Name" xml:space="preserve">
+    <value>rbEndByDate</value>
+  </data>
+  <data name="&gt;&gt;rbEndByDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbEndByDate.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;rbEndByDate.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="rbNeverEnds.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbNeverEnds.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 21</value>
+  </data>
+  <data name="rbNeverEnds.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 24</value>
+  </data>
+  <data name="rbNeverEnds.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="rbNeverEnds.Text" xml:space="preserve">
+    <value>N&amp;o end date</value>
+  </data>
+  <data name="&gt;&gt;rbNeverEnds.Name" xml:space="preserve">
+    <value>rbNeverEnds</value>
+  </data>
+  <data name="&gt;&gt;rbNeverEnds.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbNeverEnds.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;rbNeverEnds.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="chkHolidays.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="chkHolidays.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 64</value>
+  </data>
+  <data name="chkHolidays.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 24</value>
+  </data>
+  <data name="chkHolidays.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="chkHolidays.Text" xml:space="preserve">
+    <value>Can occur on holidays</value>
+  </data>
+  <data name="&gt;&gt;chkHolidays.Name" xml:space="preserve">
+    <value>chkHolidays</value>
+  </data>
+  <data name="&gt;&gt;chkHolidays.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkHolidays.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;chkHolidays.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="rbEndAfter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbEndAfter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 49</value>
+  </data>
+  <data name="rbEndAfter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 24</value>
+  </data>
+  <data name="rbEndAfter.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rbEndAfter.Text" xml:space="preserve">
+    <value>End a&amp;fter</value>
+  </data>
+  <data name="&gt;&gt;rbEndAfter.Name" xml:space="preserve">
+    <value>rbEndAfter</value>
+  </data>
+  <data name="&gt;&gt;rbEndAfter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;rbEndAfter.Parent" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;rbEndAfter.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="grpRange.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 288</value>
+  </data>
+  <data name="grpRange.Size" type="System.Drawing.Size, System.Drawing">
+    <value>600, 104</value>
+  </data>
+  <data name="grpRange.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grpRange.Text" xml:space="preserve">
+    <value>Range of Recurrence</value>
+  </data>
+  <data name="&gt;&gt;grpRange.Name" xml:space="preserve">
+    <value>grpRange</value>
+  </data>
+  <data name="&gt;&gt;grpRange.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;grpRange.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;grpRange.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>616, 400</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>RecurrencePattern</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

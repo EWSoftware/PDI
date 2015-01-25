@@ -1,0 +1,92 @@
+BEGIN:VCALENDAR
+CALSCALE:GREGORIAN
+X-WR-TIMEZONE;VALUE=TEXT:Canada/Eastern
+METHOD:PUBLISH
+PRODID:-//Apple Computer\, Inc//iCal 1.0//EN
+X-WR-CALNAME;VALUE=TEXT:Work
+X-WR-RELCALID;VALUE=TEXT:A1789BDC-A816-11D7-9B94-0003931A496C
+VERSION:2.0
+BEGIN:VEVENT
+SEQUENCE:1
+DTSTAMP:20020918T040206Z
+SUMMARY:Call Headhunter Event
+DTSTART;TZID=America/Montreal:20020919T083000
+UID:A17867E0-A816-11D7-9B94-0003931A496C
+DURATION:PT1H15M
+END:VEVENT
+BEGIN:VEVENT
+SEQUENCE:4
+UID:A1786DD8-A816-11D7-9B94-0003931A496C
+DTSTAMP:20030606T160259Z
+SUMMARY:Pay Day
+RRULE:FREQ=MONTHLY;INTERVAL=1;BYMONTHDAY=1,15
+DTSTART;VALUE=DATE:20030601
+DURATION:P1D
+END:VEVENT
+BEGIN:VEVENT
+SEQUENCE:10
+ATTENDEE;CN=chris sukornyk:mailto:chris@semaview.com
+ATTENDEE;CN=Petri Tanninen:mailto:ptanninen@semaview.com
+ATTENDEE;CN=Mark:mailto:msegal@semaview.com
+ATTENDEE;CN=Christopher Jones:mailto:cjones@semaview.com
+ATTENDEE;CN=Paul Cowles:mailto:paul@semaview.com
+ATTENDEE;CN=Patrick Bourke:mailto:patrick@semaview.com
+ATTENDEE;CN=Rob Prouse:mailto:rprouse@semaview.com
+UID:A1787280-A816-11D7-9B94-0003931A496C
+DTSTAMP:20030625T215623Z
+SUMMARY:Paul's Party!!
+DTSTART;TZID=Canada/Eastern:20030705T200000
+ORGANIZER;CN=Tim Spurway:mailto:timspurway@mac.com
+DTEND;TZID=Canada/Eastern:20030705T230000
+DESCRIPTION:\nI am not homeless.\n \nI no longer sleep on a 
+ couch.\n \nLet's celebrate that!\n \nPaul\, Warren and Sven's new 
+ place\nApt 2\, 27 Rusholme Road\nToronto\n \nSaturday July 5th\n8:
+ 30pm\nBYOB\n \nBring yourselves\, spouses/partners\, 
+ friends...\n \np.\n \nhttp://www.mapquest.com/maps/
+END:VEVENT
+BEGIN:VEVENT
+SEQUENCE:7
+UID:A1787862-A816-11D7-9B94-0003931A496C
+DTSTAMP:20030626T203830Z
+SUMMARY:Chris BBQ
+DTSTART;TZID=Canada/Eastern:20030703T193000
+DTEND;TZID=Canada/Eastern:20030703T233000
+DESCRIPTION:Looks like Thursday July 3rd is the 1st annual Semaview 
+ office BBQ.\n\nI think 7:30pm is a good time to start it up.  Beer\, Wine 
+ & Food will be\navailable (real burgers & veggie burgers too). Arrange a 
+ ride or take\nthe TTC if you are drinking.\n\nWe are at 30 Boswell 
+ Avenue. Take the TTC to St. George St and get out\nat the East side.  
+ Walk north on Bedford 3 blocks until Boswell and hang\na right.\n\nhttp:
+ //www.mapquest.ca/maps/map.adp?addtohistory=&country=CA&address=30+\nboswe
+ ll+avenue&city=toronto&state=on&zipcode=&submit.x=28&submit.y=19\n\n\nChee
+ rs\,\nChris\n\nPresident & CEO\nSemaview\, Inc.\nhttp:
+ //www.semaview.com\n\n
+END:VEVENT
+BEGIN:VEVENT
+SEQUENCE:20
+UID:A1787BF2-A816-11D7-9B94-0003931A496C
+DTSTAMP:20030626T204027Z
+SUMMARY:Monday Group Meeting
+DTSTART;TZID=Canada/Eastern:20030623T090000
+DTEND;TZID=Canada/Eastern:20030623T100000
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=MO
+END:VEVENT
+BEGIN:VEVENT
+SEQUENCE:21
+DTSTAMP:20030626T204138Z
+RECURRENCE-ID;TZID=Canada/Eastern:20030630T090000
+DTEND;TZID=Canada/Eastern:20030630T180000
+DTSTART;TZID=Canada/Eastern:20030630T170000
+UID:A1787BF2-A816-11D7-9B94-0003931A496C
+END:VEVENT
+BEGIN:VEVENT
+SEQUENCE:3
+UID:A17884C2-A816-11D7-9B94-0003931A496C
+DTSTAMP:20030626T204113Z
+SUMMARY:Beers and Brags
+DTSTART;TZID=Canada/Eastern:20030626T180000
+DTEND;TZID=Canada/Eastern:20030626T190000
+DESCRIPTION:At the OTHER office (ie. Wide Open)
+RRULE:FREQ=WEEKLY;INTERVAL=1;BYDAY=TH
+END:VEVENT
+END:VCALENDAR
