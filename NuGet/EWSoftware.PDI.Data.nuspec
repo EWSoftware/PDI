@@ -12,7 +12,7 @@
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>This library contains classes used to create and consume vCard, vCalendar, and iCalendar files used to exchange contact and appointment information between applications such as Microsoft Outlook.  See the project website for the code, a help file, and demos.</description>
 		<copyright>Eric Woodruff (c) 2003-2015</copyright>
-		<tags>PDI personal data interchange vCard vCalendar iCalendar</tags>
+		<tags>PDI personal data interchange vCard vCalendar iCalendar RFC 2426 2445</tags>
 		<dependencies>
 			<dependency id="EWSoftware.PDI" version="[2015.1.19.0]" />
 		</dependencies>
