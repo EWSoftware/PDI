@@ -157,15 +157,15 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Win32' ">
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Icons\EWSPDI.bmp" />
+    <Content Include="icons\EWSPDI.bmp" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\VersionHistory\" />
     <Folder Include="Content\UsageNotes\" />
     <Folder Include="Content\PDIRoadMap\" />
     <Folder Include="Content\" />
-    <Folder Include="Icons" />
-    <Folder Include="Media" />
+    <Folder Include="icons" />
+    <Folder Include="media" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Content\Donate.aml" />
@@ -210,7 +210,7 @@
     <ContentLayout Include="ContentLayout.content" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Media\PayPal.gif">
+    <Image Include="media\PayPal.gif">
       <ImageId>PayPal</ImageId>
       <AlternateText>Pay Pal</AlternateText>
       <CopyToMedia>True</CopyToMedia>
