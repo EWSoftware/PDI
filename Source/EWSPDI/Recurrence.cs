@@ -97,6 +97,9 @@ namespace EWSoftware.PDI
         // These are used to contain holidays for the CanOccurOnHoliday option when it is set to false.  Note
         // that the holiday collection is static and will be shared by all Recurrence instances.
         private static HolidayCollection holidays;
+        // These are used to contain holidays for the CanOccurOnHoliday option when it is set to false on
+        // a per-recurrence instance basis.
+        private HolidayCollection instanceHolidays;
         private HashSet<DateTime> holDates;
 
         // This is used to preserve custom properties not supported by this class
@@ -417,6 +420,24 @@ namespace EWSoftware.PDI
                     holidays = new HolidayCollection();
 
                 return holidays;
+            }
+        }
+
+        /// <summary>
+        /// This is used to add holidays to the recurrence instance.  These will be used in conjunction with
+        /// the <see cref="CanOccurOnHoliday" /> option if it is set to false.
+        /// </summary>
+        /// <remarks>Note that the holiday list is not static and will not be shared amongst all instances of the
+        /// <c>Recurrence</c> classes.</remarks>
+        /// <seealso cref="CanOccurOnHoliday"/>
+        public HolidayCollection InstanceHolidays
+        {
+            get
+            {
+                return instanceHolidays;
+            }
+            set {
+                instanceHolidays = value;
             }
         }
 
@@ -847,7 +868,8 @@ namespace EWSoftware.PDI
                         // and the next year.
                         if(holDates == null || lastYear != rdt.Year)
                         {
-                            holDates = new HashSet<DateTime>(holidays.HolidaysBetween(rdt.Year, rdt.Year + 1));
+                            var holidayCollection = instanceHolidays ?? holidays;
+                            holDates = new HashSet<DateTime>(holidayCollection.HolidaysBetween(rdt.Year, rdt.Year + 1));
                             lastYear = rdt.Year;
                         }
 
