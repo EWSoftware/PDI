@@ -15,9 +15,9 @@ IF "%SHFBROOT%"=="" ECHO **** Sandcastle help file builder not installed.  Skipp
 
 CD .\NuGet
 
-..\Demos\.nuget\NuGet Pack EWSoftware.PDI.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-..\Demos\.nuget\NuGet Pack EWSoftware.PDI.Data.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-..\Demos\.nuget\NuGet Pack EWSoftware.PDI.Web.Controls.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-..\Demos\.nuget\NuGet Pack EWSoftware.PDI.Windows.Forms.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
+NuGet Pack EWSoftware.PDI.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
+NuGet Pack EWSoftware.PDI.Data.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
+NuGet Pack EWSoftware.PDI.Web.Controls.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
+NuGet Pack EWSoftware.PDI.Windows.Forms.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
 
 CD ..

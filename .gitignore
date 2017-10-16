@@ -7,8 +7,6 @@
 *.userosscache
 *.sln.docstates
 StyleCop.Cache
-
-# ReSharper is a .NET coding add-in
 _ReSharper*/
 *.[Rr]e[Ss]harper
 *.DotSettings.user
@@ -29,7 +27,7 @@ bld/
 !**/[Bb]in/*.refresh
 
 # Roslyn cache directories
-*.ide/
+*.vs/
 
 # Visual Studio profiler
 *.psess
@@ -50,6 +48,7 @@ Doc/Help/
 *.nupkg
 # The packages folder can be ignored because of Package Restore
 **/packages/*
+*.lock.json
 
 # Others
 ~$*

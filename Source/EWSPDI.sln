@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDI", "EWSPDI\EWSPDI.csproj", "{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}"
 EndProject
@@ -23,6 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIWeb", "EWSPDIWeb\EWSP
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5282D624-0EA3-4F39-939A-E5DFB8EAF3A8}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		EWSPDI.ruleset = EWSPDI.ruleset
 	EndProjectSection
 EndProject
@@ -60,5 +61,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B24E61D6-35A3-449C-867F-2442C1466C4F}
 	EndGlobalSection
 EndGlobal
