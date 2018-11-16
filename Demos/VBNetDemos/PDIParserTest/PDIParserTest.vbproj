@@ -93,12 +93,6 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EWSoftware.PDI">
-      <HintPath>..\..\..\Deployment\EWSoftware.PDI.dll</HintPath>
-    </Reference>
-    <Reference Include="EWSoftware.PDI.Data">
-      <HintPath>..\..\..\Deployment\EWSoftware.PDI.Data.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -125,7 +119,16 @@
     <None Include="app.config" />
     <None Include="PDIParserTest.snk" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\EWSPDIData\EWSPDIData.csproj">
+      <Project>{13eb4641-36a6-4c9c-af8c-29f3763d392f}</Project>
+      <Name>EWSPDIData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Source\EWSPDI\EWSPDI.csproj">
+      <Project>{23b6c08d-3cde-4f0b-a3b5-a3831adeb79f}</Project>
+      <Name>EWSPDI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>

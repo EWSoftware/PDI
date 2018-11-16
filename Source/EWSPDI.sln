@@ -27,37 +27,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		EWSPDI.ruleset = EWSPDI.ruleset
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{046CA387-A517-4922-9B8E-D5C1854F6194}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		ReleaseNoDoc|Any CPU = ReleaseNoDoc|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.ReleaseNoDoc|Any CPU.ActiveCfg = Release|Any CPU
-		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.ReleaseNoDoc|Any CPU.Build.0 = Release|Any CPU
 		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.ReleaseNoDoc|Any CPU.ActiveCfg = Release|Any CPU
-		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.ReleaseNoDoc|Any CPU.Build.0 = Release|Any CPU
 		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.ReleaseNoDoc|Any CPU.ActiveCfg = Release|Any CPU
-		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.ReleaseNoDoc|Any CPU.Build.0 = Release|Any CPU
 		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.ReleaseNoDoc|Any CPU.ActiveCfg = Release|Any CPU
-		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.ReleaseNoDoc|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

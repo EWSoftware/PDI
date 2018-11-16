@@ -93,9 +93,6 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EWSoftware.PDI">
-      <HintPath>..\..\..\Deployment\EWSoftware.PDI.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -125,7 +122,12 @@
   <ItemGroup>
     <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\EWSPDI\EWSPDI.csproj">
+      <Project>{23b6c08d-3cde-4f0b-a3b5-a3831adeb79f}</Project>
+      <Name>EWSPDI</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="PDIDatesTest.snk" />

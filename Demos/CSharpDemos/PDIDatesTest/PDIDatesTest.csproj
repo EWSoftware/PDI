@@ -95,9 +95,6 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EWSoftware.PDI">
-      <HintPath>..\..\..\Deployment\EWSoftware.PDI.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -144,6 +141,12 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Source\EWSPDI\EWSPDI.csproj">
+      <Project>{23b6c08d-3cde-4f0b-a3b5-a3831adeb79f}</Project>
+      <Name>EWSPDI</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

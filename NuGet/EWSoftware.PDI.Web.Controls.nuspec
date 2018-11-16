@@ -11,14 +11,14 @@
 		<iconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/NuGet/EWSPDI.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>This library contains some web controls that can be used to edit recurrence settings.  See the project website for the code, a help file, and demos.</description>
-		<copyright>Eric Woodruff (c) 2003-2015</copyright>
+		<copyright>Eric Woodruff (c) 2003-2018</copyright>
 		<tags>PDI personal data interchange web controls recurrence RFC 2445</tags>
 		<dependencies>
 			<dependency id="EWSoftware.PDI" version="[2015.1.19.0]" />
 		</dependencies>
 	</metadata>
 	<files>
-		<file src="..\Deployment\EWSoftware.PDI.Web.Controls.dll" target="lib\net40" />
+		<file src="..\Source\EWSPDIWeb\bin\Release\EWSoftware.PDI.Web.Controls.dll" target="lib\net40" />
 		<file src="..\Deployment\EWSoftware.PDI.Web.Controls.xml" target="lib\net40" />
 		<file src="ReadMe_PDIWebControls.txt" target="ReadMe.txt" />
 	</files>

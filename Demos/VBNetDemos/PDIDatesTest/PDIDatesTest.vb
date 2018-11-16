@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : PDIDatesTest.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/01/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/15/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' This is a console mode application that runs through a few simple configurations to test the basics in the
@@ -203,6 +203,20 @@ Module PDIDatesTest
         Console.WriteLine("-0830 = {0} hours {1} minutes", ts.Hours, ts.Minutes)
         ts = DateUtils.FromISO8601TimeZone("+08:30")
         Console.WriteLine("+08:30 = {0} hours {1} minutes", ts.Hours, ts.Minutes)
+
+        ' Restrict bad date part values to their minimum/maximum
+        Console.WriteLine("{0}Bad date values test", Environment.NewLine)
+
+        Console.WriteLine("0000-01-01T10:25:00 = {0}",
+            DateUtils.FromISO8601String("0000-01-01T10:25:00", true))
+        Console.WriteLine("0000-00-01T10:25:00 = {0}",
+            DateUtils.FromISO8601String("0000-00-01T10:25:00", true))
+        Console.WriteLine("0000-13-01T10:25:00 = {0}",
+            DateUtils.FromISO8601String("0000-13-01T10:25:00", true))
+        Console.WriteLine("0000-00-00T10:25:00 = {0}",
+            DateUtils.FromISO8601String("0000-00-00T10:25:00", true))
+        Console.WriteLine("0000-00-32T10:25:00 = {0}",
+            DateUtils.FromISO8601String("0000-00-32T10:25:00", true))
 
         ' Pause to review output
         Console.WriteLine("Press ENTER to continue")

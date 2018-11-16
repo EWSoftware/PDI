@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DateUtils.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/15/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a sealed class that contains various helpful date utility methods used by other classes in
@@ -730,6 +730,23 @@ namespace EWSoftware.PDI
             year = Convert.ToInt32(m.Groups["Year"].Value, CultureInfo.InvariantCulture);
             month = Convert.ToInt32(m.Groups["Month"].Value, CultureInfo.InvariantCulture);
             day = Convert.ToInt32(m.Groups["Day"].Value, CultureInfo.InvariantCulture);
+
+            // Sometimes we get a bad date with parts outside their respective ranges.  Rather than throw an
+            // exception, we'll restrict them to the minimum or maximum value.
+            if(year < 1)
+                year = 1;
+
+            if(month < 1)
+                month = 1;
+            else
+                if(month > 12)
+                    month = 12;
+
+            if(day < 1)
+                day = 1;
+            else
+                if(day > DateTime.DaysInMonth(year, month))
+                    day = DateTime.DaysInMonth(year, month);
 
             // Time parts are optional
             if(m.Groups["Hour"].Value.Length != 0)

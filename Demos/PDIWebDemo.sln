@@ -5,6 +5,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PDIWebDemoCS", "CSharpDemos\PDIWebDemoCS\", "{60252946-B338-4A43-B49A-350776966EAB}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{23b6c08d-3cde-4f0b-a3b5-a3831adeb79f}|EWSoftware.PDI.dll;{13eb4641-36a6-4c9c-af8c-29f3763d392f}|EWSoftware.PDI.Data.dll;{7aac8160-1975-47a2-a171-4c335e5a6c8c}|EWSoftware.PDI.Web.Controls.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/PDIWebDemoCS"
 		Debug.AspNetCompiler.PhysicalPath = "CSharpDemos\PDIWebDemoCS\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PDIWebDemoCS\"
@@ -26,6 +27,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PDIWebDemoVB", "VBNetDemos\PDIWebDemoVB\", "{6EE94951-05F3-4B9B-9595-890681E2DD0B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{23b6c08d-3cde-4f0b-a3b5-a3831adeb79f}|EWSoftware.PDI.dll;{13eb4641-36a6-4c9c-af8c-29f3763d392f}|EWSoftware.PDI.Data.dll;{7aac8160-1975-47a2-a171-4c335e5a6c8c}|EWSoftware.PDI.Web.Controls.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/PDIWebDemoVB"
 		Debug.AspNetCompiler.PhysicalPath = "VBNetDemos\PDIWebDemoVB\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\PDIWebDemoVB\"
@@ -55,16 +57,56 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		PDIWebDemo.sln.vsspell = PDIWebDemo.sln.vsspell
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDI", "..\Source\EWSPDI\EWSPDI.csproj", "{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIData", "..\Source\EWSPDIData\EWSPDIData.csproj", "{13EB4641-36A6-4C9C-AF8C-29F3763D392F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIWeb", "..\Source\EWSPDIWeb\EWSPDIWeb.csproj", "{7AAC8160-1975-47A2-A171-4C335E5A6C8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
+		Debug|Any CPU = Debug|Any CPU
 		Release|.NET = Release|.NET
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{60252946-B338-4A43-B49A-350776966EAB}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{60252946-B338-4A43-B49A-350776966EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60252946-B338-4A43-B49A-350776966EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60252946-B338-4A43-B49A-350776966EAB}.Release|.NET.ActiveCfg = Debug|Any CPU
+		{60252946-B338-4A43-B49A-350776966EAB}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{60252946-B338-4A43-B49A-350776966EAB}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Release|.NET.ActiveCfg = Debug|Any CPU
+		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE94951-05F3-4B9B-9595-890681E2DD0B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Debug|.NET.Build.0 = Debug|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Release|.NET.ActiveCfg = Release|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Release|.NET.Build.0 = Release|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Debug|.NET.Build.0 = Debug|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Release|.NET.ActiveCfg = Release|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Release|.NET.Build.0 = Release|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13EB4641-36A6-4C9C-AF8C-29F3763D392F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Debug|.NET.Build.0 = Debug|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Release|.NET.ActiveCfg = Release|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Release|.NET.Build.0 = Release|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AAC8160-1975-47A2-A171-4C335E5A6C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

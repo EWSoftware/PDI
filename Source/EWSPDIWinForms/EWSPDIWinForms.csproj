@@ -77,7 +77,7 @@
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
     <DocumentationFile>bin\Release\EWSoftware.PDI.Windows.Forms.xml</DocumentationFile>
-    <DebugSymbols>false</DebugSymbols>
+    <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
     <NoWarn>
@@ -87,7 +87,7 @@
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <WarningLevel>4</WarningLevel>
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup>
@@ -318,16 +318,7 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>IF NOT EXIST "$(SolutionDir)..\Deployment" MD "$(SolutionDir)..\Deployment"
-
-COPY "$(SolutionDir)EWSPDI\bin\$(Configuration)\EWSoftware.PDI.dll" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDI\bin\$(Configuration)\EWSoftware.PDI.xml" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDIData\bin\$(Configuration)\EWSoftware.PDI.Data.dll" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDIData\bin\$(Configuration)\EWSoftware.PDI.Data.xml" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDIWeb\bin\$(Configuration)\EWSoftware.PDI.Web.Controls.dll" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDIWeb\bin\$(Configuration)\EWSoftware.PDI.Web.Controls.xml" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDIWinForms\bin\$(Configuration)\EWSoftware.PDI.Windows.Forms.dll" "$(SolutionDir)..\Deployment"
-COPY "$(SolutionDir)EWSPDIWinForms\bin\$(Configuration)\EWSoftware.PDI.Windows.Forms.xml" "$(SolutionDir)..\Deployment"
-</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

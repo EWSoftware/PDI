@@ -11,7 +11,7 @@
 		<iconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/NuGet/EWSPDI.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>This library contains some Windows Forms controls that can be used to edit holiday calculation settings and to edit recurrence settings.  See the project website for the code, a help file, and demos.</description>
-		<copyright>Eric Woodruff (c) 2003-2015</copyright>
+		<copyright>Eric Woodruff (c) 2003-2018</copyright>
 		<tags>PDI personal data interchange Windows Forms controls recurrence RFC 2445</tags>
 		<dependencies>
 			<dependency id="EWSoftware.PDI" version="[2015.1.19.0]" />
@@ -22,7 +22,7 @@
 		</frameworkAssemblies>
 	</metadata>
 	<files>
-		<file src="..\Deployment\EWSoftware.PDI.Windows.Forms.dll" target="lib\net40" />
+		<file src="..\Source\EWSPDIWinForms\bin\Release\EWSoftware.PDI.Windows.Forms.dll" target="lib\net40" />
 		<file src="..\Deployment\EWSoftware.PDI.Windows.Forms.xml" target="lib\net40" />
 		<file src="ReadMe_PDIWinForms.txt" target="ReadMe.txt" />
 	</files>
