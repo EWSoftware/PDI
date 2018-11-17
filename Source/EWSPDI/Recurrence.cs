@@ -2023,20 +2023,12 @@ namespace EWSoftware.PDI
         /// <returns>The XML schema</returns>
         public XmlSchema GetSchema()
         {
-            StreamReader sr = null;
             XmlSchema xs = null;
 
-            try
+            using(StreamReader sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(
+              "EWSoftware.PDI.Schemas.Recurrence.xsd")))
             {
-                sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                    "EWSoftware.PDI.Schemas.Recurrence.xsd"));
-
                 xs = XmlSchema.Read(sr, null);
-            }
-            finally
-            {
-                if(sr != null)
-                    sr.Close();
             }
 
             return xs;

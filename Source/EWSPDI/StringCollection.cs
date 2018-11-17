@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : StringCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/24/2014
-// Note    : Copyright 2014, Eric Woodruff, All rights reserved
+// Updated : 11/16/2018
+// Note    : Copyright 2014-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a type-safe collection class that is used to contain string objects
@@ -22,7 +22,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Globalization;
 
 namespace EWSoftware.PDI
 {
@@ -133,9 +132,9 @@ namespace EWSoftware.PDI
             ((List<string>)base.Items).Sort((x, y) =>
             {
                 if(ascending)
-                    return String.Compare(x, y, ignoreCase, CultureInfo.CurrentCulture);
+                    return String.Compare(x, y, ignoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture);
 
-                return String.Compare(y, x, ignoreCase, CultureInfo.CurrentCulture);
+                return String.Compare(y, x, ignoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture);
             });
 
             OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));

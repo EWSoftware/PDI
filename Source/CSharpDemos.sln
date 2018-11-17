@@ -2,29 +2,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBrowser", "CalendarBrowser\CalendarBrowser.csproj", "{20487237-F96A-4725-A82D-96FD26AF9DFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBrowser", "CSharpDemos\CalendarBrowser\CalendarBrowser.csproj", "{20487237-F96A-4725-A82D-96FD26AF9DFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIParserTest", "PDIParserTest\PDIParserTest.csproj", "{7F445FE2-DE5A-45CA-BC6A-FA162CFA99CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIParserTest", "CSharpDemos\PDIParserTest\PDIParserTest.csproj", "{7F445FE2-DE5A-45CA-BC6A-FA162CFA99CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIWinFormsTest", "PDIWinFormsTest\PDIWinFormsTest.csproj", "{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIWinFormsTest", "CSharpDemos\PDIWinFormsTest\PDIWinFormsTest.csproj", "{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFC2445RecurTest", "RFC2445RecurTest\RFC2445RecurTest.csproj", "{32D480E1-5E35-46E8-8682-02EB5D3FC3DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RFC2445RecurTest", "CSharpDemos\RFC2445RecurTest\RFC2445RecurTest.csproj", "{32D480E1-5E35-46E8-8682-02EB5D3FC3DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vCardBrowser", "vCardBrowser\vCardBrowser.csproj", "{AC9020EB-63D3-4515-A868-8D290356FBE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vCardBrowser", "CSharpDemos\vCardBrowser\vCardBrowser.csproj", "{AC9020EB-63D3-4515-A868-8D290356FBE5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3E23A2C-E571-4DF2-BCA1-172B2C994300}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\Source\.editorconfig = ..\..\Source\.editorconfig
-		..\EWSPDIDemos.ruleset = ..\EWSPDIDemos.ruleset
+		.editorconfig = .editorconfig
+		EWSPDIDemos.ruleset = EWSPDIDemos.ruleset
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDI", "..\..\Source\EWSPDI\EWSPDI.csproj", "{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDI", "EWSPDI\EWSPDI.csproj", "{23B6C08D-3CDE-4F0B-A3B5-A3831ADEB79F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIData", "..\..\Source\EWSPDIData\EWSPDIData.csproj", "{13EB4641-36A6-4C9C-AF8C-29F3763D392F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIData", "EWSPDIData\EWSPDIData.csproj", "{13EB4641-36A6-4C9C-AF8C-29F3763D392F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIWinForms", "..\..\Source\EWSPDIWinForms\EWSPDIWinForms.csproj", "{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSPDIWinForms", "EWSPDIWinForms\EWSPDIWinForms.csproj", "{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIDatesTest", "PDIDatesTest\PDIDatesTest.csproj", "{98E6C0BF-CDA6-436B-9B9B-C1EB435F0FD8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIDatesTest", "CSharpDemos\PDIDatesTest\PDIDatesTest.csproj", "{98E6C0BF-CDA6-436B-9B9B-C1EB435F0FD8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B37979B6-AB1F-45B8-833E-1750CC866F00}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

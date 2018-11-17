@@ -94,7 +94,6 @@ namespace EWSoftware.PDI.Properties
                 int idx, cultureIdx = -1;
                 TimeZoneNameProperty tzn = null;
 
-                CultureInfo invariant = CultureInfo.InvariantCulture;
                 string propLang;
 
                 // Search for everything in one pass
@@ -104,19 +103,19 @@ namespace EWSoftware.PDI.Properties
                     propLang = tzn.Language;
 
                     // Found an exact match by ID?
-                    if(String.Compare(propLang, languageId, true, invariant) == 0)
+                    if(String.Compare(propLang, languageId, StringComparison.InvariantCultureIgnoreCase) == 0)
                         break;
 
                     // How about a partial match by ISO Name Found an exact match by ID?
-                    if(String.Compare(propLang, isoName, true, invariant) == 0)
+                    if(String.Compare(propLang, isoName, StringComparison.InvariantCultureIgnoreCase) == 0)
                         break;
 
                     // Note the location of anything matching the current culture.  We'll use the first one found
                     // if all else fails.
-                    if(String.Compare(propLang, currentName, true, invariant) == 0)
+                    if(String.Compare(propLang, currentName, StringComparison.InvariantCultureIgnoreCase) == 0)
                         cultureIdx = idx;
                     else    // Only use ISO match if there's no full match
-                        if(cultureIdx == -1 && String.Compare(propLang, currentISOName, true, invariant) == 0)
+                        if(cultureIdx == -1 && String.Compare(propLang, currentISOName, StringComparison.InvariantCultureIgnoreCase) == 0)
                             cultureIdx = idx;
                 }
 
