@@ -85,7 +85,7 @@
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script type="text/javascript" src='<% =ResolveUrl("~/Scripts/jquery-2.1.3.min.js") %>'></script>
+	<script type="text/javascript" src='<% =ResolveUrl("~/Scripts/jquery-3.3.1.min.js") %>'></script>
 	<script type="text/javascript" src='<% =ResolveUrl("~/Scripts/bootstrap.min.js") %>'></script>
 </body>
 </html>
