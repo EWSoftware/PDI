@@ -1,3 +1,13 @@
+# Legacy Branch
+This branch is for use with Visual Studio 2010 through Visual Studio 2017 15.4.  It uses standard MSBuild
+project files and only targets .NET 4.0.  The version number on all PDI assemblies is 2015.1.19.0.
+**This branch is not likely to receive any future updates unless pull requests are submitted by third parties
+that still want to make use of this version.**
+
+All new development will be done on the master branch using Visual Studio 2017 15.5 or later and will use the new
+project format that supports .NET Standard.  The master branch targets .NET 3.5, 4.x, and .NET Standard 2.0 and
+later.  All subsequent NuGet packages will be generated off of the master branch.
+
 # EWSoftware.PDI Library
 The EWSoftware Personal Data Interchange (PDI) Library presents you with a complete set of classes that let you
 have access to all objects, properties, parameter types, and data types as defined by the vCard (RFC 2426),
@@ -16,14 +26,4 @@ source code and shows several examples of data binding with the collection objec
 recurrence pattern editor web server control.  The demo web application is available online so you can
 [try it out](http://www.ewoodruff.us/PDIWebDemoCS/Default.aspx).
 
-NuGet packages are available:
-
-* [EWSoftware.PDI](http://www.nuget.org/packages/EWSoftware.PDI)
-* [EWSoftware.PDI.Data](http://www.nuget.org/packages/EWSoftware.PDI.Data)
-* [EWSoftware.PDI.Web.Controls](http://www.nuget.org/packages/EWSoftware.PDI.Web.Controls)
-* [EWSoftware.PDI.Windows.Forms](http://www.nuget.org/packages/EWSoftware.PDI.Windows.Forms)
-
 See the [online help content](http://EWSoftware.github.io/PDI/index.html) for usage and API information.
-
-See the [Project Wiki](https://github.com/EWSoftware/PDI/wiki) for information on requirements for
-building the code and contributing to the project.

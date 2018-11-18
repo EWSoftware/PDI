@@ -15,16 +15,3 @@ IF EXIST "%ProgramFiles(x86)%\MSBuild\12.0" SET "MSBUILD=%ProgramFiles(x86)%\MSB
 "%MSBUILD%" /nologo /v:m /m Source\VBNetDemos.sln /t:Clean;Build "/p:Configuration=Release;Platform=Any CPU"
 
 "%MSBUILD%" /nologo /v:m /m Source\PDIWebDemo.sln /t:Clean;Build
-
-IF NOT "%SHFBROOT%"=="" "%MSBUILD%" /nologo /v:m Doc\EWSoftwarePDI.sln /t:Clean;Build "/p:Configuration=Release;Platform=Any CPU"
-
-IF "%SHFBROOT%"=="" ECHO **** Sandcastle help file builder not installed.  Skipping help build. ****
-
-CD .\NuGet
-
-..\Source\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe Pack EWSoftware.PDI.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-..\Source\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe Pack EWSoftware.PDI.Data.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-..\Source\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe Pack EWSoftware.PDI.Web.Controls.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-..\Source\packages\NuGet.CommandLine.4.7.1\tools\NuGet.exe Pack EWSoftware.PDI.Windows.Forms.nuspec -NoPackageAnalysis -OutputDirectory ..\Deployment
-
-CD ..
