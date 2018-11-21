@@ -5,7 +5,7 @@ project files and only targets .NET 4.0.  The version number on all PDI assembli
 that still want to make use of this version.**
 
 All new development will be done on the master branch using Visual Studio 2017 15.5 or later and will use the new
-project format that supports .NET Standard.  The master branch targets .NET 3.5, 4.x, and .NET Standard 2.0 and
+project format that supports .NET Standard.  The master branch targets .NET 4.x and .NET Standard 2.0 and
 later.  All subsequent NuGet packages will be generated off of the master branch.
 
 # EWSoftware.PDI Library
