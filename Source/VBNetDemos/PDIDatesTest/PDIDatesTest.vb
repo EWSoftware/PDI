@@ -2,7 +2,7 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : PDIDatesTest.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/15/2018
+' Updated : 11/20/2018
 ' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
@@ -19,10 +19,7 @@
 ' 12/01/2004  EFW  Created the code
 '================================================================================================================
 
-Imports System.Collections.Generic
 Imports System.IO
-Imports System.Linq
-Imports System.Runtime.Serialization.Formatters.Soap
 Imports System.Runtime.Serialization.Formatters.Binary
 Imports System.Xml.Serialization
 
@@ -39,42 +36,44 @@ Module PDIDatesTest
         Dim recurDates As DateTimeCollection
         Dim yearFrom, yearTo, idx As Integer
 
-        If args.GetUpperBound(0) < 1 Then
-            Console.WriteLine("Specify a starting and ending year")
-            Return
+        If args.Length <> 2 Then
+            Console.WriteLine("Using current year +/- 4 years for testing" + Environment.NewLine)
+
+            yearFrom = DateTime.Today.Year - 4
+            yearTo = yearFrom + 8
+        Else
+            Try
+                yearFrom = Convert.ToInt32(args(0))
+                yearTo = Convert.ToInt32(args(1))
+
+                If yearFrom < 1 Then yearFrom = 1
+                If yearFrom > 9999 Then yearFrom = 9999
+                If yearTo < 1 Then yearTo = 1
+                If yearTo > 9999 Then yearTo = 9999
+
+                If yearFrom > yearTo Then
+                    idx = yearFrom
+                    yearFrom = yearTo
+                    yearTo = idx
+                End If
+            Catch
+                Console.WriteLine("Invalid year specified on command line")
+                Return
+            End Try
         End If
 
-        Try
-            yearFrom = Convert.ToInt32(args(0))
-            yearTo = Convert.ToInt32(args(1))
-
-            If yearFrom < 1 Then yearFrom = 1
-            If yearFrom > 9999 Then yearFrom = 9999
-            If yearTo < 1 Then yearTo = 1
-            If yearTo > 9999 Then yearTo = 9999
-
-            If yearFrom > yearTo Then
-                idx = yearFrom
-                yearFrom = yearTo
-                yearTo = idx
-            End If
-        Catch
-            Console.WriteLine("Invalid year specified on command line")
-            Return
-        End Try
-
         ' Test DateUtils.CalculateOccurrenceDate
-        Console.WriteLine("Fourth weekday in January 2004: {0:d}",
-            DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 0))
+        Console.WriteLine("Fourth weekday in January 2018: {0:d}",
+            DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 0))
 
-        Console.WriteLine("Fourth weekday in January 2004 + 2: {0:d}",
-            DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 2))
+        Console.WriteLine("Fourth weekday in January 2018 + 2: {0:d}",
+            DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 2))
 
-        Console.WriteLine("Last weekend day in January 2004: {0:d}",
-            DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 0))
+        Console.WriteLine("Last weekend day in January 2018: {0:d}",
+            DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 0))
 
-        Console.WriteLine("Last weekend day in January 2004 + 2: {0:d}",
-            DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 2))
+        Console.WriteLine("Last weekend day in January 2018 + 2: {0:d}",
+            DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 2))
 
         ' Pause to review output
         Console.WriteLine("Press ENTER to continue")
@@ -87,7 +86,7 @@ Module PDIDatesTest
         Console.WriteLine("Week start = Monday")
         Dim dow As DayOfWeek = DayOfWeek.Monday
 
-        For year = 1998 To 2009
+        For year = yearFrom To yearTo
             For idx = 1 To 53
                 If idx <> 53 Or DateUtils.WeeksInYear(year, dow) = 53 Then
                     weekFrom = DateUtils.DateFromWeek(year, idx, dow, 0)
@@ -149,51 +148,51 @@ Module PDIDatesTest
 
         ' Test DateUtils.FromISO8601String and DateUtils.FromISO8601TimeZone
         Console.WriteLine("Expressed in Universal Time")
-        Console.WriteLine("20040314 = {0}", DateUtils.FromISO8601String("20040314", False))
-        Console.WriteLine("20040314T10 = {0}", DateUtils.FromISO8601String("20040314T10", False))
-        Console.WriteLine("20040314T1025 = {0}", DateUtils.FromISO8601String("20040314T1025", False))
-        Console.WriteLine("20040314T102531 = {0}", DateUtils.FromISO8601String("20040314T102531", False))
-        Console.WriteLine("20040314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("20040314T102531.123", False))
-        Console.WriteLine("20040314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("20040314T102531.98Z", False))
-        Console.WriteLine("20040314T102531-04 = {0}", DateUtils.FromISO8601String("20040314T102531-04", False))
-        Console.WriteLine("20040314T102531.123+0830 = {0}", DateUtils.FromISO8601String("20040314T102531.123+0830", False))
+        Console.WriteLine("20180314 = {0}", DateUtils.FromISO8601String("20180314", False))
+        Console.WriteLine("20180314T10 = {0}", DateUtils.FromISO8601String("20180314T10", False))
+        Console.WriteLine("20180314T1025 = {0}", DateUtils.FromISO8601String("20180314T1025", False))
+        Console.WriteLine("20180314T102531 = {0}", DateUtils.FromISO8601String("20180314T102531", False))
+        Console.WriteLine("20180314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("20180314T102531.123", False))
+        Console.WriteLine("20180314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("20180314T102531.98Z", False))
+        Console.WriteLine("20180314T102531-04 = {0}", DateUtils.FromISO8601String("20180314T102531-04", False))
+        Console.WriteLine("20180314T102531.123+0830 = {0}", DateUtils.FromISO8601String("20180314T102531.123+0830", False))
 
-        Console.WriteLine("{0}2004-03-14 = {1}", Environment.NewLine, DateUtils.FromISO8601String("2004-03-14", False))
-        Console.WriteLine("2004-03-14T10 = {0}", DateUtils.FromISO8601String("2004-03-14T10", False))
-        Console.WriteLine("2004-03-14T10:25 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25", False))
-        Console.WriteLine("2004-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31", False))
-        Console.WriteLine("2004-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("2004-03-14T10:25:31.123", False))
-        Console.WriteLine("2004-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("2004-03-14T10:25:31.98Z", False))
-        Console.WriteLine("2004-03-14T10:25:31-04 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31-04", False))
-        Console.WriteLine("2004-03-14T10:25:31+08:30 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31+08:30", False))
+        Console.WriteLine("{0}2018-03-14 = {1}", Environment.NewLine, DateUtils.FromISO8601String("2018-03-14", False))
+        Console.WriteLine("2018-03-14T10 = {0}", DateUtils.FromISO8601String("2018-03-14T10", False))
+        Console.WriteLine("2018-03-14T10:25 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25", False))
+        Console.WriteLine("2018-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31", False))
+        Console.WriteLine("2018-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("2018-03-14T10:25:31.123", False))
+        Console.WriteLine("2018-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("2018-03-14T10:25:31.98Z", False))
+        Console.WriteLine("2018-03-14T10:25:31-04 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31-04", False))
+        Console.WriteLine("2018-03-14T10:25:31+08:30 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31+08:30", False))
 
         ' Test DateUtils.FromISO8601String and DateUtils.FromISO8601TimeZone
         Console.WriteLine("{0}Expressed in Local Time", Environment.NewLine)
-        Console.WriteLine("20040314 = {0}", DateUtils.FromISO8601String("20040314", True))
-        Console.WriteLine("20040314T10 = {0}", DateUtils.FromISO8601String("20040314T10", True))
-        Console.WriteLine("20040314T1025 = {0}", DateUtils.FromISO8601String("20040314T1025", True))
-        Console.WriteLine("20040314T102531 = {0}", DateUtils.FromISO8601String("20040314T102531", True))
-        Console.WriteLine("20040314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("20040314T102531.123", True))
-        Console.WriteLine("20040314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("20040314T102531.98Z", True))
-        Console.WriteLine("20040314T102531-04 = {0}", DateUtils.FromISO8601String("20040314T102531-04", True))
-        Console.WriteLine("20040314T102531.123+0830 = {0}", DateUtils.FromISO8601String("20040314T102531.123+0830", True))
+        Console.WriteLine("20180314 = {0}", DateUtils.FromISO8601String("20180314", True))
+        Console.WriteLine("20180314T10 = {0}", DateUtils.FromISO8601String("20180314T10", True))
+        Console.WriteLine("20180314T1025 = {0}", DateUtils.FromISO8601String("20180314T1025", True))
+        Console.WriteLine("20180314T102531 = {0}", DateUtils.FromISO8601String("20180314T102531", True))
+        Console.WriteLine("20180314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("20180314T102531.123", True))
+        Console.WriteLine("20180314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("20180314T102531.98Z", True))
+        Console.WriteLine("20180314T102531-04 = {0}", DateUtils.FromISO8601String("20180314T102531-04", True))
+        Console.WriteLine("20180314T102531.123+0830 = {0}", DateUtils.FromISO8601String("20180314T102531.123+0830", True))
 
-        Console.WriteLine("{0}2004-03-14 = {1}", Environment.NewLine, DateUtils.FromISO8601String("2004-03-14", True))
-        Console.WriteLine("2004-03-14T10 = {0}", DateUtils.FromISO8601String("2004-03-14T10", True))
-        Console.WriteLine("2004-03-14T10:25 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25", True))
-        Console.WriteLine("2004-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31", True))
-        Console.WriteLine("2004-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("2004-03-14T10:25:31.123", True))
-        Console.WriteLine("2004-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
-            DateUtils.FromISO8601String("2004-03-14T10:25:31.98Z", True))
-        Console.WriteLine("2004-03-14T10:25:31-04 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31-04", True))
-        Console.WriteLine("2004-03-14T10:25:31+08:30 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31+08:30", True))
+        Console.WriteLine("{0}2018-03-14 = {1}", Environment.NewLine, DateUtils.FromISO8601String("2018-03-14", True))
+        Console.WriteLine("2018-03-14T10 = {0}", DateUtils.FromISO8601String("2018-03-14T10", True))
+        Console.WriteLine("2018-03-14T10:25 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25", True))
+        Console.WriteLine("2018-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31", True))
+        Console.WriteLine("2018-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("2018-03-14T10:25:31.123", True))
+        Console.WriteLine("2018-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
+            DateUtils.FromISO8601String("2018-03-14T10:25:31.98Z", True))
+        Console.WriteLine("2018-03-14T10:25:31-04 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31-04", True))
+        Console.WriteLine("2018-03-14T10:25:31+08:30 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31+08:30", True))
 
         Dim ts As TimeSpan = DateUtils.FromISO8601TimeZone("+08")
         Console.WriteLine("{0}+08 = {1} hours {2} minutes", Environment.NewLine, ts.Hours, ts.Minutes)
@@ -460,16 +459,17 @@ Module PDIDatesTest
                 xs.Serialize(fs, holidays)
                 Console.WriteLine("Holidays saved to Holidays.xml")
             End Using
-
+#If NETFramework
+            ' The SOAP formatter is only supported on the full .NET Framework
             ' SOAP
             Using fs As New FileStream("Holidays.soap", FileMode.Create)
-                Dim sf As New SoapFormatter()
+                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
 
                 ' SOAP doesn't support generics directly so use an array
                 sf.Serialize(fs, holidays.ToArray())
                 Console.WriteLine("Holidays saved to Holidays.soap")
             End Using
-
+#End If
             ' Binary
             Using fs As New FileStream("Holidays.bin", FileMode.Create)
                 Dim bf As New BinaryFormatter()
@@ -500,17 +500,17 @@ Module PDIDatesTest
                 holidays = DirectCast(xs.Deserialize(fs), HolidayCollection)
                 Console.WriteLine("Holidays retrieved from Holidays.xml")
             End Using
-
+#If NETFramework
             ' SOAP
             Using fs As New FileStream("Holidays.soap", FileMode.Open)
-                Dim sf As New SoapFormatter()
+                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
 
                 ' As noted, SOAP doesn't support generics to an array is used instead
                 holidays = New HolidayCollection(DirectCast(sf.Deserialize(fs), Holiday()))
 
                 Console.WriteLine("Holidays retrieved from Holidays.soap")
             End Using
-
+#End If
             ' Binary
             Using fs As New FileStream("Holidays.bin", FileMode.Open)
                 Dim bf As New BinaryFormatter()
@@ -609,14 +609,14 @@ Module PDIDatesTest
                 xs.Serialize(fs, rRecur)
                 Console.WriteLine("Recurrence saved to Recurrence.xml")
             End Using
-
+#If NETFramework
             ' SOAP
             Using fs As New FileStream("Recurrence.soap", FileMode.Create)
-                Dim sf As New SoapFormatter()
+                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
                 sf.Serialize(fs, rRecur)
                 Console.WriteLine("Recurrence saved to Recurrence.soap")
             End Using
-
+#End If
             ' Binary
             Using fs As New FileStream("Recurrence.bin", FileMode.Create)
                 Dim bf As New BinaryFormatter()
@@ -647,14 +647,14 @@ Module PDIDatesTest
                 rRecur = DirectCast(xs.Deserialize(fs), Recurrence)
                 Console.WriteLine("Recurrence restored from Recurrence.xml")
             End Using
-
+#If NETFramework
             ' SOAP
             Using fs As New FileStream("Recurrence.soap", FileMode.Open)
-                Dim sf As New SoapFormatter()
+                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
                 rRecur = DirectCast(sf.Deserialize(fs), Recurrence)
                 Console.WriteLine("Recurrence retrieved from Recurrence.soap")
             End Using
-
+#End If
             ' Binary
             Using fs As New FileStream("Recurrence.bin", FileMode.Open)
                 Dim bf As New BinaryFormatter()

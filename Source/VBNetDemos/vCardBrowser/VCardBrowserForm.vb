@@ -45,6 +45,15 @@ Public Partial Class VCardBrowserForm
     '===============================================================
 
     ''' <summary>
+    ''' The main entry point for the application
+    ''' </summary>
+    Shared Sub Main(Args As String())
+        Application.EnableVisualStyles()
+        Application.SetCompatibleTextRenderingDefault(false)
+        Application.Run(new VCardBrowserForm())
+    End Sub
+
+    ''' <summary>
     ''' Constructor
     ''' </summary>
     Public Sub New()
@@ -117,13 +126,13 @@ Public Partial Class VCardBrowserForm
         ' existence.
         sortName1 = x.SortString.Value
 
-        If String.IsNullOrEmpty(sortName1) Then
+        If String.IsNullOrWhiteSpace(sortName1) Then
             sortName1 = x.Name.SortableName
         End If
 
         sortName2 = y.SortString.Value
 
-        If String.IsNullOrEmpty(sortName2) Then
+        If String.IsNullOrWhiteSpace(sortName2) Then
             sortName2 = y.Name.SortableName
         End If
 

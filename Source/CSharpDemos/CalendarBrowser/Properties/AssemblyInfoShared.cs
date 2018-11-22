@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/19/2015
-// Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+// Updated : 11/19/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // PDI library demos common assembly attributes
@@ -28,7 +28,7 @@ using System.Runtime.InteropServices;
 // General assembly information
 [assembly: AssemblyProduct("EWSoftware Personal Data Interchange Library")]
 [assembly: AssemblyCompany("Eric Woodruff")]
-[assembly: AssemblyCopyright("Copyright \xA9 2003-2015, Eric Woodruff, All Rights Reserved")]
+[assembly: AssemblyCopyright("Copyright \xA9 2003-2018, Eric Woodruff, All Rights Reserved")]
 [assembly: AssemblyCulture("")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
@@ -43,7 +43,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Resources contained within the assembly are English
-[assembly: NeutralResourcesLanguageAttribute("en")]
+[assembly: NeutralResourcesLanguage("en")]
 
 // Version numbers.  All version numbers for an assembly consists of the following four values:
 //
@@ -52,5 +52,5 @@ using System.Runtime.InteropServices;
 //      Day of release
 //      Revision (typically zero unless multiple releases are made on the same day)
 //
-[assembly: AssemblyVersion("2015.1.19.0")]
-[assembly: AssemblyFileVersion("15.1.19.0")]
+[assembly: AssemblyVersion("2018.11.19.0")]
+[assembly: AssemblyFileVersion("18.11.19.0")]

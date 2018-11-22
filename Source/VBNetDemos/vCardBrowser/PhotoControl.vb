@@ -90,7 +90,7 @@ Public Partial Class PhotoControl
                 Try
                     bmImage.Dispose()
 
-                    If Not String.IsNullOrEmpty(value) Then
+                    If Not String.IsNullOrWhiteSpace(value) Then
                         bmImage = New Bitmap(value)
                     Else
                         bmImage = new Bitmap(1, 1)

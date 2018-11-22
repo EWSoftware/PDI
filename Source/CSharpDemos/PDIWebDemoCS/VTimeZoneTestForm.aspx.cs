@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VTimeZoneTestForm.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/30/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/21/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This page is used to demonstrate some of the time zone features of the PDI classes
@@ -42,7 +42,7 @@ namespace PDIWebDemoCS
                 // The time zone information is loaded in the Application_Start event in Global.asax.  We'll
                 // acquire a reader lock on the time zone collection as it's possible other sessions could be
                 // parsing calendars with time zone data that could change the collection.
-                VCalendar.TimeZones.Lock.AcquireReaderLock(250);
+                VCalendar.TimeZones.AcquireReaderLock(250);
 
                 try
                 {
@@ -54,7 +54,7 @@ namespace PDIWebDemoCS
                 }
                 finally
                 {
-                    VCalendar.TimeZones.Lock.ReleaseReaderLock();
+                    VCalendar.TimeZones.ReleaseReaderLock();
                 }
 
                 txtSourceDate.Text = new DateTime(DateTime.Today.Year, 1, 1, 10, 0, 0).ToString("G");

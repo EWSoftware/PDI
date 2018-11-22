@@ -107,7 +107,7 @@ namespace EWSoftware.PDI.Properties
             {
                 percentage = 0;
 
-                if(!String.IsNullOrEmpty(value) && reNumber.IsMatch(value))
+                if(!String.IsNullOrWhiteSpace(value) && reNumber.IsMatch(value))
                 {
                     percentage = Convert.ToInt32(value, CultureInfo.InvariantCulture);
 

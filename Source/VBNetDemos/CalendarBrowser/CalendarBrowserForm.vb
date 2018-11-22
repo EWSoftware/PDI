@@ -47,6 +47,15 @@ Public Partial Class CalendarBrowserForm
     ''' <summary>
     ''' The main entry point for the application
     ''' </summary>
+    Shared Sub Main(Args As String())
+        Application.EnableVisualStyles()
+        Application.SetCompatibleTextRenderingDefault(false)
+        Application.Run(new CalendarBrowserForm())
+    End Sub
+
+    ''' <summary>
+    ''' Constructor
+    ''' </summary>
     Public Sub New()
         MyBase.New()
 

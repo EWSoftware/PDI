@@ -107,7 +107,7 @@ namespace vCardBrowser
                     {
                         bmImage.Dispose();
 
-                        if(!String.IsNullOrEmpty(value))
+                        if(!String.IsNullOrWhiteSpace(value))
                             bmImage = new Bitmap(value);
                         else
                             bmImage = new Bitmap(1, 1);

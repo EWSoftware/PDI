@@ -2,7 +2,7 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PDIDatesTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/15/2018
+// Updated : 11/19/2018
 // Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
@@ -22,8 +22,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Soap;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
@@ -49,54 +47,58 @@ namespace PDIDatesTest
             DateTimeCollection recurDates;
             int yearFrom, yearTo, idx;
 
-            if(args.GetUpperBound(0) < 1)
+            if(args.Length != 2)
             {
-                Console.WriteLine("Specify a starting and ending year");
-                return;
+                Console.WriteLine("Using current year +/- 4 years for testing\r\n");
+
+                yearFrom = DateTime.Today.Year - 4;
+                yearTo = yearFrom + 8;
             }
-
-            try
+            else
             {
-                yearFrom = Convert.ToInt32(args[0]);
-                yearTo = Convert.ToInt32(args[1]);
-
-                if(yearFrom < 1)
-                    yearFrom = 1;
-
-                if(yearFrom > 9999)
-                    yearFrom = 9999;
-
-                if(yearTo < 1)
-                    yearTo = 1;
-
-                if(yearTo > 9999)
-                    yearTo = 9999;
-
-                if(yearFrom > yearTo)
+                try
                 {
-                    idx = yearFrom;
-                    yearFrom = yearTo;
-                    yearTo = idx;
+                    yearFrom = Convert.ToInt32(args[0]);
+                    yearTo = Convert.ToInt32(args[1]);
+
+                    if(yearFrom < 1)
+                        yearFrom = 1;
+
+                    if(yearFrom > 9999)
+                        yearFrom = 9999;
+
+                    if(yearTo < 1)
+                        yearTo = 1;
+
+                    if(yearTo > 9999)
+                        yearTo = 9999;
+
+                    if(yearFrom > yearTo)
+                    {
+                        idx = yearFrom;
+                        yearFrom = yearTo;
+                        yearTo = idx;
+                    }
                 }
-            }
-            catch
-            {
-                Console.WriteLine("Invalid year specified on command line");
-                return;
+                catch
+                {
+                    Console.WriteLine("Invalid year specified on command line");
+                    return;
+                }
             }
 
             // Test DateUtils.CalculateOccurrenceDate
-            Console.WriteLine("Fourth weekday in January 2004: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 0));
+            Console.WriteLine("Fourth weekday in January 2018: {0:d}",
+                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 0));
 
-            Console.WriteLine("Fourth weekday in January 2004 + 2: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 2));
+            Console.WriteLine("Fourth weekday in January 2018 + 2: {0:d}",
+                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 2));
 
-            Console.WriteLine("Last weekend day in January 2004: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 0));
+            Console.WriteLine("Last weekend day in January 2018: {0:d}",
+                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 0));
 
-            Console.WriteLine("Last weekend day in January 2004 + 2: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2004, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 2));
+            Console.WriteLine("Last weekend day in January 2018 + 2: {0:d}",
+                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 2));
 
             // Pause to review output
             Console.WriteLine("Press ENTER to continue");
@@ -109,7 +111,7 @@ namespace PDIDatesTest
             Console.WriteLine("Week start = Monday");
             DayOfWeek dow = DayOfWeek.Monday;
 
-            for(year = 1998; year < 2010; year++)
+            for(year = yearFrom; year <= yearTo; year++)
             {
                 for(idx = 1; idx < 54; idx++)
                     if(idx != 53 || DateUtils.WeeksInYear(year, dow) == 53)
@@ -176,58 +178,58 @@ namespace PDIDatesTest
             // Test DateUtils.FromISO8601String and DateUtils.FromISO8601TimeZone
             Console.WriteLine("Expressed in Universal Time");
 
-            Console.WriteLine("20040314 = {0}", DateUtils.FromISO8601String("20040314", false));
-            Console.WriteLine("20040314T10 = {0}", DateUtils.FromISO8601String("20040314T10", false));
-            Console.WriteLine("20040314T1025 = {0}", DateUtils.FromISO8601String("20040314T1025", false));
-            Console.WriteLine("20040314T102531 = {0}", DateUtils.FromISO8601String("20040314T102531", false));
-            Console.WriteLine("20040314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("20040314T102531.123", false));
-            Console.WriteLine("20040314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("20040314T102531.98Z", false));
-            Console.WriteLine("20040314T102531-04 = {0}", DateUtils.FromISO8601String("20040314T102531-04", false));
-            Console.WriteLine("20040314T102531.123+0830 = {0}",
-                DateUtils.FromISO8601String("20040314T102531.123+0830", false));
+            Console.WriteLine("20180314 = {0}", DateUtils.FromISO8601String("20180314", false));
+            Console.WriteLine("20180314T10 = {0}", DateUtils.FromISO8601String("20180314T10", false));
+            Console.WriteLine("20180314T1025 = {0}", DateUtils.FromISO8601String("20180314T1025", false));
+            Console.WriteLine("20180314T102531 = {0}", DateUtils.FromISO8601String("20180314T102531", false));
+            Console.WriteLine("20180314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("20180314T102531.123", false));
+            Console.WriteLine("20180314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("20180314T102531.98Z", false));
+            Console.WriteLine("20180314T102531-04 = {0}", DateUtils.FromISO8601String("20180314T102531-04", false));
+            Console.WriteLine("20180314T102531.123+0830 = {0}",
+                DateUtils.FromISO8601String("20180314T102531.123+0830", false));
 
-            Console.WriteLine("\n2004-03-14 = {0}", DateUtils.FromISO8601String("2004-03-14", false));
-            Console.WriteLine("2004-03-14T10 = {0}", DateUtils.FromISO8601String("2004-03-14T10", false));
-            Console.WriteLine("2004-03-14T10:25 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25", false));
-            Console.WriteLine("2004-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31", false));
-            Console.WriteLine("2004-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31.123", false));
-            Console.WriteLine("2004-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31.98Z", false));
-            Console.WriteLine("2004-03-14T10:25:31-04 = {0}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31-04", false));
-            Console.WriteLine("2004-03-14T10:25:31+08:30 = {0}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31+08:30", false));
+            Console.WriteLine("\n2018-03-14 = {0}", DateUtils.FromISO8601String("2018-03-14", false));
+            Console.WriteLine("2018-03-14T10 = {0}", DateUtils.FromISO8601String("2018-03-14T10", false));
+            Console.WriteLine("2018-03-14T10:25 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25", false));
+            Console.WriteLine("2018-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31", false));
+            Console.WriteLine("2018-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31.123", false));
+            Console.WriteLine("2018-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31.98Z", false));
+            Console.WriteLine("2018-03-14T10:25:31-04 = {0}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31-04", false));
+            Console.WriteLine("2018-03-14T10:25:31+08:30 = {0}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31+08:30", false));
 
             // Test DateUtils.FromISO8601String and DateUtils.FromISO8601TimeZone
             Console.WriteLine("\nExpressed in Local Time");
 
-            Console.WriteLine("20040314 = {0}", DateUtils.FromISO8601String("20040314", true));
-            Console.WriteLine("20040314T10 = {0}", DateUtils.FromISO8601String("20040314T10", true));
-            Console.WriteLine("20040314T1025 = {0}", DateUtils.FromISO8601String("20040314T1025", true));
-            Console.WriteLine("20040314T102531 = {0}", DateUtils.FromISO8601String("20040314T102531", true));
-            Console.WriteLine("20040314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("20040314T102531.123", true));
-            Console.WriteLine("20040314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("20040314T102531.98Z", true));
-            Console.WriteLine("20040314T102531-04 = {0}", DateUtils.FromISO8601String("20040314T102531-04", true));
-            Console.WriteLine("20040314T102531.123+0830 = {0}",
-                DateUtils.FromISO8601String("20040314T102531.123+0830", true));
+            Console.WriteLine("20180314 = {0}", DateUtils.FromISO8601String("20180314", true));
+            Console.WriteLine("20180314T10 = {0}", DateUtils.FromISO8601String("20180314T10", true));
+            Console.WriteLine("20180314T1025 = {0}", DateUtils.FromISO8601String("20180314T1025", true));
+            Console.WriteLine("20180314T102531 = {0}", DateUtils.FromISO8601String("20180314T102531", true));
+            Console.WriteLine("20180314T102531.123 = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("20180314T102531.123", true));
+            Console.WriteLine("20180314T102531.98Z = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("20180314T102531.98Z", true));
+            Console.WriteLine("20180314T102531-04 = {0}", DateUtils.FromISO8601String("20180314T102531-04", true));
+            Console.WriteLine("20180314T102531.123+0830 = {0}",
+                DateUtils.FromISO8601String("20180314T102531.123+0830", true));
 
-            Console.WriteLine("\n2004-03-14 = {0}", DateUtils.FromISO8601String("2004-03-14", true));
-            Console.WriteLine("2004-03-14T10 = {0}", DateUtils.FromISO8601String("2004-03-14T10", true));
-            Console.WriteLine("2004-03-14T10:25 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25", true));
-            Console.WriteLine("2004-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2004-03-14T10:25:31", true));
-            Console.WriteLine("2004-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31.123", true));
-            Console.WriteLine("2004-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31.98Z", true));
-            Console.WriteLine("2004-03-14T10:25:31-04 = {0}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31-04", true));
-            Console.WriteLine("2004-03-14T10:25:31+08:30 = {0}",
-                DateUtils.FromISO8601String("2004-03-14T10:25:31+08:30", true));
+            Console.WriteLine("\n2018-03-14 = {0}", DateUtils.FromISO8601String("2018-03-14", true));
+            Console.WriteLine("2018-03-14T10 = {0}", DateUtils.FromISO8601String("2018-03-14T10", true));
+            Console.WriteLine("2018-03-14T10:25 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25", true));
+            Console.WriteLine("2018-03-14T10:25:31 = {0}", DateUtils.FromISO8601String("2018-03-14T10:25:31", true));
+            Console.WriteLine("2018-03-14T10:25:31.123 = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31.123", true));
+            Console.WriteLine("2018-03-14T10:25:31.98Z = {0:d} {0:HH:mm:ss.fff}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31.98Z", true));
+            Console.WriteLine("2018-03-14T10:25:31-04 = {0}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31-04", true));
+            Console.WriteLine("2018-03-14T10:25:31+08:30 = {0}",
+                DateUtils.FromISO8601String("2018-03-14T10:25:31+08:30", true));
 
             TimeSpan ts = DateUtils.FromISO8601TimeZone("+08");
 
@@ -545,18 +547,19 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Holidays saved to Holidays.xml");
                 }
-
+#if NETFramework
+                // The SOAP formatter is only supported on the full .NET Framework
                 // SOAP
                 using(var fs = new FileStream("Holidays.soap", FileMode.Create))
                 {
-                    SoapFormatter sf = new SoapFormatter();
+                    var sf = new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
 
                     // SOAP doesn't support generics directly so use an array
                     sf.Serialize(fs, holidays.ToArray());
 
                     Console.WriteLine("Holidays saved to Holidays.soap");
                 }
-
+#endif
                 // Binary
                 using(var fs = new FileStream("Holidays.bin", FileMode.Create))
                 {
@@ -592,18 +595,18 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Holidays retrieved from Holidays.xml");
                 }
-
+#if NETFramework
                 // SOAP
                 using(var fs = new FileStream("Holidays.soap", FileMode.Open))
                 {
-                    SoapFormatter sf = new SoapFormatter();
+                    var sf = new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
 
                     // As noted, SOAP doesn't support generics to an array is used instead
                     holidays = new HolidayCollection((Holiday[])sf.Deserialize(fs));
 
                     Console.WriteLine("Holidays retrieved from Holidays.soap");
                 }
-
+#endif
                 // Binary
                 using(var fs = new FileStream("Holidays.bin", FileMode.Open))
                 {
@@ -710,16 +713,16 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Recurrence saved to Recurrence.xml");
                 }
-
+#if NETFramework
                 // SOAP
                 using(var fs = new FileStream("Recurrence.soap", FileMode.Create))
                 {
-                    SoapFormatter sf = new SoapFormatter();
+                    var sf = new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
                     sf.Serialize(fs, rRecur);
 
                     Console.WriteLine("Recurrence saved to Recurrence.soap");
                 }
-
+#endif
                 // Binary
                 using(var fs = new FileStream("Recurrence.bin", FileMode.Create))
                 {
@@ -755,16 +758,16 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Recurrence restored from Recurrence.xml");
                 }
-
+#if NETFramework
                 // SOAP
                 using(var fs = new FileStream("Recurrence.soap", FileMode.Open))
                 {
-                    SoapFormatter sf = new SoapFormatter();
+                    var sf = new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
                     rRecur = (Recurrence)sf.Deserialize(fs);
 
                     Console.WriteLine("Recurrence retrieved from Recurrence.soap");
                 }
-
+#endif
                 // Binary
                 using(var fs = new FileStream("Recurrence.bin", FileMode.Open))
                 {

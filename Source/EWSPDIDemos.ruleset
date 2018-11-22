@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<RuleSet Name="EWSoftware PDI Demos Rule Set" Description="This is the common set of code analysis rules for the PDI library demo projects" ToolsVersion="14.0">
+<RuleSet Name="EWSoftware PDI Demos Rule Set" Description="This is the common set of code analysis rules for the PDI library demo projects" ToolsVersion="15.0">
   <Include Path="basiccorrectnessrules.ruleset" Action="Default" />
   <Include Path="basicdesignguidelinerules.ruleset" Action="Default" />
   <Include Path="extendedcorrectnessrules.ruleset" Action="Default" />
@@ -20,6 +20,7 @@
     <Rule Id="CA2000" Action="Warning" />
     <Rule Id="CA2151" Action="Warning" />
     <Rule Id="CA2204" Action="None" />
+    <Rule Id="CA2235" Action="None" />
     <Rule Id="CA5122" Action="Warning" />
   </Rules>
   <Rules AnalyzerId="Microsoft.CodeAnalysis.CSharp.Features" RuleNamespace="Microsoft.CodeAnalysis.CSharp.Features">
@@ -29,5 +30,8 @@
     <Rule Id="IDE0011" Action="None" />
     <Rule Id="IDE1006" Action="None" />
     <Rule Id="IDE1006WithoutSuggestion" Action="None" />
+  </Rules>
+  <Rules AnalyzerId="Microsoft.NetFramework.Analyzers" RuleNamespace="Microsoft.NetFramework.Analyzers">
+    <Rule Id="CA2235" Action="None" />
   </Rules>
 </RuleSet>

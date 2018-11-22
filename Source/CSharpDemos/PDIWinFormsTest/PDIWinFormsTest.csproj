@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <ProjectType>Local</ProjectType>
     <ProductVersion>8.0.50727</ProductVersion>
@@ -26,7 +26,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -67,6 +67,7 @@
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>..\..\EWSPDIDemos.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -90,9 +91,13 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
@@ -192,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="app.manifest" />
     <None Include="PDIWinFormsTest.snk" />
   </ItemGroup>
   <ItemGroup>
@@ -212,17 +218,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\EWSPDIData\EWSPDIData.csproj">
-      <Project>{13eb4641-36a6-4c9c-af8c-29f3763d392f}</Project>
-      <Name>EWSPDIData</Name>
+    <ProjectReference Include="..\..\EWSPDIData\EWSoftware.PDI.Data.csproj">
+      <Project>{5eda55cb-e991-4c50-93cb-149d7c4d498c}</Project>
+      <Name>EWSoftware.PDI.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Source\EWSPDIWinForms\EWSPDIWinForms.csproj">
-      <Project>{dbd186a2-8160-4bf3-92d4-61bf262f0ca2}</Project>
-      <Name>EWSPDIWinForms</Name>
+    <ProjectReference Include="..\..\EWSPDIWinForms\EWSoftware.PDI.Windows.Forms.csproj">
+      <Project>{af3e8bed-a706-4c25-8379-2882641a221a}</Project>
+      <Name>EWSoftware.PDI.Windows.Forms</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Source\EWSPDI\EWSPDI.csproj">
-      <Project>{23b6c08d-3cde-4f0b-a3b5-a3831adeb79f}</Project>
-      <Name>EWSPDI</Name>
+    <ProjectReference Include="..\..\EWSPDI\EWSoftware.PDI.csproj">
+      <Project>{024821de-3508-476a-97e7-441334a1b2df}</Project>
+      <Name>EWSoftware.PDI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

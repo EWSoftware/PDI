@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VTimeZoneCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/13/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/21/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for VTimeZone objects
@@ -23,7 +23,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Threading;
 
 using EWSoftware.PDI.Binding;
@@ -34,10 +33,9 @@ namespace EWSoftware.PDI.Objects
     /// <summary>
     /// A type-safe collection of <see cref="VTimeZone"/> objects
     /// </summary>
-    /// <remarks>The class has a type-safe enumerator.  It also uses a <see cref="ReaderWriterLock"/> to
+    /// <remarks>The class has a type-safe enumerator.  It also uses a <see cref="ReaderWriterLockSlim"/> to
     /// synchronize access to the underlying collection as it is used as a static collection in the
     /// <see cref="VCalendar"/> object.</remarks>
-    /// <seealso cref="Lock"/>
     [Serializable, DebuggerDisplay("Count = {Count}")]
     public class VTimeZoneCollection : IList<VTimeZone>, ICollection<VTimeZone>, IEnumerable<VTimeZone>, IList,
       ICollection, IEnumerable
@@ -46,37 +44,14 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         [NonSerialized]
-        private ReaderWriterLock rwl;
-
-        private bool mergingEnabled;
+        private ReaderWriterLockSlim rwl;
 
         private List<VTimeZone> items;
 
-        [NonSerialized]
-        private object _syncRoot;
         #endregion
 
         #region Properties
         //=====================================================================
-
-        /// <summary>
-        /// This property returns a <see cref="ReaderWriterLock" /> object that can be used to synchronize access
-        /// to the collection.
-        /// </summary>
-        /// <remarks>This is useful for access to the <see cref="VCalendar.TimeZones"/> collection in web
-        /// applications when enumerating the collection or bulk loading time zone components.  It allows
-        /// multiple concurrent readers of the collection but only one writer at a time to the collection.
-        /// </remarks>
-        public ReaderWriterLock Lock
-        {
-            get
-            {
-                if(rwl == null)
-                    rwl = new ReaderWriterLock();
-
-                return rwl;
-            }
-        }
 
         /// <summary>
         /// This is used to get or set whether merging of time zone information is disabled
@@ -87,11 +62,8 @@ namespace EWSoftware.PDI.Objects
         /// merged with the existing one.  If set to false, no merge will occur and the existing object's
         /// settings will remain unchanged.  This can be set to false to speed up loading of calendar files and
         /// to preserve settings from a common set of time zone objects that you have loaded yourself.</value>
-        public bool MergingEnabled
-        {
-            get { return mergingEnabled; }
-            set { mergingEnabled = value; }
-        }
+        public bool MergingEnabled { get; set; }
+
         #endregion
 
         #region Events
@@ -109,10 +81,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="e">The event arguments</param>
         protected virtual void OnTimeZoneIdChanged(TimeZoneIdChangedEventArgs e)
         {
-            var handler = TimeZoneIdChanged;
-
-            if(handler != null)
-                handler(this, e);
+            TimeZoneIdChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -136,7 +105,7 @@ namespace EWSoftware.PDI.Objects
         /// <overloads>There are two overloads for the constructor</overloads>
         public VTimeZoneCollection()
         {
-            mergingEnabled = true;
+            this.MergingEnabled = true;
             items = new List<VTimeZone>();
         }
 
@@ -164,7 +133,7 @@ namespace EWSoftware.PDI.Objects
         /// <overloads>There are two overloads for this method</overloads>
         public int IndexOf(VTimeZone item)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -172,7 +141,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -184,7 +153,7 @@ namespace EWSoftware.PDI.Objects
         /// found.  This version is much faster than the other version as it only has to compare ID values.</returns>
         public int IndexOf(string tzid)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -196,7 +165,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -214,7 +183,7 @@ namespace EWSoftware.PDI.Objects
 
             if(existing == null)
             {
-                this.Lock.AcquireWriterLock(250);
+                this.AcquireWriterLock(250);
 
                 try
                 {
@@ -223,7 +192,7 @@ namespace EWSoftware.PDI.Objects
                 }
                 finally
                 {
-                    this.Lock.ReleaseWriterLock();
+                    this.ReleaseWriterLock();
                 }
             }
             else
@@ -232,7 +201,7 @@ namespace EWSoftware.PDI.Objects
 
                 if(index != curIdx)
                 {
-                    this.Lock.AcquireWriterLock(250);
+                    this.AcquireWriterLock(250);
 
                     try
                     {
@@ -245,7 +214,7 @@ namespace EWSoftware.PDI.Objects
                     }
                     finally
                     {
-                        this.Lock.ReleaseWriterLock();
+                        this.ReleaseWriterLock();
                     }
                 }
             }
@@ -270,7 +239,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                this.Lock.AcquireReaderLock(250);
+                this.AcquireReaderLock(250);
 
                 try
                 {
@@ -278,12 +247,12 @@ namespace EWSoftware.PDI.Objects
                 }
                 finally
                 {
-                    this.Lock.ReleaseReaderLock();
+                    this.ReleaseReaderLock();
                 }
             }
             set
             {
-                this.Lock.AcquireWriterLock(250);
+                this.AcquireWriterLock(250);
 
                 try
                 {
@@ -294,7 +263,7 @@ namespace EWSoftware.PDI.Objects
                 }
                 finally
                 {
-                    this.Lock.ReleaseWriterLock();
+                    this.ReleaseWriterLock();
                 }
             }
         }
@@ -310,7 +279,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                this.Lock.AcquireReaderLock(250);
+                this.AcquireReaderLock(250);
 
                 try
                 {
@@ -322,12 +291,12 @@ namespace EWSoftware.PDI.Objects
                 }
                 finally
                 {
-                    this.Lock.ReleaseReaderLock();
+                    this.ReleaseReaderLock();
                 }
             }
             set
             {
-                this.Lock.AcquireWriterLock(250);
+                this.AcquireWriterLock(250);
 
                 try
                 {
@@ -342,7 +311,7 @@ namespace EWSoftware.PDI.Objects
                 }
                 finally
                 {
-                    this.Lock.ReleaseWriterLock();
+                    this.ReleaseWriterLock();
                 }
             }
         }
@@ -367,7 +336,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public void Clear()
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -378,7 +347,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -389,7 +358,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>True if found, false if not</returns>
         public bool Contains(VTimeZone item)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -397,7 +366,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -408,7 +377,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="arrayIndex">The index at which to start copying</param>
         public void CopyTo(VTimeZone[] array, int arrayIndex)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -416,7 +385,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -427,7 +396,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                this.Lock.AcquireReaderLock(250);
+                this.AcquireReaderLock(250);
 
                 try
                 {
@@ -435,7 +404,7 @@ namespace EWSoftware.PDI.Objects
                 }
                 finally
                 {
-                    this.Lock.ReleaseReaderLock();
+                    this.ReleaseReaderLock();
                 }
             }
         }
@@ -444,10 +413,7 @@ namespace EWSoftware.PDI.Objects
         /// This collection is never read-only
         /// </summary>
         /// <value>This always returns false</value>
-        public bool IsReadOnly
-        {
-            get { return false; }
-        }
+        public bool IsReadOnly => false;
 
         /// <summary>
         /// Remove a <see cref="VTimeZone"/> from the collection
@@ -456,7 +422,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>True if the item was removed or false if it was not in the collection</returns>
         public bool Remove(VTimeZone item)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -470,7 +436,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
 
             return false;
@@ -555,19 +521,13 @@ namespace EWSoftware.PDI.Objects
         /// The collection is not of a fixed size
         /// </summary>
         /// <returns>This always returns false</returns>
-        public bool IsFixedSize
-        {
-            get { return false; }
-        }
+        public bool IsFixedSize => false;
 
         /// <summary>
         /// The collection is not read-only
         /// </summary>
         /// <returns>This always returns false</returns>
-        bool IList.IsReadOnly
-        {
-            get { return false; }
-        }
+        bool IList.IsReadOnly => false;
 
         /// <summary>
         /// Explicit IList.Remove implementation 
@@ -594,8 +554,8 @@ namespace EWSoftware.PDI.Objects
         /// <returns>The item at the specified index</returns>
         object IList.this[int index]
         {
-            get { return this[index]; }
-            set { this[index] = (VTimeZone)value; }
+            get => this[index];
+            set => this[index] = (VTimeZone)value;
         }
         #endregion
 
@@ -616,45 +576,110 @@ namespace EWSoftware.PDI.Objects
         /// <summary>
         /// Explicit ICollection.Count implementation
         /// </summary>
-        int ICollection.Count
-        {
-            get { return this.Count; }
-        }
+        int ICollection.Count => this.Count;
 
         /// <summary>
         /// ICollection.IsSynchronized implementation
         /// </summary>
         /// <returns>This always returns true</returns>
-        public bool IsSynchronized
-        {
-            get { return true; }
-        }
+        public bool IsSynchronized => true;
 
         /// <summary>
         /// ICollection.SyncRoot implementation
         /// </summary>
         /// <remarks>This provides a less efficient way of synchronizing access to the collection</remarks>
-        public object SyncRoot
-        {
-            get
-            {
-                if(_syncRoot == null)
-                {
-                    ICollection coll = items as ICollection;
+        public object SyncRoot => ((ICollection)items).SyncRoot;
 
-                    if(coll != null)
-                        _syncRoot = coll.SyncRoot;
-                    else
-                        Interlocked.CompareExchange(ref _syncRoot, new object(), null);
-                }
-
-                return _syncRoot;
-            }
-        }
         #endregion
 
         #region Common helper methods
         //=====================================================================
+
+        /// <summary>
+        /// This can be used to acquire a reader lock on the collection to perform bulk read operations
+        /// </summary>
+        /// <param name="timeout">The timeout in milliseconds after which the lock attempt will fail</param>
+        /// <param name="upgradeable">True if the reader lock should be upgradeable to a writer lock,
+        /// false if not.  Typically, this should be false unless you may need to acquire a writer lock during
+        /// the period which the read lock is held.</param>
+        /// <remarks><para>Calls to this method should be paired with a call to <see cref="ReleaseReaderLock"/>
+        /// to release the lock when done.</para>
+        /// 
+        /// <para>This is useful for access to the <see cref="VCalendar.TimeZones"/> collection in web
+        /// applications when enumerating the collection or bulk loading time zone components.  It allows
+        /// multiple concurrent readers of the collection but only one writer at a time to the collection.</para>
+        /// </remarks>
+        /// <exception cref="TimeoutException">This is thrown if the timeout expires before acquiring the lock</exception>
+        public void AcquireReaderLock(int timeout, bool upgradeable = false)
+        {
+            if(rwl == null)
+            {
+                lock(this.SyncRoot)
+                {
+                    if(rwl == null)
+                        rwl = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+                }
+            }
+
+            bool success = false;
+
+            if(upgradeable || rwl.IsUpgradeableReadLockHeld)
+                success = rwl.TryEnterUpgradeableReadLock(timeout);
+            else
+                success = rwl.TryEnterReadLock(timeout);
+
+            if(!success)
+                throw new TimeoutException("Unable to obtain a reader lock on the time zone collection in the alloted time");
+        }
+
+        /// <summary>
+        /// This is used to free a reader lock previously acquired by calling <see cref="AcquireReaderLock"/>
+        /// </summary>
+        public void ReleaseReaderLock()
+        {
+            if(rwl != null)
+                if(rwl.IsUpgradeableReadLockHeld)
+                    rwl.ExitUpgradeableReadLock();
+                else
+                    if(rwl.IsReadLockHeld)
+                        rwl.ExitReadLock();
+        }
+
+        /// <summary>
+        /// This can be used to acquire a writer lock on the collection to perform bulk updates
+        /// </summary>
+        /// <param name="timeout">The timeout in milliseconds after which the lock attempt will fail</param>
+        /// <remarks><para>Calls to this method should be paired with a call to <see cref="ReleaseWriterLock"/>
+        /// to release the lock when done.</para>
+        /// 
+        /// <para>This is useful for access to the <see cref="VCalendar.TimeZones"/> collection in web
+        /// applications when enumerating the collection or bulk loading time zone components.  It allows
+        /// multiple concurrent readers of the collection but only one writer at a time to the collection.</para>
+        /// </remarks>
+        /// <exception cref="TimeoutException">This is thrown if the timeout expires before acquiring the lock</exception>
+        public void AcquireWriterLock(int timeout)
+        {
+            if(rwl == null)
+            {
+                lock(this.SyncRoot)
+                {
+                    if(rwl == null)
+                        rwl = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+                }
+            }
+
+            if(!rwl.TryEnterWriteLock(timeout))
+                throw new TimeoutException("Unable to obtain a reader lock on the time zone collection in the alloted time");
+        }
+
+        /// <summary>
+        /// This is used to free a writer lock previously acquired by calling <see cref="AcquireWriterLock"/>
+        /// </summary>
+        public void ReleaseWriterLock()
+        {
+            if(rwl != null && rwl.IsWriteLockHeld)
+                rwl.ExitWriteLock();
+        }
 
         /// <summary>
         /// Determine whether or not the collection contains at least one item that matches the conditions in the
@@ -664,7 +689,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if at least one item matches the conditions or false if none of them do</returns>
         public bool Exists(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -672,7 +697,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -684,7 +709,7 @@ namespace EWSoftware.PDI.Objects
         /// is found.</returns>
         public VTimeZone Find(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -692,7 +717,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -704,7 +729,7 @@ namespace EWSoftware.PDI.Objects
         /// conditions defined by the specified predicate.  If none are found, the collection will be empty.</returns>
         public ExtendedBindingList<VTimeZone> FindAll(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -719,7 +744,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -732,7 +757,7 @@ namespace EWSoftware.PDI.Objects
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindIndex(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -740,7 +765,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -754,7 +779,7 @@ namespace EWSoftware.PDI.Objects
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindIndex(int startIndex, Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -762,7 +787,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -777,7 +802,7 @@ namespace EWSoftware.PDI.Objects
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindIndex(int startIndex, int count, Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -785,7 +810,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -797,7 +822,7 @@ namespace EWSoftware.PDI.Objects
         /// is found.</returns>
         public VTimeZone FindLast(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -805,7 +830,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -818,7 +843,7 @@ namespace EWSoftware.PDI.Objects
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindLastIndex(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -826,7 +851,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -840,7 +865,7 @@ namespace EWSoftware.PDI.Objects
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindLastIndex(int startIndex, Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -848,7 +873,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -863,7 +888,7 @@ namespace EWSoftware.PDI.Objects
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindLastIndex(int startIndex, int count, Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -871,7 +896,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -881,7 +906,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="action">The <see cref="Action{T}"/> delegate to perform on each item in the collection</param>
         public void ForEach(Action<VTimeZone> action)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -889,7 +914,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -900,7 +925,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns the number of items removed from the collection</returns>
         public int RemoveAll(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -908,7 +933,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -919,7 +944,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="count">The number of items to remove</param>
         public void RemoveRange(int index, int count)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -927,7 +952,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -937,7 +962,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="ascending">Pass true for ascending order, false for descending order</param>
         public void Sort(bool ascending)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -952,7 +977,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -963,7 +988,7 @@ namespace EWSoftware.PDI.Objects
         /// null to use the default comparer.</param>
         public void Sort(IComparer<VTimeZone> comparer)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -971,7 +996,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -981,7 +1006,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="comparison">The <see cref="Comparison{T}"/> delegate to use for the comparisons</param>
         public void Sort(Comparison<VTimeZone> comparison)
         {
-            this.Lock.AcquireWriterLock(250);
+            this.AcquireWriterLock(250);
 
             try
             {
@@ -989,7 +1014,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseWriterLock();
+                this.ReleaseWriterLock();
             }
         }
 
@@ -1003,7 +1028,7 @@ namespace EWSoftware.PDI.Objects
         /// conditions.</returns>
         public bool TrueForAll(Predicate<VTimeZone> match)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -1011,7 +1036,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
         #endregion
@@ -1038,7 +1063,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="version">The version to use</param>
         public void PropagateVersion(SpecificationVersions version)
         {
-            this.Lock.AcquireReaderLock(250);
+            this.AcquireReaderLock(250);
 
             try
             {
@@ -1047,7 +1072,7 @@ namespace EWSoftware.PDI.Objects
             }
             finally
             {
-                this.Lock.ReleaseReaderLock();
+                this.ReleaseReaderLock();
             }
         }
 
@@ -1066,56 +1091,47 @@ namespace EWSoftware.PDI.Objects
             ObservanceRuleCollection rules;
             int idx, tzIdx;
 
-            this.Lock.AcquireReaderLock(250);
+            tzIdx = this.IndexOf(vTimeZone.TimeZoneId.Value);
 
-            try
+            if(tzIdx == -1)
             {
-                tzIdx = this.IndexOf(vTimeZone.TimeZoneId.Value);
+                this.AcquireWriterLock(250);
 
-                if(tzIdx == -1)
+                try
                 {
-                    LockCookie lc = this.Lock.UpgradeToWriterLock(250);
+                    vTimeZone.TimeZoneId.TimeZoneIdChanged += tzid_TimeZoneIdChanged;
+                    items.Add(vTimeZone);
+                    tzIdx = items.Count - 1;
+                }
+                finally
+                {
+                    this.ReleaseWriterLock();
+                }
+            }
+            else    // Merge the rules if allowed
+                if(this.MergingEnabled)
+                {
+                    this.AcquireWriterLock(250);
 
                     try
                     {
-                        vTimeZone.TimeZoneId.TimeZoneIdChanged += tzid_TimeZoneIdChanged;
-                        items.Add(vTimeZone);
-                        tzIdx = items.Count - 1;
+                        rules = items[tzIdx].ObservanceRules;
+
+                        foreach(ObservanceRule or in vTimeZone.ObservanceRules)
+                        {
+                            for(idx = 0; idx < rules.Count; idx++)
+                                if(rules[idx].Equals(or))
+                                    break;
+
+                            if(idx == rules.Count)
+                                rules.Add(or);
+                        }
                     }
                     finally
                     {
-                        this.Lock.DowngradeFromWriterLock(ref lc);
+                        this.ReleaseWriterLock();
                     }
                 }
-                else    // Merge the rules if allowed
-                    if(mergingEnabled)
-                    {
-                        LockCookie lc = this.Lock.UpgradeToWriterLock(250);
-
-                        try
-                        {
-                            rules = items[tzIdx].ObservanceRules;
-
-                            foreach(ObservanceRule or in vTimeZone.ObservanceRules)
-                            {
-                                for(idx = 0; idx < rules.Count; idx++)
-                                    if(rules[idx].Equals(or))
-                                        break;
-
-                                if(idx == rules.Count)
-                                    rules.Add(or);
-                            }
-                        }
-                        finally
-                        {
-                            this.Lock.DowngradeFromWriterLock(ref lc);
-                        }
-                    }
-            }
-            finally
-            {
-                this.Lock.ReleaseReaderLock();
-            }
 
             return tzIdx;
         }

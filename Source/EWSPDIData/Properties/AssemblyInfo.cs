@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/14/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/18/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // PDI vCard, vCalendar, and iCalendar library assembly attributes
@@ -25,8 +25,6 @@ using System.Security;
 [assembly: AllowPartiallyTrustedCallers()]
 
 // General assembly information
-[assembly: AssemblyTitle("Personal Data Interchange vCard, vCalendar, and iCalendar library assembly attributes")]
-[assembly: AssemblyDescription("A set of Personal Data Interchange (PDI) classes used to create and work with " +
-    "vCard, vCalendar, and iCalendar objects")]
+[assembly: AssemblyTitle("Personal Data Interchange vCard, vCalendar, and iCalendar Classes")]
 
 // See AssemblyInfoShared.cs for the shared attributes common to all projects in the solution

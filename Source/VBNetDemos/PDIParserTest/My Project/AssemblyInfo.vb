@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : AssemblyInfo.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/01/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/20/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' Assembly information for the demo application

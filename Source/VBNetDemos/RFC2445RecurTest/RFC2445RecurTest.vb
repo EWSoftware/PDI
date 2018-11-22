@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : RFC2445RecurTest.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/01/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/11/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' This creates the example recurrence patterns given in the RFC 2445 iCalendar specification starting on page 118

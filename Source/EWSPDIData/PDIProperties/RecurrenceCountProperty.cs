@@ -104,7 +104,7 @@ namespace EWSoftware.PDI.Properties
             {
                 count = 0;
 
-                if(!String.IsNullOrEmpty(value) && reNumber.IsMatch(value))
+                if(!String.IsNullOrWhiteSpace(value) && reNumber.IsMatch(value))
                 {
                     count = Convert.ToInt32(value, CultureInfo.InvariantCulture);
 

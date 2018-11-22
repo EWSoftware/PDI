@@ -20,8 +20,9 @@
 // 03/17/2007  EFW  Updated for use with .NET 2.0
 //===============================================================================================================
 
+// Ignore Spelling: vcp sr http https
+
 using System;
-using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -454,7 +455,7 @@ namespace EWSoftware.PDI.Parser
             bool seenLF = false;
 
             if(tr == null)
-                throw new ArgumentNullException("tr", LR.GetString("ExParseNullReader"));
+                throw new ArgumentNullException(nameof(tr), LR.GetString("ExParseNullReader"));
 
             try
             {
@@ -588,7 +589,7 @@ namespace EWSoftware.PDI.Parser
             StreamReader sr = null;
 
             if(filename == null || filename.Length == 0)
-                throw new ArgumentNullException("filename", LR.GetString("ExParseNoFilename"));
+                throw new ArgumentNullException(nameof(filename), LR.GetString("ExParseNoFilename"));
 
             // Exceptions will bubble up to the caller
             try

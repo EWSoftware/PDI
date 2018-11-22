@@ -137,7 +137,7 @@ namespace CalendarBrowser
                 }
 
                 if(a.Action.Action == AlarmAction.EMail)
-                    if(String.IsNullOrEmpty(a.Summary.Value))
+                    if(String.IsNullOrWhiteSpace(a.Summary.Value))
                     {
                         this.ErrorProvider.SetError(txtSummary, "A summary is required for an e-mail alarm");
                         result = false;

@@ -25,6 +25,15 @@ Public Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     ''' <summary>
+    ''' The main entry point for the application
+    ''' </summary>
+    Shared Sub Main(Args As String())
+        Application.EnableVisualStyles()
+        Application.SetCompatibleTextRenderingDefault(false)
+        Application.Run(new MainForm())
+    End Sub
+
+    ''' <summary>
     ''' Constructor
     ''' </summary>
     Public Sub New()

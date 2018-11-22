@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/14/2014
-// Note    : Copyright 2003-2013, Eric Woodruff, All rights reserved
+// Updated : 11/17/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // PDI utility library assembly attributes
@@ -26,6 +26,5 @@ using System.Security;
 
 // General assembly information
 [assembly: AssemblyTitle("Personal Data Interchange and Miscellaneous Date Utility Classes")]
-[assembly: AssemblyDescription("A set of useful Personal Data Interchange (PDI) and date utility classes")]
 
 // See AssemblyInfoShared.cs for the shared attributes common to all projects in the solution

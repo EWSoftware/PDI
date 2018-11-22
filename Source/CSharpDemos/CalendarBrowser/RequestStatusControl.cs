@@ -89,7 +89,7 @@ namespace CalendarBrowser
             RequestStatusPropertyCollection requests = (RequestStatusPropertyCollection)this.BindingSource.DataSource;
 
             foreach(RequestStatusProperty status in requests)
-                if(String.IsNullOrEmpty(status.StatusMessage))
+                if(String.IsNullOrWhiteSpace(status.StatusMessage))
                 {
                     this.BindingSource.Position = requests.IndexOf(status);
                     txtMessage.Focus();

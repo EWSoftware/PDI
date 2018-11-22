@@ -105,7 +105,7 @@ namespace EWSoftware.PDI.Properties
             {
                 repeatCount = 0;
 
-                if(!String.IsNullOrEmpty(value) && reNumber.IsMatch(value))
+                if(!String.IsNullOrWhiteSpace(value) && reNumber.IsMatch(value))
                 {
                     repeatCount = Convert.ToInt32(value, CultureInfo.InvariantCulture);
 

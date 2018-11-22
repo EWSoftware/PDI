@@ -1,4 +1,7 @@
 # EWSoftware.PDI Library
+_**NOTE: The master branch is for Visual Studio 2017 15.5 and later.  For Visual Studio 2017 15.4 and earlier,
+use the Legacy branch.**_
+
 The EWSoftware Personal Data Interchange (PDI) Library presents you with a complete set of classes that let you
 have access to all objects, properties, parameter types, and data types as defined by the vCard (RFC 2426),
 vCalendar, and iCalendar (RFC 2445) specifications.  Using these classes, you can read and write data files in a

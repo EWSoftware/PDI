@@ -428,7 +428,7 @@ namespace EWSoftware.PDI.Objects
 
             // The BODY property is required, all others are optional.  However, it can be blank so we must force
             // it if it is blank.
-            if(body == null || String.IsNullOrEmpty(body.Value))
+            if(body == null || String.IsNullOrWhiteSpace(body.Value))
                 tw.Write("BODY:\r\n");
             else
                 BaseProperty.WriteToStream(body, sb, tw);

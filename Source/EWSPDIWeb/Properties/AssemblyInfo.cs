@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI ASP.NET Web Server Controls
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/14/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/18/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // ASP.NET web server controls that are used in conjunction with the EWSoftware.PDI classes
@@ -18,6 +18,8 @@
 // 02/10/2005  EFW  Created the code
 //===============================================================================================================
 
+// Ignore Spelling: javascript css
+
 using System.Reflection;
 using System.Security;
 using System.Web.UI;
@@ -30,8 +32,6 @@ using System.Web.UI;
 
 // General assembly information
 [assembly: AssemblyTitle("EWSoftware.PDI ASP.NET Web Server Controls")]
-[assembly: AssemblyDescription("ASP.NET web server controls that are used in conjunction with the " +
-    "EWSoftware.PDI classes")]
 
 // Define the embedded resources
 [assembly: WebResource(EWSoftware.PDI.Web.Controls.RecurrencePattern.RecurrencePatternScripts +

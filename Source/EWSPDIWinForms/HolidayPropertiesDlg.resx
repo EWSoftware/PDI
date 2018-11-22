@@ -123,10 +123,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 261</value>
+    <value>16, 331</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 32</value>
+    <value>117, 40</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
@@ -151,10 +151,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>358, 261</value>
+    <value>477, 331</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 32</value>
+    <value>118, 40</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -178,10 +178,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 16</value>
+    <value>11, 20</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 23</value>
+    <value>120, 29</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -205,10 +205,10 @@
     <value>13</value>
   </data>
   <data name="txtDescription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 16</value>
+    <value>139, 20</value>
   </data>
   <data name="txtDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>328, 22</value>
+    <value>437, 26</value>
   </data>
   <data name="txtDescription.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -229,10 +229,10 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>40, 48</value>
+    <value>53, 61</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 23</value>
+    <value>78, 29</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -259,10 +259,10 @@
     <value>NoControl</value>
   </data>
   <data name="rbFloating.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 95</value>
+    <value>25, 120</value>
   </data>
   <data name="rbFloating.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 24</value>
+    <value>195, 31</value>
   </data>
   <data name="rbFloating.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -286,10 +286,10 @@
     <value>NoControl</value>
   </data>
   <data name="rbFixed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 190</value>
+    <value>25, 241</value>
   </data>
   <data name="rbFixed.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 24</value>
+    <value>179, 30</value>
   </data>
   <data name="rbFixed.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -313,10 +313,10 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 191</value>
+    <value>212, 242</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 23</value>
+    <value>141, 29</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -343,10 +343,10 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>209, 159</value>
+    <value>279, 201</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 23</value>
+    <value>74, 30</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -370,16 +370,16 @@
     <value>9</value>
   </data>
   <data name="cboOccurrence.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboOccurrence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 96</value>
+    <value>361, 122</value>
   </data>
   <data name="cboOccurrence.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboOccurrence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 24</value>
+    <value>107, 28</value>
   </data>
   <data name="cboOccurrence.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -400,10 +400,10 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 96</value>
+    <value>228, 122</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>94, 23</value>
+    <value>125, 29</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -430,10 +430,10 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>143, 128</value>
+    <value>191, 162</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 23</value>
+    <value>162, 29</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -457,16 +457,16 @@
     <value>4</value>
   </data>
   <data name="cboDayOfWeek.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboDayOfWeek.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 128</value>
+    <value>361, 162</value>
   </data>
   <data name="cboDayOfWeek.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboDayOfWeek.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 24</value>
+    <value>160, 28</value>
   </data>
   <data name="cboDayOfWeek.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -484,16 +484,16 @@
     <value>5</value>
   </data>
   <data name="cboMonth.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboMonth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>104, 48</value>
+    <value>139, 61</value>
   </data>
   <data name="cboMonth.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 24</value>
+    <value>138, 28</value>
   </data>
   <data name="cboMonth.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -517,16 +517,16 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>6, 15</value>
+    <value>8, 19</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>458, 305</value>
+    <value>610, 389</value>
   </data>
   <data name="udcDayOfMonth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 192</value>
+    <value>361, 243</value>
   </data>
   <data name="udcDayOfMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>64, 26</value>
   </data>
   <data name="udcDayOfMonth.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -547,10 +547,10 @@
     <value>0</value>
   </data>
   <data name="udcOffset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>271, 160</value>
+    <value>361, 203</value>
   </data>
   <data name="udcOffset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>64, 26</value>
   </data>
   <data name="udcOffset.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -574,10 +574,10 @@
     <value>NoControl</value>
   </data>
   <data name="chkAdjustDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 224</value>
+    <value>233, 284</value>
   </data>
   <data name="chkAdjustDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>264, 24</value>
+    <value>352, 30</value>
   </data>
   <data name="chkAdjustDate.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>

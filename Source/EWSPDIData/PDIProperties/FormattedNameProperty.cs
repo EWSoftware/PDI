@@ -70,17 +70,14 @@ namespace EWSoftware.PDI.Properties
             {
                 string nameValue = base.Value;
 
-                if(String.IsNullOrEmpty(nameValue))
+                if(String.IsNullOrWhiteSpace(nameValue))
                     return "Unknown";
 
                 return nameValue;
             }
             set
             {
-                if(value == null)
-                    throw new ArgumentNullException("value", LR.GetString("ExFNCannotBeNull"));
-
-                base.Value = value;
+                base.Value = value ?? throw new ArgumentNullException(nameof(value), LR.GetString("ExFNCannotBeNull"));
             }
         }
 
@@ -97,17 +94,14 @@ namespace EWSoftware.PDI.Properties
             {
                 string nameValue = base.EncodedValue;
 
-                if(String.IsNullOrEmpty(nameValue))
+                if(String.IsNullOrWhiteSpace(nameValue))
                     return "Unknown";
 
                 return nameValue;
             }
             set
             {
-                if(value == null)
-                    throw new ArgumentNullException("value", LR.GetString("ExFNCannotBeNull"));
-
-                base.EncodedValue = value;
+                base.EncodedValue = value ?? throw new ArgumentNullException(nameof(value), LR.GetString("ExFNCannotBeNull"));
             }
         }
         #endregion

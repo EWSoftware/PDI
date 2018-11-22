@@ -149,7 +149,7 @@ namespace EWSoftware.PDI
         /// are not valid.</exception>
         public Period(string period)
         {
-            if(String.IsNullOrEmpty(period))
+            if(String.IsNullOrWhiteSpace(period))
             {
                 this.StartDateTime = DateTime.MinValue;
                 this.Duration = Duration.Zero;

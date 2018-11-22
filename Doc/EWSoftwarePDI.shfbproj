@@ -26,7 +26,7 @@
     </HtmlHelp1xCompilerPath>
     <WorkingPath>
     </WorkingPath>
-    <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
+    <FrameworkVersion>Cross-platform (.NET Core/.NET Standard)</FrameworkVersion>
     <HelpTitle>EWSoftware.PDI Namespace Documentation</HelpTitle>
     <CopyrightHref>https://github.com/EWSoftware/PDI</CopyrightHref>
     <CopyrightText>[v{%40HelpFileVersion}] Copyright \xA9 2003-2018, Eric Woodruff, All Rights Reserved</CopyrightText>
@@ -34,16 +34,6 @@
     <PresentationStyle>VS2013</PresentationStyle>
     <SyntaxFilters>Standard</SyntaxFilters>
     <ComponentConfigurations>
-      <ComponentConfig id="IntelliSense Component" enabled="True">
-        <component id="IntelliSense Component">
-          <!-- Output options (optional)
-  Attributes:
-    Include namespaces (false by default)
-    Namespaces comments filename ("Namespaces" if not specified or empty)
-    Output folder (current folder if not specified or empty) -->
-          <output includeNamespaces="false" namespacesFile="Namespaces" folder="{@ProjectFolder}..\Deployment" />
-        </component>
-      </ComponentConfig>
     </ComponentConfigurations>
     <DocumentationSources>
       <DocumentationSource sourceFile="..\Source\EWSPDI.sln" />
@@ -59,7 +49,7 @@
       <NamespaceSummaryItem name="EWSoftware.PDI.Web.Design" isDocumented="True">Personal Data Interchange ASP.NET web server control designers developed by Eric Woodruff.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EWSoftware.PDI.Windows.Forms" isDocumented="True">Personal Data Interchange Windows Forms controls developed by Eric Woodruff.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <HelpFileVersion>2015.1.19.0</HelpFileVersion>
+    <HelpFileVersion>2018.11.17.0</HelpFileVersion>
     <ApiFilter />
     <PlugInConfigurations>
       <PlugInConfig id="Output Deployment" enabled="True">
@@ -160,6 +150,7 @@
     <AppendMarkdownFileExtensionsToUrls>False</AppendMarkdownFileExtensionsToUrls>
     <SourceCodeBasePath>..\Source\</SourceCodeBasePath>
     <WarnOnMissingSourceContext>True</WarnOnMissingSourceContext>
+    <SaveComponentCacheCapacity>100</SaveComponentCacheCapacity>
   </PropertyGroup>
   <!-- There are no properties for these groups.  AnyCPU needs to appear in
        order for Visual Studio to perform the build.  The others are optional

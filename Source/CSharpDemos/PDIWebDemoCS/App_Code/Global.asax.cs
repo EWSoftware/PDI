@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : Global.asax.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/21/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // At application start up, a common set of time zones is loaded into the VCalendar.TimeZones collection and a
@@ -48,7 +48,7 @@ namespace PDIWebDemoCS
                 // as multiple sessions may try to access it at the same time.  The parser will acquire a write
                 // lock if it needs to merge a time zone component but since we are loading many time zones at
                 // once, we'll lock it now.
-                VCalendar.TimeZones.Lock.AcquireWriterLock(250);
+                VCalendar.TimeZones.AcquireWriterLock(250);
 
                 try
                 {
@@ -62,7 +62,7 @@ namespace PDIWebDemoCS
                 }
                 finally
                 {
-                    VCalendar.TimeZones.Lock.ReleaseWriterLock();
+                    VCalendar.TimeZones.ReleaseWriterLock();
                 }
             }
 

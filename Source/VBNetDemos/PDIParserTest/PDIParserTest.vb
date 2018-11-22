@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : PDIParserTest.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/01/2015
-' Note    : Copyright 2003-2015, Eric Woodruff, All rights reserved
+' Updated : 11/20/2018
+' Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' This is just a quick test of the PDI vCard and calendar parser classes in a console mode application
@@ -18,6 +18,8 @@
 ' 12/01/2004  EFW  Created the code
 ' 08/19/2007  EFW  Added support for vNote object
 '================================================================================================================
+
+' Ignore Spelling: iso
 
 Imports System.IO
 Imports System.Text
@@ -35,10 +37,9 @@ Module PDIParserTest
     Sub Main(args As String())
         Dim outputFolder, outputFile, file As String
 
-        If args.GetUpperBound(0) < 1 Then
-            Console.WriteLine("Specify a folder name containing PDI files and a different one for the " &
-                "output files.")
-            Return
+        If args.Length < 2 Then
+            Console.WriteLine("Using files from .\PDIFiles for the test" + Environment.NewLine)
+            args = New String(1) { "..\..\..\..\..\..\PDIFiles", "..\..\..\..\..\..\PDIFiles_Copy" }
         End If
 
         Try

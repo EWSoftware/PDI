@@ -1,0 +1,53 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Company>Eric Woodruff</Company>
+		<Product>EWSoftware Personal Data Interchange Library</Product>
+		<Title>EWSoftware PDI Data Library</Title>
+		<Copyright>Copyright (c) 2003-2018, Eric Woodruff, All Rights Reserved</Copyright>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Version>2018.11.17.0</Version>
+		<FileVersion>18.11.17.0</FileVersion>
+		<Description>This library contains classes used to create and consume vCard, vCalendar, and iCalendar files used to exchange contact and appointment information between applications such as Microsoft Outlook.  See the project website for the code, a help file, and demos.</Description>
+		<Authors>Eric Woodruff</Authors>
+		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
+		<RepositoryUrl>https://github.com/EWSoftware/PDI</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>PDI personal data interchange vCard vCalendar iCalendar RFC 2426 2445</PackageTags>
+		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/EWSoftware/PDI/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageReleaseNotes>Targets .NET 4.0 and .NET Standard 2.0 and later</PackageReleaseNotes>
+		<SignAssembly>true</SignAssembly>
+		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
+		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
+		<AssemblyOriginatorKeyFile>..\EWSPDI.snk</AssemblyOriginatorKeyFile>
+		<CodeAnalysisRuleSet>..\EWSPDI.ruleset</CodeAnalysisRuleSet>
+		<RunCodeAnalysis>false</RunCodeAnalysis>
+		<DebugType>pdbonly</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="ReadMe.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\EWSPDI\Properties\AssemblyInfoShared.cs" Link="Properties\AssemblyInfoShared.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="ReadMe.txt">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EWSPDI\EWSoftware.PDI.csproj" />
+	</ItemGroup>
+</Project>

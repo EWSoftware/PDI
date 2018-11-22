@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PDIParserTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/19/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is just a quick test of the PDI vCard and calendar parser classes in a console mode application
@@ -18,6 +18,8 @@
 // 03/21/2004  EFW  Created the code
 // 08/19/2007  EFW  Added support for vNote files
 //===============================================================================================================
+
+// Ignore Spelling: iso
 
 using System;
 using System.IO;
@@ -45,11 +47,10 @@ namespace PDIParserTest
 		{
             string outputFolder, outputFile;
 
-            if(args.GetUpperBound(0) < 1)
+            if(args.Length != 2)
             {
-                Console.WriteLine("Specify a folder name containing PDI files and a different one for the " +
-                    "output files.");
-                return;
+                Console.WriteLine("Using files from .\\PDIFiles for the test\r\n");
+                args = new[] { @"..\..\..\..\..\..\PDIFiles", @"..\..\..\..\..\..\PDIFiles_Copy" };
             }
 
             try

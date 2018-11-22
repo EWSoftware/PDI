@@ -1,0 +1,87 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net40</TargetFrameworks>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Company>Eric Woodruff</Company>
+		<Product>EWSoftware Personal Data Interchange Library</Product>
+		<Title>EWSoftware PDI Web Controls Library</Title>
+		<Copyright>Copyright (c) 2003-2018, Eric Woodruff, All Rights Reserved</Copyright>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Version>2018.11.17.0</Version>
+		<FileVersion>18.11.17.0</FileVersion>
+		<Description>This library contains some web controls that can be used to edit recurrence settings.  See the project website for the code, a help file, and demos.</Description>
+		<Authors>Eric Woodruff</Authors>
+		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
+		<RepositoryUrl>https://github.com/EWSoftware/PDI</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>PDI personal data interchange web controls recurrence RFC 2445</PackageTags>
+		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
+		<PackageLicenseUrl>https://github.com/EWSoftware/PDI/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageReleaseNotes>Targets .NET 4.0 and later</PackageReleaseNotes>
+		<SignAssembly>true</SignAssembly>
+		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
+		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
+		<AssemblyOriginatorKeyFile>..\EWSPDI.snk</AssemblyOriginatorKeyFile>
+		<CodeAnalysisRuleSet>..\EWSPDI.ruleset</CodeAnalysisRuleSet>
+		<RunCodeAnalysis>false</RunCodeAnalysis>
+		<DebugType>pdbonly</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="HTML\AdvancedPattern.html" />
+		<None Remove="HTML\DailyPattern.html" />
+		<None Remove="HTML\HourlyPattern.html" />
+		<None Remove="HTML\MinutelyPattern.html" />
+		<None Remove="HTML\MonthlyPattern.html" />
+		<None Remove="HTML\RecurrencePattern.html" />
+		<None Remove="HTML\RecurrenceStyle.css" />
+		<None Remove="HTML\SecondlyPattern.html" />
+		<None Remove="HTML\WeeklyPattern.html" />
+		<None Remove="HTML\YearlyPattern.html" />
+		<None Remove="ReadMe.txt" />
+		<None Remove="RecurrencePattern.bmp" />
+		<None Remove="Scripts\DayInstance.js" />
+		<None Remove="Scripts\RecurrencePattern.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\EWSPDI\Properties\AssemblyInfoShared.cs" Link="Properties\AssemblyInfoShared.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="ReadMe.txt">
+			<Pack>true</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="HTML\AdvancedPattern.html" />
+		<EmbeddedResource Include="HTML\DailyPattern.html" />
+		<EmbeddedResource Include="HTML\HourlyPattern.html" />
+		<EmbeddedResource Include="HTML\MinutelyPattern.html" />
+		<EmbeddedResource Include="HTML\MonthlyPattern.html" />
+		<EmbeddedResource Include="HTML\RecurrencePattern.html" />
+		<EmbeddedResource Include="HTML\RecurrenceStyle.css" />
+		<EmbeddedResource Include="HTML\SecondlyPattern.html" />
+		<EmbeddedResource Include="HTML\WeeklyPattern.html" />
+		<EmbeddedResource Include="HTML\YearlyPattern.html" />
+		<EmbeddedResource Include="RecurrencePattern.bmp" />
+		<EmbeddedResource Include="Scripts\DayInstance.js" />
+		<EmbeddedResource Include="Scripts\RecurrencePattern.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EWSPDI\EWSoftware.PDI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Design" />
+		<Reference Include="System.Web" />
+	</ItemGroup>
+</Project>

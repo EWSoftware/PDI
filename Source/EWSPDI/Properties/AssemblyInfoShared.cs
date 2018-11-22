@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/19/2015
-// Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+// Updated : 11/17/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // PDI library common assembly attributes
@@ -20,34 +20,23 @@
 // 11/23/2004  EFW  Fixed some problems with view state on dynamic image areas
 // 06/28/2006  EFW  Reworked code for use with .NET 2.0
 // 07/05/2013  EFW  Updated for use with .NET 4.0 and converted the project to open source
+// 11/17/2018  EFW  Updated for use with .NET Standard 2.0
 //===============================================================================================================
 
 using System;
 using System.Reflection;
-using System.Resources;
 using System.Runtime.InteropServices;
 
 // NOTE: See AssemblyInfo.cs for project-specific assembly attributes
 
 // General assembly information
-[assembly: AssemblyProduct("EWSoftware Personal Data Interchange Library")]
-[assembly: AssemblyCompany("Eric Woodruff")]
-[assembly: AssemblyCopyright("Copyright \xA9 2003-2015, Eric Woodruff, All Rights Reserved")]
 [assembly: AssemblyCulture("")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
-[assembly: AssemblyConfiguration("Release")]
-#endif
 
 // The assembly is CLS compliant
 [assembly: CLSCompliant(true)]
 
 // Not visible to COM
 [assembly: ComVisible(false)]
-
-// Resources contained within the assembly are English
-[assembly: NeutralResourcesLanguageAttribute("en")]
 
 // Version numbers.  All version numbers for an assembly consists of the following four values:
 //
@@ -62,16 +51,16 @@ using System.Runtime.InteropServices;
 // This is used to set the assembly version in the strong name.  This should remain unchanged to maintain binary
 // compatibility with prior releases.  It should only be changed if a breaking change is made that requires
 // assemblies that reference older versions to be recompiled against the newer version.
-[assembly: AssemblyVersion("2015.1.19.0")]
+[assembly: AssemblyVersion("2018.11.17.0")]
 
 // Common assembly file version
 //
 // This is used to set the assembly file version.  This will change with each new release.  MSIs only support a
 // Major value between 0 and 255 so we drop the century from the year on this one.
-[assembly: AssemblyFileVersion("15.1.19.0")]
+[assembly: AssemblyFileVersion("18.11.17.0")]
 
 // Common product version
 //
 // This may contain additional text to indicate Alpha or Beta states.  The version number will always match the
 // file version above but includes the century on the year.
-[assembly: AssemblyInformationalVersion("2015.1.19.0")]
+[assembly: AssemblyInformationalVersion("2018.11.17.0")]

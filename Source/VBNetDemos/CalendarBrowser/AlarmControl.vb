@@ -124,13 +124,13 @@ Public Partial Class AlarmControl
             End If
 
             If (a.Action.Action = AlarmAction.EMail OrElse a.Action.Action = AlarmAction.Display) AndAlso
-              String.IsNullOrEmpty(a.Description.Value) Then
+              String.IsNullOrWhiteSpace(a.Description.Value) Then
                 Me.ErrorProvider.SetError(txtDescription, "A description is required")
                 result = False
             End If
 
             If a.Action.Action = AlarmAction.EMail Then
-                If String.IsNullOrEmpty(a.Summary.Value) Then
+                If String.IsNullOrWhiteSpace(a.Summary.Value) Then
                     Me.ErrorProvider.SetError(txtSummary, "A summary is required for an e-mail alarm")
                     result = False
                 Else

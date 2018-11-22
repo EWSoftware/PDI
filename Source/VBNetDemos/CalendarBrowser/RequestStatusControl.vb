@@ -80,7 +80,7 @@ Public Partial Class RequestStatusControl
             RequestStatusPropertyCollection)
 
         For Each status As RequestStatusProperty In requests
-            If String.IsNullOrEmpty(status.StatusMessage) Then
+            If String.IsNullOrWhiteSpace(status.StatusMessage) Then
                 Me.BindingSource.Position = requests.IndexOf(status)
                 txtMessage.Focus()
                 txtMessage_Validating(txtMessage, New CancelEventArgs())
