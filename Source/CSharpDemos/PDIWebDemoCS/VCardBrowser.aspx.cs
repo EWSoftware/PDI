@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardBrowser.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This page is used to demonstrate the vCard classes
@@ -69,7 +69,7 @@ namespace PDIWebDemoCS
         /// </summary>
         /// <param name="oValue">The value to encode</param>
         /// <returns>The value as an HTML-encoded string</returns>
-        protected string EncodeValue(object oValue)
+        protected static string EncodeValue(object oValue)
         {
             if(oValue != null)
                 return HttpUtility.HtmlEncode(oValue.ToString());
@@ -236,7 +236,7 @@ namespace PDIWebDemoCS
         /// <remarks>Due to the variety of properties in a vCard, sorting is left up to the developer utilizing a
         /// comparison delegate.  This example sorts the collection by the name property taking into account the
         /// SortStringProperty if set.</remarks>
-        private int VCardSorter(VCard x, VCard y)
+        private static int VCardSorter(VCard x, VCard y)
         {
             string sortName1, sortName2;
 

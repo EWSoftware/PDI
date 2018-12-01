@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FreeBusyProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class for the FREEBUSY property used by the Personal Data Interchange (PDI) VFreeBusy
@@ -43,6 +43,7 @@ namespace EWSoftware.PDI.Properties
         private Period period;
         private FreeBusyType freeBusyType;
         private string otherType;
+
         #endregion
 
         #region Properties
@@ -52,26 +53,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (FREEBUSY)
         /// </summary>
-        public override string Tag
-        {
-            get { return "FREEBUSY"; }
-        }
+        public override string Tag => "FREEBUSY";
 
         /// <summary>
         /// This read-only property defines the default value type as PERIOD
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Period; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Period;
 
         /// <summary>
         /// This property is used to set or get the free/busy type (FBTYPE) parameter
@@ -80,7 +72,7 @@ namespace EWSoftware.PDI.Properties
         /// if not already set to something else.  It is set to null if set to any other free/busy type.</value>
         public FreeBusyType FreeBusyType
         {
-            get { return freeBusyType; }
+            get => freeBusyType;
             set
             {
                 freeBusyType = value;
@@ -100,7 +92,7 @@ namespace EWSoftware.PDI.Properties
         /// <c>Other</c>.</value>
         public string OtherType
         {
-            get { return otherType; }
+            get => otherType;
             set
             {
                 freeBusyType = FreeBusyType.Other;
@@ -124,10 +116,7 @@ namespace EWSoftware.PDI.Properties
 
                 return period;
             }
-            set
-            {
-                period = value;
-            }
+            set => period = value;
         }
 
         /// <summary>
@@ -158,8 +147,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

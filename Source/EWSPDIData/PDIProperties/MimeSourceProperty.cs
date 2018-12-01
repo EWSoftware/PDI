@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MimeSourceProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Mime Source property class used by the Personal Data Interchange (PDI) vCard class
@@ -40,26 +40,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 3.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (SOURCE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "SOURCE"; }
-        }
+        public override string Tag => "SOURCE";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get a string containing the context of the property value such as a

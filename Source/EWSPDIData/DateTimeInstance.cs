@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DateTimeInstance.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the date/time instance class used by the time zone conversion methods
@@ -62,7 +62,7 @@ namespace EWSoftware.PDI
         /// <see cref="VTimeZoneCollection"/>.  If this is null, the times are assumed to be in local time.</value>
         public string TimeZoneId
         {
-            get { return timeZoneID; }
+            get => timeZoneID;
             set
             {
                 if(value == null || value.Length == 0)
@@ -77,8 +77,8 @@ namespace EWSoftware.PDI
         /// </summary>
         public DateTime StartDateTime
         {
-            get { return startDate; }
-            set { startDate = value; }
+            get => startDate;
+            set => startDate = value;
         }
 
         /// <summary>
@@ -86,8 +86,8 @@ namespace EWSoftware.PDI
         /// </summary>
         public DateTime EndDateTime
         {
-            get { return endDate; }
-            set { endDate = value; }
+            get => endDate;
+            set => endDate = value;
         }
 
         /// <summary>
@@ -95,8 +95,8 @@ namespace EWSoftware.PDI
         /// </summary>
         public Duration Duration
         {
-            get { return duration; }
-            set { duration = value; }
+            get => duration;
+            set => duration = value;
         }
 
         /// <summary>
@@ -104,8 +104,8 @@ namespace EWSoftware.PDI
         /// </summary>
         public bool StartIsDaylightSavingTime
         {
-            get { return startIsDST; }
-            set { startIsDST = value; }
+            get => startIsDST;
+            set => startIsDST = value;
         }
 
         /// <summary>
@@ -113,8 +113,8 @@ namespace EWSoftware.PDI
         /// </summary>
         public bool EndIsDaylightSavingTime
         {
-            get { return endIsDST; }
-            set { endIsDST = value; }
+            get => endIsDST;
+            set => endIsDST = value;
         }
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace EWSoftware.PDI
         /// </summary>
         public string StartTimeZoneName
         {
-            get { return startTZName; }
+            get => startTZName;
             set
             {
                 if(value == null)
@@ -139,7 +139,7 @@ namespace EWSoftware.PDI
         /// </summary>
         public string EndTimeZoneName
         {
-            get { return endTZName; }
+            get => endTZName;
             set
             {
                 if(value == null)
@@ -270,9 +270,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            DateTimeInstance dti = obj as DateTimeInstance;
-
-            if(dti == null)
+            if(!(obj is DateTimeInstance dti))
                 return false;
 
             return (startDate == dti.StartDateTime && endDate == dti.EndDateTime && duration == dti.Duration &&

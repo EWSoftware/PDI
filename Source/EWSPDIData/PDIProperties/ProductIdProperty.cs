@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ProductIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Product ID property class used by the Personal Data Interchange (PDI) classes such as
@@ -48,30 +48,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 3.0, vCalendar 1.0, and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get
-            {
-                return SpecificationVersions.vCard30 | SpecificationVersions.vCalendar10 |
-                    SpecificationVersions.iCalendar20;
-            }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
+            SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (PRODID)
         /// </summary>
-        public override string Tag
-        {
-            get { return "PRODID"; }
-        }
+        public override string Tag => "PRODID";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This is used to set or get whether the product ID is registered
@@ -155,8 +143,8 @@ namespace EWSoftware.PDI.Properties
         /// <value>If some but not all parts are specified, default values are used for the missing parts</value>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

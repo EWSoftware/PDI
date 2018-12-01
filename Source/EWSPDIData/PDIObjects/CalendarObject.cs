@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CalendarObject.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the base class for all calendar related Personal Data Interchange (PDI) classes and the
@@ -42,7 +42,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public override SpecificationVersions Version
         {
-            get { return base.Version; }
+            get => base.Version;
             set
             {
                 base.Version = value;

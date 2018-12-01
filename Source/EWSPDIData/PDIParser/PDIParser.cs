@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PDIParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/14/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to parse Personal Data Interchange (PDI) data streams containing vCalendar,
@@ -82,9 +82,6 @@ namespace EWSoftware.PDI.Parser
         // The string collection of parameters.  It's re-used to save resources
         private StringCollection propParams;
 
-        // This is used to set the default text encoding used to open a stream
-        private static Encoding defaultEncoding = new UTF8Encoding(false, false);
-
         #endregion
 
         #region Properties
@@ -98,19 +95,13 @@ namespace EWSoftware.PDI.Parser
         /// data stream to alter how text within the stream is interpreted.  This parameter has no effect if
         /// using a parsing method that is passed a stream object.  In those cases, it is up to you to open the
         /// stream with the appropriate text encoding method.</value>
-        public static Encoding DefaultEncoding
-        {
-            get { return defaultEncoding; }
-            set { defaultEncoding = value; }
-        }
+        public static Encoding DefaultEncoding { get; set; } = new UTF8Encoding(false, false);
 
         /// <summary>
         /// This returns the current line number being processed from the data stream
         /// </summary>
-        public int LineNumber
-        {
-            get { return lineNbr; }
-        }
+        public int LineNumber => lineNbr;
+
         #endregion
 
         #region Constructor
@@ -599,17 +590,17 @@ namespace EWSoftware.PDI.Parser
                 {
                     HttpWebRequest wrq = (HttpWebRequest)WebRequest.Create(new Uri(filename));
                     WebResponse wrsp = wrq.GetResponse();
-                    sr = new StreamReader(wrsp.GetResponseStream(), defaultEncoding);
+                    sr = new StreamReader(wrsp.GetResponseStream(), DefaultEncoding);
                 }
                 else
                     if(filename.StartsWith("file:", StringComparison.OrdinalIgnoreCase))
                     {
                         FileWebRequest frq = (FileWebRequest)WebRequest.Create(new Uri(filename));
                         WebResponse frsp = frq.GetResponse();
-                        sr = new StreamReader(frsp.GetResponseStream(), defaultEncoding);
+                        sr = new StreamReader(frsp.GetResponseStream(), DefaultEncoding);
                     }
                     else
-                        sr = new StreamReader(filename, defaultEncoding);
+                        sr = new StreamReader(filename, DefaultEncoding);
 
                 this.ParseReader(sr);
             }

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Duration.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class that represents a duration.  It contains a TimeSpan object and adds support for
@@ -110,8 +110,8 @@ namespace EWSoftware.PDI
         [XmlIgnore]
         public static double DaysInOneMonth
         {
-            get { return daysInMonth; }
-            set { daysInMonth = value; }
+            get => daysInMonth;
+            set => daysInMonth = value;
         }
 
         /// <summary>
@@ -123,33 +123,21 @@ namespace EWSoftware.PDI
         [XmlIgnore]
         public static double DaysInOneYear
         {
-            get { return daysInYear; }
-            set { daysInYear = value; }
+            get => daysInYear;
+            set => daysInYear = value;
         }
 
         /// <summary>
         /// This returns the number of timer ticks in one month based on the current setting of
         /// <see cref="DaysInOneMonth"/>.
         /// </summary>
-        public static long TicksPerMonth
-        {
-            get
-            {
-                return (long)(TimeSpan.TicksPerDay * Duration.DaysInOneMonth);
-            }
-        }
+        public static long TicksPerMonth => (long)(TimeSpan.TicksPerDay * Duration.DaysInOneMonth);
 
         /// <summary>
         /// This returns the number of timer ticks in one year based on the current setting of
         /// <see cref="DaysInOneYear"/>.
         /// </summary>
-        public static long TicksPerYear
-        {
-            get
-            {
-                return (long)(TimeSpan.TicksPerDay * Duration.DaysInOneYear);
-            }
-        }
+        public static long TicksPerYear => (long)(TimeSpan.TicksPerDay * Duration.DaysInOneYear);
 
         /// <summary>
         /// This allows access to the underlying <see cref="TimeSpan"/> object
@@ -157,8 +145,8 @@ namespace EWSoftware.PDI
         [XmlIgnore]
         public TimeSpan TimeSpan
         {
-            get { return ts; }
-            set { ts = value; }
+            get => ts;
+            set => ts = value;
         }
 
         /// <summary>
@@ -166,8 +154,8 @@ namespace EWSoftware.PDI
         /// </summary>
         public long Ticks
         {
-            get { return ts.Ticks; }
-            set { ts = new TimeSpan(value); }
+            get => ts.Ticks;
+            set => ts = new TimeSpan(value);
         }
 
         /// <summary>
@@ -175,58 +163,38 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <remarks>Note that this returns the number of whole days in the <strong>duration</strong> rather than
         /// the number of whole days in the underlying time span.</remarks>
-        public int Days
-        {
-            get { return (int)(ts.TotalDays % Duration.DaysInOneYear % Duration.DaysInOneMonth % 7); }
-        }
+        public int Days => (int)(ts.TotalDays % Duration.DaysInOneYear % Duration.DaysInOneMonth % 7);
 
         /// <summary>
         /// Gets the number of whole weeks represented by this instance
         /// </summary>
-        public int Weeks
-        {
-            get { return (int)(ts.TotalDays % Duration.DaysInOneYear % Duration.DaysInOneMonth / 7); }
-        }
+        public int Weeks => (int)(ts.TotalDays % Duration.DaysInOneYear % Duration.DaysInOneMonth / 7);
 
         /// <summary>
         /// Gets the number of whole months represented by this instance
         /// </summary>
-        public int Months
-        {
-            get { return (int)(ts.TotalDays % Duration.DaysInOneYear / Duration.DaysInOneMonth); }
-        }
+        public int Months => (int)(ts.TotalDays % Duration.DaysInOneYear / Duration.DaysInOneMonth);
 
         /// <summary>
         /// Gets the number of whole years represented by this instance
         /// </summary>
-        public int Years
-        {
-            get { return (int)(ts.TotalDays / Duration.DaysInOneYear); }
-        }
+        public int Years => (int)(ts.TotalDays / Duration.DaysInOneYear);
 
         /// <summary>
         /// Gets the value of this instance expressed in whole and fractional weeks
         /// </summary>
-        public double TotalWeeks
-        {
-            get { return ts.TotalDays / 7; }
-        }
+        public double TotalWeeks => ts.TotalDays / 7;
 
         /// <summary>
         /// Gets the value of this instance expressed in whole and fractional months
         /// </summary>
-        public double TotalMonths
-        {
-            get { return ts.TotalDays / Duration.DaysInOneMonth; }
-        }
+        public double TotalMonths => ts.TotalDays / Duration.DaysInOneMonth;
 
         /// <summary>
         /// Gets the value of this instance expressed in whole and fractional years
         /// </summary>
-        public double TotalYears
-        {
-            get { return ts.TotalDays / Duration.DaysInOneYear; }
-        }
+        public double TotalYears => ts.TotalDays / Duration.DaysInOneYear;
+
         #endregion
 
         #region Constructors
@@ -310,7 +278,7 @@ namespace EWSoftware.PDI
             Match m = reDuration.Match(duration);
 
             if(!m.Success)
-                throw new ArgumentException(LR.GetString("ExDurBadISOFormat"), "duration");
+                throw new ArgumentException(LR.GetString("ExDurBadISOFormat"), nameof(duration));
 
             if(m.Groups["Years"].Value.Length != 0)
                 years = Convert.ToInt32(m.Groups["Years"].Value, CultureInfo.InvariantCulture);
@@ -427,12 +395,6 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the durations are equal, false if they are not</returns>
         public static bool Equals(Duration d1, Duration d2)
         {
-            if((object)d1 == null && (object)d2 == null)
-                return true;
-
-            if((object)d1 == null)
-                return false;
-
             return d1.Equals(d2);
         }
 
@@ -777,16 +739,6 @@ namespace EWSoftware.PDI
         /// first instance is greater than the second.</returns>
         public static int Compare(Duration d1, Duration d2)
         {
-            // Cast as object for null checks or it goes recursive
-            if((object)d1 == null && (object)d2 == null)
-                return 0;
-
-            if((object)d1 != null && (object)d2 == null)
-                return 1;
-
-            if((object)d1 == null && (object)d2 != null)
-                return -1;
-
             if(d1.TimeSpan.Ticks > d2.TimeSpan.Ticks)
                 return 1;
 

@@ -18,16 +18,8 @@
 ' 01/25/2005  EFW  Created the code
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
-Imports System.Globalization
-Imports System.IO
-Imports System.Web
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 
 Imports EWSoftware.PDI.Objects
-Imports EWSoftware.PDI.Properties
 
 Namespace PDIWebDemoVB
 

@@ -47,9 +47,9 @@ namespace CalendarBrowser
             // 
             // lnkHelp
             // 
-            this.lnkHelp.Location = new System.Drawing.Point(168, 318);
+            this.lnkHelp.Location = new System.Drawing.Point(187, 334);
             this.lnkHelp.Name = "lnkHelp";
-            this.lnkHelp.Size = new System.Drawing.Size(144, 18);
+            this.lnkHelp.Size = new System.Drawing.Size(216, 23);
             this.lnkHelp.TabIndex = 6;
             this.lnkHelp.TabStop = true;
             this.lnkHelp.Text = "Eric@EWoodruff.us";
@@ -58,13 +58,13 @@ namespace CalendarBrowser
             // ColumnHeader1
             // 
             this.ColumnHeader1.Text = "Name";
-            this.ColumnHeader1.Width = 250;
+            this.ColumnHeader1.Width = 275;
             // 
             // btnSysInfo
             // 
-            this.btnSysInfo.Location = new System.Drawing.Point(334, 366);
+            this.btnSysInfo.Location = new System.Drawing.Point(355, 398);
             this.btnSysInfo.Name = "btnSysInfo";
-            this.btnSysInfo.Size = new System.Drawing.Size(112, 32);
+            this.btnSysInfo.Size = new System.Drawing.Size(150, 32);
             this.btnSysInfo.TabIndex = 9;
             this.btnSysInfo.Text = "System Info...";
             this.btnSysInfo.Click += new System.EventHandler(this.btnSysInfo_Click);
@@ -72,9 +72,9 @@ namespace CalendarBrowser
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(216, 366);
+            this.btnOK.Location = new System.Drawing.Point(199, 398);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(112, 32);
+            this.btnOK.Size = new System.Drawing.Size(150, 32);
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "OK";
             // 
@@ -86,10 +86,10 @@ namespace CalendarBrowser
             this.lvComponents.FullRowSelect = true;
             this.lvComponents.GridLines = true;
             this.lvComponents.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvComponents.Location = new System.Drawing.Point(12, 145);
+            this.lvComponents.Location = new System.Drawing.Point(12, 153);
             this.lvComponents.MultiSelect = false;
             this.lvComponents.Name = "lvComponents";
-            this.lvComponents.Size = new System.Drawing.Size(434, 170);
+            this.lvComponents.Size = new System.Drawing.Size(493, 170);
             this.lvComponents.TabIndex = 4;
             this.lvComponents.UseCompatibleStateImageBehavior = false;
             this.lvComponents.View = System.Windows.Forms.View.Details;
@@ -101,9 +101,9 @@ namespace CalendarBrowser
             // 
             // Label1
             // 
-            this.Label1.Location = new System.Drawing.Point(12, 123);
+            this.Label1.Location = new System.Drawing.Point(8, 127);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(164, 19);
+            this.Label1.Size = new System.Drawing.Size(164, 23);
             this.Label1.TabIndex = 3;
             this.Label1.Text = "Product Components";
             // 
@@ -111,23 +111,23 @@ namespace CalendarBrowser
             // 
             this.lblName.Location = new System.Drawing.Point(80, 8);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(366, 19);
+            this.lblName.Size = new System.Drawing.Size(425, 23);
             this.lblName.TabIndex = 0;
             this.lblName.Text = "<Application Name>";
             // 
             // lblDescription
             // 
-            this.lblDescription.Location = new System.Drawing.Point(80, 56);
+            this.lblDescription.Location = new System.Drawing.Point(80, 64);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(366, 67);
+            this.lblDescription.Size = new System.Drawing.Size(425, 67);
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "<Description>";
             // 
             // lblCopyright
             // 
-            this.lblCopyright.Location = new System.Drawing.Point(12, 344);
+            this.lblCopyright.Location = new System.Drawing.Point(12, 364);
             this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(434, 19);
+            this.lblCopyright.Size = new System.Drawing.Size(493, 23);
             this.lblCopyright.TabIndex = 7;
             this.lblCopyright.Text = "<Copyright>";
             // 
@@ -143,17 +143,17 @@ namespace CalendarBrowser
             // 
             // lblVersion
             // 
-            this.lblVersion.Location = new System.Drawing.Point(80, 32);
+            this.lblVersion.Location = new System.Drawing.Point(80, 36);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(366, 19);
+            this.lblVersion.Size = new System.Drawing.Size(425, 23);
             this.lblVersion.TabIndex = 1;
             this.lblVersion.Text = "<Version>";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 318);
+            this.label2.Location = new System.Drawing.Point(12, 334);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 19);
+            this.label2.Size = new System.Drawing.Size(178, 23);
             this.label2.TabIndex = 5;
             this.label2.Text = "For help send e-mail to";
             // 
@@ -161,7 +161,7 @@ namespace CalendarBrowser
             // 
             this.AcceptButton = this.btnOK;
             this.CancelButton = this.btnOK;
-            this.ClientSize = new System.Drawing.Size(458, 410);
+            this.ClientSize = new System.Drawing.Size(517, 442);
             this.Controls.Add(this.lnkHelp);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSysInfo);

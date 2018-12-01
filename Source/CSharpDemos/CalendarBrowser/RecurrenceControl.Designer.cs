@@ -47,9 +47,9 @@ namespace CalendarBrowser
             // btnClearRRules
             // 
             this.btnClearRRules.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearRRules.Location = new System.Drawing.Point(251, 248);
+            this.btnClearRRules.Location = new System.Drawing.Point(285, 282);
             this.btnClearRRules.Name = "btnClearRRules";
-            this.btnClearRRules.Size = new System.Drawing.Size(75, 28);
+            this.btnClearRRules.Size = new System.Drawing.Size(88, 32);
             this.btnClearRRules.TabIndex = 5;
             this.btnClearRRules.Text = "Clear";
             this.btnClearRRules.Click += new System.EventHandler(this.btnClearRRules_Click);
@@ -57,9 +57,9 @@ namespace CalendarBrowser
             // btnRemoveRRule
             // 
             this.btnRemoveRRule.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnRemoveRRule.Location = new System.Drawing.Point(170, 248);
+            this.btnRemoveRRule.Location = new System.Drawing.Point(191, 282);
             this.btnRemoveRRule.Name = "btnRemoveRRule";
-            this.btnRemoveRRule.Size = new System.Drawing.Size(75, 28);
+            this.btnRemoveRRule.Size = new System.Drawing.Size(88, 32);
             this.btnRemoveRRule.TabIndex = 4;
             this.btnRemoveRRule.Text = "Remove";
             this.btnRemoveRRule.Click += new System.EventHandler(this.btnRemoveRRule_Click);
@@ -67,9 +67,9 @@ namespace CalendarBrowser
             // btnAddRRule
             // 
             this.btnAddRRule.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddRRule.Location = new System.Drawing.Point(8, 248);
+            this.btnAddRRule.Location = new System.Drawing.Point(3, 282);
             this.btnAddRRule.Name = "btnAddRRule";
-            this.btnAddRRule.Size = new System.Drawing.Size(75, 28);
+            this.btnAddRRule.Size = new System.Drawing.Size(88, 32);
             this.btnAddRRule.TabIndex = 2;
             this.btnAddRRule.Text = "Add";
             this.btnAddRRule.Click += new System.EventHandler(this.btnAddRRule_Click);
@@ -78,18 +78,19 @@ namespace CalendarBrowser
             // 
             this.lbRRules.HorizontalExtent = 800;
             this.lbRRules.HorizontalScrollbar = true;
-            this.lbRRules.ItemHeight = 16;
-            this.lbRRules.Location = new System.Drawing.Point(8, 32);
+            this.lbRRules.IntegralHeight = false;
+            this.lbRRules.ItemHeight = 20;
+            this.lbRRules.Location = new System.Drawing.Point(3, 34);
             this.lbRRules.Name = "lbRRules";
-            this.lbRRules.Size = new System.Drawing.Size(320, 212);
+            this.lbRRules.Size = new System.Drawing.Size(370, 242);
             this.lbRRules.TabIndex = 1;
             // 
             // btnClearRDates
             // 
             this.btnClearRDates.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClearRDates.Location = new System.Drawing.Point(347, 248);
+            this.btnClearRDates.Location = new System.Drawing.Point(584, 282);
             this.btnClearRDates.Name = "btnClearRDates";
-            this.btnClearRDates.Size = new System.Drawing.Size(75, 28);
+            this.btnClearRDates.Size = new System.Drawing.Size(88, 32);
             this.btnClearRDates.TabIndex = 13;
             this.btnClearRDates.Text = "Clear";
             this.btnClearRDates.Click += new System.EventHandler(this.btnClearRDates_Click);
@@ -97,9 +98,9 @@ namespace CalendarBrowser
             // btnRemoveRDate
             // 
             this.btnRemoveRDate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnRemoveRDate.Location = new System.Drawing.Point(447, 218);
+            this.btnRemoveRDate.Location = new System.Drawing.Point(490, 282);
             this.btnRemoveRDate.Name = "btnRemoveRDate";
-            this.btnRemoveRDate.Size = new System.Drawing.Size(75, 28);
+            this.btnRemoveRDate.Size = new System.Drawing.Size(88, 32);
             this.btnRemoveRDate.TabIndex = 12;
             this.btnRemoveRDate.Text = "Remove";
             this.btnRemoveRDate.Click += new System.EventHandler(this.btnRemoveRDate_Click);
@@ -107,24 +108,25 @@ namespace CalendarBrowser
             // btnAddRDate
             // 
             this.btnAddRDate.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAddRDate.Location = new System.Drawing.Point(346, 218);
+            this.btnAddRDate.Location = new System.Drawing.Point(396, 282);
             this.btnAddRDate.Name = "btnAddRDate";
-            this.btnAddRDate.Size = new System.Drawing.Size(75, 28);
+            this.btnAddRDate.Size = new System.Drawing.Size(88, 32);
             this.btnAddRDate.TabIndex = 11;
             this.btnAddRDate.Text = "Add";
             this.btnAddRDate.Click += new System.EventHandler(this.btnAddRDate_Click);
             // 
             // lbRDates
             // 
-            this.lbRDates.ItemHeight = 16;
-            this.lbRDates.Location = new System.Drawing.Point(346, 80);
+            this.lbRDates.IntegralHeight = false;
+            this.lbRDates.ItemHeight = 20;
+            this.lbRDates.Location = new System.Drawing.Point(396, 96);
             this.lbRDates.Name = "lbRDates";
-            this.lbRDates.Size = new System.Drawing.Size(176, 132);
+            this.lbRDates.Size = new System.Drawing.Size(276, 180);
             this.lbRDates.TabIndex = 10;
             // 
             // lblRRules
             // 
-            this.lblRRules.Location = new System.Drawing.Point(8, 8);
+            this.lblRRules.Location = new System.Drawing.Point(3, 8);
             this.lblRRules.Name = "lblRRules";
             this.lblRRules.Size = new System.Drawing.Size(216, 23);
             this.lblRRules.TabIndex = 0;
@@ -133,7 +135,7 @@ namespace CalendarBrowser
             // 
             // lblRDates
             // 
-            this.lblRDates.Location = new System.Drawing.Point(346, 8);
+            this.lblRDates.Location = new System.Drawing.Point(397, 8);
             this.lblRDates.Name = "lblRDates";
             this.lblRDates.Size = new System.Drawing.Size(174, 23);
             this.lblRDates.TabIndex = 7;
@@ -145,34 +147,34 @@ namespace CalendarBrowser
             this.dtpRDate.Checked = false;
             this.dtpRDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpRDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpRDate.Location = new System.Drawing.Point(346, 32);
+            this.dtpRDate.Location = new System.Drawing.Point(395, 34);
             this.dtpRDate.Name = "dtpRDate";
-            this.dtpRDate.Size = new System.Drawing.Size(190, 22);
+            this.dtpRDate.Size = new System.Drawing.Size(235, 26);
             this.dtpRDate.TabIndex = 8;
             // 
             // btnEditRRule
             // 
             this.btnEditRRule.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEditRRule.Location = new System.Drawing.Point(89, 248);
+            this.btnEditRRule.Location = new System.Drawing.Point(97, 282);
             this.btnEditRRule.Name = "btnEditRRule";
-            this.btnEditRRule.Size = new System.Drawing.Size(75, 28);
+            this.btnEditRRule.Size = new System.Drawing.Size(88, 32);
             this.btnEditRRule.TabIndex = 3;
             this.btnEditRRule.Text = "Edit";
             this.btnEditRRule.Click += new System.EventHandler(this.btnEditRRule_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(336, 8);
+            this.groupBox1.Location = new System.Drawing.Point(387, 8);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(2, 270);
+            this.groupBox1.Size = new System.Drawing.Size(2, 300);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
             // chkExcludeDay
             // 
-            this.chkExcludeDay.Location = new System.Drawing.Point(347, 56);
+            this.chkExcludeDay.Location = new System.Drawing.Point(393, 66);
             this.chkExcludeDay.Name = "chkExcludeDay";
-            this.chkExcludeDay.Size = new System.Drawing.Size(152, 24);
+            this.chkExcludeDay.Size = new System.Drawing.Size(201, 24);
             this.chkExcludeDay.TabIndex = 9;
             this.chkExcludeDay.Text = "Exclude whole day";
             // 
@@ -193,7 +195,7 @@ namespace CalendarBrowser
             this.Controls.Add(this.btnAddRRule);
             this.Controls.Add(this.lbRRules);
             this.Name = "RecurrenceControl";
-            this.Size = new System.Drawing.Size(542, 286);
+            this.Size = new System.Drawing.Size(685, 320);
             this.ResumeLayout(false);
 
         }

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurrenceEnumerator.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a type-safe enumerator for Recurrence objects
@@ -59,18 +59,12 @@ namespace EWSoftware.PDI
         /// <summary>
         /// Type-safe enumerator <c>Current</c> method
         /// </summary>
-        public DateTime Current
-        {
-            get { return dates[idx]; }
-        }
+        public DateTime Current => dates[idx];
 
         /// <summary>
         /// Type-unsafe <c>IEnumerator.Current</c>
         /// </summary>
-        object System.Collections.IEnumerator.Current
-        {
-            get { return dates[idx]; }
-        }
+        object System.Collections.IEnumerator.Current => dates[idx];
 
         /// <summary>
         /// Move to the next element

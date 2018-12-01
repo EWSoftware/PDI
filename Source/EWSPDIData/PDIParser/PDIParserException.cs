@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PDIParserException.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/13/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains an exception class thrown by the parsers
@@ -31,23 +31,14 @@ namespace EWSoftware.PDI.Parser
     [Serializable]
     public class PDIParserException : Exception
     {
-        #region Private data members
-        //=====================================================================
-
-        private int lineNbr;
-
-        #endregion
-
         #region Properties
         //=====================================================================
 
         /// <summary>
         /// This contains the line number in the data stream at which the error occurred
         /// </summary>
-        public int LineNumber
-        {
-            get { return lineNbr; }
-        }
+        public int LineNumber { get; }
+
         #endregion
 
         #region Constructors
@@ -84,7 +75,7 @@ namespace EWSoftware.PDI.Parser
         /// <param name="line">The line number in the data stream at which the error occurred</param>
         public PDIParserException(int line)
         {
-            lineNbr = line;
+            this.LineNumber = line;
         }
 
         /// <summary>
@@ -94,7 +85,7 @@ namespace EWSoftware.PDI.Parser
         /// <param name="message">The exception message</param>
         public PDIParserException(int line, string message) : base(message)
         {
-            lineNbr = line;
+            this.LineNumber = line;
         }
 
         /// <summary>
@@ -105,7 +96,7 @@ namespace EWSoftware.PDI.Parser
         /// <param name="inner">The inner exception</param>
         public PDIParserException(int line, string message, Exception inner) : base(message, inner)
         {
-            lineNbr = line;
+            this.LineNumber = line;
         }
 
         /// <summary>
@@ -116,7 +107,7 @@ namespace EWSoftware.PDI.Parser
         protected PDIParserException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
             if(info != null)
-                lineNbr = (int)info.GetValue("LineNumber", typeof(int));
+                this.LineNumber = (int)info.GetValue("LineNumber", typeof(int));
         }
         #endregion
 
@@ -135,7 +126,7 @@ namespace EWSoftware.PDI.Parser
             if(info != null)
             {
                 base.GetObjectData(info, context);
-                info.AddValue("LineNumber", lineNbr);
+                info.AddValue("LineNumber", this.LineNumber);
             }
         }
         #endregion

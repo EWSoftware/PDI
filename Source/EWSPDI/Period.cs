@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Period.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class that represents a period of time
@@ -71,8 +71,8 @@ namespace EWSoftware.PDI
         /// <value>The <see cref="EndDateTime"/> property is updated automatically based on the new value</value>
         public Duration Duration
         {
-            get { return new Duration(this.EndDateTime - this.StartDateTime); }
-            set { this.EndDateTime = this.StartDateTime + value.TimeSpan; }
+            get => new Duration(this.EndDateTime - this.StartDateTime);
+            set => this.EndDateTime = this.StartDateTime + value.TimeSpan;
         }
 
         /// <summary>
@@ -160,7 +160,7 @@ namespace EWSoftware.PDI
             string[] parts = period.Split('/');
 
             if(parts.Length != 2)
-                throw new ArgumentException(LR.GetString("ExPeriodInvalidISOFormat"), "period");
+                throw new ArgumentException(LR.GetString("ExPeriodInvalidISOFormat"), nameof(period));
 
             this.StartDateTime = DateUtils.FromISO8601String(parts[0], true);
 
@@ -221,10 +221,10 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the periods are equal, false if they are not</returns>
         public static bool Equals(Period p1, Period p2)
         {
-            if((object)p1 == null && (object)p2 == null)
+            if(p1 is null && p2 is null)
                 return true;
 
-            if((object)p1 == null)
+            if(p1 is null)
                 return false;
 
             return p1.Equals(p2);
@@ -289,9 +289,7 @@ namespace EWSoftware.PDI
         /// <c>Period</c>.</exception>
         public int CompareTo(object obj)
         {
-            Period p = obj as Period;
-
-            if(p == null)
+            if(!(obj is Period p))
                 throw new ArgumentException(LR.GetString("ExPeriodBadCompareObject"));
 
             return Period.Compare(this, p);
@@ -306,14 +304,13 @@ namespace EWSoftware.PDI
         /// first instance is greater than the second.</returns>
         public static int Compare(Period p1, Period p2)
         {
-            // Cast as object for null checks or it goes recursive
-            if((object)p1 == null && (object)p2 == null)
+            if(p1 is null && p2 is null)
                 return 0;
 
-            if((object)p1 != null && (object)p2 == null)
+            if(!(p1 is null) && p2 is null)
                 return 1;
 
-            if((object)p1 == null && (object)p2 != null)
+            if(p1 is null && !(p2 is null))
                 return -1;
 
             if(p1.StartDateTime > p2.StartDateTime)

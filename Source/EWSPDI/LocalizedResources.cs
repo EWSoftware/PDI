@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LocalizedResources.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains some internal classes used to manage the localized resources for the assembly
@@ -41,7 +41,7 @@ namespace EWSoftware.PDI
         private static ResourceManager rm;
 
         // This is a helper object used to quickly lock the class when creating the resource manager
-        private static object syncRoot = new Object();
+        private static readonly object syncRoot = new Object();
 
         #endregion
 
@@ -63,10 +63,7 @@ namespace EWSoftware.PDI
                         {
                             Assembly asm = Assembly.GetExecutingAssembly();
 
-                            string baseName = String.Format(CultureInfo.CurrentCulture, "{0}.{1}",
-                                asm.GetName().Name, ResourcesKey);
-
-                            rm = new ResourceManager(baseName, asm);
+                            rm = new ResourceManager($"{asm.GetName().Name}.{ResourcesKey}", asm);
                         }
                     }
                 }
@@ -90,7 +87,7 @@ namespace EWSoftware.PDI
             string s = Resources.GetString(name, null);
 
             if(s == null)
-                s = String.Format(CultureInfo.CurrentCulture, "[?:{0}]", name);
+                s = $"[?:{name}]";
 
             return s;
         }

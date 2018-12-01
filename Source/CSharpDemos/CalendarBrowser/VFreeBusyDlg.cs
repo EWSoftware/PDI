@@ -2,7 +2,7 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VFreeBusyDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
+// Updated : 11/24/2018
 // Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
@@ -263,15 +263,13 @@ namespace CalendarBrowser
         /// <param name="e">The event parameters</param>
         private void VFreeBusyDlg_Closing(object sender, CancelEventArgs e)
         {
-            Duration d;
-
             // Ignore on cancel
             if(this.DialogResult == DialogResult.Cancel)
                 return;
 
             epErrors.Clear();
 
-            if(txtDuration.Text.Length != 0 && !Duration.TryParse(txtDuration.Text, out d))
+            if(txtDuration.Text.Length != 0 && !Duration.TryParse(txtDuration.Text, out Duration d))
             {
                 epErrors.SetError(txtDuration, "Invalid duration value");
                 e.Cancel = true;

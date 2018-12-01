@@ -19,7 +19,6 @@
 ' 05/22/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
 Imports System.ComponentModel
 Imports System.Globalization
 Imports System.Windows.Forms
@@ -27,7 +26,6 @@ Imports System.Windows.Forms
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects
 Imports EWSoftware.PDI.Properties
-Imports EWSoftware.PDI.Windows.Forms
 
 Public Partial Class AlarmControl
     Inherits EWSoftware.PDI.Windows.Forms.BrowseControl

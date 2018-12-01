@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ExtendedBindingList.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a generic, bindable base class used to hold a collection of items and supports various
@@ -71,10 +71,7 @@ namespace EWSoftware.PDI.Binding
         /// <summary>
         /// This returns an object that can be used to synchronize access to the collection
         /// </summary>
-        public object SyncRoot
-        {
-            get { return ((ICollection)this).SyncRoot; }
-        }
+        public object SyncRoot => ((ICollection)this).SyncRoot;
 
         /// <summary>
         /// Add a range of items from an array
@@ -331,35 +328,23 @@ namespace EWSoftware.PDI.Binding
         /// This is used to indicate whether or not sorting is supported
         /// </summary>
         /// <value>This always returns true.</value>
-        protected override bool SupportsSortingCore
-        {
-            get { return true; }
-        }
+        protected override bool SupportsSortingCore => true;
 
         /// <summary>
         /// This returns a flag indicating whether or not sorting is currently applied
         /// </summary>
         /// <value>Returns true if sorting is applied or false if not</value>
-        protected override bool IsSortedCore
-        {
-            get { return isSorted; }
-        }
+        protected override bool IsSortedCore => isSorted;
 
         /// <summary>
         /// This returns the current sort direction if sorting has been applied
         /// </summary>
-        protected override ListSortDirection SortDirectionCore
-        {
-            get { return sortDirection; }
-        }
+        protected override ListSortDirection SortDirectionCore => sortDirection;
 
         /// <summary>
         /// This returns the current property descriptor if sorting has been applied
         /// </summary>
-        protected override PropertyDescriptor SortPropertyCore
-        {
-            get { return sortProperty; }
-        }
+        protected override PropertyDescriptor SortPropertyCore => sortProperty;
 
         /// <summary>
         /// This is overridden to apply a sort based on the selected property descriptor and sort direction
@@ -396,10 +381,7 @@ namespace EWSoftware.PDI.Binding
         /// This is used to indicate whether or not searching is supported
         /// </summary>
         /// <value>This always returns true</value>
-        protected override bool SupportsSearchingCore
-        {
-            get { return true; }
-        }
+        protected override bool SupportsSearchingCore => true;
 
         /// <summary>
         /// This searches for the index of the item that has the specified property descriptor with the specified

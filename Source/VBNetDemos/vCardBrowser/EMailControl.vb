@@ -24,7 +24,6 @@ Imports System.ComponentModel
 Imports System.Text.RegularExpressions
 
 Imports EWSoftware.PDI.Properties
-Imports EWSoftware.PDI.Windows.Forms
 
 ''' <summary>
 ''' A user control for editing vCard e-mail addresses

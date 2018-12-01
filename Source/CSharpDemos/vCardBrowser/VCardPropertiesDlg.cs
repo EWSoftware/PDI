@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/27/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a vCard's properties.  It supports most of the common properties of the vCard including
@@ -50,7 +50,7 @@ namespace vCardBrowser
 
             // Set the short date/long time pattern based on the current culture
             dtpBirthDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern + " " +
-                  CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern;
+                CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern;
 		}
         #endregion
 
@@ -128,8 +128,6 @@ namespace vCardBrowser
         /// <param name="e">The event parameters</param>
         private void VCardPropertiesDlg_Closing(object sender, CancelEventArgs e)
         {
-            double latitude, longitude;
-
             // Ignore on cancel
             if(this.DialogResult == DialogResult.Cancel)
                 return;
@@ -137,19 +135,19 @@ namespace vCardBrowser
             epErrors.Clear();
 
             if(txtLatitude.Text.Trim().Length != 0)
-                if(!Double.TryParse(txtLatitude.Text, out latitude) || latitude < -90.0 || latitude > 90.0)
+                if(!Double.TryParse(txtLatitude.Text, out double latitude) || latitude < -90.0 || latitude > 90.0)
                 {
                     e.Cancel = true;
-                    epErrors.SetError(txtLatitude, "Latitude must be a valid numeric value between -90 and 90");
+                    epErrors.SetError(txtLatitude, "Latitude must be a valid decimal value between -90 and 90");
                     tabInfo.SelectedTab = pgOther;
                     txtLatitude.Focus();
                 }
 
             if(txtLongitude.Text.Trim().Length != 0)
-                if(!Double.TryParse(txtLongitude.Text, out longitude) || longitude < -180.0 || longitude > 180.0)
+                if(!Double.TryParse(txtLongitude.Text, out double longitude) || longitude < -180.0 || longitude > 180.0)
                 {
                     e.Cancel = true;
-                    epErrors.SetError(txtLongitude, "Longitude must be a valid numeric value between -180 and 180");
+                    epErrors.SetError(txtLongitude, "Longitude must be a valid decimal value between -180 and 180");
                     tabInfo.SelectedTab = pgOther;
                     txtLongitude.Focus();
                 }

@@ -4,7 +4,7 @@
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
 ' Updated : 01/02/2015
 ' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual C#
+' Compiler: Microsoft VB.NET
 '
 ' This is used to test the various Holiday classes and the DateUtils class
 '

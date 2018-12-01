@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : UniqueIntegerCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a type-safe collection class that is used to contain a set of unique integer values with
@@ -20,6 +20,8 @@
 // 03/05/2007  EFW  Converted to use a generic base class
 //===============================================================================================================
 
+// Ignore Spelling: ic
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,7 +35,7 @@ namespace EWSoftware.PDI
 	/// A type-safe collection of unique integer values with an optional range restriction and zero exclusion
 	/// </summary>
     [Serializable]
-	public class UniqueIntegerCollection : Collection<int>
+    public class UniqueIntegerCollection : Collection<int>
     {
         #region Private data members
         //=====================================================================
@@ -42,8 +44,6 @@ namespace EWSoftware.PDI
         private static Regex reStripNonDigits = new Regex(@"[^0-9\-,]");
         private static Regex reIsRange = new Regex("(?<=[^-])-");
 
-        private int  minValue, maxValue;    // Validation range
-        private bool allowZero;             // Allow zero as a valid value
         #endregion
 
         #region Properties
@@ -52,28 +52,20 @@ namespace EWSoftware.PDI
         /// <summary>
         /// This read-only property is used to get the minimum value allowed to be added to the collection
         /// </summary>
-        public int MinimumValue
-        {
-            get { return minValue; }
-        }
+        public int MinimumValue { get; }
 
         /// <summary>
         /// This read-only property is used to get the highest value allowed to be added to the collection
         /// </summary>
-        public int MaximumValue
-        {
-            get { return maxValue; }
-        }
+        public int MaximumValue { get; }
 
         /// <summary>
         /// This read-only property is used to get whether or not zero is allowed as a valid value
         /// </summary>
         /// <value>This is useful if you need to set a valid range that includes negative and positive values but
         /// excludes zero (i.e. -53 to -1 and +1 to +53 but not zero).</value>
-        public bool AllowZero
-        {
-            get { return allowZero; }
-        }
+        public bool AllowZero { get; }
+
         #endregion
 
         #region Constructors
@@ -86,9 +78,9 @@ namespace EWSoftware.PDI
         /// <overloads>There are five overloads for the constructor</overloads>
         public UniqueIntegerCollection()
         {
-            minValue = Int32.MinValue;
-            maxValue = Int32.MaxValue;
-            allowZero = true;
+            this.MinimumValue = Int32.MinValue;
+            this.MaximumValue = Int32.MaxValue;
+            this.AllowZero = true;
         }
 
         /// <summary>
@@ -99,9 +91,9 @@ namespace EWSoftware.PDI
         /// <param name="zeroAllowed">Allow zero or not</param>
         public UniqueIntegerCollection(int min, int max, bool zeroAllowed)
         {
-            minValue = min;
-            maxValue = max;
-            allowZero = zeroAllowed;
+            this.MinimumValue = min;
+            this.MaximumValue = max;
+            this.AllowZero = zeroAllowed;
         }
 
         /// <summary>
@@ -139,9 +131,9 @@ namespace EWSoftware.PDI
         {
             if(values != null)
             {
-                minValue = values.MinimumValue;
-                maxValue = values.MaximumValue;
-                allowZero = values.AllowZero;
+                this.MinimumValue = values.MinimumValue;
+                this.MaximumValue = values.MaximumValue;
+                this.AllowZero = values.AllowZero;
 
                 this.AddRange(values);
             }
@@ -174,11 +166,11 @@ namespace EWSoftware.PDI
         /// the collection.</exception>
         protected override void InsertItem(int index, int item)
         {
-            if(item < minValue || item > maxValue)
-                throw new ArgumentOutOfRangeException("item", item, LR.GetString("ExUICValueOutOfRange"));
+            if(item < this.MinimumValue || item > this.MaximumValue)
+                throw new ArgumentOutOfRangeException(nameof(item), item, LR.GetString("ExUICValueOutOfRange"));
 
-            if(item == 0 && !allowZero)
-                throw new ArgumentException(LR.GetString("ExUICZerosNotAllowed"), "item");
+            if(item == 0 && !this.AllowZero)
+                throw new ArgumentException(LR.GetString("ExUICZerosNotAllowed"), nameof(item));
 
             int curIdx = base.IndexOf(item);
 
@@ -303,7 +295,7 @@ namespace EWSoftware.PDI
         public void ParseValues(string values)
         {
             string[] parts, range;
-            int value, high, low;
+            int value;
 
             // Remove all characters that are not a digit, dash, or comma
             string parse = reStripNonDigits.Replace(values, String.Empty);
@@ -315,7 +307,7 @@ namespace EWSoftware.PDI
                 {
                     // Single value.  Discard invalid and out of range entries.
                     if(Int32.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out value) &&
-                      value >= minValue && value <= maxValue && (value != 0 || allowZero))
+                      value >= this.MinimumValue && value <= this.MaximumValue && (value != 0 || this.AllowZero))
                         base.Add(value);
                 }
                 else
@@ -324,8 +316,8 @@ namespace EWSoftware.PDI
                     range = reIsRange.Split(s);
 
                     // Discard invalid entries
-                    if(Int32.TryParse(range[0], NumberStyles.Integer, CultureInfo.InvariantCulture, out low) &&
-                      Int32.TryParse(range[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out high))
+                    if(Int32.TryParse(range[0], NumberStyles.Integer, CultureInfo.InvariantCulture, out int low) &&
+                      Int32.TryParse(range[1], NumberStyles.Integer, CultureInfo.InvariantCulture, out int high))
                     {
                         // Flip the range if necessary
                         if(low > high)
@@ -338,7 +330,7 @@ namespace EWSoftware.PDI
                         // Out of range values are discarded
                         while(low <= high)
                         {
-                            if(low >= minValue && low <= maxValue && (low != 0 || allowZero))
+                            if(low >= this.MinimumValue && low <= this.MaximumValue && (low != 0 || this.AllowZero))
                                 base.Add(low);
 
                             low++;

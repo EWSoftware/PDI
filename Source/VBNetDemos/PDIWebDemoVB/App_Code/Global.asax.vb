@@ -19,9 +19,6 @@
 ' 01/25/2005  EFW  Created the code
 '================================================================================================================
 
-Imports System
-Imports System.Collections
-
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects
 Imports EWSoftware.PDI.Parser

@@ -43,33 +43,33 @@ namespace CalendarBrowser
             // 
             // chkInline
             // 
-            this.chkInline.Location = new System.Drawing.Point(391, 8);
+            this.chkInline.Location = new System.Drawing.Point(442, 10);
             this.chkInline.Name = "chkInline";
-            this.chkInline.Size = new System.Drawing.Size(130, 24);
+            this.chkInline.Size = new System.Drawing.Size(160, 24);
             this.chkInline.TabIndex = 3;
             this.chkInline.Text = "Store file inline";
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(354, 7);
+            this.btnLoad.Location = new System.Drawing.Point(385, 7);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(28, 23);
+            this.btnLoad.Size = new System.Drawing.Size(35, 28);
             this.btnLoad.TabIndex = 2;
             this.btnLoad.Text = "...";
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // txtFilename
             // 
-            this.txtFilename.Location = new System.Drawing.Point(74, 8);
+            this.txtFilename.Location = new System.Drawing.Point(101, 8);
             this.txtFilename.Name = "txtFilename";
-            this.txtFilename.Size = new System.Drawing.Size(280, 22);
+            this.txtFilename.Size = new System.Drawing.Size(280, 26);
             this.txtFilename.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(10, 8);
+            this.label1.Location = new System.Drawing.Point(19, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 23);
+            this.label1.Size = new System.Drawing.Size(76, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -78,9 +78,9 @@ namespace CalendarBrowser
             // 
             this.btnDetach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDetach.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDetach.Location = new System.Drawing.Point(251, 170);
+            this.btnDetach.Location = new System.Drawing.Point(285, 260);
             this.btnDetach.Name = "btnDetach";
-            this.btnDetach.Size = new System.Drawing.Size(75, 28);
+            this.btnDetach.Size = new System.Drawing.Size(88, 32);
             this.btnDetach.TabIndex = 10;
             this.btnDetach.Text = "Detach";
             this.btnDetach.Click += new System.EventHandler(this.btnDetach_Click);
@@ -89,9 +89,9 @@ namespace CalendarBrowser
             // 
             this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnClear.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnClear.Location = new System.Drawing.Point(170, 170);
+            this.btnClear.Location = new System.Drawing.Point(191, 260);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 28);
+            this.btnClear.Size = new System.Drawing.Size(88, 32);
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -100,9 +100,9 @@ namespace CalendarBrowser
             // 
             this.btnRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnRemove.Location = new System.Drawing.Point(89, 170);
+            this.btnRemove.Location = new System.Drawing.Point(97, 260);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 28);
+            this.btnRemove.Size = new System.Drawing.Size(88, 32);
             this.btnRemove.TabIndex = 8;
             this.btnRemove.Text = "Remove";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -111,9 +111,9 @@ namespace CalendarBrowser
             // 
             this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAdd.Location = new System.Drawing.Point(8, 170);
+            this.btnAdd.Location = new System.Drawing.Point(3, 260);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 28);
+            this.btnAdd.Size = new System.Drawing.Size(88, 32);
             this.btnAdd.TabIndex = 7;
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -125,25 +125,26 @@ namespace CalendarBrowser
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbAttachments.HorizontalExtent = 800;
             this.lbAttachments.HorizontalScrollbar = true;
-            this.lbAttachments.ItemHeight = 16;
-            this.lbAttachments.Location = new System.Drawing.Point(8, 64);
+            this.lbAttachments.IntegralHeight = false;
+            this.lbAttachments.ItemHeight = 20;
+            this.lbAttachments.Location = new System.Drawing.Point(3, 72);
             this.lbAttachments.Name = "lbAttachments";
-            this.lbAttachments.Size = new System.Drawing.Size(522, 100);
+            this.lbAttachments.Size = new System.Drawing.Size(623, 182);
             this.lbAttachments.TabIndex = 6;
             this.lbAttachments.SelectedIndexChanged += new System.EventHandler(this.lbAttachments_SelectedIndexChanged);
             // 
             // txtFormat
             // 
-            this.txtFormat.Location = new System.Drawing.Point(74, 36);
+            this.txtFormat.Location = new System.Drawing.Point(101, 40);
             this.txtFormat.Name = "txtFormat";
-            this.txtFormat.Size = new System.Drawing.Size(280, 22);
+            this.txtFormat.Size = new System.Drawing.Size(280, 26);
             this.txtFormat.TabIndex = 5;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(10, 36);
+            this.label2.Location = new System.Drawing.Point(8, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 23);
+            this.label2.Size = new System.Drawing.Size(87, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Format";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,7 +163,7 @@ namespace CalendarBrowser
             this.Controls.Add(this.txtFilename);
             this.Controls.Add(this.label1);
             this.Name = "AttachmentsControl";
-            this.Size = new System.Drawing.Size(538, 202);
+            this.Size = new System.Drawing.Size(629, 295);
             this.ResumeLayout(false);
             this.PerformLayout();
 

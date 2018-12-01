@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AlarmProperties.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Trigger property used by the Personal Data Interchange (PDI) vCalendar and iCalendar
@@ -20,7 +20,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 namespace EWSoftware.PDI.Properties
@@ -38,7 +37,6 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private Duration duration;
-        private bool relatedToEnd;
 
         #endregion
 
@@ -49,36 +47,24 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (TRIGGER)
         /// </summary>
-        public override string Tag
-        {
-            get { return "TRIGGER"; }
-        }
+        public override string Tag => "TRIGGER";
 
         /// <summary>
         /// This read-only property defines the default value type as DURATION
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Duration; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Duration;
 
         /// <summary>
         /// This property is used to set or get the related (RELATED) parameter.  If true, the trigger is related
         /// to the end time of the event.  If false, the trigger is related to the start time of the event.
         /// </summary>
-        public bool RelatedToEnd
-        {
-            get { return relatedToEnd; }
-            set { relatedToEnd = value; }
-        }
+        public bool RelatedToEnd { get; set; }
 
         /// <summary>
         /// This property is used to set or get the duration to use for the trigger.  If set, the
@@ -87,7 +73,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public Duration DurationValue
         {
-            get { return duration; }
+            get => duration;
             set
             {
                 duration = value;
@@ -102,7 +88,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override DateTime TimeZoneDateTime
         {
-            get { return base.TimeZoneDateTime; }
+            get => base.TimeZoneDateTime;
             set
             {
                 base.TimeZoneDateTime = value;
@@ -116,7 +102,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override DateTime DateTimeValue
         {
-            get { return base.DateTimeValue; }
+            get => base.DateTimeValue;
             set
             {
                 base.DateTimeValue = value;
@@ -166,8 +152,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 
@@ -204,7 +190,7 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            relatedToEnd = ((TriggerProperty)p).RelatedToEnd;
+            this.RelatedToEnd = ((TriggerProperty)p).RelatedToEnd;
             base.Clone(p);
         }
 

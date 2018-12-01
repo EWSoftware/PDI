@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NoteProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Note property and its collection class.  It is used with the Personal Data Interchange
@@ -37,26 +37,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (NOTE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "NOTE"; }
-        }
+        public override string Tag => "NOTE";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This is overridden to enforce the correct encoding type when the version changes
@@ -64,7 +56,7 @@ namespace EWSoftware.PDI.Properties
         /// <remarks>vCard 2.1 defaults to Quoted-Printable.  vCard 3.0 uses 8-bit encoding.</remarks>
         public override SpecificationVersions Version
         {
-            get { return base.Version; }
+            get => base.Version;
             set
             {
                 base.Version = value;

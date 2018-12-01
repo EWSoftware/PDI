@@ -123,7 +123,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 331</value>
+    <value>12, 337</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 40</value>
@@ -151,7 +151,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>477, 331</value>
+    <value>480, 337</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 40</value>
@@ -178,7 +178,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 20</value>
+    <value>13, 19</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>120, 29</value>
@@ -229,7 +229,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 61</value>
+    <value>55, 60</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 29</value>
@@ -286,7 +286,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbFixed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 241</value>
+    <value>25, 240</value>
   </data>
   <data name="rbFixed.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 30</value>
@@ -313,7 +313,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 242</value>
+    <value>214, 241</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 29</value>
@@ -343,7 +343,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>279, 201</value>
+    <value>281, 200</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 30</value>
@@ -400,7 +400,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 122</value>
+    <value>230, 121</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 29</value>
@@ -430,7 +430,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>191, 162</value>
+    <value>193, 161</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 29</value>
@@ -526,7 +526,7 @@
     <value>361, 243</value>
   </data>
   <data name="udcDayOfMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 26</value>
+    <value>65, 26</value>
   </data>
   <data name="udcDayOfMonth.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -550,7 +550,7 @@
     <value>361, 203</value>
   </data>
   <data name="udcOffset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 26</value>
+    <value>65, 26</value>
   </data>
   <data name="udcOffset.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -574,7 +574,7 @@
     <value>NoControl</value>
   </data>
   <data name="chkAdjustDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>233, 284</value>
+    <value>139, 289</value>
   </data>
   <data name="chkAdjustDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>352, 30</value>

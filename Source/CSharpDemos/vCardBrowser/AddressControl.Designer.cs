@@ -81,183 +81,183 @@ namespace vCardBrowser
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControls.Location = new System.Drawing.Point(0, 0);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(664, 193);
+            this.pnlControls.Size = new System.Drawing.Size(685, 212);
             this.pnlControls.TabIndex = 0;
             // 
             // btnMap
             // 
-            this.btnMap.Location = new System.Drawing.Point(266, 102);
+            this.btnMap.Location = new System.Drawing.Point(298, 104);
             this.btnMap.Name = "btnMap";
-            this.btnMap.Size = new System.Drawing.Size(60, 28);
+            this.btnMap.Size = new System.Drawing.Size(75, 28);
             this.btnMap.TabIndex = 14;
             this.btnMap.Text = "&Map";
             this.btnMap.Click += new System.EventHandler(this.btnMap_Click);
             // 
             // chkPreferred
             // 
-            this.chkPreferred.Location = new System.Drawing.Point(556, 145);
+            this.chkPreferred.Location = new System.Drawing.Point(397, 176);
             this.chkPreferred.Name = "chkPreferred";
-            this.chkPreferred.Size = new System.Drawing.Size(96, 24);
+            this.chkPreferred.Size = new System.Drawing.Size(137, 24);
             this.chkPreferred.TabIndex = 21;
             this.chkPreferred.Text = "Preferred";
             // 
             // chkWork
             // 
-            this.chkWork.Location = new System.Drawing.Point(484, 145);
+            this.chkWork.Location = new System.Drawing.Point(251, 176);
             this.chkWork.Name = "chkWork";
-            this.chkWork.Size = new System.Drawing.Size(66, 24);
+            this.chkWork.Size = new System.Drawing.Size(137, 24);
             this.chkWork.TabIndex = 20;
             this.chkWork.Text = "Work";
             // 
             // chkHome
             // 
-            this.chkHome.Location = new System.Drawing.Point(404, 145);
+            this.chkHome.Location = new System.Drawing.Point(105, 176);
             this.chkHome.Name = "chkHome";
-            this.chkHome.Size = new System.Drawing.Size(74, 24);
+            this.chkHome.Size = new System.Drawing.Size(137, 24);
             this.chkHome.TabIndex = 19;
             this.chkHome.Text = "Home";
             // 
             // chkParcel
             // 
-            this.chkParcel.Location = new System.Drawing.Point(324, 145);
+            this.chkParcel.Location = new System.Drawing.Point(543, 146);
             this.chkParcel.Name = "chkParcel";
-            this.chkParcel.Size = new System.Drawing.Size(74, 24);
+            this.chkParcel.Size = new System.Drawing.Size(137, 24);
             this.chkParcel.TabIndex = 18;
             this.chkParcel.Text = "Parcel";
             // 
             // chkPostal
             // 
-            this.chkPostal.Location = new System.Drawing.Point(236, 145);
+            this.chkPostal.Location = new System.Drawing.Point(397, 146);
             this.chkPostal.Name = "chkPostal";
-            this.chkPostal.Size = new System.Drawing.Size(82, 24);
+            this.chkPostal.Size = new System.Drawing.Size(137, 24);
             this.chkPostal.TabIndex = 17;
             this.chkPostal.Text = "Postal";
             // 
             // chkInternational
             // 
-            this.chkInternational.Location = new System.Drawing.Point(116, 145);
+            this.chkInternational.Location = new System.Drawing.Point(251, 146);
             this.chkInternational.Name = "chkInternational";
-            this.chkInternational.Size = new System.Drawing.Size(114, 24);
+            this.chkInternational.Size = new System.Drawing.Size(137, 24);
             this.chkInternational.TabIndex = 16;
             this.chkInternational.Text = "International";
             // 
             // chkDomestic
             // 
-            this.chkDomestic.Location = new System.Drawing.Point(20, 145);
+            this.chkDomestic.Location = new System.Drawing.Point(105, 146);
             this.chkDomestic.Name = "chkDomestic";
-            this.chkDomestic.Size = new System.Drawing.Size(90, 24);
+            this.chkDomestic.Size = new System.Drawing.Size(137, 24);
             this.chkDomestic.TabIndex = 15;
             this.chkDomestic.Text = "Domestic";
             // 
             // txtCountry
             // 
-            this.txtCountry.Location = new System.Drawing.Point(87, 105);
+            this.txtCountry.Location = new System.Drawing.Point(105, 105);
             this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(168, 22);
+            this.txtCountry.Size = new System.Drawing.Size(168, 26);
             this.txtCountry.TabIndex = 13;
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(17, 105);
+            this.label18.Location = new System.Drawing.Point(7, 107);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 23);
+            this.label18.Size = new System.Drawing.Size(92, 23);
             this.label18.TabIndex = 12;
             this.label18.Text = "Country";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPostalCode
             // 
-            this.txtPostalCode.Location = new System.Drawing.Point(535, 73);
+            this.txtPostalCode.Location = new System.Drawing.Point(593, 73);
             this.txtPostalCode.Name = "txtPostalCode";
-            this.txtPostalCode.Size = new System.Drawing.Size(80, 22);
+            this.txtPostalCode.Size = new System.Drawing.Size(80, 26);
             this.txtPostalCode.TabIndex = 11;
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(439, 73);
+            this.label17.Location = new System.Drawing.Point(478, 75);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(90, 23);
+            this.label17.Size = new System.Drawing.Size(109, 23);
             this.label17.TabIndex = 10;
             this.label17.Text = "Postal Code";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtRegion
             // 
-            this.txtRegion.Location = new System.Drawing.Point(351, 73);
+            this.txtRegion.Location = new System.Drawing.Point(392, 73);
             this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(80, 22);
+            this.txtRegion.Size = new System.Drawing.Size(80, 26);
             this.txtRegion.TabIndex = 9;
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(265, 73);
+            this.label16.Location = new System.Drawing.Point(279, 75);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(80, 23);
+            this.label16.Size = new System.Drawing.Size(107, 23);
             this.label16.TabIndex = 8;
             this.label16.Text = "State/Prov";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtLocality
             // 
-            this.txtLocality.Location = new System.Drawing.Point(87, 73);
+            this.txtLocality.Location = new System.Drawing.Point(105, 73);
             this.txtLocality.Name = "txtLocality";
-            this.txtLocality.Size = new System.Drawing.Size(168, 22);
+            this.txtLocality.Size = new System.Drawing.Size(168, 26);
             this.txtLocality.TabIndex = 7;
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(41, 73);
+            this.label15.Location = new System.Drawing.Point(38, 75);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(40, 23);
+            this.label15.Size = new System.Drawing.Size(61, 23);
             this.label15.TabIndex = 6;
             this.label15.Text = "City";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtPOBox
             // 
-            this.txtPOBox.Location = new System.Drawing.Point(511, 9);
+            this.txtPOBox.Location = new System.Drawing.Point(565, 9);
             this.txtPOBox.Name = "txtPOBox";
-            this.txtPOBox.Size = new System.Drawing.Size(144, 22);
+            this.txtPOBox.Size = new System.Drawing.Size(108, 26);
             this.txtPOBox.TabIndex = 3;
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(449, 9);
+            this.label14.Location = new System.Drawing.Point(482, 11);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 23);
+            this.label14.Size = new System.Drawing.Size(77, 23);
             this.label14.TabIndex = 2;
             this.label14.Text = "PO Box";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtExtendedAddress
             // 
-            this.txtExtendedAddress.Location = new System.Drawing.Point(87, 41);
+            this.txtExtendedAddress.Location = new System.Drawing.Point(105, 41);
             this.txtExtendedAddress.Name = "txtExtendedAddress";
-            this.txtExtendedAddress.Size = new System.Drawing.Size(344, 22);
+            this.txtExtendedAddress.Size = new System.Drawing.Size(367, 26);
             this.txtExtendedAddress.TabIndex = 5;
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(9, 41);
+            this.label13.Location = new System.Drawing.Point(3, 43);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(72, 23);
+            this.label13.Size = new System.Drawing.Size(96, 23);
             this.label13.TabIndex = 4;
             this.label13.Text = "Address 2";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtStreetAddress
             // 
-            this.txtStreetAddress.Location = new System.Drawing.Point(87, 9);
+            this.txtStreetAddress.Location = new System.Drawing.Point(105, 9);
             this.txtStreetAddress.Name = "txtStreetAddress";
-            this.txtStreetAddress.Size = new System.Drawing.Size(344, 22);
+            this.txtStreetAddress.Size = new System.Drawing.Size(367, 26);
             this.txtStreetAddress.TabIndex = 1;
             this.txtStreetAddress.Validating += new System.ComponentModel.CancelEventHandler(this.txtStreetAddress_Validating);
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(9, 9);
+            this.label12.Location = new System.Drawing.Point(3, 11);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(72, 23);
+            this.label12.Size = new System.Drawing.Size(96, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "&Address 1";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -266,7 +266,7 @@ namespace vCardBrowser
             // 
             this.Controls.Add(this.pnlControls);
             this.Name = "AddressControl";
-            this.Size = new System.Drawing.Size(664, 220);
+            this.Size = new System.Drawing.Size(685, 240);
             this.Controls.SetChildIndex(this.pnlControls, 0);
             this.pnlControls.ResumeLayout(false);
             this.pnlControls.PerformLayout();

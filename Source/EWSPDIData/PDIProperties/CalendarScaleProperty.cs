@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CalendarScaleProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Calendar Scale property used by the Personal Data Interchange (PDI) iCalendar classes
@@ -36,26 +36,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (CALSCALE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "CALSCALE"; }
-        }
+        public override string Tag => "CALSCALE";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
+
         #endregion
 
         #region Constructor

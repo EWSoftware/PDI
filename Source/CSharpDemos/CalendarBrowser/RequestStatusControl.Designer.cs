@@ -38,50 +38,50 @@ namespace CalendarBrowser
             // 
             // txtStatusCode
             // 
-            this.txtStatusCode.Location = new System.Drawing.Point(120, 8);
+            this.txtStatusCode.Location = new System.Drawing.Point(152, 8);
             this.txtStatusCode.Name = "txtStatusCode";
-            this.txtStatusCode.Size = new System.Drawing.Size(128, 22);
+            this.txtStatusCode.Size = new System.Drawing.Size(156, 26);
             this.txtStatusCode.TabIndex = 1;
             this.txtStatusCode.Validating += new System.ComponentModel.CancelEventHandler(this.txtStatusCode_Validating);
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(26, 8);
+            this.label5.Location = new System.Drawing.Point(35, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 23);
+            this.label5.Size = new System.Drawing.Size(111, 23);
             this.label5.TabIndex = 0;
             this.label5.Text = "Status Code";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtMessage
             // 
-            this.txtMessage.Location = new System.Drawing.Point(120, 40);
+            this.txtMessage.Location = new System.Drawing.Point(152, 40);
             this.txtMessage.Name = "txtMessage";
-            this.txtMessage.Size = new System.Drawing.Size(264, 22);
+            this.txtMessage.Size = new System.Drawing.Size(292, 26);
             this.txtMessage.TabIndex = 3;
             this.txtMessage.Validating += new System.ComponentModel.CancelEventHandler(this.txtMessage_Validating);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(29, 40);
+            this.label1.Location = new System.Drawing.Point(29, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 23);
+            this.label1.Size = new System.Drawing.Size(117, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Message";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtExtData
             // 
-            this.txtExtData.Location = new System.Drawing.Point(120, 72);
+            this.txtExtData.Location = new System.Drawing.Point(152, 72);
             this.txtExtData.Name = "txtExtData";
-            this.txtExtData.Size = new System.Drawing.Size(264, 22);
+            this.txtExtData.Size = new System.Drawing.Size(292, 26);
             this.txtExtData.TabIndex = 5;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(4, 72);
+            this.label2.Location = new System.Drawing.Point(3, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 23);
+            this.label2.Size = new System.Drawing.Size(143, 23);
             this.label2.TabIndex = 4;
             this.label2.Text = "Extended Data";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -95,7 +95,7 @@ namespace CalendarBrowser
             this.Controls.Add(this.txtStatusCode);
             this.Controls.Add(this.label5);
             this.Name = "RequestStatusControl";
-            this.Size = new System.Drawing.Size(400, 136);
+            this.Size = new System.Drawing.Size(458, 136);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.txtStatusCode, 0);
             this.Controls.SetChildIndex(this.label1, 0);

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LocationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contain the Location property class used by the Personal Data Interchange (PDI) vCalendar and
@@ -36,26 +36,19 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (LOCATION)
         /// </summary>
-        public override string Tag
-        {
-            get { return "LOCATION"; }
-        }
+        public override string Tag => "LOCATION";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
+
         #endregion
 
         #region Constructor

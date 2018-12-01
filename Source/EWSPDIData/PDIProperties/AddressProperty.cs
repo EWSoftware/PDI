@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Address property.  It is used with the Personal Data Interchange (PDI) vCard class
@@ -67,26 +67,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (ADR)
         /// </summary>
-        public override string Tag
-        {
-            get { return "ADR"; }
-        }
+        public override string Tag => "ADR";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the address type flags
@@ -271,10 +263,7 @@ namespace EWSoftware.PDI.Properties
 
                 return addrValue;
             }
-            set
-            {
-                this.Value = (value == null) ? value : base.Decode(value);
-            }
+            set => this.Value = (value == null) ? value : base.Decode(value);
         }
         #endregion
 

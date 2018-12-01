@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneUrlProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Time Zone URL property class used by the Personal Data Interchange (PDI) iCalendar
@@ -37,26 +37,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (TZURL)
         /// </summary>
-        public override string Tag
-        {
-            get { return "TZURL"; }
-        }
+        public override string Tag => "TZURL";
 
         /// <summary>
         /// This read-only property defines the default value type as URI
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Uri; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Uri;
+
         #endregion
 
         #region Constructor

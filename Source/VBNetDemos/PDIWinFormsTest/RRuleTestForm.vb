@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : RRuleTestForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/25/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' This is a simple demonstration used to test the recurrence engine which encapsulates the iCalendar 2.0 RRULE
@@ -64,8 +64,7 @@ Public Partial Class RRuleTestForm
             lblCount.Text = String.Empty
 
             ' Define the recurrence rule by parsing the text
-            Dim r As New Recurrence(txtRRULE.Text)
-            r.StartDateTime = dtpStartDate.Value
+            Dim r As New Recurrence(txtRRULE.Text) With { .StartDateTime = dtpStartDate.Value }
 
             ' Get the currently defined set of holidays if necessary
             If r.CanOccurOnHoliday = False Then
@@ -147,8 +146,7 @@ Public Partial Class RRuleTestForm
       ByVal e As System.EventArgs) Handles btnDesign.Click
         Using dlg As New RecurrencePropertiesDlg()
             Try
-                Dim r As New Recurrence(txtRRULE.Text)
-                r.StartDateTime = dtpStartDate.Value
+                Dim r As New Recurrence(txtRRULE.Text) With { .StartDateTime = dtpStartDate.Value }
 
                 dlg.SetRecurrence(r)
 

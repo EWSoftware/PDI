@@ -37,17 +37,17 @@ Partial Class FreeBusyControl
         Me.dtpStartDate.Checked = false
         Me.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpStartDate.Location = New System.Drawing.Point(64, 48)
+        Me.dtpStartDate.Location = New System.Drawing.Point(95, 53)
         Me.dtpStartDate.Name = "dtpStartDate"
         Me.dtpStartDate.ShowCheckBox = true
-        Me.dtpStartDate.Size = New System.Drawing.Size(210, 22)
+        Me.dtpStartDate.Size = New System.Drawing.Size(255, 26)
         Me.dtpStartDate.TabIndex = 5
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(18, 48)
+        Me.label1.Location = New System.Drawing.Point(19, 57)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(40, 23)
+        Me.label1.Size = New System.Drawing.Size(70, 23)
         Me.label1.TabIndex = 4
         Me.label1.Text = "Start"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -57,17 +57,17 @@ Partial Class FreeBusyControl
         Me.dtpEndDate.Checked = false
         Me.dtpEndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpEndDate.Location = New System.Drawing.Point(64, 88)
+        Me.dtpEndDate.Location = New System.Drawing.Point(95, 90)
         Me.dtpEndDate.Name = "dtpEndDate"
         Me.dtpEndDate.ShowCheckBox = true
-        Me.dtpEndDate.Size = New System.Drawing.Size(210, 22)
+        Me.dtpEndDate.Size = New System.Drawing.Size(255, 26)
         Me.dtpEndDate.TabIndex = 7
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(18, 88)
+        Me.label2.Location = New System.Drawing.Point(23, 94)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(40, 23)
+        Me.label2.Size = New System.Drawing.Size(66, 23)
         Me.label2.TabIndex = 6
         Me.label2.Text = "End"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -76,16 +76,16 @@ Partial Class FreeBusyControl
         '
         Me.cboBusyType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboBusyType.Items.AddRange(New Object() {"None", "Free", "Busy", "Unavailable", "Tentative", "Other"})
-        Me.cboBusyType.Location = New System.Drawing.Point(64, 8)
+        Me.cboBusyType.Location = New System.Drawing.Point(95, 14)
         Me.cboBusyType.Name = "cboBusyType"
-        Me.cboBusyType.Size = New System.Drawing.Size(112, 24)
+        Me.cboBusyType.Size = New System.Drawing.Size(128, 28)
         Me.cboBusyType.TabIndex = 1
         '
         'label10
         '
-        Me.label10.Location = New System.Drawing.Point(10, 8)
+        Me.label10.Location = New System.Drawing.Point(15, 16)
         Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(48, 23)
+        Me.label10.Size = New System.Drawing.Size(74, 23)
         Me.label10.TabIndex = 0
         Me.label10.Text = "Type"
         Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -93,16 +93,16 @@ Partial Class FreeBusyControl
         'txtOtherType
         '
         Me.txtOtherType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtOtherType.Location = New System.Drawing.Point(280, 8)
+        Me.txtOtherType.Location = New System.Drawing.Point(342, 14)
         Me.txtOtherType.Name = "txtOtherType"
-        Me.txtOtherType.Size = New System.Drawing.Size(136, 22)
+        Me.txtOtherType.Size = New System.Drawing.Size(136, 26)
         Me.txtOtherType.TabIndex = 3
         '
         'label4
         '
-        Me.label4.Location = New System.Drawing.Point(194, 8)
+        Me.label4.Location = New System.Drawing.Point(229, 16)
         Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(80, 23)
+        Me.label4.Size = New System.Drawing.Size(107, 23)
         Me.label4.TabIndex = 2
         Me.label4.Text = "Other Type"
         Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -118,7 +118,7 @@ Partial Class FreeBusyControl
         Me.Controls.Add(Me.dtpStartDate)
         Me.Controls.Add(Me.label1)
         Me.Name = "FreeBusyControl"
-        Me.Size = New System.Drawing.Size(436, 152)
+        Me.Size = New System.Drawing.Size(503, 161)
         Me.Controls.SetChildIndex(Me.label1, 0)
         Me.Controls.SetChildIndex(Me.dtpStartDate, 0)
         Me.Controls.SetChildIndex(Me.label2, 0)

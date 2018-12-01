@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurrenceIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Recurrence ID property class used by the Personal Data Interchange (PDI) iCalendar
@@ -20,7 +20,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 namespace EWSoftware.PDI.Properties
@@ -43,6 +42,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private string range;
+
         #endregion
 
         #region Properties
@@ -52,33 +52,24 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (RECURRENCE-ID)
         /// </summary>
-        public override string Tag
-        {
-            get { return "RECURRENCE-ID"; }
-        }
+        public override string Tag => "RECURRENCE-ID";
 
         /// <summary>
         /// This read-only property defines the default value type as DATE-TIME
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.DateTime; }
-        }
+        public override string DefaultValueLocation => ValLocValue.DateTime;
 
         /// <summary>
         /// This property is used to get or set the range (RANGE) parameter
         /// </summary>
         public string Range
         {
-            get { return range; }
+            get => range;
             set
             {
                 if(!String.IsNullOrWhiteSpace(value))

@@ -1,6 +1,15 @@
 @ECHO OFF
 CLS
 
+RD /S /Q .\Deployment
+
+MD .\Deployment
+
+DEL Source\EWSPDI\bin\Release\*.nupkg
+DEL Source\EWSPDIData\bin\Release\*.nupkg
+DEL Source\EWSPDIWeb\bin\Release\*.nupkg
+DEL Source\EWSPDIWinForms\bin\Release\*.nupkg
+
 IF EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0" SET "MSBUILD=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Community\MSBuild\15.0\bin\MSBuild.exe"
 IF EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Professional\MSBuild\15.0" SET "MSBUILD=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\bin\MSBuild.exe"
 IF EXIST "%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0" SET "MSBUILD=%ProgramFiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\bin\MSBuild.exe"

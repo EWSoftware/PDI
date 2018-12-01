@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurOptsDataSource.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/24/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a helper class that can be used to obtain a list of values suitable for binding to a combo
@@ -39,19 +39,13 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <value>An <see cref="IList" /> interface reference suitable for data binding.  The underlying object
         /// is a <see cref="List{T}"/> containing a set of <see cref="ListItem"/> objects.</value>
-        public static IList DayOccurrences
-        {
-            get
-            {
-                return new List<ListItem>(new[] {
-                    new ListItem(DayOccurrence.First, LR.EnumDesc(DayOccurrence.First)),
-                    new ListItem(DayOccurrence.Second, LR.EnumDesc(DayOccurrence.Second)),
-                    new ListItem(DayOccurrence.Third, LR.EnumDesc(DayOccurrence.Third)),
-                    new ListItem(DayOccurrence.Fourth, LR.EnumDesc(DayOccurrence.Fourth)),
-                    new ListItem(DayOccurrence.Last, LR.EnumDesc(DayOccurrence.Last))
-                });
-            }
-        }
+        public static IList DayOccurrences => new List<ListItem>(new[] {
+            new ListItem(DayOccurrence.First, LR.EnumDesc(DayOccurrence.First)),
+            new ListItem(DayOccurrence.Second, LR.EnumDesc(DayOccurrence.Second)),
+            new ListItem(DayOccurrence.Third, LR.EnumDesc(DayOccurrence.Third)),
+            new ListItem(DayOccurrence.Fourth, LR.EnumDesc(DayOccurrence.Fourth)),
+            new ListItem(DayOccurrence.Last, LR.EnumDesc(DayOccurrence.Last))
+        });
 
         /// <summary>
         /// This read-only property returns a data source containing the days of the week based on

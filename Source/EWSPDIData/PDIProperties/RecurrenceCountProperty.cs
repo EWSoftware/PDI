@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurrenceCountProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Recurrence Count property class used by the Personal Data Interchange (PDI) vCalendar
@@ -39,6 +39,7 @@ namespace EWSoftware.PDI.Properties
         private static Regex reNumber = new Regex(@"^\d*$");
 
         private int count;
+
         #endregion
 
         #region Properties
@@ -48,26 +49,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10;
 
         /// <summary>
         /// This read-only property defines the tag (RNUM)
         /// </summary>
-        public override string Tag
-        {
-            get { return "RNUM"; }
-        }
+        public override string Tag => "RNUM";
 
         /// <summary>
         /// This read-only property defines the default value type as INTEGER
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Integer; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Integer;
 
         /// <summary>
         /// This allows the recurrence count to be set or retrieved as an integer for a vCalendar object
@@ -75,11 +67,11 @@ namespace EWSoftware.PDI.Properties
         /// <exception cref="ArgumentOutOfRangeException">An exception is thrown if the value is less than zero</exception>
         public int Count
         {
-            get { return count; }
+            get => count;
             set
             {
                 if(value < 0)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRNumBadValue"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRNumBadValue"));
 
                 count = value;
             }
@@ -119,8 +111,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

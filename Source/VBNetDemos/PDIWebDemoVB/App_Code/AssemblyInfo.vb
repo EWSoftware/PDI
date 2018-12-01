@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : AssemblyInfo.cs
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/19/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/22/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' PDI Web Demo assembly attributes
@@ -18,7 +18,6 @@
 ' 01/16/2005  EFW  Created the code
 '===============================================================================================================
 
-Imports System
 Imports System.Reflection
 Imports System.Resources
 Imports System.Runtime.InteropServices
@@ -28,7 +27,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("EWSoftware PDI Web Demo Application")>
 <Assembly: AssemblyDescription("This is used to demonstrate the use of the PDI library classes in a web application")>
 <Assembly: AssemblyCompany("Eric Woodruff")>
-<Assembly: AssemblyCopyright("Copyright \xA9 2003-2015, Eric Woodruff, All Rights Reserved")>
+<Assembly: AssemblyCopyright("Copyright \xA9 2003-2018, Eric Woodruff, All Rights Reserved")>
 <Assembly: AssemblyCulture("")>
 #If DEBUG
 <Assembly: AssemblyConfiguration("Debug")>
@@ -52,5 +51,5 @@ Imports System.Runtime.InteropServices
 '      Day of release
 '      Revision (typically zero unless multiple releases are made on the same day)
 '
-<Assembly: AssemblyVersion("2015.1.19.0")>
-<Assembly: AssemblyFileVersion("15.1.19.0")>
+<Assembly: AssemblyVersion("2018.11.22.0")>
+<Assembly: AssemblyFileVersion("18.11.22.0")>

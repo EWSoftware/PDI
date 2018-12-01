@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Expand.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a static class containing recurrence expansion methods
@@ -54,8 +54,7 @@ namespace EWSoftware.PDI
                     for(expIdx = 0; expIdx < byMonthDay.Count; expIdx++)
                     {
                         monthDay = byMonthDay[expIdx];
-                        rdtNew = new RecurDateTime(rdt);
-                        rdtNew.Day = 1;
+                        rdtNew = new RecurDateTime(rdt) { Day = 1 };
 
                         // From start of month or end of month?
                         if(monthDay > 0)
@@ -111,8 +110,8 @@ namespace EWSoftware.PDI
                         {
                             // Expand to every specified day of the week
                             // in the month.
-                            rdtNew = new RecurDateTime(rdt);
-                            rdtNew.Day = 1;
+                            rdtNew = new RecurDateTime(rdt) { Day = 1 };
+
                             rdtNew.AddDays(((int)dow + 7 - (int)rdtNew.DayOfWeek) % 7);
 
                             while(rdtNew.Year == rdt.Year && rdtNew.Month == rdt.Month)
@@ -127,16 +126,16 @@ namespace EWSoftware.PDI
                         if(instance > 0)
                         {
                             // Add the nth instance of the day of the week
-                            rdtNew = new RecurDateTime(rdt);
-                            rdtNew.Day = 1;
+                            rdtNew = new RecurDateTime(rdt) { Day = 1 };
+
                             rdtNew.AddDays((((int)dow + 7 - (int)rdtNew.DayOfWeek) % 7) + ((instance - 1) * 7));
                         }
                         else
                         {
                             // Add the nth instance of the day of the week
                             // from the end of the month.
-                            rdtNew = new RecurDateTime(rdt);
-                            rdtNew.Day = DateTime.DaysInMonth(rdt.Year, rdt.Month + 1);
+                            rdtNew = new RecurDateTime(rdt) { Day = DateTime.DaysInMonth(rdt.Year, rdt.Month + 1) };
+
                             rdtNew.AddDays(0 - (((int)rdtNew.DayOfWeek + 7 - (int)dow) % 7) + ((instance + 1) * 7));
                         }
 
@@ -221,8 +220,8 @@ namespace EWSoftware.PDI
                     // Expand the date/time by adding a new entry for each hour specified
                     for(expIdx = 0; expIdx < byHour.Count; expIdx++)
                     {
-                        rdtNew = new RecurDateTime(rdt);
-                        rdtNew.Hour = byHour[expIdx];
+                        rdtNew = new RecurDateTime(rdt) { Hour = byHour[expIdx] };
+
                         dates.Add(rdtNew);
                     }
                 }
@@ -259,8 +258,8 @@ namespace EWSoftware.PDI
                     // Expand the date/time by adding a new entry for each minute specified
                     for(expIdx = 0; expIdx < byMinute.Count; expIdx++)
                     {
-                        rdtNew = new RecurDateTime(rdt);
-                        rdtNew.Minute = byMinute[expIdx];
+                        rdtNew = new RecurDateTime(rdt) { Minute = byMinute[expIdx] };
+
                         dates.Add(rdtNew);
                     }
                 }
@@ -297,8 +296,8 @@ namespace EWSoftware.PDI
                     // Expand the date/time by adding a new entry for each second specified
                     for(expIdx = 0; expIdx < bySecond.Count; expIdx++)
                     {
-                        rdtNew = new RecurDateTime(rdt);
-                        rdtNew.Second = bySecond[expIdx];
+                        rdtNew = new RecurDateTime(rdt) { Second = bySecond[expIdx] };
+
                         dates.Add(rdtNew);
                     }
                 }

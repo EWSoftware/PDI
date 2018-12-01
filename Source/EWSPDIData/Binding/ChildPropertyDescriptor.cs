@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ChildPropertyDescriptor.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/05/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a property descriptor that is used to return information for a child property
@@ -42,29 +42,21 @@ namespace EWSoftware.PDI.Binding
         /// This is used to indicate whether or not the property is read-only
         /// </summary>
         /// <returns>True if the property is read-only or false if it is not</returns>
-        public override bool IsReadOnly
-        {
-            get { return childPD.IsReadOnly; }
-        }
+        public override bool IsReadOnly => childPD.IsReadOnly;
 
         /// <summary>
         /// This returns the type for the component to which the property is bound
         /// </summary>
         /// <returns>Returns a <see cref="Type"/> that represents the type of component to which the property is
         /// bound.</returns>
-        public override Type ComponentType
-        {
-            get { return parentPD.ComponentType; }
-        }
+        public override Type ComponentType => parentPD.ComponentType;
 
         /// <summary>
         /// This returns the type for the property
         /// </summary>
         /// <returns>Returns a <see cref="Type"/> that represents the type of the property</returns>
-        public override Type PropertyType
-        {
-            get { return childPD.PropertyType; }
-        }
+        public override Type PropertyType => childPD.PropertyType;
+
         #endregion
 
         #region Constructor

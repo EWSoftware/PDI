@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Time Zone ID property classes used by the Personal Data Interchange (PDI) iCalendar
@@ -42,26 +42,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (TZID)
         /// </summary>
-        public override string Tag
-        {
-            get { return "TZID"; }
-        }
+        public override string Tag => "TZID";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This is overridden to raise the <see cref="TimeZoneIdChanged"/> event when the ID changes
@@ -69,7 +60,7 @@ namespace EWSoftware.PDI.Properties
         /// <exception cref="ArgumentException">This is thrown if the value is set to null or an empty string</exception>
         public override string Value
         {
-            get { return base.Value; }
+            get => base.Value;
             set
             {
                 if(String.IsNullOrWhiteSpace(value))
@@ -94,7 +85,7 @@ namespace EWSoftware.PDI.Properties
         /// <exception cref="ArgumentException">This is thrown if the value is set to null</exception>
         public override string EncodedValue
         {
-            get { return base.EncodedValue; }
+            get => base.EncodedValue;
             set
             {
                 if(String.IsNullOrWhiteSpace(value))
@@ -129,10 +120,7 @@ namespace EWSoftware.PDI.Properties
         /// <param name="e">The event arguments</param>
         protected virtual void OnTimeZoneIdChanged(TimeZoneIdChangedEventArgs e)
         {
-            var handler = TimeZoneIdChanged;
-
-            if(handler != null)
-                handler(this, e);
+            TimeZoneIdChanged?.Invoke(this, e);
         }
         #endregion
 

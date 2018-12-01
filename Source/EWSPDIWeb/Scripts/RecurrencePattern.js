@@ -93,11 +93,11 @@ function EWSRP_LoadByDayValues()
     instList = this.GetControl("RP_AP_INSTLST");
     selIdx = instList.selectedIndex;
 
-    while(instList.options.length != 0)
+    while(instList.options.length !== 0)
         instList.remove(0);
 
     // Certain configurations only uses the day, not the instance
-    if(this.GetControl("RP_AP_DAY").disabled == "")
+    if(this.GetControl("RP_AP_DAY").disabled === "")
         for(idx = 0; idx < this.DayInstanceList.length; idx++)
         {
             opt = document.createElement("OPTION");
@@ -224,14 +224,14 @@ function EWSRP_SetMonthlyInterval(dayOfMonth, interval, dayList, occurrence)
     this.GetControl("RP_MP_INT").value = interval.toString();
     this.GetControl("RP_MP_NTHINT").value = interval.toString();
 
-    if(dayList.length == 0)
+    if(dayList.length === 0)
         this.SetMonthlyCtlState(true);
     else
     {
         this.SetMonthlyCtlState(false);
 
         // If there's only one entry, use it.  Otherwise, use the first one plus the indicated occurrence.
-        if(dayList.length == 1)
+        if(dayList.length === 1)
         {
             if(dayList[0].Instance < 1 || dayList[0].Instance > 4)
                 this.GetControl("RP_MP_INST").selectedIndex = 4;
@@ -281,13 +281,13 @@ function EWSRP_SetMonthlyInterval(dayOfMonth, interval, dayList, occurrence)
                 }
 
             // If it isn't a combination we can use, it'll use the first day of the week from the list
-            if(daysUsed == 127)
+            if(daysUsed === 127)
                 dow = 9;    // All days
             else
-                if(daysUsed == 65)
+                if(daysUsed === 65)
                     dow = 8;    // Weekend day
                 else
-                    if(daysUsed == 62)
+                    if(daysUsed === 62)
                         dow = 7;    // Weekday
                     else
                         dow = dayList[0].DayOfWeek;
@@ -327,14 +327,14 @@ function EWSRP_SetYearlyInterval(month, dayOfMonth, interval, dayList, occurrenc
     this.GetControl("RP_YP_INT").value = interval.toString();
     this.GetControl("RP_YP_NTHINT").value = interval.toString();
 
-    if(dayList.length == 0)
+    if(dayList.length === 0)
         this.SetYearlyCtlState(true);
     else
     {
         this.SetYearlyCtlState(false);
 
         // If there's only one entry, use it.  Otherwise, use the first one plus the indicated occurrence.
-        if(dayList.length == 1)
+        if(dayList.length === 1)
         {
             if(dayList[0].Instance < 1 || dayList[0].Instance > 4)
                 this.GetControl("RP_YP_INST").selectedIndex = 4;
@@ -385,13 +385,13 @@ function EWSRP_SetYearlyInterval(month, dayOfMonth, interval, dayList, occurrenc
                 }
 
             // If it isn't a combination we can use, it'll use the first day of the week from the list
-            if(daysUsed == 127)
+            if(daysUsed === 127)
                 dow = 9;    // All days
             else
-                if(daysUsed == 65)
+                if(daysUsed === 65)
                     dow = 8;    // Weekend day
                 else
-                    if(daysUsed == 62)
+                    if(daysUsed === 62)
                         dow = 7;    // Weekday
                     else
                         dow = dayList[0].DayOfWeek;
@@ -433,13 +433,13 @@ function EWSRP_SetAdvancedInterval(pattern, interval, dayList, months, byWeekNo,
 
     this.GetControl("RP_AP_INT").value = interval.toString();
 
-    if(typeof(dayList) != "undefined")
+    if(typeof(dayList) !== "undefined")
     {
-        if(typeof(months) != "undefined" && months.length != 0)
+        if(typeof(months) !== "undefined" && months.length !== 0)
             for(idx = 0; idx < months.length; idx++)
                 opts[months[idx] - 1].selected = true;
 
-        if(typeof(byWeekNo) != "undefined")
+        if(typeof(byWeekNo) !== "undefined")
         {
             this.GetControl("RP_AP_BYWKNO").value = byWeekNo;
             this.GetControl("RP_AP_BYYRDAY").value = byYearDay;
@@ -453,7 +453,7 @@ function EWSRP_SetAdvancedInterval(pattern, interval, dayList, months, byWeekNo,
         // Set the Day Instance control state which depends on the above settings
         this.SetDayInstanceState();
 
-        if(this.GetControl("RP_AP_DAY").disabled == "")
+        if(this.GetControl("RP_AP_DAY").disabled === "")
             this.DayInstanceList = dayList;
         else
             this.DayList = dayList;
@@ -517,31 +517,31 @@ function EWSRP_ShowPatternOptions(maxPattern)
 function EWSRP_SelectPattern(pattern)
 {
     // Only validate when the pattern changes
-    if(this.CurrentPattern != pattern && !this.ValidateRecurrence())
+    if(this.CurrentPattern !== pattern && !this.ValidateRecurrence())
     {
         // Keep the old radio button checked if validation fails
         pattern = this.CurrentPattern;
 
-        this.GetControl("RP_RB_YEAR").checked = (pattern == 1);
-        this.GetControl("RP_RB_MON").checked = (pattern == 2);
-        this.GetControl("RP_RB_WEEK").checked = (pattern == 3);
-        this.GetControl("RP_RB_DAY").checked = (pattern == 4);
-        this.GetControl("RP_RB_HOUR").checked = (pattern == 5);
-        this.GetControl("RP_RB_MIN").checked = (pattern == 6);
-        this.GetControl("RP_RB_SEC").checked = (pattern == 7);
+        this.GetControl("RP_RB_YEAR").checked = (pattern === 1);
+        this.GetControl("RP_RB_MON").checked = (pattern === 2);
+        this.GetControl("RP_RB_WEEK").checked = (pattern === 3);
+        this.GetControl("RP_RB_DAY").checked = (pattern === 4);
+        this.GetControl("RP_RB_HOUR").checked = (pattern === 5);
+        this.GetControl("RP_RB_MIN").checked = (pattern === 6);
+        this.GetControl("RP_RB_SEC").checked = (pattern === 7);
 
         return;
     }
 
     var advanced = this.GetControl("RP_CHK_ADV").checked;
 
-    this.GetControl("RP_RB_YEAR").checked = (pattern == 1);
-    this.GetControl("RP_RB_MON").checked = (pattern == 2);
-    this.GetControl("RP_RB_WEEK").checked = (pattern == 3);
-    this.GetControl("RP_RB_DAY").checked = (pattern == 4);
-    this.GetControl("RP_RB_HOUR").checked = (pattern == 5);
-    this.GetControl("RP_RB_MIN").checked = (pattern == 6);
-    this.GetControl("RP_RB_SEC").checked = (pattern == 7);
+    this.GetControl("RP_RB_YEAR").checked = (pattern === 1);
+    this.GetControl("RP_RB_MON").checked = (pattern === 2);
+    this.GetControl("RP_RB_WEEK").checked = (pattern === 3);
+    this.GetControl("RP_RB_DAY").checked = (pattern === 4);
+    this.GetControl("RP_RB_HOUR").checked = (pattern === 5);
+    this.GetControl("RP_RB_MIN").checked = (pattern === 6);
+    this.GetControl("RP_RB_SEC").checked = (pattern === 7);
 
     this.CurrentPattern = pattern;
 
@@ -585,7 +585,7 @@ function EWSRP_SelectPattern(pattern)
         }
 
         // By Week # is only used by the Yearly frequency
-        if(pattern == 1)
+        if(pattern === 1)
             this.GetControl("RP_AP_BYWKNO").disabled = "";
         else
             this.GetControl("RP_AP_BYWKNO").disabled = "disabled";
@@ -602,13 +602,13 @@ function EWSRP_SelectPattern(pattern)
     else
     {
         this.GetControl("RP_ADV_PAT").style.display = "none";
-        this.GetControl("RP_YEAR_PAT").style.display = (pattern == 1) ? "block" : "none";
-        this.GetControl("RP_MON_PAT").style.display = (pattern == 2) ? "block" : "none";
-        this.GetControl("RP_WEEK_PAT").style.display = (pattern == 3) ? "block" : "none";
-        this.GetControl("RP_DAY_PAT").style.display = (pattern == 4) ? "block" : "none";
-        this.GetControl("RP_HOUR_PAT").style.display = (pattern == 5) ? "block" : "none";
-        this.GetControl("RP_MIN_PAT").style.display = (pattern == 6) ? "block" : "none";
-        this.GetControl("RP_SEC_PAT").style.display = (pattern == 7) ? "block" : "none";
+        this.GetControl("RP_YEAR_PAT").style.display = (pattern === 1) ? "block" : "none";
+        this.GetControl("RP_MON_PAT").style.display = (pattern === 2) ? "block" : "none";
+        this.GetControl("RP_WEEK_PAT").style.display = (pattern === 3) ? "block" : "none";
+        this.GetControl("RP_DAY_PAT").style.display = (pattern === 4) ? "block" : "none";
+        this.GetControl("RP_HOUR_PAT").style.display = (pattern === 5) ? "block" : "none";
+        this.GetControl("RP_MIN_PAT").style.display = (pattern === 6) ? "block" : "none";
+        this.GetControl("RP_SEC_PAT").style.display = (pattern === 7) ? "block" : "none";
     }
 }
 
@@ -637,7 +637,7 @@ function EWSRP_SetAdvancedState()
         monthDay = this.GetControl("RP_AP_BYMODAY").value;
         monthDay = monthDay.split(/[,\-]/);
 
-        if(monthDay.length == 0)
+        if(monthDay.length === 0)
             monthDay = 1;
         else
         {
@@ -649,12 +649,12 @@ function EWSRP_SetAdvancedState()
 
         occurrence = this.GetControl("RP_AP_BYPOS").value;
 
-        if(occurrence.substr(0, 1) != "-")
+        if(occurrence.substr(0, 1) !== "-")
 			occurrence = occurrence.split(/[,\-]/);
 		else
 			occurrence = occurrence.substr(1).split(/,/);
 
-        if(occurrence.length == 0)
+        if(occurrence.length === 0)
             occurrence = 1;
         else
         {
@@ -663,7 +663,7 @@ function EWSRP_SetAdvancedState()
                 occurrence = 1;
         }
 
-        if(this.GetControl("RP_AP_DAY").disabled == "")
+        if(this.GetControl("RP_AP_DAY").disabled === "")
             dayList = this.DayInstanceList;
         else
             dayList = this.DayList;
@@ -727,7 +727,7 @@ function EWSRP_SetAdvancedState()
                     }
 
                 // Use Every Week Day if that's what we found
-                if(daysUsed == 62)
+                if(daysUsed === 62)
                     this.SetDailyInterval(1, true);
                 else
                     this.SetDailyInterval(interval, false);
@@ -1022,10 +1022,10 @@ function EWSRP_SetDayInstanceState()
     var dayInstCtl, newState, oldState, opts, idx, count;
 
     dayInstCtl = this.GetControl("RP_AP_DAY");
-    newState = oldState = (dayInstCtl.disabled == "");
+    newState = oldState = (dayInstCtl.disabled === "");
 
     // If yearly, see how many months are selected
-    if(this.CurrentPattern == 1)
+    if(this.CurrentPattern === 1)
     {
         opts = this.GetControl("RP_AP_MOS").options;
         count = opts.length;
@@ -1036,15 +1036,15 @@ function EWSRP_SetDayInstanceState()
 
         // If any months are selected, check By Month Day.  If no months are selected check By Week No.
         if(idx < count)
-            newState = (this.GetControl("RP_AP_BYMODAY").value.length == 0);
+            newState = (this.GetControl("RP_AP_BYMODAY").value.length === 0);
         else
-            newState = (this.GetControl("RP_AP_BYWKNO").value.length == 0);
+            newState = (this.GetControl("RP_AP_BYWKNO").value.length === 0);
     }
     else
-        if(this.CurrentPattern == 2)  // If monthly, check By Month Day
-            newState = (this.GetControl("RP_AP_BYMODAY").value.length == 0);
+        if(this.CurrentPattern === 2)  // If monthly, check By Month Day
+            newState = (this.GetControl("RP_AP_BYMODAY").value.length === 0);
 
-    if(oldState != newState)
+    if(oldState !== newState)
         dayInstCtl.disabled = (newState) ? "" : "disabled";
 
     this.LoadByDayValues();
@@ -1057,23 +1057,23 @@ function EWSRP_AddDayInstance()
 
     dayCtl = this.GetControl("RP_AP_DAY");
 
-    if(dayCtl.disabled == "" && !this.ValidateNumeric("RP_AP_DAY", "RP_AP_DAYVAL", -53, 53))
+    if(dayCtl.disabled === "" && !this.ValidateNumeric("RP_AP_DAY", "RP_AP_DAYVAL", -53, 53))
         return;
 
     instList = this.GetControl("RP_AP_INSTLST");
     opt = document.createElement("OPTION");
 
-    if(dayCtl.disabled == "")
+    if(dayCtl.disabled === "")
     {
         di = new EWSRP_DayInstance(parseInt(dayCtl.value, 10), this.GetControl("RP_AP_DOW").selectedIndex);
 
-        if(this.DayInstanceList.length == 0)
+        if(this.DayInstanceList.length === 0)
             this.DayInstanceList[0] = di;
         else
         {
             for(idx = 0; idx < this.DayInstanceList.length; idx++)
-                if(this.DayInstanceList[idx].Instance == di.Instance &&
-                  this.DayInstanceList[idx].DayOfWeek == di.DayOfWeek)
+                if(this.DayInstanceList[idx].Instance === di.Instance &&
+                  this.DayInstanceList[idx].DayOfWeek === di.DayOfWeek)
                     break;
 
             // Don't add it if it's already there
@@ -1089,12 +1089,12 @@ function EWSRP_AddDayInstance()
     {
         di = new EWSRP_DayInstance(0, this.GetControl("RP_AP_DOW").selectedIndex);
 
-        if(this.DayList.length == 0)
+        if(this.DayList.length === 0)
             this.DayList[0] = di;
         else
         {
             for(idx = 0; idx < this.DayList.length; idx++)
-                if(this.DayList[idx].DayOfWeek == di.DayOfWeek)
+                if(this.DayList[idx].DayOfWeek === di.DayOfWeek)
                     break;
 
             // Don't add it if it's already there
@@ -1130,11 +1130,11 @@ function EWSRP_RemoveDayInstance()
     instList = this.GetControl("RP_AP_INSTLST");
     selIdx = instList.selectedIndex;
 
-    if(selIdx == -1)
+    if(selIdx === -1)
         instList.selectedIndex = 0;
     else
     {
-        if(this.GetControl("RP_AP_DAY").disabled == "")
+        if(this.GetControl("RP_AP_DAY").disabled === "")
             this.DayInstanceList.splice(selIdx, 1);
         else
             this.DayList.splice(selIdx, 1);
@@ -1144,7 +1144,7 @@ function EWSRP_RemoveDayInstance()
         if(selIdx < instList.options.length)
             instList.selectedIndex = selIdx;
         else
-            if(instList.options.length != 0)
+            if(instList.options.length !== 0)
                 instList.selectedIndex = instList.options.length - 1;
             else
                 this.GetControl("RP_AP_DELINST").disabled = this.GetControl("RP_AP_CLRINST").disabled = "disabled";
@@ -1160,7 +1160,7 @@ function EWSRP_ClearDayInstances()
 
     instList = this.GetControl("RP_AP_INSTLST");
 
-    while(instList.options.length != 0)
+    while(instList.options.length !== 0)
         instList.remove(0);
 
     this.DayList = new Array();
@@ -1184,7 +1184,7 @@ function EWSRP_ValidateRecurrence()
 		pattern += this.GetControl("RP_AP_INT").value + "\xFF";
 		
 		// Add state flags for each month
-	    opts = this.GetControl("RP_AP_MOS").options;
+        opts = this.GetControl("RP_AP_MOS").options;
 
 		for(idx = 0; idx < opts.length; idx++)
 			pattern += opts[idx].selected ? "1" : "0";
@@ -1192,10 +1192,10 @@ function EWSRP_ValidateRecurrence()
 		pattern += "\xFF";
 		
 		// Add the day instances
-	    if(this.GetControl("RP_AP_DAY").disabled == "")
+        if(this.GetControl("RP_AP_DAY").disabled === "")
 			for(idx = 0; idx < this.DayInstanceList.length; idx++)
-		    {
-				if(idx != 0)
+            {
+				if(idx !== 0)
 					pattern += ",";
 					
 				pattern += this.DayInstanceList[idx].toString();
@@ -1203,7 +1203,7 @@ function EWSRP_ValidateRecurrence()
 		else
 			for(idx = 0; idx < this.DayList.length; idx++)
 			{
-				if(idx != 0)
+				if(idx !== 0)
 					pattern += ",";
 					
 				pattern += this.DayList[idx].toString();
@@ -1211,7 +1211,7 @@ function EWSRP_ValidateRecurrence()
 			
 		pattern += "\xFF";
 		
-		if(this.GetControl("RP_AP_BYWKNO").disabled == "")
+		if(this.GetControl("RP_AP_BYWKNO").disabled === "")
 			pattern += this.GetControl("RP_AP_BYWKNO").value + "\xFF";
 		else
 			pattern += "\xFF";
@@ -1305,7 +1305,7 @@ function EWSRP_ValidateRecurrence()
                 if(this.GetControl("RP_DP_INST").checked)
                 {
                     isValid = this.ValidateNumeric("RP_DP_INT", "RP_DP_VAL", 1, 999);
-	                pattern += "0\xFF" + this.GetControl("RP_DP_INT").value + "\xFF";
+                    pattern += "0\xFF" + this.GetControl("RP_DP_INT").value + "\xFF";
                 }
                 else
 					pattern += "1\xFF";
@@ -1381,7 +1381,7 @@ function EWSRP_ValidateNumeric(textBoxCtlId, msgSpanId, minVal, maxVal)
 
     numberCtl.value = numberText;
 
-    if(numberText == "" || !/^\-?[0-9]+$/.test(numberText))
+    if(numberText === "" || !/^\-?[0-9]+$/.test(numberText))
         number = -32767;
     else
         number = parseInt(numberText, 10);
@@ -1412,7 +1412,7 @@ function EWSRP_ValidateEndDate()
     parts = dateText.split(/[^0-9]/);
 
     // We should have enough parts.  If not, return.  It's valid as we made it this far.
-    if(parts.length != 3)
+    if(parts.length !== 3)
         return true;
 
     sep = dateText.charAt(parts[0].length);
@@ -1422,10 +1422,10 @@ function EWSRP_ValidateEndDate()
     month = parseInt(parts[0], 10);
     day = parseInt(parts[1], 10);
 
-	if(month != endDate.getMonth() + 1 && month != endDate.getDate())
+	if(month !== endDate.getMonth() + 1 && month !== endDate.getDate())
 		return false;
 
-	if(day != endDate.getMonth() + 1 && day != endDate.getDate())
+	if(day !== endDate.getMonth() + 1 && day !== endDate.getDate())
 		return false;
 
 	// Format the parts with leading zeros and add a full 4 digit year.  We make no assumption about the order
@@ -1444,7 +1444,7 @@ function EWSRP_ValidateEndDate()
         else
             year += 1900;
 
-    if(year != endDate.getFullYear())
+    if(year !== endDate.getFullYear())
 		return false;
 
     endDateCtl.value = parts[0] + sep + parts[1] + sep + year.toString();

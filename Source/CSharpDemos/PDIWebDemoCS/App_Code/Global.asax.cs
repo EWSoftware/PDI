@@ -38,7 +38,7 @@ namespace PDIWebDemoCS
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-		protected void Application_Start(Object sender, EventArgs e)
+		protected void Application_Start(object sender, EventArgs e)
 		{
             // Load the time zones if not already done.  The collection is static so it only needs to be loaded
             // once.
@@ -84,7 +84,7 @@ namespace PDIWebDemoCS
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-		protected void Application_Error(Object sender, EventArgs e)
+		protected void Application_Error(object sender, EventArgs e)
 		{
             // Nothing special yet.
 		}

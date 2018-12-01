@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI ASP.NET Web Server Controls
 // File    : RecurrencePattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/30/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
@@ -23,6 +23,8 @@
 // 12/30/2014  EFW  Simplified the HTML and styling to allow for the use of alternate CSS frameworks such as
 //                  Bootstrap.
 //===============================================================================================================
+
+// Ignore Spelling: runat args
 
 using System;
 using System.Collections.Specialized;
@@ -64,6 +66,7 @@ namespace EWSoftware.PDI.Web.Controls
 
         // The validator
         private CustomValidator validator;
+
         #endregion
 
         #region Properties
@@ -77,8 +80,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the containing panel")]
         public string CssPanel
         {
-            get { return (string)this.ViewState["CssPanel"]; }
-            set { this.ViewState["CssPanel"] = value; }
+            get => (string)this.ViewState["CssPanel"];
+            set => this.ViewState["CssPanel"] = value;
         }
 
         /// <summary>
@@ -89,8 +92,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the panel heading")]
         public string CssPanelHeading
         {
-            get { return (string)this.ViewState["CssPanelHeading"]; }
-            set { this.ViewState["CssPanelHeading"] = value; }
+            get => (string)this.ViewState["CssPanelHeading"];
+            set => this.ViewState["CssPanelHeading"] = value;
         }
 
         /// <summary>
@@ -101,8 +104,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the panel title")]
         public string CssPanelTitle
         {
-            get { return (string)this.ViewState["CssPanelTitle"]; }
-            set { this.ViewState["CssPanelTitle"] = value; }
+            get => (string)this.ViewState["CssPanelTitle"];
+            set => this.ViewState["CssPanelTitle"] = value;
         }
 
         /// <summary>
@@ -113,8 +116,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the panel body")]
         public string CssPanelBody
         {
-            get { return (string)this.ViewState["CssPanelBody"]; }
-            set { this.ViewState["CssPanelBody"] = value; }
+            get => (string)this.ViewState["CssPanelBody"];
+            set => this.ViewState["CssPanelBody"] = value;
         }
 
         /// <summary>
@@ -125,8 +128,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the input (textbox) controls")]
         public string CssInput
         {
-            get { return (string)this.ViewState["CssInput"]; }
-            set { this.ViewState["CssInput"] = value; }
+            get => (string)this.ViewState["CssInput"];
+            set => this.ViewState["CssInput"] = value;
         }
 
         /// <summary>
@@ -137,8 +140,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the select (combo box) controls")]
         public string CssSelect
         {
-            get { return (string)this.ViewState["CssSelect"]; }
-            set { this.ViewState["CssSelect"] = value; }
+            get => (string)this.ViewState["CssSelect"];
+            set => this.ViewState["CssSelect"] = value;
         }
 
         /// <summary>
@@ -149,8 +152,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for error messages")]
         public string CssErrorMessage
         {
-            get { return (string)this.ViewState["CssErrorMessage"]; }
-            set { this.ViewState["CssErrorMessage"] = value; }
+            get => (string)this.ViewState["CssErrorMessage"];
+            set => this.ViewState["CssErrorMessage"] = value;
         }
 
         /// <summary>
@@ -161,8 +164,8 @@ namespace EWSoftware.PDI.Web.Controls
          Description("The CSS class name(s) to use for the button controls")]
         public string CssButton
         {
-            get { return (string)this.ViewState["CssButton"]; }
-            set { this.ViewState["CssButton"] = value; }
+            get => (string)this.ViewState["CssButton"];
+            set => this.ViewState["CssButton"] = value;
         }
 
         /// <summary>
@@ -180,7 +183,7 @@ namespace EWSoftware.PDI.Web.Controls
                 object oShowWeekStartDay = this.ViewState["ShowWSD"];
                 return (oShowWeekStartDay == null) ? true : (bool)oShowWeekStartDay;
             }
-            set { this.ViewState["ShowWSD"] = value; }
+            set => this.ViewState["ShowWSD"] = value;
         }
 
         /// <summary>
@@ -198,7 +201,7 @@ namespace EWSoftware.PDI.Web.Controls
                 object oShowHoliday = this.ViewState["ShowHol"];
                 return (oShowHoliday == null) ? true : (bool)oShowHoliday;
             }
-            set { this.ViewState["ShowHol"] = value; }
+            set => this.ViewState["ShowHol"] = value;
         }
 
         /// <summary>
@@ -217,7 +220,7 @@ namespace EWSoftware.PDI.Web.Controls
                 object oShowAdvanced = this.ViewState["ShowAdv"];
                 return (oShowAdvanced == null) ? true : (bool)oShowAdvanced;
             }
-            set { this.ViewState["ShowAdv"] = value; }
+            set => this.ViewState["ShowAdv"] = value;
         }
 
         /// <summary>
@@ -772,8 +775,7 @@ namespace EWSoftware.PDI.Web.Controls
 
             if(rRecur == null)
             {
-                rRecur = new Recurrence();
-                rRecur.StartDateTime = DateTime.Today;
+                rRecur = new Recurrence { StartDateTime = DateTime.Today };
                 rRecur.RecurDaily(1);
             }
 
@@ -881,9 +883,10 @@ namespace EWSoftware.PDI.Web.Controls
                 LiteralControl cssLink = new LiteralControl(String.Format(CultureInfo.InvariantCulture,
                     "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">",
                     this.Page.ClientScript.GetWebResourceUrl(typeof(RecurrencePattern),
-                        RecurrencePattern.RecurrencePatternHtml + "RecurrenceStyle.css")));
-
-                cssLink.ID = "EWS_RP_Stylesheet";
+                        RecurrencePattern.RecurrencePatternHtml + "RecurrenceStyle.css")))
+                {
+                    ID = "EWS_RP_Stylesheet"
+                };
 
                 if(this.Page != null && this.Page.Header != null && this.Page.Header.FindControl(cssLink.ID) == null)
                     this.Page.Header.Controls.Add(cssLink);
@@ -897,11 +900,14 @@ namespace EWSoftware.PDI.Web.Controls
             // Page_ClientValidate function for __doPostBack (added by OnPreRender).
             if(this.DetermineRenderUplevel)
             {
-                validator = new CustomValidator();
-                validator.ID = this.ID + "_Validator";
-                validator.ClientValidationFunction = this.ID + "_Validate";
-                validator.Display = ValidatorDisplay.None;
-                validator.ErrorMessage = "The recurrence pattern is not valid";
+                validator = new CustomValidator
+                {
+                    ID = this.ID + "_Validator",
+                    ClientValidationFunction = this.ID + "_Validate",
+                    Display = ValidatorDisplay.None,
+                    ErrorMessage = "The recurrence pattern is not valid"
+                };
+
                 this.Controls.Add(validator);
             }
             else

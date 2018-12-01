@@ -64,11 +64,11 @@ namespace CalendarBrowser
             this.label1 = new System.Windows.Forms.Label();
             this.btnChgTimeZone = new System.Windows.Forms.Button();
             this.dgvCalendar = new System.Windows.Forms.DataGridView();
+            this.lblFilename = new System.Windows.Forms.Label();
             this.tbcStartDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcSummary = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcOrganizer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcComment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblFilename = new System.Windows.Forms.Label();
             this.mnuMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCalendar)).BeginInit();
             this.SuspendLayout();
@@ -111,7 +111,7 @@ namespace CalendarBrowser
             this.miFile});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(942, 25);
+            this.mnuMain.Size = new System.Drawing.Size(942, 28);
             this.mnuMain.TabIndex = 0;
             // 
             // miFile
@@ -128,14 +128,14 @@ namespace CalendarBrowser
             this.miAbout,
             this.miExit});
             this.miFile.Name = "miFile";
-            this.miFile.Size = new System.Drawing.Size(42, 21);
+            this.miFile.Size = new System.Drawing.Size(46, 24);
             this.miFile.Text = "&File";
             // 
             // miOpen
             // 
             this.miOpen.Name = "miOpen";
             this.miOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.miOpen.Size = new System.Drawing.Size(229, 22);
+            this.miOpen.Size = new System.Drawing.Size(263, 30);
             this.miOpen.Text = "&Open";
             this.miOpen.Click += new System.EventHandler(this.miOpen_Click);
             // 
@@ -143,14 +143,14 @@ namespace CalendarBrowser
             // 
             this.miSave.Name = "miSave";
             this.miSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.miSave.Size = new System.Drawing.Size(229, 22);
+            this.miSave.Size = new System.Drawing.Size(263, 30);
             this.miSave.Text = "&Save";
             this.miSave.Click += new System.EventHandler(this.miSave_Click);
             // 
             // menuItem2
             // 
             this.menuItem2.Name = "menuItem2";
-            this.menuItem2.Size = new System.Drawing.Size(226, 6);
+            this.menuItem2.Size = new System.Drawing.Size(260, 6);
             // 
             // miFileEncoding
             // 
@@ -159,7 +159,7 @@ namespace CalendarBrowser
             this.miFileWestEuro,
             this.miFileASCII});
             this.miFileEncoding.Name = "miFileEncoding";
-            this.miFileEncoding.Size = new System.Drawing.Size(229, 22);
+            this.miFileEncoding.Size = new System.Drawing.Size(263, 30);
             this.miFileEncoding.Text = "File Encoding";
             // 
             // miFileUnicode
@@ -167,21 +167,21 @@ namespace CalendarBrowser
             this.miFileUnicode.Checked = true;
             this.miFileUnicode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.miFileUnicode.Name = "miFileUnicode";
-            this.miFileUnicode.Size = new System.Drawing.Size(265, 26);
+            this.miFileUnicode.Size = new System.Drawing.Size(302, 30);
             this.miFileUnicode.Text = "Unicode (UTF-8)";
             this.miFileUnicode.Click += new System.EventHandler(this.ChangeFileEncoding_Click);
             // 
             // miFileWestEuro
             // 
             this.miFileWestEuro.Name = "miFileWestEuro";
-            this.miFileWestEuro.Size = new System.Drawing.Size(265, 26);
+            this.miFileWestEuro.Size = new System.Drawing.Size(302, 30);
             this.miFileWestEuro.Text = "Western European (Windows)";
             this.miFileWestEuro.Click += new System.EventHandler(this.ChangeFileEncoding_Click);
             // 
             // miFileASCII
             // 
             this.miFileASCII.Name = "miFileASCII";
-            this.miFileASCII.Size = new System.Drawing.Size(265, 26);
+            this.miFileASCII.Size = new System.Drawing.Size(302, 30);
             this.miFileASCII.Text = "ASCII";
             this.miFileASCII.Click += new System.EventHandler(this.ChangeFileEncoding_Click);
             // 
@@ -192,20 +192,20 @@ namespace CalendarBrowser
             this.miPropWestEuro,
             this.miPropASCII});
             this.miPropEncoding.Name = "miPropEncoding";
-            this.miPropEncoding.Size = new System.Drawing.Size(229, 22);
+            this.miPropEncoding.Size = new System.Drawing.Size(263, 30);
             this.miPropEncoding.Text = "Property Encoding";
             // 
             // miPropUnicode
             // 
             this.miPropUnicode.Name = "miPropUnicode";
-            this.miPropUnicode.Size = new System.Drawing.Size(265, 26);
+            this.miPropUnicode.Size = new System.Drawing.Size(302, 30);
             this.miPropUnicode.Text = "Unicode (UTF-8)";
             this.miPropUnicode.Click += new System.EventHandler(this.ChangePropEncoding_Click);
             // 
             // miPropWestEuro
             // 
             this.miPropWestEuro.Name = "miPropWestEuro";
-            this.miPropWestEuro.Size = new System.Drawing.Size(265, 26);
+            this.miPropWestEuro.Size = new System.Drawing.Size(302, 30);
             this.miPropWestEuro.Text = "Western European (Windows)";
             this.miPropWestEuro.Click += new System.EventHandler(this.ChangePropEncoding_Click);
             // 
@@ -214,45 +214,45 @@ namespace CalendarBrowser
             this.miPropASCII.Checked = true;
             this.miPropASCII.CheckState = System.Windows.Forms.CheckState.Checked;
             this.miPropASCII.Name = "miPropASCII";
-            this.miPropASCII.Size = new System.Drawing.Size(265, 26);
+            this.miPropASCII.Size = new System.Drawing.Size(302, 30);
             this.miPropASCII.Text = "ASCII";
             this.miPropASCII.Click += new System.EventHandler(this.ChangePropEncoding_Click);
             // 
             // menuItem4
             // 
             this.menuItem4.Name = "menuItem4";
-            this.menuItem4.Size = new System.Drawing.Size(226, 6);
+            this.menuItem4.Size = new System.Drawing.Size(260, 6);
             // 
             // miClear
             // 
             this.miClear.Name = "miClear";
-            this.miClear.Size = new System.Drawing.Size(229, 22);
+            this.miClear.Size = new System.Drawing.Size(263, 30);
             this.miClear.Text = "&Clear";
             this.miClear.Click += new System.EventHandler(this.miClear_Click);
             // 
             // menuItem6
             // 
             this.menuItem6.Name = "menuItem6";
-            this.menuItem6.Size = new System.Drawing.Size(226, 6);
+            this.menuItem6.Size = new System.Drawing.Size(260, 6);
             // 
             // miAbout
             // 
             this.miAbout.Name = "miAbout";
-            this.miAbout.Size = new System.Drawing.Size(229, 22);
+            this.miAbout.Size = new System.Drawing.Size(263, 30);
             this.miAbout.Text = "&About Calendar Browser";
             this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // miExit
             // 
             this.miExit.Name = "miExit";
-            this.miExit.Size = new System.Drawing.Size(229, 22);
+            this.miExit.Size = new System.Drawing.Size(263, 30);
             this.miExit.Text = "E&xit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
             // btnChgVersion
             // 
             this.btnChgVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChgVersion.Location = new System.Drawing.Point(480, 516);
+            this.btnChgVersion.Location = new System.Drawing.Point(448, 516);
             this.btnChgVersion.Name = "btnChgVersion";
             this.btnChgVersion.Size = new System.Drawing.Size(88, 32);
             this.btnChgVersion.TabIndex = 6;
@@ -263,18 +263,18 @@ namespace CalendarBrowser
             // 
             this.cboComponents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cboComponents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboComponents.Location = new System.Drawing.Point(786, 521);
+            this.cboComponents.Location = new System.Drawing.Point(754, 519);
             this.cboComponents.Name = "cboComponents";
-            this.cboComponents.Size = new System.Drawing.Size(144, 24);
+            this.cboComponents.Size = new System.Drawing.Size(176, 28);
             this.cboComponents.TabIndex = 9;
             this.cboComponents.SelectedIndexChanged += new System.EventHandler(this.cboComponents_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(734, 521);
+            this.label1.Location = new System.Drawing.Point(679, 523);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 23);
+            this.label1.Size = new System.Drawing.Size(69, 23);
             this.label1.TabIndex = 8;
             this.label1.Text = "V&iew";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -282,7 +282,7 @@ namespace CalendarBrowser
             // btnChgTimeZone
             // 
             this.btnChgTimeZone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChgTimeZone.Location = new System.Drawing.Point(574, 516);
+            this.btnChgTimeZone.Location = new System.Drawing.Point(542, 516);
             this.btnChgTimeZone.Name = "btnChgTimeZone";
             this.btnChgTimeZone.Size = new System.Drawing.Size(120, 32);
             this.btnChgTimeZone.TabIndex = 7;
@@ -311,7 +311,7 @@ namespace CalendarBrowser
             this.tbcSummary,
             this.tbcOrganizer,
             this.tbcComment});
-            this.dgvCalendar.Location = new System.Drawing.Point(12, 51);
+            this.dgvCalendar.Location = new System.Drawing.Point(12, 54);
             this.dgvCalendar.MultiSelect = false;
             this.dgvCalendar.Name = "dgvCalendar";
             this.dgvCalendar.ReadOnly = true;
@@ -326,11 +326,24 @@ namespace CalendarBrowser
             this.dgvCalendar.RowHeadersWidth = 25;
             this.dgvCalendar.RowTemplate.Height = 24;
             this.dgvCalendar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCalendar.Size = new System.Drawing.Size(918, 459);
+            this.dgvCalendar.Size = new System.Drawing.Size(918, 456);
             this.dgvCalendar.StandardTab = true;
             this.dgvCalendar.TabIndex = 2;
             this.dgvCalendar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCalendar_CellDoubleClick);
             this.dgvCalendar.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvCalendar_CellPainting);
+            // 
+            // lblFilename
+            // 
+            this.lblFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFilename.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilename.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblFilename.Location = new System.Drawing.Point(12, 28);
+            this.lblFilename.Name = "lblFilename";
+            this.lblFilename.Size = new System.Drawing.Size(918, 23);
+            this.lblFilename.TabIndex = 1;
+            this.lblFilename.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // tbcStartDateTime
             // 
@@ -338,7 +351,7 @@ namespace CalendarBrowser
             this.tbcStartDateTime.HeaderText = "Start Date/Time";
             this.tbcStartDateTime.Name = "tbcStartDateTime";
             this.tbcStartDateTime.ReadOnly = true;
-            this.tbcStartDateTime.Width = 200;
+            this.tbcStartDateTime.Width = 210;
             // 
             // tbcSummary
             // 
@@ -363,19 +376,6 @@ namespace CalendarBrowser
             this.tbcComment.Name = "tbcComment";
             this.tbcComment.ReadOnly = true;
             this.tbcComment.Width = 500;
-            // 
-            // lblFilename
-            // 
-            this.lblFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFilename.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFilename.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblFilename.Location = new System.Drawing.Point(12, 25);
-            this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(918, 23);
-            this.lblFilename.TabIndex = 1;
-            this.lblFilename.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // CalendarBrowserForm
             // 

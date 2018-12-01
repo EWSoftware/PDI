@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EMailPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for EMailProperty objects.  It is used with the Personal Data
@@ -64,8 +64,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public EMailProperty Add(string email)
         {
-            EMailProperty e = new EMailProperty();
-            e.Value = email;
+            EMailProperty e = new EMailProperty { Value = email };
+
             base.Add(e);
 
             return e;
@@ -79,9 +79,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public EMailProperty Add(EMailTypes emailTypes, string email)
         {
-            EMailProperty e = new EMailProperty();
-            e.EMailTypes = emailTypes;
-            e.Value = email;
+            EMailProperty e = new EMailProperty { EMailTypes = emailTypes, Value = email };
+
             base.Add(e);
 
             return e;
@@ -112,7 +111,7 @@ namespace EWSoftware.PDI.Properties
             int idx = base.IndexOf(email);
 
             if(idx == -1)
-                throw new ArgumentOutOfRangeException("email", email, LR.GetString("ExEAddrNotInCollection"));
+                throw new ArgumentOutOfRangeException(nameof(email), email, LR.GetString("ExEAddrNotInCollection"));
 
             this.SetPreferred(idx);
         }
@@ -127,7 +126,7 @@ namespace EWSoftware.PDI.Properties
         public void SetPreferred(int idx)
         {
             if(idx < 0 || idx > base.Count)
-                throw new ArgumentOutOfRangeException("idx", idx, LR.GetString("ExEAddrInvalidIndex"));
+                throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExEAddrInvalidIndex"));
 
             for(int nAddrIdx = 0; nAddrIdx < base.Count; nAddrIdx++)
                 if(nAddrIdx == idx)

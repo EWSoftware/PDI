@@ -19,6 +19,8 @@
 ' 01/05/2005  EFW  Factored out the code to share between applications
 '================================================================================================================
 
+' Ignore Spelling: Dlt
+
 Imports System.Runtime.InteropServices
 
 Imports Microsoft.Win32

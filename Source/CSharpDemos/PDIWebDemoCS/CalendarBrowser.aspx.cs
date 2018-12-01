@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarBrowser.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This page is used to demonstrate the vCalendar/iCalendar classes
@@ -91,7 +91,7 @@ namespace PDIWebDemoCS
         /// </summary>
         /// <param name="oValue">The value to encode</param>
         /// <returns>The value as an HTML-encoded string</returns>
-        protected string EncodeValue(object oValue)
+        protected static string EncodeValue(object oValue)
         {
             if(oValue != null)
                 return HttpUtility.HtmlEncode(oValue.ToString());
@@ -424,7 +424,7 @@ namespace PDIWebDemoCS
         /// utilizing a comparison delegate.  This example sorts the collection by the start date/time property
         /// and, if they are equal, the summary description.  This is used to handle all of the collection
         /// types.</remarks>
-        private int CalendarSorter(CalendarObject x, CalendarObject y)
+        private static int CalendarSorter(CalendarObject x, CalendarObject y)
         {
             DateTime d1, d2;
             string summary1, summary2;

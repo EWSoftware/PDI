@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseDateTimeProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains an abstract base date/time property class used to create the other date/time property
@@ -41,7 +41,6 @@ namespace EWSoftware.PDI.Properties
 
         private DateTime propDate;
         private string timeZoneId;
-        private bool isFloating;
 
         #endregion
 
@@ -60,11 +59,7 @@ namespace EWSoftware.PDI.Properties
         /// that is not dependent on any particular time zone.  It will be interpreted as a local time regardless
         /// of the system's current time zone.  It will not be converted to/from universal time by the
         /// <see cref="Value"/> property.</para></value>
-        public bool IsFloating
-        {
-            get { return isFloating; }
-            set { isFloating = value; }
-        }
+        public bool IsFloating { get; set; }
 
         /// <summary>
         /// This is used to get or set the time zone ID (TZID) parameter value
@@ -75,7 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// the owning calendar.  If set, the <see cref="IsFloating"/> property is ignored.</value>
         public string TimeZoneId
         {
-            get { return timeZoneId; }
+            get => timeZoneId;
             set
             {
                 if(!String.IsNullOrWhiteSpace(value))
@@ -94,8 +89,8 @@ namespace EWSoftware.PDI.Properties
         /// <seealso cref="DateTimeValue"/>
         public virtual DateTime TimeZoneDateTime
         {
-            get { return propDate; }
-            set { propDate = value; }
+            get => propDate;
+            set => propDate = value;
         }
 
         /// <summary>
@@ -195,7 +190,7 @@ namespace EWSoftware.PDI.Properties
                     if(this.Version == SpecificationVersions.vCard30)
                     {
                         // Floating uses the local time format
-                        if(isFloating)
+                        if(this.IsFloating)
                             format = ISO8601Format.ExtendedDateTimeLocal;
                         else
                         {
@@ -207,7 +202,7 @@ namespace EWSoftware.PDI.Properties
                     {
                         // iCalendar with time zone parameter uses local time format.  So does a floating
                         // date/time.
-                        if(isFloating || (this.Version == SpecificationVersions.iCalendar20 && timeZoneId != null))
+                        if(this.IsFloating || (this.Version == SpecificationVersions.iCalendar20 && timeZoneId != null))
                             format = ISO8601Format.BasicDateTimeLocal;
                         else
                         {
@@ -221,14 +216,14 @@ namespace EWSoftware.PDI.Properties
             }
             set
             {
-                isFloating = false;
+                this.IsFloating = false;
 
                 if(value != null && value.Length > 0)
                 {
                     propDate = DateUtils.FromISO8601String(value, true);
 
                     if(this.ValueLocation == ValLocValue.DateTime && timeZoneId == null)
-                        isFloating = DateUtils.IsFloatingFormat(value);
+                        this.IsFloating = DateUtils.IsFloatingFormat(value);
                 }
                 else
                     propDate = DateTime.MinValue;
@@ -240,8 +235,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

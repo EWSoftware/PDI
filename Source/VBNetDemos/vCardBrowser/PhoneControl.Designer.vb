@@ -51,85 +51,85 @@ Partial Class PhoneControl
         Me.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(470, 101)
+        Me.pnlControls.Size = New System.Drawing.Size(673, 100)
         Me.pnlControls.TabIndex = 0
         '
         'chkPager
         '
-        Me.chkPager.Location = New System.Drawing.Point(246, 70)
+        Me.chkPager.Location = New System.Drawing.Point(381, 70)
         Me.chkPager.Name = "chkPager"
-        Me.chkPager.Size = New System.Drawing.Size(86, 24)
+        Me.chkPager.Size = New System.Drawing.Size(137, 24)
         Me.chkPager.TabIndex = 8
         Me.chkPager.Text = "Pager"
         '
         'chkPreferred
         '
-        Me.chkPreferred.Location = New System.Drawing.Point(366, 70)
+        Me.chkPreferred.Location = New System.Drawing.Point(524, 70)
         Me.chkPreferred.Name = "chkPreferred"
-        Me.chkPreferred.Size = New System.Drawing.Size(101, 24)
+        Me.chkPreferred.Size = New System.Drawing.Size(137, 24)
         Me.chkPreferred.TabIndex = 9
         Me.chkPreferred.Text = "Preferred"
         '
         'chkWork
         '
-        Me.chkWork.Location = New System.Drawing.Point(14, 40)
+        Me.chkWork.Location = New System.Drawing.Point(95, 40)
         Me.chkWork.Name = "chkWork"
-        Me.chkWork.Size = New System.Drawing.Size(78, 24)
+        Me.chkWork.Size = New System.Drawing.Size(137, 24)
         Me.chkWork.TabIndex = 2
         Me.chkWork.Text = "Work"
         '
         'chkHome
         '
-        Me.chkHome.Location = New System.Drawing.Point(126, 40)
+        Me.chkHome.Location = New System.Drawing.Point(238, 40)
         Me.chkHome.Name = "chkHome"
-        Me.chkHome.Size = New System.Drawing.Size(88, 24)
+        Me.chkHome.Size = New System.Drawing.Size(137, 24)
         Me.chkHome.TabIndex = 3
         Me.chkHome.Text = "Home"
         '
         'chkCell
         '
-        Me.chkCell.Location = New System.Drawing.Point(126, 70)
+        Me.chkCell.Location = New System.Drawing.Point(238, 70)
         Me.chkCell.Name = "chkCell"
-        Me.chkCell.Size = New System.Drawing.Size(64, 24)
+        Me.chkCell.Size = New System.Drawing.Size(137, 24)
         Me.chkCell.TabIndex = 7
         Me.chkCell.Text = "Cell"
         '
         'chkMessage
         '
-        Me.chkMessage.Location = New System.Drawing.Point(14, 70)
+        Me.chkMessage.Location = New System.Drawing.Point(95, 70)
         Me.chkMessage.Name = "chkMessage"
-        Me.chkMessage.Size = New System.Drawing.Size(88, 24)
+        Me.chkMessage.Size = New System.Drawing.Size(137, 24)
         Me.chkMessage.TabIndex = 6
         Me.chkMessage.Text = "Message"
         '
         'chkFax
         '
-        Me.chkFax.Location = New System.Drawing.Point(366, 40)
+        Me.chkFax.Location = New System.Drawing.Point(524, 40)
         Me.chkFax.Name = "chkFax"
-        Me.chkFax.Size = New System.Drawing.Size(56, 24)
+        Me.chkFax.Size = New System.Drawing.Size(137, 24)
         Me.chkFax.TabIndex = 5
         Me.chkFax.Text = "Fax"
         '
         'chkVoice
         '
-        Me.chkVoice.Location = New System.Drawing.Point(246, 40)
+        Me.chkVoice.Location = New System.Drawing.Point(381, 40)
         Me.chkVoice.Name = "chkVoice"
-        Me.chkVoice.Size = New System.Drawing.Size(86, 24)
+        Me.chkVoice.Size = New System.Drawing.Size(137, 24)
         Me.chkVoice.TabIndex = 4
         Me.chkVoice.Text = "Voice"
         '
         'txtPhoneNumber
         '
-        Me.txtPhoneNumber.Location = New System.Drawing.Point(78, 8)
+        Me.txtPhoneNumber.Location = New System.Drawing.Point(95, 8)
         Me.txtPhoneNumber.Name = "txtPhoneNumber"
-        Me.txtPhoneNumber.Size = New System.Drawing.Size(368, 22)
+        Me.txtPhoneNumber.Size = New System.Drawing.Size(566, 26)
         Me.txtPhoneNumber.TabIndex = 1
         '
         'label12
         '
-        Me.label12.Location = New System.Drawing.Point(6, 8)
+        Me.label12.Location = New System.Drawing.Point(5, 10)
         Me.label12.Name = "label12"
-        Me.label12.Size = New System.Drawing.Size(64, 23)
+        Me.label12.Size = New System.Drawing.Size(84, 23)
         Me.label12.TabIndex = 0
         Me.label12.Text = "&Phone #"
         Me.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -138,7 +138,7 @@ Partial Class PhoneControl
         '
         Me.Controls.Add(Me.pnlControls)
         Me.Name = "PhoneControl"
-        Me.Size = New System.Drawing.Size(470, 128)
+        Me.Size = New System.Drawing.Size(673, 128)
         Me.Controls.SetChildIndex(Me.pnlControls, 0)
         Me.pnlControls.ResumeLayout(false)
         Me.pnlControls.PerformLayout

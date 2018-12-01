@@ -37,6 +37,7 @@ namespace EWSoftware.PDI.Windows.Forms
             // 
             resources.ApplyResources(this.rpRecurrence, "rpRecurrence");
             this.rpRecurrence.Name = "rpRecurrence";
+            this.rpRecurrence.ShowEndTime = false;
             // 
             // btnCancel
             // 

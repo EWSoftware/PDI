@@ -19,6 +19,8 @@
 ' 12/06/2004  EFW  Created the code
 '================================================================================================================
 
+' Ignore Spelling: http https
+
 Imports System.ComponentModel
 Imports System.IO
 Imports System.Net

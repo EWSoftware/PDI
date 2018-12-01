@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : HolidayManager.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/17/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a user controls that can be used to manage a set of holidays in a HolidayCollection
@@ -58,12 +58,8 @@ namespace EWSoftware.PDI.Windows.Forms
          Description("Show or hide the Load/Save buttons")]
         public bool ShowLoadSaveControls
         {
-            get { return loadSaveVisible; }
-            set
-            {
-
-                loadSaveVisible = btnLoad.Visible = btnSave.Visible = value;
-            }
+            get => loadSaveVisible;
+            set => loadSaveVisible = btnLoad.Visible = btnSave.Visible = value;
         }
 
         /// <summary>
@@ -82,7 +78,7 @@ namespace EWSoftware.PDI.Windows.Forms
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public IEnumerable<Holiday> Holidays
         {
-            get { return holidays; }
+            get => holidays;
             set
             {
                 holidays.Clear();

@@ -4,7 +4,7 @@
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
 ' Updated : 12/29/2014
 ' Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-' Compiler: Microsoft Visual C#
+' Compiler: Microsoft VB.NET
 '
 ' PDI Web Demo master page
 '
@@ -17,10 +17,6 @@
 ' ===============================================================================================================
 ' 01/16/2005  EFW  Created the code
 '================================================================================================================
-
-Imports System
-Imports System.Data
-Imports System.Configuration
 
 Namespace PDIWebDemoVB
 

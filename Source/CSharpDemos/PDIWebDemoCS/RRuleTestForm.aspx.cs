@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RRuleTestForm.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This page is used to demonstrate the recurrence engine
@@ -92,8 +92,7 @@ namespace PDIWebDemoCS
                 }
 
                 // Define the recurrence rule by parsing the text
-                Recurrence r = new Recurrence(txtRRULE.Text);
-                r.StartDateTime = dt;
+                Recurrence r = new Recurrence(txtRRULE.Text) { StartDateTime = dt };
 
                 // Synch the pattern control to the RRULE if not called by the pattern's test button
                 if(sender != btnTestPattern)

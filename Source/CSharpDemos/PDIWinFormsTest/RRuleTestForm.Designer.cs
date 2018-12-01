@@ -46,9 +46,9 @@ namespace PDIWinFormsTest
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(14, 41);
+            this.label3.Location = new System.Drawing.Point(14, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 23);
+            this.label3.Size = new System.Drawing.Size(77, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "RR&ULE";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -57,11 +57,11 @@ namespace PDIWinFormsTest
             // 
             this.txtRRULE.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRRULE.Location = new System.Drawing.Point(76, 41);
+            this.txtRRULE.Location = new System.Drawing.Point(97, 44);
             this.txtRRULE.Multiline = true;
             this.txtRRULE.Name = "txtRRULE";
             this.txtRRULE.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRRULE.Size = new System.Drawing.Size(590, 64);
+            this.txtRRULE.Size = new System.Drawing.Size(668, 64);
             this.txtRRULE.TabIndex = 3;
             this.txtRRULE.Text = "FREQ=DAILY;INTERVAL=5;COUNT=50";
             // 
@@ -69,7 +69,7 @@ namespace PDIWinFormsTest
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(674, 456);
+            this.btnClose.Location = new System.Drawing.Point(778, 456);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 32);
             this.btnClose.TabIndex = 10;
@@ -80,16 +80,17 @@ namespace PDIWinFormsTest
             this.lbDates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.lbDates.FormattingEnabled = true;
-            this.lbDates.ItemHeight = 16;
-            this.lbDates.Location = new System.Drawing.Point(12, 169);
+            this.lbDates.IntegralHeight = false;
+            this.lbDates.ItemHeight = 20;
+            this.lbDates.Location = new System.Drawing.Point(12, 183);
             this.lbDates.Name = "lbDates";
-            this.lbDates.Size = new System.Drawing.Size(386, 276);
+            this.lbDates.Size = new System.Drawing.Size(386, 250);
             this.lbDates.TabIndex = 7;
             // 
             // btnTest
             // 
             this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTest.Location = new System.Drawing.Point(580, 456);
+            this.btnTest.Location = new System.Drawing.Point(684, 456);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(88, 32);
             this.btnTest.TabIndex = 9;
@@ -98,19 +99,19 @@ namespace PDIWinFormsTest
             // 
             // dtpStartDate
             // 
+            this.dtpStartDate.Checked = false;
             this.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(76, 12);
+            this.dtpStartDate.Location = new System.Drawing.Point(97, 12);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(190, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(235, 26);
             this.dtpStartDate.TabIndex = 1;
-            this.dtpStartDate.Value = new System.DateTime(2004, 9, 6, 0, 0, 0, 0);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(21, 12);
+            this.label1.Location = new System.Drawing.Point(21, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 23);
+            this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Start";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -120,9 +121,9 @@ namespace PDIWinFormsTest
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCount.Location = new System.Drawing.Point(12, 112);
+            this.lblCount.Location = new System.Drawing.Point(12, 119);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(750, 48);
+            this.lblCount.Size = new System.Drawing.Size(854, 48);
             this.lblCount.TabIndex = 6;
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -134,15 +135,15 @@ namespace PDIWinFormsTest
             this.hmHolidays.Location = new System.Drawing.Point(8, 24);
             this.hmHolidays.Name = "hmHolidays";
             this.hmHolidays.ShowLoadSaveControls = false;
-            this.hmHolidays.Size = new System.Drawing.Size(342, 256);
+            this.hmHolidays.Size = new System.Drawing.Size(446, 243);
             this.hmHolidays.TabIndex = 0;
             // 
             // btnDesign
             // 
             this.btnDesign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDesign.Location = new System.Drawing.Point(674, 38);
+            this.btnDesign.Location = new System.Drawing.Point(771, 41);
             this.btnDesign.Name = "btnDesign";
-            this.btnDesign.Size = new System.Drawing.Size(88, 32);
+            this.btnDesign.Size = new System.Drawing.Size(95, 32);
             this.btnDesign.TabIndex = 4;
             this.btnDesign.Text = "Desig&n";
             this.btnDesign.Click += new System.EventHandler(this.btnDesign_Click);
@@ -153,9 +154,9 @@ namespace PDIWinFormsTest
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.hmHolidays);
-            this.groupBox1.Location = new System.Drawing.Point(404, 157);
+            this.groupBox1.Location = new System.Drawing.Point(404, 170);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 288);
+            this.groupBox1.Size = new System.Drawing.Size(462, 275);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "H&olidays";
@@ -163,9 +164,9 @@ namespace PDIWinFormsTest
             // btnDescribe
             // 
             this.btnDescribe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDescribe.Location = new System.Drawing.Point(674, 76);
+            this.btnDescribe.Location = new System.Drawing.Point(771, 79);
             this.btnDescribe.Name = "btnDescribe";
-            this.btnDescribe.Size = new System.Drawing.Size(88, 32);
+            this.btnDescribe.Size = new System.Drawing.Size(95, 32);
             this.btnDescribe.TabIndex = 5;
             this.btnDescribe.Text = "Descri&be";
             this.btnDescribe.Click += new System.EventHandler(this.btnDescribe_Click);
@@ -174,7 +175,7 @@ namespace PDIWinFormsTest
             // 
             this.AcceptButton = this.btnTest;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(774, 500);
+            this.ClientSize = new System.Drawing.Size(878, 500);
             this.Controls.Add(this.btnDescribe);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDesign);

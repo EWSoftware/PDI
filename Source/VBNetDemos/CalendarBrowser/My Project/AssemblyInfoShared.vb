@@ -2,7 +2,7 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : AssemblyInfo.cs
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/20/2018
+' Updated : 12/1/2018
 ' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
@@ -51,5 +51,5 @@ Imports System.Runtime.InteropServices
 '      Day of release
 '      Revision (typically zero unless multiple releases are made on the same day)
 '
-<Assembly: AssemblyVersion("2018.11.17.0")>
-<Assembly: AssemblyFileVersion("18.11.17.0")>
+<Assembly: AssemblyVersion("2018.12.1.0")>
+<Assembly: AssemblyFileVersion("18.12.1.0")>

@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : RRuleTestForm.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 12/31/2014
-' Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+' Updated : 11/22/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This page is used to demonstrate the recurrence engine
@@ -20,13 +20,7 @@
 ' 02/10/2007  EFW  Update for .NET 2.0 and new RecurrencePattern control
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
-Imports System.Data
 Imports System.Globalization
-Imports System.Web
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 
 Imports EWSoftware.PDI
 
@@ -83,10 +77,9 @@ Namespace PDIWebDemoVB
                 End If
 
                 ' Define the recurrence rule by parsing the text
-                Dim r As New Recurrence(txtRRULE.Text)
-                r.StartDateTime = dt
+                Dim r As New Recurrence(txtRRULE.Text) With { .StartDateTime = dt }
 
-                ' Synch the pattern control to the RRULE if not called by the pattern's test button
+                    ' Synch the pattern control to the RRULE if not called by the pattern's test button
                 If Not sender.Equals(btnTestPattern) Then
                     rpRecurrence.SetRecurrence(r)
                 End If

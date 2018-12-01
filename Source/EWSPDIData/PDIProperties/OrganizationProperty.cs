@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : OrganizationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Organization property class used by the Personal Data Interchange (PDI) vCard class
@@ -38,6 +38,7 @@ namespace EWSoftware.PDI.Properties
         private static Regex reSplit = new Regex(@"(?:^[;])|(?<=(?:[^\\]))[;]");
 
         private StringCollection units;
+
         #endregion
 
         #region Properties
@@ -47,26 +48,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (ORG)
         /// </summary>
-        public override string Tag
-        {
-            get { return "ORG"; }
-        }
+        public override string Tag => "ORG";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the organization name
@@ -77,10 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is used to get the Organization Units string collection
         /// </summary>
         /// <value>Units can be added to or removed from the returned collection reference</value>
-        public StringCollection Units
-        {
-            get { return units; }
-        }
+        public StringCollection Units => units;
 
         /// <summary>
         /// This property is used to set or get the Organization Units as a string value
@@ -89,7 +79,7 @@ namespace EWSoftware.PDI.Properties
         /// will be split and loaded into the units string collection.</value>
         public string UnitsString
         {
-            get { return String.Join(", ", units); }
+            get => String.Join(", ", units);
             set
             {
                 string tempUnit;
@@ -99,7 +89,7 @@ namespace EWSoftware.PDI.Properties
 
                 if(value != null)
                 {
-                    entries = value.Split(new[] { ',', ';'}, StringSplitOptions.RemoveEmptyEntries);
+                    entries = value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                     foreach(string s in entries)
                     {
@@ -189,10 +179,7 @@ namespace EWSoftware.PDI.Properties
 
                 return orgValue;
             }
-            set
-            {
-                this.Value = (value == null) ? value : base.Decode(value);
-            }
+            set => this.Value = (value == null) ? value : base.Decode(value);
         }
         #endregion
 

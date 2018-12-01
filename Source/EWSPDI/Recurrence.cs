@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Recurrence.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class that can be used to generate recurring date/time sequences based on a pattern
@@ -58,7 +58,7 @@ namespace EWSoftware.PDI
 
         // This is used to convert the days of the week to their string form.  This is convenient for generating
         // its iCalendar representation.
-        private static string[] abbrevDays = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+        private static readonly string[] abbrevDays = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
 
         private DateTime startDate;
 
@@ -97,6 +97,7 @@ namespace EWSoftware.PDI
         // These are used to contain holidays for the CanOccurOnHoliday option when it is set to false.  Note
         // that the holiday collection is static and will be shared by all Recurrence instances.
         private static HolidayCollection holidays;
+
         // These are used to contain holidays for the CanOccurOnHoliday option when it is set to false on
         // a per-recurrence instance basis.
         private HolidayCollection instanceHolidays;
@@ -120,14 +121,14 @@ namespace EWSoftware.PDI
         /// will be defaulted to the corresponding values found in the start date/time.</remarks>
         public DateTime StartDateTime
         {
-            get { return startDate; }
+            get => startDate;
             set
             {
                 startDate = value;
 
                 // Get the offset used for the WEEKLY frequency and the BYWEEKNO rule.  This is used to shift the
                 // day to the start date's day of the week.
-            	weekdayOffset = ((int)startDate.DayOfWeek + 7 - (int)weekStart) % 7;
+                weekdayOffset = ((int)startDate.DayOfWeek + 7 - (int)weekStart) % 7;
             }
         }
 
@@ -184,11 +185,11 @@ namespace EWSoftware.PDI
         /// <exception cref="ArgumentOutOfRangeException">This is thrown if the value is negative</exception>
         public int MaximumOccurrences
         {
-            get { return maxOccur; }
+            get => maxOccur;
             set
             {
                 if(value < 0)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRecurNegativeCount"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRecurNegativeCount"));
 
                 maxOccur = value;
                 untilDate = DateTime.MaxValue;
@@ -205,7 +206,7 @@ namespace EWSoftware.PDI
         /// <seealso cref="Holidays"/>
         public bool CanOccurOnHoliday
         {
-            get { return canOccurOnHoliday; }
+            get => canOccurOnHoliday;
             set
             {
                 canOccurOnHoliday = value;
@@ -220,7 +221,7 @@ namespace EWSoftware.PDI
         /// </summary>
         public RecurFrequency Frequency
         {
-            get { return frequency; }
+            get => frequency;
             set
             {
                 frequency = value;
@@ -270,11 +271,11 @@ namespace EWSoftware.PDI
         /// <exception cref="ArgumentOutOfRangeException">This is thrown if the value is less than one</exception>
         public int Interval
         {
-            get { return interval; }
+            get => interval;
             set
             {
                 if(value < 1)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRecurBadInterval"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRecurBadInterval"));
 
                 interval = value;
             }
@@ -288,14 +289,14 @@ namespace EWSoftware.PDI
         /// property.  The default value is Monday.</remarks>
         public DayOfWeek WeekStart
         {
-            get { return weekStart; }
+            get => weekStart;
             set
             {
                 weekStart = value;
 
                 // Get the offset used for the WEEKLY frequency and the BYWEEKNO rule.  This is used to shift the
                 // day to the start date's day of the week.
-            	weekdayOffset = ((int)startDate.DayOfWeek + 7 - (int)weekStart) % 7;
+                weekdayOffset = ((int)startDate.DayOfWeek + 7 - (int)weekStart) % 7;
             }
         }
 
@@ -305,10 +306,7 @@ namespace EWSoftware.PDI
         /// <remarks>The collection contains a set of unique integer values representing month values from 1 to
         /// 12.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex9"]/*' />
-        public UniqueIntegerCollection ByMonth
-        {
-            get { return byMonth; }
-        }
+        public UniqueIntegerCollection ByMonth => byMonth;
 
         /// <summary>
         /// This is used to modify the BYWEEKNO rule of a recurrence
@@ -318,10 +316,7 @@ namespace EWSoftware.PDI
         /// values specify a week number from the start of the year.  This rule is only applicable to the
         /// <c>Yearly</c> frequency.  It is ignored for all other frequencies.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex10"]/*' />
-        public UniqueIntegerCollection ByWeekNo
-        {
-            get { return byWeekNo; }
-        }
+        public UniqueIntegerCollection ByWeekNo => byWeekNo;
 
         /// <summary>
         /// This is used to modify the BYYEARDAY rule of a recurrence
@@ -330,10 +325,7 @@ namespace EWSoftware.PDI
         /// -366 to +366 excluding zero.  Negative values specify a day number from the end of the year.
         /// Positive values specify a day number from the start of the year.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex11"]/*' />
-        public UniqueIntegerCollection ByYearDay
-        {
-            get { return byYearDay; }
-        }
+        public UniqueIntegerCollection ByYearDay => byYearDay;
 
         /// <summary>
         /// This is used to modify the BYMONTHDAY rule of a recurrence
@@ -342,10 +334,7 @@ namespace EWSoftware.PDI
         /// -31 to +31 excluding zero.  Negative values specify a day number from the end of the month.  Positive
         /// values specify a day number from the start of the month.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex12"]/*' />
-        public UniqueIntegerCollection ByMonthDay
-        {
-            get { return byMonthDay; }
-        }
+        public UniqueIntegerCollection ByMonthDay => byMonthDay;
 
         /// <summary>
         /// This is used to modify the BYHOUR rule of a recurrence
@@ -353,10 +342,7 @@ namespace EWSoftware.PDI
         /// <remarks>The collection contains a set of unique integer values representing hour values from 0 to
         /// 23.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex13"]/*' />
-        public UniqueIntegerCollection ByHour
-        {
-            get { return byHour; }
-        }
+        public UniqueIntegerCollection ByHour => byHour;
 
         /// <summary>
         /// This is used to modify the BYMINUTE rule of a recurrence
@@ -364,10 +350,7 @@ namespace EWSoftware.PDI
         /// <remarks>The collection contains a set of unique integer values representing minutes values from 0 to
         /// 59.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex13"]/*' />
-        public UniqueIntegerCollection ByMinute
-        {
-            get { return byMinute; }
-        }
+        public UniqueIntegerCollection ByMinute => byMinute;
 
         /// <summary>
         /// This is used to modify the BYSECOND rule of a recurrence
@@ -375,10 +358,7 @@ namespace EWSoftware.PDI
         /// <remarks>The collection contains a set of unique integer values representing seconds values from 0 to
         /// 59.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex13"]/*' />
-        public UniqueIntegerCollection BySecond
-        {
-            get { return bySecond; }
-        }
+        public UniqueIntegerCollection BySecond => bySecond;
 
         /// <summary>
         /// This is used to modify the BYSETPOS rule of a recurrence
@@ -388,10 +368,7 @@ namespace EWSoftware.PDI
         /// be from -366 to +366 excluding zero.  Negative values specify an index from the end of the set.
         /// Positive values specify an index from the start of the set.  Zero is not a valid index value.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex14"]/*' />
-        public UniqueIntegerCollection BySetPos
-        {
-            get { return bySetPos; }
-        }
+        public UniqueIntegerCollection BySetPos => bySetPos;
 
         /// <summary>
         /// This is used to modify the BYDAY rule of a recurrence
@@ -399,10 +376,7 @@ namespace EWSoftware.PDI
         /// <remarks>The collection contains a set of unique <see cref="DayInstance"/> values representing day of
         /// the week instances on which calculated recurrence dates can fall.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex14"]/*' />
-        public DayInstanceCollection ByDay
-        {
-            get { return byDay; }
-        }
+        public DayInstanceCollection ByDay => byDay;
 
         /// <summary>
         /// This is used to add holidays to the recurrence holiday list.  These will be used in conjunction with
@@ -432,23 +406,16 @@ namespace EWSoftware.PDI
         /// <seealso cref="CanOccurOnHoliday"/>
         public HolidayCollection InstanceHolidays
         {
-            get
-            {
-                return instanceHolidays;
-            }
-            set {
-                instanceHolidays = value;
-            }
+            get => instanceHolidays;
+            set => instanceHolidays = value;
         }
 
         /// <summary>
         /// This returns a set of custom properties (if any) found when the recurrence properties where parsed
         /// from a string.
         /// </summary>
-        public StringCollection CustomProperties
-        {
-            get { return customProps; }
-        }
+        public StringCollection CustomProperties => customProps;
+
         #endregion
 
         #region Constructors
@@ -578,7 +545,7 @@ namespace EWSoftware.PDI
                                 break;
 
                         if(dayIdx == 7)
-                            throw new ArgumentException(LR.GetString("ExRecurBadDOW"), "recurrenceText");
+                            throw new ArgumentException(LR.GetString("ExRecurBadDOW"), nameof(recurrenceText));
 
                         byDay.Add(new DayInstance((DayOfWeek)dayIdx));
                     }
@@ -642,7 +609,7 @@ namespace EWSoftware.PDI
                                 break;
 
                         if(dayIdx == 7)
-                            throw new ArgumentException(LR.GetString("ExRecurBadDOW"), "recurrenceText");
+                            throw new ArgumentException(LR.GetString("ExRecurBadDOW"), nameof(recurrenceText));
 
                         byDay.Add(new DayInstance(instance, (DayOfWeek)dayIdx));
                     }
@@ -697,7 +664,7 @@ namespace EWSoftware.PDI
                     break;
 
                 default:
-                    throw new ArgumentException(LR.GetString("ExRecurUnknownRuleFormat"), "recurrenceText");
+                    throw new ArgumentException(LR.GetString("ExRecurUnknownRuleFormat"), nameof(recurrenceText));
             }
         }
 
@@ -1239,9 +1206,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            Recurrence r = obj as Recurrence;
-
-            if(r == null)
+            if(!(obj is Recurrence r))
                 return false;
 
             return (this == r || this.ToString() == r.ToString());
@@ -1613,7 +1578,7 @@ namespace EWSoftware.PDI
         {
             // Day of the month should be between 1 and 31
             if(day < 1 || day > 31)
-                throw new ArgumentOutOfRangeException("day", day, LR.GetString("ExRecurBadDayOfMonth"));
+                throw new ArgumentOutOfRangeException(nameof(day), day, LR.GetString("ExRecurBadDayOfMonth"));
 
             this.Frequency = RecurFrequency.Monthly;
             this.Interval = recurInterval;
@@ -1719,12 +1684,12 @@ namespace EWSoftware.PDI
         {
             // Month should be valid
             if(month < 1 || month > 12)
-                throw new ArgumentOutOfRangeException("month", month, LR.GetString("ExRecurBadMonth"));
+                throw new ArgumentOutOfRangeException(nameof(month), month, LR.GetString("ExRecurBadMonth"));
 
             // Day of the month should be valid.  NOTE: We use a leap year so that 29 is valid for February.
             // It'll get thrown out by the recurrence when it isn't valid.
             if(day < 1 || day > DateTime.DaysInMonth(2004, month))
-                throw new ArgumentOutOfRangeException("day", day, LR.GetString("ExRecurInvalidDayForMonth"));
+                throw new ArgumentOutOfRangeException(nameof(day), day, LR.GetString("ExRecurInvalidDayForMonth"));
 
             this.Frequency = RecurFrequency.Yearly;
             this.Interval = recurInterval;
@@ -1763,7 +1728,7 @@ namespace EWSoftware.PDI
         {
             // Month should be valid
             if(month < 1 || month > 12)
-                throw new ArgumentOutOfRangeException("month", month, LR.GetString("ExRecurBadMonth"));
+                throw new ArgumentOutOfRangeException(nameof(month), month, LR.GetString("ExRecurBadMonth"));
 
             this.Frequency = RecurFrequency.Yearly;
             this.Interval = recurInterval;

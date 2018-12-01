@@ -47,41 +47,41 @@ Partial Class PhotoControl
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(214, 8)
+        Me.label1.Location = New System.Drawing.Point(218, 19)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(52, 23)
+        Me.label1.Size = New System.Drawing.Size(63, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "&Name"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtFilename
         '
-        Me.txtFilename.Location = New System.Drawing.Point(272, 8)
+        Me.txtFilename.Location = New System.Drawing.Point(287, 17)
         Me.txtFilename.Name = "txtFilename"
-        Me.txtFilename.Size = New System.Drawing.Size(280, 22)
+        Me.txtFilename.Size = New System.Drawing.Size(280, 26)
         Me.txtFilename.TabIndex = 1
         '
         'btnLoad
         '
-        Me.btnLoad.Location = New System.Drawing.Point(552, 7)
+        Me.btnLoad.Location = New System.Drawing.Point(573, 16)
         Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(28, 23)
+        Me.btnLoad.Size = New System.Drawing.Size(35, 28)
         Me.btnLoad.TabIndex = 2
         Me.btnLoad.Text = "..."
         '
         'chkInline
         '
-        Me.chkInline.Location = New System.Drawing.Point(272, 40)
+        Me.chkInline.Location = New System.Drawing.Point(287, 49)
         Me.chkInline.Name = "chkInline"
-        Me.chkInline.Size = New System.Drawing.Size(192, 24)
+        Me.chkInline.Size = New System.Drawing.Size(280, 24)
         Me.chkInline.TabIndex = 3
         Me.chkInline.Text = "Store image in vCard"
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(217, 72)
+        Me.label2.Location = New System.Drawing.Point(219, 81)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(49, 23)
+        Me.label2.Size = New System.Drawing.Size(62, 23)
         Me.label2.TabIndex = 4
         Me.label2.Text = "Type"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -89,10 +89,10 @@ Partial Class PhotoControl
         'cboImageType
         '
         Me.cboImageType.Items.AddRange(New Object() {"GIF", "CGM", "WMF", "BMP", "MET", "PMB", "DIB", "PICT", "TIFF", "PS", "PDF", "JPEG", "MPEG", "MPEG2", "AVI", "QTIME", "PNG"})
-        Me.cboImageType.Location = New System.Drawing.Point(272, 72)
+        Me.cboImageType.Location = New System.Drawing.Point(287, 79)
         Me.cboImageType.MaxDropDownItems = 16
         Me.cboImageType.Name = "cboImageType"
-        Me.cboImageType.Size = New System.Drawing.Size(96, 24)
+        Me.cboImageType.Size = New System.Drawing.Size(152, 28)
         Me.cboImageType.TabIndex = 5
         '
         'PhotoControl
@@ -105,7 +105,7 @@ Partial Class PhotoControl
         Me.Controls.Add(Me.label1)
         Me.Controls.Add(Me.pnlPhoto)
         Me.Name = "PhotoControl"
-        Me.Size = New System.Drawing.Size(588, 208)
+        Me.Size = New System.Drawing.Size(619, 208)
         Me.ResumeLayout(false)
         Me.PerformLayout
 

@@ -37,32 +37,32 @@ Partial Class AttachmentsControl
         '
         'chkInline
         '
-        Me.chkInline.Location = New System.Drawing.Point(394, 8)
+        Me.chkInline.Location = New System.Drawing.Point(442, 10)
         Me.chkInline.Name = "chkInline"
-        Me.chkInline.Size = New System.Drawing.Size(130, 24)
+        Me.chkInline.Size = New System.Drawing.Size(160, 24)
         Me.chkInline.TabIndex = 3
         Me.chkInline.Text = "Store file inline"
         '
         'btnLoad
         '
-        Me.btnLoad.Location = New System.Drawing.Point(354, 7)
+        Me.btnLoad.Location = New System.Drawing.Point(385, 7)
         Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(28, 23)
+        Me.btnLoad.Size = New System.Drawing.Size(35, 28)
         Me.btnLoad.TabIndex = 2
         Me.btnLoad.Text = "..."
         '
         'txtFilename
         '
-        Me.txtFilename.Location = New System.Drawing.Point(74, 8)
+        Me.txtFilename.Location = New System.Drawing.Point(101, 8)
         Me.txtFilename.Name = "txtFilename"
-        Me.txtFilename.Size = New System.Drawing.Size(280, 22)
+        Me.txtFilename.Size = New System.Drawing.Size(280, 26)
         Me.txtFilename.TabIndex = 1
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(10, 8)
+        Me.label1.Location = New System.Drawing.Point(19, 10)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(58, 23)
+        Me.label1.Size = New System.Drawing.Size(76, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "Name"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -71,9 +71,9 @@ Partial Class AttachmentsControl
         '
         Me.btnDetach.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
         Me.btnDetach.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnDetach.Location = New System.Drawing.Point(251, 170)
+        Me.btnDetach.Location = New System.Drawing.Point(285, 260)
         Me.btnDetach.Name = "btnDetach"
-        Me.btnDetach.Size = New System.Drawing.Size(75, 28)
+        Me.btnDetach.Size = New System.Drawing.Size(88, 32)
         Me.btnDetach.TabIndex = 10
         Me.btnDetach.Text = "Detach"
         '
@@ -81,9 +81,9 @@ Partial Class AttachmentsControl
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
         Me.btnClear.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnClear.Location = New System.Drawing.Point(170, 170)
+        Me.btnClear.Location = New System.Drawing.Point(191, 260)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 28)
+        Me.btnClear.Size = New System.Drawing.Size(88, 32)
         Me.btnClear.TabIndex = 9
         Me.btnClear.Text = "Clear"
         '
@@ -91,9 +91,9 @@ Partial Class AttachmentsControl
         '
         Me.btnRemove.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
         Me.btnRemove.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnRemove.Location = New System.Drawing.Point(89, 170)
+        Me.btnRemove.Location = New System.Drawing.Point(97, 260)
         Me.btnRemove.Name = "btnRemove"
-        Me.btnRemove.Size = New System.Drawing.Size(75, 28)
+        Me.btnRemove.Size = New System.Drawing.Size(88, 32)
         Me.btnRemove.TabIndex = 8
         Me.btnRemove.Text = "Remove"
         '
@@ -101,9 +101,9 @@ Partial Class AttachmentsControl
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
         Me.btnAdd.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnAdd.Location = New System.Drawing.Point(8, 170)
+        Me.btnAdd.Location = New System.Drawing.Point(3, 260)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(75, 28)
+        Me.btnAdd.Size = New System.Drawing.Size(88, 32)
         Me.btnAdd.TabIndex = 7
         Me.btnAdd.Text = "Add"
         '
@@ -114,24 +114,25 @@ Partial Class AttachmentsControl
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.lbAttachments.HorizontalExtent = 800
         Me.lbAttachments.HorizontalScrollbar = true
-        Me.lbAttachments.ItemHeight = 16
-        Me.lbAttachments.Location = New System.Drawing.Point(8, 64)
+        Me.lbAttachments.IntegralHeight = false
+        Me.lbAttachments.ItemHeight = 20
+        Me.lbAttachments.Location = New System.Drawing.Point(3, 72)
         Me.lbAttachments.Name = "lbAttachments"
-        Me.lbAttachments.Size = New System.Drawing.Size(522, 100)
+        Me.lbAttachments.Size = New System.Drawing.Size(623, 182)
         Me.lbAttachments.TabIndex = 6
         '
         'txtFormat
         '
-        Me.txtFormat.Location = New System.Drawing.Point(74, 36)
+        Me.txtFormat.Location = New System.Drawing.Point(101, 40)
         Me.txtFormat.Name = "txtFormat"
-        Me.txtFormat.Size = New System.Drawing.Size(280, 22)
+        Me.txtFormat.Size = New System.Drawing.Size(280, 26)
         Me.txtFormat.TabIndex = 5
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(10, 36)
+        Me.label2.Location = New System.Drawing.Point(8, 42)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(58, 23)
+        Me.label2.Size = New System.Drawing.Size(87, 23)
         Me.label2.TabIndex = 4
         Me.label2.Text = "Format"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -150,7 +151,7 @@ Partial Class AttachmentsControl
         Me.Controls.Add(Me.txtFilename)
         Me.Controls.Add(Me.label1)
         Me.Name = "AttachmentsControl"
-        Me.Size = New System.Drawing.Size(538, 202)
+        Me.Size = New System.Drawing.Size(629, 295)
         Me.ResumeLayout(false)
         Me.PerformLayout
 

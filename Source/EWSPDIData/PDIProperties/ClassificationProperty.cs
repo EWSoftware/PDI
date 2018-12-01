@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ClassificationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Classification property class used by the Personal Data Interchange (PDI) classes such as
@@ -41,27 +41,19 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 3.0, vCalendar 1.0, iCalendar 2.0, and IrMC 1.1</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard30 | SpecificationVersions.vCalendar10 |
-                SpecificationVersions.iCalendar20 | SpecificationVersions.IrMC11; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
+            SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20 | SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the tag (CLASS)
         /// </summary>
-        public override string Tag
-        {
-            get { return "CLASS"; }
-        }
+        public override string Tag => "CLASS";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
+
         #endregion
 
         #region Constructor

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : StatusProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Status property class used by the Personal Data Interchange (PDI) vCalendar and
@@ -34,8 +34,6 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private StatusValue status;
-
         // This private array is used to translate status value names to enumerated status values
         private static NameToValue<StatusValue>[] ntv = {
             new NameToValue<StatusValue>("ACCEPTED", StatusValue.Accepted, true),
@@ -61,35 +59,23 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (STATUS)
         /// </summary>
-        public override string Tag
-        {
-            get { return "STATUS"; }
-        }
+        public override string Tag => "STATUS";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the status value
         /// </summary>
-        public StatusValue StatusValue
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public StatusValue StatusValue { get; set; }
 
         /// <summary>
         /// This property is overridden to handle converting the text value to an enumerated status value
@@ -99,24 +85,24 @@ namespace EWSoftware.PDI.Properties
             get
             {
                 // If it's the default, return nothing
-                if(status == StatusValue.None)
+                if(this.StatusValue == StatusValue.None)
                     return null;
 
                 for(int idx = 0; idx < ntv.Length; idx++)
-                    if(status == ntv[idx].EnumValue)
+                    if(this.StatusValue == ntv[idx].EnumValue)
                         return ntv[idx].Name;
 
                 return null;
             }
             set
             {
-                status = StatusValue.None;
+                this.StatusValue = StatusValue.None;
 
                 if(value != null && value.Length != 0)
                     for(int idx = 0; idx < ntv.Length; idx++)
                         if(ntv[idx].IsMatch(value))
                         {
-                            status = ntv[idx].EnumValue;
+                            this.StatusValue = ntv[idx].EnumValue;
                             break;
                         }
             }
@@ -127,8 +113,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

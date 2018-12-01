@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AttendeeControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a calendar object's attendee collection
@@ -18,6 +18,8 @@
 // 12/14/2004  EFW  Created the code
 // 04/18/2007  EFW  Converted for use with .NET 2.0
 //===============================================================================================================
+
+// Ignore Spelling: Rsvp
 
 using System.ComponentModel;
 using System.Windows.Forms;

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the base property class used by the Personal Data Interchange (PDI) classes such as
@@ -21,7 +21,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.IO;
 using System.Text;
 
@@ -39,17 +38,11 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        // This is used for the default text encoding when reading and writing properties with a non-ASCII
-        // CHARSET parameter.
-        private static Encoding defaultEncoding = new ASCIIEncoding();
-
         private string propValue,   // The value of the property
-            groupName,      // The group to which this property belongs
             encMethod,      // The encoding method used on the property value
             charSet,        // The character set used for the property value
             language,       // The language used for the property value
-            location,       // The data type/location of the property value
-            customParams;   // Custom parameters
+            location;       // The data type/location of the property value
 
         private EncodingType encType; // This is kept in sync with encMethod
 
@@ -93,11 +86,7 @@ namespace EWSoftware.PDI.Properties
         /// data stream to alter how text with non-ASCII CHARSET properties are interpreted.  In general, this
         /// property is only useful with vCard 2.1 and vCalendar 1.0 objects as they are the only ones that make
         /// use of the CHARSET parameter.</value>
-        public static Encoding DefaultEncoding
-        {
-            get { return defaultEncoding; }
-            set { defaultEncoding = value; }
-        }
+        public static Encoding DefaultEncoding { get; set; } = new ASCIIEncoding();
 
         /// <summary>
         /// This read-only property must be specified to define the tag used for the property (i.e. FN, N, ADR,
@@ -118,7 +107,7 @@ namespace EWSoftware.PDI.Properties
         /// <remarks>B Encoding is only used by vCard 3.0.  All other specifications use Base 64 Encoding.</remarks>
         public override SpecificationVersions Version
         {
-            get { return base.Version; }
+            get => base.Version;
             set
             {
                 base.Version = value;
@@ -130,7 +119,7 @@ namespace EWSoftware.PDI.Properties
                 }
                 else
                     if(this.EncodingMethod == EncodingType.BEncoding)
-                        this.EncodingMethod = EncodingType.Base64;
+                    this.EncodingMethod = EncodingType.Base64;
             }
         }
 
@@ -140,11 +129,7 @@ namespace EWSoftware.PDI.Properties
         /// <remarks>vCard properties support grouping.  If grouped, this property will contain the name of the
         /// group with which it is associated.  This property is ignored for vCalendar and iCalendar
         /// properties.</remarks>
-        public string Group
-        {
-            get { return groupName; }
-            set { groupName = value; }
-        }
+        public string Group { get; set; }
 
         /// <summary>
         /// Set or get the encoding method for this property's value as a string
@@ -155,7 +140,7 @@ namespace EWSoftware.PDI.Properties
         /// QUOTED-PRINTABLE, BASE64, B, or a value starting with "X-" to indicate a custom type.</exception>
         public string EncodingString
         {
-            get { return encMethod; }
+            get => encMethod;
             set
             {
                 if(value == null || value.Length == 0)
@@ -203,7 +188,7 @@ namespace EWSoftware.PDI.Properties
         /// encoding.</value>
         public EncodingType EncodingMethod
         {
-            get { return encType; }
+            get => encType;
             set
             {
                 encType = value;
@@ -248,7 +233,7 @@ namespace EWSoftware.PDI.Properties
         /// vCalendar 1.0 specification.  It is ignored by all other specifications.</para></value>
         public string CharacterSet
         {
-            get { return charSet; }
+            get => charSet;
             set
             {
                 if(value == null || value.Length == 0)
@@ -265,7 +250,7 @@ namespace EWSoftware.PDI.Properties
         /// defined in RFC 1766 but the class does not enforce this through validation.</value>
         public string Language
         {
-            get { return language; }
+            get => language;
             set
             {
                 if(!String.IsNullOrWhiteSpace(value))
@@ -287,10 +272,7 @@ namespace EWSoftware.PDI.Properties
         /// location/type (i.e. Base64 for binary, 7-bit for non-binary data, etc).</para></remarks>
         public string ValueLocation
         {
-            get
-            {
-                return (location == null) ? this.DefaultValueLocation : location;
-            }
+            get => location ?? this.DefaultValueLocation;
             set
             {
                 if(value == null || value.Length == 0)
@@ -317,11 +299,7 @@ namespace EWSoftware.PDI.Properties
         /// <value>The parameters are returned in a string containing each parameter and its value separated by
         /// semi-colons (i.e. "X-ABC-Custom1=Value;X-ABC-Custom2=3".  It is up to the caller to determine what to
         /// do with them.  It can be overridden in derived classes to alter its behavior.</value>
-        public virtual string CustomParameters
-        {
-            get { return customParams; }
-            set { customParams = value; }
-        }
+        public virtual string CustomParameters { get; set; }
 
         /// <summary>
         /// This is used to set or get the value of the property in its unencoded string form
@@ -339,8 +317,8 @@ namespace EWSoftware.PDI.Properties
         /// value is stored correctly in either form.</para></remarks>
         public virtual string Value
         {
-            get { return propValue; }
-            set { propValue = value; }
+            get => propValue;
+            set => propValue = value;
         }
 
         /// <summary>
@@ -370,7 +348,7 @@ namespace EWSoftware.PDI.Properties
 
                 return this.Encode(propValue);
             }
-            set { propValue = this.Decode(value); }
+            set => propValue = this.Decode(value);
         }
         #endregion
 
@@ -484,9 +462,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            BaseProperty bp = obj as BaseProperty;
-
-            if(bp == null)
+            if(!(obj is BaseProperty bp))
                 return false;
 
             // The ToString() method returns a text representation of the property based on all of its settings
@@ -549,7 +525,7 @@ namespace EWSoftware.PDI.Properties
             // Prefix the property with the group name if there is one
             if(this.Group != null && this.Group.Length != 0)
             {
-                sb.Append(groupName);
+                sb.Append(this.Group);
                 sb.Append('.');
             }
 
@@ -870,7 +846,7 @@ namespace EWSoftware.PDI.Properties
               String.Compare(this.CharacterSet, CharSetValue.ASCII, StringComparison.OrdinalIgnoreCase) != 0)
             {
                 Encoding destEnc = Encoding.GetEncoding(this.CharacterSet);
-                byte[] destBytes = Encoding.Convert(defaultEncoding, destEnc, defaultEncoding.GetBytes(data));
+                byte[] destBytes = Encoding.Convert(DefaultEncoding, destEnc, DefaultEncoding.GetBytes(data));
 
                 // Use the literal bytes.  If we get the string, the encoder gives us the decoded values which is
                 // not what we want to write out.
@@ -963,8 +939,8 @@ namespace EWSoftware.PDI.Properties
                 Encoding enc = Encoding.GetEncoding("iso-8859-1");
                 byte[] srcBytes = enc.GetBytes(decoded);
 
-                decoded = defaultEncoding.GetString(Encoding.Convert(Encoding.GetEncoding(this.CharacterSet),
-                    defaultEncoding, srcBytes));
+                decoded = DefaultEncoding.GetString(Encoding.Convert(Encoding.GetEncoding(this.CharacterSet),
+                    DefaultEncoding, srcBytes));
             }
 
             return decoded;

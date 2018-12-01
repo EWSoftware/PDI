@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VNoteParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to parse vNote Personal Data Interchange (PDI) data streams.  It supports
@@ -19,8 +19,9 @@
 // 08/19/2007  EFW  Created the code
 //===============================================================================================================
 
+// Ignore Spelling: sr
+
 using System;
-using System.Globalization;
 using System.IO;
 
 using EWSoftware.PDI.Objects;
@@ -69,10 +70,8 @@ namespace EWSoftware.PDI.Parser
         /// <remarks>The vNotes from prior calls to the parsing methods are not cleared automatically.  Call
         /// <c>VNotes.Clear()</c> before calling a parsing method if you do not want to retain the vNotes from
         /// prior runs.</remarks>
-        public VNoteCollection VNotes
-        {
-            get { return vNotes; }
-        }
+        public VNoteCollection VNotes => vNotes;
+
         #endregion
 
         #region Constructors
@@ -96,10 +95,9 @@ namespace EWSoftware.PDI.Parser
         /// <exception cref="ArgumentNullException">This is thrown if the specified vNote object is null</exception>
         protected VNoteParser(VNote vNote) : this()
         {
-            if(vNote == null)
-                throw new ArgumentNullException("vNote", LR.GetString("ExParseNullObject", "vNote"));
+            currentNote = vNote ?? throw new ArgumentNullException(nameof(vNote),
+                LR.GetString("ExParseNullObject", "vNote"));
 
-            currentNote = vNote;
             currentNote.ClearProperties();
             vNotes.Add(vNote);
         }

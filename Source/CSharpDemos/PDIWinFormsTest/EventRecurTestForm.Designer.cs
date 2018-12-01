@@ -46,9 +46,9 @@ namespace PDIWinFormsTest
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(12, 88);
+            this.label3.Location = new System.Drawing.Point(14, 118);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(372, 24);
+            this.label3.Size = new System.Drawing.Size(417, 23);
             this.label3.TabIndex = 7;
             this.label3.Text = "&Enter a VEVENT, VTODO, or VJOURNAL entry below.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -59,11 +59,11 @@ namespace PDIWinFormsTest
             this.txtCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCalendar.Location = new System.Drawing.Point(12, 115);
+            this.txtCalendar.Location = new System.Drawing.Point(18, 145);
             this.txtCalendar.Multiline = true;
             this.txtCalendar.Name = "txtCalendar";
             this.txtCalendar.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtCalendar.Size = new System.Drawing.Size(371, 414);
+            this.txtCalendar.Size = new System.Drawing.Size(413, 379);
             this.txtCalendar.TabIndex = 8;
             this.txtCalendar.WordWrap = false;
             // 
@@ -71,7 +71,7 @@ namespace PDIWinFormsTest
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(757, 491);
+            this.btnClose.Location = new System.Drawing.Point(878, 530);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 32);
             this.btnClose.TabIndex = 12;
@@ -81,16 +81,17 @@ namespace PDIWinFormsTest
             // 
             this.lbDates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbDates.ItemHeight = 16;
-            this.lbDates.Location = new System.Drawing.Point(389, 128);
+            this.lbDates.HorizontalScrollbar = true;
+            this.lbDates.ItemHeight = 20;
+            this.lbDates.Location = new System.Drawing.Point(437, 177);
             this.lbDates.Name = "lbDates";
-            this.lbDates.Size = new System.Drawing.Size(456, 356);
+            this.lbDates.Size = new System.Drawing.Size(529, 344);
             this.lbDates.TabIndex = 10;
             // 
             // btnTest
             // 
             this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTest.Location = new System.Drawing.Point(663, 491);
+            this.btnTest.Location = new System.Drawing.Point(784, 530);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(88, 32);
             this.btnTest.TabIndex = 11;
@@ -99,47 +100,47 @@ namespace PDIWinFormsTest
             // 
             // dtpStartDate
             // 
+            this.dtpStartDate.Checked = false;
             this.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(184, 8);
+            this.dtpStartDate.Location = new System.Drawing.Point(329, 12);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(190, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(235, 26);
             this.dtpStartDate.TabIndex = 1;
-            this.dtpStartDate.Value = new System.DateTime(2004, 9, 6, 0, 0, 0, 0);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(14, 8);
+            this.label1.Location = new System.Drawing.Point(124, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 23);
+            this.label1.Size = new System.Drawing.Size(199, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Find instances between";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dtpEndDate
             // 
+            this.dtpEndDate.Checked = false;
             this.dtpEndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(418, 8);
+            this.dtpEndDate.Location = new System.Drawing.Point(627, 12);
             this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(190, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(235, 26);
             this.dtpEndDate.TabIndex = 3;
-            this.dtpEndDate.Value = new System.DateTime(2004, 9, 6, 0, 0, 0, 0);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(380, 8);
+            this.label2.Location = new System.Drawing.Point(570, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 23);
+            this.label2.Size = new System.Drawing.Size(51, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "and";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(12, 40);
+            this.label6.Location = new System.Drawing.Point(10, 76);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(262, 23);
+            this.label6.Size = new System.Drawing.Size(313, 23);
             this.label6.TabIndex = 5;
             this.label6.Text = "&Apply this time zone to the component";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -149,19 +150,17 @@ namespace PDIWinFormsTest
             this.cboTimeZone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTimeZone.Location = new System.Drawing.Point(280, 40);
+            this.cboTimeZone.Location = new System.Drawing.Point(329, 74);
             this.cboTimeZone.MaxDropDownItems = 16;
             this.cboTimeZone.Name = "cboTimeZone";
-            this.cboTimeZone.Size = new System.Drawing.Size(447, 24);
+            this.cboTimeZone.Size = new System.Drawing.Size(568, 28);
             this.cboTimeZone.TabIndex = 6;
             // 
             // chkInLocalTime
             // 
-            this.chkInLocalTime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.chkInLocalTime.Location = new System.Drawing.Point(622, 8);
+            this.chkInLocalTime.Location = new System.Drawing.Point(329, 44);
             this.chkInLocalTime.Name = "chkInLocalTime";
-            this.chkInLocalTime.Size = new System.Drawing.Size(210, 24);
+            this.chkInLocalTime.Size = new System.Drawing.Size(310, 24);
             this.chkInLocalTime.TabIndex = 4;
             this.chkInLocalTime.Text = "Find instances in local time";
             // 
@@ -169,17 +168,17 @@ namespace PDIWinFormsTest
             // 
             this.lblCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblCount.Location = new System.Drawing.Point(389, 67);
+            this.lblCount.Location = new System.Drawing.Point(437, 118);
             this.lblCount.Name = "lblCount";
-            this.lblCount.Size = new System.Drawing.Size(454, 56);
-            this.lblCount.TabIndex = 13;
+            this.lblCount.Size = new System.Drawing.Size(529, 56);
+            this.lblCount.TabIndex = 9;
             this.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // EventRecurTestForm
             // 
             this.AcceptButton = this.btnTest;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(857, 535);
+            this.ClientSize = new System.Drawing.Size(978, 574);
             this.Controls.Add(this.lblCount);
             this.Controls.Add(this.chkInLocalTime);
             this.Controls.Add(this.label6);
@@ -195,7 +194,7 @@ namespace PDIWinFormsTest
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(865, 575);
+            this.MinimumSize = new System.Drawing.Size(1000, 575);
             this.Name = "EventRecurTestForm";
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;

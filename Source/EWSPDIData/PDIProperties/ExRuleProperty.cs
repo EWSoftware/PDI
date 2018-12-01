@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ExRuleProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Exception Rule property.  It is used with the Personal Data Interchange (PDI)
@@ -35,10 +35,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This read-only property defines the tag (EXRULE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "EXRULE"; }
-        }
+        public override string Tag => "EXRULE";
+
         #endregion
 
         #region Constructor

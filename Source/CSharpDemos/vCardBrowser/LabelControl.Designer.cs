@@ -55,22 +55,22 @@ namespace vCardBrowser
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControls.Location = new System.Drawing.Point(0, 0);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(464, 173);
+            this.pnlControls.Size = new System.Drawing.Size(648, 172);
             this.pnlControls.TabIndex = 0;
             // 
             // chkPreferred
             // 
-            this.chkPreferred.Location = new System.Drawing.Point(286, 138);
+            this.chkPreferred.Location = new System.Drawing.Point(356, 138);
             this.chkPreferred.Name = "chkPreferred";
-            this.chkPreferred.Size = new System.Drawing.Size(96, 24);
+            this.chkPreferred.Size = new System.Drawing.Size(137, 24);
             this.chkPreferred.TabIndex = 8;
             this.chkPreferred.Text = "Preferred";
             // 
             // chkWork
             // 
-            this.chkWork.Location = new System.Drawing.Point(166, 138);
+            this.chkWork.Location = new System.Drawing.Point(213, 138);
             this.chkWork.Name = "chkWork";
-            this.chkWork.Size = new System.Drawing.Size(72, 24);
+            this.chkWork.Size = new System.Drawing.Size(137, 24);
             this.chkWork.TabIndex = 7;
             this.chkWork.Text = "Work";
             // 
@@ -78,31 +78,31 @@ namespace vCardBrowser
             // 
             this.chkHome.Location = new System.Drawing.Point(70, 138);
             this.chkHome.Name = "chkHome";
-            this.chkHome.Size = new System.Drawing.Size(78, 24);
+            this.chkHome.Size = new System.Drawing.Size(137, 24);
             this.chkHome.TabIndex = 6;
             this.chkHome.Text = "Home";
             // 
             // chkParcel
             // 
-            this.chkParcel.Location = new System.Drawing.Point(372, 108);
+            this.chkParcel.Location = new System.Drawing.Point(499, 108);
             this.chkParcel.Name = "chkParcel";
-            this.chkParcel.Size = new System.Drawing.Size(78, 24);
+            this.chkParcel.Size = new System.Drawing.Size(137, 24);
             this.chkParcel.TabIndex = 5;
             this.chkParcel.Text = "Parcel";
             // 
             // chkPostal
             // 
-            this.chkPostal.Location = new System.Drawing.Point(286, 108);
+            this.chkPostal.Location = new System.Drawing.Point(356, 108);
             this.chkPostal.Name = "chkPostal";
-            this.chkPostal.Size = new System.Drawing.Size(80, 24);
+            this.chkPostal.Size = new System.Drawing.Size(137, 24);
             this.chkPostal.TabIndex = 4;
             this.chkPostal.Text = "Postal";
             // 
             // chkInternational
             // 
-            this.chkInternational.Location = new System.Drawing.Point(166, 108);
+            this.chkInternational.Location = new System.Drawing.Point(213, 108);
             this.chkInternational.Name = "chkInternational";
-            this.chkInternational.Size = new System.Drawing.Size(114, 24);
+            this.chkInternational.Size = new System.Drawing.Size(137, 24);
             this.chkInternational.TabIndex = 3;
             this.chkInternational.Text = "International";
             // 
@@ -110,7 +110,7 @@ namespace vCardBrowser
             // 
             this.chkDomestic.Location = new System.Drawing.Point(70, 108);
             this.chkDomestic.Name = "chkDomestic";
-            this.chkDomestic.Size = new System.Drawing.Size(90, 24);
+            this.chkDomestic.Size = new System.Drawing.Size(137, 24);
             this.chkDomestic.TabIndex = 2;
             this.chkDomestic.Text = "Domestic";
             // 
@@ -121,15 +121,15 @@ namespace vCardBrowser
             this.txtLabelText.Multiline = true;
             this.txtLabelText.Name = "txtLabelText";
             this.txtLabelText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLabelText.Size = new System.Drawing.Size(368, 88);
+            this.txtLabelText.Size = new System.Drawing.Size(566, 88);
             this.txtLabelText.TabIndex = 1;
             this.txtLabelText.Validating += new System.ComponentModel.CancelEventHandler(this.txtLabelText_Validating);
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(14, 12);
+            this.label12.Location = new System.Drawing.Point(3, 12);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 23);
+            this.label12.Size = new System.Drawing.Size(59, 23);
             this.label12.TabIndex = 0;
             this.label12.Text = "&Label";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -138,7 +138,7 @@ namespace vCardBrowser
             // 
             this.Controls.Add(this.pnlControls);
             this.Name = "LabelControl";
-            this.Size = new System.Drawing.Size(464, 200);
+            this.Size = new System.Drawing.Size(648, 200);
             this.Controls.SetChildIndex(this.pnlControls, 0);
             this.pnlControls.ResumeLayout(false);
             this.pnlControls.PerformLayout();

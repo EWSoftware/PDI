@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AlarmControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a calendar object's alarm collection properties
@@ -349,11 +349,10 @@ namespace CalendarBrowser
         private void Duration_Validating(object sender, CancelEventArgs e)
         {
             TextBox t = (TextBox)sender;
-            Duration d;
 
             t.Text = t.Text.Trim();
 
-            if(t.Text.Length != 0 && !Duration.TryParse(t.Text, out d))
+            if(t.Text.Length != 0 && !Duration.TryParse(t.Text, out Duration d))
             {
                 this.ErrorProvider.SetError(t, "Invalid duration value");
                 e.Cancel = true;

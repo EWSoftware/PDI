@@ -2,7 +2,7 @@
 // System  : Personal Data Interchange Classes
 // File    : VCardParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
+// Updated : 11/24/2018
 // Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
@@ -20,8 +20,9 @@
 // 03/17/2007  EFW  Updated for use with .NET 2.0
 //===============================================================================================================
 
+// Ignore Spelling: sr
+
 using System;
-using System.Globalization;
 using System.IO;
 
 using EWSoftware.PDI.Objects;
@@ -93,10 +94,8 @@ namespace EWSoftware.PDI.Parser
         /// <remarks>The vCards from prior calls to the parsing methods are not cleared automatically.  Call
         /// <c>VCards.Clear()</c> before calling a parsing method if you do not want to retain the vCards from
         /// prior runs.</remarks>
-        public VCardCollection VCards
-        {
-            get { return vCards; }
-        }
+        public VCardCollection VCards => vCards;
+
         #endregion
 
         #region Constructor
@@ -120,10 +119,9 @@ namespace EWSoftware.PDI.Parser
         /// <exception cref="ArgumentNullException">This is thrown if the specified vCard object is null</exception>
         protected VCardParser(VCard vCard) : this()
         {
-            if(vCard == null)
-                throw new ArgumentNullException("vCard", LR.GetString("ExParseNullObject", "vCard"));
+            currentCard = vCard ?? throw new ArgumentNullException(nameof(vCard),
+                LR.GetString("ExParseNullObject", "vCard"));
 
-            currentCard = vCard;
             currentCard.ClearProperties();
             vCards.Add(vCard);
         }

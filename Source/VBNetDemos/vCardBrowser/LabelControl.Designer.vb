@@ -49,54 +49,54 @@ Partial Class LabelControl
         Me.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(464, 173)
+        Me.pnlControls.Size = New System.Drawing.Size(648, 172)
         Me.pnlControls.TabIndex = 0
         '
         'chkPreferred
         '
-        Me.chkPreferred.Location = New System.Drawing.Point(286, 140)
+        Me.chkPreferred.Location = New System.Drawing.Point(356, 138)
         Me.chkPreferred.Name = "chkPreferred"
-        Me.chkPreferred.Size = New System.Drawing.Size(96, 24)
+        Me.chkPreferred.Size = New System.Drawing.Size(137, 24)
         Me.chkPreferred.TabIndex = 8
         Me.chkPreferred.Text = "Preferred"
         '
         'chkWork
         '
-        Me.chkWork.Location = New System.Drawing.Point(166, 140)
+        Me.chkWork.Location = New System.Drawing.Point(213, 138)
         Me.chkWork.Name = "chkWork"
-        Me.chkWork.Size = New System.Drawing.Size(72, 24)
+        Me.chkWork.Size = New System.Drawing.Size(137, 24)
         Me.chkWork.TabIndex = 7
         Me.chkWork.Text = "Work"
         '
         'chkHome
         '
-        Me.chkHome.Location = New System.Drawing.Point(70, 140)
+        Me.chkHome.Location = New System.Drawing.Point(70, 138)
         Me.chkHome.Name = "chkHome"
-        Me.chkHome.Size = New System.Drawing.Size(78, 24)
+        Me.chkHome.Size = New System.Drawing.Size(137, 24)
         Me.chkHome.TabIndex = 6
         Me.chkHome.Text = "Home"
         '
         'chkParcel
         '
-        Me.chkParcel.Location = New System.Drawing.Point(372, 108)
+        Me.chkParcel.Location = New System.Drawing.Point(499, 108)
         Me.chkParcel.Name = "chkParcel"
-        Me.chkParcel.Size = New System.Drawing.Size(78, 24)
+        Me.chkParcel.Size = New System.Drawing.Size(137, 24)
         Me.chkParcel.TabIndex = 5
         Me.chkParcel.Text = "Parcel"
         '
         'chkPostal
         '
-        Me.chkPostal.Location = New System.Drawing.Point(286, 108)
+        Me.chkPostal.Location = New System.Drawing.Point(356, 108)
         Me.chkPostal.Name = "chkPostal"
-        Me.chkPostal.Size = New System.Drawing.Size(80, 24)
+        Me.chkPostal.Size = New System.Drawing.Size(137, 24)
         Me.chkPostal.TabIndex = 4
         Me.chkPostal.Text = "Postal"
         '
         'chkInternational
         '
-        Me.chkInternational.Location = New System.Drawing.Point(166, 108)
+        Me.chkInternational.Location = New System.Drawing.Point(213, 108)
         Me.chkInternational.Name = "chkInternational"
-        Me.chkInternational.Size = New System.Drawing.Size(114, 24)
+        Me.chkInternational.Size = New System.Drawing.Size(137, 24)
         Me.chkInternational.TabIndex = 3
         Me.chkInternational.Text = "International"
         '
@@ -104,7 +104,7 @@ Partial Class LabelControl
         '
         Me.chkDomestic.Location = New System.Drawing.Point(70, 108)
         Me.chkDomestic.Name = "chkDomestic"
-        Me.chkDomestic.Size = New System.Drawing.Size(90, 24)
+        Me.chkDomestic.Size = New System.Drawing.Size(137, 24)
         Me.chkDomestic.TabIndex = 2
         Me.chkDomestic.Text = "Domestic"
         '
@@ -115,14 +115,14 @@ Partial Class LabelControl
         Me.txtLabelText.Multiline = true
         Me.txtLabelText.Name = "txtLabelText"
         Me.txtLabelText.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtLabelText.Size = New System.Drawing.Size(368, 88)
+        Me.txtLabelText.Size = New System.Drawing.Size(566, 88)
         Me.txtLabelText.TabIndex = 1
         '
         'label12
         '
-        Me.label12.Location = New System.Drawing.Point(14, 12)
+        Me.label12.Location = New System.Drawing.Point(3, 12)
         Me.label12.Name = "label12"
-        Me.label12.Size = New System.Drawing.Size(48, 23)
+        Me.label12.Size = New System.Drawing.Size(59, 23)
         Me.label12.TabIndex = 0
         Me.label12.Text = "&Label"
         Me.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -131,7 +131,7 @@ Partial Class LabelControl
         '
         Me.Controls.Add(Me.pnlControls)
         Me.Name = "LabelControl"
-        Me.Size = New System.Drawing.Size(464, 200)
+        Me.Size = New System.Drawing.Size(648, 200)
         Me.Controls.SetChildIndex(Me.pnlControls, 0)
         Me.pnlControls.ResumeLayout(false)
         Me.pnlControls.PerformLayout

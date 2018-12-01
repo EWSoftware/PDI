@@ -19,13 +19,8 @@
 ' 05/22/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
-Imports System.Drawing
 Imports System.IO
-Imports System.Windows.Forms
 
-Imports EWSoftware.PDI.Objects
 Imports EWSoftware.PDI.Properties
 
 ''' <summary>

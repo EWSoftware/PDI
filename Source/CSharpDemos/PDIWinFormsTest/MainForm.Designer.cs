@@ -41,9 +41,9 @@ namespace PDIWinFormsTest
             // 
             // btnHolidays
             // 
-            this.btnHolidays.Location = new System.Drawing.Point(84, 18);
+            this.btnHolidays.Location = new System.Drawing.Point(184, 18);
             this.btnHolidays.Name = "btnHolidays";
-            this.btnHolidays.Size = new System.Drawing.Size(138, 40);
+            this.btnHolidays.Size = new System.Drawing.Size(160, 40);
             this.btnHolidays.TabIndex = 0;
             this.btnHolidays.Text = "Test &Holidays";
             this.toolTip1.SetToolTip(this.btnHolidays, "Test holiday generation classes");
@@ -51,9 +51,9 @@ namespace PDIWinFormsTest
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(84, 293);
+            this.btnExit.Location = new System.Drawing.Point(184, 293);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(138, 40);
+            this.btnExit.Size = new System.Drawing.Size(160, 40);
             this.btnExit.TabIndex = 5;
             this.btnExit.Text = "E&xit";
             this.toolTip1.SetToolTip(this.btnExit, "Exit the application");
@@ -61,9 +61,9 @@ namespace PDIWinFormsTest
             // 
             // btnRRULE
             // 
-            this.btnRRULE.Location = new System.Drawing.Point(84, 73);
+            this.btnRRULE.Location = new System.Drawing.Point(184, 73);
             this.btnRRULE.Name = "btnRRULE";
-            this.btnRRULE.Size = new System.Drawing.Size(138, 40);
+            this.btnRRULE.Size = new System.Drawing.Size(160, 40);
             this.btnRRULE.TabIndex = 1;
             this.btnRRULE.Text = "Test RR&ULE";
             this.toolTip1.SetToolTip(this.btnRRULE, "Test the recurrence class");
@@ -71,9 +71,9 @@ namespace PDIWinFormsTest
             // 
             // btnTestCalRecur
             // 
-            this.btnTestCalRecur.Location = new System.Drawing.Point(84, 128);
+            this.btnTestCalRecur.Location = new System.Drawing.Point(184, 128);
             this.btnTestCalRecur.Name = "btnTestCalRecur";
-            this.btnTestCalRecur.Size = new System.Drawing.Size(138, 40);
+            this.btnTestCalRecur.Size = new System.Drawing.Size(160, 40);
             this.btnTestCalRecur.TabIndex = 2;
             this.btnTestCalRecur.Text = "Test C&al Recur";
             this.toolTip1.SetToolTip(this.btnTestCalRecur, "Test iCalendar recurrence");
@@ -81,9 +81,9 @@ namespace PDIWinFormsTest
             // 
             // btnTestVTimeZone
             // 
-            this.btnTestVTimeZone.Location = new System.Drawing.Point(84, 183);
+            this.btnTestVTimeZone.Location = new System.Drawing.Point(184, 183);
             this.btnTestVTimeZone.Name = "btnTestVTimeZone";
-            this.btnTestVTimeZone.Size = new System.Drawing.Size(138, 40);
+            this.btnTestVTimeZone.Size = new System.Drawing.Size(160, 40);
             this.btnTestVTimeZone.TabIndex = 3;
             this.btnTestVTimeZone.Text = "Test &VTimeZone";
             this.toolTip1.SetToolTip(this.btnTestVTimeZone, "Test the VTIMEZONE classes");
@@ -91,9 +91,9 @@ namespace PDIWinFormsTest
             // 
             // btnAbout
             // 
-            this.btnAbout.Location = new System.Drawing.Point(84, 238);
+            this.btnAbout.Location = new System.Drawing.Point(184, 238);
             this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(138, 40);
+            this.btnAbout.Size = new System.Drawing.Size(160, 40);
             this.btnAbout.TabIndex = 4;
             this.btnAbout.Text = "A&bout";
             this.toolTip1.SetToolTip(this.btnAbout, "View application copyright and version information");
@@ -101,7 +101,7 @@ namespace PDIWinFormsTest
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(307, 353);
+            this.ClientSize = new System.Drawing.Size(528, 353);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.btnTestVTimeZone);
             this.Controls.Add(this.btnTestCalRecur);

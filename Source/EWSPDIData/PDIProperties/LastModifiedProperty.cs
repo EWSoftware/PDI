@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LastModifiedProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Last Modified property class used by the Personal Data Interchange (PDI) vCalendar and
@@ -42,30 +42,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0, iCalendar 2.0, and IrMC 1.1</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get
-            {
-                return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20 |
-                    SpecificationVersions.IrMC11;
-            }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20 | SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the tag (LAST-MODIFIED)
         /// </summary>
-        public override string Tag
-        {
-            get { return "LAST-MODIFIED"; }
-        }
+        public override string Tag => "LAST-MODIFIED";
 
         /// <summary>
         /// This read-only property defines the default value type as DATE-TIME
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.DateTime; }
-        }
+        public override string DefaultValueLocation => ValLocValue.DateTime;
 
         /// <summary>
         /// This property does not allow a time zone and is always a UTC date/time value
@@ -82,7 +70,7 @@ namespace EWSoftware.PDI.Properties
 
                 return dtDate.ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture);
             }
-            set { base.Value = value; }
+            set => base.Value = value;
         }
         #endregion
 

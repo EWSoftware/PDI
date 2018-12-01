@@ -113,7 +113,9 @@ NOTE:Just a little test note
 URL:http://www.ewoodruff.us
 TZ;VALUE=TEXT:(GMT-08:00) Pacific Time (US & Canada)\; Tijuana
 GEO:47.551324;-117.644544
-REV:2014-12-27T23:56:07Z
+REV:2018-11-22T22:38:33Z
 UID:687DF7A7-8168-4BD8-928C-5665B6AEED74
-LOGO;VALUE=URI;TYPE=PNG:https://github.com/EWSoftware/PDI/blob/master/NuGet/EWSPDI.png
+PHOTO;VALUE=URI;TYPE=JPEG:http://www.EWoodruff.us/Images/Avatar.jpg
+LOGO;VALUE=URI;TYPE=PNG:https://raw.githubusercontent.com/EWSoftware/PDI/ma
+ ster/EWSPDI.png
 END:VCARD

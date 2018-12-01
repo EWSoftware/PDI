@@ -19,14 +19,9 @@
 ' 05/25/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
 Imports System.ComponentModel
-Imports System.Drawing
-Imports System.Windows.Forms
 
-Imports EWSoftware.PDI.Objects
 Imports EWSoftware.PDI.Properties
-Imports EWSoftware.PDI.Windows.Forms
 
 ''' <summary>
 ''' This is used to edit the Request Status property collection

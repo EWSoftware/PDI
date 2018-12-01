@@ -4,7 +4,7 @@
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
 ' Updated : 01/01/2015
 ' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft Visual C#
+' Compiler: Microsoft VB.NET
 '
 ' This page is used to demonstrate the calendar classes.  Currently, it allows editing of some basic information.
 ' Information in the data grids could also be edited.  Time constraints limit what I have implemented so far but
@@ -20,13 +20,7 @@
 ' 01/29/2005  EFW  Created the code
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
 Imports System.Globalization
-Imports System.IO
-Imports System.Web
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects

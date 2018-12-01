@@ -18,7 +18,6 @@
 ' 12/01/2004  EFW  Created the code
 '================================================================================================================
 
-Imports System.ComponentModel
 Imports System.Globalization
 
 Imports EWSoftware.PDI

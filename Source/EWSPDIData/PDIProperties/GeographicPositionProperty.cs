@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : GeographicPositionProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Geographic Position property class used by the Personal Data Interchange (PDI) classes
@@ -42,26 +42,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports all specifications except IrMC 1.1</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.Any; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.Any;
 
         /// <summary>
         /// This read-only property defines the tag (GEO)
         /// </summary>
-        public override string Tag
-        {
-            get { return "GEO"; }
-        }
+        public override string Tag => "GEO";
 
         /// <summary>
         /// This read-only property defines the default value type as FLOAT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Float; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Float;
 
         /// <summary>
         /// This is used to get or set the latitude as a floating point value
@@ -116,8 +107,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

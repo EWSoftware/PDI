@@ -126,7 +126,7 @@
     <value>0, 0</value>
   </data>
   <data name="rpRecurrence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 355</value>
+    <value>730, 451</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rpRecurrence.TabIndex" type="System.Int32, mscorlib">
@@ -136,7 +136,7 @@
     <value>rpRecurrence</value>
   </data>
   <data name="&gt;&gt;rpRecurrence.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.RecurrencePattern, EWSoftware.PDI.Windows.Forms, Version=2014.10.14.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.RecurrencePattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;rpRecurrence.Parent" xml:space="preserve">
     <value>$this</value>
@@ -151,10 +151,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>518, 361</value>
+    <value>600, 458</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 32</value>
+    <value>117, 41</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -181,10 +181,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 361</value>
+    <value>16, 458</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 32</value>
+    <value>117, 41</value>
   </data>
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -208,10 +208,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleBaseSize" type="System.Drawing.Size, System.Drawing">
-    <value>6, 15</value>
+    <value>8, 19</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>618, 405</value>
+    <value>728, 514</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -281,10 +281,10 @@
 </value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>636, 760</value>
+    <value>750, 900</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>636, 450</value>
+    <value>750, 570</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

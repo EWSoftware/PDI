@@ -2,7 +2,7 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : EventRecurTestForm.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/21/2018
+' Updated : 11/22/2018
 ' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
@@ -18,17 +18,11 @@
 ' 01/25/2005  EFW  Created the code
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
-Imports System.Data
 Imports System.Globalization
-Imports System.Web
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 
 Imports EWSoftware.PDI
-Imports EWSoftware.PDI.Parser
 Imports EWSoftware.PDI.Objects
+Imports EWSoftware.PDI.Parser
 Imports EWSoftware.PDI.Properties
 
 Namespace PDIWebDemoVB
@@ -78,7 +72,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Use some limitations to prevent overloading the server or timing out the page if possible
-        Private Sub ApplyLimits(ro As RecurringObject, r As Recurrence)
+        Private Shared Sub ApplyLimits(ro As RecurringObject, r As Recurrence)
             If r.Frequency > RecurFrequency.Hourly Then
                 r.MaximumOccurrences = 5000
             End If

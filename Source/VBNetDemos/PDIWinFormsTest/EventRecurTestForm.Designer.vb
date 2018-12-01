@@ -40,9 +40,9 @@ Partial Class EventRecurTestForm
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(12, 88)
+        Me.label3.Location = New System.Drawing.Point(14, 118)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(372, 24)
+        Me.label3.Size = New System.Drawing.Size(417, 23)
         Me.label3.TabIndex = 7
         Me.label3.Text = "&Enter a VEVENT, VTODO, or VJOURNAL entry below."
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -53,11 +53,11 @@ Partial Class EventRecurTestForm
         Me.txtCalendar.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
             Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.txtCalendar.Location = New System.Drawing.Point(12, 115)
+        Me.txtCalendar.Location = New System.Drawing.Point(18, 145)
         Me.txtCalendar.Multiline = true
         Me.txtCalendar.Name = "txtCalendar"
         Me.txtCalendar.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtCalendar.Size = New System.Drawing.Size(371, 414)
+        Me.txtCalendar.Size = New System.Drawing.Size(413, 379)
         Me.txtCalendar.TabIndex = 8
         Me.txtCalendar.WordWrap = false
         '
@@ -65,7 +65,7 @@ Partial Class EventRecurTestForm
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(757, 491)
+        Me.btnClose.Location = New System.Drawing.Point(878, 530)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(88, 32)
         Me.btnClose.TabIndex = 12
@@ -75,16 +75,16 @@ Partial Class EventRecurTestForm
         '
         Me.lbDates.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.lbDates.ItemHeight = 16
-        Me.lbDates.Location = New System.Drawing.Point(389, 128)
+        Me.lbDates.ItemHeight = 20
+        Me.lbDates.Location = New System.Drawing.Point(437, 177)
         Me.lbDates.Name = "lbDates"
-        Me.lbDates.Size = New System.Drawing.Size(456, 356)
+        Me.lbDates.Size = New System.Drawing.Size(529, 344)
         Me.lbDates.TabIndex = 10
         '
         'btnTest
         '
         Me.btnTest.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnTest.Location = New System.Drawing.Point(663, 491)
+        Me.btnTest.Location = New System.Drawing.Point(784, 530)
         Me.btnTest.Name = "btnTest"
         Me.btnTest.Size = New System.Drawing.Size(88, 32)
         Me.btnTest.TabIndex = 11
@@ -92,19 +92,19 @@ Partial Class EventRecurTestForm
         '
         'dtpStartDate
         '
+        Me.dtpStartDate.Checked = false
         Me.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpStartDate.Location = New System.Drawing.Point(184, 8)
+        Me.dtpStartDate.Location = New System.Drawing.Point(329, 12)
         Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Size = New System.Drawing.Size(190, 22)
+        Me.dtpStartDate.Size = New System.Drawing.Size(235, 26)
         Me.dtpStartDate.TabIndex = 1
-        Me.dtpStartDate.Value = New Date(2004, 9, 6, 0, 0, 0, 0)
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(14, 8)
+        Me.label1.Location = New System.Drawing.Point(124, 12)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(164, 23)
+        Me.label1.Size = New System.Drawing.Size(199, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "&Find instances between"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -113,27 +113,27 @@ Partial Class EventRecurTestForm
         '
         Me.lblCount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.lblCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCount.Location = New System.Drawing.Point(389, 67)
+        Me.lblCount.Location = New System.Drawing.Point(437, 118)
         Me.lblCount.Name = "lblCount"
-        Me.lblCount.Size = New System.Drawing.Size(454, 56)
+        Me.lblCount.Size = New System.Drawing.Size(529, 56)
         Me.lblCount.TabIndex = 9
         Me.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'dtpEndDate
         '
+        Me.dtpEndDate.Checked = false
         Me.dtpEndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpEndDate.Location = New System.Drawing.Point(418, 8)
+        Me.dtpEndDate.Location = New System.Drawing.Point(627, 12)
         Me.dtpEndDate.Name = "dtpEndDate"
-        Me.dtpEndDate.Size = New System.Drawing.Size(190, 22)
+        Me.dtpEndDate.Size = New System.Drawing.Size(235, 26)
         Me.dtpEndDate.TabIndex = 3
-        Me.dtpEndDate.Value = New Date(2004, 9, 6, 0, 0, 0, 0)
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(380, 8)
+        Me.label2.Location = New System.Drawing.Point(570, 12)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(32, 23)
+        Me.label2.Size = New System.Drawing.Size(51, 23)
         Me.label2.TabIndex = 2
         Me.label2.Text = "and"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -142,17 +142,17 @@ Partial Class EventRecurTestForm
         '
         Me.chkInLocalTime.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.chkInLocalTime.Location = New System.Drawing.Point(622, 8)
+        Me.chkInLocalTime.Location = New System.Drawing.Point(329, 44)
         Me.chkInLocalTime.Name = "chkInLocalTime"
-        Me.chkInLocalTime.Size = New System.Drawing.Size(210, 24)
+        Me.chkInLocalTime.Size = New System.Drawing.Size(310, 24)
         Me.chkInLocalTime.TabIndex = 4
         Me.chkInLocalTime.Text = "Find instances in local time"
         '
         'label6
         '
-        Me.label6.Location = New System.Drawing.Point(12, 40)
+        Me.label6.Location = New System.Drawing.Point(10, 76)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(262, 23)
+        Me.label6.Size = New System.Drawing.Size(313, 23)
         Me.label6.TabIndex = 5
         Me.label6.Text = "&Apply this time zone to the component"
         Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -162,17 +162,17 @@ Partial Class EventRecurTestForm
         Me.cboTimeZone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cboTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTimeZone.Location = New System.Drawing.Point(280, 40)
+        Me.cboTimeZone.Location = New System.Drawing.Point(329, 74)
         Me.cboTimeZone.MaxDropDownItems = 16
         Me.cboTimeZone.Name = "cboTimeZone"
-        Me.cboTimeZone.Size = New System.Drawing.Size(447, 24)
+        Me.cboTimeZone.Size = New System.Drawing.Size(568, 28)
         Me.cboTimeZone.TabIndex = 6
         '
         'EventRecurTestForm
         '
         Me.AcceptButton = Me.btnTest
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(857, 535)
+        Me.ClientSize = New System.Drawing.Size(978, 574)
         Me.Controls.Add(Me.chkInLocalTime)
         Me.Controls.Add(Me.label6)
         Me.Controls.Add(Me.cboTimeZone)
@@ -188,7 +188,7 @@ Partial Class EventRecurTestForm
         Me.Controls.Add(Me.label3)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.MinimizeBox = false
-        Me.MinimumSize = New System.Drawing.Size(865, 575)
+        Me.MinimumSize = New System.Drawing.Size(1000, 575)
         Me.Name = "EventRecurTestForm"
         Me.ShowInTaskbar = false
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show

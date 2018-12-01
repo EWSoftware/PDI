@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : TimeZoneListDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit view and edit time zones and apply them to the calendar
@@ -36,9 +36,7 @@ namespace CalendarBrowser
         #region Private data members
         //=====================================================================
 
-        private VCalendar vCal;
         private VTimeZoneCollection timeZones;
-        private bool wasModified;
 
         #endregion
 
@@ -48,20 +46,13 @@ namespace CalendarBrowser
         /// <summary>
         /// Get or set the currently loaded calendar
         /// </summary>
-        public VCalendar CurrentCalendar
-        {
-            get { return vCal; }
-            set { vCal = value; }
-        }
+        public VCalendar CurrentCalendar { get; set; }
 
         /// <summary>
         /// Set or get the modified state
         /// </summary>
-        public bool Modified
-        {
-            get { return wasModified; }
-            set { wasModified = value; }
-        }
+        public bool Modified { get; set; }
+
         #endregion
 
         #region Constructor
@@ -80,7 +71,6 @@ namespace CalendarBrowser
                 CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern + " " +
                 CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern;
 
-            vCal = null;
             timeZones = new VTimeZoneCollection();
             LoadGridWithItems();
 		}
@@ -105,9 +95,9 @@ namespace CalendarBrowser
                 // Get just the time zones used
                 StringCollection timeZonesUsed = new StringCollection();
 
-                if(vCal != null)
+                if(this.CurrentCalendar != null)
                 {
-                    vCal.TimeZonesUsed(timeZonesUsed);
+                    this.CurrentCalendar.TimeZonesUsed(timeZonesUsed);
 
                     // Remove entries that don't exist
                     for(int idx = 0; idx < timeZonesUsed.Count; idx++)
@@ -176,8 +166,9 @@ namespace CalendarBrowser
                     dlg.GetValues(tz);
 
                     VCalendar.TimeZones.Add(tz);
-                    wasModified = true;
-                    LoadGridWithItems();
+
+                    this.Modified = true;
+                    this.LoadGridWithItems();
                 }
             }
         }
@@ -204,8 +195,9 @@ namespace CalendarBrowser
                 if(dlg.ShowDialog() == DialogResult.OK)
                 {
                     dlg.GetValues(VCalendar.TimeZones[timeZoneId]);
-                    wasModified = true;
-                    LoadGridWithItems();
+
+                    this.Modified = true;
+                    this.LoadGridWithItems();
                 }
             }
         }
@@ -228,8 +220,8 @@ namespace CalendarBrowser
 
             string timeZoneId = (string)dgvCalendar[0, dgvCalendar.CurrentCellAddress.Y].Value;
 
-            if(vCal != null)
-                vCal.TimeZonesUsed(timeZonesUsed);
+            if(this.CurrentCalendar != null)
+                this.CurrentCalendar.TimeZonesUsed(timeZonesUsed);
 
             if(timeZonesUsed.Contains(timeZoneId))
             {
@@ -242,8 +234,9 @@ namespace CalendarBrowser
               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 VCalendar.TimeZones.Remove(VCalendar.TimeZones[timeZoneId]);
-                wasModified = true;
-                LoadGridWithItems();
+
+                this.Modified = true;
+                this.LoadGridWithItems();
             }
         }
 
@@ -267,8 +260,10 @@ namespace CalendarBrowser
               MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 string timeZoneId = (string)dgvCalendar[0, dgvCalendar.CurrentCellAddress.Y].Value;
-                vCal.ApplyTimeZone(VCalendar.TimeZones[timeZoneId]);
-                wasModified = true;
+
+                this.CurrentCalendar.ApplyTimeZone(VCalendar.TimeZones[timeZoneId]);
+
+                this.Modified = true;
             }
         }
         #endregion

@@ -2,7 +2,7 @@
 // System  : Personal Data Interchange Classes
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/17/2018
+// Updated : 12/01/2018
 // Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
@@ -51,16 +51,16 @@ using System.Runtime.InteropServices;
 // This is used to set the assembly version in the strong name.  This should remain unchanged to maintain binary
 // compatibility with prior releases.  It should only be changed if a breaking change is made that requires
 // assemblies that reference older versions to be recompiled against the newer version.
-[assembly: AssemblyVersion("2018.11.17.0")]
+[assembly: AssemblyVersion("2018.12.1.0")]
 
 // Common assembly file version
 //
 // This is used to set the assembly file version.  This will change with each new release.  MSIs only support a
 // Major value between 0 and 255 so we drop the century from the year on this one.
-[assembly: AssemblyFileVersion("18.11.17.0")]
+[assembly: AssemblyFileVersion("18.12.1.0")]
 
 // Common product version
 //
 // This may contain additional text to indicate Alpha or Beta states.  The version number will always match the
 // file version above but includes the century on the year.
-[assembly: AssemblyInformationalVersion("2018.11.17.0")]
+[assembly: AssemblyInformationalVersion("2018.12.1.0")]

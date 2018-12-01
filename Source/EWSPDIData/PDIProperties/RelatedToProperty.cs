@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RelatedToProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Related To property.  It is used with the vCalendar and iCalendar Personal Data
@@ -20,7 +20,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 namespace EWSoftware.PDI.Properties
@@ -39,6 +38,7 @@ namespace EWSoftware.PDI.Properties
 
         private RelationshipType relType;
         private string otherType;
+
         #endregion
 
         #region Properties
@@ -48,26 +48,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (RELATED-TO)
         /// </summary>
-        public override string Tag
-        {
-            get { return "RELATED-TO"; }
-        }
+        public override string Tag => "RELATED-TO";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the relationship type (RELTYPE) parameter
@@ -77,7 +69,7 @@ namespace EWSoftware.PDI.Properties
         /// something else.  It is set to null if set to any other calendar method.</value>
         public RelationshipType RelationshipType
         {
-            get { return relType; }
+            get => relType;
             set
             {
                 relType = value;
@@ -98,7 +90,7 @@ namespace EWSoftware.PDI.Properties
         /// automatically sets the <see cref="RelationshipType"/> property to <c>Other</c>.</value>
         public string OtherRelationship
         {
-            get { return otherType; }
+            get => otherType;
             set
             {
                 relType = RelationshipType.Other;

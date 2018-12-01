@@ -40,10 +40,6 @@ Partial Class CalendarBrowserForm
         Me.btnChgTimeZone = New System.Windows.Forms.Button()
         Me.lblFilename = New System.Windows.Forms.Label()
         Me.dgvCalendar = New System.Windows.Forms.DataGridView()
-        Me.tbcStartDateTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcSummary = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcOrganizer = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcComment = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mnuMain = New System.Windows.Forms.MenuStrip()
         Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
         Me.miOpen = New System.Windows.Forms.ToolStripMenuItem()
@@ -62,6 +58,10 @@ Partial Class CalendarBrowserForm
         Me.menuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.miExit = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tbcStartDateTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcSummary = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcOrganizer = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcComment = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvCalendar,System.ComponentModel.ISupportInitialize).BeginInit
         Me.mnuMain.SuspendLayout
         Me.SuspendLayout
@@ -96,7 +96,7 @@ Partial Class CalendarBrowserForm
         'btnChgVersion
         '
         Me.btnChgVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnChgVersion.Location = New System.Drawing.Point(480, 516)
+        Me.btnChgVersion.Location = New System.Drawing.Point(448, 516)
         Me.btnChgVersion.Name = "btnChgVersion"
         Me.btnChgVersion.Size = New System.Drawing.Size(88, 32)
         Me.btnChgVersion.TabIndex = 6
@@ -106,17 +106,17 @@ Partial Class CalendarBrowserForm
         '
         Me.cboComponents.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cboComponents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboComponents.Location = New System.Drawing.Point(786, 521)
+        Me.cboComponents.Location = New System.Drawing.Point(754, 519)
         Me.cboComponents.Name = "cboComponents"
-        Me.cboComponents.Size = New System.Drawing.Size(144, 24)
+        Me.cboComponents.Size = New System.Drawing.Size(176, 28)
         Me.cboComponents.TabIndex = 9
         '
         'label1
         '
         Me.label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.label1.Location = New System.Drawing.Point(734, 521)
+        Me.label1.Location = New System.Drawing.Point(679, 523)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(46, 23)
+        Me.label1.Size = New System.Drawing.Size(69, 23)
         Me.label1.TabIndex = 8
         Me.label1.Text = "V&iew"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -124,7 +124,7 @@ Partial Class CalendarBrowserForm
         'btnChgTimeZone
         '
         Me.btnChgTimeZone.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnChgTimeZone.Location = New System.Drawing.Point(574, 516)
+        Me.btnChgTimeZone.Location = New System.Drawing.Point(542, 516)
         Me.btnChgTimeZone.Name = "btnChgTimeZone"
         Me.btnChgTimeZone.Size = New System.Drawing.Size(120, 32)
         Me.btnChgTimeZone.TabIndex = 7
@@ -137,7 +137,7 @@ Partial Class CalendarBrowserForm
         Me.lblFilename.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.lblFilename.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.lblFilename.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblFilename.Location = New System.Drawing.Point(12, 25)
+        Me.lblFilename.Location = New System.Drawing.Point(12, 28)
         Me.lblFilename.Name = "lblFilename"
         Me.lblFilename.Size = New System.Drawing.Size(918, 23)
         Me.lblFilename.TabIndex = 1
@@ -161,7 +161,7 @@ Partial Class CalendarBrowserForm
         Me.dgvCalendar.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCalendar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCalendar.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.tbcStartDateTime, Me.tbcSummary, Me.tbcOrganizer, Me.tbcComment})
-        Me.dgvCalendar.Location = New System.Drawing.Point(12, 51)
+        Me.dgvCalendar.Location = New System.Drawing.Point(12, 54)
         Me.dgvCalendar.MultiSelect = false
         Me.dgvCalendar.Name = "dgvCalendar"
         Me.dgvCalendar.ReadOnly = true
@@ -176,9 +176,127 @@ Partial Class CalendarBrowserForm
         Me.dgvCalendar.RowHeadersWidth = 25
         Me.dgvCalendar.RowTemplate.Height = 24
         Me.dgvCalendar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvCalendar.Size = New System.Drawing.Size(918, 459)
+        Me.dgvCalendar.Size = New System.Drawing.Size(918, 456)
         Me.dgvCalendar.StandardTab = true
         Me.dgvCalendar.TabIndex = 2
+        '
+        'mnuMain
+        '
+        Me.mnuMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
+        Me.mnuMain.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile})
+        Me.mnuMain.Location = New System.Drawing.Point(0, 0)
+        Me.mnuMain.Name = "mnuMain"
+        Me.mnuMain.Size = New System.Drawing.Size(942, 28)
+        Me.mnuMain.TabIndex = 0
+        '
+        'miFile
+        '
+        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miOpen, Me.miSave, Me.menuItem2, Me.miFileEncoding, Me.miPropEncoding, Me.menuItem4, Me.miClear, Me.menuItem6, Me.miAbout, Me.miExit})
+        Me.miFile.Name = "miFile"
+        Me.miFile.Size = New System.Drawing.Size(46, 24)
+        Me.miFile.Text = "&File"
+        '
+        'miOpen
+        '
+        Me.miOpen.Name = "miOpen"
+        Me.miOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O),System.Windows.Forms.Keys)
+        Me.miOpen.Size = New System.Drawing.Size(263, 30)
+        Me.miOpen.Text = "&Open"
+        '
+        'miSave
+        '
+        Me.miSave.Name = "miSave"
+        Me.miSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S),System.Windows.Forms.Keys)
+        Me.miSave.Size = New System.Drawing.Size(263, 30)
+        Me.miSave.Text = "&Save"
+        '
+        'menuItem2
+        '
+        Me.menuItem2.Name = "menuItem2"
+        Me.menuItem2.Size = New System.Drawing.Size(260, 6)
+        '
+        'miFileEncoding
+        '
+        Me.miFileEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFileUnicode, Me.miFileWestEuro, Me.miFileASCII})
+        Me.miFileEncoding.Name = "miFileEncoding"
+        Me.miFileEncoding.Size = New System.Drawing.Size(263, 30)
+        Me.miFileEncoding.Text = "File Encoding"
+        '
+        'miFileUnicode
+        '
+        Me.miFileUnicode.Checked = true
+        Me.miFileUnicode.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.miFileUnicode.Name = "miFileUnicode"
+        Me.miFileUnicode.Size = New System.Drawing.Size(302, 30)
+        Me.miFileUnicode.Text = "Unicode (UTF-8)"
+        '
+        'miFileWestEuro
+        '
+        Me.miFileWestEuro.Name = "miFileWestEuro"
+        Me.miFileWestEuro.Size = New System.Drawing.Size(302, 30)
+        Me.miFileWestEuro.Text = "Western European (Windows)"
+        '
+        'miFileASCII
+        '
+        Me.miFileASCII.Name = "miFileASCII"
+        Me.miFileASCII.Size = New System.Drawing.Size(302, 30)
+        Me.miFileASCII.Text = "ASCII"
+        '
+        'miPropEncoding
+        '
+        Me.miPropEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPropUnicode, Me.miPropWestEuro, Me.miPropASCII})
+        Me.miPropEncoding.Name = "miPropEncoding"
+        Me.miPropEncoding.Size = New System.Drawing.Size(263, 30)
+        Me.miPropEncoding.Text = "Property Encoding"
+        '
+        'miPropUnicode
+        '
+        Me.miPropUnicode.Name = "miPropUnicode"
+        Me.miPropUnicode.Size = New System.Drawing.Size(302, 30)
+        Me.miPropUnicode.Text = "Unicode (UTF-8)"
+        '
+        'miPropWestEuro
+        '
+        Me.miPropWestEuro.Name = "miPropWestEuro"
+        Me.miPropWestEuro.Size = New System.Drawing.Size(302, 30)
+        Me.miPropWestEuro.Text = "Western European (Windows)"
+        '
+        'miPropASCII
+        '
+        Me.miPropASCII.Checked = true
+        Me.miPropASCII.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.miPropASCII.Name = "miPropASCII"
+        Me.miPropASCII.Size = New System.Drawing.Size(302, 30)
+        Me.miPropASCII.Text = "ASCII"
+        '
+        'menuItem4
+        '
+        Me.menuItem4.Name = "menuItem4"
+        Me.menuItem4.Size = New System.Drawing.Size(260, 6)
+        '
+        'miClear
+        '
+        Me.miClear.Name = "miClear"
+        Me.miClear.Size = New System.Drawing.Size(263, 30)
+        Me.miClear.Text = "&Clear"
+        '
+        'menuItem6
+        '
+        Me.menuItem6.Name = "menuItem6"
+        Me.menuItem6.Size = New System.Drawing.Size(260, 6)
+        '
+        'miAbout
+        '
+        Me.miAbout.Name = "miAbout"
+        Me.miAbout.Size = New System.Drawing.Size(263, 30)
+        Me.miAbout.Text = "&About Calendar Browser"
+        '
+        'miExit
+        '
+        Me.miExit.Name = "miExit"
+        Me.miExit.Size = New System.Drawing.Size(263, 30)
+        Me.miExit.Text = "E&xit"
         '
         'tbcStartDateTime
         '
@@ -186,7 +304,7 @@ Partial Class CalendarBrowserForm
         Me.tbcStartDateTime.HeaderText = "Start Date/Time"
         Me.tbcStartDateTime.Name = "tbcStartDateTime"
         Me.tbcStartDateTime.ReadOnly = true
-        Me.tbcStartDateTime.Width = 200
+        Me.tbcStartDateTime.Width = 210
         '
         'tbcSummary
         '
@@ -212,124 +330,6 @@ Partial Class CalendarBrowserForm
         Me.tbcComment.ReadOnly = true
         Me.tbcComment.Width = 500
         '
-        'mnuMain
-        '
-        Me.mnuMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
-        Me.mnuMain.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile})
-        Me.mnuMain.Location = New System.Drawing.Point(0, 0)
-        Me.mnuMain.Name = "mnuMain"
-        Me.mnuMain.Size = New System.Drawing.Size(942, 25)
-        Me.mnuMain.TabIndex = 0
-        '
-        'miFile
-        '
-        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miOpen, Me.miSave, Me.menuItem2, Me.miFileEncoding, Me.miPropEncoding, Me.menuItem4, Me.miClear, Me.menuItem6, Me.miAbout, Me.miExit})
-        Me.miFile.Name = "miFile"
-        Me.miFile.Size = New System.Drawing.Size(42, 21)
-        Me.miFile.Text = "&File"
-        '
-        'miOpen
-        '
-        Me.miOpen.Name = "miOpen"
-        Me.miOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O),System.Windows.Forms.Keys)
-        Me.miOpen.Size = New System.Drawing.Size(229, 22)
-        Me.miOpen.Text = "&Open"
-        '
-        'miSave
-        '
-        Me.miSave.Name = "miSave"
-        Me.miSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S),System.Windows.Forms.Keys)
-        Me.miSave.Size = New System.Drawing.Size(229, 22)
-        Me.miSave.Text = "&Save"
-        '
-        'menuItem2
-        '
-        Me.menuItem2.Name = "menuItem2"
-        Me.menuItem2.Size = New System.Drawing.Size(226, 6)
-        '
-        'miFileEncoding
-        '
-        Me.miFileEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFileUnicode, Me.miFileWestEuro, Me.miFileASCII})
-        Me.miFileEncoding.Name = "miFileEncoding"
-        Me.miFileEncoding.Size = New System.Drawing.Size(229, 22)
-        Me.miFileEncoding.Text = "File Encoding"
-        '
-        'miFileUnicode
-        '
-        Me.miFileUnicode.Checked = true
-        Me.miFileUnicode.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.miFileUnicode.Name = "miFileUnicode"
-        Me.miFileUnicode.Size = New System.Drawing.Size(265, 26)
-        Me.miFileUnicode.Text = "Unicode (UTF-8)"
-        '
-        'miFileWestEuro
-        '
-        Me.miFileWestEuro.Name = "miFileWestEuro"
-        Me.miFileWestEuro.Size = New System.Drawing.Size(265, 26)
-        Me.miFileWestEuro.Text = "Western European (Windows)"
-        '
-        'miFileASCII
-        '
-        Me.miFileASCII.Name = "miFileASCII"
-        Me.miFileASCII.Size = New System.Drawing.Size(265, 26)
-        Me.miFileASCII.Text = "ASCII"
-        '
-        'miPropEncoding
-        '
-        Me.miPropEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPropUnicode, Me.miPropWestEuro, Me.miPropASCII})
-        Me.miPropEncoding.Name = "miPropEncoding"
-        Me.miPropEncoding.Size = New System.Drawing.Size(229, 22)
-        Me.miPropEncoding.Text = "Property Encoding"
-        '
-        'miPropUnicode
-        '
-        Me.miPropUnicode.Name = "miPropUnicode"
-        Me.miPropUnicode.Size = New System.Drawing.Size(265, 26)
-        Me.miPropUnicode.Text = "Unicode (UTF-8)"
-        '
-        'miPropWestEuro
-        '
-        Me.miPropWestEuro.Name = "miPropWestEuro"
-        Me.miPropWestEuro.Size = New System.Drawing.Size(265, 26)
-        Me.miPropWestEuro.Text = "Western European (Windows)"
-        '
-        'miPropASCII
-        '
-        Me.miPropASCII.Checked = true
-        Me.miPropASCII.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.miPropASCII.Name = "miPropASCII"
-        Me.miPropASCII.Size = New System.Drawing.Size(265, 26)
-        Me.miPropASCII.Text = "ASCII"
-        '
-        'menuItem4
-        '
-        Me.menuItem4.Name = "menuItem4"
-        Me.menuItem4.Size = New System.Drawing.Size(226, 6)
-        '
-        'miClear
-        '
-        Me.miClear.Name = "miClear"
-        Me.miClear.Size = New System.Drawing.Size(229, 22)
-        Me.miClear.Text = "&Clear"
-        '
-        'menuItem6
-        '
-        Me.menuItem6.Name = "menuItem6"
-        Me.menuItem6.Size = New System.Drawing.Size(226, 6)
-        '
-        'miAbout
-        '
-        Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(229, 22)
-        Me.miAbout.Text = "&About Calendar Browser"
-        '
-        'miExit
-        '
-        Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(229, 22)
-        Me.miExit.Text = "E&xit"
-        '
         'CalendarBrowserForm
         '
         Me.ClientSize = New System.Drawing.Size(942, 560)
@@ -344,6 +344,7 @@ Partial Class CalendarBrowserForm
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnAdd)
         Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.MainMenuStrip = Me.mnuMain
         Me.MinimumSize = New System.Drawing.Size(800, 250)
         Me.Name = "CalendarBrowserForm"
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
@@ -365,10 +366,6 @@ End Sub
     Friend WithEvents btnChgVersion As System.Windows.Forms.Button
     Private WithEvents lblFilename As System.Windows.Forms.Label
     Private WithEvents dgvCalendar As System.Windows.Forms.DataGridView
-    Private WithEvents tbcStartDateTime As System.Windows.Forms.DataGridViewTextBoxColumn
-    Private WithEvents tbcSummary As System.Windows.Forms.DataGridViewTextBoxColumn
-    Private WithEvents tbcOrganizer As System.Windows.Forms.DataGridViewTextBoxColumn
-    Private WithEvents tbcComment As System.Windows.Forms.DataGridViewTextBoxColumn
     Private WithEvents mnuMain As System.Windows.Forms.MenuStrip
     Private WithEvents miFile As System.Windows.Forms.ToolStripMenuItem
     Private WithEvents miOpen As System.Windows.Forms.ToolStripMenuItem
@@ -388,4 +385,8 @@ End Sub
     Private WithEvents miAbout As System.Windows.Forms.ToolStripMenuItem
     Private WithEvents miExit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnChgTimeZone As System.Windows.Forms.Button
+    Friend WithEvents tbcStartDateTime As DataGridViewTextBoxColumn
+    Friend WithEvents tbcSummary As DataGridViewTextBoxColumn
+    Friend WithEvents tbcOrganizer As DataGridViewTextBoxColumn
+    Friend WithEvents tbcComment As DataGridViewTextBoxColumn
 End Class

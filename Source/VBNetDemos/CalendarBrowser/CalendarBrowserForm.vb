@@ -20,12 +20,9 @@
 ' 05/21/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
 Imports System.ComponentModel
-Imports System.Drawing
 Imports System.IO
 Imports System.Text
-Imports System.Windows.Forms
 Imports Microsoft.VisualBasic
 
 Imports EWSoftware.PDI
@@ -37,7 +34,7 @@ Imports EWSoftware.PDI.Properties
 ''' This application demonstrates loading, saving, and managing a vCalendar or iCalendar file including how to
 ''' edit the properties on the various components.
 ''' </summary>
-Public Partial Class CalendarBrowserForm
+Partial Public Class CalendarBrowserForm
     Inherits System.Windows.Forms.Form
 
     Private vCal As VCalendar       ' The calendar being browsed
@@ -49,8 +46,8 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     Shared Sub Main(Args As String())
         Application.EnableVisualStyles()
-        Application.SetCompatibleTextRenderingDefault(false)
-        Application.Run(new CalendarBrowserForm())
+        Application.SetCompatibleTextRenderingDefault(False)
+        Application.Run(New CalendarBrowserForm())
     End Sub
 
     ''' <summary>
@@ -62,10 +59,11 @@ Public Partial Class CalendarBrowserForm
         InitializeComponent()
 
         ' The string format to use when drawing the status text
-        sf = New StringFormat(StringFormatFlags.NoWrap)
-        sf.Alignment = StringAlignment.Near
-        sf.LineAlignment = StringAlignment.Center
-        sf.Trimming = StringTrimming.EllipsisCharacter
+        sf = New StringFormat(StringFormatFlags.NoWrap) With {
+            .Alignment = StringAlignment.Near,
+            .LineAlignment = StringAlignment.Center,
+            .Trimming = StringTrimming.EllipsisCharacter
+        }
 
         dgvCalendar.AutoGenerateColumns = False
 
@@ -103,7 +101,7 @@ Public Partial Class CalendarBrowserForm
     ''' <param name="connectEvents">True to connect list change event, false to not connect it</param>
     Private Sub LoadGridWithItems(connectEvents As Boolean)
         Dim modFlag As Boolean = wasModified
-        DIm gridIdx As Integer = dgvCalendar.CurrentCellAddress.Y
+        Dim gridIdx As Integer = dgvCalendar.CurrentCellAddress.Y
 
         ' The ListChanged event is connected so that we are notified when the lists are modified
         If connectEvents Then
@@ -186,13 +184,13 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
-    Private Sub CalendarBrowserForm_Closing(sender As Object, _
+    Private Sub CalendarBrowserForm_Closing(sender As Object,
       e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         If wasModified = True AndAlso MessageBox.Show("Do you want to discard your changes to the current calendar?",
           "Discard Changes", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) =
           System.Windows.Forms.DialogResult.No Then
             e.Cancel = True
-        End if
+        End If
     End Sub
 
     ''' <summary>
@@ -411,7 +409,7 @@ Public Partial Class CalendarBrowserForm
                         td.UniqueId.AssignNewId(True)
 
                         vCal.ToDos.Add(td)
-                    End if
+                    End If
                 End Using
 
             Case 2
@@ -575,7 +573,7 @@ Public Partial Class CalendarBrowserForm
               "properties will be lost when the file is saved.", "Change Calendar Version", MessageBoxButtons.YesNo,
               MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = System.Windows.Forms.DialogResult.Yes Then
                 vCal.Version = SpecificationVersions.iCalendar20
-            End if
+            End If
         End If
 
         LoadComponentList()
@@ -588,9 +586,9 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
-    Private Sub cboComponents_SelectedIndexChanged(sender As Object, _
+    Private Sub cboComponents_SelectedIndexChanged(sender As Object,
       e As System.EventArgs) Handles cboComponents.SelectedIndexChanged
-        Select cboComponents.SelectedIndex
+        Select Case cboComponents.SelectedIndex
             Case 0
                 tbcSummary.Visible = True
                 tbcSummary.HeaderText = "Event Summary"
@@ -627,7 +625,7 @@ Public Partial Class CalendarBrowserForm
             dlg.Modified = wasModified
             dlg.ShowDialog()
 
-            If wasModified <> dlg.Modified
+            If wasModified <> dlg.Modified Then
                 wasModified = dlg.Modified
                 LoadGridWithItems(False)
             End If
@@ -639,8 +637,8 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
-    Private Sub ChangeFileEncoding_Click(ByVal sender As System.Object, _
-      ByVal e As System.EventArgs) Handles miFileUnicode.Click, _
+    Private Sub ChangeFileEncoding_Click(ByVal sender As System.Object,
+      ByVal e As System.EventArgs) Handles miFileUnicode.Click,
       miFileWestEuro.Click, miFileASCII.Click
         If sender Is miFileUnicode Then
             miFileUnicode.Checked = True
@@ -673,8 +671,8 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
-    Private Sub ChangePropertyEncoding_Click(ByVal sender As System.Object, _
-      ByVal e As System.EventArgs) Handles miPropUnicode.Click, _
+    Private Sub ChangePropertyEncoding_Click(ByVal sender As System.Object,
+      ByVal e As System.EventArgs) Handles miPropUnicode.Click,
       miPropWestEuro.Click, miPropASCII.Click
         If sender Is miPropUnicode Then
             miPropUnicode.Checked = True
@@ -707,7 +705,7 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
-    Private Sub dgvCalendar_CellPainting(sender As Object, _
+    Private Sub dgvCalendar_CellPainting(sender As Object,
       e As DataGridViewCellPaintingEventArgs) Handles dgvCalendar.CellPainting
         Dim cm As CurrencyManager
         Dim startProp As StartDateProperty
@@ -719,19 +717,19 @@ Public Partial Class CalendarBrowserForm
         Dim item As Object
         Dim columnText As String = Nothing
 
-        If e.RowIndex > -1 AndAlso (e.ColumnIndex = 0 OrElse _
+        If e.RowIndex > -1 AndAlso (e.ColumnIndex = 0 OrElse
           e.ColumnIndex = 1) Then
             cm = DirectCast(dgvCalendar.BindingContext(dgvCalendar.DataSource), CurrencyManager)
             item = cm.List(e.RowIndex)
 
             If e.ColumnIndex = 0 Then
-                If TypeOf item is VEvent Then
+                If TypeOf item Is VEvent Then
                     startProp = DirectCast(item, VEvent).StartDateTime
                 Else
-                    If TypeOf item is VToDo Then
+                    If TypeOf item Is VToDo Then
                         startProp = DirectCast(item, VToDo).StartDateTime
                     Else
-                        If TypeOf item is VJournal Then
+                        If TypeOf item Is VJournal Then
                             startProp = DirectCast(item, VJournal).StartDateTime
                         Else
                             startProp = DirectCast(item, VFreeBusy).StartDateTime
@@ -749,15 +747,15 @@ Public Partial Class CalendarBrowserForm
                 End If
             Else
                 If e.ColumnIndex = 1 Then
-                    If TypeOf item is VEvent Then
+                    If TypeOf item Is VEvent Then
                         summaryProp = DirectCast(item, VEvent).Summary
                         descProp = DirectCast(item, VEvent).Description
                     Else
-                        If TypeOf item is VToDo Then
+                        If TypeOf item Is VToDo Then
                             summaryProp = DirectCast(item, VToDo).Summary
                             descProp = DirectCast(item, VToDo).Description
                         Else
-                            If TypeOf item is VJournal Then
+                            If TypeOf item Is VJournal Then
                                 summaryProp = DirectCast(item, VJournal).Summary
                                 descProp = DirectCast(item, VJournal).Description
                             Else
@@ -807,8 +805,10 @@ Public Partial Class CalendarBrowserForm
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
-    Private Sub dgvCalendar_CellDoubleClick( sender As Object,  e As DataGridViewCellEventArgs) Handles dgvCalendar.CellDoubleClick
-        btnEdit_Click(sender, e)
+    Private Sub dgvCalendar_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvCalendar.CellDoubleClick
+        If e.RowIndex > -1 Then
+            btnEdit_Click(sender, e)
+        End If
     End Sub
 
     ''' <summary>
@@ -819,7 +819,7 @@ Public Partial Class CalendarBrowserForm
     ''' <remarks>Due to the variety of properties in a calendar object, sorting is left up to the developer
     ''' utilizing a comparison delegate.  This example sorts the collection by the start date/time property and,
     ''' if they are equal, the summary description.  This is used to handle all of the collection types.</remarks>
-    Private Function CalendarSorter(x As CalendarObject, y As CalendarObject) As Integer
+    Private Shared Function CalendarSorter(x As CalendarObject, y As CalendarObject) As Integer
         Dim d1, d2 As DateTime
         Dim summary1, summary2 As String
 
@@ -831,7 +831,7 @@ Public Partial Class CalendarBrowserForm
             summary1 = e1.Summary.Value
             summary2 = e2.Summary.Value
 
-        ElseIf TypeOf x Is VToDo
+        ElseIf TypeOf x Is VToDo Then
             Dim t1 As VToDo = DirectCast(x, VToDo), t2 As VToDo = DirectCast(y, VToDo)
 
             d1 = t1.StartDateTime.TimeZoneDateTime
@@ -839,7 +839,7 @@ Public Partial Class CalendarBrowserForm
             summary1 = t1.Summary.Value
             summary2 = t2.Summary.Value
 
-        ElseIf TypeOf x Is VJournal
+        ElseIf TypeOf x Is VJournal Then
             Dim j1 As VJournal = DirectCast(x, VJournal), j2 As VJournal = DirectCast(y, VJournal)
 
             d1 = j1.StartDateTime.TimeZoneDateTime

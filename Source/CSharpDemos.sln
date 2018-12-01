@@ -11,6 +11,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3E23A2C-E571-4DF2-BCA1-172B2C994300}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		Common.vsspell = Common.vsspell
+		CSharpDemos.sln.vsspell = CSharpDemos.sln.vsspell
 		EWSPDIDemos.ruleset = EWSPDIDemos.ruleset
 	EndProjectSection
 EndProject
@@ -19,8 +21,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWSoftware.PDI.Data", "EWSPDIData\EWSoftware.PDI.Data.csproj", "{5EDA55CB-E991-4C50-93CB-149D7C4D498C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWSoftware.PDI.Windows.Forms", "EWSPDIWinForms\EWSoftware.PDI.Windows.Forms.csproj", "{AF3E8BED-A706-4C25-8379-2882641A221A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EWSoftware.PDI.WinForms.Design", "EWSPDIWinForms\EWSoftware.PDI.WinForms.Design.csproj", "{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDIDatesTest", "CSharpDemos\PDIDatesTest\PDIDatesTest.csproj", "{A087FDCB-A669-4364-A8BB-C990CC5AB743}"
 EndProject
@@ -58,8 +58,6 @@ Global
 		{AF3E8BED-A706-4C25-8379-2882641A221A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF3E8BED-A706-4C25-8379-2882641A221A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF3E8BED-A706-4C25-8379-2882641A221A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBD186A2-8160-4BF3-92D4-61BF262F0CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A087FDCB-A669-4364-A8BB-C990CC5AB743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A087FDCB-A669-4364-A8BB-C990CC5AB743}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A087FDCB-A669-4364-A8BB-C990CC5AB743}.Release|Any CPU.ActiveCfg = Release|Any CPU

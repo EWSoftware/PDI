@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RepeatProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Repeat property used by the Personal Data Interchange (PDI) vCalendar and iCalendar
@@ -49,26 +49,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (REPEAT)
         /// </summary>
-        public override string Tag
-        {
-            get { return "REPEAT"; }
-        }
+        public override string Tag => "REPEAT";
 
         /// <summary>
         /// This read-only property defines the default value type as INTEGER
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Integer; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Integer;
 
         /// <summary>
         /// This allows the repeat count to be set or retrieved as an integer
@@ -76,11 +68,11 @@ namespace EWSoftware.PDI.Properties
         /// <exception cref="ArgumentOutOfRangeException">An exception is thrown if the value is less than zero</exception>
         public int RepeatCount
         {
-            get { return repeatCount; }
+            get => repeatCount;
             set
             {
                 if(value < 0)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRptCountBadValue"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRptCountBadValue"));
 
                 repeatCount = value;
             }
@@ -120,8 +112,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

@@ -1,8 +1,8 @@
 //===============================================================================================================
 // File    : AboutDlg.cs
 // Author  : Eric Woodruff
-// Updated : 12/27/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This form is used to display application version information
@@ -16,6 +16,8 @@
 // ==============================================================================================================
 // 11/10/2003  EFW  Created the code
 //===============================================================================================================
+
+// Ignore Spelling: mailto
 
 using System;
 using System.Reflection;

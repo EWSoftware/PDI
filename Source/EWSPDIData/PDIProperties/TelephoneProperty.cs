@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TelephoneProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Telephone property class.  It is used with the Personal Data Interchange (PDI) vCard
@@ -45,8 +45,6 @@ namespace EWSoftware.PDI.Properties
 
         private static Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
-        private PhoneTypes phoneTypes;
-
         // This private array is used to translate parameter names and values to phone types
         private static NameToValue<PhoneTypes>[] ntv = {
             new NameToValue<PhoneTypes>("TYPE", PhoneTypes.None, false),
@@ -77,35 +75,24 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (TEL)
         /// </summary>
-        public override string Tag
-        {
-            get { return "TEL"; }
-        }
+        public override string Tag => "TEL";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the phone type flags
         /// </summary>
-        public PhoneTypes PhoneTypes
-        {
-            get { return phoneTypes; }
-            set { phoneTypes = value; }
-        }
+        public PhoneTypes PhoneTypes { get; set; }
+
         #endregion
 
         #region Constructor
@@ -118,7 +105,7 @@ namespace EWSoftware.PDI.Properties
         public TelephoneProperty()
         {
             this.Version = SpecificationVersions.vCard30;
-            phoneTypes = PhoneTypes.Voice;
+            this.PhoneTypes = PhoneTypes.Voice;
         }
         #endregion
 
@@ -142,7 +129,7 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            phoneTypes = ((TelephoneProperty)p).PhoneTypes;
+            this.PhoneTypes = ((TelephoneProperty)p).PhoneTypes;
             base.Clone(p);
         }
 

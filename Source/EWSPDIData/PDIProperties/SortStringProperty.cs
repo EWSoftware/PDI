@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : SortStringProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Sort String property class used by the Personal Data Interchange (PDI) vCard class
@@ -37,26 +37,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 3.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (SORT-STRING)
         /// </summary>
-        public override string Tag
-        {
-            get { return "SORT-STRING"; }
-        }
+        public override string Tag => "SORT-STRING";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
+
         #endregion
 
         #region Constructor

@@ -43,53 +43,53 @@ Partial Class EMailControl
         Me.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(470, 77)
+        Me.pnlControls.Size = New System.Drawing.Size(532, 76)
         Me.pnlControls.TabIndex = 0
         '
         'chkPreferred
         '
-        Me.chkPreferred.Location = New System.Drawing.Point(346, 44)
+        Me.chkPreferred.Location = New System.Drawing.Point(386, 44)
         Me.chkPreferred.Name = "chkPreferred"
-        Me.chkPreferred.Size = New System.Drawing.Size(98, 24)
+        Me.chkPreferred.Size = New System.Drawing.Size(120, 24)
         Me.chkPreferred.TabIndex = 5
         Me.chkPreferred.Text = "Preferred"
         '
         'chkX400
         '
-        Me.chkX400.Location = New System.Drawing.Point(256, 44)
+        Me.chkX400.Location = New System.Drawing.Point(281, 44)
         Me.chkX400.Name = "chkX400"
-        Me.chkX400.Size = New System.Drawing.Size(72, 24)
+        Me.chkX400.Size = New System.Drawing.Size(99, 24)
         Me.chkX400.TabIndex = 4
         Me.chkX400.Text = "X400"
         '
         'chkInternet
         '
-        Me.chkInternet.Location = New System.Drawing.Point(136, 44)
+        Me.chkInternet.Location = New System.Drawing.Point(173, 44)
         Me.chkInternet.Name = "chkInternet"
-        Me.chkInternet.Size = New System.Drawing.Size(104, 24)
+        Me.chkInternet.Size = New System.Drawing.Size(102, 24)
         Me.chkInternet.TabIndex = 3
         Me.chkInternet.Text = "Internet"
         '
         'chkAOL
         '
-        Me.chkAOL.Location = New System.Drawing.Point(36, 44)
+        Me.chkAOL.Location = New System.Drawing.Point(76, 44)
         Me.chkAOL.Name = "chkAOL"
-        Me.chkAOL.Size = New System.Drawing.Size(84, 24)
+        Me.chkAOL.Size = New System.Drawing.Size(91, 24)
         Me.chkAOL.TabIndex = 2
         Me.chkAOL.Text = "AOL"
         '
         'txtEMailAddress
         '
-        Me.txtEMailAddress.Location = New System.Drawing.Point(76, 12)
+        Me.txtEMailAddress.Location = New System.Drawing.Point(76, 10)
         Me.txtEMailAddress.Name = "txtEMailAddress"
-        Me.txtEMailAddress.Size = New System.Drawing.Size(368, 22)
+        Me.txtEMailAddress.Size = New System.Drawing.Size(430, 26)
         Me.txtEMailAddress.TabIndex = 1
         '
         'label12
         '
-        Me.label12.Location = New System.Drawing.Point(15, 12)
+        Me.label12.Location = New System.Drawing.Point(1, 12)
         Me.label12.Name = "label12"
-        Me.label12.Size = New System.Drawing.Size(55, 23)
+        Me.label12.Size = New System.Drawing.Size(69, 23)
         Me.label12.TabIndex = 0
         Me.label12.Text = "&E-Mail"
         Me.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -98,7 +98,7 @@ Partial Class EMailControl
         '
         Me.Controls.Add(Me.pnlControls)
         Me.Name = "EMailControl"
-        Me.Size = New System.Drawing.Size(470, 104)
+        Me.Size = New System.Drawing.Size(532, 104)
         Me.Controls.SetChildIndex(Me.pnlControls, 0)
         Me.pnlControls.ResumeLayout(false)
         Me.pnlControls.PerformLayout

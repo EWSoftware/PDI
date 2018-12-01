@@ -26,7 +26,7 @@ maximum of 1MB in this demo.</p>
 		<tr>
 			<td class="control-label" style="vertical-align: top;">Select a file to upload</td>
 			<td colspan="3">
-				<input type="file" id="hifUpload" runat="server" size="50" class="form-control"
+				<input type="file" id="hifUpload" runat="server" style="width: 35em;" class="form-control"
 					accept="text/*" name="hifUpload" />
 				<asp:Button ID="btnUpload" runat="server" CssClass="btn btn-default"
 					Text="Upload" ToolTip="Upload the file" OnClick="btnUpload_Click" />&nbsp;&nbsp;&nbsp;&nbsp;

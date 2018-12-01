@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RequestStatusPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for RequestStatusProperty objects.  It is used by the Personal Data
@@ -66,10 +66,13 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public RequestStatusProperty Add(string code, string message, string data)
         {
-            RequestStatusProperty rs = new RequestStatusProperty();
-            rs.StatusCode = code;
-            rs.StatusMessage = message;
-            rs.ExtendedData = data;
+            RequestStatusProperty rs = new RequestStatusProperty
+            {
+                StatusCode = code,
+                StatusMessage = message,
+                ExtendedData = data
+            };
+
             base.Add(rs);
 
             return rs;

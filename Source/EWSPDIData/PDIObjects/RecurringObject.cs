@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurringObject.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains an abstract base class from which recurring calendar objects are derived.  It defines a
@@ -43,7 +43,6 @@ namespace EWSoftware.PDI.Objects
         private RDatePropertyCollection  rDates;
         private ExDatePropertyCollection exDates;
 
-        private bool excludeStart;
         #endregion
 
         #region Properties
@@ -62,11 +61,7 @@ namespace EWSoftware.PDI.Objects
         /// <para>This property is saved as a custom property when written to a PDI data stream
         /// (<c>X-EWSOFTWARE-EXCLUDESTART:1</c>).  Also be /// aware that it is not compatible with other
         /// calendaring systems.</para></value>
-        public bool ExcludeStartDateTime
-        {
-            get { return excludeStart; }
-            set { excludeStart = value; }
-        }
+        public bool ExcludeStartDateTime { get; set; }
 
         /// <summary>
         /// This is used to get the Recurrence Rule (RRULE) properties.  There may be more than one.
@@ -133,14 +128,8 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <value>It returns true if any recurrence rules, exception rules, recurrence dates, or exception dates
         /// are defined.  It returns false if none of those items have been specified.</value>
-        public bool IsRecurring
-        {
-            get
-            {
-                return (this.RecurrenceRules.Count != 0 || this.ExceptionRules.Count != 0 ||
-                        this.RecurDates.Count != 0 || this.ExceptionDates.Count != 0);
-            }
-        }
+        public bool IsRecurring => (this.RecurrenceRules.Count != 0 || this.ExceptionRules.Count != 0 ||
+            this.RecurDates.Count != 0 || this.ExceptionDates.Count != 0);
 
         /// <summary>
         /// This must be implemented to return the start date/time property that is used to determine when the
@@ -332,7 +321,7 @@ namespace EWSoftware.PDI.Objects
                 foreach(ExDateProperty e in exDates)
                     BaseProperty.WriteToStream(e, sb, tw);
 
-            if(excludeStart)
+            if(this.ExcludeStartDateTime)
                 tw.Write("X-EWSOFTWARE-EXCLUDESTART:1\r\n");
         }
 
@@ -501,7 +490,7 @@ namespace EWSoftware.PDI.Objects
             p = new Period(startDate, dur);
 
             if(((p.StartDateTime >= fromDate && p.StartDateTime <= toDate) || (p.EndDateTime >= fromDate &&
-              p.EndDateTime <= toDate)) && (!this.IsRecurring || !excludeStart))
+              p.EndDateTime <= toDate)) && (!this.IsRecurring || !this.ExcludeStartDateTime))
             {
                 periods.Add(p);
             }

@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : TimeZoneListDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/25/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This is used to edit view and edit time zones and apply them to the calendar
@@ -19,11 +19,7 @@
 ' 05/21/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
-Imports System.Drawing
-Imports System.ComponentModel
 Imports System.Globalization
-Imports System.Windows.Forms
 
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects
@@ -34,9 +30,7 @@ Imports EWSoftware.PDI.Objects
 Public Partial Class TimeZoneListDlg
     Inherits System.Windows.Forms.Form
 
-    Private vCal As VCalendar
     Private timeZones As VTimeZoneCollection
-    Private wasModified As Boolean
 
     Public Sub New()
         MyBase.New()
@@ -47,7 +41,7 @@ Public Partial Class TimeZoneListDlg
         tbcLastModified.DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern &
             " " & CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern
 
-        vCal = Nothing
+        Me.CurrentCalendar = Nothing
         timeZones = New VTimeZoneCollection()
         LoadGridWithItems()
     End Sub
@@ -56,25 +50,11 @@ Public Partial Class TimeZoneListDlg
     ''' Get or set the currently loaded calendar
     ''' </summary>
     Public Property CurrentCalendar As VCalendar
-        Get
-            Return vCal
-        End Get
-        Set
-            vCal = Value
-        End Set
-    End Property
 
     ''' <summary>
     ''' Set or get the modified state
     ''' </summary>
     Public Property Modified As Boolean
-        Get
-            Return wasModified
-        End Get
-        Set
-            wasModified = Value
-        End Set
-    End Property
 
     ''' <summary>
     ''' Load the grid with the specified calendar items
@@ -91,8 +71,8 @@ Public Partial Class TimeZoneListDlg
             ' Get just the time zones used
             Dim timeZonesUsed As New StringCollection()
 
-            If vCal IsNot Nothing Then
-                vCal.TimeZonesUsed(timeZonesUsed)
+            If Me.CurrentCalendar IsNot Nothing Then
+                Me.CurrentCalendar.TimeZonesUsed(timeZonesUsed)
 
                 ' Remove entries that don't exist
                 idx = 0
@@ -160,7 +140,7 @@ Public Partial Class TimeZoneListDlg
                 dlg.GetValues(tz)
 
                 VCalendar.TimeZones.Add(tz)
-                wasModified = True
+                Me.Modified = True
                 LoadGridWithItems()
             End If
         End Using
@@ -185,7 +165,7 @@ Public Partial Class TimeZoneListDlg
 
             If dlg.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 dlg.GetValues(VCalendar.TimeZones(timeZoneId))
-                wasModified = True
+                Me.Modified = True
                 LoadGridWithItems()
             End If
         End Using
@@ -207,8 +187,8 @@ Public Partial Class TimeZoneListDlg
         Dim timeZonesUsed As New StringCollection()
         Dim timeZoneId As String = CType(dgvCalendar(0, dgvCalendar.CurrentCellAddress.Y).Value, String)
 
-        If Not (vCal Is Nothing) Then
-            vCal.TimeZonesUsed(timeZonesUsed)
+        If Not (Me.CurrentCalendar Is Nothing) Then
+            Me.CurrentCalendar.TimeZonesUsed(timeZonesUsed)
         End If
 
         If timeZonesUsed.Contains(timeZoneId) Then
@@ -221,7 +201,7 @@ Public Partial Class TimeZoneListDlg
           MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) =
           System.Windows.Forms.DialogResult.Yes Then
             VCalendar.TimeZones.Remove(VCalendar.TimeZones(timeZoneId))
-            wasModified = True
+            Me.Modified = True
             LoadGridWithItems()
         End If
     End Sub
@@ -243,8 +223,8 @@ Public Partial Class TimeZoneListDlg
           "Apply Time Zone", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) =
           System.Windows.Forms.DialogResult.Yes Then
             Dim timeZoneId As String = CType(dgvCalendar(0, dgvCalendar.CurrentCellAddress.Y).Value, String)
-            vCal.ApplyTimeZone(VCalendar.TimeZones(timeZoneId))
-            wasModified = True
+            Me.CurrentCalendar.ApplyTimeZone(VCalendar.TimeZones(timeZoneId))
+            Me.Modified = True
         End If
     End Sub
 End Class

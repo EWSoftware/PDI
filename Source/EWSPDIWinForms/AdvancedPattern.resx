@@ -112,23 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 6</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 23</value>
+    <value>111, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -142,7 +142,7 @@
     <value>label2</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -151,10 +151,10 @@
     <value>27</value>
   </data>
   <data name="udcInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 6</value>
+    <value>129, 5</value>
   </data>
   <data name="udcInterval.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>65, 26</value>
   </data>
   <data name="udcInterval.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -166,7 +166,7 @@
     <value>udcInterval</value>
   </data>
   <data name="&gt;&gt;udcInterval.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;udcInterval.Parent" xml:space="preserve">
     <value>$this</value>
@@ -178,7 +178,7 @@
     <value>NoControl</value>
   </data>
   <data name="lblInterval.Location" type="System.Drawing.Point, System.Drawing">
-    <value>160, 6</value>
+    <value>200, 6</value>
   </data>
   <data name="lblInterval.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 23</value>
@@ -196,7 +196,7 @@
     <value>lblInterval</value>
   </data>
   <data name="&gt;&gt;lblInterval.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblInterval.Parent" xml:space="preserve">
     <value>$this</value>
@@ -208,10 +208,10 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 304</value>
+    <value>10, 304</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 24</value>
+    <value>473, 24</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -223,7 +223,7 @@
     <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -235,10 +235,10 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 336</value>
+    <value>15, 333</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -253,7 +253,7 @@
     <value>label3</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -262,10 +262,10 @@
     <value>25</value>
   </data>
   <data name="txtByWeekNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 336</value>
+    <value>152, 331</value>
   </data>
   <data name="txtByWeekNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtByWeekNo.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -274,7 +274,7 @@
     <value>txtByWeekNo</value>
   </data>
   <data name="&gt;&gt;txtByWeekNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtByWeekNo.Parent" xml:space="preserve">
     <value>$this</value>
@@ -283,10 +283,10 @@
     <value>24</value>
   </data>
   <data name="txtByYearDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 360</value>
+    <value>152, 363</value>
   </data>
   <data name="txtByYearDay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtByYearDay.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -295,7 +295,7 @@
     <value>txtByYearDay</value>
   </data>
   <data name="&gt;&gt;txtByYearDay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtByYearDay.Parent" xml:space="preserve">
     <value>$this</value>
@@ -307,10 +307,10 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 360</value>
+    <value>15, 365</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -325,7 +325,7 @@
     <value>label5</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>$this</value>
@@ -334,10 +334,10 @@
     <value>23</value>
   </data>
   <data name="txtByMonthDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 384</value>
+    <value>152, 395</value>
   </data>
   <data name="txtByMonthDay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtByMonthDay.TabIndex" type="System.Int32, mscorlib">
     <value>21</value>
@@ -346,7 +346,7 @@
     <value>txtByMonthDay</value>
   </data>
   <data name="&gt;&gt;txtByMonthDay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtByMonthDay.Parent" xml:space="preserve">
     <value>$this</value>
@@ -358,10 +358,10 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 384</value>
+    <value>15, 397</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -376,7 +376,7 @@
     <value>label6</value>
   </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
     <value>$this</value>
@@ -385,10 +385,10 @@
     <value>21</value>
   </data>
   <data name="txtByHour.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 408</value>
+    <value>152, 427</value>
   </data>
   <data name="txtByHour.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtByHour.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -397,7 +397,7 @@
     <value>txtByHour</value>
   </data>
   <data name="&gt;&gt;txtByHour.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtByHour.Parent" xml:space="preserve">
     <value>$this</value>
@@ -409,10 +409,10 @@
     <value>NoControl</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>43, 408</value>
+    <value>15, 429</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
@@ -427,7 +427,7 @@
     <value>label8</value>
   </data>
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>$this</value>
@@ -436,10 +436,10 @@
     <value>19</value>
   </data>
   <data name="txtByMinute.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 432</value>
+    <value>152, 459</value>
   </data>
   <data name="txtByMinute.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtByMinute.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -448,7 +448,7 @@
     <value>txtByMinute</value>
   </data>
   <data name="&gt;&gt;txtByMinute.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtByMinute.Parent" xml:space="preserve">
     <value>$this</value>
@@ -460,10 +460,10 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>38, 432</value>
+    <value>15, 461</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>24</value>
@@ -478,7 +478,7 @@
     <value>label9</value>
   </data>
   <data name="&gt;&gt;label9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label9.Parent" xml:space="preserve">
     <value>$this</value>
@@ -487,10 +487,10 @@
     <value>17</value>
   </data>
   <data name="txtBySecond.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 456</value>
+    <value>152, 491</value>
   </data>
   <data name="txtBySecond.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtBySecond.TabIndex" type="System.Int32, mscorlib">
     <value>27</value>
@@ -499,7 +499,7 @@
     <value>txtBySecond</value>
   </data>
   <data name="&gt;&gt;txtBySecond.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtBySecond.Parent" xml:space="preserve">
     <value>$this</value>
@@ -511,10 +511,10 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 456</value>
+    <value>15, 493</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -529,7 +529,7 @@
     <value>label4</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -538,10 +538,10 @@
     <value>15</value>
   </data>
   <data name="txtBySetPos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 480</value>
+    <value>152, 523</value>
   </data>
   <data name="txtBySetPos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>312, 22</value>
+    <value>327, 26</value>
   </data>
   <data name="txtBySetPos.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -550,7 +550,7 @@
     <value>txtBySetPos</value>
   </data>
   <data name="&gt;&gt;txtBySetPos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtBySetPos.Parent" xml:space="preserve">
     <value>$this</value>
@@ -562,10 +562,10 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 480</value>
+    <value>15, 525</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>110, 23</value>
+    <value>131, 23</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>28</value>
@@ -580,7 +580,7 @@
     <value>label7</value>
   </data>
   <data name="&gt;&gt;label7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
     <value>$this</value>
@@ -588,11 +588,14 @@
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <data name="lbByMonth.IntegralHeight" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="lbByMonth.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 80</value>
   </data>
   <data name="lbByMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>144, 208</value>
+    <value>163, 208</value>
   </data>
   <data name="lbByMonth.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -601,7 +604,7 @@
     <value>lbByMonth</value>
   </data>
   <data name="&gt;&gt;lbByMonth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbByMonth.Parent" xml:space="preserve">
     <value>$this</value>
@@ -616,7 +619,7 @@
     <value>16, 48</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 23</value>
+    <value>99, 23</value>
   </data>
   <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -631,7 +634,7 @@
     <value>label10</value>
   </data>
   <data name="&gt;&gt;label10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label10.Parent" xml:space="preserve">
     <value>$this</value>
@@ -643,10 +646,10 @@
     <value>False</value>
   </data>
   <data name="lbByDay.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="lbByDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 80</value>
+    <value>211, 80</value>
   </data>
   <data name="lbByDay.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 208</value>
@@ -658,7 +661,7 @@
     <value>lbByDay</value>
   </data>
   <data name="&gt;&gt;lbByDay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lbByDay.Parent" xml:space="preserve">
     <value>$this</value>
@@ -670,10 +673,10 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>174, 47</value>
+    <value>201, 47</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 23</value>
+    <value>73, 23</value>
   </data>
   <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -688,7 +691,7 @@
     <value>label11</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>$this</value>
@@ -697,10 +700,10 @@
     <value>8</value>
   </data>
   <data name="udcDayInstance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>240, 48</value>
+    <value>280, 47</value>
   </data>
   <data name="udcDayInstance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>65, 26</value>
   </data>
   <data name="udcDayInstance.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -712,7 +715,7 @@
     <value>udcDayInstance</value>
   </data>
   <data name="&gt;&gt;udcDayInstance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;udcDayInstance.Parent" xml:space="preserve">
     <value>$this</value>
@@ -724,7 +727,7 @@
     <value>8, 288</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 8</value>
+    <value>475, 8</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -733,7 +736,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -745,7 +748,7 @@
     <value>8, 32</value>
   </data>
   <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>432, 8</value>
+    <value>475, 8</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -754,7 +757,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -763,7 +766,7 @@
     <value>5</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>168, 40</value>
+    <value>195, 40</value>
   </data>
   <data name="groupBox3.Size" type="System.Drawing.Size, System.Drawing">
     <value>2, 248</value>
@@ -775,7 +778,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;groupBox3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -784,16 +787,16 @@
     <value>4</value>
   </data>
   <data name="cboDOW.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboDOW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 48</value>
+    <value>351, 46</value>
   </data>
   <data name="cboDOW.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboDOW.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 24</value>
+    <value>130, 28</value>
   </data>
   <data name="cboDOW.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -802,7 +805,7 @@
     <value>cboDOW</value>
   </data>
   <data name="&gt;&gt;cboDOW.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cboDOW.Parent" xml:space="preserve">
     <value>$this</value>
@@ -814,10 +817,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnAdd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 80</value>
+    <value>387, 80</value>
   </data>
   <data name="btnAdd.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 28</value>
+    <value>96, 28</value>
   </data>
   <data name="btnAdd.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -829,7 +832,7 @@
     <value>btnAdd</value>
   </data>
   <data name="&gt;&gt;btnAdd.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnAdd.Parent" xml:space="preserve">
     <value>$this</value>
@@ -841,10 +844,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnRemove.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 114</value>
+    <value>387, 114</value>
   </data>
   <data name="btnRemove.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 28</value>
+    <value>96, 28</value>
   </data>
   <data name="btnRemove.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -856,7 +859,7 @@
     <value>btnRemove</value>
   </data>
   <data name="&gt;&gt;btnRemove.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnRemove.Parent" xml:space="preserve">
     <value>$this</value>
@@ -868,10 +871,10 @@
     <value>NoControl</value>
   </data>
   <data name="btnClear.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 148</value>
+    <value>387, 148</value>
   </data>
   <data name="btnClear.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 28</value>
+    <value>96, 28</value>
   </data>
   <data name="btnClear.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -883,7 +886,7 @@
     <value>btnClear</value>
   </data>
   <data name="&gt;&gt;btnClear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnClear.Parent" xml:space="preserve">
     <value>$this</value>
@@ -891,19 +894,19 @@
   <data name="&gt;&gt;btnClear.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>450, 512</value>
+    <value>494, 559</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>AdvancedPattern</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

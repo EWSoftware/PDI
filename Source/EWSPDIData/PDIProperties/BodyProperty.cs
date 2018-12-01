@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BodyProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Body property.  It is used with the Personal Data Interchange (PDI) vNote class.
@@ -35,26 +35,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports IrMC 1.1 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.IrMC11; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the tag (BODY)
         /// </summary>
-        public override string Tag
-        {
-            get { return "BODY"; }
-        }
+        public override string Tag => "BODY";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
+
         #endregion
 
         #region Constructor

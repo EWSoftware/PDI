@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CustomProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for CustomProperty objects.  It is used with the Personal Data
@@ -23,7 +23,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 
 using EWSoftware.PDI.Binding;
 
@@ -101,8 +100,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the newly created custom property</returns>
         public CustomProperty Add(string tag, string propertyValue)
         {
-            CustomProperty cprop = new CustomProperty(tag);
-            cprop.Value = propertyValue;
+            CustomProperty cprop = new CustomProperty(tag) { Value = propertyValue };
+
             base.Add(cprop);
 
             return cprop;

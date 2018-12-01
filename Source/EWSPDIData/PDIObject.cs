@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PDIObject.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the base class for all of the Personal Data Interchange (PDI) classes
@@ -61,7 +61,7 @@ namespace EWSoftware.PDI
         /// object.</exception>
         public virtual SpecificationVersions Version
         {
-            get { return version; }
+            get => version;
             set
             {
                 if(value == SpecificationVersions.None)

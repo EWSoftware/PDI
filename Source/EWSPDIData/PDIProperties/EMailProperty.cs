@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EMailProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the e-mail property class.  It is used with the Personal Data Interchange (PDI) vCard
@@ -28,16 +28,14 @@ using EWSoftware.PDI.Parser;
 namespace EWSoftware.PDI.Properties
 {
     /// <summary>
-    /// This class is used to represent the E-Mail (EMAIL) property of a
-    /// vCard.  This specifies the electronic mail address for
-    /// communication for the vCard object.
+    /// This class is used to represent the E-Mail (EMAIL) property of a vCard.  This specifies the electronic
+    /// mail address for communication for the vCard object.
     /// </summary>
-    /// <remarks>This property has no special requirements or handling.  It
-    /// does contain an additional property to specify an e-mail type.
-    /// The <see cref="BaseProperty.Value"/> property contains the value.
-    /// <p/>With the use of property grouping, the association can be limited
-    /// to a group of properties.  No validation is performed to ensure that
-    /// the e-mail address matches the specified type.</remarks>
+    /// <remarks>This property has no special requirements or handling.  It does contain an additional property
+    /// to specify an e-mail type.  The <see cref="BaseProperty.Value"/> property contains the value.
+    /// 
+    /// <p/>With the use of property grouping, the association can be limited to a group of properties.  No
+    /// validation is performed to ensure that the e-mail address matches the specified type.</remarks>
     public class EMailProperty : BaseProperty
     {
         #region Private data members
@@ -71,26 +69,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (EMAIL)
         /// </summary>
-        public override string Tag
-        {
-            get { return "EMAIL"; }
-        }
+        public override string Tag => "EMAIL";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the e-mail type flags

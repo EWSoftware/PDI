@@ -19,6 +19,8 @@
 // 03/21/2007  EFW  Converted to use a generic base class
 //===============================================================================================================
 
+// Ignore Spelling: vc sw
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

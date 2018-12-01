@@ -78,7 +78,7 @@ namespace CalendarBrowser
             this.chkLimitToCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkLimitToCalendar.Location = new System.Drawing.Point(12, 486);
             this.chkLimitToCalendar.Name = "chkLimitToCalendar";
-            this.chkLimitToCalendar.Size = new System.Drawing.Size(345, 24);
+            this.chkLimitToCalendar.Size = new System.Drawing.Size(467, 24);
             this.chkLimitToCalendar.TabIndex = 1;
             this.chkLimitToCalendar.Text = "&Limit to time zones used in the loaded calendar";
             this.chkLimitToCalendar.CheckedChanged += new System.EventHandler(this.chkLimitToCalendar_CheckedChanged);

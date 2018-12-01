@@ -126,7 +126,7 @@
     <value>8, 8</value>
   </data>
   <data name="rbEveryXDays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 24</value>
+    <value>84, 24</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="rbEveryXDays.TabIndex" type="System.Int32, mscorlib">
@@ -178,7 +178,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 9</value>
+    <value>155, 9</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>56, 23</value>
@@ -205,10 +205,10 @@
     <value>1</value>
   </data>
   <data name="udcDays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 10</value>
+    <value>88, 8</value>
   </data>
   <data name="udcDays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 26</value>
+    <value>61, 26</value>
   </data>
   <data name="udcDays.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -232,7 +232,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 72</value>
+    <value>266, 72</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>DailyPattern</value>

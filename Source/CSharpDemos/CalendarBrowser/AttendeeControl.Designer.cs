@@ -63,47 +63,47 @@ namespace CalendarBrowser
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControls.Location = new System.Drawing.Point(0, 0);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(496, 173);
+            this.pnlControls.Size = new System.Drawing.Size(571, 190);
             this.pnlControls.TabIndex = 0;
             // 
             // txtSentBy
             // 
-            this.txtSentBy.Location = new System.Drawing.Point(128, 107);
+            this.txtSentBy.Location = new System.Drawing.Point(153, 109);
             this.txtSentBy.Name = "txtSentBy";
-            this.txtSentBy.Size = new System.Drawing.Size(248, 22);
+            this.txtSentBy.Size = new System.Drawing.Size(383, 26);
             this.txtSentBy.TabIndex = 9;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(58, 107);
+            this.label6.Location = new System.Drawing.Point(62, 111);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 23);
+            this.label6.Size = new System.Drawing.Size(85, 23);
             this.label6.TabIndex = 8;
             this.label6.Text = "Sent By";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtAttendee
             // 
-            this.txtAttendee.Location = new System.Drawing.Point(128, 11);
+            this.txtAttendee.Location = new System.Drawing.Point(153, 11);
             this.txtAttendee.Name = "txtAttendee";
-            this.txtAttendee.Size = new System.Drawing.Size(248, 22);
+            this.txtAttendee.Size = new System.Drawing.Size(383, 26);
             this.txtAttendee.TabIndex = 1;
             this.txtAttendee.Validating += new System.ComponentModel.CancelEventHandler(this.txtAttendee_Validating);
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(50, 11);
+            this.label4.Location = new System.Drawing.Point(62, 13);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 23);
+            this.label4.Size = new System.Drawing.Size(85, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "Attendee";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chkRSVP
             // 
-            this.chkRSVP.Location = new System.Drawing.Point(328, 139);
+            this.chkRSVP.Location = new System.Drawing.Point(353, 143);
             this.chkRSVP.Name = "chkRSVP";
-            this.chkRSVP.Size = new System.Drawing.Size(72, 24);
+            this.chkRSVP.Size = new System.Drawing.Size(118, 24);
             this.chkRSVP.TabIndex = 12;
             this.chkRSVP.Text = "RSVP";
             // 
@@ -116,17 +116,17 @@ namespace CalendarBrowser
             "REQ-PARTICIPANT",
             "OPT-PARTICIPANT",
             "NON-PARTICIPANT"});
-            this.cboRole.Location = new System.Drawing.Point(328, 75);
+            this.cboRole.Location = new System.Drawing.Point(353, 75);
             this.cboRole.MaxDropDownItems = 16;
             this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(160, 24);
+            this.cboRole.Size = new System.Drawing.Size(183, 28);
             this.cboRole.TabIndex = 7;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(276, 75);
+            this.label3.Location = new System.Drawing.Point(287, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 23);
+            this.label3.Size = new System.Drawing.Size(60, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "Role";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -143,33 +143,33 @@ namespace CalendarBrowser
             "DELEGATED",
             "COMPLETED",
             "IN-PROCESS"});
-            this.cboStatus.Location = new System.Drawing.Point(128, 139);
+            this.cboStatus.Location = new System.Drawing.Point(153, 141);
             this.cboStatus.MaxDropDownItems = 16;
             this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(176, 24);
+            this.cboStatus.Size = new System.Drawing.Size(176, 28);
             this.cboStatus.TabIndex = 11;
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(63, 139);
+            this.label10.Location = new System.Drawing.Point(58, 143);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(59, 23);
+            this.label10.Size = new System.Drawing.Size(89, 23);
             this.label10.TabIndex = 10;
             this.label10.Text = "Status";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtCommonName
             // 
-            this.txtCommonName.Location = new System.Drawing.Point(128, 43);
+            this.txtCommonName.Location = new System.Drawing.Point(153, 43);
             this.txtCommonName.Name = "txtCommonName";
-            this.txtCommonName.Size = new System.Drawing.Size(248, 22);
+            this.txtCommonName.Size = new System.Drawing.Size(383, 26);
             this.txtCommonName.TabIndex = 3;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(8, 43);
+            this.label1.Location = new System.Drawing.Point(6, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 23);
+            this.label1.Size = new System.Drawing.Size(141, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Common Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -177,16 +177,16 @@ namespace CalendarBrowser
             // txtUserType
             // 
             this.txtUserType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUserType.Location = new System.Drawing.Point(128, 75);
+            this.txtUserType.Location = new System.Drawing.Point(153, 75);
             this.txtUserType.Name = "txtUserType";
-            this.txtUserType.Size = new System.Drawing.Size(128, 22);
+            this.txtUserType.Size = new System.Drawing.Size(128, 26);
             this.txtUserType.TabIndex = 5;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(36, 75);
+            this.label5.Location = new System.Drawing.Point(37, 77);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 23);
+            this.label5.Size = new System.Drawing.Size(110, 23);
             this.label5.TabIndex = 4;
             this.label5.Text = "User Type";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -195,7 +195,7 @@ namespace CalendarBrowser
             // 
             this.Controls.Add(this.pnlControls);
             this.Name = "AttendeeControl";
-            this.Size = new System.Drawing.Size(496, 200);
+            this.Size = new System.Drawing.Size(571, 218);
             this.Controls.SetChildIndex(this.pnlControls, 0);
             this.pnlControls.ResumeLayout(false);
             this.pnlControls.PerformLayout();

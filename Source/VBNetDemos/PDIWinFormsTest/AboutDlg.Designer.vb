@@ -41,9 +41,9 @@ Partial Class AboutDlg
         '
         'lnkHelp
         '
-        Me.lnkHelp.Location = New System.Drawing.Point(168, 301)
+        Me.lnkHelp.Location = New System.Drawing.Point(187, 334)
         Me.lnkHelp.Name = "lnkHelp"
-        Me.lnkHelp.Size = New System.Drawing.Size(144, 18)
+        Me.lnkHelp.Size = New System.Drawing.Size(216, 23)
         Me.lnkHelp.TabIndex = 6
         Me.lnkHelp.TabStop = true
         Me.lnkHelp.Text = "Eric@EWoodruff.us"
@@ -51,22 +51,22 @@ Partial Class AboutDlg
         'ColumnHeader1
         '
         Me.ColumnHeader1.Text = "Name"
-        Me.ColumnHeader1.Width = 250
+        Me.ColumnHeader1.Width = 275
         '
         'btnSysInfo
         '
-        Me.btnSysInfo.Location = New System.Drawing.Point(334, 349)
+        Me.btnSysInfo.Location = New System.Drawing.Point(355, 398)
         Me.btnSysInfo.Name = "btnSysInfo"
-        Me.btnSysInfo.Size = New System.Drawing.Size(112, 32)
+        Me.btnSysInfo.Size = New System.Drawing.Size(150, 32)
         Me.btnSysInfo.TabIndex = 9
         Me.btnSysInfo.Text = "System Info..."
         '
         'btnOK
         '
         Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOK.Location = New System.Drawing.Point(216, 349)
+        Me.btnOK.Location = New System.Drawing.Point(199, 398)
         Me.btnOK.Name = "btnOK"
-        Me.btnOK.Size = New System.Drawing.Size(112, 32)
+        Me.btnOK.Size = New System.Drawing.Size(150, 32)
         Me.btnOK.TabIndex = 8
         Me.btnOK.Text = "OK"
         '
@@ -76,10 +76,10 @@ Partial Class AboutDlg
         Me.lvComponents.FullRowSelect = true
         Me.lvComponents.GridLines = true
         Me.lvComponents.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lvComponents.Location = New System.Drawing.Point(12, 128)
+        Me.lvComponents.Location = New System.Drawing.Point(12, 153)
         Me.lvComponents.MultiSelect = false
         Me.lvComponents.Name = "lvComponents"
-        Me.lvComponents.Size = New System.Drawing.Size(434, 170)
+        Me.lvComponents.Size = New System.Drawing.Size(493, 170)
         Me.lvComponents.TabIndex = 4
         Me.lvComponents.UseCompatibleStateImageBehavior = false
         Me.lvComponents.View = System.Windows.Forms.View.Details
@@ -91,9 +91,9 @@ Partial Class AboutDlg
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(12, 106)
+        Me.Label1.Location = New System.Drawing.Point(8, 127)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(164, 19)
+        Me.Label1.Size = New System.Drawing.Size(164, 23)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Product Components"
         '
@@ -101,23 +101,23 @@ Partial Class AboutDlg
         '
         Me.lblName.Location = New System.Drawing.Point(80, 8)
         Me.lblName.Name = "lblName"
-        Me.lblName.Size = New System.Drawing.Size(366, 19)
+        Me.lblName.Size = New System.Drawing.Size(425, 23)
         Me.lblName.TabIndex = 0
         Me.lblName.Text = "<Application Name>"
         '
         'lblDescription
         '
-        Me.lblDescription.Location = New System.Drawing.Point(80, 56)
+        Me.lblDescription.Location = New System.Drawing.Point(80, 64)
         Me.lblDescription.Name = "lblDescription"
-        Me.lblDescription.Size = New System.Drawing.Size(366, 40)
+        Me.lblDescription.Size = New System.Drawing.Size(425, 67)
         Me.lblDescription.TabIndex = 2
         Me.lblDescription.Text = "<Description>"
         '
         'lblCopyright
         '
-        Me.lblCopyright.Location = New System.Drawing.Point(12, 327)
+        Me.lblCopyright.Location = New System.Drawing.Point(12, 364)
         Me.lblCopyright.Name = "lblCopyright"
-        Me.lblCopyright.Size = New System.Drawing.Size(434, 19)
+        Me.lblCopyright.Size = New System.Drawing.Size(493, 23)
         Me.lblCopyright.TabIndex = 7
         Me.lblCopyright.Text = "<Copyright>"
         '
@@ -133,17 +133,17 @@ Partial Class AboutDlg
         '
         'lblVersion
         '
-        Me.lblVersion.Location = New System.Drawing.Point(80, 32)
+        Me.lblVersion.Location = New System.Drawing.Point(80, 36)
         Me.lblVersion.Name = "lblVersion"
-        Me.lblVersion.Size = New System.Drawing.Size(366, 19)
+        Me.lblVersion.Size = New System.Drawing.Size(425, 23)
         Me.lblVersion.TabIndex = 1
         Me.lblVersion.Text = "<Version>"
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(10, 301)
+        Me.label2.Location = New System.Drawing.Point(12, 334)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(162, 19)
+        Me.label2.Size = New System.Drawing.Size(178, 23)
         Me.label2.TabIndex = 5
         Me.label2.Text = "For help send e-mail to"
         '
@@ -151,7 +151,7 @@ Partial Class AboutDlg
         '
         Me.AcceptButton = Me.btnOK
         Me.CancelButton = Me.btnOK
-        Me.ClientSize = New System.Drawing.Size(458, 393)
+        Me.ClientSize = New System.Drawing.Size(517, 442)
         Me.Controls.Add(Me.lnkHelp)
         Me.Controls.Add(Me.label2)
         Me.Controls.Add(Me.btnSysInfo)

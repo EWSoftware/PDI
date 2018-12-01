@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : YearlyFrequency.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to implements the Yearly frequency rules
@@ -101,8 +101,7 @@ namespace EWSoftware.PDI
                     // Expand the date/time by adding a new entry for each month specified
                     for(expIdx = 0; expIdx < byMonth.Count; expIdx++)
                     {
-                        rdtNew = new RecurDateTime(rdt);
-                        rdtNew.Month = byMonth[expIdx] - 1;
+                        rdtNew = new RecurDateTime(rdt) { Month = byMonth[expIdx] - 1 };
                         dates.Add(rdtNew);
                     }
                 }
@@ -190,9 +189,7 @@ namespace EWSoftware.PDI
                     for(expIdx = 0; expIdx < byYearDay.Count; expIdx++)
                     {
                         yearDay = byYearDay[expIdx];
-                        rdtNew = new RecurDateTime(rdt);
-                        rdtNew.Month = 0;
-                        rdtNew.Day = 1;
+                        rdtNew = new RecurDateTime(rdt) { Month = 0, Day = 1 };
 
                         // From start of year or end of year?
                         if(yearDay > 0)
@@ -259,9 +256,7 @@ namespace EWSoftware.PDI
                         if(instance == 0)
                         {
                             // Expand to every specified day of the week in the year
-                            rdtNew = new RecurDateTime(rdt);
-                            rdtNew.Month = 0;
-                            rdtNew.Day = 1;
+                            rdtNew = new RecurDateTime(rdt) { Month = 0, Day = 1 };
                             rdtNew.AddDays(((int)dow + 7 - (int)rdtNew.DayOfWeek) % 7);
 
                             while(rdtNew.Year == rdt.Year)
@@ -276,17 +271,13 @@ namespace EWSoftware.PDI
                         if(instance > 0)
                         {
                             // Add the nth instance of the day of the week
-                            rdtNew = new RecurDateTime(rdt);
-                            rdtNew.Month = 0;
-                            rdtNew.Day = 1;
+                            rdtNew = new RecurDateTime(rdt) { Month = 0, Day = 1 };
                             rdtNew.AddDays((((int)dow + 7 - (int)rdtNew.DayOfWeek) % 7) + ((instance - 1) * 7));
                         }
                         else
                         {
                             // Add the nth instance of the day of the week from the end of the year
-                            rdtNew = new RecurDateTime(rdt);
-                            rdtNew.Month = 11;
-                            rdtNew.Day = 31;
+                            rdtNew = new RecurDateTime(rdt) { Month = 11, Day = 31 };
                             rdtNew.AddDays(0 - (((int)rdtNew.DayOfWeek + 7 - (int)dow) % 7) + ((instance + 1) * 7));
                         }
 

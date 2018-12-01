@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneOffsetProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Time Zone Offset property classes used by the Personal Data Interchange (PDI) iCalendar
@@ -36,9 +36,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private bool isOffsetFrom;
-
-        private TimeSpan offsetTimeSpan;
+        private readonly bool isOffsetFrom;
 
         #endregion
 
@@ -49,38 +47,22 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (<c>TZOFFSETFROM</c> or <c>TZOFFSETTO</c>).
         /// </summary>
-        public override string Tag
-        {
-            get
-            {
-                return isOffsetFrom ? "TZOFFSETFROM" : "TZOFFSETTO";
-            }
-        }
+        public override string Tag => isOffsetFrom ? "TZOFFSETFROM" : "TZOFFSETTO";
 
         /// <summary>
         /// This read-only property defines the default value type as UTC-OFFSET
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.UtcOffset; }
-        }
+        public override string DefaultValueLocation => ValLocValue.UtcOffset;
 
         /// <summary>
         /// This is used to get or set the value as a <see cref="System.TimeSpan"/> object
         /// </summary>
-        public virtual TimeSpan TimeSpanValue
-        {
-            get { return offsetTimeSpan; }
-            set { offsetTimeSpan = value; }
-        }
+        public virtual TimeSpan TimeSpanValue { get; set; }
 
         /// <summary>
         /// This property is overridden to handle parsing the time span
@@ -91,7 +73,8 @@ namespace EWSoftware.PDI.Properties
             get
             {
                 string tz;
-                int hours = offsetTimeSpan.Hours, mins = offsetTimeSpan.Minutes, secs = offsetTimeSpan.Seconds;
+                int hours = this.TimeSpanValue.Hours, mins = this.TimeSpanValue.Minutes,
+                    secs = this.TimeSpanValue.Seconds;
 
                 if(hours < 0 || mins < 0 || secs < 0)
                     tz = String.Format(CultureInfo.InvariantCulture, "-{0:00}{1:00}", hours * -1, mins * -1);
@@ -122,8 +105,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

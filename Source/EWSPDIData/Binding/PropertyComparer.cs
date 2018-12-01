@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PropertyComparer.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a generic comparer class that compares two items based on values retrieved from a property
@@ -37,7 +37,7 @@ namespace EWSoftware.PDI.Binding
         //=====================================================================
 
         private PropertyDescriptor property;
-        private ListSortDirection direction;
+        private readonly ListSortDirection direction;
 
         #endregion
 
@@ -88,9 +88,7 @@ namespace EWSoftware.PDI.Binding
 
             // Try comparing using IComparable.  If that won't work, see if they are equal.  If not, compare them
             // as strings.
-            IComparable comp = value1 as IComparable;
-
-            if(comp != null)
+            if(value1 is IComparable comp)
                 result = comp.CompareTo(value2);
             else
                 if(value1.Equals(value2))

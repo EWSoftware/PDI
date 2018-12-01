@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RDateProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class for the RDATE property used by the Personal Data Interchange (PDI) classes such as
@@ -42,7 +42,7 @@ namespace EWSoftware.PDI.Properties
 
         private Period period;
         private string timeZoneId;
-        private bool isFloating;
+
         #endregion
 
         #region Properties
@@ -52,26 +52,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (RDATE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "RDATE"; }
-        }
+        public override string Tag => "RDATE";
 
         /// <summary>
         /// This read-only property defines the default value type as DATE-TIME
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.DateTime; }
-        }
+        public override string DefaultValueLocation => ValLocValue.DateTime;
 
         /// <summary>
         /// This is used to set or get whether the date/time is floating
@@ -87,11 +79,7 @@ namespace EWSoftware.PDI.Properties
         /// 
         /// <para>This only applies when the value is a date/time, not a period.</para>
         /// </value>
-        public bool IsFloating
-        {
-            get { return isFloating; }
-            set { isFloating = value; }
-        }
+        public bool IsFloating { get; set; }
 
         /// <summary>
         /// This is used to get or set the time zone ID (TZID) parameter value
@@ -102,7 +90,7 @@ namespace EWSoftware.PDI.Properties
         /// the owning calendar.  If set, the <see cref="IsFloating"/> property is ignored.</value>
         public string TimeZoneId
         {
-            get { return timeZoneId; }
+            get => timeZoneId;
             set
             {
                 if(!String.IsNullOrWhiteSpace(value))
@@ -122,7 +110,7 @@ namespace EWSoftware.PDI.Properties
         /// <seealso cref="DateTimeValue"/>
         public virtual DateTime TimeZoneDateTime
         {
-            get { return this.PeriodValue.StartDateTime; }
+            get => this.PeriodValue.StartDateTime;
             set
             {
                 if(this.ValueLocation == ValLocValue.Period)
@@ -272,7 +260,7 @@ namespace EWSoftware.PDI.Properties
                 else
                 {
                     // iCalendar with time zone parameter uses local time format.  So does a floating date/time.
-                    if(isFloating || (this.Version == SpecificationVersions.iCalendar20 && timeZoneId != null))
+                    if(this.IsFloating || (this.Version == SpecificationVersions.iCalendar20 && timeZoneId != null))
                         format = ISO8601Format.BasicDateTimeLocal;
                     else
                     {
@@ -285,7 +273,7 @@ namespace EWSoftware.PDI.Properties
             }
             set
             {
-                isFloating = false;
+                this.IsFloating = false;
 
                 if(value != null && value.Length > 0)
                 {
@@ -296,7 +284,7 @@ namespace EWSoftware.PDI.Properties
                         DateTime dt = DateUtils.FromISO8601String(value, true);
 
                         if(this.ValueLocation == ValLocValue.DateTime && timeZoneId == null)
-                            isFloating = DateUtils.IsFloatingFormat(value);
+                            this.IsFloating = DateUtils.IsFloatingFormat(value);
 
                         // We store it as a period internally to keep things simple.  No need to keep a separate
                         // date object in synch with the period start if the format changes.
@@ -313,8 +301,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

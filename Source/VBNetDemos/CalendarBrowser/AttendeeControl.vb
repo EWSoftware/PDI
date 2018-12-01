@@ -19,14 +19,11 @@
 ' 05/22/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
-Imports System.Drawing
-Imports System.Windows.Forms
+' Ignore Spelling: Rsvp
 
-Imports EWSoftware.PDI.Objects
+Imports System.ComponentModel
+
 Imports EWSoftware.PDI.Properties
-Imports EWSoftware.PDI.Windows.Forms
 
 ''' <summary>
 ''' This is used to edit the Attendees property collection

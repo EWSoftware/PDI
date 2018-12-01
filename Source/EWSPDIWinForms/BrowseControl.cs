@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : BrowseControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/14/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to move forward and backward through a collection of objects.  It can also add objects to and
@@ -41,19 +41,14 @@ namespace EWSoftware.PDI.Windows.Forms
         /// This property is used to get a reference to the binding source
         /// </summary>
         [Browsable(false), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public BindingSource BindingSource
-        {
-            get { return bindingSource; }
-        }
+        public BindingSource BindingSource => bindingSource;
 
         /// <summary>
         /// This property is used to get a reference to the error provider control
         /// </summary>
         [Category("Misc"), Bindable(false), Description("Error provider settings")]
-        public ErrorProvider ErrorProvider
-        {
-            get { return epErrors; }
-        }
+        public ErrorProvider ErrorProvider => epErrors;
+
         #endregion
 
         #region Constructor
@@ -62,7 +57,7 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Constructor
         /// </summary>
-		public BrowseControl()
+        public BrowseControl()
 		{
 			InitializeComponent();
 		}

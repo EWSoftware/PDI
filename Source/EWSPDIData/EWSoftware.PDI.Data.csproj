@@ -9,8 +9,8 @@
 		<Title>EWSoftware PDI Data Library</Title>
 		<Copyright>Copyright (c) 2003-2018, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2018.11.17.0</Version>
-		<FileVersion>18.11.17.0</FileVersion>
+		<Version>2018.12.1.0</Version>
+		<FileVersion>18.12.1.0</FileVersion>
 		<Description>This library contains classes used to create and consume vCard, vCalendar, and iCalendar files used to exchange contact and appointment information between applications such as Microsoft Outlook.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>

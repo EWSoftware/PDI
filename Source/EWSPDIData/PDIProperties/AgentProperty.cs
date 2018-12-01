@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AgentProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Agent property.  It is used with the Personal Data Interchange (PDI) classes such as
@@ -38,6 +38,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private VCard agent;
+
         #endregion
 
         #region Properties
@@ -47,26 +48,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (AGENT)
         /// </summary>
-        public override string Tag
-        {
-            get { return "AGENT"; }
-        }
+        public override string Tag => "AGENT";
 
         /// <summary>
         /// This read-only property defines the default value location as INLINE
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Inline; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Inline;
 
         /// <summary>
         /// This is used to set or get the vCard represented by the agent property
@@ -77,7 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// object, the location is forced to be inline.</value>
         public VCard VCard
         {
-            get { return agent; }
+            get => agent;
             set
             {
                 agent = value;

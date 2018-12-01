@@ -2,7 +2,7 @@
 // System  : Personal Data Interchange Classes
 // File    : UrlProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
+// Updated : 11/24/2018
 // Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
@@ -41,26 +41,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports all specifications except IrMC 1.1</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.Any; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.Any;
 
         /// <summary>
         /// This read-only property defines the tag (URL)
         /// </summary>
-        public override string Tag
-        {
-            get { return "URL"; }
-        }
+        public override string Tag => "URL";
 
         /// <summary>
         /// This read-only property defines the default value type as URI
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Uri; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Uri;
+
         #endregion
 
         #region Constructor

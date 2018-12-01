@@ -18,6 +18,8 @@
 // 08/19/2007  EFW  Created the code
 //===============================================================================================================
 
+// Ignore Spelling: vn sw
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

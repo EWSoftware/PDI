@@ -1,8 +1,8 @@
 '================================================================================================================
 ' File    : AboutDlg.vb
 ' Author  : Eric Woodruff
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/25/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This form is used to display application version information
@@ -16,6 +16,8 @@
 ' ===============================================================================================================
 ' 12/03/2004  EFW  Created the code
 '================================================================================================================
+
+' Ignore Spelling: mailto
 
 Imports System.Reflection
 
@@ -69,8 +71,8 @@ Public Partial Class AboutDlg
         End Try
     End Sub
 
-    Private Sub lnkHelp_LinkClicked(ByVal sender As System.Object, _
-        ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkHelp.LinkClicked
+    Private Sub lnkHelp_LinkClicked(ByVal sender As System.Object,
+      ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkHelp.LinkClicked
         Try
             ' Launch the e-mail URL, this will fail if user does not have an association for e-mail URLs
             System.Diagnostics.Process.Start(DirectCast(e.Link.LinkData, String))

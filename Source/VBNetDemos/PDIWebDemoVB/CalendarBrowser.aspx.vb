@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : CalendarBrowser.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 12/31/2014
-' Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+' Updated : 11/22/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This page is used to demonstrate the vCalendar/iCalendar classes
@@ -18,13 +18,7 @@
 ' 01/27/2005  EFW  Created the code
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
 Imports System.IO
-Imports System.Text
-Imports System.Web
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 
 Imports EWSoftware.PDI.Objects
 Imports EWSoftware.PDI.Parser
@@ -83,7 +77,7 @@ Partial Class CalendarBrowser
     End Sub
 
     ' HTML encode values displayed in the grid.
-    Protected Function EncodeValue(oValue As Object) As String
+    Protected Shared Function EncodeValue(oValue As Object) As String
         If Not (oValue Is Nothing) Then
             Return HttpUtility.HtmlEncode(oValue.ToString())
         End If
@@ -367,7 +361,7 @@ Partial Class CalendarBrowser
     ''' <remarks>Due to the variety of properties in a calendar object, sorting is left up to the developer
     ''' utilizing a comparison delegate.  This example sorts the collection by the start date/time property and,
     ''' if they are equal, the summary description.  This is used to handle all of the collection types.</remarks>
-    Private Function CalendarSorter(x As CalendarObject, y As CalendarObject) As Integer
+    Private Shared Function CalendarSorter(x As CalendarObject, y As CalendarObject) As Integer
         Dim d1, d2 As DateTime
         Dim summary1, summary2 As String
 

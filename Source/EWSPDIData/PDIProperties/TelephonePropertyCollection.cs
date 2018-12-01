@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TelephonePropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for TelephoneProperty objects.  It is used with the Personal Data
@@ -64,8 +64,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public TelephoneProperty Add(string phone)
         {
-            TelephoneProperty t = new TelephoneProperty();
-            t.Value = phone;
+            TelephoneProperty t = new TelephoneProperty { Value = phone };
+
             base.Add(t);
 
             return t;
@@ -79,9 +79,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public TelephoneProperty Add(PhoneTypes phoneTypes, string phone)
         {
-            TelephoneProperty t = new TelephoneProperty();
-            t.PhoneTypes = phoneTypes;
-            t.Value = phone;
+            TelephoneProperty t = new TelephoneProperty { PhoneTypes = phoneTypes, Value = phone };
+
             base.Add(t);
 
             return t;
@@ -112,7 +111,7 @@ namespace EWSoftware.PDI.Properties
             int idx = base.IndexOf(phone);
 
             if(idx == -1)
-                throw new ArgumentOutOfRangeException("phone", phone, LR.GetString("ExPhoneNotInCollection"));
+                throw new ArgumentOutOfRangeException(nameof(phone), phone, LR.GetString("ExPhoneNotInCollection"));
 
             this.SetPreferred(idx);
         }
@@ -127,7 +126,7 @@ namespace EWSoftware.PDI.Properties
         public void SetPreferred(int idx)
         {
             if(idx < 0 || idx > base.Count)
-                throw new ArgumentOutOfRangeException("idx", idx, LR.GetString("ExPhoneInvalidIndex"));
+                throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExPhoneInvalidIndex"));
 
             for(int phoneIdx = 0; phoneIdx < base.Count; phoneIdx++)
                 if(phoneIdx == idx)

@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : RecurrenceControl.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/25/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This is used to edit a recurring calendar object's recurrence rule and recurrence date properties
@@ -18,11 +18,8 @@
 ' 12/09/2004  EFW  Created the code
 '================================================================================================================
 
-Imports System
 Imports System.ComponentModel
-Imports System.Drawing
 Imports System.Globalization
-Imports System.Windows.Forms
 
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects
@@ -140,10 +137,12 @@ Public Partial Class RecurrenceControl
 
         ' Convert the exception dates to RDate format internally
         For Each edate In ed
-            rd = New RDateProperty()
-            rd.ValueLocation = edate.ValueLocation
-            rd.TimeZoneId = edate.TimeZoneId
-            rd.TimeZoneDateTime = edate.TimeZoneDateTime
+            rd = New RDateProperty With {
+                .ValueLocation = edate.ValueLocation,
+                .TimeZoneId = edate.TimeZoneId,
+                .TimeZoneDateTime = edate.TimeZoneDateTime
+            }
+
             rDates.Add(rd)
         Next
 
@@ -196,10 +195,12 @@ Public Partial Class RecurrenceControl
 
         ' Convert the RDates to ExDate format
         For Each rdate In rDates
-            edate = New ExDateProperty()
-            edate.ValueLocation = rdate.ValueLocation
-            edate.TimeZoneId = rdate.TimeZoneId
-            edate.TimeZoneDateTime = rdate.TimeZoneDateTime
+            edate = New ExDateProperty With {
+                .ValueLocation = rdate.ValueLocation,
+                .TimeZoneId = rdate.TimeZoneId,
+                .TimeZoneDateTime = rdate.TimeZoneDateTime
+            }
+
             ed.Add(edate)
         Next
     End Sub
@@ -328,14 +329,18 @@ Public Partial Class RecurrenceControl
         ' Add a recurrence date to the collection and the list box.  If "Exclude whole day" is checked, the time
         ' part is omitted.
         If chkExcludeDay.Checked = True Then
-            Dim rdate As New RDateProperty()
-            rdate.ValueLocation = ValLocValue.Date
-            rdate.TimeZoneDateTime = dtpRDate.Value.Date
+            Dim rdate As New RDateProperty With {
+                .ValueLocation = ValLocValue.Date,
+                .TimeZoneDateTime = dtpRDate.Value.Date
+            }
+
             rDates.Add(rdate)
             lbRDates.Items.Add(dtpRDate.Value.Date.ToString("d"))
         Else
-            Dim rdate As New RDateProperty()
-            rdate.TimeZoneDateTime = dtpRDate.Value
+            Dim rdate As New RDateProperty With {
+                .TimeZoneDateTime = dtpRDate.Value
+            }
+
             rDates.Add(rdate)
             lbRDates.Items.Add(dtpRDate.Value.ToString("G"))
         End If

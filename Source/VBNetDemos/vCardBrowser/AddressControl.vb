@@ -25,7 +25,6 @@ Imports System.Text
 Imports System.Web
 
 Imports EWSoftware.PDI.Properties
-Imports EWSoftware.PDI.Windows.Forms
 
 ''' <summary>
 ''' A user control for editing vCard mailing addresses

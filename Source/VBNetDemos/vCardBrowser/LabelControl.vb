@@ -4,7 +4,7 @@
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
 ' Updated : 01/02/2015
 ' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual C#
+' Compiler: Microsoft VB.NET
 '
 ' This is used to edit a vCard's label information.  It's nothing elaborate but does let you edit the collection
 ' fairly well.
@@ -23,7 +23,6 @@
 Imports System.ComponentModel
 
 Imports EWSoftware.PDI.Properties
-Imports EWSoftware.PDI.Windows.Forms
 
 ''' <summary>
 ''' A user control for editing vCard mailing labels

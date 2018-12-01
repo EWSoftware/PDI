@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ObservanceRule.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/05/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the Observance Rule object used by iCalendar STANDARD and DAYLIGHT
@@ -64,18 +64,15 @@ namespace EWSoftware.PDI.Objects
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This is used to set or get the rule type
         /// </summary>
         public ObservanceRuleType RuleType
         {
-            get { return ruleType; }
-            set { ruleType = value; }
+            get => ruleType;
+            set => ruleType = value;
         }
 
         /// <summary>
@@ -412,9 +409,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            ObservanceRule obr = obj as ObservanceRule;
-
-            if(obr == null)
+            if(!(obj is ObservanceRule obr))
                 return false;
 
             // The ToString() method returns a text representation of the observance based on all of its settings

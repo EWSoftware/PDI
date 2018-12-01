@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneNamePropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for TimeZoneNameProperty objects.  It is used by the Personal Data
@@ -65,8 +65,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public TimeZoneNameProperty Add(string tzId)
         {
-            TimeZoneNameProperty tzn = new TimeZoneNameProperty();
-            tzn.Value = tzId;
+            TimeZoneNameProperty tzn = new TimeZoneNameProperty { Value = tzId };
+
             base.Add(tzn);
 
             return tzn;

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ResourcesProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Resources property class used by the Personal Data Interchange (PDI) classes such as
@@ -49,35 +49,24 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (RESOURCES)
         /// </summary>
-        public override string Tag
-        {
-            get { return "RESOURCES"; }
-        }
+        public override string Tag => "RESOURCES";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to get the resources string collection
         /// </summary>
         /// <value>Resources can be added to or removed from the returned collection reference</value>
-        public StringCollection Resources
-        {
-            get { return resources; }
-        }
+        public StringCollection Resources => resources;
 
         /// <summary>
         /// This property is used to set or get the resource as a string value
@@ -86,7 +75,7 @@ namespace EWSoftware.PDI.Properties
         /// will be split and loaded into the resources string collection.</value>
         public string ResourcesString
         {
-            get { return String.Join(", ", resources); }
+            get => String.Join(", ", resources);
             set
             {
                 string tempRes;
@@ -167,8 +156,8 @@ namespace EWSoftware.PDI.Properties
         /// <value>The resources are escaped as needed</value>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

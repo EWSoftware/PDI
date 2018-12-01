@@ -57,10 +57,10 @@ Partial Class AlarmControl
         Me.tabInfo.Controls.Add(Me.pgGeneral)
         Me.tabInfo.Controls.Add(Me.pgAttendees)
         Me.tabInfo.Controls.Add(Me.pgAttachments)
-        Me.tabInfo.Location = New System.Drawing.Point(8, 8)
+        Me.tabInfo.Location = New System.Drawing.Point(3, 3)
         Me.tabInfo.Name = "tabInfo"
         Me.tabInfo.SelectedIndex = 0
-        Me.tabInfo.Size = New System.Drawing.Size(562, 272)
+        Me.tabInfo.Size = New System.Drawing.Size(660, 308)
         Me.tabInfo.TabIndex = 0
         '
         'pgGeneral
@@ -82,18 +82,18 @@ Partial Class AlarmControl
         Me.pgGeneral.Controls.Add(Me.label4)
         Me.pgGeneral.Controls.Add(Me.cboAction)
         Me.pgGeneral.Controls.Add(Me.label10)
-        Me.pgGeneral.Location = New System.Drawing.Point(4, 25)
+        Me.pgGeneral.Location = New System.Drawing.Point(4, 29)
         Me.pgGeneral.Name = "pgGeneral"
-        Me.pgGeneral.Size = New System.Drawing.Size(554, 243)
+        Me.pgGeneral.Size = New System.Drawing.Size(652, 275)
         Me.pgGeneral.TabIndex = 0
         Me.pgGeneral.Text = "General"
         Me.pgGeneral.UseVisualStyleBackColor = true
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(20, 72)
+        Me.label3.Location = New System.Drawing.Point(20, 93)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(104, 23)
+        Me.label3.Size = New System.Drawing.Size(127, 23)
         Me.label3.TabIndex = 16
         Me.label3.Text = "or Date/Time"
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -101,48 +101,48 @@ Partial Class AlarmControl
         'txtDescription
         '
         Me.txtDescription.AcceptsReturn = true
-        Me.txtDescription.Location = New System.Drawing.Point(130, 168)
+        Me.txtDescription.Location = New System.Drawing.Point(153, 195)
         Me.txtDescription.Multiline = true
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtDescription.Size = New System.Drawing.Size(384, 64)
+        Me.txtDescription.Size = New System.Drawing.Size(457, 64)
         Me.txtDescription.TabIndex = 15
         '
         'label11
         '
-        Me.label11.Location = New System.Drawing.Point(25, 168)
+        Me.label11.Location = New System.Drawing.Point(25, 197)
         Me.label11.Name = "label11"
-        Me.label11.Size = New System.Drawing.Size(99, 23)
+        Me.label11.Size = New System.Drawing.Size(122, 23)
         Me.label11.TabIndex = 14
         Me.label11.Text = "Description"
         Me.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtSummary
         '
-        Me.txtSummary.Location = New System.Drawing.Point(130, 136)
+        Me.txtSummary.Location = New System.Drawing.Point(153, 161)
         Me.txtSummary.Name = "txtSummary"
-        Me.txtSummary.Size = New System.Drawing.Size(384, 22)
+        Me.txtSummary.Size = New System.Drawing.Size(457, 26)
         Me.txtSummary.TabIndex = 13
         '
         'label8
         '
-        Me.label8.Location = New System.Drawing.Point(38, 136)
+        Me.label8.Location = New System.Drawing.Point(29, 163)
         Me.label8.Name = "label8"
-        Me.label8.Size = New System.Drawing.Size(86, 23)
+        Me.label8.Size = New System.Drawing.Size(118, 23)
         Me.label8.TabIndex = 12
         Me.label8.Text = "Summary"
         Me.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtDuration
         '
-        Me.txtDuration.Location = New System.Drawing.Point(284, 103)
+        Me.txtDuration.Location = New System.Drawing.Point(345, 126)
         Me.txtDuration.Name = "txtDuration"
-        Me.txtDuration.Size = New System.Drawing.Size(108, 22)
+        Me.txtDuration.Size = New System.Drawing.Size(192, 26)
         Me.txtDuration.TabIndex = 11
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(202, 103)
+        Me.label2.Location = New System.Drawing.Point(263, 128)
         Me.label2.Name = "label2"
         Me.label2.Size = New System.Drawing.Size(76, 23)
         Me.label2.TabIndex = 10
@@ -151,35 +151,35 @@ Partial Class AlarmControl
         '
         'label15
         '
-        Me.label15.Location = New System.Drawing.Point(47, 103)
+        Me.label15.Location = New System.Drawing.Point(33, 128)
         Me.label15.Name = "label15"
-        Me.label15.Size = New System.Drawing.Size(77, 23)
+        Me.label15.Size = New System.Drawing.Size(114, 23)
         Me.label15.TabIndex = 7
         Me.label15.Text = "Repeat"
         Me.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'udcRepeat
         '
-        Me.udcRepeat.Location = New System.Drawing.Point(130, 104)
+        Me.udcRepeat.Location = New System.Drawing.Point(153, 127)
         Me.udcRepeat.Maximum = New Decimal(New Integer() {32767, 0, 0, 0})
         Me.udcRepeat.Name = "udcRepeat"
-        Me.udcRepeat.Size = New System.Drawing.Size(64, 22)
+        Me.udcRepeat.Size = New System.Drawing.Size(85, 26)
         Me.udcRepeat.TabIndex = 8
         Me.udcRepeat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'chkFromEnd
         '
-        Me.chkFromEnd.Location = New System.Drawing.Point(248, 40)
+        Me.chkFromEnd.Location = New System.Drawing.Point(289, 61)
         Me.chkFromEnd.Name = "chkFromEnd"
-        Me.chkFromEnd.Size = New System.Drawing.Size(280, 24)
+        Me.chkFromEnd.Size = New System.Drawing.Size(350, 24)
         Me.chkFromEnd.TabIndex = 9
         Me.chkFromEnd.Text = "Duration Trigger is relative to end time"
         '
         'txtTrigger
         '
-        Me.txtTrigger.Location = New System.Drawing.Point(130, 40)
+        Me.txtTrigger.Location = New System.Drawing.Point(153, 59)
         Me.txtTrigger.Name = "txtTrigger"
-        Me.txtTrigger.Size = New System.Drawing.Size(108, 22)
+        Me.txtTrigger.Size = New System.Drawing.Size(108, 26)
         Me.txtTrigger.TabIndex = 5
         '
         'dtpTrigger
@@ -187,17 +187,17 @@ Partial Class AlarmControl
         Me.dtpTrigger.Checked = false
         Me.dtpTrigger.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpTrigger.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpTrigger.Location = New System.Drawing.Point(130, 72)
+        Me.dtpTrigger.Location = New System.Drawing.Point(153, 93)
         Me.dtpTrigger.Name = "dtpTrigger"
         Me.dtpTrigger.ShowCheckBox = true
-        Me.dtpTrigger.Size = New System.Drawing.Size(210, 22)
+        Me.dtpTrigger.Size = New System.Drawing.Size(255, 26)
         Me.dtpTrigger.TabIndex = 6
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(5, 40)
+        Me.label1.Location = New System.Drawing.Point(3, 61)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(119, 23)
+        Me.label1.Size = New System.Drawing.Size(144, 23)
         Me.label1.TabIndex = 4
         Me.label1.Text = "Duration Trigger"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -205,16 +205,16 @@ Partial Class AlarmControl
         'txtOtherAction
         '
         Me.txtOtherAction.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtOtherAction.Location = New System.Drawing.Point(346, 8)
+        Me.txtOtherAction.Location = New System.Drawing.Point(411, 23)
         Me.txtOtherAction.Name = "txtOtherAction"
-        Me.txtOtherAction.Size = New System.Drawing.Size(136, 22)
+        Me.txtOtherAction.Size = New System.Drawing.Size(192, 26)
         Me.txtOtherAction.TabIndex = 3
         '
         'label4
         '
-        Me.label4.Location = New System.Drawing.Point(250, 8)
+        Me.label4.Location = New System.Drawing.Point(285, 25)
         Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(90, 23)
+        Me.label4.Size = New System.Drawing.Size(120, 23)
         Me.label4.TabIndex = 2
         Me.label4.Text = "Other Action"
         Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -223,16 +223,16 @@ Partial Class AlarmControl
         '
         Me.cboAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboAction.Items.AddRange(New Object() {"Audio", "Display", "E-Mail", "Procedure", "Other"})
-        Me.cboAction.Location = New System.Drawing.Point(130, 8)
+        Me.cboAction.Location = New System.Drawing.Point(153, 23)
         Me.cboAction.Name = "cboAction"
-        Me.cboAction.Size = New System.Drawing.Size(112, 24)
+        Me.cboAction.Size = New System.Drawing.Size(112, 28)
         Me.cboAction.TabIndex = 1
         '
         'label10
         '
-        Me.label10.Location = New System.Drawing.Point(63, 8)
+        Me.label10.Location = New System.Drawing.Point(33, 25)
         Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(61, 23)
+        Me.label10.Size = New System.Drawing.Size(114, 23)
         Me.label10.TabIndex = 0
         Me.label10.Text = "Action"
         Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -240,42 +240,43 @@ Partial Class AlarmControl
         'pgAttendees
         '
         Me.pgAttendees.Controls.Add(Me.ucAttendees)
-        Me.pgAttendees.Location = New System.Drawing.Point(4, 25)
+        Me.pgAttendees.Location = New System.Drawing.Point(4, 29)
         Me.pgAttendees.Name = "pgAttendees"
-        Me.pgAttendees.Size = New System.Drawing.Size(554, 243)
+        Me.pgAttendees.Size = New System.Drawing.Size(652, 275)
         Me.pgAttendees.TabIndex = 1
         Me.pgAttendees.Text = "Attendees"
         Me.pgAttendees.UseVisualStyleBackColor = true
         '
         'ucAttendees
         '
-        Me.ucAttendees.Location = New System.Drawing.Point(22, 17)
+        Me.ucAttendees.Location = New System.Drawing.Point(26, 18)
         Me.ucAttendees.Name = "ucAttendees"
-        Me.ucAttendees.Size = New System.Drawing.Size(510, 208)
+        Me.ucAttendees.Size = New System.Drawing.Size(594, 234)
         Me.ucAttendees.TabIndex = 0
         '
         'pgAttachments
         '
         Me.pgAttachments.Controls.Add(Me.ucAttachments)
-        Me.pgAttachments.Location = New System.Drawing.Point(4, 25)
+        Me.pgAttachments.Location = New System.Drawing.Point(4, 29)
         Me.pgAttachments.Name = "pgAttachments"
-        Me.pgAttachments.Size = New System.Drawing.Size(554, 243)
+        Me.pgAttachments.Size = New System.Drawing.Size(652, 275)
         Me.pgAttachments.TabIndex = 2
         Me.pgAttachments.Text = "Attachments"
         Me.pgAttachments.UseVisualStyleBackColor = true
         '
         'ucAttachments
         '
-        Me.ucAttachments.Location = New System.Drawing.Point(6, 8)
+        Me.ucAttachments.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ucAttachments.Location = New System.Drawing.Point(0, 0)
         Me.ucAttachments.Name = "ucAttachments"
-        Me.ucAttachments.Size = New System.Drawing.Size(543, 226)
+        Me.ucAttachments.Size = New System.Drawing.Size(652, 275)
         Me.ucAttachments.TabIndex = 0
         '
         'AlarmControl
         '
         Me.Controls.Add(Me.tabInfo)
         Me.Name = "AlarmControl"
-        Me.Size = New System.Drawing.Size(584, 312)
+        Me.Size = New System.Drawing.Size(666, 342)
         Me.Controls.SetChildIndex(Me.tabInfo, 0)
         Me.tabInfo.ResumeLayout(false)
         Me.pgGeneral.ResumeLayout(false)

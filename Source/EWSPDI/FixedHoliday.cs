@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FixedHolidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to automatically calculate fixed holidays.  The class is serializable.
@@ -60,7 +60,7 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public override int Month
         {
-            get { return base.Month; }
+            get => base.Month;
             set
             {
                 base.Month = value;
@@ -82,13 +82,13 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public int Day
         {
-            get { return dayOfMonth; }
+            get => dayOfMonth;
             set
             {
                 // Validate the day for the current month.  Yes, hard-coded non-leap year.  We don't allow a Feb
                 // 29th as they don't occur every year.
                 if(DateTime.DaysInMonth(2003, this.Month) < value)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExHolBadDayValueForMonth"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExHolBadDayValueForMonth"));
 
                 dayOfMonth = value;
                 convertYear = 0;
@@ -105,7 +105,7 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public bool AdjustFixedDate
         {
-            get { return adjustFixed; }
+            get => adjustFixed;
             set
             {
                 adjustFixed = value;
@@ -207,9 +207,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            FixedHoliday h = obj as FixedHoliday;
-
-            if(h == null)
+            if(!(obj is FixedHoliday h))
                 return false;
 
             return (this == h || (this.Month == h.Month && dayOfMonth == h.Day &&

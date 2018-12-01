@@ -9,8 +9,8 @@
 		<Title>EWSoftware PDI Windows Forms Control Library</Title>
 		<Copyright>Copyright (c) 2003-2018, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2018.11.17.0</Version>
-		<FileVersion>18.11.17.0</FileVersion>
+		<Version>2018.12.1.0</Version>
+		<FileVersion>18.12.1.0</FileVersion>
 		<Description>This library contains some Windows Forms controls that can be used to edit holiday calculation settings and to edit recurrence settings.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
@@ -31,6 +31,15 @@
 		<DebugType>pdbonly</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="binDesignOnly\**" />
+	  <Compile Remove="objDesignOnly\**" />
+	  <EmbeddedResource Remove="binDesignOnly\**" />
+	  <EmbeddedResource Remove="objDesignOnly\**" />
+	  <None Remove="binDesignOnly\**" />
+	  <None Remove="objDesignOnly\**" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<None Remove="BrowseControl.bmp" />

@@ -61,7 +61,7 @@ namespace PDIWinFormsTest
             // btnClose
             // 
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.Location = new System.Drawing.Point(724, 381);
+            this.btnClose.Location = new System.Drawing.Point(851, 391);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(88, 32);
             this.btnClose.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace PDIWinFormsTest
             this.groupBox1.Controls.Add(this.hmHolidays);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(286, 401);
+            this.groupBox1.Size = new System.Drawing.Size(348, 401);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "H&olidays";
@@ -81,7 +81,7 @@ namespace PDIWinFormsTest
             // 
             this.hmHolidays.Location = new System.Drawing.Point(8, 24);
             this.hmHolidays.Name = "hmHolidays";
-            this.hmHolidays.Size = new System.Drawing.Size(272, 368);
+            this.hmHolidays.Size = new System.Drawing.Size(334, 368);
             this.hmHolidays.TabIndex = 0;
             // 
             // groupBox2
@@ -97,9 +97,9 @@ namespace PDIWinFormsTest
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.btnTestDate);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(304, 12);
+            this.groupBox2.Location = new System.Drawing.Point(366, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(508, 363);
+            this.groupBox2.Size = new System.Drawing.Size(573, 373);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Test Date Detection";
@@ -136,7 +136,7 @@ namespace PDIWinFormsTest
             this.dgvDatesFound.RowHeadersVisible = false;
             this.dgvDatesFound.RowTemplate.Height = 24;
             this.dgvDatesFound.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDatesFound.Size = new System.Drawing.Size(337, 298);
+            this.dgvDatesFound.Size = new System.Drawing.Size(372, 298);
             this.dgvDatesFound.TabIndex = 10;
             // 
             // tbcDate
@@ -153,19 +153,19 @@ namespace PDIWinFormsTest
             this.tbcDescription.HeaderText = "Description";
             this.tbcDescription.Name = "tbcDescription";
             this.tbcDescription.ReadOnly = true;
-            this.tbcDescription.Width = 210;
+            this.tbcDescription.Width = 230;
             // 
             // dtpTestDate
             // 
             this.dtpTestDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpTestDate.Location = new System.Drawing.Point(96, 331);
+            this.dtpTestDate.Location = new System.Drawing.Point(100, 335);
             this.dtpTestDate.Name = "dtpTestDate";
-            this.dtpTestDate.Size = new System.Drawing.Size(110, 22);
+            this.dtpTestDate.Size = new System.Drawing.Size(135, 26);
             this.dtpTestDate.TabIndex = 8;
             // 
             // udcToYear
             // 
-            this.udcToYear.Location = new System.Drawing.Point(439, 64);
+            this.udcToYear.Location = new System.Drawing.Point(490, 47);
             this.udcToYear.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -177,18 +177,18 @@ namespace PDIWinFormsTest
             0,
             0});
             this.udcToYear.Name = "udcToYear";
-            this.udcToYear.Size = new System.Drawing.Size(56, 22);
+            this.udcToYear.Size = new System.Drawing.Size(75, 26);
             this.udcToYear.TabIndex = 3;
             this.udcToYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.udcToYear.Value = new decimal(new int[] {
-            2004,
+            2023,
             0,
             0,
             0});
             // 
             // udcFromYear
             // 
-            this.udcFromYear.Location = new System.Drawing.Point(349, 64);
+            this.udcFromYear.Location = new System.Drawing.Point(391, 47);
             this.udcFromYear.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -200,11 +200,11 @@ namespace PDIWinFormsTest
             0,
             0});
             this.udcFromYear.Name = "udcFromYear";
-            this.udcFromYear.Size = new System.Drawing.Size(56, 22);
+            this.udcFromYear.Size = new System.Drawing.Size(75, 26);
             this.udcFromYear.TabIndex = 1;
             this.udcFromYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.udcFromYear.Value = new decimal(new int[] {
-            2000,
+            2017,
             0,
             0,
             0});
@@ -214,9 +214,9 @@ namespace PDIWinFormsTest
             this.grpEaster.Controls.Add(this.rbGregorian);
             this.grpEaster.Controls.Add(this.rbOrthodox);
             this.grpEaster.Controls.Add(this.rbJulian);
-            this.grpEaster.Location = new System.Drawing.Point(349, 92);
+            this.grpEaster.Location = new System.Drawing.Point(391, 87);
             this.grpEaster.Name = "grpEaster";
-            this.grpEaster.Size = new System.Drawing.Size(144, 120);
+            this.grpEaster.Size = new System.Drawing.Size(165, 134);
             this.grpEaster.TabIndex = 4;
             this.grpEaster.TabStop = false;
             this.grpEaster.Text = "Easter Method";
@@ -224,75 +224,75 @@ namespace PDIWinFormsTest
             // rbGregorian
             // 
             this.rbGregorian.Checked = true;
-            this.rbGregorian.Location = new System.Drawing.Point(24, 88);
+            this.rbGregorian.Location = new System.Drawing.Point(25, 94);
             this.rbGregorian.Name = "rbGregorian";
-            this.rbGregorian.Size = new System.Drawing.Size(104, 24);
+            this.rbGregorian.Size = new System.Drawing.Size(115, 24);
             this.rbGregorian.TabIndex = 2;
             this.rbGregorian.TabStop = true;
             this.rbGregorian.Text = "Gregorian";
             // 
             // rbOrthodox
             // 
-            this.rbOrthodox.Location = new System.Drawing.Point(24, 56);
+            this.rbOrthodox.Location = new System.Drawing.Point(25, 64);
             this.rbOrthodox.Name = "rbOrthodox";
-            this.rbOrthodox.Size = new System.Drawing.Size(104, 24);
+            this.rbOrthodox.Size = new System.Drawing.Size(115, 24);
             this.rbOrthodox.TabIndex = 1;
             this.rbOrthodox.Text = "Orthodox";
             // 
             // rbJulian
             // 
-            this.rbJulian.Location = new System.Drawing.Point(24, 24);
+            this.rbJulian.Location = new System.Drawing.Point(25, 34);
             this.rbJulian.Name = "rbJulian";
-            this.rbJulian.Size = new System.Drawing.Size(104, 24);
+            this.rbJulian.Size = new System.Drawing.Size(115, 24);
             this.rbJulian.TabIndex = 0;
             this.rbJulian.Text = "Julian";
             // 
             // btnEaster
             // 
-            this.btnEaster.Location = new System.Drawing.Point(352, 280);
+            this.btnEaster.Location = new System.Drawing.Point(391, 287);
             this.btnEaster.Name = "btnEaster";
-            this.btnEaster.Size = new System.Drawing.Size(136, 32);
+            this.btnEaster.Size = new System.Drawing.Size(140, 32);
             this.btnEaster.TabIndex = 6;
             this.btnEaster.Text = "Find Ea&ster";
             this.btnEaster.Click += new System.EventHandler(this.btnEaster_Click);
             // 
             // btnFind
             // 
-            this.btnFind.Location = new System.Drawing.Point(352, 232);
+            this.btnFind.Location = new System.Drawing.Point(391, 241);
             this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(136, 32);
+            this.btnFind.Size = new System.Drawing.Size(140, 32);
             this.btnFind.TabIndex = 5;
             this.btnFind.Text = "&Find Holidays";
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(439, 40);
+            this.label2.Location = new System.Drawing.Point(490, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 23);
+            this.label2.Size = new System.Drawing.Size(75, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "To Year";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(349, 40);
+            this.label1.Location = new System.Drawing.Point(391, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 23);
+            this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fro&m Year";
             // 
             // btnTestDate
             // 
-            this.btnTestDate.Location = new System.Drawing.Point(212, 325);
+            this.btnTestDate.Location = new System.Drawing.Point(241, 332);
             this.btnTestDate.Name = "btnTestDate";
-            this.btnTestDate.Size = new System.Drawing.Size(88, 32);
+            this.btnTestDate.Size = new System.Drawing.Size(137, 32);
             this.btnTestDate.TabIndex = 9;
             this.btnTestDate.Text = "&Holiday?";
             this.btnTestDate.Click += new System.EventHandler(this.btnTestDate_Click);
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(6, 330);
+            this.label3.Location = new System.Drawing.Point(10, 337);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 23);
             this.label3.TabIndex = 7;
@@ -302,7 +302,7 @@ namespace PDIWinFormsTest
             // HolidayTestForm
             // 
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(824, 425);
+            this.ClientSize = new System.Drawing.Size(951, 435);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);

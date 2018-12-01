@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="76059656-b2b1-4b89-8ba2-af4aa8aaebb6" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2018.12.1.0.</para>
+		</introduction>
+
+		<section address="BreakingChanges">
+			<title>Breaking Changes</title>
+			<content>
+
+				<list class="bullet">
+					<listItem>
+						<para>Removed the <codeInline>VTimeZoneCollection.Lock</codeInline> property.  Use the new 
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Objects.VTimeZoneCollection.AcquireReaderLock(System.Int32,System.Boolean)</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Objects.VTimeZoneCollection.ReleaseReaderLock</codeEntityReference>,
+<codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Objects.VTimeZoneCollection.AcquireWriterLock(System.Int32)</codeEntityReference>,
+and <codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.Objects.VTimeZoneCollection.ReleaseWriterLock</codeEntityReference>
+methods instead</para>
+					</listItem>
+
+					<listItem>
+						<para>Updated <codeInline>DateUtils.FromISO8601String</codeInline> so that if the date parts are
+outside the expected year, month, and/or day ranges, it adjusts them to the minimum/maximum automatically rather
+than throwing an exception.  This may change the behavior of your application if it expects it to throw an
+exception in these cases.</para>
+					</listItem>
+
+					<listItem>
+						<para>Updated the Windows Forms controls and demos so that they look better on high DPI displays.
+This may affect the layout of the controls in your forms if you make use of them.</para>
+					</listItem>
+					
+				</list>
+
+			</content>
+		</section>
+
+		<section address="OtherChanges">
+			<title>Other Changes in This Release</title>
+			<content>
+
+				<list class="bullet">
+					<listItem>
+						<para>Updated the <localUri>EWSoftware.PDI</localUri> and <localUri>EWSoftware.PDI.Data</localUri>
+projects to support .NET Standard 2.0.  The NuGet packages now target .NET 4.0 and later and .NET Standard 2.0.
+All assembly projects have been updated to use the new .NET SDK project format to make it easier to generate the
+NuGet packages.  The <localUri>EWSoftare.PDI.Web.Controls</localUri> and <localUri>EWSoftware.PDI.Windows.Forms</localUri>
+projects only target .NET 4.0 as in prior releases.</para>
+					</listItem>
+					
+					<listItem>
+						<para>Fixed up various code analysis issues and updated the code to use the latest language features
+throughout the code base.</para>
+					</listItem>
+					
+					<listItem>
+						<para>Updated the <localUri>PDIDatesTest</localUri>, <localUri>PDIParserTest</localUri>, and
+<localUri>RFC2445RecurTest</localUri> demo console applications to be .NET Core 2.1 applications.</para>
+					</listItem>
+
+					<listItem>
+						<para>Updated all Windows Forms and web applications to use .NET 4.7.2 and enabled high DPI support
+in the Windows Forms applications.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added <localUri>EWSoftware.PDI.WinForms.Design.csproj</localUri> to allow updating the Windows
+Forms controls in the native Windows Forms designer.  The <localUri>EWSoftware.PDI.WinForms.csproj</localUri>
+project now uses the newer .NET SDK project format and is used to build the NuGet package.  This format does not
+currently support updating the Windows Forms user controls in the designer.</para>
+					</listItem>
+
+				</list>
+			
+			</content>
+		</section>
+
+		<relatedTopics>
+
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

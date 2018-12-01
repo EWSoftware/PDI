@@ -20,7 +20,6 @@
 ' 05/16/2007  EFW  Updated for use with .NET 2.0
 '================================================================================================================
 
-Imports System.ComponentModel
 Imports System.Globalization
 
 Imports EWSoftware.PDI
@@ -122,7 +121,7 @@ Public Partial Class VCardPropertiesDlg
         If txtLatitude.Text.Length <> 0 Then
             If Not Double.TryParse(txtLatitude.Text, latitude) OrElse latitude < -90.0 OrElse latitude > 90.0 Then
                 e.Cancel = True
-                epErrors.SetError(txtLatitude, "Latitude must be a valid numeric value between -90 and 90")
+                epErrors.SetError(txtLatitude, "Latitude must be a valid decimal value between -90 and 90")
                 tabInfo.SelectedTab = pgOther
                 txtLatitude.Focus()
             End If
@@ -131,7 +130,7 @@ Public Partial Class VCardPropertiesDlg
         If txtLongitude.Text.Length <> 0 Then
             If Not Double.TryParse(txtLongitude.Text, longitude) OrElse longitude < -180.0 OrElse longitude > 180.0 Then
                 e.Cancel = True
-                epErrors.SetError(txtLongitude, "Longitude must be a valid numeric value between -180 and 180")
+                epErrors.SetError(txtLongitude, "Longitude must be a valid decimal value between -180 and 180")
                 tabInfo.SelectedTab = pgOther
                 txtLongitude.Focus()
             End If

@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RRuleTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is a simple demonstration used to test the recurrence engine which encapsulates the iCalendar 2.0 RRULE
@@ -76,8 +76,7 @@ namespace PDIWinFormsTest
                 lblCount.Text = String.Empty;
 
                 // Define the recurrence rule by parsing the text
-                Recurrence r = new Recurrence(txtRRULE.Text);
-                r.StartDateTime = dtpStartDate.Value;
+                Recurrence r = new Recurrence(txtRRULE.Text) { StartDateTime = dtpStartDate.Value };
 
                 // Get the currently defined set of holidays if necessary
                 if(!r.CanOccurOnHoliday)
@@ -162,8 +161,7 @@ namespace PDIWinFormsTest
             {
                 try
                 {
-                    Recurrence r = new Recurrence(txtRRULE.Text);
-                    r.StartDateTime = dtpStartDate.Value;
+                    Recurrence r = new Recurrence(txtRRULE.Text) { StartDateTime = dtpStartDate.Value };
 
                     dlg.SetRecurrence(r);
 

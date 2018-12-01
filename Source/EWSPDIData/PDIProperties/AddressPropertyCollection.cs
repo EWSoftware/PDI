@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for AddressProperty objects.  It is used with the Personal Data
@@ -82,7 +82,7 @@ namespace EWSoftware.PDI.Properties
             int idx = base.IndexOf(address);
 
             if(idx == -1)
-                throw new ArgumentOutOfRangeException("address", address, LR.GetString("ExAddrNotInCollection"));
+                throw new ArgumentOutOfRangeException(nameof(address), address, LR.GetString("ExAddrNotInCollection"));
 
             this.SetPreferred(idx);
         }
@@ -96,7 +96,7 @@ namespace EWSoftware.PDI.Properties
         public void SetPreferred(int idx)
         {
             if(idx < 0 || idx > base.Count)
-                throw new ArgumentOutOfRangeException("idx", idx, LR.GetString("ExAddrInvalidIndex"));
+                throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExAddrInvalidIndex"));
 
             for(int addrIdx = 0; addrIdx < base.Count; addrIdx++)
                 if(addrIdx == idx)

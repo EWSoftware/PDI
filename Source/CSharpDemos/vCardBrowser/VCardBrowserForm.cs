@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/27/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
@@ -76,10 +76,12 @@ namespace vCardBrowser
             tbcVersion.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             // The string format to use when drawing the status text
-            sf = new StringFormat(StringFormatFlags.NoWrap);
-            sf.Alignment = StringAlignment.Center;
-            sf.LineAlignment = StringAlignment.Center;
-            sf.Trimming = StringTrimming.EllipsisCharacter;
+            sf = new StringFormat(StringFormatFlags.NoWrap)
+            {
+                Alignment = StringAlignment.Center,
+                LineAlignment = StringAlignment.Center,
+                Trimming = StringTrimming.EllipsisCharacter
+            };
 
             dgvCards.AutoGenerateColumns = false;
             tbcLastRevision.DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern + " " +
@@ -523,7 +525,8 @@ namespace vCardBrowser
         /// <param name="e">The event arguments</param>
         private void dgvCards_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEdit_Click(sender, e);
+            if(e.RowIndex > -1)
+                btnEdit_Click(sender, e);
         }
         #endregion
     }

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NicknameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Nickname property class used by the Personal Data Interchange (PDI) vCard class
@@ -48,35 +48,23 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 3.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (NICKNAME)
         /// </summary>
-        public override string Tag
-        {
-            get { return "NICKNAME"; }
-        }
+        public override string Tag => "NICKNAME";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to get the nicknames string collection
         /// </summary>
         /// <value>Nicknames can be added to or removed from the returned collection reference</value>
-        public StringCollection Nicknames
-        {
-            get { return nicknames; }
-        }
+        public StringCollection Nicknames => nicknames;
 
         /// <summary>
         /// This property is used to get or set the nicknames as a string value
@@ -85,7 +73,7 @@ namespace EWSoftware.PDI.Properties
         /// will be split and loaded into the nicknames string collection.</value>
         public string NicknamesString
         {
-            get { return String.Join(", ", nicknames); }
+            get => String.Join(", ", nicknames);
             set
             {
                 string tempName;
@@ -161,8 +149,8 @@ namespace EWSoftware.PDI.Properties
         /// <value>The nicknames are escaped as needed</value>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

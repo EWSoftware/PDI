@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CategoriesProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Categories property class used by the Personal Data Interchange (PDI) classes such as
@@ -41,6 +41,7 @@ namespace EWSoftware.PDI.Properties
         private static Regex reSplit = new Regex(@"(?:^[,;])|(?<=(?:[^\\]))[,;]");
 
         private StringCollection categories;
+
         #endregion
 
         #region Properties
@@ -50,36 +51,24 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 3.0, vCalendar 1.0, iCalendar 2.0, and IrMC 1.1.</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard30 | SpecificationVersions.vCalendar10 |
-                SpecificationVersions.iCalendar20 | SpecificationVersions.IrMC11; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
+            SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20 | SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the tag (CATEGORIES)
         /// </summary>
-        public override string Tag
-        {
-            get { return "CATEGORIES"; }
-        }
+        public override string Tag => "CATEGORIES";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to get the categories string collection
         /// </summary>
         /// <value>Categories can be added to or removed from the returned collection reference</value>
-        public StringCollection Categories
-        {
-            get { return categories; }
-        }
+        public StringCollection Categories => categories;
 
         /// <summary>
         /// This property is used to set or get the categories as a string value
@@ -88,7 +77,7 @@ namespace EWSoftware.PDI.Properties
         /// will be split and loaded into the categories string collection.</value>
         public string CategoriesString
         {
-            get { return String.Join(", ", categories); }
+            get => String.Join(", ", categories);
             set
             {
                 string tempCat;
@@ -169,8 +158,8 @@ namespace EWSoftware.PDI.Properties
         /// <value>The categories are escaped as needed</value>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

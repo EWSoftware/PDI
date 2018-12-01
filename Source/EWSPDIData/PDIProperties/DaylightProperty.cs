@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DaylightProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Daylight property used by the Personal Data Interchange (PDI) vCalendar classes
@@ -42,26 +42,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10;
 
         /// <summary>
         /// This read-only property defines the tag (DAYLIGHT)
         /// </summary>
-        public override string Tag
-        {
-            get { return "DAYLIGHT"; }
-        }
+        public override string Tag => "DAYLIGHT";
 
         /// <summary>
         /// This read-only property defines the default value location as INLINE
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Inline; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Inline;
 
         /// <summary>
         /// This property is used to set or get the daylight saving time flag
@@ -170,8 +161,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

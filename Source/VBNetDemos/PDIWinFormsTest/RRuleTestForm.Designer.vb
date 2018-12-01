@@ -40,9 +40,9 @@ Partial Class RRuleTestForm
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(14, 41)
+        Me.label3.Location = New System.Drawing.Point(14, 46)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(56, 23)
+        Me.label3.Size = New System.Drawing.Size(77, 23)
         Me.label3.TabIndex = 2
         Me.label3.Text = "RR&ULE"
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -51,11 +51,11 @@ Partial Class RRuleTestForm
         '
         Me.txtRRULE.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.txtRRULE.Location = New System.Drawing.Point(76, 41)
+        Me.txtRRULE.Location = New System.Drawing.Point(97, 44)
         Me.txtRRULE.Multiline = true
         Me.txtRRULE.Name = "txtRRULE"
         Me.txtRRULE.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtRRULE.Size = New System.Drawing.Size(590, 64)
+        Me.txtRRULE.Size = New System.Drawing.Size(668, 64)
         Me.txtRRULE.TabIndex = 3
         Me.txtRRULE.Text = "FREQ=DAILY;INTERVAL=5;COUNT=50"
         '
@@ -63,7 +63,7 @@ Partial Class RRuleTestForm
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(674, 456)
+        Me.btnClose.Location = New System.Drawing.Point(778, 456)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(88, 32)
         Me.btnClose.TabIndex = 10
@@ -73,16 +73,17 @@ Partial Class RRuleTestForm
         '
         Me.lbDates.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
             Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
-        Me.lbDates.ItemHeight = 16
-        Me.lbDates.Location = New System.Drawing.Point(12, 169)
+        Me.lbDates.IntegralHeight = false
+        Me.lbDates.ItemHeight = 20
+        Me.lbDates.Location = New System.Drawing.Point(12, 183)
         Me.lbDates.Name = "lbDates"
-        Me.lbDates.Size = New System.Drawing.Size(386, 276)
+        Me.lbDates.Size = New System.Drawing.Size(386, 250)
         Me.lbDates.TabIndex = 7
         '
         'btnTest
         '
         Me.btnTest.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnTest.Location = New System.Drawing.Point(580, 456)
+        Me.btnTest.Location = New System.Drawing.Point(684, 456)
         Me.btnTest.Name = "btnTest"
         Me.btnTest.Size = New System.Drawing.Size(88, 32)
         Me.btnTest.TabIndex = 9
@@ -90,19 +91,19 @@ Partial Class RRuleTestForm
         '
         'dtpStartDate
         '
+        Me.dtpStartDate.Checked = false
         Me.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpStartDate.Location = New System.Drawing.Point(76, 12)
+        Me.dtpStartDate.Location = New System.Drawing.Point(97, 12)
         Me.dtpStartDate.Name = "dtpStartDate"
-        Me.dtpStartDate.Size = New System.Drawing.Size(190, 22)
+        Me.dtpStartDate.Size = New System.Drawing.Size(235, 26)
         Me.dtpStartDate.TabIndex = 1
-        Me.dtpStartDate.Value = New Date(2004, 9, 6, 0, 0, 0, 0)
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(21, 12)
+        Me.label1.Location = New System.Drawing.Point(21, 14)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(49, 23)
+        Me.label1.Size = New System.Drawing.Size(70, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "&Start"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -112,9 +113,9 @@ Partial Class RRuleTestForm
         Me.lblCount.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.lblCount.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lblCount.Location = New System.Drawing.Point(12, 112)
+        Me.lblCount.Location = New System.Drawing.Point(12, 119)
         Me.lblCount.Name = "lblCount"
-        Me.lblCount.Size = New System.Drawing.Size(750, 48)
+        Me.lblCount.Size = New System.Drawing.Size(854, 48)
         Me.lblCount.TabIndex = 6
         Me.lblCount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -126,15 +127,15 @@ Partial Class RRuleTestForm
         Me.hmHolidays.Location = New System.Drawing.Point(8, 24)
         Me.hmHolidays.Name = "hmHolidays"
         Me.hmHolidays.ShowLoadSaveControls = false
-        Me.hmHolidays.Size = New System.Drawing.Size(342, 256)
+        Me.hmHolidays.Size = New System.Drawing.Size(446, 243)
         Me.hmHolidays.TabIndex = 0
         '
         'btnDesign
         '
         Me.btnDesign.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnDesign.Location = New System.Drawing.Point(674, 38)
+        Me.btnDesign.Location = New System.Drawing.Point(771, 41)
         Me.btnDesign.Name = "btnDesign"
-        Me.btnDesign.Size = New System.Drawing.Size(88, 32)
+        Me.btnDesign.Size = New System.Drawing.Size(95, 32)
         Me.btnDesign.TabIndex = 4
         Me.btnDesign.Text = "Desig&n"
         '
@@ -144,9 +145,9 @@ Partial Class RRuleTestForm
             Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.groupBox1.Controls.Add(Me.hmHolidays)
-        Me.groupBox1.Location = New System.Drawing.Point(404, 157)
+        Me.groupBox1.Location = New System.Drawing.Point(404, 170)
         Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(358, 288)
+        Me.groupBox1.Size = New System.Drawing.Size(462, 275)
         Me.groupBox1.TabIndex = 8
         Me.groupBox1.TabStop = false
         Me.groupBox1.Text = "H&olidays"
@@ -154,9 +155,9 @@ Partial Class RRuleTestForm
         'btnDescribe
         '
         Me.btnDescribe.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.btnDescribe.Location = New System.Drawing.Point(674, 76)
+        Me.btnDescribe.Location = New System.Drawing.Point(771, 79)
         Me.btnDescribe.Name = "btnDescribe"
-        Me.btnDescribe.Size = New System.Drawing.Size(88, 32)
+        Me.btnDescribe.Size = New System.Drawing.Size(95, 32)
         Me.btnDescribe.TabIndex = 5
         Me.btnDescribe.Text = "Descri&be"
         '
@@ -164,7 +165,7 @@ Partial Class RRuleTestForm
         '
         Me.AcceptButton = Me.btnTest
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(774, 500)
+        Me.ClientSize = New System.Drawing.Size(878, 500)
         Me.Controls.Add(Me.btnDescribe)
         Me.Controls.Add(Me.groupBox1)
         Me.Controls.Add(Me.btnDesign)

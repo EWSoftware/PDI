@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeStampProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the time stamp property class used by the Personal Data Interchange (PDI) iCalendar class
@@ -45,26 +45,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (DTSTAMP)
         /// </summary>
-        public override string Tag
-        {
-            get { return "DTSTAMP"; }
-        }
+        public override string Tag => "DTSTAMP";
 
         /// <summary>
         /// This read-only property defines the default value type as DATE-TIME
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.DateTime; }
-        }
+        public override string DefaultValueLocation => ValLocValue.DateTime;
 
         /// <summary>
         /// This property does not allow a time zone and is always a UTC date/time value
@@ -81,7 +72,7 @@ namespace EWSoftware.PDI.Properties
 
                 return dtDate.ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture);
             }
-            set { base.Value = value; }
+            set => base.Value = value;
         }
         #endregion
 

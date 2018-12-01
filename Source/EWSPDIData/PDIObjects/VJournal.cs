@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VJournal.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the VJournal object used by iCalendar objects
@@ -64,6 +64,7 @@ namespace EWSoftware.PDI.Objects
 
         // This is a catch-all that holds all unknown or extension properties
         private CustomPropertyCollection customProps;
+
         #endregion
 
         #region Properties
@@ -73,10 +74,7 @@ namespace EWSoftware.PDI.Objects
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This is used to get the Uniform Resource Locator (URL) property
@@ -191,10 +189,7 @@ namespace EWSoftware.PDI.Objects
             get
             {
                 if(timeStamp == null)
-                {
-                    timeStamp = new TimeStampProperty();
-                    timeStamp.DateTimeValue = DateTime.Now;
-                }
+                    timeStamp = new TimeStampProperty { DateTimeValue = DateTime.Now };
 
                 return timeStamp;
             }
@@ -411,10 +406,8 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <remarks>It returns the <see cref="BaseDateTimeProperty.TimeZoneId"/> of the <see cref="StartDateTime"/>
         /// property.</remarks>
-        public override string TimeZoneId
-        {
-            get { return this.StartDateTime.TimeZoneId; }
-        }
+        public override string TimeZoneId => this.StartDateTime.TimeZoneId;
+
         #endregion
 
         #region Constructor
@@ -710,9 +703,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            VJournal j = obj as VJournal;
-
-            if(j == null)
+            if(!(obj is VJournal j))
                 return false;
 
             // The ToString() method returns a text representation of the journal based on all of its settings so

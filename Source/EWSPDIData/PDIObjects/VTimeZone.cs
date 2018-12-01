@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VTimeZone.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the VTimeZone object used by vCalendar and iCalendar objects
@@ -50,6 +50,7 @@ namespace EWSoftware.PDI.Objects
 
         // This is a catch-all that holds all unknown or extension properties
         private CustomPropertyCollection customProps;
+
         #endregion
 
         #region Properties
@@ -59,10 +60,7 @@ namespace EWSoftware.PDI.Objects
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This is used to get the Time Zone ID (TZID) property
@@ -154,10 +152,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="e">The event arguments</param>
         protected virtual void OnTimeZoneIdChanged(TimeZoneIdChangedEventArgs e)
         {
-            var handler = TimeZoneIdChanged;
-
-            if(handler != null)
-                handler(this, e);
+            TimeZoneIdChanged?.Invoke(this, e);
         }
 
         /// <summary>
@@ -335,9 +330,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            VTimeZone tz = obj as VTimeZone;
-
-            if(tz == null)
+            if(!(obj is VTimeZone tz))
                 return false;
 
             // The ToString() method returns a text representation of the time zone based on all of its settings

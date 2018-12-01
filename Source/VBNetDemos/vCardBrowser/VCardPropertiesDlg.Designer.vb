@@ -118,10 +118,10 @@ Partial Class VCardPropertiesDlg
         Me.tabInfo.Controls.Add(Me.pgOther)
         Me.tabInfo.Controls.Add(Me.pgPhoto)
         Me.tabInfo.Controls.Add(Me.pgLogo)
-        Me.tabInfo.Location = New System.Drawing.Point(12, 72)
+        Me.tabInfo.Location = New System.Drawing.Point(12, 92)
         Me.tabInfo.Name = "tabInfo"
         Me.tabInfo.SelectedIndex = 0
-        Me.tabInfo.Size = New System.Drawing.Size(682, 303)
+        Me.tabInfo.Size = New System.Drawing.Size(721, 322)
         Me.tabInfo.TabIndex = 8
         '
         'pgName
@@ -143,9 +143,9 @@ Partial Class VCardPropertiesDlg
         Me.pgName.Controls.Add(Me.label2)
         Me.pgName.Controls.Add(Me.txtLastName)
         Me.pgName.Controls.Add(Me.label1)
-        Me.pgName.Location = New System.Drawing.Point(4, 25)
+        Me.pgName.Location = New System.Drawing.Point(4, 29)
         Me.pgName.Name = "pgName"
-        Me.pgName.Size = New System.Drawing.Size(674, 274)
+        Me.pgName.Size = New System.Drawing.Size(713, 289)
         Me.pgName.TabIndex = 0
         Me.pgName.Text = "Name"
         Me.pgName.UseVisualStyleBackColor = true
@@ -154,134 +154,134 @@ Partial Class VCardPropertiesDlg
         '
         Me.groupBox1.Location = New System.Drawing.Point(16, 128)
         Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(648, 8)
+        Me.groupBox1.Size = New System.Drawing.Size(680, 8)
         Me.groupBox1.TabIndex = 12
         Me.groupBox1.TabStop = false
         '
         'txtSortString
         '
-        Me.txtSortString.Location = New System.Drawing.Point(480, 88)
+        Me.txtSortString.Location = New System.Drawing.Point(525, 88)
         Me.txtSortString.Name = "txtSortString"
-        Me.txtSortString.Size = New System.Drawing.Size(128, 22)
+        Me.txtSortString.Size = New System.Drawing.Size(128, 26)
         Me.txtSortString.TabIndex = 11
         '
         'label8
         '
-        Me.label8.Location = New System.Drawing.Point(384, 88)
+        Me.label8.Location = New System.Drawing.Point(410, 90)
         Me.label8.Name = "label8"
-        Me.label8.Size = New System.Drawing.Size(90, 23)
+        Me.label8.Size = New System.Drawing.Size(109, 23)
         Me.label8.TabIndex = 10
         Me.label8.Text = "Sort String"
         Me.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtFormattedName
         '
-        Me.txtFormattedName.Location = New System.Drawing.Point(136, 184)
+        Me.txtFormattedName.Location = New System.Drawing.Point(181, 185)
         Me.txtFormattedName.Name = "txtFormattedName"
-        Me.txtFormattedName.Size = New System.Drawing.Size(336, 22)
+        Me.txtFormattedName.Size = New System.Drawing.Size(336, 26)
         Me.txtFormattedName.TabIndex = 16
         '
         'label7
         '
-        Me.label7.Location = New System.Drawing.Point(5, 184)
+        Me.label7.Location = New System.Drawing.Point(16, 187)
         Me.label7.Name = "label7"
-        Me.label7.Size = New System.Drawing.Size(125, 23)
+        Me.label7.Size = New System.Drawing.Size(159, 23)
         Me.label7.TabIndex = 15
         Me.label7.Text = "&Formatted Name"
         Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtNickname
         '
-        Me.txtNickname.Location = New System.Drawing.Point(136, 152)
+        Me.txtNickname.Location = New System.Drawing.Point(181, 153)
         Me.txtNickname.Name = "txtNickname"
-        Me.txtNickname.Size = New System.Drawing.Size(176, 22)
+        Me.txtNickname.Size = New System.Drawing.Size(176, 26)
         Me.txtNickname.TabIndex = 14
         '
         'label4
         '
-        Me.label4.Location = New System.Drawing.Point(58, 152)
+        Me.label4.Location = New System.Drawing.Point(65, 155)
         Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(72, 23)
+        Me.label4.Size = New System.Drawing.Size(110, 23)
         Me.label4.TabIndex = 13
         Me.label4.Text = "&Nickname"
         Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtSuffix
         '
-        Me.txtSuffix.Location = New System.Drawing.Point(480, 56)
+        Me.txtSuffix.Location = New System.Drawing.Point(525, 56)
         Me.txtSuffix.Name = "txtSuffix"
-        Me.txtSuffix.Size = New System.Drawing.Size(128, 22)
+        Me.txtSuffix.Size = New System.Drawing.Size(128, 26)
         Me.txtSuffix.TabIndex = 9
         '
         'label5
         '
-        Me.label5.Location = New System.Drawing.Point(418, 56)
+        Me.label5.Location = New System.Drawing.Point(437, 58)
         Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(56, 23)
+        Me.label5.Size = New System.Drawing.Size(82, 23)
         Me.label5.TabIndex = 8
         Me.label5.Text = "Suffix"
         Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtTitle
         '
-        Me.txtTitle.Location = New System.Drawing.Point(480, 24)
+        Me.txtTitle.Location = New System.Drawing.Point(525, 24)
         Me.txtTitle.Name = "txtTitle"
-        Me.txtTitle.Size = New System.Drawing.Size(128, 22)
+        Me.txtTitle.Size = New System.Drawing.Size(128, 26)
         Me.txtTitle.TabIndex = 7
         '
         'label6
         '
-        Me.label6.Location = New System.Drawing.Point(434, 24)
+        Me.label6.Location = New System.Drawing.Point(433, 26)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(40, 23)
+        Me.label6.Size = New System.Drawing.Size(86, 23)
         Me.label6.TabIndex = 6
         Me.label6.Text = "Title"
         Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtMiddleName
         '
-        Me.txtMiddleName.Location = New System.Drawing.Point(136, 88)
+        Me.txtMiddleName.Location = New System.Drawing.Point(181, 88)
         Me.txtMiddleName.Name = "txtMiddleName"
-        Me.txtMiddleName.Size = New System.Drawing.Size(208, 22)
+        Me.txtMiddleName.Size = New System.Drawing.Size(208, 26)
         Me.txtMiddleName.TabIndex = 5
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(21, 88)
+        Me.label3.Location = New System.Drawing.Point(61, 90)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(109, 23)
+        Me.label3.Size = New System.Drawing.Size(114, 23)
         Me.label3.TabIndex = 4
         Me.label3.Text = "Middle Name"
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtFirstName
         '
-        Me.txtFirstName.Location = New System.Drawing.Point(136, 56)
+        Me.txtFirstName.Location = New System.Drawing.Point(181, 56)
         Me.txtFirstName.Name = "txtFirstName"
-        Me.txtFirstName.Size = New System.Drawing.Size(208, 22)
+        Me.txtFirstName.Size = New System.Drawing.Size(208, 26)
         Me.txtFirstName.TabIndex = 3
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(50, 56)
+        Me.label2.Location = New System.Drawing.Point(61, 56)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(80, 23)
+        Me.label2.Size = New System.Drawing.Size(114, 23)
         Me.label2.TabIndex = 2
         Me.label2.Text = "First Name"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLastName
         '
-        Me.txtLastName.Location = New System.Drawing.Point(136, 24)
+        Me.txtLastName.Location = New System.Drawing.Point(181, 24)
         Me.txtLastName.Name = "txtLastName"
-        Me.txtLastName.Size = New System.Drawing.Size(208, 22)
+        Me.txtLastName.Size = New System.Drawing.Size(208, 26)
         Me.txtLastName.TabIndex = 1
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(50, 24)
+        Me.label1.Location = New System.Drawing.Point(61, 26)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(80, 23)
+        Me.label1.Size = New System.Drawing.Size(114, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "&Last Name"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -289,35 +289,35 @@ Partial Class VCardPropertiesDlg
         'pgAddresses
         '
         Me.pgAddresses.Controls.Add(Me.ucAddresses)
-        Me.pgAddresses.Location = New System.Drawing.Point(4, 25)
+        Me.pgAddresses.Location = New System.Drawing.Point(4, 29)
         Me.pgAddresses.Name = "pgAddresses"
-        Me.pgAddresses.Size = New System.Drawing.Size(674, 274)
+        Me.pgAddresses.Size = New System.Drawing.Size(713, 289)
         Me.pgAddresses.TabIndex = 1
         Me.pgAddresses.Text = "Addresses"
         Me.pgAddresses.UseVisualStyleBackColor = true
         '
         'ucAddresses
         '
-        Me.ucAddresses.Location = New System.Drawing.Point(5, 27)
+        Me.ucAddresses.Location = New System.Drawing.Point(9, 20)
         Me.ucAddresses.Name = "ucAddresses"
-        Me.ucAddresses.Size = New System.Drawing.Size(664, 220)
+        Me.ucAddresses.Size = New System.Drawing.Size(690, 248)
         Me.ucAddresses.TabIndex = 15
         '
         'pgLabels
         '
         Me.pgLabels.Controls.Add(Me.ucLabels)
-        Me.pgLabels.Location = New System.Drawing.Point(4, 25)
+        Me.pgLabels.Location = New System.Drawing.Point(4, 29)
         Me.pgLabels.Name = "pgLabels"
-        Me.pgLabels.Size = New System.Drawing.Size(674, 274)
+        Me.pgLabels.Size = New System.Drawing.Size(713, 289)
         Me.pgLabels.TabIndex = 7
         Me.pgLabels.Text = "Labels"
         Me.pgLabels.UseVisualStyleBackColor = true
         '
         'ucLabels
         '
-        Me.ucLabels.Location = New System.Drawing.Point(105, 37)
+        Me.ucLabels.Location = New System.Drawing.Point(18, 40)
         Me.ucLabels.Name = "ucLabels"
-        Me.ucLabels.Size = New System.Drawing.Size(464, 200)
+        Me.ucLabels.Size = New System.Drawing.Size(672, 208)
         Me.ucLabels.TabIndex = 0
         '
         'pgPhoneEMail
@@ -325,33 +325,33 @@ Partial Class VCardPropertiesDlg
         Me.pgPhoneEMail.Controls.Add(Me.groupBox2)
         Me.pgPhoneEMail.Controls.Add(Me.ucEMail)
         Me.pgPhoneEMail.Controls.Add(Me.ucPhones)
-        Me.pgPhoneEMail.Location = New System.Drawing.Point(4, 25)
+        Me.pgPhoneEMail.Location = New System.Drawing.Point(4, 29)
         Me.pgPhoneEMail.Name = "pgPhoneEMail"
-        Me.pgPhoneEMail.Size = New System.Drawing.Size(674, 274)
+        Me.pgPhoneEMail.Size = New System.Drawing.Size(713, 289)
         Me.pgPhoneEMail.TabIndex = 3
         Me.pgPhoneEMail.Text = "Phone/E-Mail"
         Me.pgPhoneEMail.UseVisualStyleBackColor = true
         '
         'groupBox2
         '
-        Me.groupBox2.Location = New System.Drawing.Point(8, 144)
+        Me.groupBox2.Location = New System.Drawing.Point(9, 157)
         Me.groupBox2.Name = "groupBox2"
-        Me.groupBox2.Size = New System.Drawing.Size(664, 8)
+        Me.groupBox2.Size = New System.Drawing.Size(694, 8)
         Me.groupBox2.TabIndex = 2
         Me.groupBox2.TabStop = false
         '
         'ucEMail
         '
-        Me.ucEMail.Location = New System.Drawing.Point(96, 159)
+        Me.ucEMail.Location = New System.Drawing.Point(8, 173)
         Me.ucEMail.Name = "ucEMail"
-        Me.ucEMail.Size = New System.Drawing.Size(472, 104)
+        Me.ucEMail.Size = New System.Drawing.Size(689, 110)
         Me.ucEMail.TabIndex = 1
         '
         'ucPhones
         '
-        Me.ucPhones.Location = New System.Drawing.Point(96, 8)
+        Me.ucPhones.Location = New System.Drawing.Point(8, 8)
         Me.ucPhones.Name = "ucPhones"
-        Me.ucPhones.Size = New System.Drawing.Size(472, 128)
+        Me.ucPhones.Size = New System.Drawing.Size(689, 143)
         Me.ucPhones.TabIndex = 0
         '
         'pgWork
@@ -368,105 +368,105 @@ Partial Class VCardPropertiesDlg
         Me.pgWork.Controls.Add(Me.label19)
         Me.pgWork.Controls.Add(Me.txtOrganization)
         Me.pgWork.Controls.Add(Me.label18)
-        Me.pgWork.Location = New System.Drawing.Point(4, 25)
+        Me.pgWork.Location = New System.Drawing.Point(4, 29)
         Me.pgWork.Name = "pgWork"
-        Me.pgWork.Size = New System.Drawing.Size(674, 274)
+        Me.pgWork.Size = New System.Drawing.Size(713, 289)
         Me.pgWork.TabIndex = 2
         Me.pgWork.Text = "Work"
         Me.pgWork.UseVisualStyleBackColor = true
         '
         'txtRole
         '
-        Me.txtRole.Location = New System.Drawing.Point(144, 136)
+        Me.txtRole.Location = New System.Drawing.Point(170, 137)
         Me.txtRole.Name = "txtRole"
-        Me.txtRole.Size = New System.Drawing.Size(320, 22)
+        Me.txtRole.Size = New System.Drawing.Size(320, 26)
         Me.txtRole.TabIndex = 8
         '
         'label22
         '
-        Me.label22.Location = New System.Drawing.Point(74, 136)
+        Me.label22.Location = New System.Drawing.Point(71, 139)
         Me.label22.Name = "label22"
-        Me.label22.Size = New System.Drawing.Size(64, 23)
+        Me.label22.Size = New System.Drawing.Size(93, 23)
         Me.label22.TabIndex = 7
         Me.label22.Text = "Role"
         Me.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'groupBox7
         '
-        Me.groupBox7.Location = New System.Drawing.Point(16, 168)
+        Me.groupBox7.Location = New System.Drawing.Point(14, 168)
         Me.groupBox7.Name = "groupBox7"
-        Me.groupBox7.Size = New System.Drawing.Size(648, 8)
+        Me.groupBox7.Size = New System.Drawing.Size(684, 8)
         Me.groupBox7.TabIndex = 9
         Me.groupBox7.TabStop = false
         '
         'txtCategories
         '
-        Me.txtCategories.Location = New System.Drawing.Point(144, 192)
+        Me.txtCategories.Location = New System.Drawing.Point(170, 193)
         Me.txtCategories.Name = "txtCategories"
-        Me.txtCategories.Size = New System.Drawing.Size(440, 22)
+        Me.txtCategories.Size = New System.Drawing.Size(440, 26)
         Me.txtCategories.TabIndex = 11
         '
         'label21
         '
-        Me.label21.Location = New System.Drawing.Point(58, 192)
+        Me.label21.Location = New System.Drawing.Point(42, 195)
         Me.label21.Name = "label21"
-        Me.label21.Size = New System.Drawing.Size(80, 23)
+        Me.label21.Size = New System.Drawing.Size(122, 23)
         Me.label21.TabIndex = 10
         Me.label21.Text = "&Categories"
         Me.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtJobTitle
         '
-        Me.txtJobTitle.Location = New System.Drawing.Point(144, 104)
+        Me.txtJobTitle.Location = New System.Drawing.Point(170, 105)
         Me.txtJobTitle.Name = "txtJobTitle"
-        Me.txtJobTitle.Size = New System.Drawing.Size(320, 22)
+        Me.txtJobTitle.Size = New System.Drawing.Size(320, 26)
         Me.txtJobTitle.TabIndex = 6
         '
         'label20
         '
-        Me.label20.Location = New System.Drawing.Point(61, 104)
+        Me.label20.Location = New System.Drawing.Point(67, 107)
         Me.label20.Name = "label20"
-        Me.label20.Size = New System.Drawing.Size(77, 23)
+        Me.label20.Size = New System.Drawing.Size(97, 23)
         Me.label20.TabIndex = 5
         Me.label20.Text = "&Job Title"
         Me.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'groupBox6
         '
-        Me.groupBox6.Location = New System.Drawing.Point(16, 80)
+        Me.groupBox6.Location = New System.Drawing.Point(14, 80)
         Me.groupBox6.Name = "groupBox6"
-        Me.groupBox6.Size = New System.Drawing.Size(648, 8)
+        Me.groupBox6.Size = New System.Drawing.Size(684, 8)
         Me.groupBox6.TabIndex = 4
         Me.groupBox6.TabStop = false
         '
         'txtUnits
         '
-        Me.txtUnits.Location = New System.Drawing.Point(144, 48)
+        Me.txtUnits.Location = New System.Drawing.Point(170, 48)
         Me.txtUnits.Name = "txtUnits"
-        Me.txtUnits.Size = New System.Drawing.Size(440, 22)
+        Me.txtUnits.Size = New System.Drawing.Size(440, 26)
         Me.txtUnits.TabIndex = 3
         '
         'label19
         '
-        Me.label19.Location = New System.Drawing.Point(90, 48)
+        Me.label19.Location = New System.Drawing.Point(88, 50)
         Me.label19.Name = "label19"
-        Me.label19.Size = New System.Drawing.Size(48, 23)
+        Me.label19.Size = New System.Drawing.Size(76, 23)
         Me.label19.TabIndex = 2
         Me.label19.Text = "Units"
         Me.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtOrganization
         '
-        Me.txtOrganization.Location = New System.Drawing.Point(144, 16)
+        Me.txtOrganization.Location = New System.Drawing.Point(170, 16)
         Me.txtOrganization.Name = "txtOrganization"
-        Me.txtOrganization.Size = New System.Drawing.Size(320, 22)
+        Me.txtOrganization.Size = New System.Drawing.Size(320, 26)
         Me.txtOrganization.TabIndex = 1
         '
         'label18
         '
-        Me.label18.Location = New System.Drawing.Point(42, 16)
+        Me.label18.Location = New System.Drawing.Point(42, 18)
         Me.label18.Name = "label18"
-        Me.label18.Size = New System.Drawing.Size(96, 23)
+        Me.label18.Size = New System.Drawing.Size(122, 23)
         Me.label18.TabIndex = 0
         Me.label18.Text = "&Organization"
         Me.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -490,93 +490,93 @@ Partial Class VCardPropertiesDlg
         Me.pgOther.Controls.Add(Me.label13)
         Me.pgOther.Controls.Add(Me.txtTimeZone)
         Me.pgOther.Controls.Add(Me.label12)
-        Me.pgOther.Location = New System.Drawing.Point(4, 25)
+        Me.pgOther.Location = New System.Drawing.Point(4, 29)
         Me.pgOther.Name = "pgOther"
-        Me.pgOther.Size = New System.Drawing.Size(674, 274)
+        Me.pgOther.Size = New System.Drawing.Size(713, 289)
         Me.pgOther.TabIndex = 4
         Me.pgOther.Text = "Other"
         Me.pgOther.UseVisualStyleBackColor = true
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(448, 85)
+        Me.btnFind.Location = New System.Drawing.Point(542, 95)
         Me.btnFind.Name = "btnFind"
-        Me.btnFind.Size = New System.Drawing.Size(60, 28)
+        Me.btnFind.Size = New System.Drawing.Size(75, 28)
         Me.btnFind.TabIndex = 9
         Me.btnFind.Text = "&Find"
         '
         'txtComments
         '
         Me.txtComments.AcceptsReturn = true
-        Me.txtComments.Location = New System.Drawing.Point(128, 192)
+        Me.txtComments.Location = New System.Drawing.Point(150, 198)
         Me.txtComments.Multiline = true
         Me.txtComments.Name = "txtComments"
         Me.txtComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtComments.Size = New System.Drawing.Size(496, 72)
+        Me.txtComments.Size = New System.Drawing.Size(528, 72)
         Me.txtComments.TabIndex = 16
         '
         'label17
         '
-        Me.label17.Location = New System.Drawing.Point(42, 192)
+        Me.label17.Location = New System.Drawing.Point(34, 200)
         Me.label17.Name = "label17"
-        Me.label17.Size = New System.Drawing.Size(80, 23)
+        Me.label17.Size = New System.Drawing.Size(110, 23)
         Me.label17.TabIndex = 15
         Me.label17.Text = "&Comments"
         Me.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'groupBox5
         '
-        Me.groupBox5.Location = New System.Drawing.Point(16, 176)
+        Me.groupBox5.Location = New System.Drawing.Point(17, 182)
         Me.groupBox5.Name = "groupBox5"
-        Me.groupBox5.Size = New System.Drawing.Size(648, 8)
+        Me.groupBox5.Size = New System.Drawing.Size(688, 8)
         Me.groupBox5.TabIndex = 14
         Me.groupBox5.TabStop = false
         '
         'btnWebPage
         '
-        Me.btnWebPage.Location = New System.Drawing.Point(511, 141)
+        Me.btnWebPage.Location = New System.Drawing.Point(542, 149)
         Me.btnWebPage.Name = "btnWebPage"
-        Me.btnWebPage.Size = New System.Drawing.Size(60, 28)
+        Me.btnWebPage.Size = New System.Drawing.Size(75, 28)
         Me.btnWebPage.TabIndex = 13
         Me.btnWebPage.Text = "&Go"
         '
         'txtWebPage
         '
-        Me.txtWebPage.Location = New System.Drawing.Point(128, 144)
+        Me.txtWebPage.Location = New System.Drawing.Point(150, 150)
         Me.txtWebPage.Name = "txtWebPage"
-        Me.txtWebPage.Size = New System.Drawing.Size(368, 22)
+        Me.txtWebPage.Size = New System.Drawing.Size(368, 26)
         Me.txtWebPage.TabIndex = 12
         '
         'label16
         '
-        Me.label16.Location = New System.Drawing.Point(42, 144)
+        Me.label16.Location = New System.Drawing.Point(34, 150)
         Me.label16.Name = "label16"
-        Me.label16.Size = New System.Drawing.Size(80, 23)
+        Me.label16.Size = New System.Drawing.Size(110, 23)
         Me.label16.TabIndex = 11
         Me.label16.Text = "&Web Page"
         Me.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'groupBox4
         '
-        Me.groupBox4.Location = New System.Drawing.Point(16, 120)
+        Me.groupBox4.Location = New System.Drawing.Point(17, 126)
         Me.groupBox4.Name = "groupBox4"
-        Me.groupBox4.Size = New System.Drawing.Size(648, 8)
+        Me.groupBox4.Size = New System.Drawing.Size(688, 8)
         Me.groupBox4.TabIndex = 10
         Me.groupBox4.TabStop = false
         '
         'groupBox3
         '
-        Me.groupBox3.Location = New System.Drawing.Point(16, 40)
+        Me.groupBox3.Location = New System.Drawing.Point(17, 46)
         Me.groupBox3.Name = "groupBox3"
-        Me.groupBox3.Size = New System.Drawing.Size(648, 8)
+        Me.groupBox3.Size = New System.Drawing.Size(688, 8)
         Me.groupBox3.TabIndex = 2
         Me.groupBox3.TabStop = false
         '
         'label15
         '
-        Me.label15.Location = New System.Drawing.Point(45, 8)
+        Me.label15.Location = New System.Drawing.Point(38, 14)
         Me.label15.Name = "label15"
-        Me.label15.Size = New System.Drawing.Size(77, 23)
+        Me.label15.Size = New System.Drawing.Size(106, 23)
         Me.label15.TabIndex = 0
         Me.label15.Text = "&Birth Date"
         Me.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -586,56 +586,56 @@ Partial Class VCardPropertiesDlg
         Me.dtpBirthDate.Checked = false
         Me.dtpBirthDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpBirthDate.Location = New System.Drawing.Point(128, 8)
+        Me.dtpBirthDate.Location = New System.Drawing.Point(150, 14)
         Me.dtpBirthDate.Name = "dtpBirthDate"
         Me.dtpBirthDate.ShowCheckBox = true
-        Me.dtpBirthDate.Size = New System.Drawing.Size(210, 22)
+        Me.dtpBirthDate.Size = New System.Drawing.Size(255, 26)
         Me.dtpBirthDate.TabIndex = 1
         '
         'txtLongitude
         '
-        Me.txtLongitude.Location = New System.Drawing.Point(328, 88)
+        Me.txtLongitude.Location = New System.Drawing.Point(398, 96)
         Me.txtLongitude.Name = "txtLongitude"
-        Me.txtLongitude.Size = New System.Drawing.Size(104, 22)
+        Me.txtLongitude.Size = New System.Drawing.Size(120, 26)
         Me.txtLongitude.TabIndex = 8
         '
         'label14
         '
-        Me.label14.Location = New System.Drawing.Point(250, 88)
+        Me.label14.Location = New System.Drawing.Point(290, 98)
         Me.label14.Name = "label14"
-        Me.label14.Size = New System.Drawing.Size(72, 23)
+        Me.label14.Size = New System.Drawing.Size(102, 23)
         Me.label14.TabIndex = 7
         Me.label14.Text = "Longitude"
         Me.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLatitude
         '
-        Me.txtLatitude.Location = New System.Drawing.Point(128, 88)
+        Me.txtLatitude.Location = New System.Drawing.Point(150, 96)
         Me.txtLatitude.Name = "txtLatitude"
-        Me.txtLatitude.Size = New System.Drawing.Size(104, 22)
+        Me.txtLatitude.Size = New System.Drawing.Size(120, 26)
         Me.txtLatitude.TabIndex = 6
         '
         'label13
         '
-        Me.label13.Location = New System.Drawing.Point(58, 88)
+        Me.label13.Location = New System.Drawing.Point(51, 96)
         Me.label13.Name = "label13"
-        Me.label13.Size = New System.Drawing.Size(64, 23)
+        Me.label13.Size = New System.Drawing.Size(93, 23)
         Me.label13.TabIndex = 5
         Me.label13.Text = "&Latitude"
         Me.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtTimeZone
         '
-        Me.txtTimeZone.Location = New System.Drawing.Point(128, 56)
+        Me.txtTimeZone.Location = New System.Drawing.Point(150, 64)
         Me.txtTimeZone.Name = "txtTimeZone"
-        Me.txtTimeZone.Size = New System.Drawing.Size(304, 22)
+        Me.txtTimeZone.Size = New System.Drawing.Size(368, 26)
         Me.txtTimeZone.TabIndex = 4
         '
         'label12
         '
-        Me.label12.Location = New System.Drawing.Point(42, 56)
+        Me.label12.Location = New System.Drawing.Point(34, 66)
         Me.label12.Name = "label12"
-        Me.label12.Size = New System.Drawing.Size(80, 23)
+        Me.label12.Size = New System.Drawing.Size(110, 23)
         Me.label12.TabIndex = 3
         Me.label12.Text = "&Time Zone"
         Me.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -643,9 +643,9 @@ Partial Class VCardPropertiesDlg
         'pgPhoto
         '
         Me.pgPhoto.Controls.Add(Me.ucPhoto)
-        Me.pgPhoto.Location = New System.Drawing.Point(4, 25)
+        Me.pgPhoto.Location = New System.Drawing.Point(4, 29)
         Me.pgPhoto.Name = "pgPhoto"
-        Me.pgPhoto.Size = New System.Drawing.Size(674, 274)
+        Me.pgPhoto.Size = New System.Drawing.Size(713, 289)
         Me.pgPhoto.TabIndex = 5
         Me.pgPhoto.Text = "Photo"
         Me.pgPhoto.UseVisualStyleBackColor = true
@@ -653,7 +653,7 @@ Partial Class VCardPropertiesDlg
         'ucPhoto
         '
         Me.ucPhoto.Cursor = System.Windows.Forms.Cursors.Default
-        Me.ucPhoto.Location = New System.Drawing.Point(8, 33)
+        Me.ucPhoto.Location = New System.Drawing.Point(22, 40)
         Me.ucPhoto.Name = "ucPhoto"
         Me.ucPhoto.Size = New System.Drawing.Size(664, 208)
         Me.ucPhoto.TabIndex = 0
@@ -661,9 +661,9 @@ Partial Class VCardPropertiesDlg
         'pgLogo
         '
         Me.pgLogo.Controls.Add(Me.ucLogo)
-        Me.pgLogo.Location = New System.Drawing.Point(4, 25)
+        Me.pgLogo.Location = New System.Drawing.Point(4, 29)
         Me.pgLogo.Name = "pgLogo"
-        Me.pgLogo.Size = New System.Drawing.Size(674, 274)
+        Me.pgLogo.Size = New System.Drawing.Size(713, 289)
         Me.pgLogo.TabIndex = 6
         Me.pgLogo.Text = "Logo"
         Me.pgLogo.UseVisualStyleBackColor = true
@@ -671,7 +671,7 @@ Partial Class VCardPropertiesDlg
         'ucLogo
         '
         Me.ucLogo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.ucLogo.Location = New System.Drawing.Point(8, 33)
+        Me.ucLogo.Location = New System.Drawing.Point(22, 40)
         Me.ucLogo.Name = "ucLogo"
         Me.ucLogo.Size = New System.Drawing.Size(664, 208)
         Me.ucLogo.TabIndex = 0
@@ -679,7 +679,7 @@ Partial Class VCardPropertiesDlg
         'btnOK
         '
         Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOK.Location = New System.Drawing.Point(12, 381)
+        Me.btnOK.Location = New System.Drawing.Point(12, 424)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(88, 32)
         Me.btnOK.TabIndex = 9
@@ -689,7 +689,7 @@ Partial Class VCardPropertiesDlg
         '
         Me.btnCancel.CausesValidation = false
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(606, 381)
+        Me.btnCancel.Location = New System.Drawing.Point(645, 424)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(88, 32)
         Me.btnCancel.TabIndex = 10
@@ -697,18 +697,18 @@ Partial Class VCardPropertiesDlg
         '
         'txtUniqueId
         '
-        Me.txtUniqueId.Location = New System.Drawing.Point(88, 12)
+        Me.txtUniqueId.Location = New System.Drawing.Point(115, 12)
         Me.txtUniqueId.Name = "txtUniqueId"
         Me.txtUniqueId.ReadOnly = true
-        Me.txtUniqueId.Size = New System.Drawing.Size(376, 22)
+        Me.txtUniqueId.Size = New System.Drawing.Size(376, 26)
         Me.txtUniqueId.TabIndex = 1
         Me.txtUniqueId.TabStop = false
         '
         'label9
         '
-        Me.label9.Location = New System.Drawing.Point(10, 12)
+        Me.label9.Location = New System.Drawing.Point(12, 14)
         Me.label9.Name = "label9"
-        Me.label9.Size = New System.Drawing.Size(72, 23)
+        Me.label9.Size = New System.Drawing.Size(97, 23)
         Me.label9.TabIndex = 0
         Me.label9.Text = "Unique ID"
         Me.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -716,53 +716,54 @@ Partial Class VCardPropertiesDlg
         'txtClass
         '
         Me.txtClass.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtClass.Location = New System.Drawing.Point(544, 42)
+        Me.txtClass.Location = New System.Drawing.Point(584, 46)
         Me.txtClass.Name = "txtClass"
-        Me.txtClass.Size = New System.Drawing.Size(144, 22)
+        Me.txtClass.Size = New System.Drawing.Size(145, 26)
         Me.txtClass.TabIndex = 7
         '
         'label10
         '
-        Me.label10.Location = New System.Drawing.Point(490, 42)
+        Me.label10.Location = New System.Drawing.Point(500, 48)
         Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(48, 23)
+        Me.label10.Size = New System.Drawing.Size(78, 23)
         Me.label10.TabIndex = 6
         Me.label10.Text = "Class"
         Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLastRevised
         '
-        Me.txtLastRevised.Location = New System.Drawing.Point(88, 42)
+        Me.txtLastRevised.Location = New System.Drawing.Point(115, 46)
         Me.txtLastRevised.Name = "txtLastRevised"
         Me.txtLastRevised.ReadOnly = true
-        Me.txtLastRevised.Size = New System.Drawing.Size(168, 22)
+        Me.txtLastRevised.Size = New System.Drawing.Size(207, 26)
         Me.txtLastRevised.TabIndex = 5
         Me.txtLastRevised.TabStop = false
         '
         'label11
         '
-        Me.label11.Location = New System.Drawing.Point(18, 42)
+        Me.label11.Location = New System.Drawing.Point(16, 48)
         Me.label11.Name = "label11"
-        Me.label11.Size = New System.Drawing.Size(64, 23)
+        Me.label11.Size = New System.Drawing.Size(93, 23)
         Me.label11.TabIndex = 4
         Me.label11.Text = "Revised"
         Me.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'label23
         '
-        Me.label23.Location = New System.Drawing.Point(474, 12)
+        Me.label23.Location = New System.Drawing.Point(498, 14)
         Me.label23.Name = "label23"
-        Me.label23.Size = New System.Drawing.Size(64, 23)
+        Me.label23.Size = New System.Drawing.Size(80, 23)
         Me.label23.TabIndex = 2
         Me.label23.Text = "&Version"
         Me.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'cboVersion
         '
+        Me.cboVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboVersion.Items.AddRange(New Object() {"2.1", "3.0"})
-        Me.cboVersion.Location = New System.Drawing.Point(544, 12)
+        Me.cboVersion.Location = New System.Drawing.Point(584, 12)
         Me.cboVersion.Name = "cboVersion"
-        Me.cboVersion.Size = New System.Drawing.Size(56, 24)
+        Me.cboVersion.Size = New System.Drawing.Size(65, 28)
         Me.cboVersion.TabIndex = 3
         '
         'epErrors
@@ -773,7 +774,7 @@ Partial Class VCardPropertiesDlg
         '
         Me.AcceptButton = Me.btnOK
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(706, 425)
+        Me.ClientSize = New System.Drawing.Size(745, 468)
         Me.Controls.Add(Me.cboVersion)
         Me.Controls.Add(Me.label23)
         Me.Controls.Add(Me.txtLastRevised)

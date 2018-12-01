@@ -75,181 +75,181 @@ Partial Class AddressControl
         Me.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(664, 193)
+        Me.pnlControls.Size = New System.Drawing.Size(685, 212)
         Me.pnlControls.TabIndex = 0
         '
         'btnMap
         '
-        Me.btnMap.Location = New System.Drawing.Point(266, 102)
+        Me.btnMap.Location = New System.Drawing.Point(298, 104)
         Me.btnMap.Name = "btnMap"
-        Me.btnMap.Size = New System.Drawing.Size(60, 28)
+        Me.btnMap.Size = New System.Drawing.Size(75, 28)
         Me.btnMap.TabIndex = 14
         Me.btnMap.Text = "&Map"
         '
         'chkPreferred
         '
-        Me.chkPreferred.Location = New System.Drawing.Point(556, 145)
+        Me.chkPreferred.Location = New System.Drawing.Point(397, 176)
         Me.chkPreferred.Name = "chkPreferred"
-        Me.chkPreferred.Size = New System.Drawing.Size(96, 24)
+        Me.chkPreferred.Size = New System.Drawing.Size(137, 24)
         Me.chkPreferred.TabIndex = 21
         Me.chkPreferred.Text = "Preferred"
         '
         'chkWork
         '
-        Me.chkWork.Location = New System.Drawing.Point(484, 145)
+        Me.chkWork.Location = New System.Drawing.Point(251, 176)
         Me.chkWork.Name = "chkWork"
-        Me.chkWork.Size = New System.Drawing.Size(66, 24)
+        Me.chkWork.Size = New System.Drawing.Size(137, 24)
         Me.chkWork.TabIndex = 20
         Me.chkWork.Text = "Work"
         '
         'chkHome
         '
-        Me.chkHome.Location = New System.Drawing.Point(404, 145)
+        Me.chkHome.Location = New System.Drawing.Point(105, 176)
         Me.chkHome.Name = "chkHome"
-        Me.chkHome.Size = New System.Drawing.Size(74, 24)
+        Me.chkHome.Size = New System.Drawing.Size(137, 24)
         Me.chkHome.TabIndex = 19
         Me.chkHome.Text = "Home"
         '
         'chkParcel
         '
-        Me.chkParcel.Location = New System.Drawing.Point(324, 145)
+        Me.chkParcel.Location = New System.Drawing.Point(543, 146)
         Me.chkParcel.Name = "chkParcel"
-        Me.chkParcel.Size = New System.Drawing.Size(74, 24)
+        Me.chkParcel.Size = New System.Drawing.Size(137, 24)
         Me.chkParcel.TabIndex = 18
         Me.chkParcel.Text = "Parcel"
         '
         'chkPostal
         '
-        Me.chkPostal.Location = New System.Drawing.Point(236, 145)
+        Me.chkPostal.Location = New System.Drawing.Point(397, 146)
         Me.chkPostal.Name = "chkPostal"
-        Me.chkPostal.Size = New System.Drawing.Size(82, 24)
+        Me.chkPostal.Size = New System.Drawing.Size(137, 24)
         Me.chkPostal.TabIndex = 17
         Me.chkPostal.Text = "Postal"
         '
         'chkInternational
         '
-        Me.chkInternational.Location = New System.Drawing.Point(116, 145)
+        Me.chkInternational.Location = New System.Drawing.Point(251, 146)
         Me.chkInternational.Name = "chkInternational"
-        Me.chkInternational.Size = New System.Drawing.Size(114, 24)
+        Me.chkInternational.Size = New System.Drawing.Size(137, 24)
         Me.chkInternational.TabIndex = 16
         Me.chkInternational.Text = "International"
         '
         'chkDomestic
         '
-        Me.chkDomestic.Location = New System.Drawing.Point(20, 145)
+        Me.chkDomestic.Location = New System.Drawing.Point(105, 146)
         Me.chkDomestic.Name = "chkDomestic"
-        Me.chkDomestic.Size = New System.Drawing.Size(90, 24)
+        Me.chkDomestic.Size = New System.Drawing.Size(137, 24)
         Me.chkDomestic.TabIndex = 15
         Me.chkDomestic.Text = "Domestic"
         '
         'txtCountry
         '
-        Me.txtCountry.Location = New System.Drawing.Point(87, 105)
+        Me.txtCountry.Location = New System.Drawing.Point(105, 105)
         Me.txtCountry.Name = "txtCountry"
-        Me.txtCountry.Size = New System.Drawing.Size(168, 22)
+        Me.txtCountry.Size = New System.Drawing.Size(168, 26)
         Me.txtCountry.TabIndex = 13
         '
         'label18
         '
-        Me.label18.Location = New System.Drawing.Point(17, 105)
+        Me.label18.Location = New System.Drawing.Point(7, 107)
         Me.label18.Name = "label18"
-        Me.label18.Size = New System.Drawing.Size(64, 23)
+        Me.label18.Size = New System.Drawing.Size(92, 23)
         Me.label18.TabIndex = 12
         Me.label18.Text = "Country"
         Me.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtPostalCode
         '
-        Me.txtPostalCode.Location = New System.Drawing.Point(535, 73)
+        Me.txtPostalCode.Location = New System.Drawing.Point(593, 73)
         Me.txtPostalCode.Name = "txtPostalCode"
-        Me.txtPostalCode.Size = New System.Drawing.Size(80, 22)
+        Me.txtPostalCode.Size = New System.Drawing.Size(80, 26)
         Me.txtPostalCode.TabIndex = 11
         '
         'label17
         '
-        Me.label17.Location = New System.Drawing.Point(439, 73)
+        Me.label17.Location = New System.Drawing.Point(478, 75)
         Me.label17.Name = "label17"
-        Me.label17.Size = New System.Drawing.Size(90, 23)
+        Me.label17.Size = New System.Drawing.Size(109, 23)
         Me.label17.TabIndex = 10
         Me.label17.Text = "Postal Code"
         Me.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtRegion
         '
-        Me.txtRegion.Location = New System.Drawing.Point(351, 73)
+        Me.txtRegion.Location = New System.Drawing.Point(392, 73)
         Me.txtRegion.Name = "txtRegion"
-        Me.txtRegion.Size = New System.Drawing.Size(80, 22)
+        Me.txtRegion.Size = New System.Drawing.Size(80, 26)
         Me.txtRegion.TabIndex = 9
         '
         'label16
         '
-        Me.label16.Location = New System.Drawing.Point(265, 73)
+        Me.label16.Location = New System.Drawing.Point(279, 75)
         Me.label16.Name = "label16"
-        Me.label16.Size = New System.Drawing.Size(80, 23)
+        Me.label16.Size = New System.Drawing.Size(107, 23)
         Me.label16.TabIndex = 8
         Me.label16.Text = "State/Prov"
         Me.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLocality
         '
-        Me.txtLocality.Location = New System.Drawing.Point(87, 73)
+        Me.txtLocality.Location = New System.Drawing.Point(105, 73)
         Me.txtLocality.Name = "txtLocality"
-        Me.txtLocality.Size = New System.Drawing.Size(168, 22)
+        Me.txtLocality.Size = New System.Drawing.Size(168, 26)
         Me.txtLocality.TabIndex = 7
         '
         'label15
         '
-        Me.label15.Location = New System.Drawing.Point(41, 73)
+        Me.label15.Location = New System.Drawing.Point(38, 75)
         Me.label15.Name = "label15"
-        Me.label15.Size = New System.Drawing.Size(40, 23)
+        Me.label15.Size = New System.Drawing.Size(61, 23)
         Me.label15.TabIndex = 6
         Me.label15.Text = "City"
         Me.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtPOBox
         '
-        Me.txtPOBox.Location = New System.Drawing.Point(511, 9)
+        Me.txtPOBox.Location = New System.Drawing.Point(565, 9)
         Me.txtPOBox.Name = "txtPOBox"
-        Me.txtPOBox.Size = New System.Drawing.Size(144, 22)
+        Me.txtPOBox.Size = New System.Drawing.Size(108, 26)
         Me.txtPOBox.TabIndex = 3
         '
         'label14
         '
-        Me.label14.Location = New System.Drawing.Point(449, 9)
+        Me.label14.Location = New System.Drawing.Point(482, 11)
         Me.label14.Name = "label14"
-        Me.label14.Size = New System.Drawing.Size(56, 23)
+        Me.label14.Size = New System.Drawing.Size(77, 23)
         Me.label14.TabIndex = 2
         Me.label14.Text = "PO Box"
         Me.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtExtendedAddress
         '
-        Me.txtExtendedAddress.Location = New System.Drawing.Point(87, 41)
+        Me.txtExtendedAddress.Location = New System.Drawing.Point(105, 41)
         Me.txtExtendedAddress.Name = "txtExtendedAddress"
-        Me.txtExtendedAddress.Size = New System.Drawing.Size(344, 22)
+        Me.txtExtendedAddress.Size = New System.Drawing.Size(367, 26)
         Me.txtExtendedAddress.TabIndex = 5
         '
         'label13
         '
-        Me.label13.Location = New System.Drawing.Point(9, 41)
+        Me.label13.Location = New System.Drawing.Point(3, 43)
         Me.label13.Name = "label13"
-        Me.label13.Size = New System.Drawing.Size(72, 23)
+        Me.label13.Size = New System.Drawing.Size(96, 23)
         Me.label13.TabIndex = 4
         Me.label13.Text = "Address 2"
         Me.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtStreetAddress
         '
-        Me.txtStreetAddress.Location = New System.Drawing.Point(87, 9)
+        Me.txtStreetAddress.Location = New System.Drawing.Point(105, 9)
         Me.txtStreetAddress.Name = "txtStreetAddress"
-        Me.txtStreetAddress.Size = New System.Drawing.Size(344, 22)
+        Me.txtStreetAddress.Size = New System.Drawing.Size(367, 26)
         Me.txtStreetAddress.TabIndex = 1
         '
         'label12
         '
-        Me.label12.Location = New System.Drawing.Point(9, 9)
+        Me.label12.Location = New System.Drawing.Point(3, 11)
         Me.label12.Name = "label12"
-        Me.label12.Size = New System.Drawing.Size(72, 23)
+        Me.label12.Size = New System.Drawing.Size(96, 23)
         Me.label12.TabIndex = 0
         Me.label12.Text = "&Address 1"
         Me.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -258,7 +258,7 @@ Partial Class AddressControl
         '
         Me.Controls.Add(Me.pnlControls)
         Me.Name = "AddressControl"
-        Me.Size = New System.Drawing.Size(664, 220)
+        Me.Size = New System.Drawing.Size(685, 240)
         Me.Controls.SetChildIndex(Me.pnlControls, 0)
         Me.pnlControls.ResumeLayout(false)
         Me.pnlControls.PerformLayout

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AgentPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for AgentProperty objects.  It is used with the Personal Data
@@ -64,8 +64,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public AgentProperty Add(VCard vCard)
         {
-            AgentProperty a = new AgentProperty();
-            a.VCard = vCard;
+            AgentProperty a = new AgentProperty { VCard = vCard };
+
             base.Add(a);
 
             return a;

@@ -80,7 +80,7 @@ namespace PDIWebDemoCS
         /// </summary>
         /// <param name="ro">The recurring object</param>
         /// <param name="r">The recurrence to check</param>
-        private void ApplyLimits(RecurringObject ro, Recurrence r)
+        private static void ApplyLimits(RecurringObject ro, Recurrence r)
         {
             if(r.Frequency > RecurFrequency.Hourly)
                 r.MaximumOccurrences = 5000;

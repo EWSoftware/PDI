@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FloatingHolidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to automatically calculate floating holidays.  The class is serializable.
@@ -62,11 +62,11 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public DayOccurrence Occurrence
         {
-            get { return holidayOccurrence; }
+            get => holidayOccurrence;
             set
             {
                 if(value == DayOccurrence.None)
-                    throw new ArgumentException(LR.GetString("ExDUOccurIsNone"), "value");
+                    throw new ArgumentException(LR.GetString("ExDUOccurIsNone"), nameof(value));
 
                 holidayOccurrence = value;
                 convertYear = 0;
@@ -80,7 +80,7 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public DayOfWeek Weekday
         {
-            get { return dayOfWeek; }
+            get => dayOfWeek;
             set
             {
                 dayOfWeek = value;
@@ -106,7 +106,7 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public int Offset
         {
-            get { return holidayOffset; }
+            get => holidayOffset;
             set
             {
                 holidayOffset = value;
@@ -206,9 +206,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            FloatingHoliday h = obj as FloatingHoliday;
-
-            if(h == null)
+            if(!(obj is FloatingHoliday h))
                 return false;
 
             return (this == h || (this.Month == h.Month && dayOfWeek == h.Weekday &&

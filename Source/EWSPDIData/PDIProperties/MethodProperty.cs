@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MethodProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Method property used by the Personal Data Interchange (PDI) iCalendar classes
@@ -37,6 +37,7 @@ namespace EWSoftware.PDI.Properties
 
         private CalendarMethod calendarMethod;
         private string otherMethod;
+
         #endregion
 
         #region Properties
@@ -46,26 +47,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (METHOD)
         /// </summary>
-        public override string Tag
-        {
-            get { return "METHOD"; }
-        }
+        public override string Tag => "METHOD";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the calendar method value
@@ -74,7 +66,7 @@ namespace EWSoftware.PDI.Properties
         /// if not already set to something else.  It is set to null if set to any other calendar method.</value>
         public CalendarMethod CalendarMethod
         {
-            get { return calendarMethod; }
+            get => calendarMethod;
             set
             {
                 calendarMethod = value;
@@ -83,7 +75,7 @@ namespace EWSoftware.PDI.Properties
                     otherMethod = null;
                 else
                     if(String.IsNullOrWhiteSpace(otherMethod))
-                        otherMethod = "X-UNKNOWN";
+                    otherMethod = "X-UNKNOWN";
             }
         }
 
@@ -94,7 +86,7 @@ namespace EWSoftware.PDI.Properties
         /// <c>Other</c>.</value>
         public string OtherMethod
         {
-            get { return otherMethod; }
+            get => otherMethod;
             set
             {
                 calendarMethod = CalendarMethod.Other;
@@ -192,8 +184,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

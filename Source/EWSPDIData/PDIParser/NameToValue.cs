@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NameToValue.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/13/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to map a property or parameter name string to a an enumerated value
@@ -20,7 +20,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 
 namespace EWSoftware.PDI.Parser
 {
@@ -33,44 +32,27 @@ namespace EWSoftware.PDI.Parser
     /// on the item found.</remarks>
     public class NameToValue<T> where T : struct
     {
-        #region Private data members
-        //=====================================================================
-
-        private string name;
-        private T enumValue;
-        private bool isParamValue;
-
-        #endregion
-
         #region Properties
         //=====================================================================
 
         /// <summary>
         /// This is used to get the property or parameter name string
         /// </summary>
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name { get; }
 
         /// <summary>
         /// This is used to get the property or parameter type value
         /// </summary>
         /// <value>The value should be a member of an enumerated type</value>
-        public T EnumValue
-        {
-            get { return enumValue; }
-        }
+        public T EnumValue { get; }
 
         /// <summary>
         /// This is used when mapping parameter names and values.  It can be used to specify that this item is a
         /// parameter value rather than a parameter name.
         /// </summary>
         /// <value>True if the item is a parameter value or false if it is a parameter name</value>
-        public bool IsParameterValue
-        {
-            get { return isParamValue; }
-        }
+        public bool IsParameterValue { get; }
+
         #endregion
 
         #region Constructors
@@ -84,8 +66,8 @@ namespace EWSoftware.PDI.Parser
         /// <overloads>There are two overloads for the constructor</overloads>
         public NameToValue(string itemName, T enumVal)
         {
-            name = itemName;
-            enumValue = enumVal;
+            this.Name = itemName;
+            this.EnumValue = enumVal;
         }
 
         /// <summary>
@@ -96,9 +78,9 @@ namespace EWSoftware.PDI.Parser
         /// <param name="itemIsValue">True if the item is a value rather than a property name</param>
         public NameToValue(string itemName, T enumVal, bool itemIsValue)
         {
-            name = itemName;
-            enumValue = enumVal;
-            isParamValue = itemIsValue;
+            this.Name = itemName;
+            this.EnumValue = enumVal;
+            this.IsParameterValue = itemIsValue;
         }
         #endregion
 
@@ -117,12 +99,12 @@ namespace EWSoftware.PDI.Parser
                 return false;
 
             if(!itemName.EndsWith("=", StringComparison.Ordinal))
-                return (String.Compare(itemName, name, StringComparison.OrdinalIgnoreCase) == 0);
+                return (String.Compare(itemName, this.Name, StringComparison.OrdinalIgnoreCase) == 0);
 
-            if(itemName.Length - 1 != name.Length)
+            if(itemName.Length - 1 != this.Name.Length)
                 return false;
 
-            return (String.Compare(itemName, 0, name, 0, name.Length, StringComparison.OrdinalIgnoreCase) == 0);
+            return (String.Compare(itemName, 0, this.Name, 0, this.Name.Length, StringComparison.OrdinalIgnoreCase) == 0);
         }
         #endregion
     }

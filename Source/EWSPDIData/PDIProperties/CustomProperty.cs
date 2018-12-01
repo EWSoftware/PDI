@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CustomProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the custom property class.  It is used with the Personal Data Interchange (PDI) classes
@@ -45,26 +45,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports all specifications</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.Any | SpecificationVersions.IrMC11; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.Any |
+            SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the tag which is the value of the <see cref="CustomName"/> property
         /// </summary>
-        public override string Tag
-        {
-            get { return this.CustomName; }
-        }
+        public override string Tag => this.CustomName;
 
         /// <summary>
         /// This read-only property defines the default value location as INLINE
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Inline; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Inline;
 
         /// <summary>
         /// This contains the name of the custom property
@@ -83,7 +75,7 @@ namespace EWSoftware.PDI.Properties
             set
             {
                 if(String.IsNullOrWhiteSpace(value))
-                    throw new ArgumentNullException("value", LR.GetString("ExCustomNoName"));
+                    throw new ArgumentNullException(nameof(value), LR.GetString("ExCustomNoName"));
 
                 customName = value;
             }
@@ -96,8 +88,8 @@ namespace EWSoftware.PDI.Properties
         /// get passed through unchanged.</value>
         public override string EncodedValue
         {
-            get { return base.Value; }
-            set { base.Value = value; }
+            get => base.Value;
+            set => base.Value = value;
         }
         #endregion
 

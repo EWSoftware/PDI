@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCalendarParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/14/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to parse vCalendar and iCalendar Personal Data Interchange (PDI) data streams.
@@ -20,9 +20,10 @@
 // 03/17/2007  EFW  Updated for use with .NET 2.0
 //===============================================================================================================
 
+// Ignore Spelling: sr
+
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 
 using EWSoftware.PDI.Objects;
@@ -331,10 +332,8 @@ namespace EWSoftware.PDI.Parser
         /// <remarks>The calendar from prior calls to the parsing methods is not cleared automatically.  Call
         /// <c>VCalendar.ClearProperties</c> before calling a parsing method if you do not want to retain the
         /// calendar information from prior runs.</remarks>
-        public VCalendar VCalendar
-        {
-            get { return vCal; }
-        }
+        public VCalendar VCalendar => vCal;
+
         #endregion
 
         #region Constructors
@@ -359,10 +358,9 @@ namespace EWSoftware.PDI.Parser
         /// <exception cref="ArgumentNullException">This is thrown if the specified calendar object is null</exception>
         protected VCalendarParser(VCalendar calendar) : this()
         {
-            if(calendar == null)
-                throw new ArgumentNullException("calendar", LR.GetString("ExParseNullObject", "vCalendar/iCalendar"));
+            vCal = calendar ?? throw new ArgumentNullException(nameof(calendar),
+                LR.GetString("ExParseNullObject", "vCalendar/iCalendar"));
 
-            vCal = calendar;
             vCal.ClearProperties();
         }
         #endregion

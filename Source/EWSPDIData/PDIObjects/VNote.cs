@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VNote.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2013-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2013-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the vNote object
@@ -17,6 +17,8 @@
 // ==============================================================================================================
 // 08/19/2007  EFW  Created the code
 //===============================================================================================================
+
+// Ignore Spelling: vn sw
 
 using System;
 using System.ComponentModel;
@@ -63,10 +65,7 @@ namespace EWSoftware.PDI.Objects
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports IrMC 1.1 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.IrMC11; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This is overridden to propagate the version to all properties in the object that need it when the
@@ -74,7 +73,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public override SpecificationVersions Version
         {
-            get { return base.Version; }
+            get => base.Version;
             set
             {
                 base.Version = value;
@@ -335,9 +334,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            VNote vn = obj as VNote;
-
-            if(vn == null)
+            if(!(obj is VNote vn))
                 return false;
 
             // The ToString() method returns a text representation of the vNote based on all of its settings so

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DayInstance.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to specify day instances for the BYDAY rule of a recurrence object.  The class
@@ -40,7 +40,7 @@ namespace EWSoftware.PDI
 
         // This is used to convert the instance to its string form.  This is convenient for generating its
         // iCalendar representation.
-        private static string[] abbrevDays = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+        private static readonly string[] abbrevDays = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
 
         private int instance;
         private DayOfWeek dow;
@@ -61,13 +61,13 @@ namespace EWSoftware.PDI
         /// or greater than 53.</exception>
         public int Instance
         {
-            get { return instance; }
+            get => instance;
             set
             {
                 // The spec doesn't say it, but you can imply that you can't have a value higher than 53 as these
                 // do roughly correspond to week numbers.
                 if(value < -53 || value > 53)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExDIBadInstanceValue"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExDIBadInstanceValue"));
 
                 instance = value;
             }
@@ -78,11 +78,11 @@ namespace EWSoftware.PDI
         /// </summary>
         public DayOfWeek DayOfWeek
         {
-            get { return dow; }
+            get => dow;
             set
             {
                 if(!Enum.IsDefined(typeof(DayOfWeek), value))
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExDIInvalidDayOfWeek"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExDIInvalidDayOfWeek"));
 
                 dow = value;
             }
@@ -152,9 +152,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            DayInstance d = obj as DayInstance;
-
-            if(d == null)
+            if(!(obj is DayInstance d))
                 return false;
 
             return (this == d || (this.Instance == d.Instance && this.DayOfWeek == d.DayOfWeek));
@@ -179,8 +177,7 @@ namespace EWSoftware.PDI
             if(this.Instance == 0)
                 return abbrevDays[(int)this.DayOfWeek];
 
-            return String.Format(CultureInfo.InvariantCulture, "{0}{1}", this.Instance,
-                abbrevDays[(int)this.DayOfWeek]);
+            return $"{this.Instance}{abbrevDays[(int)this.DayOfWeek]}";
         }
 
         /// <summary>
@@ -192,16 +189,12 @@ namespace EWSoftware.PDI
             string suffix = DayInstance.NumericSuffix(instance);
 
             if(instance == 0)
-                return String.Format(CultureInfo.InvariantCulture, "{0} {1}", LR.GetString("DIAny"),
-                    CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)dow]);
+                return $"{LR.GetString("DIAny")} {CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)dow]}";
 
             if(instance < 0)
-                return String.Format(CultureInfo.InvariantCulture, "{0}{1} {2} {3}", instance * -1,
-                    suffix, CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)dow],
-                    LR.GetString("DIFromEnd"));
+                return $"{instance * -1}{suffix} {CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)dow]} {LR.GetString("DIFromEnd")}";
 
-            return String.Format(CultureInfo.InvariantCulture, "{0}{1} {2}", instance, suffix,
-                CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)dow]);
+            return $"{instance}{suffix} {CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)dow]}";
         }
 
         /// <summary>

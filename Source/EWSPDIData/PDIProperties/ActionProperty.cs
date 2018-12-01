@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ActionProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Action property used by the Personal Data Interchange (PDI) vCalendar and iCalendar
@@ -36,6 +36,7 @@ namespace EWSoftware.PDI.Properties
 
         private AlarmAction alarmAction;
         private string otherAction;
+
         #endregion
 
         #region Properties
@@ -45,26 +46,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (ACTION)
         /// </summary>
-        public override string Tag
-        {
-            get { return "ACTION"; }
-        }
+        public override string Tag => "ACTION";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the alarm action value
@@ -73,7 +66,7 @@ namespace EWSoftware.PDI.Properties
         /// if not already set to something else.  It is set to null if set to any other alarm action.</value>
         public AlarmAction Action
         {
-            get { return alarmAction; }
+            get => alarmAction;
             set
             {
                 alarmAction = value;
@@ -82,7 +75,7 @@ namespace EWSoftware.PDI.Properties
                     otherAction = null;
                 else
                     if(String.IsNullOrWhiteSpace(otherAction))
-                        otherAction = "X-UNKNOWN";
+                    otherAction = "X-UNKNOWN";
             }
         }
 
@@ -94,7 +87,7 @@ namespace EWSoftware.PDI.Properties
         /// <c>Other</c>.</value>
         public string OtherAction
         {
-            get { return otherAction; }
+            get => otherAction;
             set
             {
                 alarmAction = AlarmAction.Other;
@@ -160,8 +153,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

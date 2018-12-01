@@ -57,7 +57,7 @@ Partial Class VTimeZoneTestForm
         Me.groupBox1.Controls.Add(Me.label1)
         Me.groupBox1.Location = New System.Drawing.Point(12, 12)
         Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(735, 56)
+        Me.groupBox1.Size = New System.Drawing.Size(904, 66)
         Me.groupBox1.TabIndex = 0
         Me.groupBox1.TabStop = false
         Me.groupBox1.Text = "Source Date"
@@ -67,27 +67,27 @@ Partial Class VTimeZoneTestForm
         Me.cboSourceTimeZone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cboSourceTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboSourceTimeZone.Location = New System.Drawing.Point(292, 24)
+        Me.cboSourceTimeZone.Location = New System.Drawing.Point(366, 22)
         Me.cboSourceTimeZone.MaxDropDownItems = 16
         Me.cboSourceTimeZone.Name = "cboSourceTimeZone"
-        Me.cboSourceTimeZone.Size = New System.Drawing.Size(430, 24)
+        Me.cboSourceTimeZone.Size = New System.Drawing.Size(503, 28)
         Me.cboSourceTimeZone.TabIndex = 2
         '
         'dtpSourceDate
         '
+        Me.dtpSourceDate.Checked = false
         Me.dtpSourceDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpSourceDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpSourceDate.Location = New System.Drawing.Point(96, 24)
+        Me.dtpSourceDate.Location = New System.Drawing.Point(125, 22)
         Me.dtpSourceDate.Name = "dtpSourceDate"
-        Me.dtpSourceDate.Size = New System.Drawing.Size(190, 22)
+        Me.dtpSourceDate.Size = New System.Drawing.Size(235, 26)
         Me.dtpSourceDate.TabIndex = 1
-        Me.dtpSourceDate.Value = New Date(2004, 9, 6, 0, 0, 0, 0)
         '
         'label1
         '
         Me.label1.Location = New System.Drawing.Point(8, 24)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(80, 23)
+        Me.label1.Size = New System.Drawing.Size(111, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "&Date/Time"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -100,16 +100,17 @@ Partial Class VTimeZoneTestForm
         Me.groupBox2.Controls.Add(Me.label5)
         Me.groupBox2.Controls.Add(Me.lblLocalTime)
         Me.groupBox2.Controls.Add(Me.label2)
-        Me.groupBox2.Location = New System.Drawing.Point(12, 74)
+        Me.groupBox2.Location = New System.Drawing.Point(12, 84)
         Me.groupBox2.Name = "groupBox2"
-        Me.groupBox2.Size = New System.Drawing.Size(735, 80)
+        Me.groupBox2.Size = New System.Drawing.Size(904, 91)
         Me.groupBox2.TabIndex = 1
         Me.groupBox2.TabStop = false
         Me.groupBox2.Text = "To Local Time"
         '
         'lblLocalBackToSource
         '
-        Me.lblLocalBackToSource.Location = New System.Drawing.Point(136, 48)
+        Me.lblLocalBackToSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblLocalBackToSource.Location = New System.Drawing.Point(213, 56)
         Me.lblLocalBackToSource.Name = "lblLocalBackToSource"
         Me.lblLocalBackToSource.Size = New System.Drawing.Size(580, 23)
         Me.lblLocalBackToSource.TabIndex = 3
@@ -117,16 +118,17 @@ Partial Class VTimeZoneTestForm
         '
         'label5
         '
-        Me.label5.Location = New System.Drawing.Point(6, 48)
+        Me.label5.Location = New System.Drawing.Point(6, 56)
         Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(118, 23)
+        Me.label5.Size = New System.Drawing.Size(201, 23)
         Me.label5.TabIndex = 2
         Me.label5.Text = "Back to Source"
         Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblLocalTime
         '
-        Me.lblLocalTime.Location = New System.Drawing.Point(136, 24)
+        Me.lblLocalTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblLocalTime.Location = New System.Drawing.Point(213, 24)
         Me.lblLocalTime.Name = "lblLocalTime"
         Me.lblLocalTime.Size = New System.Drawing.Size(580, 23)
         Me.lblLocalTime.TabIndex = 1
@@ -134,9 +136,9 @@ Partial Class VTimeZoneTestForm
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(24, 24)
+        Me.label2.Location = New System.Drawing.Point(6, 24)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(100, 23)
+        Me.label2.Size = New System.Drawing.Size(201, 23)
         Me.label2.TabIndex = 0
         Me.label2.Text = "Local Time"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -151,16 +153,17 @@ Partial Class VTimeZoneTestForm
         Me.groupBox3.Controls.Add(Me.label10)
         Me.groupBox3.Controls.Add(Me.label6)
         Me.groupBox3.Controls.Add(Me.cboDestTimeZone)
-        Me.groupBox3.Location = New System.Drawing.Point(12, 160)
+        Me.groupBox3.Location = New System.Drawing.Point(12, 181)
         Me.groupBox3.Name = "groupBox3"
-        Me.groupBox3.Size = New System.Drawing.Size(735, 112)
+        Me.groupBox3.Size = New System.Drawing.Size(904, 137)
         Me.groupBox3.TabIndex = 2
         Me.groupBox3.TabStop = false
         Me.groupBox3.Text = "To Other Time Zone"
         '
         'lblDestBackToSource
         '
-        Me.lblDestBackToSource.Location = New System.Drawing.Point(132, 80)
+        Me.lblDestBackToSource.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDestBackToSource.Location = New System.Drawing.Point(213, 100)
         Me.lblDestBackToSource.Name = "lblDestBackToSource"
         Me.lblDestBackToSource.Size = New System.Drawing.Size(580, 23)
         Me.lblDestBackToSource.TabIndex = 5
@@ -168,16 +171,17 @@ Partial Class VTimeZoneTestForm
         '
         'label8
         '
-        Me.label8.Location = New System.Drawing.Point(3, 80)
+        Me.label8.Location = New System.Drawing.Point(8, 100)
         Me.label8.Name = "label8"
-        Me.label8.Size = New System.Drawing.Size(121, 23)
+        Me.label8.Size = New System.Drawing.Size(199, 23)
         Me.label8.TabIndex = 4
         Me.label8.Text = "Back to Source"
         Me.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblDestTime
         '
-        Me.lblDestTime.Location = New System.Drawing.Point(132, 56)
+        Me.lblDestTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblDestTime.Location = New System.Drawing.Point(213, 67)
         Me.lblDestTime.Name = "lblDestTime"
         Me.lblDestTime.Size = New System.Drawing.Size(580, 23)
         Me.lblDestTime.TabIndex = 3
@@ -185,18 +189,18 @@ Partial Class VTimeZoneTestForm
         '
         'label10
         '
-        Me.label10.Location = New System.Drawing.Point(24, 56)
+        Me.label10.Location = New System.Drawing.Point(8, 67)
         Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(100, 23)
+        Me.label10.Size = New System.Drawing.Size(199, 23)
         Me.label10.TabIndex = 2
         Me.label10.Text = "Dest. Time"
         Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'label6
         '
-        Me.label6.Location = New System.Drawing.Point(8, 24)
+        Me.label6.Location = New System.Drawing.Point(8, 32)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(152, 23)
+        Me.label6.Size = New System.Drawing.Size(199, 23)
         Me.label6.TabIndex = 0
         Me.label6.Text = "Destination &Time Zone"
         Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -206,19 +210,19 @@ Partial Class VTimeZoneTestForm
         Me.cboDestTimeZone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cboDestTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboDestTimeZone.Location = New System.Drawing.Point(168, 24)
+        Me.cboDestTimeZone.Location = New System.Drawing.Point(213, 30)
         Me.cboDestTimeZone.MaxDropDownItems = 16
         Me.cboDestTimeZone.Name = "cboDestTimeZone"
-        Me.cboDestTimeZone.Size = New System.Drawing.Size(430, 24)
+        Me.cboDestTimeZone.Size = New System.Drawing.Size(503, 28)
         Me.cboDestTimeZone.TabIndex = 1
         '
         'btnClose
         '
         Me.btnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(659, 463)
+        Me.btnClose.Location = New System.Drawing.Point(816, 463)
         Me.btnClose.Name = "btnClose"
-        Me.btnClose.Size = New System.Drawing.Size(88, 32)
+        Me.btnClose.Size = New System.Drawing.Size(100, 32)
         Me.btnClose.TabIndex = 6
         Me.btnClose.Text = "&Close"
         '
@@ -227,17 +231,17 @@ Partial Class VTimeZoneTestForm
         Me.txtTimeZoneInfo.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom)  _
             Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.txtTimeZoneInfo.Location = New System.Drawing.Point(12, 312)
+        Me.txtTimeZoneInfo.Location = New System.Drawing.Point(12, 347)
         Me.txtTimeZoneInfo.Multiline = true
         Me.txtTimeZoneInfo.Name = "txtTimeZoneInfo"
         Me.txtTimeZoneInfo.ReadOnly = true
         Me.txtTimeZoneInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtTimeZoneInfo.Size = New System.Drawing.Size(735, 143)
+        Me.txtTimeZoneInfo.Size = New System.Drawing.Size(904, 108)
         Me.txtTimeZoneInfo.TabIndex = 4
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(12, 286)
+        Me.label3.Location = New System.Drawing.Point(8, 321)
         Me.label3.Name = "label3"
         Me.label3.Size = New System.Drawing.Size(160, 23)
         Me.label3.TabIndex = 3
@@ -248,14 +252,14 @@ Partial Class VTimeZoneTestForm
         Me.btnSaveTZs.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
         Me.btnSaveTZs.Location = New System.Drawing.Point(12, 463)
         Me.btnSaveTZs.Name = "btnSaveTZs"
-        Me.btnSaveTZs.Size = New System.Drawing.Size(88, 32)
+        Me.btnSaveTZs.Size = New System.Drawing.Size(100, 32)
         Me.btnSaveTZs.TabIndex = 5
         Me.btnSaveTZs.Text = "&Save TZs"
         '
         'VTimeZoneTestForm
         '
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(759, 507)
+        Me.ClientSize = New System.Drawing.Size(928, 507)
         Me.Controls.Add(Me.btnSaveTZs)
         Me.Controls.Add(Me.label3)
         Me.Controls.Add(Me.txtTimeZoneInfo)

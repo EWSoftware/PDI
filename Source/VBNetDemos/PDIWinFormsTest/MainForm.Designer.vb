@@ -33,55 +33,55 @@ Partial Class MainForm
         '
         'btnHolidays
         '
-        Me.btnHolidays.Location = New System.Drawing.Point(84, 18)
+        Me.btnHolidays.Location = New System.Drawing.Point(184, 18)
         Me.btnHolidays.Name = "btnHolidays"
-        Me.btnHolidays.Size = New System.Drawing.Size(138, 40)
+        Me.btnHolidays.Size = New System.Drawing.Size(160, 40)
         Me.btnHolidays.TabIndex = 0
         Me.btnHolidays.Text = "Test &Holidays"
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(84, 293)
+        Me.btnExit.Location = New System.Drawing.Point(184, 293)
         Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(138, 40)
+        Me.btnExit.Size = New System.Drawing.Size(160, 40)
         Me.btnExit.TabIndex = 5
         Me.btnExit.Text = "E&xit"
         '
         'btnRRULE
         '
-        Me.btnRRULE.Location = New System.Drawing.Point(84, 73)
+        Me.btnRRULE.Location = New System.Drawing.Point(184, 73)
         Me.btnRRULE.Name = "btnRRULE"
-        Me.btnRRULE.Size = New System.Drawing.Size(138, 40)
+        Me.btnRRULE.Size = New System.Drawing.Size(160, 40)
         Me.btnRRULE.TabIndex = 1
         Me.btnRRULE.Text = "Test RR&ULE"
         '
         'btnTestCalRecur
         '
-        Me.btnTestCalRecur.Location = New System.Drawing.Point(84, 128)
+        Me.btnTestCalRecur.Location = New System.Drawing.Point(184, 128)
         Me.btnTestCalRecur.Name = "btnTestCalRecur"
-        Me.btnTestCalRecur.Size = New System.Drawing.Size(138, 40)
+        Me.btnTestCalRecur.Size = New System.Drawing.Size(160, 40)
         Me.btnTestCalRecur.TabIndex = 2
         Me.btnTestCalRecur.Text = "Test C&al Recur"
         '
         'btnTestVTimeZone
         '
-        Me.btnTestVTimeZone.Location = New System.Drawing.Point(84, 183)
+        Me.btnTestVTimeZone.Location = New System.Drawing.Point(184, 183)
         Me.btnTestVTimeZone.Name = "btnTestVTimeZone"
-        Me.btnTestVTimeZone.Size = New System.Drawing.Size(138, 40)
+        Me.btnTestVTimeZone.Size = New System.Drawing.Size(160, 40)
         Me.btnTestVTimeZone.TabIndex = 3
         Me.btnTestVTimeZone.Text = "Test &VTimeZone"
         '
         'btnAbout
         '
-        Me.btnAbout.Location = New System.Drawing.Point(84, 238)
+        Me.btnAbout.Location = New System.Drawing.Point(184, 238)
         Me.btnAbout.Name = "btnAbout"
-        Me.btnAbout.Size = New System.Drawing.Size(138, 40)
+        Me.btnAbout.Size = New System.Drawing.Size(160, 40)
         Me.btnAbout.TabIndex = 4
         Me.btnAbout.Text = "A&bout"
         '
         'MainForm
         '
-        Me.ClientSize = New System.Drawing.Size(307, 353)
+        Me.ClientSize = New System.Drawing.Size(528, 353)
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnTestVTimeZone)
         Me.Controls.Add(Me.btnTestCalRecur)

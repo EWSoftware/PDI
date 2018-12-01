@@ -112,23 +112,23 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 42</value>
+    <value>318, 43</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 23</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
@@ -142,7 +142,7 @@
     <value>label4</value>
   </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>$this</value>
@@ -151,16 +151,16 @@
     <value>12</value>
   </data>
   <data name="cboDOW.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboDOW.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 42</value>
+    <value>177, 41</value>
   </data>
   <data name="cboDOW.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboDOW.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 24</value>
+    <value>135, 28</value>
   </data>
   <data name="cboDOW.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -169,7 +169,7 @@
     <value>cboDOW</value>
   </data>
   <data name="&gt;&gt;cboDOW.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cboDOW.Parent" xml:space="preserve">
     <value>$this</value>
@@ -178,16 +178,16 @@
     <value>7</value>
   </data>
   <data name="cboOccurrence.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboOccurrence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 42</value>
+    <value>76, 41</value>
   </data>
   <data name="cboOccurrence.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboOccurrence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 24</value>
+    <value>95, 28</value>
   </data>
   <data name="cboOccurrence.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -196,7 +196,7 @@
     <value>cboOccurrence</value>
   </data>
   <data name="&gt;&gt;cboOccurrence.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cboOccurrence.Parent" xml:space="preserve">
     <value>$this</value>
@@ -208,7 +208,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbDayOfWeek.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 41</value>
+    <value>6, 42</value>
   </data>
   <data name="rbDayOfWeek.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 24</value>
@@ -223,7 +223,7 @@
     <value>rbDayOfWeek</value>
   </data>
   <data name="&gt;&gt;rbDayOfWeek.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbDayOfWeek.Parent" xml:space="preserve">
     <value>$this</value>
@@ -235,7 +235,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbDayXEveryYYears.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 8</value>
+    <value>6, 8</value>
   </data>
   <data name="rbDayXEveryYYears.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 24</value>
@@ -250,7 +250,7 @@
     <value>rbDayXEveryYYears</value>
   </data>
   <data name="&gt;&gt;rbDayXEveryYYears.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;rbDayXEveryYYears.Parent" xml:space="preserve">
     <value>$this</value>
@@ -259,16 +259,16 @@
     <value>10</value>
   </data>
   <data name="cboDOWMonth.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboDOWMonth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>305, 42</value>
+    <value>348, 41</value>
   </data>
   <data name="cboDOWMonth.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboDOWMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 24</value>
+    <value>120, 28</value>
   </data>
   <data name="cboDOWMonth.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -277,7 +277,7 @@
     <value>cboDOWMonth</value>
   </data>
   <data name="&gt;&gt;cboDOWMonth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cboDOWMonth.Parent" xml:space="preserve">
     <value>$this</value>
@@ -286,16 +286,16 @@
     <value>6</value>
   </data>
   <data name="cboMonth.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboMonth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 9</value>
+    <value>90, 7</value>
   </data>
   <data name="cboMonth.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
   <data name="cboMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 24</value>
+    <value>120, 28</value>
   </data>
   <data name="cboMonth.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -304,7 +304,7 @@
     <value>cboMonth</value>
   </data>
   <data name="&gt;&gt;cboMonth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cboMonth.Parent" xml:space="preserve">
     <value>$this</value>
@@ -316,7 +316,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 10</value>
+    <value>404, 9</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 23</value>
@@ -334,7 +334,7 @@
     <value>label2</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -346,7 +346,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>236, 10</value>
+    <value>283, 9</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 23</value>
@@ -364,7 +364,7 @@
     <value>label1</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -376,7 +376,7 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 73</value>
+    <value>152, 76</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 23</value>
@@ -394,7 +394,7 @@
     <value>label3</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -406,7 +406,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 73</value>
+    <value>31, 76</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>48, 23</value>
@@ -424,7 +424,7 @@
     <value>label5</value>
   </data>
   <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
     <value>$this</value>
@@ -433,10 +433,10 @@
     <value>13</value>
   </data>
   <data name="udcDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>182, 11</value>
+    <value>216, 8</value>
   </data>
   <data name="udcDay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>61, 26</value>
   </data>
   <data name="udcDay.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -448,7 +448,7 @@
     <value>udcDay</value>
   </data>
   <data name="&gt;&gt;udcDay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;udcDay.Parent" xml:space="preserve">
     <value>$this</value>
@@ -457,10 +457,10 @@
     <value>2</value>
   </data>
   <data name="udcYears.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 11</value>
+    <value>337, 8</value>
   </data>
   <data name="udcYears.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>61, 26</value>
   </data>
   <data name="udcYears.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -472,7 +472,7 @@
     <value>udcYears</value>
   </data>
   <data name="&gt;&gt;udcYears.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;udcYears.Parent" xml:space="preserve">
     <value>$this</value>
@@ -481,10 +481,10 @@
     <value>1</value>
   </data>
   <data name="udcDOWYears.Location" type="System.Drawing.Point, System.Drawing">
-    <value>72, 74</value>
+    <value>85, 75</value>
   </data>
   <data name="udcDOWYears.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>61, 26</value>
   </data>
   <data name="udcDOWYears.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -496,7 +496,7 @@
     <value>udcDOWYears</value>
   </data>
   <data name="&gt;&gt;udcDOWYears.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;udcDOWYears.Parent" xml:space="preserve">
     <value>$this</value>
@@ -504,16 +504,16 @@
   <data name="&gt;&gt;udcDOWYears.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>418, 104</value>
+    <value>513, 108</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>YearlyPattern</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

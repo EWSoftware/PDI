@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RecurrenceControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a recurring calendar object's recurrence rule and recurrence date properties
@@ -56,7 +56,7 @@ namespace CalendarBrowser
          Description("False for recurrence items, true for exception items")]
         public bool EditsExceptions
         {
-            get { return editsExceptions; }
+            get => editsExceptions;
             set
             {
                 editsExceptions = value;
@@ -158,10 +158,13 @@ namespace CalendarBrowser
             // Convert the exception dates to RDate format internally
             foreach(ExDateProperty edate in ed)
             {
-                RDateProperty rd = new RDateProperty();
-                rd.ValueLocation = edate.ValueLocation;
-                rd.TimeZoneId = edate.TimeZoneId;
-                rd.TimeZoneDateTime = edate.TimeZoneDateTime;
+                RDateProperty rd = new RDateProperty
+                {
+                    ValueLocation = edate.ValueLocation,
+                    TimeZoneId = edate.TimeZoneId,
+                    TimeZoneDateTime = edate.TimeZoneDateTime
+                };
+
                 rDates.Add(rd);
             }
 
@@ -212,10 +215,13 @@ namespace CalendarBrowser
             // Convert the RDates to ExDate format
             foreach(RDateProperty rdate in rDates)
             {
-                ExDateProperty edate = new ExDateProperty();
-                edate.ValueLocation = rdate.ValueLocation;
-                edate.TimeZoneId = rdate.TimeZoneId;
-                edate.TimeZoneDateTime = rdate.TimeZoneDateTime;
+                ExDateProperty edate = new ExDateProperty
+                {
+                    ValueLocation = rdate.ValueLocation,
+                    TimeZoneId = rdate.TimeZoneId,
+                    TimeZoneDateTime = rdate.TimeZoneDateTime
+                };
+
                 ed.Add(edate);
             }
         }
@@ -362,16 +368,19 @@ namespace CalendarBrowser
             // time part is omitted.
             if(chkExcludeDay.Checked)
             {
-                RDateProperty rdate = new RDateProperty();
-                rdate.ValueLocation = ValLocValue.Date;
-                rdate.TimeZoneDateTime = dtpRDate.Value.Date;
+                RDateProperty rdate = new RDateProperty
+                {
+                    ValueLocation = ValLocValue.Date,
+                    TimeZoneDateTime = dtpRDate.Value.Date
+                };
+
                 rDates.Add(rdate);
                 lbRDates.Items.Add(dtpRDate.Value.Date.ToString("d"));
             }
             else
             {
-                RDateProperty rdate = new RDateProperty();
-                rdate.TimeZoneDateTime = dtpRDate.Value;
+                RDateProperty rdate = new RDateProperty { TimeZoneDateTime = dtpRDate.Value };
+
                 rDates.Add(rdate);
                 lbRDates.Items.Add(dtpRDate.Value.ToString("G"));
             }

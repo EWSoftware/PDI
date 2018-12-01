@@ -2,7 +2,7 @@
 // System  : Personal Data Interchange Classes
 // File    : DateUtils.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/15/2018
+// Updated : 11/22/2018
 // Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
@@ -240,7 +240,7 @@ namespace EWSoftware.PDI
             DateTime dtDate;
 
             if(occur == DayOccurrence.None)
-                throw new ArgumentException(LR.GetString("ExDUOccurIsNone"), "occur");
+                throw new ArgumentException(LR.GetString("ExDUOccurIsNone"), nameof(occur));
 
             // Calculating a specific occurrence or the last one?
             if(occur != DayOccurrence.Last)
@@ -313,7 +313,7 @@ namespace EWSoftware.PDI
             int count = 0, occurrence = (int)occur;
 
             if(occur == DayOccurrence.None)
-                throw new ArgumentException(LR.GetString("ExDUOccurIsNone"), "occur");
+                throw new ArgumentException(LR.GetString("ExDUOccurIsNone"), nameof(occur));
 
             // Calculating a specific occurrence or the last one?
             if(occur != DayOccurrence.Last)
@@ -465,7 +465,7 @@ namespace EWSoftware.PDI
 
             // Validate week number
             if(week < 1 || week > 53)
-                throw new ArgumentOutOfRangeException("week", week, LR.GetString("ExDUBadWeekNumber"));
+                throw new ArgumentOutOfRangeException(nameof(week), week, LR.GetString("ExDUBadWeekNumber"));
 
             // Bit of a hack but if you're looking for dates this far out, I'd like to know what the hell you're
             // doing.
@@ -591,10 +591,10 @@ namespace EWSoftware.PDI
 
             // Validate year
             if(method == EasterMethod.Julian && year < 326)
-                throw new ArgumentOutOfRangeException("year", year, LR.GetString("ExDUBadJulianYear"));
+                throw new ArgumentOutOfRangeException(nameof(year), year, LR.GetString("ExDUBadJulianYear"));
 
             if(method != EasterMethod.Julian && (year < 1583 || year > 4099))
-                throw new ArgumentOutOfRangeException("year", year, LR.GetString("ExDUBadOrthGregYear"));
+                throw new ArgumentOutOfRangeException(nameof(year), year, LR.GetString("ExDUBadOrthGregYear"));
 
             century = year / 100;     // Get century
             yearRem = year % 19;      // Get remainder of year / 19
@@ -703,7 +703,7 @@ namespace EWSoftware.PDI
         /// value.</param>
         /// <returns>The specified string converted to a local date/time</returns>
         /// <exception cref="ArgumentException">This is thrown if the specified date/time string is not valid</exception>
-        /// <remarks><para>The <see cref="System.DateTime.Parse(string)"/> method is capable of parsing a string
+        /// <remarks><para>The <see cref="System.DateTime.Parse(String)"/> method is capable of parsing a string
         /// in a very specific layout of the ISO 8601 format (SortableDateTimePattern).  However, if the string
         /// deviates even slightly from that pattern, it cannot be parsed.  This method takes an ISO 8601
         /// formatted date string in any of various formats and returns the DateTime value that it represents.</para>
@@ -724,7 +724,7 @@ namespace EWSoftware.PDI
             Match m = reISO8601.Match(dateTimeText);
 
             if(!m.Success)
-                throw new ArgumentException(LR.GetString("ExDUBadISOFormat"), "dateTimeText");
+                throw new ArgumentException(LR.GetString("ExDUBadISOFormat"), nameof(dateTimeText));
 
             // Day parts must be there
             year = Convert.ToInt32(m.Groups["Year"].Value, CultureInfo.InvariantCulture);
@@ -813,7 +813,7 @@ namespace EWSoftware.PDI
             Match m = reISO8601.Match(dateTimeText);
 
             if(!m.Success)
-                throw new ArgumentException(LR.GetString("ExDUBadISOFormat"), "dateTimeText");
+                throw new ArgumentException(LR.GetString("ExDUBadISOFormat"), nameof(dateTimeText));
 
             if(m.Groups["Zulu"].Value.Length != 0 || m.Groups["TZHours"].Value.Length != 0)
                 return false;
@@ -838,7 +838,7 @@ namespace EWSoftware.PDI
             Match m = reTimeZone.Match(timeZone);
 
             if(!m.Success)
-                throw new ArgumentException(LR.GetString("ExDUBadISOTZFormat"), "timeZone");
+                throw new ArgumentException(LR.GetString("ExDUBadISOTZFormat"), nameof(timeZone));
 
             // Hour must be there, minutes are optional
             hour = Convert.ToInt32(m.Groups["TZHours"].Value, CultureInfo.InvariantCulture);

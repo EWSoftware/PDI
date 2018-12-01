@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Time Zone property class used by the Personal Data Interchange (PDI) classes such as
@@ -46,30 +46,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1, vCard 3.0, and vCalendar 1.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get
-            {
-                return SpecificationVersions.vCard21 | SpecificationVersions.vCard30 |
-                    SpecificationVersions.vCalendar10;
-            }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30 | SpecificationVersions.vCalendar10;
 
         /// <summary>
         /// This read-only property defines the tag (TZ)
         /// </summary>
-        public override string Tag
-        {
-            get { return "TZ"; }
-        }
+        public override string Tag => "TZ";
 
         /// <summary>
         /// This read-only property defines the default value type as UTC-OFFSET
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.UtcOffset; }
-        }
+        public override string DefaultValueLocation => ValLocValue.UtcOffset;
 
         /// <summary>
         /// This is used to get or set the time zone as a <see cref="System.TimeSpan"/> object
@@ -78,7 +66,7 @@ namespace EWSoftware.PDI.Properties
         /// text will be lost (VALUE will be reset from TEXT to UTC-OFFSET).</value>
         public TimeSpan TimeSpanValue
         {
-            get { return timeSpan; }
+            get => timeSpan;
             set
             {
                 timeSpan = value;

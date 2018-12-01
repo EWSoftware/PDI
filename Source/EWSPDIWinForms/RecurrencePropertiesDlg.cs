@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : RecurrencePropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to add or edit recurrence object information
@@ -38,8 +38,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// will be used in all recurrences edited by the control.</remarks>
         public bool ShowWeekStartDay
         {
-            get { return rpRecurrence.ShowWeekStartDay; }
-            set { rpRecurrence.ShowWeekStartDay = value; }
+            get => rpRecurrence.ShowWeekStartDay;
+            set => rpRecurrence.ShowWeekStartDay = value;
         }
 
         /// <summary>
@@ -50,8 +50,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// recurrences edited by the control.</remarks>
         public bool ShowCanOccurOnHoliday
         {
-            get { return rpRecurrence.ShowCanOccurOnHoliday; }
-            set { rpRecurrence.ShowCanOccurOnHoliday = value; }
+            get => rpRecurrence.ShowCanOccurOnHoliday;
+            set => rpRecurrence.ShowCanOccurOnHoliday = value;
         }
 
         /// <summary>
@@ -63,8 +63,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// to the simple options available for the currently selected frequency.</remarks>
         public bool ShowAdvanced
         {
-            get { return rpRecurrence.ShowAdvanced; }
-            set { rpRecurrence.ShowAdvanced = value; }
+            get => rpRecurrence.ShowAdvanced;
+            set => rpRecurrence.ShowAdvanced = value;
         }
 
         /// <summary>
@@ -77,8 +77,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// simple pattern for the maximum allowed pattern.</remarks>
         public RecurFrequency MaximumPattern
         {
-            get { return rpRecurrence.MaximumPattern; }
-            set { rpRecurrence.MaximumPattern = value; }
+            get => rpRecurrence.MaximumPattern;
+            set => rpRecurrence.MaximumPattern = value;
         }
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// visible, the time value on the "End by Date" option will always be 12:00am.</remarks>
         public bool ShowEndTime
         {
-            get { return rpRecurrence.ShowEndTime; }
-            set { rpRecurrence.ShowEndTime = value; }
+            get => rpRecurrence.ShowEndTime;
+            set => rpRecurrence.ShowEndTime = value;
         }
         #endregion
 
@@ -117,7 +117,7 @@ namespace EWSoftware.PDI.Windows.Forms
         public void GetRecurrence(Recurrence recurrence)
         {
             if(recurrence == null)
-                throw new ArgumentNullException("recurrence", LR.GetString("ExRPRecurrenceIsNull"));
+                throw new ArgumentNullException(nameof(recurrence), LR.GetString("ExRPRecurrenceIsNull"));
 
             rpRecurrence.GetRecurrence(recurrence);
         }

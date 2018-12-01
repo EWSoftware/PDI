@@ -2,7 +2,7 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/19/2018
+// Updated : 12/01/2018
 // Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
@@ -52,5 +52,5 @@ using System.Runtime.InteropServices;
 //      Day of release
 //      Revision (typically zero unless multiple releases are made on the same day)
 //
-[assembly: AssemblyVersion("2018.11.19.0")]
-[assembly: AssemblyFileVersion("18.11.19.0")]
+[assembly: AssemblyVersion("2018.12.1.0")]
+[assembly: AssemblyFileVersion("18.12.1.0")]

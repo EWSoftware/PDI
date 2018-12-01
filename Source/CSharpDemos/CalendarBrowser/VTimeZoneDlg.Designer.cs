@@ -47,7 +47,7 @@ namespace CalendarBrowser
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(12, 493);
+            this.btnOK.Location = new System.Drawing.Point(12, 575);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(88, 32);
             this.btnOK.TabIndex = 7;
@@ -57,7 +57,7 @@ namespace CalendarBrowser
             // 
             this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(502, 493);
+            this.btnCancel.Location = new System.Drawing.Point(652, 575);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 32);
             this.btnCancel.TabIndex = 8;
@@ -65,7 +65,7 @@ namespace CalendarBrowser
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(17, 12);
+            this.label1.Location = new System.Drawing.Point(38, 14);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 23);
             this.label1.TabIndex = 0;
@@ -74,41 +74,41 @@ namespace CalendarBrowser
             // 
             // txtTimeZoneId
             // 
-            this.txtTimeZoneId.Location = new System.Drawing.Point(129, 12);
+            this.txtTimeZoneId.Location = new System.Drawing.Point(150, 12);
             this.txtTimeZoneId.Name = "txtTimeZoneId";
-            this.txtTimeZoneId.Size = new System.Drawing.Size(448, 22);
+            this.txtTimeZoneId.Size = new System.Drawing.Size(570, 26);
             this.txtTimeZoneId.TabIndex = 1;
             // 
             // txtTimeZoneUrl
             // 
-            this.txtTimeZoneUrl.Location = new System.Drawing.Point(129, 40);
+            this.txtTimeZoneUrl.Location = new System.Drawing.Point(150, 44);
             this.txtTimeZoneUrl.Name = "txtTimeZoneUrl";
-            this.txtTimeZoneUrl.Size = new System.Drawing.Size(448, 22);
+            this.txtTimeZoneUrl.Size = new System.Drawing.Size(570, 26);
             this.txtTimeZoneUrl.TabIndex = 3;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(9, 40);
+            this.label2.Location = new System.Drawing.Point(12, 46);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 23);
+            this.label2.Size = new System.Drawing.Size(132, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Time Zone &URL";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtLastModified
             // 
-            this.txtLastModified.Location = new System.Drawing.Point(129, 72);
+            this.txtLastModified.Location = new System.Drawing.Point(150, 76);
             this.txtLastModified.Name = "txtLastModified";
             this.txtLastModified.ReadOnly = true;
-            this.txtLastModified.Size = new System.Drawing.Size(168, 22);
+            this.txtLastModified.Size = new System.Drawing.Size(207, 26);
             this.txtLastModified.TabIndex = 5;
             this.txtLastModified.TabStop = false;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(19, 72);
+            this.label3.Location = new System.Drawing.Point(16, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 23);
+            this.label3.Size = new System.Drawing.Size(128, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "Last Modified";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -116,18 +116,18 @@ namespace CalendarBrowser
             // grpObRules
             // 
             this.grpObRules.Controls.Add(this.ucRules);
-            this.grpObRules.Location = new System.Drawing.Point(12, 104);
+            this.grpObRules.Location = new System.Drawing.Point(12, 121);
             this.grpObRules.Name = "grpObRules";
-            this.grpObRules.Size = new System.Drawing.Size(578, 383);
+            this.grpObRules.Size = new System.Drawing.Size(728, 448);
             this.grpObRules.TabIndex = 6;
             this.grpObRules.TabStop = false;
             this.grpObRules.Text = "Observance Rules";
             // 
             // ucRules
             // 
-            this.ucRules.Location = new System.Drawing.Point(5, 28);
+            this.ucRules.Location = new System.Drawing.Point(14, 28);
             this.ucRules.Name = "ucRules";
-            this.ucRules.Size = new System.Drawing.Size(568, 344);
+            this.ucRules.Size = new System.Drawing.Size(700, 404);
             this.ucRules.TabIndex = 0;
             // 
             // epErrors
@@ -138,7 +138,7 @@ namespace CalendarBrowser
             // 
             this.AcceptButton = this.btnOK;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(602, 537);
+            this.ClientSize = new System.Drawing.Size(752, 619);
             this.Controls.Add(this.grpObRules);
             this.Controls.Add(this.txtLastModified);
             this.Controls.Add(this.txtTimeZoneUrl);

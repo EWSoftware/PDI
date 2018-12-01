@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCard.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the vCard object and a collection of vCard objects
@@ -17,6 +17,8 @@
 // ==============================================================================================================
 // 03/14/2004  EFW  Created the code
 //===============================================================================================================
+
+// Ignore Spelling: vc sw
 
 using System;
 using System.ComponentModel;
@@ -42,8 +44,6 @@ namespace EWSoftware.PDI.Objects
     {
         #region Private data members
         //=====================================================================
-
-        private string groupName;       // Group name
 
         // Single vCard properties
         private FormattedNameProperty       fn;
@@ -76,7 +76,6 @@ namespace EWSoftware.PDI.Objects
         private CustomPropertyCollection customProps;
 
         // These properties are valid for the 3.0 specification only
-        private bool addProfile;
 
         private MimeNameProperty        mimeName;
         private MimeSourceProperty      mimeSource;
@@ -85,6 +84,7 @@ namespace EWSoftware.PDI.Objects
         private SortStringProperty      sortString;
         private ClassificationProperty  classification;
         private CategoriesProperty      categories;
+
         #endregion
 
         #region Properties
@@ -94,10 +94,8 @@ namespace EWSoftware.PDI.Objects
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This is overridden to propagate the version to all properties in the object that need it when the
@@ -105,7 +103,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public override SpecificationVersions Version
         {
-            get { return base.Version; }
+            get => base.Version;
             set
             {
                 base.Version = value;
@@ -118,11 +116,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <remarks>vCards support grouping.  If grouped, this property will contain the name of the group with
         /// which the vCard is associated.</remarks>
-        public string Group
-        {
-            get { return groupName; }
-            set { groupName = value; }
-        }
+        public string Group { get; set; }
 
         /// <summary>
         /// This property is used to set or get a flag indicating whether or not the PROFILE:VCARD property
@@ -130,11 +124,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <value>This property is valid only for the 3.0 specification.  Since it doesn't serve much purpose,
         /// it is false by default.</value>
-        public bool AddProfile
-        {
-            get { return addProfile; }
-            set { addProfile = value; }
-        }
+        public bool AddProfile { get; set; }
 
         /// <summary>
         /// This is used to get the Formatted Name (FN) property
@@ -651,7 +641,7 @@ namespace EWSoftware.PDI.Objects
 
             this.ClearProperties();
 
-            groupName = o.Group;
+            this.Group = o.Group;
 
             fn = (FormattedNameProperty)o.FormattedName.Clone();
             name = (NameProperty)o.Name.Clone();
@@ -678,7 +668,8 @@ namespace EWSoftware.PDI.Objects
             this.Agents.CloneRange(o.Agents);
             this.CustomProperties.CloneRange(o.CustomProperties);
 
-            addProfile = o.AddProfile;
+            this.AddProfile = o.AddProfile;
+
             mimeName = (MimeNameProperty)o.MimeName.Clone();
             mimeSource = (MimeSourceProperty)o.MimeSource.Clone();
             prodId = (ProductIdProperty)o.ProductId.Clone();
@@ -694,7 +685,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public void ClearProperties()
         {
-            groupName = null;
+            this.Group = null;
 
             fn = null;
             name = null;
@@ -721,7 +712,8 @@ namespace EWSoftware.PDI.Objects
             agents = null;
             customProps = null;
 
-            addProfile = false;
+            this.AddProfile = false;
+
             mimeName = null;
             mimeSource = null;
             prodId = null;
@@ -837,9 +829,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            VCard vc = obj as VCard;
-
-            if(vc == null)
+            if(!(obj is VCard vc))
                 return false;
 
             // The ToString() method returns a text representation of the vCard based on all of its settings so
@@ -928,9 +918,9 @@ namespace EWSoftware.PDI.Objects
 
             PropagateVersion();
 
-            if(groupName != null)
+            if(this.Group != null)
             {
-                tw.Write(groupName);
+                tw.Write(this.Group);
                 tw.Write('.');
             }
 
@@ -945,7 +935,7 @@ namespace EWSoftware.PDI.Objects
             // together.  It's not necessary, but it makes things easier to find.
             if(this.Version == SpecificationVersions.vCard30)
             {
-                if(addProfile)
+                if(this.AddProfile)
                     tw.Write("PROFILE:VCARD\r\n");
 
                 BaseProperty.WriteToStream(prodId, sb, tw);
@@ -1014,9 +1004,9 @@ namespace EWSoftware.PDI.Objects
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
 
-            if(groupName != null)
+            if(this.Group != null)
             {
-                tw.Write(groupName);
+                tw.Write(this.Group);
                 tw.Write('.');
             }
 

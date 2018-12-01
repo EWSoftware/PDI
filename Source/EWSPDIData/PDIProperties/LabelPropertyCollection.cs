@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LabelPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a collection class for LabelProperty objects.  It is used with the Personal Data
@@ -65,8 +65,8 @@ namespace EWSoftware.PDI.Properties
         /// <overloads>There are two overloads for this method</overloads>
         public LabelProperty Add(string label)
         {
-            LabelProperty l = new LabelProperty();
-            l.Value = label;
+            LabelProperty l = new LabelProperty { Value = label };
+
             base.Add(l);
 
             return l;
@@ -80,9 +80,8 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public LabelProperty Add(AddressTypes addressTypes, string label)
         {
-            LabelProperty l = new LabelProperty();
-            l.AddressTypes = addressTypes;
-            l.Value = label;
+            LabelProperty l = new LabelProperty { AddressTypes = addressTypes, Value = label };
+
             base.Add(l);
 
             return l;
@@ -113,7 +112,7 @@ namespace EWSoftware.PDI.Properties
             int idx = base.IndexOf(label);
 
             if(idx == -1)
-                throw new ArgumentOutOfRangeException("label", label, LR.GetString("ExLabelNotInCollection"));
+                throw new ArgumentOutOfRangeException(nameof(label), label, LR.GetString("ExLabelNotInCollection"));
 
             this.SetPreferred(idx);
         }
@@ -127,7 +126,7 @@ namespace EWSoftware.PDI.Properties
         public void SetPreferred(int idx)
         {
             if(idx < 0 || idx > base.Count)
-                throw new ArgumentOutOfRangeException("idx", idx, LR.GetString("ExLabelInvalidIndex"));
+                throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExLabelInvalidIndex"));
 
             for(int lblIdx = 0; lblIdx < base.Count; lblIdx++)
                 if(lblIdx == idx)

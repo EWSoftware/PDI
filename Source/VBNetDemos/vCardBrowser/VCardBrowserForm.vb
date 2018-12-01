@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardBrowserForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/25/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
@@ -63,10 +63,11 @@ Public Partial Class VCardBrowserForm
         tbcVersion.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter
 
         ' The string format to use when drawing the status text
-        sf = new StringFormat(StringFormatFlags.NoWrap)
-        sf.Alignment = StringAlignment.Center
-        sf.LineAlignment = StringAlignment.Center
-        sf.Trimming = StringTrimming.EllipsisCharacter
+        sf = new StringFormat(StringFormatFlags.NoWrap) With {
+            .Alignment = StringAlignment.Center,
+            .LineAlignment = StringAlignment.Center,
+            .Trimming = StringTrimming.EllipsisCharacter
+        }
 
         dgvCards.AutoGenerateColumns = False
         tbcLastRevision.DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern &
@@ -119,7 +120,7 @@ Public Partial Class VCardBrowserForm
     ''' <param name="y">The second vCard to compare</param>
     ''' <returns>Zero if equal, a negative number if X is less than Y, or a
     ''' positive value if X is greater than Y.</returns>
-    Private Function VCardSorter(ByVal x As VCard, ByVal y As VCard) As Integer
+    Private Shared Function VCardSorter(ByVal x As VCard, ByVal y As VCard) As Integer
         Dim sortName1, sortName2 As String
 
         ' Get the names to compare.  Precedence is given to the SortStringProperty as that is the purpose of its
@@ -501,6 +502,8 @@ Public Partial Class VCardBrowserForm
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
     Private Sub dgvCards_CellDoubleClick( sender As Object,  e As DataGridViewCellEventArgs) Handles dgvCards.CellDoubleClick
-        btnEdit_Click(sender, e)
+        If e.RowIndex > -1 Then
+            btnEdit_Click(sender, e)
+        End If
     End Sub
 End Class

@@ -19,10 +19,7 @@
 ' 05/25/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
 Imports System.Globalization
-Imports System.Windows.Forms
 
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects

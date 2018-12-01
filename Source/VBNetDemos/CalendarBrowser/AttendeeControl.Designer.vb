@@ -57,46 +57,46 @@ Partial Class AttendeeControl
         Me.pnlControls.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlControls.Location = New System.Drawing.Point(0, 0)
         Me.pnlControls.Name = "pnlControls"
-        Me.pnlControls.Size = New System.Drawing.Size(496, 173)
+        Me.pnlControls.Size = New System.Drawing.Size(571, 190)
         Me.pnlControls.TabIndex = 0
         '
         'txtSentBy
         '
-        Me.txtSentBy.Location = New System.Drawing.Point(128, 107)
+        Me.txtSentBy.Location = New System.Drawing.Point(153, 109)
         Me.txtSentBy.Name = "txtSentBy"
-        Me.txtSentBy.Size = New System.Drawing.Size(248, 22)
+        Me.txtSentBy.Size = New System.Drawing.Size(383, 26)
         Me.txtSentBy.TabIndex = 9
         '
         'label6
         '
-        Me.label6.Location = New System.Drawing.Point(58, 107)
+        Me.label6.Location = New System.Drawing.Point(62, 111)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(64, 23)
+        Me.label6.Size = New System.Drawing.Size(85, 23)
         Me.label6.TabIndex = 8
         Me.label6.Text = "Sent By"
         Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtAttendee
         '
-        Me.txtAttendee.Location = New System.Drawing.Point(128, 11)
+        Me.txtAttendee.Location = New System.Drawing.Point(153, 11)
         Me.txtAttendee.Name = "txtAttendee"
-        Me.txtAttendee.Size = New System.Drawing.Size(248, 22)
+        Me.txtAttendee.Size = New System.Drawing.Size(383, 26)
         Me.txtAttendee.TabIndex = 1
         '
         'label4
         '
-        Me.label4.Location = New System.Drawing.Point(50, 11)
+        Me.label4.Location = New System.Drawing.Point(62, 13)
         Me.label4.Name = "label4"
-        Me.label4.Size = New System.Drawing.Size(72, 23)
+        Me.label4.Size = New System.Drawing.Size(85, 23)
         Me.label4.TabIndex = 0
         Me.label4.Text = "Attendee"
         Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'chkRSVP
         '
-        Me.chkRSVP.Location = New System.Drawing.Point(328, 139)
+        Me.chkRSVP.Location = New System.Drawing.Point(353, 143)
         Me.chkRSVP.Name = "chkRSVP"
-        Me.chkRSVP.Size = New System.Drawing.Size(72, 24)
+        Me.chkRSVP.Size = New System.Drawing.Size(118, 24)
         Me.chkRSVP.TabIndex = 12
         Me.chkRSVP.Text = "RSVP"
         '
@@ -104,17 +104,17 @@ Partial Class AttendeeControl
         '
         Me.cboRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboRole.Items.AddRange(New Object() {"", "CHAIR", "REQ-PARTICIPANT", "OPT-PARTICIPANT", "NON-PARTICIPANT"})
-        Me.cboRole.Location = New System.Drawing.Point(328, 75)
+        Me.cboRole.Location = New System.Drawing.Point(353, 75)
         Me.cboRole.MaxDropDownItems = 16
         Me.cboRole.Name = "cboRole"
-        Me.cboRole.Size = New System.Drawing.Size(160, 24)
+        Me.cboRole.Size = New System.Drawing.Size(183, 28)
         Me.cboRole.TabIndex = 7
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(276, 75)
+        Me.label3.Location = New System.Drawing.Point(287, 77)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(46, 23)
+        Me.label3.Size = New System.Drawing.Size(60, 23)
         Me.label3.TabIndex = 6
         Me.label3.Text = "Role"
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -123,33 +123,33 @@ Partial Class AttendeeControl
         '
         Me.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cboStatus.Items.AddRange(New Object() {"", "NEEDS-ACTION", "ACCEPTED", "DECLINED", "TENTATIVE", "DELEGATED", "COMPLETED", "IN-PROCESS"})
-        Me.cboStatus.Location = New System.Drawing.Point(128, 139)
+        Me.cboStatus.Location = New System.Drawing.Point(153, 141)
         Me.cboStatus.MaxDropDownItems = 16
         Me.cboStatus.Name = "cboStatus"
-        Me.cboStatus.Size = New System.Drawing.Size(176, 24)
+        Me.cboStatus.Size = New System.Drawing.Size(176, 28)
         Me.cboStatus.TabIndex = 11
         '
         'label10
         '
-        Me.label10.Location = New System.Drawing.Point(63, 139)
+        Me.label10.Location = New System.Drawing.Point(58, 143)
         Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(59, 23)
+        Me.label10.Size = New System.Drawing.Size(89, 23)
         Me.label10.TabIndex = 10
         Me.label10.Text = "Status"
         Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtCommonName
         '
-        Me.txtCommonName.Location = New System.Drawing.Point(128, 43)
+        Me.txtCommonName.Location = New System.Drawing.Point(153, 43)
         Me.txtCommonName.Name = "txtCommonName"
-        Me.txtCommonName.Size = New System.Drawing.Size(248, 22)
+        Me.txtCommonName.Size = New System.Drawing.Size(383, 26)
         Me.txtCommonName.TabIndex = 3
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(8, 43)
+        Me.label1.Location = New System.Drawing.Point(6, 45)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(114, 23)
+        Me.label1.Size = New System.Drawing.Size(141, 23)
         Me.label1.TabIndex = 2
         Me.label1.Text = "Common Name"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -157,16 +157,16 @@ Partial Class AttendeeControl
         'txtUserType
         '
         Me.txtUserType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtUserType.Location = New System.Drawing.Point(128, 75)
+        Me.txtUserType.Location = New System.Drawing.Point(153, 75)
         Me.txtUserType.Name = "txtUserType"
-        Me.txtUserType.Size = New System.Drawing.Size(128, 22)
+        Me.txtUserType.Size = New System.Drawing.Size(128, 26)
         Me.txtUserType.TabIndex = 5
         '
         'label5
         '
-        Me.label5.Location = New System.Drawing.Point(36, 75)
+        Me.label5.Location = New System.Drawing.Point(37, 77)
         Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(86, 23)
+        Me.label5.Size = New System.Drawing.Size(110, 23)
         Me.label5.TabIndex = 4
         Me.label5.Text = "User Type"
         Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -175,7 +175,7 @@ Partial Class AttendeeControl
         '
         Me.Controls.Add(Me.pnlControls)
         Me.Name = "AttendeeControl"
-        Me.Size = New System.Drawing.Size(496, 200)
+        Me.Size = New System.Drawing.Size(571, 218)
         Me.Controls.SetChildIndex(Me.pnlControls, 0)
         Me.pnlControls.ResumeLayout(false)
         Me.pnlControls.PerformLayout

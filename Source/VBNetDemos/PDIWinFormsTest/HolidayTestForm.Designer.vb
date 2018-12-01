@@ -55,7 +55,7 @@ Partial Class HolidayTestForm
         'btnClose
         '
         Me.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnClose.Location = New System.Drawing.Point(724, 381)
+        Me.btnClose.Location = New System.Drawing.Point(851, 391)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(88, 32)
         Me.btnClose.TabIndex = 2
@@ -66,7 +66,7 @@ Partial Class HolidayTestForm
         Me.groupBox1.Controls.Add(Me.hmHolidays)
         Me.groupBox1.Location = New System.Drawing.Point(12, 12)
         Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(286, 401)
+        Me.groupBox1.Size = New System.Drawing.Size(348, 401)
         Me.groupBox1.TabIndex = 0
         Me.groupBox1.TabStop = false
         Me.groupBox1.Text = "H&olidays"
@@ -75,7 +75,7 @@ Partial Class HolidayTestForm
         '
         Me.hmHolidays.Location = New System.Drawing.Point(8, 24)
         Me.hmHolidays.Name = "hmHolidays"
-        Me.hmHolidays.Size = New System.Drawing.Size(272, 368)
+        Me.hmHolidays.Size = New System.Drawing.Size(334, 368)
         Me.hmHolidays.TabIndex = 0
         '
         'groupBox2
@@ -91,9 +91,9 @@ Partial Class HolidayTestForm
         Me.groupBox2.Controls.Add(Me.label1)
         Me.groupBox2.Controls.Add(Me.btnTestDate)
         Me.groupBox2.Controls.Add(Me.label3)
-        Me.groupBox2.Location = New System.Drawing.Point(304, 12)
+        Me.groupBox2.Location = New System.Drawing.Point(366, 12)
         Me.groupBox2.Name = "groupBox2"
-        Me.groupBox2.Size = New System.Drawing.Size(508, 363)
+        Me.groupBox2.Size = New System.Drawing.Size(573, 373)
         Me.groupBox2.TabIndex = 1
         Me.groupBox2.TabStop = false
         Me.groupBox2.Text = "Test Date Detection"
@@ -128,7 +128,7 @@ Partial Class HolidayTestForm
         Me.dgvDatesFound.RowHeadersVisible = false
         Me.dgvDatesFound.RowTemplate.Height = 24
         Me.dgvDatesFound.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvDatesFound.Size = New System.Drawing.Size(337, 298)
+        Me.dgvDatesFound.Size = New System.Drawing.Size(372, 298)
         Me.dgvDatesFound.TabIndex = 10
         '
         'tbcDate
@@ -145,46 +145,46 @@ Partial Class HolidayTestForm
         Me.tbcDescription.HeaderText = "Description"
         Me.tbcDescription.Name = "tbcDescription"
         Me.tbcDescription.ReadOnly = true
-        Me.tbcDescription.Width = 210
+        Me.tbcDescription.Width = 230
         '
         'dtpTestDate
         '
         Me.dtpTestDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtpTestDate.Location = New System.Drawing.Point(96, 331)
+        Me.dtpTestDate.Location = New System.Drawing.Point(100, 335)
         Me.dtpTestDate.Name = "dtpTestDate"
-        Me.dtpTestDate.Size = New System.Drawing.Size(110, 22)
+        Me.dtpTestDate.Size = New System.Drawing.Size(135, 26)
         Me.dtpTestDate.TabIndex = 8
         '
         'udcToYear
         '
-        Me.udcToYear.Location = New System.Drawing.Point(439, 64)
+        Me.udcToYear.Location = New System.Drawing.Point(490, 47)
         Me.udcToYear.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.udcToYear.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.udcToYear.Name = "udcToYear"
-        Me.udcToYear.Size = New System.Drawing.Size(56, 22)
+        Me.udcToYear.Size = New System.Drawing.Size(75, 26)
         Me.udcToYear.TabIndex = 3
         Me.udcToYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.udcToYear.Value = New Decimal(New Integer() {2004, 0, 0, 0})
+        Me.udcToYear.Value = New Decimal(New Integer() {2023, 0, 0, 0})
         '
         'udcFromYear
         '
-        Me.udcFromYear.Location = New System.Drawing.Point(349, 64)
+        Me.udcFromYear.Location = New System.Drawing.Point(391, 47)
         Me.udcFromYear.Maximum = New Decimal(New Integer() {9999, 0, 0, 0})
         Me.udcFromYear.Minimum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.udcFromYear.Name = "udcFromYear"
-        Me.udcFromYear.Size = New System.Drawing.Size(56, 22)
+        Me.udcFromYear.Size = New System.Drawing.Size(75, 26)
         Me.udcFromYear.TabIndex = 1
         Me.udcFromYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.udcFromYear.Value = New Decimal(New Integer() {2000, 0, 0, 0})
+        Me.udcFromYear.Value = New Decimal(New Integer() {2017, 0, 0, 0})
         '
         'grpEaster
         '
         Me.grpEaster.Controls.Add(Me.rbGregorian)
         Me.grpEaster.Controls.Add(Me.rbOrthodox)
         Me.grpEaster.Controls.Add(Me.rbJulian)
-        Me.grpEaster.Location = New System.Drawing.Point(349, 92)
+        Me.grpEaster.Location = New System.Drawing.Point(391, 87)
         Me.grpEaster.Name = "grpEaster"
-        Me.grpEaster.Size = New System.Drawing.Size(144, 120)
+        Me.grpEaster.Size = New System.Drawing.Size(165, 134)
         Me.grpEaster.TabIndex = 4
         Me.grpEaster.TabStop = false
         Me.grpEaster.Text = "Easter Method"
@@ -192,72 +192,72 @@ Partial Class HolidayTestForm
         'rbGregorian
         '
         Me.rbGregorian.Checked = true
-        Me.rbGregorian.Location = New System.Drawing.Point(24, 88)
+        Me.rbGregorian.Location = New System.Drawing.Point(25, 94)
         Me.rbGregorian.Name = "rbGregorian"
-        Me.rbGregorian.Size = New System.Drawing.Size(104, 24)
+        Me.rbGregorian.Size = New System.Drawing.Size(115, 24)
         Me.rbGregorian.TabIndex = 2
         Me.rbGregorian.TabStop = true
         Me.rbGregorian.Text = "Gregorian"
         '
         'rbOrthodox
         '
-        Me.rbOrthodox.Location = New System.Drawing.Point(24, 56)
+        Me.rbOrthodox.Location = New System.Drawing.Point(25, 64)
         Me.rbOrthodox.Name = "rbOrthodox"
-        Me.rbOrthodox.Size = New System.Drawing.Size(104, 24)
+        Me.rbOrthodox.Size = New System.Drawing.Size(115, 24)
         Me.rbOrthodox.TabIndex = 1
         Me.rbOrthodox.Text = "Orthodox"
         '
         'rbJulian
         '
-        Me.rbJulian.Location = New System.Drawing.Point(24, 24)
+        Me.rbJulian.Location = New System.Drawing.Point(25, 34)
         Me.rbJulian.Name = "rbJulian"
-        Me.rbJulian.Size = New System.Drawing.Size(104, 24)
+        Me.rbJulian.Size = New System.Drawing.Size(115, 24)
         Me.rbJulian.TabIndex = 0
         Me.rbJulian.Text = "Julian"
         '
         'btnEaster
         '
-        Me.btnEaster.Location = New System.Drawing.Point(352, 280)
+        Me.btnEaster.Location = New System.Drawing.Point(391, 287)
         Me.btnEaster.Name = "btnEaster"
-        Me.btnEaster.Size = New System.Drawing.Size(136, 32)
+        Me.btnEaster.Size = New System.Drawing.Size(140, 32)
         Me.btnEaster.TabIndex = 6
         Me.btnEaster.Text = "Find Ea&ster"
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(352, 232)
+        Me.btnFind.Location = New System.Drawing.Point(391, 241)
         Me.btnFind.Name = "btnFind"
-        Me.btnFind.Size = New System.Drawing.Size(136, 32)
+        Me.btnFind.Size = New System.Drawing.Size(140, 32)
         Me.btnFind.TabIndex = 5
         Me.btnFind.Text = "&Find Holidays"
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(439, 40)
+        Me.label2.Location = New System.Drawing.Point(490, 21)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(62, 23)
+        Me.label2.Size = New System.Drawing.Size(75, 23)
         Me.label2.TabIndex = 2
         Me.label2.Text = "To Year"
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(349, 40)
+        Me.label1.Location = New System.Drawing.Point(391, 21)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(84, 23)
+        Me.label1.Size = New System.Drawing.Size(93, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "Fro&m Year"
         '
         'btnTestDate
         '
-        Me.btnTestDate.Location = New System.Drawing.Point(212, 325)
+        Me.btnTestDate.Location = New System.Drawing.Point(241, 332)
         Me.btnTestDate.Name = "btnTestDate"
-        Me.btnTestDate.Size = New System.Drawing.Size(88, 32)
+        Me.btnTestDate.Size = New System.Drawing.Size(137, 32)
         Me.btnTestDate.TabIndex = 9
         Me.btnTestDate.Text = "&Holiday?"
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(6, 330)
+        Me.label3.Location = New System.Drawing.Point(10, 337)
         Me.label3.Name = "label3"
         Me.label3.Size = New System.Drawing.Size(84, 23)
         Me.label3.TabIndex = 7
@@ -267,7 +267,7 @@ Partial Class HolidayTestForm
         'HolidayTestForm
         '
         Me.CancelButton = Me.btnClose
-        Me.ClientSize = New System.Drawing.Size(824, 425)
+        Me.ClientSize = New System.Drawing.Size(951, 435)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.groupBox1)
         Me.Controls.Add(Me.groupBox2)
@@ -307,7 +307,6 @@ End Sub
     Friend WithEvents dtpTestDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents hmHolidays As EWSoftware.PDI.Windows.Forms.HolidayManager
     Private WithEvents dgvDatesFound As System.Windows.Forms.DataGridView
-    Private WithEvents tbcDate As System.Windows.Forms.DataGridViewTextBoxColumn
-    Private WithEvents tbcDescription As System.Windows.Forms.DataGridViewTextBoxColumn
-
+    Friend WithEvents tbcDate As DataGridViewTextBoxColumn
+    Friend WithEvents tbcDescription As DataGridViewTextBoxColumn
 End Class

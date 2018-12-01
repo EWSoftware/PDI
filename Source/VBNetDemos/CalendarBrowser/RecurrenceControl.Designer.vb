@@ -41,27 +41,27 @@ Partial Class RecurrenceControl
         'btnClearRRules
         '
         Me.btnClearRRules.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnClearRRules.Location = New System.Drawing.Point(251, 248)
+        Me.btnClearRRules.Location = New System.Drawing.Point(285, 282)
         Me.btnClearRRules.Name = "btnClearRRules"
-        Me.btnClearRRules.Size = New System.Drawing.Size(75, 28)
+        Me.btnClearRRules.Size = New System.Drawing.Size(88, 32)
         Me.btnClearRRules.TabIndex = 5
         Me.btnClearRRules.Text = "Clear"
         '
         'btnRemoveRRule
         '
         Me.btnRemoveRRule.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnRemoveRRule.Location = New System.Drawing.Point(170, 248)
+        Me.btnRemoveRRule.Location = New System.Drawing.Point(191, 282)
         Me.btnRemoveRRule.Name = "btnRemoveRRule"
-        Me.btnRemoveRRule.Size = New System.Drawing.Size(75, 28)
+        Me.btnRemoveRRule.Size = New System.Drawing.Size(88, 32)
         Me.btnRemoveRRule.TabIndex = 4
         Me.btnRemoveRRule.Text = "Remove"
         '
         'btnAddRRule
         '
         Me.btnAddRRule.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnAddRRule.Location = New System.Drawing.Point(8, 248)
+        Me.btnAddRRule.Location = New System.Drawing.Point(3, 282)
         Me.btnAddRRule.Name = "btnAddRRule"
-        Me.btnAddRRule.Size = New System.Drawing.Size(75, 28)
+        Me.btnAddRRule.Size = New System.Drawing.Size(88, 32)
         Me.btnAddRRule.TabIndex = 2
         Me.btnAddRRule.Text = "Add"
         '
@@ -69,50 +69,52 @@ Partial Class RecurrenceControl
         '
         Me.lbRRules.HorizontalExtent = 800
         Me.lbRRules.HorizontalScrollbar = true
-        Me.lbRRules.ItemHeight = 16
-        Me.lbRRules.Location = New System.Drawing.Point(8, 32)
+        Me.lbRRules.IntegralHeight = false
+        Me.lbRRules.ItemHeight = 20
+        Me.lbRRules.Location = New System.Drawing.Point(3, 34)
         Me.lbRRules.Name = "lbRRules"
-        Me.lbRRules.Size = New System.Drawing.Size(320, 212)
+        Me.lbRRules.Size = New System.Drawing.Size(370, 242)
         Me.lbRRules.TabIndex = 1
         '
         'btnClearRDates
         '
         Me.btnClearRDates.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnClearRDates.Location = New System.Drawing.Point(347, 248)
+        Me.btnClearRDates.Location = New System.Drawing.Point(584, 282)
         Me.btnClearRDates.Name = "btnClearRDates"
-        Me.btnClearRDates.Size = New System.Drawing.Size(75, 28)
+        Me.btnClearRDates.Size = New System.Drawing.Size(88, 32)
         Me.btnClearRDates.TabIndex = 13
         Me.btnClearRDates.Text = "Clear"
         '
         'btnRemoveRDate
         '
         Me.btnRemoveRDate.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnRemoveRDate.Location = New System.Drawing.Point(447, 218)
+        Me.btnRemoveRDate.Location = New System.Drawing.Point(490, 282)
         Me.btnRemoveRDate.Name = "btnRemoveRDate"
-        Me.btnRemoveRDate.Size = New System.Drawing.Size(75, 28)
+        Me.btnRemoveRDate.Size = New System.Drawing.Size(88, 32)
         Me.btnRemoveRDate.TabIndex = 12
         Me.btnRemoveRDate.Text = "Remove"
         '
         'btnAddRDate
         '
         Me.btnAddRDate.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnAddRDate.Location = New System.Drawing.Point(346, 218)
+        Me.btnAddRDate.Location = New System.Drawing.Point(396, 282)
         Me.btnAddRDate.Name = "btnAddRDate"
-        Me.btnAddRDate.Size = New System.Drawing.Size(75, 28)
+        Me.btnAddRDate.Size = New System.Drawing.Size(88, 32)
         Me.btnAddRDate.TabIndex = 11
         Me.btnAddRDate.Text = "Add"
         '
         'lbRDates
         '
-        Me.lbRDates.ItemHeight = 16
-        Me.lbRDates.Location = New System.Drawing.Point(346, 80)
+        Me.lbRDates.IntegralHeight = false
+        Me.lbRDates.ItemHeight = 20
+        Me.lbRDates.Location = New System.Drawing.Point(396, 96)
         Me.lbRDates.Name = "lbRDates"
-        Me.lbRDates.Size = New System.Drawing.Size(176, 132)
+        Me.lbRDates.Size = New System.Drawing.Size(276, 180)
         Me.lbRDates.TabIndex = 10
         '
         'lblRRules
         '
-        Me.lblRRules.Location = New System.Drawing.Point(8, 8)
+        Me.lblRRules.Location = New System.Drawing.Point(3, 8)
         Me.lblRRules.Name = "lblRRules"
         Me.lblRRules.Size = New System.Drawing.Size(216, 23)
         Me.lblRRules.TabIndex = 0
@@ -121,7 +123,7 @@ Partial Class RecurrenceControl
         '
         'lblRDates
         '
-        Me.lblRDates.Location = New System.Drawing.Point(346, 8)
+        Me.lblRDates.Location = New System.Drawing.Point(397, 8)
         Me.lblRDates.Name = "lblRDates"
         Me.lblRDates.Size = New System.Drawing.Size(174, 23)
         Me.lblRDates.TabIndex = 7
@@ -133,33 +135,33 @@ Partial Class RecurrenceControl
         Me.dtpRDate.Checked = false
         Me.dtpRDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpRDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpRDate.Location = New System.Drawing.Point(346, 32)
+        Me.dtpRDate.Location = New System.Drawing.Point(395, 34)
         Me.dtpRDate.Name = "dtpRDate"
-        Me.dtpRDate.Size = New System.Drawing.Size(190, 22)
+        Me.dtpRDate.Size = New System.Drawing.Size(235, 26)
         Me.dtpRDate.TabIndex = 8
         '
         'btnEditRRule
         '
         Me.btnEditRRule.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btnEditRRule.Location = New System.Drawing.Point(89, 248)
+        Me.btnEditRRule.Location = New System.Drawing.Point(97, 282)
         Me.btnEditRRule.Name = "btnEditRRule"
-        Me.btnEditRRule.Size = New System.Drawing.Size(75, 28)
+        Me.btnEditRRule.Size = New System.Drawing.Size(88, 32)
         Me.btnEditRRule.TabIndex = 3
         Me.btnEditRRule.Text = "Edit"
         '
         'groupBox1
         '
-        Me.groupBox1.Location = New System.Drawing.Point(336, 8)
+        Me.groupBox1.Location = New System.Drawing.Point(387, 8)
         Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(2, 270)
+        Me.groupBox1.Size = New System.Drawing.Size(2, 300)
         Me.groupBox1.TabIndex = 6
         Me.groupBox1.TabStop = false
         '
         'chkExcludeDay
         '
-        Me.chkExcludeDay.Location = New System.Drawing.Point(347, 56)
+        Me.chkExcludeDay.Location = New System.Drawing.Point(393, 66)
         Me.chkExcludeDay.Name = "chkExcludeDay"
-        Me.chkExcludeDay.Size = New System.Drawing.Size(152, 24)
+        Me.chkExcludeDay.Size = New System.Drawing.Size(201, 24)
         Me.chkExcludeDay.TabIndex = 9
         Me.chkExcludeDay.Text = "Exclude whole day"
         '
@@ -180,7 +182,7 @@ Partial Class RecurrenceControl
         Me.Controls.Add(Me.btnAddRRule)
         Me.Controls.Add(Me.lbRRules)
         Me.Name = "RecurrenceControl"
-        Me.Size = New System.Drawing.Size(542, 286)
+        Me.Size = New System.Drawing.Size(685, 320)
         Me.ResumeLayout(false)
 
 End Sub

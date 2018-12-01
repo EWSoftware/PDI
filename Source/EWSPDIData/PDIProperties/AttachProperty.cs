@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BinaryProperties.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Attach property that support binary encoded attachments.  It is used with the Personal
@@ -20,7 +20,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 namespace EWSoftware.PDI.Properties
@@ -42,26 +41,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (ATTACH)
         /// </summary>
-        public override string Tag
-        {
-            get { return "ATTACH"; }
-        }
+        public override string Tag => "ATTACH";
 
         /// <summary>
         /// This read-only property defines the default value type as URI
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Uri; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Uri;
 
         /// <summary>
         /// This is used to set or get the attachment format type

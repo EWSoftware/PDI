@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : SoundProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Sound property that support binary encoded sounds.  It is used with the Personal Data
@@ -38,8 +38,6 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private string soundType;
-
         // This private array is used to translate parameter names and values to sound types
         private static NameToValue<int>[] ntv = {
             new NameToValue<int>("TYPE",  0, false),
@@ -57,37 +55,26 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (SOUND)
         /// </summary>
-        public override string Tag
-        {
-            get { return "SOUND"; }
-        }
+        public override string Tag => "SOUND";
 
         /// <summary>
         /// This read-only property defines the default value type as BINARY
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Binary; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Binary;
 
         /// <summary>
         /// This is used to set or get the sound type
         /// </summary>
         /// <value>The value is a string defining the type of sound that the property value represents such as
         /// basic, WAV, etc.</value>
-        public string SoundType
-        {
-            get { return soundType; }
-            set { soundType = value; }
-        }
+        public string SoundType { get; set; }
+
         #endregion
 
         #region Constructor
@@ -123,7 +110,7 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            soundType = ((SoundProperty)p).SoundType;
+            this.SoundType = ((SoundProperty)p).SoundType;
             base.Clone(p);
         }
 

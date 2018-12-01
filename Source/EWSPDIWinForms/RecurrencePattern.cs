@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : RecurrencePattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
@@ -54,11 +54,11 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <remarks>If hidden, the Week Start Day combo box will not be visible and a default week start day
         /// will be used in all recurrences edited by the control.</remarks>
         [Category("Behavior"), DefaultValue(true), Bindable(true),
-         Description("Show or hide the Week Start Day combo box")]
+          Description("Show or hide the Week Start Day combo box")]
         public bool ShowWeekStartDay
         {
-            get { return weekStartDayVisible; }
-            set { weekStartDayVisible = lblWeekStartDay.Visible = cboWeekStartDay.Visible = value; }
+            get => weekStartDayVisible;
+            set => weekStartDayVisible = lblWeekStartDay.Visible = cboWeekStartDay.Visible = value;
         }
 
         /// <summary>
@@ -68,10 +68,10 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <remarks>If hidden, the check box will not be visible and the option will be set to true in all
         /// recurrences edited by the control.</remarks>
         [Category("Behavior"), DefaultValue(true), Bindable(true),
-         Description("Show or hide the Can Occur on Holiday checkbox")]
+          Description("Show or hide the Can Occur on Holiday checkbox")]
         public bool ShowCanOccurOnHoliday
         {
-            get { return holidayVisible; }
+            get => holidayVisible;
             set
             {
                 holidayVisible = chkHolidays.Visible = value;
@@ -89,11 +89,10 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <remarks>If hidden, only basic patterns similar to those in Microsoft Outlook can be created.  When
         /// edited, all advanced options currently in effect will be lost and the pattern will be made to conform
         /// to the simple options available for the currently selected frequency.</remarks>
-        [Category("Behavior"), DefaultValue(true), Bindable(true),
-         Description("Show or hide the Advanced checkbox")]
+        [Category("Behavior"), DefaultValue(true), Bindable(true), Description("Show or hide the Advanced checkbox")]
         public bool ShowAdvanced
         {
-            get { return advancedVisible; }
+            get => advancedVisible;
             set
             {
                 advancedVisible = chkAdvanced.Visible = value;
@@ -119,7 +118,7 @@ namespace EWSoftware.PDI.Windows.Forms
           Bindable(true), Description("This determines the maximum editable recurrence pattern type")]
         public RecurFrequency MaximumPattern
         {
-            get { return maxPattern; }
+            get => maxPattern;
             set
             {
                 if(value == RecurFrequency.Undefined)
@@ -199,19 +198,19 @@ namespace EWSoftware.PDI.Windows.Forms
          Description("Show or hide the time value in the 'end by date' option")]
         public bool ShowEndTime
         {
-            get { return (dtpEndDate.Width == 190); }
+            get => (dtpEndDate.Width == 235);
             set
             {
                 // Set the date/time pattern based on the current culture
                 if(value)
                 {
-                    dtpEndDate.Width = 190;
+                    dtpEndDate.Width = 235;
                     dtpEndDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern + " " +
                         CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern;
                 }
                 else
                 {
-                    dtpEndDate.Width = 110;
+                    dtpEndDate.Width = 135;
                     dtpEndDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
                 }
             }
@@ -253,7 +252,7 @@ namespace EWSoftware.PDI.Windows.Forms
             Recurrence r = new Recurrence();
 
             if(recurrence == null)
-                throw new ArgumentNullException("recurrence", LR.GetString("ExRPRecurrenceIsNull"));
+                throw new ArgumentNullException(nameof(recurrence), LR.GetString("ExRPRecurrenceIsNull"));
 
             // Get the basic stuff
             r.Reset();

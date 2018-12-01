@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : UniqueIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Unique ID property class used by the Personal Data Interchange (PDI) classes such as
@@ -41,18 +41,13 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports all specifications including IrMC 1.1</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.Any | SpecificationVersions.IrMC11; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.Any |
+            SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This read-only property defines the tag.  It returns UID for all specifications except IrMC 1.1 which
@@ -81,7 +76,7 @@ namespace EWSoftware.PDI.Properties
 
                 return base.Value;
             }
-            set { base.Value = value; }
+            set => base.Value = value;
         }
 
         /// <summary>
@@ -89,8 +84,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { base.Value = value; }
+            get => this.Value;
+            set => base.Value = value;
         }
         #endregion
 

@@ -19,7 +19,6 @@
 ' 12/02/2004  EFW  Created the code
 '================================================================================================================
 
-Imports System.ComponentModel
 Imports System.Globalization
 Imports System.IO
 

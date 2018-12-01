@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is a simple demonstration application that shows how to load, save, and manage vCalendar and iCalendar
@@ -75,10 +75,12 @@ namespace CalendarBrowser
             InitializeComponent();
 
             // The string format to use when drawing the status text
-            sf = new StringFormat(StringFormatFlags.NoWrap);
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Center;
-            sf.Trimming = StringTrimming.EllipsisCharacter;
+            sf = new StringFormat(StringFormatFlags.NoWrap)
+            {
+                Alignment = StringAlignment.Near,
+                LineAlignment = StringAlignment.Center,
+                Trimming = StringTrimming.EllipsisCharacter
+            };
 
             dgvCalendar.AutoGenerateColumns = false;
 
@@ -779,7 +781,7 @@ namespace CalendarBrowser
         /// utilizing a comparison delegate.  This example sorts the collection by the start date/time property
         /// and, if they are equal, the summary description.  This is used to handle all of the collection types.
         /// </summary>
-        private int CalendarSorter(CalendarObject x, CalendarObject y)
+        private static int CalendarSorter(CalendarObject x, CalendarObject y)
         {
             DateTime d1, d2;
             string summary1, summary2;
@@ -948,7 +950,8 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void dgvCalendar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEdit_Click(sender, e);
+            if(e.RowIndex > -1)
+                btnEdit_Click(sender, e);
         }
         #endregion
     }

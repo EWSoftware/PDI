@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurDateTime.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class that contains a date/time object used in the calculation of recurring date/times.
@@ -74,11 +74,11 @@ namespace EWSoftware.PDI
         /// year value supported by a normal <see cref="System.DateTime"/> object.</exception>
         public int Year
         {
-            get { return year; }
+            get => year;
             set
             {
                 if(value < DateTime.MinValue.Year)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRDTYearOutOfRange"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRDTYearOutOfRange"));
 
                 year = value;
             }
@@ -93,11 +93,11 @@ namespace EWSoftware.PDI
         /// than 11.</exception>
         public int Month
         {
-            get { return month; }
+            get => month;
             set
             {
                 if(value < 0 || value > 11)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRDTBadMonth"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRDTBadMonth"));
 
                 month = value;
             }
@@ -111,11 +111,11 @@ namespace EWSoftware.PDI
         /// than 31.</exception>
         public int Day
         {
-            get { return day; }
+            get => day;
             set
             {
                 if(value < 1 || value > 31)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRDTBadDay"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRDTBadDay"));
 
                 day = value;
             }
@@ -128,11 +128,11 @@ namespace EWSoftware.PDI
         /// than 23.</exception>
         public int Hour
         {
-            get { return hour; }
+            get => hour;
             set
             {
                 if(value < 0 || value > 23)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRDTBadHour"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRDTBadHour"));
 
                 hour = value;
             }
@@ -145,11 +145,11 @@ namespace EWSoftware.PDI
         /// than 59.</exception>
         public int Minute
         {
-            get { return minute; }
+            get => minute;
             set
             {
                 if(value < 0 || value > 59)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRDTBadMinute"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRDTBadMinute"));
 
                 minute = value;
             }
@@ -162,11 +162,11 @@ namespace EWSoftware.PDI
         /// than 59.</exception>
         public int Second
         {
-            get { return second; }
+            get => second;
             set
             {
                 if(value < 0 || value > 59)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExRDTBadSecond"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExRDTBadSecond"));
 
                 second = value;
             }
@@ -178,10 +178,7 @@ namespace EWSoftware.PDI
         /// <remarks>You should check to be sure the date is valid before using this property.  If not valid,
         /// either adjust the date or discard it.</remarks>
         /// <exception cref="InvalidOperationException">This is thrown if the date is not valid</exception>
-        public DayOfWeek DayOfWeek
-        {
-            get { return this.ToDateTime().DayOfWeek; }
-        }
+        public DayOfWeek DayOfWeek => this.ToDateTime().DayOfWeek;
 
         /// <summary>
         /// This read-only property is used to get the day of the year of the date
@@ -189,10 +186,8 @@ namespace EWSoftware.PDI
         /// <remarks>You should check to be sure the date is valid before using this property.  If not valid,
         /// either adjust the date or discard it.</remarks>
         /// <exception cref="InvalidOperationException">This is thrown if the date is not valid</exception>
-        public int DayOfYear
-        {
-            get { return this.ToDateTime().DayOfYear; }
-        }
+        public int DayOfYear => this.ToDateTime().DayOfYear;
+
         #endregion
 
         #region Constructors
@@ -239,10 +234,10 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the date/times are equal, false if they are not</returns>
         public static bool Equals(RecurDateTime r1, RecurDateTime r2)
         {
-            if((object)r1 == null && (object)r2 == null)
+            if(r1 is null && r2 is null)
                 return true;
 
-            if((object)r1 == null)
+            if(r1 is null)
                 return false;
 
             return r1.Equals(r2);
@@ -543,14 +538,13 @@ namespace EWSoftware.PDI
         /// <overloads>There are two versions of this method</overloads>
         public static int Compare(RecurDateTime r1, RecurDateTime r2)
         {
-            // Cast as object for null checks or it goes recursive
-            if((object)r1 == null && (object)r2 == null)
+            if(r1 is null && r2 is null)
                 return 0;
 
-            if((object)r1 != null && (object)r2 == null)
+            if(!(r1 is null) && r2 is null)
                 return 1;
 
-            if((object)r1 == null && (object)r2 != null)
+            if(r1 is null && !(r2 is null))
                 return -1;
 
             if(r1.Year < r2.Year)
@@ -603,14 +597,13 @@ namespace EWSoftware.PDI
         /// first instance is greater than the second.</returns>
         public static int Compare(RecurDateTime r1, RecurDateTime r2, DateTimePart part)
         {
-            // Cast as object for null checks or it goes recursive
-            if((object)r1 == null && (object)r2 == null)
+            if(r1 is null && r2 is null)
                 return 0;
 
-            if((object)r1 != null && (object)r2 == null)
+            if(!(r1 is null) && r2 is null)
                 return 1;
 
-            if((object)r1 == null && (object)r2 != null)
+            if(r1 is null && !(r2 is null))
                 return -1;
 
             if(r1.Year < r2.Year)

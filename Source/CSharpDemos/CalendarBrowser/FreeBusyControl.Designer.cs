@@ -43,17 +43,17 @@ namespace CalendarBrowser
             this.dtpStartDate.Checked = false;
             this.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(64, 48);
+            this.dtpStartDate.Location = new System.Drawing.Point(95, 53);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.ShowCheckBox = true;
-            this.dtpStartDate.Size = new System.Drawing.Size(210, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(255, 26);
             this.dtpStartDate.TabIndex = 5;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(18, 48);
+            this.label1.Location = new System.Drawing.Point(19, 57);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 23);
+            this.label1.Size = new System.Drawing.Size(70, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Start";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -63,17 +63,17 @@ namespace CalendarBrowser
             this.dtpEndDate.Checked = false;
             this.dtpEndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(64, 88);
+            this.dtpEndDate.Location = new System.Drawing.Point(95, 90);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.ShowCheckBox = true;
-            this.dtpEndDate.Size = new System.Drawing.Size(210, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(255, 26);
             this.dtpEndDate.TabIndex = 7;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(18, 88);
+            this.label2.Location = new System.Drawing.Point(23, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 23);
+            this.label2.Size = new System.Drawing.Size(66, 23);
             this.label2.TabIndex = 6;
             this.label2.Text = "End";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -88,18 +88,18 @@ namespace CalendarBrowser
             "Unavailable",
             "Tentative",
             "Other"});
-            this.cboBusyType.Location = new System.Drawing.Point(64, 8);
+            this.cboBusyType.Location = new System.Drawing.Point(95, 14);
             this.cboBusyType.Name = "cboBusyType";
-            this.cboBusyType.Size = new System.Drawing.Size(112, 24);
+            this.cboBusyType.Size = new System.Drawing.Size(128, 28);
             this.cboBusyType.TabIndex = 1;
             this.cboBusyType.SelectedIndexChanged += new System.EventHandler(this.cboBusyType_SelectedIndexChanged);
             this.cboBusyType.Validating += new System.ComponentModel.CancelEventHandler(this.cboBusyType_Validating);
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(10, 8);
+            this.label10.Location = new System.Drawing.Point(15, 16);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(48, 23);
+            this.label10.Size = new System.Drawing.Size(74, 23);
             this.label10.TabIndex = 0;
             this.label10.Text = "Type";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -107,16 +107,16 @@ namespace CalendarBrowser
             // txtOtherType
             // 
             this.txtOtherType.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtOtherType.Location = new System.Drawing.Point(272, 8);
+            this.txtOtherType.Location = new System.Drawing.Point(342, 14);
             this.txtOtherType.Name = "txtOtherType";
-            this.txtOtherType.Size = new System.Drawing.Size(136, 22);
+            this.txtOtherType.Size = new System.Drawing.Size(136, 26);
             this.txtOtherType.TabIndex = 3;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(186, 8);
+            this.label4.Location = new System.Drawing.Point(229, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 23);
+            this.label4.Size = new System.Drawing.Size(107, 23);
             this.label4.TabIndex = 2;
             this.label4.Text = "Other Type";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -132,7 +132,7 @@ namespace CalendarBrowser
             this.Controls.Add(this.dtpStartDate);
             this.Controls.Add(this.label1);
             this.Name = "FreeBusyControl";
-            this.Size = new System.Drawing.Size(436, 152);
+            this.Size = new System.Drawing.Size(503, 161);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.dtpStartDate, 0);
             this.Controls.SetChildIndex(this.label2, 0);

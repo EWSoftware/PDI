@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Name property class used by the Personal Data Interchange (PDI) vCard class
@@ -44,26 +44,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCard21 | SpecificationVersions.vCard30; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
+            SpecificationVersions.vCard30;
 
         /// <summary>
         /// This read-only property defines the tag (N)
         /// </summary>
-        public override string Tag
-        {
-            get { return "N"; }
-        }
+        public override string Tag => "N";
 
         /// <summary>
         /// This read-only property defines the default value type as TEXT
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Text; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Text;
 
         /// <summary>
         /// This property is used to set or get the family name (last name)
@@ -238,7 +230,7 @@ namespace EWSoftware.PDI.Properties
                 string[] parts;
 
                 if(value == null)
-                    throw new ArgumentNullException("value", LR.GetString("ExNCannotBeNull"));
+                    throw new ArgumentNullException(nameof(value), LR.GetString("ExNCannotBeNull"));
 
                 this.FamilyName = this.GivenName = this.AdditionalNames = this.NamePrefix = this.NameSuffix = null;
 
@@ -288,7 +280,7 @@ namespace EWSoftware.PDI.Properties
             set
             {
                 if(value == null)
-                    throw new ArgumentNullException("value", LR.GetString("ExNCannotBeNull"));
+                    throw new ArgumentNullException(nameof(value), LR.GetString("ExNCannotBeNull"));
 
                 this.Value = base.Decode(value);
             }

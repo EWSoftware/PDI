@@ -152,6 +152,11 @@ namespace EWSoftware.PDI.Windows.Forms
             0,
             -2147483648});
             this.udcOffset.Name = "udcOffset";
+            this.udcOffset.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // udcDayOfMonth
             // 

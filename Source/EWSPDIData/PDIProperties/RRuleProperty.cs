@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RRuleProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Recurrence Rule property.  It is used with the Personal Data Interchange (PDI)
@@ -43,26 +43,18 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (RRULE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "RRULE"; }
-        }
+        public override string Tag => "RRULE";
 
         /// <summary>
         /// This read-only property defines the default value type as RECUR
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Recur; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Recur;
 
         /// <summary>
         /// This is used to get the recurrence rule information
@@ -95,7 +87,7 @@ namespace EWSoftware.PDI.Properties
 
                 return recur.ToString();
             }
-            set { this.Recurrence.Parse(value); }
+            set => this.Recurrence.Parse(value);
         }
 
         /// <summary>
@@ -103,8 +95,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

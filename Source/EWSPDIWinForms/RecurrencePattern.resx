@@ -129,10 +129,10 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="chkAdvanced.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 240</value>
+    <value>8, 316</value>
   </data>
   <data name="chkAdvanced.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>115, 24</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="chkAdvanced.TabIndex" type="System.Int32, mscorlib">
@@ -157,7 +157,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbSecondly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 168</value>
+    <value>10, 215</value>
   </data>
   <data name="rbSecondly.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -184,7 +184,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbMinutely.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 144</value>
+    <value>10, 185</value>
   </data>
   <data name="rbMinutely.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -211,7 +211,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbHourly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 120</value>
+    <value>10, 155</value>
   </data>
   <data name="rbHourly.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -238,10 +238,10 @@
     <value>Top, Bottom, Left</value>
   </data>
   <data name="gbSeparator.Location" type="System.Drawing.Point, System.Drawing">
-    <value>109, 16</value>
+    <value>129, 16</value>
   </data>
   <data name="gbSeparator.Size" type="System.Drawing.Size, System.Drawing">
-    <value>2, 248</value>
+    <value>2, 324</value>
   </data>
   <data name="gbSeparator.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -262,7 +262,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucSecondly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 56</value>
+    <value>220, 56</value>
   </data>
   <data name="ucSecondly.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -271,7 +271,7 @@
     <value>ucSecondly</value>
   </data>
   <data name="&gt;&gt;ucSecondly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.SecondlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.SecondlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucSecondly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -283,7 +283,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucHourly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 56</value>
+    <value>220, 56</value>
   </data>
   <data name="ucHourly.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -292,7 +292,7 @@
     <value>ucHourly</value>
   </data>
   <data name="&gt;&gt;ucHourly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.HourlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.HourlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucHourly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -304,7 +304,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucMinutely.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 56</value>
+    <value>220, 56</value>
   </data>
   <data name="ucMinutely.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -313,7 +313,7 @@
     <value>ucMinutely</value>
   </data>
   <data name="&gt;&gt;ucMinutely.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.MinutelyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.MinutelyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucMinutely.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -325,7 +325,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucDaily.Size" type="System.Drawing.Size, System.Drawing">
-    <value>185, 80</value>
+    <value>242, 80</value>
   </data>
   <data name="ucDaily.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -334,7 +334,7 @@
     <value>ucDaily</value>
   </data>
   <data name="&gt;&gt;ucDaily.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.DailyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.DailyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucDaily.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -346,7 +346,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucWeekly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>408, 104</value>
+    <value>485, 104</value>
   </data>
   <data name="ucWeekly.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -355,7 +355,7 @@
     <value>ucWeekly</value>
   </data>
   <data name="&gt;&gt;ucWeekly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.WeeklyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.WeeklyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucWeekly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -367,7 +367,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucMonthly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>460, 88</value>
+    <value>544, 88</value>
   </data>
   <data name="ucMonthly.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -376,7 +376,7 @@
     <value>ucMonthly</value>
   </data>
   <data name="&gt;&gt;ucMonthly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.MonthlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.MonthlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucMonthly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -388,7 +388,7 @@
     <value>8, 8</value>
   </data>
   <data name="ucYearly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 112</value>
+    <value>485, 112</value>
   </data>
   <data name="ucYearly.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -397,7 +397,7 @@
     <value>ucYearly</value>
   </data>
   <data name="&gt;&gt;ucYearly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.YearlyPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.YearlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucYearly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -406,10 +406,10 @@
     <value>6</value>
   </data>
   <data name="pnlPatterns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 16</value>
+    <value>140, 20</value>
   </data>
   <data name="pnlPatterns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>472, 128</value>
+    <value>555, 128</value>
   </data>
   <data name="pnlPatterns.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -430,7 +430,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbYearly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 24</value>
+    <value>10, 35</value>
   </data>
   <data name="rbYearly.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -457,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbMonthly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 48</value>
+    <value>10, 65</value>
   </data>
   <data name="rbMonthly.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -484,7 +484,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbWeekly.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 72</value>
+    <value>10, 95</value>
   </data>
   <data name="rbWeekly.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -511,7 +511,7 @@
     <value>NoControl</value>
   </data>
   <data name="rbDaily.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 96</value>
+    <value>10, 125</value>
   </data>
   <data name="rbDaily.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 24</value>
@@ -541,10 +541,10 @@
     <value>True</value>
   </data>
   <data name="ucAdvanced.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 24</value>
+    <value>141, 24</value>
   </data>
   <data name="ucAdvanced.Size" type="System.Drawing.Size, System.Drawing">
-    <value>472, 240</value>
+    <value>546, 316</value>
   </data>
   <data name="ucAdvanced.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -556,7 +556,7 @@
     <value>ucAdvanced</value>
   </data>
   <data name="&gt;&gt;ucAdvanced.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.AdvancedPattern, EWSoftware.PDI.Windows.Forms, Version=2014.12.30.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.AdvancedPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucAdvanced.Parent" xml:space="preserve">
     <value>grpPattern</value>
@@ -568,7 +568,7 @@
     <value>8, 8</value>
   </data>
   <data name="grpPattern.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 272</value>
+    <value>701, 348</value>
   </data>
   <data name="grpPattern.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -592,13 +592,13 @@
     <value>Bottom, Left, Right</value>
   </data>
   <data name="cboWeekStartDay.ItemHeight" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="cboWeekStartDay.Location" type="System.Drawing.Point, System.Drawing">
     <value>445, 24</value>
   </data>
   <data name="cboWeekStartDay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 24</value>
+    <value>130, 28</value>
   </data>
   <data name="cboWeekStartDay.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -619,10 +619,10 @@
     <value>NoControl</value>
   </data>
   <data name="lblWeekStartDay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>323, 24</value>
+    <value>288, 26</value>
   </data>
   <data name="lblWeekStartDay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 23</value>
+    <value>151, 23</value>
   </data>
   <data name="lblWeekStartDay.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -646,10 +646,10 @@
     <value>1</value>
   </data>
   <data name="udcOccurrences.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 51</value>
+    <value>129, 57</value>
   </data>
   <data name="udcOccurrences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 22</value>
+    <value>65, 26</value>
   </data>
   <data name="udcOccurrences.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -673,10 +673,10 @@
     <value>MM/dd/yyyy hh:mm:ss tt</value>
   </data>
   <data name="dtpEndDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>98, 79</value>
+    <value>129, 92</value>
   </data>
   <data name="dtpEndDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+    <value>235, 26</value>
   </data>
   <data name="dtpEndDate.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -697,7 +697,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>152, 50</value>
+    <value>200, 58</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>102, 23</value>
@@ -727,10 +727,10 @@
     <value>NoControl</value>
   </data>
   <data name="rbEndByDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 77</value>
+    <value>10, 92</value>
   </data>
   <data name="rbEndByDate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 24</value>
+    <value>93, 24</value>
   </data>
   <data name="rbEndByDate.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -754,10 +754,10 @@
     <value>NoControl</value>
   </data>
   <data name="rbNeverEnds.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 21</value>
+    <value>10, 25</value>
   </data>
   <data name="rbNeverEnds.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 24</value>
+    <value>158, 24</value>
   </data>
   <data name="rbNeverEnds.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -781,10 +781,10 @@
     <value>NoControl</value>
   </data>
   <data name="chkHolidays.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 64</value>
+    <value>445, 92</value>
   </data>
   <data name="chkHolidays.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 24</value>
+    <value>223, 24</value>
   </data>
   <data name="chkHolidays.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -808,10 +808,10 @@
     <value>NoControl</value>
   </data>
   <data name="rbEndAfter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 49</value>
+    <value>10, 57</value>
   </data>
   <data name="rbEndAfter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>88, 24</value>
+    <value>113, 24</value>
   </data>
   <data name="rbEndAfter.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -832,10 +832,10 @@
     <value>8</value>
   </data>
   <data name="grpRange.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 288</value>
+    <value>8, 362</value>
   </data>
   <data name="grpRange.Size" type="System.Drawing.Size, System.Drawing">
-    <value>600, 104</value>
+    <value>701, 128</value>
   </data>
   <data name="grpRange.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -859,7 +859,7 @@
     <value>True</value>
   </metadata>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>616, 400</value>
+    <value>717, 498</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>RecurrencePattern</value>

@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : ObservanceRuleControl.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
+' Updated : 11/25/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This is used to edit a VTimeZone object's observance rule collection
@@ -19,7 +19,6 @@
 ' 05/21/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
 
-Imports System
 Imports System.Collections.Generic
 Imports System.ComponentModel
 Imports System.Globalization
@@ -27,7 +26,6 @@ Imports System.Windows.Forms
 
 Imports EWSoftware.PDI
 Imports EWSoftware.PDI.Objects
-Imports EWSoftware.PDI.Windows.Forms
 
 ''' <summary>
 ''' This is used to edit the Observance Rule property collection
@@ -42,9 +40,10 @@ Public Partial Class ObservanceRuleControl
 
         InitializeComponent()
 
-        Dim rules As New List(Of ListItem)()
-        rules.Add(New ListItem(ObservanceRuleType.Standard, "Standard"))
-        rules.Add(New ListItem(ObservanceRuleType.Daylight, "Daylight"))
+        Dim rules As New List(Of ListItem) From {
+            New ListItem(ObservanceRuleType.Standard, "Standard"),
+            New ListItem(ObservanceRuleType.Daylight, "Daylight")
+        }
 
         cboRuleType.ValueMember = "Value"
         cboRuleType.DisplayMember = "Display"

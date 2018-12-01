@@ -69,18 +69,18 @@ namespace CalendarBrowser
             // 
             // txtUniqueId
             // 
-            this.txtUniqueId.Location = new System.Drawing.Point(96, 12);
+            this.txtUniqueId.Location = new System.Drawing.Point(141, 12);
             this.txtUniqueId.Name = "txtUniqueId";
             this.txtUniqueId.ReadOnly = true;
-            this.txtUniqueId.Size = new System.Drawing.Size(380, 22);
+            this.txtUniqueId.Size = new System.Drawing.Size(380, 26);
             this.txtUniqueId.TabIndex = 1;
             this.txtUniqueId.TabStop = false;
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(14, 12);
+            this.label9.Location = new System.Drawing.Point(32, 14);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 23);
+            this.label9.Size = new System.Drawing.Size(103, 23);
             this.label9.TabIndex = 0;
             this.label9.Text = "Unique ID";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -91,10 +91,10 @@ namespace CalendarBrowser
             this.tabInfo.Controls.Add(this.pgAttendees);
             this.tabInfo.Controls.Add(this.pgFreeBusy);
             this.tabInfo.Controls.Add(this.pgReqStats);
-            this.tabInfo.Location = new System.Drawing.Point(12, 138);
+            this.tabInfo.Location = new System.Drawing.Point(12, 149);
             this.tabInfo.Name = "tabInfo";
             this.tabInfo.SelectedIndex = 0;
-            this.tabInfo.Size = new System.Drawing.Size(599, 256);
+            this.tabInfo.Size = new System.Drawing.Size(742, 297);
             this.tabInfo.TabIndex = 9;
             // 
             // pgGeneral
@@ -109,27 +109,27 @@ namespace CalendarBrowser
             this.pgGeneral.Controls.Add(this.label17);
             this.pgGeneral.Controls.Add(this.txtUrl);
             this.pgGeneral.Controls.Add(this.label3);
-            this.pgGeneral.Location = new System.Drawing.Point(4, 25);
+            this.pgGeneral.Location = new System.Drawing.Point(4, 29);
             this.pgGeneral.Name = "pgGeneral";
-            this.pgGeneral.Size = new System.Drawing.Size(591, 227);
+            this.pgGeneral.Size = new System.Drawing.Size(734, 264);
             this.pgGeneral.TabIndex = 3;
             this.pgGeneral.Text = "General";
             this.pgGeneral.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(312, 16);
+            this.label2.Location = new System.Drawing.Point(391, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 23);
+            this.label2.Size = new System.Drawing.Size(54, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "End";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtDuration
             // 
-            this.txtDuration.Location = new System.Drawing.Point(96, 56);
+            this.txtDuration.Location = new System.Drawing.Point(116, 56);
             this.txtDuration.Name = "txtDuration";
-            this.txtDuration.Size = new System.Drawing.Size(108, 22);
+            this.txtDuration.Size = new System.Drawing.Size(116, 26);
             this.txtDuration.TabIndex = 5;
             // 
             // dtpEndDate
@@ -137,10 +137,10 @@ namespace CalendarBrowser
             this.dtpEndDate.Checked = false;
             this.dtpEndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(358, 16);
+            this.dtpEndDate.Location = new System.Drawing.Point(451, 16);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.ShowCheckBox = true;
-            this.dtpEndDate.Size = new System.Drawing.Size(210, 22);
+            this.dtpEndDate.Size = new System.Drawing.Size(255, 26);
             this.dtpEndDate.TabIndex = 3;
             // 
             // dtpStartDate
@@ -148,26 +148,26 @@ namespace CalendarBrowser
             this.dtpStartDate.Checked = false;
             this.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt";
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(96, 16);
+            this.dtpStartDate.Location = new System.Drawing.Point(116, 16);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.ShowCheckBox = true;
-            this.dtpStartDate.Size = new System.Drawing.Size(210, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(255, 26);
             this.dtpStartDate.TabIndex = 1;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(15, 56);
+            this.label4.Location = new System.Drawing.Point(16, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 23);
+            this.label4.Size = new System.Drawing.Size(94, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Duration";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(40, 16);
+            this.label1.Location = new System.Drawing.Point(41, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 23);
+            this.label1.Size = new System.Drawing.Size(69, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Start";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -175,34 +175,34 @@ namespace CalendarBrowser
             // txtComments
             // 
             this.txtComments.AcceptsReturn = true;
-            this.txtComments.Location = new System.Drawing.Point(96, 136);
+            this.txtComments.Location = new System.Drawing.Point(116, 136);
             this.txtComments.Multiline = true;
             this.txtComments.Name = "txtComments";
             this.txtComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtComments.Size = new System.Drawing.Size(424, 72);
+            this.txtComments.Size = new System.Drawing.Size(590, 110);
             this.txtComments.TabIndex = 9;
             // 
             // label17
             // 
-            this.label17.Location = new System.Drawing.Point(10, 136);
+            this.label17.Location = new System.Drawing.Point(10, 138);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 23);
+            this.label17.Size = new System.Drawing.Size(100, 23);
             this.label17.TabIndex = 8;
             this.label17.Text = "&Comments";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(96, 96);
+            this.txtUrl.Location = new System.Drawing.Point(116, 96);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(424, 22);
+            this.txtUrl.Size = new System.Drawing.Size(590, 26);
             this.txtUrl.TabIndex = 7;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(50, 96);
+            this.label3.Location = new System.Drawing.Point(47, 98);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 23);
+            this.label3.Size = new System.Drawing.Size(63, 23);
             this.label3.TabIndex = 6;
             this.label3.Text = "&URL";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -210,82 +210,82 @@ namespace CalendarBrowser
             // pgAttendees
             // 
             this.pgAttendees.Controls.Add(this.ucAttendees);
-            this.pgAttendees.Location = new System.Drawing.Point(4, 25);
+            this.pgAttendees.Location = new System.Drawing.Point(4, 29);
             this.pgAttendees.Name = "pgAttendees";
-            this.pgAttendees.Size = new System.Drawing.Size(591, 227);
+            this.pgAttendees.Size = new System.Drawing.Size(734, 264);
             this.pgAttendees.TabIndex = 0;
             this.pgAttendees.Text = "Attendees";
             this.pgAttendees.UseVisualStyleBackColor = true;
             // 
             // ucAttendees
             // 
-            this.ucAttendees.Location = new System.Drawing.Point(47, 5);
+            this.ucAttendees.Location = new System.Drawing.Point(90, 25);
             this.ucAttendees.Name = "ucAttendees";
-            this.ucAttendees.Size = new System.Drawing.Size(496, 216);
+            this.ucAttendees.Size = new System.Drawing.Size(554, 214);
             this.ucAttendees.TabIndex = 0;
             // 
             // pgFreeBusy
             // 
             this.pgFreeBusy.Controls.Add(this.ucFreeBusy);
-            this.pgFreeBusy.Location = new System.Drawing.Point(4, 25);
+            this.pgFreeBusy.Location = new System.Drawing.Point(4, 29);
             this.pgFreeBusy.Name = "pgFreeBusy";
-            this.pgFreeBusy.Size = new System.Drawing.Size(591, 227);
+            this.pgFreeBusy.Size = new System.Drawing.Size(734, 264);
             this.pgFreeBusy.TabIndex = 1;
             this.pgFreeBusy.Text = "Free/Busy";
             this.pgFreeBusy.UseVisualStyleBackColor = true;
             // 
             // ucFreeBusy
             // 
-            this.ucFreeBusy.Location = new System.Drawing.Point(76, 37);
+            this.ucFreeBusy.Location = new System.Drawing.Point(105, 50);
             this.ucFreeBusy.Name = "ucFreeBusy";
-            this.ucFreeBusy.Size = new System.Drawing.Size(438, 152);
+            this.ucFreeBusy.Size = new System.Drawing.Size(525, 164);
             this.ucFreeBusy.TabIndex = 0;
             // 
             // pgReqStats
             // 
             this.pgReqStats.Controls.Add(this.ucRequestStatus);
-            this.pgReqStats.Location = new System.Drawing.Point(4, 25);
+            this.pgReqStats.Location = new System.Drawing.Point(4, 29);
             this.pgReqStats.Name = "pgReqStats";
-            this.pgReqStats.Size = new System.Drawing.Size(591, 227);
+            this.pgReqStats.Size = new System.Drawing.Size(734, 264);
             this.pgReqStats.TabIndex = 2;
             this.pgReqStats.Text = "Request Status";
             this.pgReqStats.UseVisualStyleBackColor = true;
             // 
             // ucRequestStatus
             // 
-            this.ucRequestStatus.Location = new System.Drawing.Point(87, 41);
+            this.ucRequestStatus.Location = new System.Drawing.Point(110, 56);
             this.ucRequestStatus.Name = "ucRequestStatus";
-            this.ucRequestStatus.Size = new System.Drawing.Size(416, 144);
+            this.ucRequestStatus.Size = new System.Drawing.Size(514, 152);
             this.ucRequestStatus.TabIndex = 0;
             // 
             // txtOrganizer
             // 
-            this.txtOrganizer.Location = new System.Drawing.Point(96, 72);
+            this.txtOrganizer.Location = new System.Drawing.Point(141, 83);
             this.txtOrganizer.Name = "txtOrganizer";
-            this.txtOrganizer.Size = new System.Drawing.Size(437, 22);
+            this.txtOrganizer.Size = new System.Drawing.Size(572, 26);
             this.txtOrganizer.TabIndex = 6;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(18, 72);
+            this.label5.Location = new System.Drawing.Point(22, 83);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 23);
+            this.label5.Size = new System.Drawing.Size(113, 23);
             this.label5.TabIndex = 5;
             this.label5.Text = "&Organizer";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtContact
             // 
-            this.txtContact.Location = new System.Drawing.Point(96, 104);
+            this.txtContact.Location = new System.Drawing.Point(141, 115);
             this.txtContact.Name = "txtContact";
-            this.txtContact.Size = new System.Drawing.Size(437, 22);
+            this.txtContact.Size = new System.Drawing.Size(572, 26);
             this.txtContact.TabIndex = 8;
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(26, 104);
+            this.label6.Location = new System.Drawing.Point(22, 115);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 23);
+            this.label6.Size = new System.Drawing.Size(113, 23);
             this.label6.TabIndex = 7;
             this.label6.Text = "Contact";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -294,7 +294,7 @@ namespace CalendarBrowser
             // 
             this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(523, 400);
+            this.btnCancel.Location = new System.Drawing.Point(666, 452);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 32);
             this.btnCancel.TabIndex = 11;
@@ -303,7 +303,7 @@ namespace CalendarBrowser
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(12, 400);
+            this.btnOK.Location = new System.Drawing.Point(12, 452);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(88, 32);
             this.btnOK.TabIndex = 10;
@@ -315,9 +315,9 @@ namespace CalendarBrowser
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(8, 40);
+            this.label7.Location = new System.Drawing.Point(18, 49);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 23);
+            this.label7.Size = new System.Drawing.Size(117, 23);
             this.label7.TabIndex = 2;
             this.label7.Text = "&Time Zone";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -325,16 +325,16 @@ namespace CalendarBrowser
             // cboTimeZone
             // 
             this.cboTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTimeZone.Location = new System.Drawing.Point(96, 40);
+            this.cboTimeZone.Location = new System.Drawing.Point(141, 49);
             this.cboTimeZone.MaxDropDownItems = 16;
             this.cboTimeZone.Name = "cboTimeZone";
-            this.cboTimeZone.Size = new System.Drawing.Size(437, 24);
+            this.cboTimeZone.Size = new System.Drawing.Size(502, 28);
             this.cboTimeZone.TabIndex = 3;
             this.cboTimeZone.SelectedIndexChanged += new System.EventHandler(this.cboTimeZone_SelectedIndexChanged);
             // 
             // btnApplyTZ
             // 
-            this.btnApplyTZ.Location = new System.Drawing.Point(539, 38);
+            this.btnApplyTZ.Location = new System.Drawing.Point(649, 48);
             this.btnApplyTZ.Name = "btnApplyTZ";
             this.btnApplyTZ.Size = new System.Drawing.Size(64, 28);
             this.btnApplyTZ.TabIndex = 4;
@@ -345,7 +345,7 @@ namespace CalendarBrowser
             // 
             this.AcceptButton = this.btnOK;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(623, 444);
+            this.ClientSize = new System.Drawing.Size(766, 496);
             this.Controls.Add(this.btnApplyTZ);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboTimeZone);

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AttendeeProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Attendee property used by the vCalendar and iCalendar classes
@@ -19,7 +19,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 using EWSoftware.PDI.Parser;
@@ -45,8 +44,6 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private StringCollection delFrom, delTo, member;
-        private string role, status, expect, cuType;
-        private bool rsvp;
 
         // This is used to map parameter name and value strings to a ParameterType enumeration
         private static NameToValue<ParameterType>[] ntv = {
@@ -89,18 +86,13 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports vCalendar 1.0 and iCalendar 2.0</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCalendar10 |
+            SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (ATTENDEE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "ATTENDEE"; }
-        }
+        public override string Tag => "ATTENDEE";
 
         /// <summary>
         /// This property is used to set or get the calendar user type (CUTYPE) parameter for the calendar user
@@ -108,22 +100,14 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects.  It is used to define the type of
         /// calendar user specified by the property such as INDIVIDUAL, GROUP, RESOURCE, etc.</value>
-        public string CalendarUserType
-        {
-            get { return cuType; }
-            set { cuType = value; }
-        }
+        public string CalendarUserType { get; set; }
 
         /// <summary>
         /// This property is used to set or get the calendar user expectation (EXPECT) parameter for the calendar
         /// user specified by the property value.
         /// </summary>
         /// <value>This parameter is only applicable to vCalendar 1.0 objects</value>
-        public string Expectation
-        {
-            get { return expect; }
-            set { expect = value; }
-        }
+        public string Expectation { get; set; }
 
         /// <summary>
         /// This property is used to set or get the "delegated from" (DELEGATED-FROM) parameters for the calendar
@@ -181,33 +165,22 @@ namespace EWSoftware.PDI.Properties
         /// property value.
         /// </summary>
         /// <value>This parameter is applicable to vCalendar and iCalendar objects</value>
-        public string Role
-        {
-            get { return role; }
-            set { role = value; }
-        }
+        public string Role { get; set; }
 
         /// <summary>
         /// This property is used to set or get the participation status parameter (STATUS for vCalendar,
         /// PART-STATUS for iCalendar) for the calendar user specified by the property value.
         /// </summary>
         /// <value>This parameter is applicable to vCalendar and iCalendar objects</value>
-        public string ParticipationStatus
-        {
-            get { return status; }
-            set { status = value; }
-        }
+        public string ParticipationStatus { get; set; }
 
         /// <summary>
         /// This property is used to set or get the RSVP (RSVP) parameter for the calendar user specified by the
         /// property value.
         /// </summary>
         /// <value>This parameter is applicable to vCalendar and iCalendar objects</value>
-        public bool Rsvp
-        {
-            get { return rsvp; }
-            set { rsvp = value; }
-        }
+        public bool Rsvp { get; set; }
+
         #endregion
 
         #region Constructor
@@ -243,11 +216,11 @@ namespace EWSoftware.PDI.Properties
         {
             AttendeeProperty a = (AttendeeProperty)p;
 
-            cuType = a.CalendarUserType;
-            expect = a.Expectation;
-            role = a.Role;
-            status = a.ParticipationStatus;
-            rsvp = a.Rsvp;
+            this.CalendarUserType = a.CalendarUserType;
+            this.Expectation = a.Expectation;
+            this.Role = a.Role;
+            this.ParticipationStatus = a.ParticipationStatus;
+            this.Rsvp = a.Rsvp;
 
             this.DelegatedFrom.Clear();
             this.DelegatedTo.Clear();
@@ -276,12 +249,12 @@ namespace EWSoftware.PDI.Properties
             // Serialize the extra parameters if necessary
             if(this.Version == SpecificationVersions.iCalendar20)
             {
-                if(cuType != null && cuType.Length != 0)
+                if(this.CalendarUserType != null && this.CalendarUserType.Length != 0)
                 {
                     sb.Append(';');
                     sb.Append(ParameterNames.CalendarUserType);
                     sb.Append('=');
-                    sb.Append(cuType);
+                    sb.Append(this.CalendarUserType);
                 }
 
                 // Delegated From values are always enclosed in quotes
@@ -338,15 +311,15 @@ namespace EWSoftware.PDI.Properties
                     }
                 }
 
-                if(status != null && status.Length != 0)
+                if(this.ParticipationStatus != null && this.ParticipationStatus.Length != 0)
                 {
                     sb.Append(';');
                     sb.Append(ParameterNames.PartStatus);
                     sb.Append('=');
-                    sb.Append(status);
+                    sb.Append(this.ParticipationStatus);
                 }
 
-                if(rsvp)
+                if(this.Rsvp)
                 {
                     sb.Append(';');
                     sb.Append(ParameterNames.Rsvp);
@@ -355,23 +328,23 @@ namespace EWSoftware.PDI.Properties
             }
             else
             {
-                if(expect != null && expect.Length != 0)
+                if(this.Expectation != null && this.Expectation.Length != 0)
                 {
                     sb.Append(';');
                     sb.Append(ParameterNames.Expect);
                     sb.Append('=');
-                    sb.Append(expect);
+                    sb.Append(this.Expectation);
                 }
 
-                if(status != null && status.Length != 0)
+                if(this.ParticipationStatus != null && this.ParticipationStatus.Length != 0)
                 {
                     sb.Append(';');
                     sb.Append(ParameterNames.Status);
                     sb.Append('=');
-                    sb.Append(status);
+                    sb.Append(this.ParticipationStatus);
                 }
 
-                if(rsvp)
+                if(this.Rsvp)
                 {
                     sb.Append(';');
                     sb.Append(ParameterNames.Rsvp);
@@ -379,12 +352,12 @@ namespace EWSoftware.PDI.Properties
                 }
             }
 
-            if(role != null && role.Length != 0)
+            if(this.Role != null && this.Role.Length != 0)
             {
                 sb.Append(';');
                 sb.Append(ParameterNames.Role);
                 sb.Append('=');
-                sb.Append(role);
+                sb.Append(this.Role);
             }
         }
 
@@ -424,7 +397,7 @@ namespace EWSoftware.PDI.Properties
                             parameters.RemoveAt(paramIdx);
 
                         if(paramIdx < parameters.Count)
-                            role = parameters[paramIdx];
+                            this.Role = parameters[paramIdx];
                         break;
 
                     case ParameterType.Rsvp:
@@ -435,7 +408,7 @@ namespace EWSoftware.PDI.Properties
                         {
                             tempVal = parameters[paramIdx].Trim();
 
-                            rsvp = (String.Compare(tempVal, "YES", StringComparison.OrdinalIgnoreCase) == 0 ||
+                            this.Rsvp = (String.Compare(tempVal, "YES", StringComparison.OrdinalIgnoreCase) == 0 ||
                               String.Compare(tempVal, "TRUE", StringComparison.OrdinalIgnoreCase) == 0);
                         }
                         break;
@@ -445,7 +418,7 @@ namespace EWSoftware.PDI.Properties
                             parameters.RemoveAt(paramIdx);
 
                         if(paramIdx < parameters.Count)
-                            expect = parameters[paramIdx];
+                            this.Expectation = parameters[paramIdx];
                         break;
 
                     case ParameterType.CalendarUserType:
@@ -453,7 +426,7 @@ namespace EWSoftware.PDI.Properties
                             parameters.RemoveAt(paramIdx);
 
                         if(paramIdx < parameters.Count)
-                            cuType = parameters[paramIdx];
+                            this.CalendarUserType = parameters[paramIdx];
                         break;
 
                     case ParameterType.DelegatedFrom:
@@ -521,7 +494,7 @@ namespace EWSoftware.PDI.Properties
                             parameters.RemoveAt(paramIdx);
 
                         if(paramIdx < parameters.Count)
-                            status = parameters[paramIdx];
+                            this.ParticipationStatus = parameters[paramIdx];
                         break;
                 }
 

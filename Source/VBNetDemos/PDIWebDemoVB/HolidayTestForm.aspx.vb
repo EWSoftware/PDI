@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : HolidayTestForm.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 12/20/2014
-' Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+' Updated : 11/22/2018
+' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This page is used to demonstrate the Holiday and date utility classes
@@ -18,14 +18,7 @@
 ' 01/25/2005  EFW  Created the code
 '================================================================================================================
 
-Imports System
-Imports System.ComponentModel
-Imports System.Data
 Imports System.Globalization
-Imports System.Linq
-Imports System.Web
-Imports System.Web.UI
-Imports System.Web.UI.WebControls
 Imports System.Xml.Serialization
 
 Imports EWSoftware.PDI
@@ -205,15 +198,15 @@ Namespace PDIWebDemoVB
 
             ' Create holiday object and replace it in the collection
             If rbFloating.Checked = True Then
-                Dim fl As New FloatingHoliday()
-
-                fl.Month = cboMonth.SelectedIndex + 1
-                fl.Description = DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text
-                fl.Occurrence = CType(DirectCast(e.Item.FindControl("cboOccurrence"),
-                    DropDownList).SelectedIndex + 1, DayOccurrence)
-                fl.Weekday = CType(DirectCast(e.Item.FindControl("cboDayOfWeek"), DropDownList).SelectedIndex,
-                    System.DayOfWeek)
-                fl.Offset = Convert.ToInt32(DirectCast(e.Item.FindControl("txtOffset"), TextBox).Text)
+                Dim fl As New FloatingHoliday With {
+                    .Month = cboMonth.SelectedIndex + 1,
+                    .Description = DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text,
+                    .Occurrence = CType(DirectCast(e.Item.FindControl("cboOccurrence"),
+                    DropDownList).SelectedIndex + 1, DayOccurrence),
+                    .Weekday = CType(DirectCast(e.Item.FindControl("cboDayOfWeek"), DropDownList).SelectedIndex,
+                    DayOfWeek),
+                    .Offset = Convert.ToInt32(DirectCast(e.Item.FindControl("txtOffset"), TextBox).Text)
+                }
 
                 hc(e.Item.ItemIndex) = fl
             Else
@@ -226,12 +219,12 @@ Namespace PDIWebDemoVB
                     Return
                 End If
 
-                Dim fx As FixedHoliday = New FixedHoliday()
-
-                fx.Month = cboMonth.SelectedIndex + 1
-                fx.Description = DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text
-                fx.AdjustFixedDate = DirectCast(e.Item.FindControl("chkAdjustDate"), CheckBox).Checked
-                fx.Day = Convert.ToInt32(DirectCast(e.Item.FindControl("txtDayOfMonth"), TextBox).Text)
+                Dim fx As FixedHoliday = New FixedHoliday With {
+                    .Month = cboMonth.SelectedIndex + 1,
+                    .Description = DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text,
+                    .AdjustFixedDate = DirectCast(e.Item.FindControl("chkAdjustDate"), CheckBox).Checked,
+                    .Day = Convert.ToInt32(DirectCast(e.Item.FindControl("txtDayOfMonth"), TextBox).Text)
+                }
 
                 hc(e.Item.ItemIndex) = fx
             End If

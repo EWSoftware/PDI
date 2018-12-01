@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AttachmentsControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a calendar object's attachment properties
@@ -167,9 +167,10 @@ namespace CalendarBrowser
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                AttachProperty a = new AttachProperty();
-
-                a.FormatType = (txtFormat.Text.Trim().Length == 0) ? null : txtFormat.Text;
+                AttachProperty a = new AttachProperty
+                {
+                    FormatType = (txtFormat.Text.Trim().Length == 0) ? null : txtFormat.Text
+                };
 
                 // If not inline, store the filename.  If inline, store the data from the file.
                 if(!chkInline.Checked)

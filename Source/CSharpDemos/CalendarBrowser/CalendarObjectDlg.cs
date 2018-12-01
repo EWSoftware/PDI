@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarObjectDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a calendar object's properties (VEvent, VToDo, or a VJournal component)
@@ -83,9 +83,8 @@ namespace CalendarBrowser
             txtDuration.Enabled = txtOrganizer.Enabled = ucRequestStatus.Enabled = txtLatitude.Enabled =
                 txtLongitude.Enabled = btnFind.Enabled = cboTimeZone.Enabled = btnApplyTZ.Enabled = isICalendar;
 
-            if(oCal is VEvent)
+            if(oCal is VEvent e)
             {
-                VEvent e = (VEvent)oCal;
                 this.Text = "Event Properties";
 
                 lblCompleted.Visible = dtpCompleted.Visible = lblPercent.Visible = udcPercent.Visible = false;
@@ -165,9 +164,8 @@ namespace CalendarBrowser
                 txtUrl.Text = e.Url.Value;
                 txtComments.Text = e.Comment.Value;
             }
-            else if(oCal is VToDo)
+            else if(oCal is VToDo td)
             {
-                VToDo td = (VToDo)oCal;
                 this.Text = "To-Do Properties";
 
                 chkTransparent.Visible = lblLocation.Visible = txtLocation.Visible = false;
@@ -258,9 +256,8 @@ namespace CalendarBrowser
                 txtUrl.Text = td.Url.Value;
                 txtComments.Text = td.Comment.Value;
             }
-            else if(oCal is VJournal)
+            else if(oCal is VJournal j)
             {
-                VJournal j = (VJournal)oCal;
                 this.Text = "Journal Properties";
 
                 chkTransparent.Visible = lblPriority.Visible = udcPriority.Visible = lblEndDate.Visible =
@@ -294,7 +291,7 @@ namespace CalendarBrowser
                 txtDescription.Text = j.Description.Value;
 
                 // Load status values and set status
-                cboStatus.Items.AddRange(new[] { "None",  "Draft", "Final", "Cancelled" });
+                cboStatus.Items.AddRange(new[] { "None", "Draft", "Final", "Cancelled" });
 
                 if(!cboStatus.Items.Contains(j.Status.StatusValue.ToString()))
                     cboStatus.Items.Add(j.Status.StatusValue.ToString());
@@ -349,10 +346,8 @@ namespace CalendarBrowser
         {
             // We'll use the TimeZoneDateTime property on all date/time values so that they are set literally
             // rather than being converted to the time zone as would happen with the DateTimeValue property.
-            if(oCal is VEvent)
+            if(oCal is VEvent e)
             {
-                VEvent e = (VEvent)oCal;
-
                 // Header.  Unique ID and Created Date are not changed
                 e.Transparency.IsTransparent = chkTransparent.Checked;
                 e.LastModified.TimeZoneDateTime = DateTime.Now;
@@ -425,10 +420,8 @@ namespace CalendarBrowser
                 e.Url.Value = txtUrl.Text;
                 e.Comment.Value = txtComments.Text;
             }
-            else if(oCal is VToDo)
+            else if(oCal is VToDo td)
             {
-                VToDo td = (VToDo)oCal;
-
                 // Header.  Unique ID and Created Date are not changed
                 td.LastModified.TimeZoneDateTime = DateTime.Now;
                 td.Classification.Value = txtClass.Text;
@@ -508,10 +501,8 @@ namespace CalendarBrowser
                 td.Url.Value = txtUrl.Text;
                 td.Comment.Value = txtComments.Text;
             }
-            else if(oCal is VJournal)
+            else if(oCal is VJournal j)
             {
-                VJournal j = (VJournal)oCal;
-
                 // Header.  Unique ID and Created Date are not changed
                 j.LastModified.TimeZoneDateTime = DateTime.Now;
                 j.Classification.Value = txtClass.Text;
@@ -680,9 +671,6 @@ namespace CalendarBrowser
         /// <param name="e">The event parameters</param>
         private void CalendarObjectDlg_Closing(object sender, CancelEventArgs e)
         {
-            Duration d;
-            double latitude, longitude;
-
             // Ignore on cancel
             if(this.DialogResult == DialogResult.Cancel)
                 return;
@@ -692,7 +680,7 @@ namespace CalendarBrowser
             tabInfo.SelectedTab = pgGeneral;
 
             if(txtDuration.Visible && txtDuration.Text.Length != 0)
-                if(!Duration.TryParse(txtDuration.Text, out d))
+                if(!Duration.TryParse(txtDuration.Text, out Duration d))
                 {
                     e.Cancel = true;
                     epErrors.SetError(txtDuration, "Invalid duration value");
@@ -716,7 +704,7 @@ namespace CalendarBrowser
             if(txtLatitude.Enabled)
             {
                 if(txtLatitude.Text.Length != 0)
-                    if(!Double.TryParse(txtLatitude.Text, out latitude) || latitude < -90.0 || latitude > 90.0)
+                    if(!Double.TryParse(txtLatitude.Text, out double latitude) || latitude < -90.0 || latitude > 90.0)
                     {
                         e.Cancel = true;
                         epErrors.SetError(txtLatitude, "Latitude must be a valid numeric value between -90 and 90");
@@ -725,7 +713,7 @@ namespace CalendarBrowser
                     }
 
                 if(txtLongitude.Text.Length != 0)
-                    if(!Double.TryParse(txtLongitude.Text, out longitude) || longitude < -180.0 || longitude > 180.0)
+                    if(!Double.TryParse(txtLongitude.Text, out double longitude) || longitude < -180.0 || longitude > 180.0)
                     {
                         e.Cancel = true;
                         epErrors.SetError(txtLongitude, "Longitude must be a valid numeric value between -180 and 180");

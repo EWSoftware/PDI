@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PercentCompleteProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/24/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Percent Complete property class used by the Personal Data Interchange (PDI) vCalendar
@@ -50,26 +50,17 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports iCalendar 2.0 only</value>
-        public override SpecificationVersions VersionsSupported
-        {
-            get { return SpecificationVersions.iCalendar20; }
-        }
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (PERCENT-COMPLETE)
         /// </summary>
-        public override string Tag
-        {
-            get { return "PERCENT-COMPLETE"; }
-        }
+        public override string Tag => "PERCENT-COMPLETE";
 
         /// <summary>
         /// This read-only property defines the default value type as INTEGER
         /// </summary>
-        public override string DefaultValueLocation
-        {
-            get { return ValLocValue.Integer; }
-        }
+        public override string DefaultValueLocation => ValLocValue.Integer;
 
         /// <summary>
         /// This allows the percentage to be set or retrieved as an integer
@@ -78,11 +69,11 @@ namespace EWSoftware.PDI.Properties
         /// and 100.</exception>
         public int Percentage
         {
-            get { return percentage; }
+            get => percentage;
             set
             {
                 if(value < 0 || value > 100)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExPercentageBadValue"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExPercentageBadValue"));
 
                 percentage = value;
             }
@@ -122,8 +113,8 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public override string EncodedValue
         {
-            get { return this.Value; }
-            set { this.Value = value; }
+            get => this.Value;
+            set => this.Value = value;
         }
         #endregion
 

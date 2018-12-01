@@ -106,7 +106,7 @@
       </HelpKeywords>
     </Topic>
   </Topic>
-  <Topic id="a1b468b7-7c76-469f-a514-784b6fb8f8f3" visible="True" isSelected="true" title="Making a donation">
+  <Topic id="a1b468b7-7c76-469f-a514-784b6fb8f8f3" visible="True" title="Making a donation">
     <HelpKeywords>
       <HelpKeyword index="K" term="donate" />
       <HelpKeyword index="K" term="support, donate" />
@@ -117,6 +117,11 @@
       <HelpKeyword index="K" term="history" />
       <HelpKeyword index="K" term="version history" />
     </HelpKeywords>
+    <Topic id="76059656-b2b1-4b89-8ba2-af4aa8aaebb6" visible="True" isSelected="true" title="Version 2018.12.1.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="versions, 2018.12.1.0" />
+      </HelpKeywords>
+    </Topic>
     <Topic id="6389a8d6-8432-4ee5-8d28-870a37c043f2" visible="True" title="Version 2015.1.19.0">
       <HelpKeywords>
         <HelpKeyword index="K" term="versions, 2015.1.19.0" />

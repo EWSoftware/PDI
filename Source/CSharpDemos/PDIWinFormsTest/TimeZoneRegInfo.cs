@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : TimeZoneRegInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This class is used to create a time zone information from the time zone data found in the registry on Windows
@@ -18,6 +18,8 @@
 // ==============================================================================================================
 // 01/05/2005  EFW  Factored out the code to share between applications
 //===============================================================================================================
+
+// Ignore Spelling: Dlt
 
 using System;
 using System.Runtime.InteropServices;

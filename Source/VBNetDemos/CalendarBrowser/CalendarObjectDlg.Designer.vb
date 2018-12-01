@@ -110,7 +110,7 @@ Partial Class CalendarObjectDlg
         '
         Me.btnCancel.CausesValidation = false
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(542, 494)
+        Me.btnCancel.Location = New System.Drawing.Point(653, 554)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(88, 32)
         Me.btnCancel.TabIndex = 18
@@ -119,7 +119,7 @@ Partial Class CalendarObjectDlg
         'btnOK
         '
         Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOK.Location = New System.Drawing.Point(12, 494)
+        Me.btnOK.Location = New System.Drawing.Point(12, 554)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(88, 32)
         Me.btnOK.TabIndex = 17
@@ -127,10 +127,10 @@ Partial Class CalendarObjectDlg
         '
         'txtUniqueId
         '
-        Me.txtUniqueId.Location = New System.Drawing.Point(112, 12)
+        Me.txtUniqueId.Location = New System.Drawing.Point(140, 12)
         Me.txtUniqueId.Name = "txtUniqueId"
         Me.txtUniqueId.ReadOnly = true
-        Me.txtUniqueId.Size = New System.Drawing.Size(376, 22)
+        Me.txtUniqueId.Size = New System.Drawing.Size(376, 26)
         Me.txtUniqueId.TabIndex = 1
         Me.txtUniqueId.TabStop = false
         '
@@ -143,10 +143,10 @@ Partial Class CalendarObjectDlg
         Me.tabInfo.Controls.Add(Me.pgAttachments)
         Me.tabInfo.Controls.Add(Me.pgAlarms)
         Me.tabInfo.Controls.Add(Me.pgMisc)
-        Me.tabInfo.Location = New System.Drawing.Point(12, 136)
+        Me.tabInfo.Location = New System.Drawing.Point(12, 155)
         Me.tabInfo.Name = "tabInfo"
         Me.tabInfo.SelectedIndex = 0
-        Me.tabInfo.Size = New System.Drawing.Size(618, 352)
+        Me.tabInfo.Size = New System.Drawing.Size(733, 393)
         Me.tabInfo.TabIndex = 16
         '
         'pgGeneral
@@ -173,23 +173,23 @@ Partial Class CalendarObjectDlg
         Me.pgGeneral.Controls.Add(Me.dtpCompleted)
         Me.pgGeneral.Controls.Add(Me.lblPercent)
         Me.pgGeneral.Controls.Add(Me.udcPercent)
-        Me.pgGeneral.Location = New System.Drawing.Point(4, 25)
+        Me.pgGeneral.Location = New System.Drawing.Point(4, 29)
         Me.pgGeneral.Name = "pgGeneral"
-        Me.pgGeneral.Size = New System.Drawing.Size(610, 323)
+        Me.pgGeneral.Size = New System.Drawing.Size(725, 360)
         Me.pgGeneral.TabIndex = 3
         Me.pgGeneral.Text = "General"
         Me.pgGeneral.UseVisualStyleBackColor = true
         '
         'txtLocation
         '
-        Me.txtLocation.Location = New System.Drawing.Point(112, 152)
+        Me.txtLocation.Location = New System.Drawing.Point(117, 154)
         Me.txtLocation.Name = "txtLocation"
-        Me.txtLocation.Size = New System.Drawing.Size(424, 22)
+        Me.txtLocation.Size = New System.Drawing.Size(580, 26)
         Me.txtLocation.TabIndex = 15
         '
         'lblLocation
         '
-        Me.lblLocation.Location = New System.Drawing.Point(29, 152)
+        Me.lblLocation.Location = New System.Drawing.Point(34, 154)
         Me.lblLocation.Name = "lblLocation"
         Me.lblLocation.Size = New System.Drawing.Size(77, 23)
         Me.lblLocation.TabIndex = 14
@@ -199,32 +199,32 @@ Partial Class CalendarObjectDlg
         'cboStatus
         '
         Me.cboStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboStatus.Location = New System.Drawing.Point(112, 48)
+        Me.cboStatus.Location = New System.Drawing.Point(117, 48)
         Me.cboStatus.Name = "cboStatus"
-        Me.cboStatus.Size = New System.Drawing.Size(116, 24)
+        Me.cboStatus.Size = New System.Drawing.Size(151, 28)
         Me.cboStatus.TabIndex = 5
         '
         'label18
         '
-        Me.label18.Location = New System.Drawing.Point(51, 48)
+        Me.label18.Location = New System.Drawing.Point(28, 50)
         Me.label18.Name = "label18"
-        Me.label18.Size = New System.Drawing.Size(55, 23)
+        Me.label18.Size = New System.Drawing.Size(83, 23)
         Me.label18.TabIndex = 4
         Me.label18.Text = "Status"
         Me.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtResources
         '
-        Me.txtResources.Location = New System.Drawing.Point(112, 288)
+        Me.txtResources.Location = New System.Drawing.Point(117, 318)
         Me.txtResources.Name = "txtResources"
-        Me.txtResources.Size = New System.Drawing.Size(440, 22)
+        Me.txtResources.Size = New System.Drawing.Size(580, 26)
         Me.txtResources.TabIndex = 21
         '
         'lblResources
         '
-        Me.lblResources.Location = New System.Drawing.Point(19, 288)
+        Me.lblResources.Location = New System.Drawing.Point(12, 318)
         Me.lblResources.Name = "lblResources"
-        Me.lblResources.Size = New System.Drawing.Size(87, 23)
+        Me.lblResources.Size = New System.Drawing.Size(99, 23)
         Me.lblResources.TabIndex = 20
         Me.lblResources.Text = "Resources"
         Me.lblResources.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -232,32 +232,32 @@ Partial Class CalendarObjectDlg
         'txtDescription
         '
         Me.txtDescription.AcceptsReturn = true
-        Me.txtDescription.Location = New System.Drawing.Point(112, 184)
+        Me.txtDescription.Location = New System.Drawing.Point(117, 186)
         Me.txtDescription.Multiline = true
         Me.txtDescription.Name = "txtDescription"
         Me.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtDescription.Size = New System.Drawing.Size(424, 56)
+        Me.txtDescription.Size = New System.Drawing.Size(580, 82)
         Me.txtDescription.TabIndex = 17
         '
         'label11
         '
-        Me.label11.Location = New System.Drawing.Point(19, 184)
+        Me.label11.Location = New System.Drawing.Point(8, 186)
         Me.label11.Name = "label11"
-        Me.label11.Size = New System.Drawing.Size(87, 23)
+        Me.label11.Size = New System.Drawing.Size(103, 23)
         Me.label11.TabIndex = 16
         Me.label11.Text = "Description"
         Me.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtSummary
         '
-        Me.txtSummary.Location = New System.Drawing.Point(112, 120)
+        Me.txtSummary.Location = New System.Drawing.Point(117, 122)
         Me.txtSummary.Name = "txtSummary"
-        Me.txtSummary.Size = New System.Drawing.Size(424, 22)
+        Me.txtSummary.Size = New System.Drawing.Size(580, 26)
         Me.txtSummary.TabIndex = 13
         '
         'label8
         '
-        Me.label8.Location = New System.Drawing.Point(27, 120)
+        Me.label8.Location = New System.Drawing.Point(32, 122)
         Me.label8.Name = "label8"
         Me.label8.Size = New System.Drawing.Size(79, 23)
         Me.label8.TabIndex = 12
@@ -266,34 +266,34 @@ Partial Class CalendarObjectDlg
         '
         'txtCategories
         '
-        Me.txtCategories.Location = New System.Drawing.Point(112, 256)
+        Me.txtCategories.Location = New System.Drawing.Point(117, 286)
         Me.txtCategories.Name = "txtCategories"
-        Me.txtCategories.Size = New System.Drawing.Size(440, 22)
+        Me.txtCategories.Size = New System.Drawing.Size(580, 26)
         Me.txtCategories.TabIndex = 19
         '
         'label21
         '
-        Me.label21.Location = New System.Drawing.Point(19, 256)
+        Me.label21.Location = New System.Drawing.Point(12, 286)
         Me.label21.Name = "label21"
-        Me.label21.Size = New System.Drawing.Size(87, 23)
+        Me.label21.Size = New System.Drawing.Size(99, 23)
         Me.label21.TabIndex = 18
         Me.label21.Text = "&Categories"
         Me.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblEndDate
         '
-        Me.lblEndDate.Location = New System.Drawing.Point(338, 16)
+        Me.lblEndDate.Location = New System.Drawing.Point(379, 16)
         Me.lblEndDate.Name = "lblEndDate"
-        Me.lblEndDate.Size = New System.Drawing.Size(40, 23)
+        Me.lblEndDate.Size = New System.Drawing.Size(57, 23)
         Me.lblEndDate.TabIndex = 2
         Me.lblEndDate.Text = "End"
         Me.lblEndDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtDuration
         '
-        Me.txtDuration.Location = New System.Drawing.Point(384, 48)
+        Me.txtDuration.Location = New System.Drawing.Point(389, 48)
         Me.txtDuration.Name = "txtDuration"
-        Me.txtDuration.Size = New System.Drawing.Size(80, 22)
+        Me.txtDuration.Size = New System.Drawing.Size(116, 26)
         Me.txtDuration.TabIndex = 7
         '
         'dtpEndDate
@@ -301,10 +301,10 @@ Partial Class CalendarObjectDlg
         Me.dtpEndDate.Checked = false
         Me.dtpEndDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpEndDate.Location = New System.Drawing.Point(384, 16)
+        Me.dtpEndDate.Location = New System.Drawing.Point(442, 16)
         Me.dtpEndDate.Name = "dtpEndDate"
         Me.dtpEndDate.ShowCheckBox = true
-        Me.dtpEndDate.Size = New System.Drawing.Size(210, 22)
+        Me.dtpEndDate.Size = New System.Drawing.Size(255, 26)
         Me.dtpEndDate.TabIndex = 3
         '
         'dtpStartDate
@@ -312,35 +312,35 @@ Partial Class CalendarObjectDlg
         Me.dtpStartDate.Checked = false
         Me.dtpStartDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpStartDate.Location = New System.Drawing.Point(112, 16)
+        Me.dtpStartDate.Location = New System.Drawing.Point(117, 16)
         Me.dtpStartDate.Name = "dtpStartDate"
         Me.dtpStartDate.ShowCheckBox = true
-        Me.dtpStartDate.Size = New System.Drawing.Size(210, 22)
+        Me.dtpStartDate.Size = New System.Drawing.Size(255, 26)
         Me.dtpStartDate.TabIndex = 1
         '
         'lblDuration
         '
-        Me.lblDuration.Location = New System.Drawing.Point(309, 48)
+        Me.lblDuration.Location = New System.Drawing.Point(284, 50)
         Me.lblDuration.Name = "lblDuration"
-        Me.lblDuration.Size = New System.Drawing.Size(69, 23)
+        Me.lblDuration.Size = New System.Drawing.Size(99, 23)
         Me.lblDuration.TabIndex = 6
         Me.lblDuration.Text = "Duration"
         Me.lblDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(61, 16)
+        Me.label1.Location = New System.Drawing.Point(51, 16)
         Me.label1.Name = "label1"
-        Me.label1.Size = New System.Drawing.Size(45, 23)
+        Me.label1.Size = New System.Drawing.Size(60, 23)
         Me.label1.TabIndex = 0
         Me.label1.Text = "&Start"
         Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblCompleted
         '
-        Me.lblCompleted.Location = New System.Drawing.Point(291, 79)
+        Me.lblCompleted.Location = New System.Drawing.Point(267, 83)
         Me.lblCompleted.Name = "lblCompleted"
-        Me.lblCompleted.Size = New System.Drawing.Size(87, 23)
+        Me.lblCompleted.Size = New System.Drawing.Size(116, 23)
         Me.lblCompleted.TabIndex = 10
         Me.lblCompleted.Text = "Completed"
         Me.lblCompleted.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -350,26 +350,26 @@ Partial Class CalendarObjectDlg
         Me.dtpCompleted.Checked = false
         Me.dtpCompleted.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpCompleted.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.dtpCompleted.Location = New System.Drawing.Point(384, 79)
+        Me.dtpCompleted.Location = New System.Drawing.Point(389, 81)
         Me.dtpCompleted.Name = "dtpCompleted"
         Me.dtpCompleted.ShowCheckBox = true
-        Me.dtpCompleted.Size = New System.Drawing.Size(210, 22)
+        Me.dtpCompleted.Size = New System.Drawing.Size(255, 26)
         Me.dtpCompleted.TabIndex = 11
         '
         'lblPercent
         '
-        Me.lblPercent.Location = New System.Drawing.Point(42, 79)
+        Me.lblPercent.Location = New System.Drawing.Point(18, 83)
         Me.lblPercent.Name = "lblPercent"
-        Me.lblPercent.Size = New System.Drawing.Size(64, 23)
+        Me.lblPercent.Size = New System.Drawing.Size(93, 23)
         Me.lblPercent.TabIndex = 8
         Me.lblPercent.Text = "% Done"
         Me.lblPercent.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'udcPercent
         '
-        Me.udcPercent.Location = New System.Drawing.Point(112, 80)
+        Me.udcPercent.Location = New System.Drawing.Point(117, 82)
         Me.udcPercent.Name = "udcPercent"
-        Me.udcPercent.Size = New System.Drawing.Size(56, 22)
+        Me.udcPercent.Size = New System.Drawing.Size(65, 26)
         Me.udcPercent.TabIndex = 9
         Me.udcPercent.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -379,9 +379,9 @@ Partial Class CalendarObjectDlg
         Me.pgAttendees.Controls.Add(Me.txtOrganizer)
         Me.pgAttendees.Controls.Add(Me.label5)
         Me.pgAttendees.Controls.Add(Me.ucAttendees)
-        Me.pgAttendees.Location = New System.Drawing.Point(4, 25)
+        Me.pgAttendees.Location = New System.Drawing.Point(4, 29)
         Me.pgAttendees.Name = "pgAttendees"
-        Me.pgAttendees.Size = New System.Drawing.Size(610, 323)
+        Me.pgAttendees.Size = New System.Drawing.Size(725, 360)
         Me.pgAttendees.TabIndex = 0
         Me.pgAttendees.Text = "Attendees"
         Me.pgAttendees.UseVisualStyleBackColor = true
@@ -389,58 +389,58 @@ Partial Class CalendarObjectDlg
         '
         'groupBox1
         '
-        Me.groupBox1.Location = New System.Drawing.Point(36, 48)
+        Me.groupBox1.Location = New System.Drawing.Point(66, 75)
         Me.groupBox1.Name = "groupBox1"
-        Me.groupBox1.Size = New System.Drawing.Size(544, 8)
+        Me.groupBox1.Size = New System.Drawing.Size(597, 8)
         Me.groupBox1.TabIndex = 2
         Me.groupBox1.TabStop = false
         '
         'txtOrganizer
         '
-        Me.txtOrganizer.Location = New System.Drawing.Point(116, 16)
+        Me.txtOrganizer.Location = New System.Drawing.Point(215, 34)
         Me.txtOrganizer.Name = "txtOrganizer"
-        Me.txtOrganizer.Size = New System.Drawing.Size(448, 22)
+        Me.txtOrganizer.Size = New System.Drawing.Size(448, 26)
         Me.txtOrganizer.TabIndex = 1
         '
         'label5
         '
-        Me.label5.Location = New System.Drawing.Point(23, 16)
+        Me.label5.Location = New System.Drawing.Point(105, 36)
         Me.label5.Name = "label5"
-        Me.label5.Size = New System.Drawing.Size(87, 23)
+        Me.label5.Size = New System.Drawing.Size(104, 23)
         Me.label5.TabIndex = 0
         Me.label5.Text = "&Organizer"
         Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'ucAttendees
         '
-        Me.ucAttendees.Location = New System.Drawing.Point(57, 72)
+        Me.ucAttendees.Location = New System.Drawing.Point(66, 100)
         Me.ucAttendees.Name = "ucAttendees"
-        Me.ucAttendees.Size = New System.Drawing.Size(496, 216)
+        Me.ucAttendees.Size = New System.Drawing.Size(597, 227)
         Me.ucAttendees.TabIndex = 3
         '
         'pgRecurrence
         '
         Me.pgRecurrence.Controls.Add(Me.ucRecurrences)
-        Me.pgRecurrence.Location = New System.Drawing.Point(4, 25)
+        Me.pgRecurrence.Location = New System.Drawing.Point(4, 29)
         Me.pgRecurrence.Name = "pgRecurrence"
-        Me.pgRecurrence.Size = New System.Drawing.Size(610, 323)
+        Me.pgRecurrence.Size = New System.Drawing.Size(725, 360)
         Me.pgRecurrence.TabIndex = 4
         Me.pgRecurrence.Text = "Recurrence"
         Me.pgRecurrence.UseVisualStyleBackColor = true
         '
         'ucRecurrences
         '
-        Me.ucRecurrences.Location = New System.Drawing.Point(33, 21)
+        Me.ucRecurrences.Location = New System.Drawing.Point(19, 17)
         Me.ucRecurrences.Name = "ucRecurrences"
-        Me.ucRecurrences.Size = New System.Drawing.Size(545, 280)
+        Me.ucRecurrences.Size = New System.Drawing.Size(686, 327)
         Me.ucRecurrences.TabIndex = 0
         '
         'pgExceptions
         '
         Me.pgExceptions.Controls.Add(Me.ucExceptions)
-        Me.pgExceptions.Location = New System.Drawing.Point(4, 25)
+        Me.pgExceptions.Location = New System.Drawing.Point(4, 29)
         Me.pgExceptions.Name = "pgExceptions"
-        Me.pgExceptions.Size = New System.Drawing.Size(610, 323)
+        Me.pgExceptions.Size = New System.Drawing.Size(725, 360)
         Me.pgExceptions.TabIndex = 5
         Me.pgExceptions.Text = "Exceptions"
         Me.pgExceptions.UseVisualStyleBackColor = true
@@ -448,17 +448,17 @@ Partial Class CalendarObjectDlg
         'ucExceptions
         '
         Me.ucExceptions.EditsExceptions = true
-        Me.ucExceptions.Location = New System.Drawing.Point(33, 21)
+        Me.ucExceptions.Location = New System.Drawing.Point(19, 17)
         Me.ucExceptions.Name = "ucExceptions"
-        Me.ucExceptions.Size = New System.Drawing.Size(545, 280)
+        Me.ucExceptions.Size = New System.Drawing.Size(686, 327)
         Me.ucExceptions.TabIndex = 0
         '
         'pgAttachments
         '
         Me.pgAttachments.Controls.Add(Me.ucAttachments)
-        Me.pgAttachments.Location = New System.Drawing.Point(4, 25)
+        Me.pgAttachments.Location = New System.Drawing.Point(4, 29)
         Me.pgAttachments.Name = "pgAttachments"
-        Me.pgAttachments.Size = New System.Drawing.Size(610, 323)
+        Me.pgAttachments.Size = New System.Drawing.Size(725, 360)
         Me.pgAttachments.TabIndex = 1
         Me.pgAttachments.Text = "Attachments"
         Me.pgAttachments.UseVisualStyleBackColor = true
@@ -466,26 +466,26 @@ Partial Class CalendarObjectDlg
         '
         'ucAttachments
         '
-        Me.ucAttachments.Location = New System.Drawing.Point(17, 9)
+        Me.ucAttachments.Location = New System.Drawing.Point(40, 17)
         Me.ucAttachments.Name = "ucAttachments"
-        Me.ucAttachments.Size = New System.Drawing.Size(576, 304)
+        Me.ucAttachments.Size = New System.Drawing.Size(649, 327)
         Me.ucAttachments.TabIndex = 0
         '
         'pgAlarms
         '
         Me.pgAlarms.Controls.Add(Me.ucAlarms)
-        Me.pgAlarms.Location = New System.Drawing.Point(4, 25)
+        Me.pgAlarms.Location = New System.Drawing.Point(4, 29)
         Me.pgAlarms.Name = "pgAlarms"
-        Me.pgAlarms.Size = New System.Drawing.Size(610, 323)
+        Me.pgAlarms.Size = New System.Drawing.Size(725, 360)
         Me.pgAlarms.TabIndex = 7
         Me.pgAlarms.Text = "Alarms"
         Me.pgAlarms.UseVisualStyleBackColor = true
         '
         'ucAlarms
         '
-        Me.ucAlarms.Location = New System.Drawing.Point(15, 5)
+        Me.ucAlarms.Location = New System.Drawing.Point(24, 7)
         Me.ucAlarms.Name = "ucAlarms"
-        Me.ucAlarms.Size = New System.Drawing.Size(581, 312)
+        Me.ucAlarms.Size = New System.Drawing.Size(677, 347)
         Me.ucAlarms.TabIndex = 0
         '
         'pgMisc
@@ -502,16 +502,16 @@ Partial Class CalendarObjectDlg
         Me.pgMisc.Controls.Add(Me.label17)
         Me.pgMisc.Controls.Add(Me.txtUrl)
         Me.pgMisc.Controls.Add(Me.label3)
-        Me.pgMisc.Location = New System.Drawing.Point(4, 25)
+        Me.pgMisc.Location = New System.Drawing.Point(4, 29)
         Me.pgMisc.Name = "pgMisc"
-        Me.pgMisc.Size = New System.Drawing.Size(610, 323)
+        Me.pgMisc.Size = New System.Drawing.Size(725, 360)
         Me.pgMisc.TabIndex = 6
         Me.pgMisc.Text = "Misc"
         Me.pgMisc.UseVisualStyleBackColor = true
         '
         'groupBox3
         '
-        Me.groupBox3.Location = New System.Drawing.Point(197, 0)
+        Me.groupBox3.Location = New System.Drawing.Point(241, 0)
         Me.groupBox3.Name = "groupBox3"
         Me.groupBox3.Size = New System.Drawing.Size(2, 160)
         Me.groupBox3.TabIndex = 5
@@ -521,53 +521,53 @@ Partial Class CalendarObjectDlg
         '
         Me.groupBox2.Location = New System.Drawing.Point(8, 162)
         Me.groupBox2.Name = "groupBox2"
-        Me.groupBox2.Size = New System.Drawing.Size(600, 8)
+        Me.groupBox2.Size = New System.Drawing.Size(700, 8)
         Me.groupBox2.TabIndex = 7
         Me.groupBox2.TabStop = false
         '
         'ucRequestStatus
         '
-        Me.ucRequestStatus.Location = New System.Drawing.Point(203, 16)
+        Me.ucRequestStatus.Location = New System.Drawing.Point(247, 16)
         Me.ucRequestStatus.Name = "ucRequestStatus"
-        Me.ucRequestStatus.Size = New System.Drawing.Size(402, 144)
+        Me.ucRequestStatus.Size = New System.Drawing.Size(471, 144)
         Me.ucRequestStatus.TabIndex = 6
         '
         'btnFind
         '
-        Me.btnFind.Location = New System.Drawing.Point(88, 100)
+        Me.btnFind.Location = New System.Drawing.Point(108, 100)
         Me.btnFind.Name = "btnFind"
-        Me.btnFind.Size = New System.Drawing.Size(64, 28)
+        Me.btnFind.Size = New System.Drawing.Size(88, 32)
         Me.btnFind.TabIndex = 4
         Me.btnFind.Text = "&Find"
         '
         'txtLongitude
         '
-        Me.txtLongitude.Location = New System.Drawing.Point(88, 72)
+        Me.txtLongitude.Location = New System.Drawing.Point(108, 68)
         Me.txtLongitude.Name = "txtLongitude"
-        Me.txtLongitude.Size = New System.Drawing.Size(88, 22)
+        Me.txtLongitude.Size = New System.Drawing.Size(120, 26)
         Me.txtLongitude.TabIndex = 3
         '
         'lblLongitude
         '
-        Me.lblLongitude.Location = New System.Drawing.Point(6, 72)
+        Me.lblLongitude.Location = New System.Drawing.Point(6, 70)
         Me.lblLongitude.Name = "lblLongitude"
-        Me.lblLongitude.Size = New System.Drawing.Size(76, 23)
+        Me.lblLongitude.Size = New System.Drawing.Size(96, 23)
         Me.lblLongitude.TabIndex = 2
         Me.lblLongitude.Text = "Longitude"
         Me.lblLongitude.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLatitude
         '
-        Me.txtLatitude.Location = New System.Drawing.Point(88, 40)
+        Me.txtLatitude.Location = New System.Drawing.Point(108, 36)
         Me.txtLatitude.Name = "txtLatitude"
-        Me.txtLatitude.Size = New System.Drawing.Size(88, 22)
+        Me.txtLatitude.Size = New System.Drawing.Size(120, 26)
         Me.txtLatitude.TabIndex = 1
         '
         'lblLatitude
         '
-        Me.lblLatitude.Location = New System.Drawing.Point(18, 40)
+        Me.lblLatitude.Location = New System.Drawing.Point(6, 38)
         Me.lblLatitude.Name = "lblLatitude"
-        Me.lblLatitude.Size = New System.Drawing.Size(64, 23)
+        Me.lblLatitude.Size = New System.Drawing.Size(96, 23)
         Me.lblLatitude.TabIndex = 0
         Me.lblLatitude.Text = "&Latitude"
         Me.lblLatitude.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -579,14 +579,14 @@ Partial Class CalendarObjectDlg
         Me.txtComments.Multiline = true
         Me.txtComments.Name = "txtComments"
         Me.txtComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.txtComments.Size = New System.Drawing.Size(424, 64)
+        Me.txtComments.Size = New System.Drawing.Size(554, 127)
         Me.txtComments.TabIndex = 11
         '
         'label17
         '
-        Me.label17.Location = New System.Drawing.Point(54, 216)
+        Me.label17.Location = New System.Drawing.Point(32, 218)
         Me.label17.Name = "label17"
-        Me.label17.Size = New System.Drawing.Size(80, 23)
+        Me.label17.Size = New System.Drawing.Size(102, 23)
         Me.label17.TabIndex = 10
         Me.label17.Text = "&Comments"
         Me.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -595,23 +595,23 @@ Partial Class CalendarObjectDlg
         '
         Me.txtUrl.Location = New System.Drawing.Point(140, 184)
         Me.txtUrl.Name = "txtUrl"
-        Me.txtUrl.Size = New System.Drawing.Size(424, 22)
+        Me.txtUrl.Size = New System.Drawing.Size(554, 26)
         Me.txtUrl.TabIndex = 9
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(94, 184)
+        Me.label3.Location = New System.Drawing.Point(58, 186)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(40, 23)
+        Me.label3.Size = New System.Drawing.Size(76, 23)
         Me.label3.TabIndex = 8
         Me.label3.Text = "&URL"
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'label9
         '
-        Me.label9.Location = New System.Drawing.Point(26, 11)
+        Me.label9.Location = New System.Drawing.Point(25, 14)
         Me.label9.Name = "label9"
-        Me.label9.Size = New System.Drawing.Size(80, 23)
+        Me.label9.Size = New System.Drawing.Size(109, 23)
         Me.label9.TabIndex = 0
         Me.label9.Text = "Unique ID"
         Me.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -619,97 +619,97 @@ Partial Class CalendarObjectDlg
         'txtClass
         '
         Me.txtClass.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtClass.Location = New System.Drawing.Point(112, 98)
+        Me.txtClass.Location = New System.Drawing.Point(140, 110)
         Me.txtClass.Name = "txtClass"
-        Me.txtClass.Size = New System.Drawing.Size(144, 22)
+        Me.txtClass.Size = New System.Drawing.Size(144, 26)
         Me.txtClass.TabIndex = 11
         '
         'label10
         '
-        Me.label10.Location = New System.Drawing.Point(58, 97)
+        Me.label10.Location = New System.Drawing.Point(48, 112)
         Me.label10.Name = "label10"
-        Me.label10.Size = New System.Drawing.Size(48, 23)
+        Me.label10.Size = New System.Drawing.Size(86, 23)
         Me.label10.TabIndex = 10
         Me.label10.Text = "Class"
         Me.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLastModified
         '
-        Me.txtLastModified.Location = New System.Drawing.Point(400, 40)
+        Me.txtLastModified.Location = New System.Drawing.Point(496, 44)
         Me.txtLastModified.Name = "txtLastModified"
         Me.txtLastModified.ReadOnly = true
-        Me.txtLastModified.Size = New System.Drawing.Size(168, 22)
+        Me.txtLastModified.Size = New System.Drawing.Size(207, 26)
         Me.txtLastModified.TabIndex = 6
         Me.txtLastModified.TabStop = false
         '
         'label6
         '
-        Me.label6.Location = New System.Drawing.Point(298, 40)
+        Me.label6.Location = New System.Drawing.Point(363, 46)
         Me.label6.Name = "label6"
-        Me.label6.Size = New System.Drawing.Size(96, 23)
+        Me.label6.Size = New System.Drawing.Size(127, 23)
         Me.label6.TabIndex = 5
         Me.label6.Text = "Last Modified"
         Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtCreated
         '
-        Me.txtCreated.Location = New System.Drawing.Point(112, 40)
+        Me.txtCreated.Location = New System.Drawing.Point(140, 44)
         Me.txtCreated.Name = "txtCreated"
         Me.txtCreated.ReadOnly = true
-        Me.txtCreated.Size = New System.Drawing.Size(168, 22)
+        Me.txtCreated.Size = New System.Drawing.Size(207, 26)
         Me.txtCreated.TabIndex = 4
         Me.txtCreated.TabStop = false
         '
         'label7
         '
-        Me.label7.Location = New System.Drawing.Point(34, 40)
+        Me.label7.Location = New System.Drawing.Point(44, 46)
         Me.label7.Name = "label7"
-        Me.label7.Size = New System.Drawing.Size(72, 23)
+        Me.label7.Size = New System.Drawing.Size(90, 23)
         Me.label7.TabIndex = 3
         Me.label7.Text = "Created"
         Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'udcSequence
         '
-        Me.udcSequence.Location = New System.Drawing.Point(352, 98)
+        Me.udcSequence.Location = New System.Drawing.Point(401, 110)
         Me.udcSequence.Maximum = New Decimal(New Integer() {1048576, 0, 0, 0})
         Me.udcSequence.Name = "udcSequence"
-        Me.udcSequence.Size = New System.Drawing.Size(64, 22)
+        Me.udcSequence.Size = New System.Drawing.Size(97, 26)
         Me.udcSequence.TabIndex = 13
         Me.udcSequence.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'label15
         '
-        Me.label15.Location = New System.Drawing.Point(266, 98)
+        Me.label15.Location = New System.Drawing.Point(291, 112)
         Me.label15.Name = "label15"
-        Me.label15.Size = New System.Drawing.Size(80, 23)
+        Me.label15.Size = New System.Drawing.Size(104, 23)
         Me.label15.TabIndex = 12
         Me.label15.Text = "Sequence"
         Me.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblPriority
         '
-        Me.lblPriority.Location = New System.Drawing.Point(434, 97)
+        Me.lblPriority.Location = New System.Drawing.Point(510, 112)
         Me.lblPriority.Name = "lblPriority"
-        Me.lblPriority.Size = New System.Drawing.Size(56, 23)
+        Me.lblPriority.Size = New System.Drawing.Size(77, 23)
         Me.lblPriority.TabIndex = 14
         Me.lblPriority.Text = "Priority"
         Me.lblPriority.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'udcPriority
         '
-        Me.udcPriority.Location = New System.Drawing.Point(496, 98)
+        Me.udcPriority.Location = New System.Drawing.Point(593, 110)
         Me.udcPriority.Maximum = New Decimal(New Integer() {9, 0, 0, 0})
         Me.udcPriority.Name = "udcPriority"
-        Me.udcPriority.Size = New System.Drawing.Size(64, 22)
+        Me.udcPriority.Size = New System.Drawing.Size(61, 26)
         Me.udcPriority.TabIndex = 15
         Me.udcPriority.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'chkTransparent
         '
-        Me.chkTransparent.Location = New System.Drawing.Point(511, 12)
+        Me.chkTransparent.Location = New System.Drawing.Point(545, 14)
         Me.chkTransparent.Name = "chkTransparent"
-        Me.chkTransparent.Size = New System.Drawing.Size(119, 24)
+        Me.chkTransparent.Size = New System.Drawing.Size(154, 24)
         Me.chkTransparent.TabIndex = 2
         Me.chkTransparent.Text = "Transparent"
         '
@@ -719,9 +719,9 @@ Partial Class CalendarObjectDlg
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(14, 68)
+        Me.label2.Location = New System.Drawing.Point(18, 79)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(92, 23)
+        Me.label2.Size = New System.Drawing.Size(116, 23)
         Me.label2.TabIndex = 7
         Me.label2.Text = "&Time Zone"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -731,15 +731,15 @@ Partial Class CalendarObjectDlg
         Me.cboTimeZone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
             Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cboTimeZone.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboTimeZone.Location = New System.Drawing.Point(112, 68)
+        Me.cboTimeZone.Location = New System.Drawing.Point(140, 76)
         Me.cboTimeZone.MaxDropDownItems = 16
         Me.cboTimeZone.Name = "cboTimeZone"
-        Me.cboTimeZone.Size = New System.Drawing.Size(448, 24)
+        Me.cboTimeZone.Size = New System.Drawing.Size(514, 28)
         Me.cboTimeZone.TabIndex = 8
         '
         'btnApplyTZ
         '
-        Me.btnApplyTZ.Location = New System.Drawing.Point(566, 65)
+        Me.btnApplyTZ.Location = New System.Drawing.Point(660, 76)
         Me.btnApplyTZ.Name = "btnApplyTZ"
         Me.btnApplyTZ.Size = New System.Drawing.Size(64, 28)
         Me.btnApplyTZ.TabIndex = 9
@@ -749,7 +749,7 @@ Partial Class CalendarObjectDlg
         '
         Me.AcceptButton = Me.btnOK
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(642, 538)
+        Me.ClientSize = New System.Drawing.Size(757, 598)
         Me.Controls.Add(Me.btnApplyTZ)
         Me.Controls.Add(Me.label2)
         Me.Controls.Add(Me.cboTimeZone)

@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : HolidayPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/21/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to add or edit holiday object information
@@ -32,6 +32,7 @@ namespace EWSoftware.PDI.Windows.Forms
         //=====================================================================
 
         private Holiday holiday;
+
         #endregion
 
         #region Properties
@@ -44,18 +45,13 @@ namespace EWSoftware.PDI.Windows.Forms
         /// null.</exception>
         public Holiday HolidayInfo
         {
-            get { return holiday; }
+            get => holiday;
             set
             {
-                if(value == null)
-                    throw new ArgumentNullException("value", LR.GetString("ExHAEHolidayIsNull"));
+                holiday = value ?? throw new ArgumentNullException(nameof(value), LR.GetString("ExHAEHolidayIsNull"));
 
-                holiday = value;
-
-                if(holiday is FloatingHoliday)
+                if(holiday is FloatingHoliday fl)
                 {
-                    FloatingHoliday fl = (FloatingHoliday)holiday;
-
                     cboOccurrence.SelectedValue = fl.Occurrence;
                     cboDayOfWeek.SelectedValue = fl.Weekday;
                     udcOffset.Value = (fl.Offset < -999) ? -999 : (fl.Offset > 999) ? 999 : fl.Offset;

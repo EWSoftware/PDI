@@ -2,7 +2,7 @@
 // System  : Personal Data Interchange Classes
 // File    : StringCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/16/2018
+// Updated : 11/23/2018
 // Note    : Copyright 2014-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
@@ -35,6 +35,7 @@ namespace EWSoftware.PDI
         //=====================================================================
 
         private bool suppressListChanged;
+
         #endregion
 
         #region Events
@@ -52,10 +53,7 @@ namespace EWSoftware.PDI
         /// <param name="e">The event arguments</param>
         protected virtual void OnListChanged(ListChangedEventArgs e)
         {
-            var handler = ListChanged;
-
-            if(handler != null)
-                handler(this, e);
+            ListChanged?.Invoke(this, e);
         }
         #endregion
 

@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : HolidayTestForm.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/30/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This page is used to demonstrate the Holiday and date utility classes
@@ -225,13 +225,14 @@ namespace PDIWebDemoCS
             // Create holiday object and replace it in the collection
             if(rbFloating.Checked)
             {
-                FloatingHoliday fl = new FloatingHoliday();
-
-                fl.Month = cboMonth.SelectedIndex + 1;
-                fl.Description = ((TextBox)e.Item.FindControl("txtDescription")).Text;
-                fl.Occurrence = (DayOccurrence)((DropDownList)e.Item.FindControl("cboOccurrence")).SelectedIndex + 1;
-                fl.Weekday = (System.DayOfWeek)((DropDownList)e.Item.FindControl("cboDayOfWeek")).SelectedIndex;
-                fl.Offset = Convert.ToInt32(((TextBox)e.Item.FindControl("txtOffset")).Text);
+                FloatingHoliday fl = new FloatingHoliday
+                {
+                    Month = cboMonth.SelectedIndex + 1,
+                    Description = ((TextBox)e.Item.FindControl("txtDescription")).Text,
+                    Occurrence = (DayOccurrence)((DropDownList)e.Item.FindControl("cboOccurrence")).SelectedIndex + 1,
+                    Weekday = (DayOfWeek)((DropDownList)e.Item.FindControl("cboDayOfWeek")).SelectedIndex,
+                    Offset = Convert.ToInt32(((TextBox)e.Item.FindControl("txtOffset")).Text)
+                };
 
                 hc[e.Item.ItemIndex] = fl;
             }
@@ -246,12 +247,13 @@ namespace PDIWebDemoCS
                     return;
                 }
 
-                FixedHoliday fx = new FixedHoliday();
-
-                fx.Month = cboMonth.SelectedIndex + 1;
-                fx.Description = ((TextBox)e.Item.FindControl("txtDescription")).Text;
-                fx.AdjustFixedDate = ((CheckBox)e.Item.FindControl("chkAdjustDate")).Checked;
-                fx.Day = Convert.ToInt32(((TextBox)e.Item.FindControl("txtDayOfMonth")).Text);
+                FixedHoliday fx = new FixedHoliday
+                {
+                    Month = cboMonth.SelectedIndex + 1,
+                    Description = ((TextBox)e.Item.FindControl("txtDescription")).Text,
+                    AdjustFixedDate = ((CheckBox)e.Item.FindControl("chkAdjustDate")).Checked,
+                    Day = Convert.ToInt32(((TextBox)e.Item.FindControl("txtDayOfMonth")).Text)
+                };
 
                 hc[e.Item.ItemIndex] = fx;
             }

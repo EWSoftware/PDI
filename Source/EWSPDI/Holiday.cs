@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Holidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
+// Updated : 11/22/2018
+// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains an abstract base classes used to automatically calculate holiday dates
@@ -48,11 +48,11 @@ namespace EWSoftware.PDI
         [XmlAttribute]
         public virtual int Month
         {
-            get { return holidayMonth; }
+            get => holidayMonth;
             set
             {
                 if(value < 1 || value > 12)
-                    throw new ArgumentOutOfRangeException("value", value, LR.GetString("ExHolBadMonthValue"));
+                    throw new ArgumentOutOfRangeException(nameof(value), value, LR.GetString("ExHolBadMonthValue"));
 
                 holidayMonth = value;
             }

@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PhotoControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/27/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 11/23/2018
+// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a vCard's photo and logo information.  It's nothing elaborate but does let you edit the
@@ -18,6 +18,8 @@
 // ==============================================================================================================
 // 10/31/2004  EFW  Created the code
 //===============================================================================================================
+
+// Ignore Spelling: http https
 
 using System;
 using System.ComponentModel;
@@ -51,7 +53,7 @@ namespace vCardBrowser
         [DefaultValue(""), Description("The filename for the image")]
         public string ImageFilename
         {
-            get { return txtFilename.Text; }
+            get => txtFilename.Text;
             set
             {
                 Stream s = null;
@@ -80,12 +82,12 @@ namespace vCardBrowser
                         }
                         else
                             if(value.StartsWith("file:", StringComparison.OrdinalIgnoreCase))
-                            {
-                                FileWebRequest frq = (FileWebRequest)WebRequest.Create(new Uri(value));
+                        {
+                            FileWebRequest frq = (FileWebRequest)WebRequest.Create(new Uri(value));
 
-                                WebResponse frsp = frq.GetResponse();
-                                s = frsp.GetResponseStream();
-                            }
+                            WebResponse frsp = frq.GetResponse();
+                            s = frsp.GetResponseStream();
+                        }
 
                         bmImage.Dispose();
                         bmImage = new Bitmap(s);
@@ -130,7 +132,7 @@ namespace vCardBrowser
         [DefaultValue("GIF"), Description("The image type")]
         public string ImageType
         {
-            get { return (string)cboImageType.SelectedItem; }
+            get => (string)cboImageType.SelectedItem;
             set
             {
                 int idx = (value != null) ? cboImageType.Items.IndexOf(value) : 0;
@@ -149,8 +151,8 @@ namespace vCardBrowser
         [DefaultValue(false), Description("True to store the image in the vCard or false if it is stored externally")]
         public bool IsInline
         {
-            get { return chkInline.Checked; }
-            set { chkInline.Checked = value; }
+            get => chkInline.Checked;
+            set => chkInline.Checked = value;
         }
         #endregion
 

@@ -41,7 +41,7 @@ Partial Class VTimeZoneDlg
         'btnOK
         '
         Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.btnOK.Location = New System.Drawing.Point(12, 493)
+        Me.btnOK.Location = New System.Drawing.Point(12, 575)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(88, 32)
         Me.btnOK.TabIndex = 7
@@ -51,7 +51,7 @@ Partial Class VTimeZoneDlg
         '
         Me.btnCancel.CausesValidation = false
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnCancel.Location = New System.Drawing.Point(502, 493)
+        Me.btnCancel.Location = New System.Drawing.Point(652, 575)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(88, 32)
         Me.btnCancel.TabIndex = 8
@@ -59,7 +59,7 @@ Partial Class VTimeZoneDlg
         '
         'label1
         '
-        Me.label1.Location = New System.Drawing.Point(17, 12)
+        Me.label1.Location = New System.Drawing.Point(38, 14)
         Me.label1.Name = "label1"
         Me.label1.Size = New System.Drawing.Size(106, 23)
         Me.label1.TabIndex = 0
@@ -68,41 +68,41 @@ Partial Class VTimeZoneDlg
         '
         'txtTimeZoneId
         '
-        Me.txtTimeZoneId.Location = New System.Drawing.Point(129, 8)
+        Me.txtTimeZoneId.Location = New System.Drawing.Point(150, 12)
         Me.txtTimeZoneId.Name = "txtTimeZoneId"
-        Me.txtTimeZoneId.Size = New System.Drawing.Size(448, 22)
+        Me.txtTimeZoneId.Size = New System.Drawing.Size(570, 26)
         Me.txtTimeZoneId.TabIndex = 1
         '
         'txtTimeZoneUrl
         '
-        Me.txtTimeZoneUrl.Location = New System.Drawing.Point(129, 40)
+        Me.txtTimeZoneUrl.Location = New System.Drawing.Point(150, 44)
         Me.txtTimeZoneUrl.Name = "txtTimeZoneUrl"
-        Me.txtTimeZoneUrl.Size = New System.Drawing.Size(448, 22)
+        Me.txtTimeZoneUrl.Size = New System.Drawing.Size(570, 26)
         Me.txtTimeZoneUrl.TabIndex = 3
         '
         'label2
         '
-        Me.label2.Location = New System.Drawing.Point(9, 40)
+        Me.label2.Location = New System.Drawing.Point(12, 46)
         Me.label2.Name = "label2"
-        Me.label2.Size = New System.Drawing.Size(114, 23)
+        Me.label2.Size = New System.Drawing.Size(132, 23)
         Me.label2.TabIndex = 2
         Me.label2.Text = "Time Zone &URL"
         Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtLastModified
         '
-        Me.txtLastModified.Location = New System.Drawing.Point(129, 72)
+        Me.txtLastModified.Location = New System.Drawing.Point(150, 76)
         Me.txtLastModified.Name = "txtLastModified"
         Me.txtLastModified.ReadOnly = true
-        Me.txtLastModified.Size = New System.Drawing.Size(168, 22)
+        Me.txtLastModified.Size = New System.Drawing.Size(207, 26)
         Me.txtLastModified.TabIndex = 5
         Me.txtLastModified.TabStop = false
         '
         'label3
         '
-        Me.label3.Location = New System.Drawing.Point(19, 72)
+        Me.label3.Location = New System.Drawing.Point(16, 78)
         Me.label3.Name = "label3"
-        Me.label3.Size = New System.Drawing.Size(104, 23)
+        Me.label3.Size = New System.Drawing.Size(128, 23)
         Me.label3.TabIndex = 4
         Me.label3.Text = "Last Modified"
         Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -110,18 +110,18 @@ Partial Class VTimeZoneDlg
         'grpObRules
         '
         Me.grpObRules.Controls.Add(Me.ucRules)
-        Me.grpObRules.Location = New System.Drawing.Point(12, 104)
+        Me.grpObRules.Location = New System.Drawing.Point(12, 121)
         Me.grpObRules.Name = "grpObRules"
-        Me.grpObRules.Size = New System.Drawing.Size(578, 383)
+        Me.grpObRules.Size = New System.Drawing.Size(728, 448)
         Me.grpObRules.TabIndex = 6
         Me.grpObRules.TabStop = false
         Me.grpObRules.Text = "Observance Rules"
         '
         'ucRules
         '
-        Me.ucRules.Location = New System.Drawing.Point(5, 28)
+        Me.ucRules.Location = New System.Drawing.Point(14, 28)
         Me.ucRules.Name = "ucRules"
-        Me.ucRules.Size = New System.Drawing.Size(568, 344)
+        Me.ucRules.Size = New System.Drawing.Size(700, 404)
         Me.ucRules.TabIndex = 0
         '
         'epErrors
@@ -132,7 +132,7 @@ Partial Class VTimeZoneDlg
         '
         Me.AcceptButton = Me.btnOK
         Me.CancelButton = Me.btnCancel
-        Me.ClientSize = New System.Drawing.Size(602, 537)
+        Me.ClientSize = New System.Drawing.Size(752, 619)
         Me.Controls.Add(Me.grpObRules)
         Me.Controls.Add(Me.txtLastModified)
         Me.Controls.Add(Me.txtTimeZoneUrl)

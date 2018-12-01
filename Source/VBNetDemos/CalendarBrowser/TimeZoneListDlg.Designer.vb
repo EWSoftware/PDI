@@ -69,7 +69,7 @@ Partial Class TimeZoneListDlg
         Me.chkLimitToCalendar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left),System.Windows.Forms.AnchorStyles)
         Me.chkLimitToCalendar.Location = New System.Drawing.Point(12, 486)
         Me.chkLimitToCalendar.Name = "chkLimitToCalendar"
-        Me.chkLimitToCalendar.Size = New System.Drawing.Size(345, 24)
+        Me.chkLimitToCalendar.Size = New System.Drawing.Size(467, 24)
         Me.chkLimitToCalendar.TabIndex = 1
         Me.chkLimitToCalendar.Text = "&Limit to time zones used in the loaded calendar"
         '
