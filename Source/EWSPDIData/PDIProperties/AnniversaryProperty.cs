@@ -1,12 +1,12 @@
-//===============================================================================================================
+﻿//===============================================================================================================
 // System  : Personal Data Interchange Classes
-// File    : BirthDateProperty.cs
+// File    : AnniversaryProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
-// This file contains the Birth Date property class used by the Personal Data Interchange (PDI) vCard classes
+// This file contains the Anniversary property class used by the Personal Data Interchange (PDI) vCard classes
 //
 // This code is published under the Microsoft Public License (Ms-PL).  A copy of the license should be
 // distributed with the code and can be found at the project website: https://github.com/EWSoftware/PDI.
@@ -15,18 +15,18 @@
 //
 //    Date     Who  Comments
 // ==============================================================================================================
-// 03/30/2004  EFW  Created the code
+// 05/17/2019  EFW  Created the code
 //===============================================================================================================
 
 namespace EWSoftware.PDI.Properties
 {
     /// <summary>
-    /// This class is used to represent the Birth Date (BDAY) property of a vCard
+    /// This class is used to represent the Anniversary (ANNIVERSARY) property of a vCard
     /// </summary>
     /// <remarks>This property class parses the <see cref="BaseProperty.Value"/> property to allow access to its
     /// content as an actual <see cref="System.DateTime"/> object.  The property value is a string conforming to
     /// the ISO 8601 calendar date, complete representation, in either basic or extended format.</remarks>
-    public class BirthDateProperty : BaseDateTimeProperty
+    public class AnniversaryProperty : BaseDateTimeProperty
     {
         #region Properties
         //=====================================================================
@@ -35,12 +35,12 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports all vCard specifications</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard40;
 
         /// <summary>
-        /// This read-only property defines the tag (BDAY)
+        /// This read-only property defines the tag (ANNIVERSARY)
         /// </summary>
-        public override string Tag => "BDAY";
+        public override string Tag => "ANNIVERSARY";
 
         /// <summary>
         /// This read-only property defines the default value type as DATE
@@ -53,11 +53,11 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         /// <summary>
-        /// Constructor.  Unless the version is changed, the object will conform to the vCard 3.0 specification.
+        /// Constructor
         /// </summary>
-        public BirthDateProperty()
+        public AnniversaryProperty()
         {
-            this.Version = SpecificationVersions.vCard30;
+            this.Version = SpecificationVersions.vCard40;
         }
         #endregion
 
@@ -70,7 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            BirthDateProperty o = new BirthDateProperty();
+            AnniversaryProperty o = new AnniversaryProperty();
             o.Clone(this);
             return o;
         }

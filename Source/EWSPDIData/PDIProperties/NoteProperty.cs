@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NoteProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Note property and its collection class.  It is used with the Personal Data Interchange
@@ -36,9 +36,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specifications</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This read-only property defines the tag (NOTE)
@@ -53,7 +52,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to enforce the correct encoding type when the version changes
         /// </summary>
-        /// <remarks>vCard 2.1 defaults to Quoted-Printable.  vCard 3.0 uses 8-bit encoding.</remarks>
+        /// <remarks>vCard 2.1 defaults to Quoted-Printable.  vCard 3.0 and later uses 8-bit encoding.</remarks>
         public override SpecificationVersions Version
         {
             get => base.Version;

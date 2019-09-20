@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NicknameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Nickname property class used by the Personal Data Interchange (PDI) vCard class
@@ -29,7 +29,7 @@ namespace EWSoftware.PDI.Properties
     /// </summary>
     /// <remarks>This property class parses the <see cref="Value"/> property and allows access to the component
     /// parts.  It is used to specify the text corresponding to the nickname(s) of the object the vCard
-    /// represents.  This property is only valid for use with the vCard 3.0 specification.</remarks>
+    /// represents.  This property is only valid for use with the vCard 3.0 and 4.0 specification.</remarks>
     public class NicknameProperty : BaseProperty
     {
         #region Private data members
@@ -47,8 +47,9 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 3.0 only</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30;
+        /// <value>Supports the vCard 3.0 and 4.0 specifications</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
+            SpecificationVersions.vCard40;
 
         /// <summary>
         /// This read-only property defines the tag (NICKNAME)

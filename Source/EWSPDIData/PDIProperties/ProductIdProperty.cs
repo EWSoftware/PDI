@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ProductIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Product ID property class used by the Personal Data Interchange (PDI) classes such as
@@ -47,9 +47,9 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 3.0, vCalendar 1.0, and iCalendar 2.0</value>
+        /// <value>Supports vCard 3.0, vCard 4.0, vCalendar 1.0, and iCalendar 2.0</value>
         public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
-            SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20;
+            SpecificationVersions.vCard40 | SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20;
 
         /// <summary>
         /// This read-only property defines the tag (PRODID)

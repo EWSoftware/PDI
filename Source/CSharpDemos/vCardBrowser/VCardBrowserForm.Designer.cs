@@ -108,7 +108,7 @@ namespace vCardBrowser
             this.miFile});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(942, 28);
+            this.mnuMain.Size = new System.Drawing.Size(942, 25);
             this.mnuMain.TabIndex = 0;
             // 
             // miFile
@@ -125,14 +125,14 @@ namespace vCardBrowser
             this.miAbout,
             this.miExit});
             this.miFile.Name = "miFile";
-            this.miFile.Size = new System.Drawing.Size(46, 24);
+            this.miFile.Size = new System.Drawing.Size(42, 21);
             this.miFile.Text = "&File";
             // 
             // miOpen
             // 
             this.miOpen.Name = "miOpen";
             this.miOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.miOpen.Size = new System.Drawing.Size(240, 30);
+            this.miOpen.Size = new System.Drawing.Size(215, 26);
             this.miOpen.Text = "&Open";
             this.miOpen.Click += new System.EventHandler(this.miOpen_Click);
             // 
@@ -140,14 +140,14 @@ namespace vCardBrowser
             // 
             this.miSave.Name = "miSave";
             this.miSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.miSave.Size = new System.Drawing.Size(240, 30);
+            this.miSave.Size = new System.Drawing.Size(215, 26);
             this.miSave.Text = "&Save";
             this.miSave.Click += new System.EventHandler(this.miSave_Click);
             // 
             // menuItem2
             // 
             this.menuItem2.Name = "menuItem2";
-            this.menuItem2.Size = new System.Drawing.Size(237, 6);
+            this.menuItem2.Size = new System.Drawing.Size(212, 6);
             // 
             // miFileEncoding
             // 
@@ -156,7 +156,7 @@ namespace vCardBrowser
             this.miFileWestEuro,
             this.miFileASCII});
             this.miFileEncoding.Name = "miFileEncoding";
-            this.miFileEncoding.Size = new System.Drawing.Size(240, 30);
+            this.miFileEncoding.Size = new System.Drawing.Size(215, 26);
             this.miFileEncoding.Text = "File Encoding";
             // 
             // miFileUnicode
@@ -164,21 +164,21 @@ namespace vCardBrowser
             this.miFileUnicode.Checked = true;
             this.miFileUnicode.CheckState = System.Windows.Forms.CheckState.Checked;
             this.miFileUnicode.Name = "miFileUnicode";
-            this.miFileUnicode.Size = new System.Drawing.Size(302, 30);
+            this.miFileUnicode.Size = new System.Drawing.Size(271, 26);
             this.miFileUnicode.Text = "Unicode (UTF-8)";
             this.miFileUnicode.Click += new System.EventHandler(this.ChangeFileEncoding_Click);
             // 
             // miFileWestEuro
             // 
             this.miFileWestEuro.Name = "miFileWestEuro";
-            this.miFileWestEuro.Size = new System.Drawing.Size(302, 30);
+            this.miFileWestEuro.Size = new System.Drawing.Size(271, 26);
             this.miFileWestEuro.Text = "Western European (Windows)";
             this.miFileWestEuro.Click += new System.EventHandler(this.ChangeFileEncoding_Click);
             // 
             // miFileASCII
             // 
             this.miFileASCII.Name = "miFileASCII";
-            this.miFileASCII.Size = new System.Drawing.Size(302, 30);
+            this.miFileASCII.Size = new System.Drawing.Size(271, 26);
             this.miFileASCII.Text = "ASCII";
             this.miFileASCII.Click += new System.EventHandler(this.ChangeFileEncoding_Click);
             // 
@@ -189,20 +189,20 @@ namespace vCardBrowser
             this.miPropWestEuro,
             this.miPropASCII});
             this.miPropEncoding.Name = "miPropEncoding";
-            this.miPropEncoding.Size = new System.Drawing.Size(240, 30);
+            this.miPropEncoding.Size = new System.Drawing.Size(215, 26);
             this.miPropEncoding.Text = "Property Encoding";
             // 
             // miPropUnicode
             // 
             this.miPropUnicode.Name = "miPropUnicode";
-            this.miPropUnicode.Size = new System.Drawing.Size(302, 30);
+            this.miPropUnicode.Size = new System.Drawing.Size(271, 26);
             this.miPropUnicode.Text = "Unicode (UTF-8)";
             this.miPropUnicode.Click += new System.EventHandler(this.ChangePropEncoding_Click);
             // 
             // miPropWestEuro
             // 
             this.miPropWestEuro.Name = "miPropWestEuro";
-            this.miPropWestEuro.Size = new System.Drawing.Size(302, 30);
+            this.miPropWestEuro.Size = new System.Drawing.Size(271, 26);
             this.miPropWestEuro.Text = "Western European (Windows)";
             this.miPropWestEuro.Click += new System.EventHandler(this.ChangePropEncoding_Click);
             // 
@@ -211,38 +211,38 @@ namespace vCardBrowser
             this.miPropASCII.Checked = true;
             this.miPropASCII.CheckState = System.Windows.Forms.CheckState.Checked;
             this.miPropASCII.Name = "miPropASCII";
-            this.miPropASCII.Size = new System.Drawing.Size(302, 30);
+            this.miPropASCII.Size = new System.Drawing.Size(271, 26);
             this.miPropASCII.Text = "ASCII";
             this.miPropASCII.Click += new System.EventHandler(this.ChangePropEncoding_Click);
             // 
             // menuItem4
             // 
             this.menuItem4.Name = "menuItem4";
-            this.menuItem4.Size = new System.Drawing.Size(237, 6);
+            this.menuItem4.Size = new System.Drawing.Size(212, 6);
             // 
             // miClear
             // 
             this.miClear.Name = "miClear";
-            this.miClear.Size = new System.Drawing.Size(240, 30);
+            this.miClear.Size = new System.Drawing.Size(215, 26);
             this.miClear.Text = "&Clear";
             this.miClear.Click += new System.EventHandler(this.miClear_Click);
             // 
             // menuItem6
             // 
             this.menuItem6.Name = "menuItem6";
-            this.menuItem6.Size = new System.Drawing.Size(237, 6);
+            this.menuItem6.Size = new System.Drawing.Size(212, 6);
             // 
             // miAbout
             // 
             this.miAbout.Name = "miAbout";
-            this.miAbout.Size = new System.Drawing.Size(240, 30);
+            this.miAbout.Size = new System.Drawing.Size(215, 26);
             this.miAbout.Text = "&About vCard Browser";
             this.miAbout.Click += new System.EventHandler(this.miAbout_Click);
             // 
             // miExit
             // 
             this.miExit.Name = "miExit";
-            this.miExit.Size = new System.Drawing.Size(240, 30);
+            this.miExit.Size = new System.Drawing.Size(215, 26);
             this.miExit.Text = "E&xit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
@@ -252,10 +252,11 @@ namespace vCardBrowser
             this.cboVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboVersion.Items.AddRange(new object[] {
             "2.1",
-            "3.0"});
+            "3.0",
+            "4.0"});
             this.cboVersion.Location = new System.Drawing.Point(771, 519);
             this.cboVersion.Name = "cboVersion";
-            this.cboVersion.Size = new System.Drawing.Size(65, 28);
+            this.cboVersion.Size = new System.Drawing.Size(65, 24);
             this.cboVersion.TabIndex = 7;
             // 
             // label23

@@ -102,6 +102,10 @@ namespace vCardBrowser
             this.label23 = new System.Windows.Forms.Label();
             this.cboVersion = new System.Windows.Forms.ComboBox();
             this.epErrors = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cboSex = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.txtGenderIdentity = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.tabInfo.SuspendLayout();
             this.pgName.SuspendLayout();
             this.pgAddresses.SuspendLayout();
@@ -132,6 +136,10 @@ namespace vCardBrowser
             // 
             // pgName
             // 
+            this.pgName.Controls.Add(this.txtGenderIdentity);
+            this.pgName.Controls.Add(this.label25);
+            this.pgName.Controls.Add(this.cboSex);
+            this.pgName.Controls.Add(this.label24);
             this.pgName.Controls.Add(this.groupBox1);
             this.pgName.Controls.Add(this.txtSortString);
             this.pgName.Controls.Add(this.label8);
@@ -149,26 +157,26 @@ namespace vCardBrowser
             this.pgName.Controls.Add(this.label2);
             this.pgName.Controls.Add(this.txtLastName);
             this.pgName.Controls.Add(this.label1);
-            this.pgName.Location = new System.Drawing.Point(4, 29);
+            this.pgName.Location = new System.Drawing.Point(4, 25);
             this.pgName.Name = "pgName";
-            this.pgName.Size = new System.Drawing.Size(713, 289);
+            this.pgName.Size = new System.Drawing.Size(713, 293);
             this.pgName.TabIndex = 0;
             this.pgName.Text = "Name";
             this.pgName.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(16, 128);
+            this.groupBox1.Location = new System.Drawing.Point(16, 174);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(680, 8);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             // 
             // txtSortString
             // 
             this.txtSortString.Location = new System.Drawing.Point(525, 88);
             this.txtSortString.Name = "txtSortString";
-            this.txtSortString.Size = new System.Drawing.Size(128, 26);
+            this.txtSortString.Size = new System.Drawing.Size(128, 22);
             this.txtSortString.TabIndex = 11;
             // 
             // label8
@@ -182,33 +190,33 @@ namespace vCardBrowser
             // 
             // txtFormattedName
             // 
-            this.txtFormattedName.Location = new System.Drawing.Point(181, 185);
+            this.txtFormattedName.Location = new System.Drawing.Point(181, 231);
             this.txtFormattedName.Name = "txtFormattedName";
-            this.txtFormattedName.Size = new System.Drawing.Size(336, 26);
-            this.txtFormattedName.TabIndex = 16;
+            this.txtFormattedName.Size = new System.Drawing.Size(336, 22);
+            this.txtFormattedName.TabIndex = 20;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(16, 187);
+            this.label7.Location = new System.Drawing.Point(16, 233);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(159, 23);
-            this.label7.TabIndex = 15;
+            this.label7.TabIndex = 19;
             this.label7.Text = "&Formatted Name";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtNickname
             // 
-            this.txtNickname.Location = new System.Drawing.Point(181, 153);
+            this.txtNickname.Location = new System.Drawing.Point(181, 199);
             this.txtNickname.Name = "txtNickname";
-            this.txtNickname.Size = new System.Drawing.Size(176, 26);
-            this.txtNickname.TabIndex = 14;
+            this.txtNickname.Size = new System.Drawing.Size(176, 22);
+            this.txtNickname.TabIndex = 18;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(65, 155);
+            this.label4.Location = new System.Drawing.Point(65, 201);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 23);
-            this.label4.TabIndex = 13;
+            this.label4.TabIndex = 17;
             this.label4.Text = "&Nickname";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -216,7 +224,7 @@ namespace vCardBrowser
             // 
             this.txtSuffix.Location = new System.Drawing.Point(525, 56);
             this.txtSuffix.Name = "txtSuffix";
-            this.txtSuffix.Size = new System.Drawing.Size(128, 26);
+            this.txtSuffix.Size = new System.Drawing.Size(128, 22);
             this.txtSuffix.TabIndex = 9;
             // 
             // label5
@@ -232,7 +240,7 @@ namespace vCardBrowser
             // 
             this.txtTitle.Location = new System.Drawing.Point(525, 24);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(128, 26);
+            this.txtTitle.Size = new System.Drawing.Size(128, 22);
             this.txtTitle.TabIndex = 7;
             // 
             // label6
@@ -248,7 +256,7 @@ namespace vCardBrowser
             // 
             this.txtMiddleName.Location = new System.Drawing.Point(181, 88);
             this.txtMiddleName.Name = "txtMiddleName";
-            this.txtMiddleName.Size = new System.Drawing.Size(208, 26);
+            this.txtMiddleName.Size = new System.Drawing.Size(208, 22);
             this.txtMiddleName.TabIndex = 5;
             // 
             // label3
@@ -264,7 +272,7 @@ namespace vCardBrowser
             // 
             this.txtFirstName.Location = new System.Drawing.Point(181, 56);
             this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(208, 26);
+            this.txtFirstName.Size = new System.Drawing.Size(208, 22);
             this.txtFirstName.TabIndex = 3;
             // 
             // label2
@@ -280,7 +288,7 @@ namespace vCardBrowser
             // 
             this.txtLastName.Location = new System.Drawing.Point(181, 24);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(208, 26);
+            this.txtLastName.Size = new System.Drawing.Size(208, 22);
             this.txtLastName.TabIndex = 1;
             // 
             // label1
@@ -295,9 +303,9 @@ namespace vCardBrowser
             // pgAddresses
             // 
             this.pgAddresses.Controls.Add(this.ucAddresses);
-            this.pgAddresses.Location = new System.Drawing.Point(4, 29);
+            this.pgAddresses.Location = new System.Drawing.Point(4, 25);
             this.pgAddresses.Name = "pgAddresses";
-            this.pgAddresses.Size = new System.Drawing.Size(713, 289);
+            this.pgAddresses.Size = new System.Drawing.Size(713, 293);
             this.pgAddresses.TabIndex = 1;
             this.pgAddresses.Text = "Addresses";
             this.pgAddresses.UseVisualStyleBackColor = true;
@@ -312,9 +320,9 @@ namespace vCardBrowser
             // pgLabels
             // 
             this.pgLabels.Controls.Add(this.ucLabels);
-            this.pgLabels.Location = new System.Drawing.Point(4, 29);
+            this.pgLabels.Location = new System.Drawing.Point(4, 25);
             this.pgLabels.Name = "pgLabels";
-            this.pgLabels.Size = new System.Drawing.Size(713, 289);
+            this.pgLabels.Size = new System.Drawing.Size(713, 293);
             this.pgLabels.TabIndex = 7;
             this.pgLabels.Text = "Labels";
             this.pgLabels.UseVisualStyleBackColor = true;
@@ -331,9 +339,9 @@ namespace vCardBrowser
             this.pgPhoneEMail.Controls.Add(this.groupBox2);
             this.pgPhoneEMail.Controls.Add(this.ucEMail);
             this.pgPhoneEMail.Controls.Add(this.ucPhones);
-            this.pgPhoneEMail.Location = new System.Drawing.Point(4, 29);
+            this.pgPhoneEMail.Location = new System.Drawing.Point(4, 25);
             this.pgPhoneEMail.Name = "pgPhoneEMail";
-            this.pgPhoneEMail.Size = new System.Drawing.Size(713, 289);
+            this.pgPhoneEMail.Size = new System.Drawing.Size(713, 293);
             this.pgPhoneEMail.TabIndex = 3;
             this.pgPhoneEMail.Text = "Phone/E-Mail";
             this.pgPhoneEMail.UseVisualStyleBackColor = true;
@@ -374,9 +382,9 @@ namespace vCardBrowser
             this.pgWork.Controls.Add(this.label19);
             this.pgWork.Controls.Add(this.txtOrganization);
             this.pgWork.Controls.Add(this.label18);
-            this.pgWork.Location = new System.Drawing.Point(4, 29);
+            this.pgWork.Location = new System.Drawing.Point(4, 25);
             this.pgWork.Name = "pgWork";
-            this.pgWork.Size = new System.Drawing.Size(713, 289);
+            this.pgWork.Size = new System.Drawing.Size(713, 293);
             this.pgWork.TabIndex = 2;
             this.pgWork.Text = "Work";
             this.pgWork.UseVisualStyleBackColor = true;
@@ -385,7 +393,7 @@ namespace vCardBrowser
             // 
             this.txtRole.Location = new System.Drawing.Point(170, 137);
             this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(320, 26);
+            this.txtRole.Size = new System.Drawing.Size(320, 22);
             this.txtRole.TabIndex = 8;
             // 
             // label22
@@ -409,7 +417,7 @@ namespace vCardBrowser
             // 
             this.txtCategories.Location = new System.Drawing.Point(170, 193);
             this.txtCategories.Name = "txtCategories";
-            this.txtCategories.Size = new System.Drawing.Size(440, 26);
+            this.txtCategories.Size = new System.Drawing.Size(440, 22);
             this.txtCategories.TabIndex = 11;
             // 
             // label21
@@ -425,7 +433,7 @@ namespace vCardBrowser
             // 
             this.txtJobTitle.Location = new System.Drawing.Point(170, 105);
             this.txtJobTitle.Name = "txtJobTitle";
-            this.txtJobTitle.Size = new System.Drawing.Size(320, 26);
+            this.txtJobTitle.Size = new System.Drawing.Size(320, 22);
             this.txtJobTitle.TabIndex = 6;
             // 
             // label20
@@ -449,7 +457,7 @@ namespace vCardBrowser
             // 
             this.txtUnits.Location = new System.Drawing.Point(170, 48);
             this.txtUnits.Name = "txtUnits";
-            this.txtUnits.Size = new System.Drawing.Size(440, 26);
+            this.txtUnits.Size = new System.Drawing.Size(440, 22);
             this.txtUnits.TabIndex = 3;
             // 
             // label19
@@ -465,7 +473,7 @@ namespace vCardBrowser
             // 
             this.txtOrganization.Location = new System.Drawing.Point(170, 16);
             this.txtOrganization.Name = "txtOrganization";
-            this.txtOrganization.Size = new System.Drawing.Size(320, 26);
+            this.txtOrganization.Size = new System.Drawing.Size(320, 22);
             this.txtOrganization.TabIndex = 1;
             // 
             // label18
@@ -496,9 +504,9 @@ namespace vCardBrowser
             this.pgOther.Controls.Add(this.label13);
             this.pgOther.Controls.Add(this.txtTimeZone);
             this.pgOther.Controls.Add(this.label12);
-            this.pgOther.Location = new System.Drawing.Point(4, 29);
+            this.pgOther.Location = new System.Drawing.Point(4, 25);
             this.pgOther.Name = "pgOther";
-            this.pgOther.Size = new System.Drawing.Size(713, 289);
+            this.pgOther.Size = new System.Drawing.Size(713, 293);
             this.pgOther.TabIndex = 4;
             this.pgOther.Text = "Other";
             this.pgOther.UseVisualStyleBackColor = true;
@@ -552,7 +560,7 @@ namespace vCardBrowser
             // 
             this.txtWebPage.Location = new System.Drawing.Point(150, 150);
             this.txtWebPage.Name = "txtWebPage";
-            this.txtWebPage.Size = new System.Drawing.Size(368, 26);
+            this.txtWebPage.Size = new System.Drawing.Size(368, 22);
             this.txtWebPage.TabIndex = 12;
             // 
             // label16
@@ -597,14 +605,14 @@ namespace vCardBrowser
             this.dtpBirthDate.Location = new System.Drawing.Point(150, 14);
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.ShowCheckBox = true;
-            this.dtpBirthDate.Size = new System.Drawing.Size(255, 26);
+            this.dtpBirthDate.Size = new System.Drawing.Size(255, 22);
             this.dtpBirthDate.TabIndex = 1;
             // 
             // txtLongitude
             // 
             this.txtLongitude.Location = new System.Drawing.Point(398, 96);
             this.txtLongitude.Name = "txtLongitude";
-            this.txtLongitude.Size = new System.Drawing.Size(120, 26);
+            this.txtLongitude.Size = new System.Drawing.Size(120, 22);
             this.txtLongitude.TabIndex = 8;
             // 
             // label14
@@ -620,7 +628,7 @@ namespace vCardBrowser
             // 
             this.txtLatitude.Location = new System.Drawing.Point(150, 96);
             this.txtLatitude.Name = "txtLatitude";
-            this.txtLatitude.Size = new System.Drawing.Size(120, 26);
+            this.txtLatitude.Size = new System.Drawing.Size(120, 22);
             this.txtLatitude.TabIndex = 6;
             // 
             // label13
@@ -636,7 +644,7 @@ namespace vCardBrowser
             // 
             this.txtTimeZone.Location = new System.Drawing.Point(150, 64);
             this.txtTimeZone.Name = "txtTimeZone";
-            this.txtTimeZone.Size = new System.Drawing.Size(368, 26);
+            this.txtTimeZone.Size = new System.Drawing.Size(368, 22);
             this.txtTimeZone.TabIndex = 4;
             // 
             // label12
@@ -651,9 +659,9 @@ namespace vCardBrowser
             // pgPhoto
             // 
             this.pgPhoto.Controls.Add(this.ucPhoto);
-            this.pgPhoto.Location = new System.Drawing.Point(4, 29);
+            this.pgPhoto.Location = new System.Drawing.Point(4, 25);
             this.pgPhoto.Name = "pgPhoto";
-            this.pgPhoto.Size = new System.Drawing.Size(713, 289);
+            this.pgPhoto.Size = new System.Drawing.Size(713, 293);
             this.pgPhoto.TabIndex = 5;
             this.pgPhoto.Text = "Photo";
             this.pgPhoto.UseVisualStyleBackColor = true;
@@ -661,7 +669,6 @@ namespace vCardBrowser
             // ucPhoto
             // 
             this.ucPhoto.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ucPhoto.ImageType = null;
             this.ucPhoto.Location = new System.Drawing.Point(22, 40);
             this.ucPhoto.Name = "ucPhoto";
             this.ucPhoto.Size = new System.Drawing.Size(664, 208);
@@ -670,9 +677,9 @@ namespace vCardBrowser
             // pgLogo
             // 
             this.pgLogo.Controls.Add(this.ucLogo);
-            this.pgLogo.Location = new System.Drawing.Point(4, 29);
+            this.pgLogo.Location = new System.Drawing.Point(4, 25);
             this.pgLogo.Name = "pgLogo";
-            this.pgLogo.Size = new System.Drawing.Size(713, 289);
+            this.pgLogo.Size = new System.Drawing.Size(713, 293);
             this.pgLogo.TabIndex = 6;
             this.pgLogo.Text = "Logo";
             this.pgLogo.UseVisualStyleBackColor = true;
@@ -680,7 +687,6 @@ namespace vCardBrowser
             // ucLogo
             // 
             this.ucLogo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.ucLogo.ImageType = null;
             this.ucLogo.Location = new System.Drawing.Point(22, 40);
             this.ucLogo.Name = "ucLogo";
             this.ucLogo.Size = new System.Drawing.Size(664, 208);
@@ -710,7 +716,7 @@ namespace vCardBrowser
             this.txtUniqueId.Location = new System.Drawing.Point(115, 12);
             this.txtUniqueId.Name = "txtUniqueId";
             this.txtUniqueId.ReadOnly = true;
-            this.txtUniqueId.Size = new System.Drawing.Size(376, 26);
+            this.txtUniqueId.Size = new System.Drawing.Size(376, 22);
             this.txtUniqueId.TabIndex = 1;
             this.txtUniqueId.TabStop = false;
             // 
@@ -728,7 +734,7 @@ namespace vCardBrowser
             this.txtClass.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtClass.Location = new System.Drawing.Point(584, 46);
             this.txtClass.Name = "txtClass";
-            this.txtClass.Size = new System.Drawing.Size(145, 26);
+            this.txtClass.Size = new System.Drawing.Size(145, 22);
             this.txtClass.TabIndex = 7;
             // 
             // label10
@@ -745,7 +751,7 @@ namespace vCardBrowser
             this.txtLastRevised.Location = new System.Drawing.Point(115, 46);
             this.txtLastRevised.Name = "txtLastRevised";
             this.txtLastRevised.ReadOnly = true;
-            this.txtLastRevised.Size = new System.Drawing.Size(207, 26);
+            this.txtLastRevised.Size = new System.Drawing.Size(207, 22);
             this.txtLastRevised.TabIndex = 5;
             this.txtLastRevised.TabStop = false;
             // 
@@ -772,16 +778,50 @@ namespace vCardBrowser
             this.cboVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboVersion.Items.AddRange(new object[] {
             "2.1",
-            "3.0"});
+            "3.0",
+            "4.0"});
             this.cboVersion.Location = new System.Drawing.Point(584, 12);
             this.cboVersion.Name = "cboVersion";
-            this.cboVersion.Size = new System.Drawing.Size(65, 28);
+            this.cboVersion.Size = new System.Drawing.Size(65, 24);
             this.cboVersion.TabIndex = 3;
             this.cboVersion.SelectedIndexChanged += new System.EventHandler(this.cboVersion_SelectedIndexChanged);
             // 
             // epErrors
             // 
             this.epErrors.ContainerControl = this;
+            // 
+            // cboSex
+            // 
+            this.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSex.Location = new System.Drawing.Point(181, 134);
+            this.cboSex.Name = "cboSex";
+            this.cboSex.Size = new System.Drawing.Size(101, 24);
+            this.cboSex.TabIndex = 13;
+            // 
+            // label24
+            // 
+            this.label24.Location = new System.Drawing.Point(118, 136);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(57, 23);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "&Sex";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtGenderIdentity
+            // 
+            this.txtGenderIdentity.Location = new System.Drawing.Point(438, 132);
+            this.txtGenderIdentity.Name = "txtGenderIdentity";
+            this.txtGenderIdentity.Size = new System.Drawing.Size(195, 22);
+            this.txtGenderIdentity.TabIndex = 15;
+            // 
+            // label25
+            // 
+            this.label25.Location = new System.Drawing.Point(289, 134);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(143, 23);
+            this.label25.TabIndex = 14;
+            this.label25.Text = "Gender Identity";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // VCardPropertiesDlg
             // 
@@ -900,5 +940,9 @@ namespace vCardBrowser
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.ErrorProvider epErrors;
         private System.Windows.Forms.TabPage pgOther;
+        private System.Windows.Forms.TextBox txtGenderIdentity;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ComboBox cboSex;
+        private System.Windows.Forms.Label label24;
     }
 }

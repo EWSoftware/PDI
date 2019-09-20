@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CustomProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the custom property class.  It is used with the Personal Data Interchange (PDI) classes
@@ -44,8 +44,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports all specifications</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.Any |
+        /// <value>Supports all specifications including IrMC 1.1</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.AllButIrMC11 |
             SpecificationVersions.IrMC11;
 
         /// <summary>

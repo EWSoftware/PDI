@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressTypes.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This enumerated type defines the various address types for the AddressProperty and LabelProperty classes
@@ -31,21 +31,19 @@ namespace EWSoftware.PDI.Properties
     {
         /// <summary>Indicates no type specified</summary>
         None =          0x0000,
-        /// <summary>Indicates a domestic (DOM) address</summary>
+        /// <summary>Indicates a domestic (DOM) address (vCard 2.1 and 3.0 only)</summary>
         Domestic =      0x0001,
-        /// <summary>Indicates an international (INTL) address</summary>
+        /// <summary>Indicates an international (INTL) address (vCard 2.1 and 3.0 only)</summary>
         International = 0x0002,
-        /// <summary>Indicates a postal delivery (POSTAL) address</summary>
+        /// <summary>Indicates a postal delivery (POSTAL) address (vCard 2.1 and 3.0 only)</summary>
         Postal =        0x0004,
-        /// <summary>Indicates a parcel delivery (PARCEL) address</summary>
+        /// <summary>Indicates a parcel delivery (PARCEL) address (vCard 2.1 and 3.0 only)</summary>
         Parcel =        0x0008,
         /// <summary>Indicates a home delivery (HOME) address</summary>
         Home =          0x0010,
         /// <summary>Indicates a work delivery (WORK) address</summary>
         Work =          0x0020,
         /// <summary>Indicates a preferred delivery (PREF) address</summary>
-        Preferred =     0x0040,
-        /// <summary> The default unless otherwise specified (INTL, POSTAL, PARCEL, WORK)</summary>
-        Default = International | Postal | Parcel | Work
+        Preferred =     0x0040
     }
 }

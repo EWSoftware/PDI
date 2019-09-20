@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardBrowser.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/22/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+' Updated : 01/03/2019
+' Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 ' Compiler: Microsoft VB.NET
 '
 ' This page is used to demonstrate the vCard classes
@@ -161,7 +161,7 @@ Partial Class VCardBrowser
 
                     ' Send the file to the user
                     Me.Response.ClearContent()
-                    Me.Response.ContentType = "text/x-vcard"
+                    Me.Response.ContentType = "text/vcard"
                     Me.Response.AppendHeader("Content-Disposition", "inline;filename=VCards.vcf")
 
                     ' The collection can be written directly to the stream.  Note that more likely than not, it

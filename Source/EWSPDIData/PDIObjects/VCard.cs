@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCard.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the vCard object and a collection of vCard objects
@@ -55,6 +55,7 @@ namespace EWSoftware.PDI.Objects
         private OrganizationProperty        org;
         private UniqueIdProperty            uid;
         private BirthDateProperty           bday;
+        private AnniversaryProperty         anniversary;
         private LastRevisionProperty        rev;
         private TimeZoneProperty            tz;
         private GeographicPositionProperty  geo;
@@ -65,18 +66,18 @@ namespace EWSoftware.PDI.Objects
 
         // vCard property collections.  There can be one or more of each of these properties so they are stored
         // in a collection.
-        private NotePropertyCollection      notes;
-        private AddressPropertyCollection   addrs;
-        private LabelPropertyCollection     labels;
-        private TelephonePropertyCollection phones;
-        private EMailPropertyCollection     email;
-        private AgentPropertyCollection     agents;
+        private NotePropertyCollection          notes;
+        private AddressPropertyCollection       addrs;
+        private LabelPropertyCollection         labels;
+        private TelephonePropertyCollection     phones;
+        private EMailPropertyCollection         email;
+        private AgentPropertyCollection         agents;
+        private ClientPidMapPropertyCollection  pidMaps;
 
         // This is a catch-all that holds all unknown or extension properties
         private CustomPropertyCollection customProps;
 
-        // These properties are valid for the 3.0 specification only
-
+        // These properties are only valid for the 3.0 and later specifications
         private MimeNameProperty        mimeName;
         private MimeSourceProperty      mimeSource;
         private ProductIdProperty       prodId;
@@ -84,6 +85,9 @@ namespace EWSoftware.PDI.Objects
         private SortStringProperty      sortString;
         private ClassificationProperty  classification;
         private CategoriesProperty      categories;
+
+        // These properties are valid for the 4.0 specification only
+        private GenderProperty gender;
 
         #endregion
 
@@ -93,9 +97,8 @@ namespace EWSoftware.PDI.Objects
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specification versions</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This is overridden to propagate the version to all properties in the object that need it when the
@@ -253,6 +256,20 @@ namespace EWSoftware.PDI.Objects
                     bday = new BirthDateProperty();
 
                 return bday;
+            }
+        }
+
+        /// <summary>
+        /// This is used to get the Anniversary (ANNIVERSARY) property
+        /// </summary>
+        public AnniversaryProperty Anniversary
+        {
+            get
+            {
+                if(anniversary == null)
+                    anniversary = new AnniversaryProperty();
+
+                return anniversary;
             }
         }
 
@@ -445,6 +462,21 @@ namespace EWSoftware.PDI.Objects
         }
 
         /// <summary>
+        /// This is used to get the client PID map (CLIENTPIDMAP) properties
+        /// </summary>
+        /// <value>If the returned collection is empty, there are no client PID map properties for the vCard</value>
+        public ClientPidMapPropertyCollection ClientPidMaps
+        {
+            get
+            {
+                if(pidMaps == null)
+                    pidMaps = new ClientPidMapPropertyCollection();
+
+                return pidMaps;
+            }
+        }
+
+        /// <summary>
         /// This is a catch-all that holds all unknown or extension properties
         /// </summary>
         /// <value>If the returned collection is empty, there are no custom properties for the vCard
@@ -568,6 +600,22 @@ namespace EWSoftware.PDI.Objects
                 return categories;
             }
         }
+
+        /// <summary>
+        /// This is used to get the gender (GENDER) property
+        /// </summary>
+        /// <value>This property is valid only for the 4.0 specification.  It is used to define gender
+        /// information for the vCard.</value>
+        public GenderProperty Gender
+        {
+            get
+            {
+                if(gender == null)
+                    gender = new GenderProperty();
+
+                return gender;
+            }
+        }
         #endregion
 
         #region Constructors
@@ -652,6 +700,7 @@ namespace EWSoftware.PDI.Objects
             org = (OrganizationProperty)o.Organization.Clone();
             uid = (UniqueIdProperty)o.UniqueId.Clone();
             bday = (BirthDateProperty)o.BirthDate.Clone();
+            anniversary = (AnniversaryProperty)o.Anniversary.Clone();
             rev = (LastRevisionProperty)o.LastRevision.Clone();
             tz = (TimeZoneProperty)o.TimeZone.Clone();
             geo = (GeographicPositionProperty)o.GeographicPosition.Clone();
@@ -666,6 +715,7 @@ namespace EWSoftware.PDI.Objects
             this.Telephones.CloneRange(o.Telephones);
             this.EMailAddresses.CloneRange(o.EMailAddresses);
             this.Agents.CloneRange(o.Agents);
+            this.ClientPidMaps.CloneRange(o.ClientPidMaps);
             this.CustomProperties.CloneRange(o.CustomProperties);
 
             this.AddProfile = o.AddProfile;
@@ -677,6 +727,8 @@ namespace EWSoftware.PDI.Objects
             sortString = (SortStringProperty)o.SortString.Clone();
             classification = (ClassificationProperty)o.Classification.Clone();
             categories = (CategoriesProperty)o.Categories.Clone();
+
+            gender = (GenderProperty)o.Gender.Clone();
         }
 
         /// <summary>
@@ -696,6 +748,7 @@ namespace EWSoftware.PDI.Objects
             org = null;
             uid = null;
             bday = null;
+            anniversary = null;
             rev = null;
             tz = null;
             geo = null;
@@ -710,6 +763,7 @@ namespace EWSoftware.PDI.Objects
             phones = null;
             email = null;
             agents = null;
+            pidMaps = null;
             customProps = null;
 
             this.AddProfile = false;
@@ -721,6 +775,8 @@ namespace EWSoftware.PDI.Objects
             sortString = null;
             classification = null;
             categories = null;
+
+            gender = null;
         }
 
         /// <summary>
@@ -811,14 +867,26 @@ namespace EWSoftware.PDI.Objects
                 if(nickname != null)
                     nickname.Version = this.Version;
 
-                if(sortString != null)
+                if(sortString != null && this.Version == SpecificationVersions.vCard30)
                     sortString.Version = this.Version;
 
-                if(classification != null)
+                if(classification != null && this.Version == SpecificationVersions.vCard30)
                     classification.Version = this.Version;
 
                 if(categories != null)
                     categories.Version = this.Version;
+
+                if(this.Version != SpecificationVersions.vCard30)
+                {
+                    if(anniversary != null)
+                        anniversary.Version = this.Version;
+
+                    if(gender != null)
+                        gender.Version = this.Version;
+
+                    if(pidMaps != null)
+                        pidMaps.PropagateVersion(this.Version);
+                }
             }
         }
 
@@ -929,17 +997,23 @@ namespace EWSoftware.PDI.Objects
             if(this.Version == SpecificationVersions.vCard21)
                 tw.Write("VERSION:2.1\r\n");
             else
-                tw.Write("VERSION:3.0\r\n");
+                if(this.Version == SpecificationVersions.vCard30)
+                    tw.Write("VERSION:3.0\r\n");
+                else
+                    tw.Write("VERSION:4.0\r\n");
 
-            // Save 3.0 specification properties when needed.  We'll group the properties to keep similar ones
-            // together.  It's not necessary, but it makes things easier to find.
-            if(this.Version == SpecificationVersions.vCard30)
+            if(this.Version == SpecificationVersions.vCard30 && this.AddProfile)
+                tw.Write("PROFILE:VCARD\r\n");
+
+            // Save 3.0 and later specification properties when needed.  We'll group the properties to keep
+            // similar ones together.  It's not necessary, but it makes things easier to find.
+            if(this.Version != SpecificationVersions.vCard21)
             {
-                if(this.AddProfile)
-                    tw.Write("PROFILE:VCARD\r\n");
-
                 BaseProperty.WriteToStream(prodId, sb, tw);
-                BaseProperty.WriteToStream(mimeName, sb, tw);
+
+                if(this.Version != SpecificationVersions.vCard40)
+                    BaseProperty.WriteToStream(mimeName, sb, tw);
+
                 BaseProperty.WriteToStream(mimeSource, sb, tw);
             }
 
@@ -947,10 +1021,18 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(this.FormattedName, sb, tw);
             BaseProperty.WriteToStream(this.Name, sb, tw);
 
-            if(this.Version == SpecificationVersions.vCard30)
+            if(this.Version != SpecificationVersions.vCard21)
             {
                 BaseProperty.WriteToStream(nickname, sb, tw);
-                BaseProperty.WriteToStream(sortString, sb, tw);
+
+                if(this.Version != SpecificationVersions.vCard40)
+                    BaseProperty.WriteToStream(sortString, sb, tw);
+            }
+
+            if(this.Version == SpecificationVersions.vCard40)
+            {
+                BaseProperty.WriteToStream(gender, sb, tw);
+                BaseProperty.WriteToStream(anniversary, sb, tw);
             }
 
             BaseProperty.WriteToStream(bday, sb, tw);
@@ -958,9 +1040,11 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(title, sb, tw);
             BaseProperty.WriteToStream(role, sb, tw);
 
-            if(this.Version == SpecificationVersions.vCard30)
+            if(this.Version != SpecificationVersions.vCard21)
             {
-                BaseProperty.WriteToStream(classification, sb, tw);
+                if(this.Version != SpecificationVersions.vCard40)
+                    BaseProperty.WriteToStream(classification, sb, tw);
+
                 BaseProperty.WriteToStream(categories, sb, tw);
             }
 
@@ -968,7 +1052,7 @@ namespace EWSoftware.PDI.Objects
                 foreach(AddressProperty a in addrs)
                     BaseProperty.WriteToStream(a, sb, tw);
 
-            if(labels != null && labels.Count != 0)
+            if(this.Version != SpecificationVersions.vCard40 && labels != null && labels.Count != 0)
                 foreach(LabelProperty l in labels)
                     BaseProperty.WriteToStream(l, sb, tw);
 
@@ -991,9 +1075,16 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(url, sb, tw);
             BaseProperty.WriteToStream(tz, sb, tw);
             BaseProperty.WriteToStream(geo, sb, tw);
-            BaseProperty.WriteToStream(mailer, sb, tw);
+
+            if(this.Version != SpecificationVersions.vCard40)
+                BaseProperty.WriteToStream(mailer, sb, tw);
+
             BaseProperty.WriteToStream(rev, sb, tw);
             BaseProperty.WriteToStream(uid, sb, tw);
+
+            if(pidMaps != null && pidMaps.Count != 0 && this.Version == SpecificationVersions.vCard40)
+                foreach(var p in pidMaps)
+                    BaseProperty.WriteToStream(p, sb, tw);
 
             BaseProperty.WriteToStream(key, sb, tw);
             BaseProperty.WriteToStream(photo, sb, tw);

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ParameterType.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/13/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 04/22/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the enumerated type that defines the known parameter types used by the Personal Data
@@ -57,6 +57,8 @@ namespace EWSoftware.PDI.Parser
         /// <summary>A STATUS or PARTSTAT parameter</summary>
         Status,
         /// <summary>A custom (X-???) parameter</summary>
-        Custom
+        Custom,
+        /// <summary>A PID (property ID) parameter</summary>
+        PropertyId
     }
 }

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LabelProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Label property.  It is used with the Personal Data Interchange (PDI) vCard class
@@ -110,7 +110,7 @@ namespace EWSoftware.PDI.Properties
         public LabelProperty()
         {
             this.Version = SpecificationVersions.vCard30;
-            this.AddressTypes = AddressTypes.Default;
+            this.AddressTypes = AddressTypes.International | AddressTypes.Postal | AddressTypes.Parcel | AddressTypes.Work;
         }
         #endregion
 
@@ -146,8 +146,10 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
+            AddressTypes defaultValue = AddressTypes.International | AddressTypes.Postal | AddressTypes.Parcel | AddressTypes.Work;
+
             // Serialize the address types if necessary
-            if(this.AddressTypes != AddressTypes.None && this.AddressTypes != AddressTypes.Default)
+            if(this.AddressTypes != AddressTypes.None && this.AddressTypes != defaultValue)
             {
                 StringBuilder sbTypes = new StringBuilder(50);
 
@@ -161,13 +163,13 @@ namespace EWSoftware.PDI.Properties
                     }
 
                 // The format is different for the 3.0 spec
-                if(this.Version == SpecificationVersions.vCard30)
+                if(this.Version == SpecificationVersions.vCard21)
+                    sbTypes.Replace(',', ';');
+                else
                 {
                     sbTypes.Insert(0, "=");
                     sbTypes.Insert(0, ParameterNames.Type);
                 }
-                else
-                    sbTypes.Replace(',', ';');
 
                 sb.Append(';');
                 sb.Append(sbTypes.ToString());

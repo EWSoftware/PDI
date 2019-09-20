@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TelephoneProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Telephone property class.  It is used with the Personal Data Interchange (PDI) vCard
@@ -62,6 +62,8 @@ namespace EWSoftware.PDI.Properties
             new NameToValue<PhoneTypes>("ISDN", PhoneTypes.ISDN, true),
             new NameToValue<PhoneTypes>("VIDEO", PhoneTypes.Video, true),
             new NameToValue<PhoneTypes>("PCS", PhoneTypes.PCS, true),
+            new NameToValue<PhoneTypes>("TEXT", PhoneTypes.Text, true),
+            new NameToValue<PhoneTypes>("TEXTPHONE", PhoneTypes.TextPhone, true),
 
             // This is a non-standard one that pops up every now and then.  When it does, treat it like CELL.
             new NameToValue<PhoneTypes>("MOBILE", PhoneTypes.Cell, true)
@@ -74,9 +76,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specifications</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This read-only property defines the tag (TEL)
@@ -93,6 +94,37 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public PhoneTypes PhoneTypes { get; set; }
 
+        /// <summary>
+        /// This is used to get or set the URI prefix if the value location is set to URI
+        /// </summary>
+        public string UriPrefix { get; set; }
+
+        /// <summary>
+        /// This is overridden to handle the URI prefix on the value if the value location is set to URI
+        /// </summary>
+        public override string EncodedValue
+        {
+            get
+            {
+                if(this.ValueLocation == ValLocValue.Uri && !String.IsNullOrWhiteSpace(this.UriPrefix))
+                    return this.UriPrefix + ":" + base.EncodedValue;
+
+                return base.EncodedValue;
+            }
+            set
+            {
+                if(this.ValueLocation == ValLocValue.Uri && !String.IsNullOrWhiteSpace(value) &&
+                  value.IndexOf(':') != -1)
+                {
+                    int pos = value.IndexOf(':');
+
+                    this.UriPrefix = value.Substring(0, pos);
+                    value = value.Substring(pos + 1);
+                }
+
+                base.EncodedValue = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -129,7 +161,11 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            this.PhoneTypes = ((TelephoneProperty)p).PhoneTypes;
+            var clone = (TelephoneProperty)p;
+
+            this.PhoneTypes = clone.PhoneTypes;
+            this.UriPrefix = clone.UriPrefix;
+
             base.Clone(p);
         }
 
@@ -150,6 +186,10 @@ namespace EWSoftware.PDI.Properties
                 if(this.Version != SpecificationVersions.vCard30)
                     pt &= ~PhoneTypes.PCS;
 
+                // Text and TextPhone are only defined in the 4.0 spec
+                if(this.Version != SpecificationVersions.vCard40)
+                    pt &= ~(PhoneTypes.Text | PhoneTypes.TextPhone);
+
                 StringBuilder sbTypes = new StringBuilder(50);
 
                 // This ignores the last entry (MOBILE) as it's a duplicate of CELL
@@ -162,14 +202,14 @@ namespace EWSoftware.PDI.Properties
                         sbTypes.Append(ntv[idx].Name);
                     }
 
-                // The format is different for the 3.0 spec
-                if(this.Version == SpecificationVersions.vCard30)
+                // The format is different for the 3.0 spec and later
+                if(this.Version == SpecificationVersions.vCard21)
+                    sbTypes.Replace(',', ';');
+                else
                 {
                     sbTypes.Insert(0, "=");
                     sbTypes.Insert(0, ParameterNames.Type);
                 }
-                else
-                    sbTypes.Replace(',', ';');
 
                 sb.Append(';');
                 sb.Append(sbTypes.ToString());

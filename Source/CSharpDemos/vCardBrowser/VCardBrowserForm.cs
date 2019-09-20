@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/14/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
@@ -115,14 +115,20 @@ namespace vCardBrowser
             {
                 string sortName1, sortName2;
 
-                // Get the names to compare.  Precedence is given to the SortStringProperty as that is the
-                // purpose of its existence.
-                sortName1 = x.SortString.Value;
+                // Get the names to compare.  Precedence is given to the SortString property or SortAs parameter
+                // as that is the purpose of their existence.
+                if(x.Version != SpecificationVersions.vCard40)
+                    sortName1 = x.SortString.Value;
+                else
+                    sortName1 = x.Name.SortAs;
 
                 if(String.IsNullOrWhiteSpace(sortName1))
                     sortName1 = x.Name.SortableName;
 
-                sortName2 = y.SortString.Value;
+                if(y.Version != SpecificationVersions.vCard40)
+                    sortName2 = y.SortString.Value;
+                else
+                    sortName2 = y.Name.SortAs;
 
                 if(String.IsNullOrWhiteSpace(sortName2))
                     sortName2 = y.Name.SortableName;
@@ -400,8 +406,8 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        /// <remarks>Downgrading to Version 2.1 will cause the loss of any Version 3.0 properties if the file is
-        /// saved and reloaded.</remarks>
+        /// <remarks>Downgrading to Version 2.1 will cause the loss of any Version 3.0 or later properties if the
+        /// file is saved and reloaded.  Likewise when going from 4.0 to an earlier version.</remarks>
         private void btnApplyVersion_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Are you sure you want to apply the selected version to all vCards in the file?",
@@ -410,7 +416,8 @@ namespace vCardBrowser
                 return;
 
             vCards.PropagateVersion((cboVersion.SelectedIndex == 0) ?
-                SpecificationVersions.vCard21 : SpecificationVersions.vCard30);
+                SpecificationVersions.vCard21 : (cboVersion.SelectedIndex == 1) ? SpecificationVersions.vCard30 :
+                SpecificationVersions.vCard40);
         }
 
         /// <summary>
@@ -495,11 +502,12 @@ namespace vCardBrowser
         private void dgvCards_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             Color foreColor;
-            string version;
 
             if(e.RowIndex > -1 && e.ColumnIndex == 0)
             {
-                version = ((SpecificationVersions)e.Value == SpecificationVersions.vCard21) ? "2.1" : "3.0";
+                var specVer = (SpecificationVersions)e.Value;
+                string version = (specVer == SpecificationVersions.vCard21) ? "2.1" :
+                    (specVer == SpecificationVersions.vCard30) ? "3.0" : "4.0";
 
                 e.Paint(e.CellBounds, e.PaintParts & ~DataGridViewPaintParts.ContentForeground);
 

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : OrganizationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/14/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Organization property class used by the Personal Data Interchange (PDI) vCard class
@@ -47,9 +47,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specifications</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This read-only property defines the tag (ORG)
@@ -65,6 +64,12 @@ namespace EWSoftware.PDI.Properties
         /// This property is used to set or get the organization name
         /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// This property is used to set or get the string to use when sorting organizations
+        /// </summary>
+        /// <value>If set, this value should be given precedence over the <see cref="Name"/> property</value>
+        public string SortAs { get; set; }
 
         /// <summary>
         /// This property is used to get the Organization Units string collection
@@ -207,6 +212,56 @@ namespace EWSoftware.PDI.Properties
             OrganizationProperty o = new OrganizationProperty();
             o.Clone(this);
             return o;
+        }
+
+        /// <summary>
+        /// This is overridden to provide custom handling of the SORT-AS parameter
+        /// </summary>
+        /// <param name="sb">The StringBuilder to which the parameters are appended</param>
+        public override void SerializeParameters(StringBuilder sb)
+        {
+            base.SerializeParameters(sb);
+
+            if(this.Version == SpecificationVersions.vCard40)
+            {
+                if(!String.IsNullOrWhiteSpace(this.SortAs))
+                {
+                    sb.Append(';');
+                    sb.Append(ParameterNames.SortAs);
+                    sb.Append("=\"");
+                    sb.Append(this.SortAs);
+                    sb.Append('"');
+                }
+            }
+        }
+
+        /// <summary>
+        /// This is overridden to provide custom handling of the SORT-AS parameter
+        /// </summary>
+        /// <param name="parameters">The parameters for the property</param>
+        public override void DeserializeParameters(StringCollection parameters)
+        {
+            if(parameters == null || parameters.Count == 0)
+                return;
+
+            for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+                if(String.Compare(parameters[paramIdx], "SORT-AS=", StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    // Remove the parameter name
+                    parameters.RemoveAt(paramIdx);
+
+                    if(paramIdx < parameters.Count)
+                    {
+                        this.SortAs = parameters[paramIdx];
+
+                        // As above, remove the value
+                        parameters.RemoveAt(paramIdx);
+                    }
+                    break;
+                }
+
+            // Let the base class handle all other parameters
+            base.DeserializeParameters(parameters);
         }
         #endregion
     }

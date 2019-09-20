@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PropertyType.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/13/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 04/22/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the enumerated type that defines all known properties used by the Personal Data Interchange
@@ -144,6 +144,12 @@ namespace EWSoftware.PDI.Parser
         EMail,
         /// <summary>An AGENT property</summary>
         Agent,
+        /// <summary>An ANNIVERSARY property</summary>
+        Anniversary,
+        /// <summary>A GENDER property</summary>
+        Gender,
+        /// <summary>A CLIENTPIDMAP property</summary>
+        ClientPidMap,
 
         #endregion
 

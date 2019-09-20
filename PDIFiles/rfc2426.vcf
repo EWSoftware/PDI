@@ -132,6 +132,7 @@ END:VCARD
 BEGIN:vCard
 VERSION:3.0
 FN:Frank Dawson
+N:Dawson;Frank
 ORG:Lotus Development Corporation
 ADR;TYPE=WORK,POSTAL,PARCEL:;;6544 Battleford Drive
  ;Raleigh;NC;27613-3502;U.S.A.
@@ -147,6 +148,7 @@ END:vCard
 BEGIN:vCard
 VERSION:3.0
 FN:Tim Howes
+N:Howes;Tim
 ORG:Netscape Communications Corp.
 ADR;TYPE=WORK:;;501 E. Middlefield Rd.;Mountain View;
  CA; 94043;U.S.A.

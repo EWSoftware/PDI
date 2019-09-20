@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 04/22/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a vCard's properties.  It supports most of the common properties of the vCard including
@@ -21,6 +21,7 @@
 //===============================================================================================================
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Windows.Forms;
@@ -51,7 +52,19 @@ namespace vCardBrowser
             // Set the short date/long time pattern based on the current culture
             dtpBirthDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern + " " +
                 CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern;
-		}
+
+            cboSex.ValueMember = "Value";
+            cboSex.DisplayMember = "Display";
+            cboSex.DataSource = new List<ListItem>
+            {
+                new ListItem('\0', String.Empty),
+                new ListItem('M', "Male"),
+                new ListItem('F', "Female"),
+                new ListItem('O', "Other"),
+                new ListItem('N', "N/A"),
+                new ListItem('U', "Unknown")
+            };
+        }
         #endregion
 
         #region Event handlers
@@ -64,8 +77,9 @@ namespace vCardBrowser
         /// <param name="e">The event parameters</param>
         private void cboVersion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtCategories.Enabled = txtClass.Enabled = txtNickname.Enabled =
-                txtSortString.Enabled = (cboVersion.SelectedIndex == 1);
+            txtCategories.Enabled = txtNickname.Enabled = (cboVersion.SelectedIndex != 0);
+            txtClass.Enabled = txtSortString.Enabled = (cboVersion.SelectedIndex == 1);
+            cboSex.Enabled = txtGenderIdentity.Enabled = (cboVersion.SelectedIndex == 2);
         }
 
         /// <summary>
@@ -160,7 +174,8 @@ namespace vCardBrowser
         public void SetValues(VCard vCard)
         {
             // Enable or disable fields based on the version
-            cboVersion.SelectedIndex = (vCard.Version == SpecificationVersions.vCard21) ? 0 : 1;
+            cboVersion.SelectedIndex = (vCard.Version == SpecificationVersions.vCard21) ? 0 :
+                (vCard.Version == SpecificationVersions.vCard30) ? 1 : 2;
 
             // General properties
             txtUniqueId.Text = vCard.UniqueId.Value;
@@ -178,6 +193,9 @@ namespace vCardBrowser
 
             // We'll edit nicknames as a comma separated string
             txtNickname.Text = vCard.Nickname.NicknamesString;
+
+            cboSex.SelectedValue = vCard.Gender.Sex ?? '\x0';
+            txtGenderIdentity.Text = vCard.Gender.GenderIdentity;
 
             // We could bind directly to the existing collections but that would modify them.  To preserve the
             // original items, we'll pass a copy of the collections instead.
@@ -251,7 +269,8 @@ namespace vCardBrowser
         public void GetValues(VCard vCard)
         {
             // Set the version based on the one selected
-            vCard.Version = (cboVersion.SelectedIndex == 0) ? SpecificationVersions.vCard21 : SpecificationVersions.vCard30;
+            vCard.Version = (cboVersion.SelectedIndex == 0) ? SpecificationVersions.vCard21 :
+                (cboVersion.SelectedIndex == 1) ? SpecificationVersions.vCard30 : SpecificationVersions.vCard40;
 
             // General properties.  Unique ID is not changed.  Last Revision is set to the current date and time.
             vCard.Classification.Value = txtClass.Text;
@@ -268,6 +287,9 @@ namespace vCardBrowser
 
             // We'll parse nicknames as a comma separated string
             vCard.Nickname.NicknamesString = txtNickname.Text;
+
+            vCard.Gender.Sex = (cboSex.SelectedIndex == 0) ? (char?)null : (char)cboSex.SelectedValue;
+            vCard.Gender.GenderIdentity = txtGenderIdentity.Text;
 
             // For the collections, we'll clear the existing items and copy the modified items from the browse
             // control binding sources.

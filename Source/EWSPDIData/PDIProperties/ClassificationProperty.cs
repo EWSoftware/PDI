@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ClassificationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Classification property class used by the Personal Data Interchange (PDI) classes such as
@@ -42,7 +42,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Supports vCard 3.0, vCalendar 1.0, iCalendar 2.0, and IrMC 1.1</value>
         public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
-            SpecificationVersions.vCalendar10 | SpecificationVersions.iCalendar20 | SpecificationVersions.IrMC11;
+            SpecificationVersions.CalendarAll | SpecificationVersions.IrMC11;
 
         /// <summary>
         /// This read-only property defines the tag (CLASS)

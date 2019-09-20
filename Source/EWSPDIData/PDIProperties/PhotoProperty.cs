@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PhotoProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Photo property that support binary encoded images.  It is used with the Personal Data
@@ -67,9 +67,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specifications</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This read-only property defines the tag (PHOTO)
@@ -140,8 +139,8 @@ namespace EWSoftware.PDI.Properties
             {
                 sb.Append(';');
 
-                // The format is different for the 3.0 spec
-                if(this.Version == SpecificationVersions.vCard30)
+                // The format is different for the 3.0 spec and later
+                if(this.Version != SpecificationVersions.vCard21)
                 {
                     sb.Append(ParameterNames.Type);
                     sb.Append('=');

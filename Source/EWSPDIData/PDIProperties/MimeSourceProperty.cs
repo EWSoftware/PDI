@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MimeSourceProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Mime Source property class used by the Personal Data Interchange (PDI) vCard class
@@ -19,7 +19,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 namespace EWSoftware.PDI.Properties
@@ -28,9 +27,9 @@ namespace EWSoftware.PDI.Properties
     /// This class is used to represent the MIME source type (SOURCE) property of a vCard.  This provides
     /// information on how to find the source for the vCard.
     /// </summary>
-    /// <remarks>This is for use in specifying a MIME source type and is only valid for the 3.0 specification.
-    /// The <see cref="BaseProperty.Value"/> property contains the source value.  It will decode the context
-    /// parameter and make it accessible through the <see cref="Context"/> property.</remarks>
+    /// <remarks>This is for use in specifying a MIME source type and is only valid for the vCard 3.0 and
+    /// 4.0 specifications.  The <see cref="BaseProperty.Value"/> property contains the source value.  It will
+    /// decode the context parameter and make it accessible through the <see cref="Context"/> property.</remarks>
     public class MimeSourceProperty : BaseProperty
     {
         #region Properties
@@ -39,8 +38,9 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 3.0 only</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30;
+        /// <value>Supports vCard 3.0 and 4.0 only</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard30 |
+            SpecificationVersions.vCard40;
 
         /// <summary>
         /// This read-only property defines the tag (SOURCE)
@@ -56,7 +56,8 @@ namespace EWSoftware.PDI.Properties
         /// This property is used to set or get a string containing the context of the property value such as a
         /// protocol for a URI.
         /// </summary>
-        /// <value>The value is a string defining the context of the property value such as LDAP, HTTP, etc.</value>
+        /// <value>The value is a string defining the context of the property value such as LDAP, HTTP, etc.  It
+        /// is only applicable to vCard 3.0 objects.</value>
         public string Context { get; set; }
 
         #endregion
@@ -105,8 +106,8 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
-            // Serialize the key type if necessary
-            if(!String.IsNullOrWhiteSpace(this.Context))
+            // Serialize the context if necessary
+            if(this.Version == SpecificationVersions.vCard30 && !String.IsNullOrWhiteSpace(this.Context))
             {
                 sb.Append(';');
                 sb.Append(ParameterNames.Context);

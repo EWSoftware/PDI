@@ -1,0 +1,123 @@
+BEGIN:VCARD
+VERSION:4.0
+REV:19951031T222710Z
+FN:Rene van der Harten
+N;ALTID=1;LANGUAGE=en;SORT-AS="Harten,Rene":van der Harten;Rene,J.;Sir;R.D.O.N.
+ADR;GEO="geo:12.3457,78.910";LABEL="Mr. John Q. Public, Esq.\n
+ Mail Drop: TNE QB\n123 Main Street\nAny Town, CA  91921-1234\n
+ U.S.A.":;;123 Main Street;Any Town;CA;91921-1234;U.S.A.
+TEL;VALUE=uri;PREF=1;TYPE="voice,home":tel:+1-555-555-5555;ext=5555
+TEL;VALUE=uri;TYPE=home:tel:+33-01-23-45-67
+LANG;TYPE=work;PREF=1:en
+LANG;TYPE=work;PREF=2:fr
+LANG;TYPE=home:fr
+RELATED;TYPE=friend:urn:uuid:f81d4fae-7dec-11d0-a765-00a0c91e6bf6
+RELATED;TYPE=contact:http://example.com/directory/jdoe.vcf
+RELATED;TYPE=co-worker;VALUE=text:Please contact my assistant Jane
+ Doe for any inquiries.
+ANNIVERSARY;CALSCALE=Gregorian:19960415
+BDAY:--0203
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:Robert Pau Shou Chang
+N;SORT-AS="Pau Shou Chang,Robert":Shou Chang;Robert,Pau;;
+GENDER:M
+TEL;PID=3.1,4.2;VALUE=uri:tel:+1-555-555-5555
+EMAIL;PID=4.1,5.2:jdoe@example.com
+CLIENTPIDMAP:1;urn:uuid:3df403f4-5924-4bb7-b077-3c711d9eb34b
+CLIENTPIDMAP:2;urn:uuid:d89c9c7a-2e1b-4832-82de-7e992d95faa5
+ANNIVERSARY:20090808T1430-0500
+BDAY;CALSCALE=gregorian:19960415
+GEO;TYPE=work:geo:46.772673,-71.282945
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:Osamu Koura
+N;SORT-AS="Koura,Osamu":Koura;Osamu;;
+BDAY:--0415
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:Oscar del Pozo
+N;SORT-AS="Pozo,Oscar":del Pozo Triscon;Oscar;;
+BDAY;VALUE=DATE-TIME:19531015T231000Z
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:Christine d'Aboville
+N;SORT-AS="Aboville,Christine":d'Aboville;Christine;;
+GENDER:F;grrrl
+BDAY;VALUE=text:circa 1970
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:H. James de Mann
+N;SORT-AS="Mann,James":de Mann;Henry,James;;
+GENDER:M;Dude
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+KIND:individual
+FN:Jane Doe
+N:Doe;Jane
+GENDER:;it's complicated
+ORG:ABC\, Inc.;North American Division;Marketing
+EMAIL;TYPE=work:jqpublic@xyz.example.com
+EMAIL;PREF=1:jane_doe@example.com
+IMPP;PREF=1:xmpp:alice@example.com
+FBURL;PREF=1:http://www.example.com/busy/janedoe
+FBURL;MEDIATYPE=text/calendar:ftp://example.com/busy/project-a.ifb
+CALADRURI;PREF=1:mailto:janedoe@example.com
+CALADRURI:http://example.com/calendar/jdoe
+CALURI;PREF=1:http://cal.example.com/calA
+CALURI;MEDIATYPE=text/calendar:ftp://ftp.example.com/calA.ics
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+KIND:org
+FN:ABC Marketing
+N:ABC Marketing
+ORG:ABC\, Inc.;North American Division;Marketing
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+KIND:group
+FN:The Doe family
+N:The Doe family
+MEMBER:urn:uuid:03a0e51f-d1aa-4385-8a53-e29025acd8af
+MEMBER:urn:uuid:b8767877-b4a1-4c70-9acc-505d3819e519
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:John Doe
+N:Doe;John
+UID:urn:uuid:03a0e51f-d1aa-4385-8a53-e29025acd8af
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+FN:Jane Doe
+N:Doe;Jane
+UID:urn:uuid:b8767877-b4a1-4c70-9acc-505d3819e519
+END:VCARD
+
+BEGIN:VCARD
+VERSION:4.0
+KIND:group
+FN:Funky distribution list
+N:Funky distribution list
+MEMBER:mailto:subscriber1@example.com
+MEMBER:xmpp:subscriber2@example.com
+MEMBER:sip:subscriber3@example.com
+MEMBER:tel:+1-418-555-5555
+END:VCARD

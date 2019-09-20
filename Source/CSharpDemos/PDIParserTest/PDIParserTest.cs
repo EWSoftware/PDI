@@ -174,10 +174,12 @@ namespace PDIParserTest
             }
             catch(PDIParserException pe)
             {
+                System.Diagnostics.Debug.WriteLine(pe);
                 Console.WriteLine("\n\nError at line #{0}\n\n{1}", pe.LineNumber, pe.ToString());
             }
             catch(Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex);
                 Console.WriteLine("Unexpected failure:\n{0}", ex.ToString());
             }
         }

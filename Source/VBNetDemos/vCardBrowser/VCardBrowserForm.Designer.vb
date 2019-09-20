@@ -38,6 +38,11 @@ Partial Class VCardBrowserForm
         Me.label23 = New System.Windows.Forms.Label()
         Me.btnApplyVersion = New System.Windows.Forms.Button()
         Me.dgvCards = New System.Windows.Forms.DataGridView()
+        Me.tbcVersion = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcOrganization = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.tbcLastRevision = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.lblFilename = New System.Windows.Forms.Label()
         Me.mnuMain = New System.Windows.Forms.MenuStrip()
         Me.miFile = New System.Windows.Forms.ToolStripMenuItem()
@@ -57,11 +62,6 @@ Partial Class VCardBrowserForm
         Me.menuItem6 = New System.Windows.Forms.ToolStripSeparator()
         Me.miAbout = New System.Windows.Forms.ToolStripMenuItem()
         Me.miExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tbcVersion = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcTitle = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcOrganization = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.tbcLastRevision = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvCards,System.ComponentModel.ISupportInitialize).BeginInit
         Me.mnuMain.SuspendLayout
         Me.SuspendLayout
@@ -97,10 +97,10 @@ Partial Class VCardBrowserForm
         '
         Me.cboVersion.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
         Me.cboVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboVersion.Items.AddRange(New Object() {"2.1", "3.0"})
+        Me.cboVersion.Items.AddRange(New Object() {"2.1", "3.0", "4.0"})
         Me.cboVersion.Location = New System.Drawing.Point(771, 519)
         Me.cboVersion.Name = "cboVersion"
-        Me.cboVersion.Size = New System.Drawing.Size(65, 28)
+        Me.cboVersion.Size = New System.Drawing.Size(65, 24)
         Me.cboVersion.TabIndex = 7
         '
         'label23
@@ -159,137 +159,6 @@ Partial Class VCardBrowserForm
         Me.dgvCards.StandardTab = true
         Me.dgvCards.TabIndex = 2
         '
-        'lblFilename
-        '
-        Me.lblFilename.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
-            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
-        Me.lblFilename.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.lblFilename.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-        Me.lblFilename.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.lblFilename.Location = New System.Drawing.Point(12, 28)
-        Me.lblFilename.Name = "lblFilename"
-        Me.lblFilename.Size = New System.Drawing.Size(918, 23)
-        Me.lblFilename.TabIndex = 1
-        Me.lblFilename.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'mnuMain
-        '
-        Me.mnuMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
-        Me.mnuMain.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile})
-        Me.mnuMain.Location = New System.Drawing.Point(0, 0)
-        Me.mnuMain.Name = "mnuMain"
-        Me.mnuMain.Size = New System.Drawing.Size(942, 28)
-        Me.mnuMain.TabIndex = 0
-        '
-        'miFile
-        '
-        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miOpen, Me.miSave, Me.menuItem2, Me.miFileEncoding, Me.miPropEncoding, Me.menuItem4, Me.miClear, Me.menuItem6, Me.miAbout, Me.miExit})
-        Me.miFile.Name = "miFile"
-        Me.miFile.Size = New System.Drawing.Size(46, 24)
-        Me.miFile.Text = "&File"
-        '
-        'miOpen
-        '
-        Me.miOpen.Name = "miOpen"
-        Me.miOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O),System.Windows.Forms.Keys)
-        Me.miOpen.Size = New System.Drawing.Size(252, 30)
-        Me.miOpen.Text = "&Open"
-        '
-        'miSave
-        '
-        Me.miSave.Name = "miSave"
-        Me.miSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S),System.Windows.Forms.Keys)
-        Me.miSave.Size = New System.Drawing.Size(252, 30)
-        Me.miSave.Text = "&Save"
-        '
-        'menuItem2
-        '
-        Me.menuItem2.Name = "menuItem2"
-        Me.menuItem2.Size = New System.Drawing.Size(249, 6)
-        '
-        'miFileEncoding
-        '
-        Me.miFileEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFileUnicode, Me.miFileWestEuro, Me.miFileASCII})
-        Me.miFileEncoding.Name = "miFileEncoding"
-        Me.miFileEncoding.Size = New System.Drawing.Size(252, 30)
-        Me.miFileEncoding.Text = "File Encoding"
-        '
-        'miFileUnicode
-        '
-        Me.miFileUnicode.Checked = true
-        Me.miFileUnicode.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.miFileUnicode.Name = "miFileUnicode"
-        Me.miFileUnicode.Size = New System.Drawing.Size(302, 30)
-        Me.miFileUnicode.Text = "Unicode (UTF-8)"
-        '
-        'miFileWestEuro
-        '
-        Me.miFileWestEuro.Name = "miFileWestEuro"
-        Me.miFileWestEuro.Size = New System.Drawing.Size(302, 30)
-        Me.miFileWestEuro.Text = "Western European (Windows)"
-        '
-        'miFileASCII
-        '
-        Me.miFileASCII.Name = "miFileASCII"
-        Me.miFileASCII.Size = New System.Drawing.Size(302, 30)
-        Me.miFileASCII.Text = "ASCII"
-        '
-        'miPropEncoding
-        '
-        Me.miPropEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPropUnicode, Me.miPropWestEuro, Me.miPropASCII})
-        Me.miPropEncoding.Name = "miPropEncoding"
-        Me.miPropEncoding.Size = New System.Drawing.Size(252, 30)
-        Me.miPropEncoding.Text = "Property Encoding"
-        '
-        'miPropUnicode
-        '
-        Me.miPropUnicode.Name = "miPropUnicode"
-        Me.miPropUnicode.Size = New System.Drawing.Size(302, 30)
-        Me.miPropUnicode.Text = "Unicode (UTF-8)"
-        '
-        'miPropWestEuro
-        '
-        Me.miPropWestEuro.Name = "miPropWestEuro"
-        Me.miPropWestEuro.Size = New System.Drawing.Size(302, 30)
-        Me.miPropWestEuro.Text = "Western European (Windows)"
-        '
-        'miPropASCII
-        '
-        Me.miPropASCII.Checked = true
-        Me.miPropASCII.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.miPropASCII.Name = "miPropASCII"
-        Me.miPropASCII.Size = New System.Drawing.Size(302, 30)
-        Me.miPropASCII.Text = "ASCII"
-        '
-        'menuItem4
-        '
-        Me.menuItem4.Name = "menuItem4"
-        Me.menuItem4.Size = New System.Drawing.Size(249, 6)
-        '
-        'miClear
-        '
-        Me.miClear.Name = "miClear"
-        Me.miClear.Size = New System.Drawing.Size(252, 30)
-        Me.miClear.Text = "&Clear"
-        '
-        'menuItem6
-        '
-        Me.menuItem6.Name = "menuItem6"
-        Me.menuItem6.Size = New System.Drawing.Size(249, 6)
-        '
-        'miAbout
-        '
-        Me.miAbout.Name = "miAbout"
-        Me.miAbout.Size = New System.Drawing.Size(252, 30)
-        Me.miAbout.Text = "&About vCard Browser"
-        '
-        'miExit
-        '
-        Me.miExit.Name = "miExit"
-        Me.miExit.Size = New System.Drawing.Size(252, 30)
-        Me.miExit.Text = "E&xit"
-        '
         'tbcVersion
         '
         Me.tbcVersion.DataPropertyName = "Version"
@@ -330,6 +199,137 @@ Partial Class VCardBrowserForm
         Me.tbcLastRevision.Name = "tbcLastRevision"
         Me.tbcLastRevision.ReadOnly = true
         Me.tbcLastRevision.Width = 175
+        '
+        'lblFilename
+        '
+        Me.lblFilename.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left)  _
+            Or System.Windows.Forms.AnchorStyles.Right),System.Windows.Forms.AnchorStyles)
+        Me.lblFilename.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.lblFilename.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.lblFilename.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.lblFilename.Location = New System.Drawing.Point(12, 28)
+        Me.lblFilename.Name = "lblFilename"
+        Me.lblFilename.Size = New System.Drawing.Size(918, 23)
+        Me.lblFilename.TabIndex = 1
+        Me.lblFilename.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'mnuMain
+        '
+        Me.mnuMain.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.8!)
+        Me.mnuMain.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.mnuMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFile})
+        Me.mnuMain.Location = New System.Drawing.Point(0, 0)
+        Me.mnuMain.Name = "mnuMain"
+        Me.mnuMain.Size = New System.Drawing.Size(942, 25)
+        Me.mnuMain.TabIndex = 0
+        '
+        'miFile
+        '
+        Me.miFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miOpen, Me.miSave, Me.menuItem2, Me.miFileEncoding, Me.miPropEncoding, Me.menuItem4, Me.miClear, Me.menuItem6, Me.miAbout, Me.miExit})
+        Me.miFile.Name = "miFile"
+        Me.miFile.Size = New System.Drawing.Size(42, 21)
+        Me.miFile.Text = "&File"
+        '
+        'miOpen
+        '
+        Me.miOpen.Name = "miOpen"
+        Me.miOpen.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O),System.Windows.Forms.Keys)
+        Me.miOpen.Size = New System.Drawing.Size(215, 26)
+        Me.miOpen.Text = "&Open"
+        '
+        'miSave
+        '
+        Me.miSave.Name = "miSave"
+        Me.miSave.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S),System.Windows.Forms.Keys)
+        Me.miSave.Size = New System.Drawing.Size(215, 26)
+        Me.miSave.Text = "&Save"
+        '
+        'menuItem2
+        '
+        Me.menuItem2.Name = "menuItem2"
+        Me.menuItem2.Size = New System.Drawing.Size(212, 6)
+        '
+        'miFileEncoding
+        '
+        Me.miFileEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miFileUnicode, Me.miFileWestEuro, Me.miFileASCII})
+        Me.miFileEncoding.Name = "miFileEncoding"
+        Me.miFileEncoding.Size = New System.Drawing.Size(215, 26)
+        Me.miFileEncoding.Text = "File Encoding"
+        '
+        'miFileUnicode
+        '
+        Me.miFileUnicode.Checked = true
+        Me.miFileUnicode.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.miFileUnicode.Name = "miFileUnicode"
+        Me.miFileUnicode.Size = New System.Drawing.Size(271, 26)
+        Me.miFileUnicode.Text = "Unicode (UTF-8)"
+        '
+        'miFileWestEuro
+        '
+        Me.miFileWestEuro.Name = "miFileWestEuro"
+        Me.miFileWestEuro.Size = New System.Drawing.Size(271, 26)
+        Me.miFileWestEuro.Text = "Western European (Windows)"
+        '
+        'miFileASCII
+        '
+        Me.miFileASCII.Name = "miFileASCII"
+        Me.miFileASCII.Size = New System.Drawing.Size(271, 26)
+        Me.miFileASCII.Text = "ASCII"
+        '
+        'miPropEncoding
+        '
+        Me.miPropEncoding.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miPropUnicode, Me.miPropWestEuro, Me.miPropASCII})
+        Me.miPropEncoding.Name = "miPropEncoding"
+        Me.miPropEncoding.Size = New System.Drawing.Size(215, 26)
+        Me.miPropEncoding.Text = "Property Encoding"
+        '
+        'miPropUnicode
+        '
+        Me.miPropUnicode.Name = "miPropUnicode"
+        Me.miPropUnicode.Size = New System.Drawing.Size(271, 26)
+        Me.miPropUnicode.Text = "Unicode (UTF-8)"
+        '
+        'miPropWestEuro
+        '
+        Me.miPropWestEuro.Name = "miPropWestEuro"
+        Me.miPropWestEuro.Size = New System.Drawing.Size(271, 26)
+        Me.miPropWestEuro.Text = "Western European (Windows)"
+        '
+        'miPropASCII
+        '
+        Me.miPropASCII.Checked = true
+        Me.miPropASCII.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.miPropASCII.Name = "miPropASCII"
+        Me.miPropASCII.Size = New System.Drawing.Size(271, 26)
+        Me.miPropASCII.Text = "ASCII"
+        '
+        'menuItem4
+        '
+        Me.menuItem4.Name = "menuItem4"
+        Me.menuItem4.Size = New System.Drawing.Size(212, 6)
+        '
+        'miClear
+        '
+        Me.miClear.Name = "miClear"
+        Me.miClear.Size = New System.Drawing.Size(215, 26)
+        Me.miClear.Text = "&Clear"
+        '
+        'menuItem6
+        '
+        Me.menuItem6.Name = "menuItem6"
+        Me.menuItem6.Size = New System.Drawing.Size(212, 6)
+        '
+        'miAbout
+        '
+        Me.miAbout.Name = "miAbout"
+        Me.miAbout.Size = New System.Drawing.Size(215, 26)
+        Me.miAbout.Text = "&About vCard Browser"
+        '
+        'miExit
+        '
+        Me.miExit.Name = "miExit"
+        Me.miExit.Size = New System.Drawing.Size(215, 26)
+        Me.miExit.Text = "E&xit"
         '
         'VCardBrowserForm
         '

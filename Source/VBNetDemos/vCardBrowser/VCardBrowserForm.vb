@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardBrowserForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/25/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+' Updated : 01/14/2019
+' Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 ' Compiler: Visual Basic .NET
 '
 ' This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
@@ -123,15 +123,23 @@ Public Partial Class VCardBrowserForm
     Private Shared Function VCardSorter(ByVal x As VCard, ByVal y As VCard) As Integer
         Dim sortName1, sortName2 As String
 
-        ' Get the names to compare.  Precedence is given to the SortStringProperty as that is the purpose of its
-        ' existence.
-        sortName1 = x.SortString.Value
+        ' Get the names to compare.  Precedence is given to the SortString property or SortAs parameter as that
+        ' is the purpose of their existence.
+        If x.Version <> SpecificationVersions.vCard40 Then
+            sortName1 = x.SortString.Value
+        Else
+            sortName1 = x.Name.SortAs
+        End If
 
         If String.IsNullOrWhiteSpace(sortName1) Then
             sortName1 = x.Name.SortableName
         End If
 
-        sortName2 = y.SortString.Value
+        If y.Version <> SpecificationVersions.vCard40 Then
+            sortName2 = y.SortString.Value
+        Else
+            sortName2 = y.Name.SortAs
+        End If
 
         If String.IsNullOrWhiteSpace(sortName2) Then
             sortName2 = y.Name.SortableName
@@ -376,8 +384,8 @@ Public Partial Class VCardBrowserForm
     ''' <summary>
     ''' Apply the selected version to all vCards in the collection.
     ''' </summary>
-    ''' <remarks>Downgrading to Version 2.1 will cause the loss of any Version 3.0 properties if the file is
-    ''' saved and reloaded.</remarks>
+    ''' <remarks>Downgrading to Version 2.1 will cause the loss of any Version 3.0 or later properties if the
+    ''' file is saved and reloaded.  Likewise when going from 4.0 to an earlier version.</remarks>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event arguments</param>
     Private Sub btnApplyVersion_Click(ByVal sender As System.Object, _
@@ -391,7 +399,11 @@ Public Partial Class VCardBrowserForm
         If cboVersion.SelectedIndex = 0 Then
             vCards.PropagateVersion(SpecificationVersions.vCard21)
         Else
-            vCards.PropagateVersion(SpecificationVersions.vCard30)
+            If cboVersion.SelectedIndex = 1 Then
+                vCards.PropagateVersion(SpecificationVersions.vCard30)
+            Else
+                vCards.PropagateVersion(SpecificationVersions.vCard40)
+            End if
         End If
     End Sub
 
@@ -474,11 +486,16 @@ Public Partial Class VCardBrowserForm
         Dim version As String
 
         If e.RowIndex > -1 AndAlso e.ColumnIndex = 0 Then
-            If DirectCast(e.Value, SpecificationVersions) = SpecificationVersions.vCard21 Then
-                version = "2.1"
-            Else
-                version = "3.0"
-            End If
+            Select Case DirectCast(e.Value, SpecificationVersions)
+                Case SpecificationVersions.vCard21
+                    version = "2.1"
+
+                Case SpecificationVersions.vCard30
+                    version = "3.0"
+
+                Case Else
+                    version = "4.0"
+            End Select
 
             e.Paint(e.CellBounds, (e.PaintParts And Not DataGridViewPaintParts.ContentForeground))
 

@@ -57,6 +57,11 @@ namespace EWSoftware.PDI.Properties
         /// <summary>Indicates a video-phone (VIDEO) number</summary>
         Video =     0x1000,
         /// <summary>Indicates a personal communication services (PCS) telephone number (3.0 specification only)</summary>
-        PCS =       0x2000
+        PCS =       0x2000,
+        /// <summary>Indicates a text message (SMS) number (4.0 specification only)</summary>
+        Text =      0x4000,
+        /// <summary>Indicates a number for a telecommunication device for people with hearing or speech
+        /// difficulties (4.0 specification only)</summary>
+        TextPhone = 0x8000,
     }
 }

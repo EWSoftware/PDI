@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : GeographicPositionProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Geographic Position property class used by the Personal Data Interchange (PDI) classes
@@ -18,6 +18,8 @@
 // ==============================================================================================================
 // 03/14/2004  EFW  Created the code
 //===============================================================================================================
+
+// Ignore Spelling: geo
 
 using System;
 using System.Globalization;
@@ -42,7 +44,7 @@ namespace EWSoftware.PDI.Properties
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
         /// <value>Supports all specifications except IrMC 1.1</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.Any;
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.AllButIrMC11;
 
         /// <summary>
         /// This read-only property defines the tag (GEO)
@@ -69,6 +71,13 @@ namespace EWSoftware.PDI.Properties
         public double Longitude { get; set; }
 
         /// <summary>
+        /// This is used to get or set whether or not to include the "geo:" URI prefix when saving the property
+        /// value in vCard 4.0 files.
+        /// </summary>
+        /// <value>The default is true</value>
+        public bool IncludeGeoUriPrefix { get; set; }
+
+        /// <summary>
         /// This property is overridden to handle parsing the component parts to/from their string form
         /// </summary>
         public override string Value
@@ -79,10 +88,15 @@ namespace EWSoftware.PDI.Properties
                 if(this.Latitude == 0.0 && this.Longitude == 0.0)
                     return null;
 
-                // vCard 2.1 and vCalendar 1.0 separates them with a comma.  vCard 3.0 and iCalendar 2.0
-                // separates them with a semi-colon.
-                return String.Format(CultureInfo.InvariantCulture, "{0:F6}{1}{2:F6}", this.Latitude,
-                    ((this.Version == SpecificationVersions.vCard30 ||
+                string geoUriPrefix = String.Empty;
+
+                if(this.Version == SpecificationVersions.vCard40 && this.IncludeGeoUriPrefix)
+                    geoUriPrefix = "geo:";
+
+                // vCard 2.1 and vCalendar 1.0 separates them with a comma.  vCard 3.0, vCard 4.0, and
+                // iCalendar 2.0 separates them with a semi-colon.
+                return String.Format(CultureInfo.InvariantCulture, "{0}{1:F6}{2}{3:F6}", geoUriPrefix, this.Latitude,
+                    ((this.Version == SpecificationVersions.vCard30 || this.Version == SpecificationVersions.vCard40 ||
                     this.Version == SpecificationVersions.iCalendar20) ? ";" : ","), this.Longitude);
             }
             set
@@ -91,6 +105,14 @@ namespace EWSoftware.PDI.Properties
 
                 if(!String.IsNullOrWhiteSpace(value))
                 {
+                    if(value.StartsWith("geo:", StringComparison.OrdinalIgnoreCase))
+                    {
+                        this.IncludeGeoUriPrefix = true;
+                        value = value.Substring(4);
+                    }
+                    else
+                        this.IncludeGeoUriPrefix = false;
+
                     string[] parts = value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                     if(parts.Length == 2)
@@ -122,6 +144,7 @@ namespace EWSoftware.PDI.Properties
         public GeographicPositionProperty()
         {
             this.Version = SpecificationVersions.iCalendar20;
+            this.IncludeGeoUriPrefix = true;
         }
         #endregion
 
@@ -138,6 +161,20 @@ namespace EWSoftware.PDI.Properties
             o.Clone(this);
             return o;
         }
+
+        /// <summary>
+        /// This is overridden to allow copying of the additional properties
+        /// </summary>
+        /// <param name="p">The PDI object from which the settings are to be copied</param>
+        protected override void Clone(PDIObject p)
+        {
+            var clone = (GeographicPositionProperty)p;
+
+            this.IncludeGeoUriPrefix = clone.IncludeGeoUriPrefix;
+
+            base.Clone(p);
+        }
+
 
         /// <summary>
         /// The specifications do not allow parameters for this property.  Any parameters are ignored.

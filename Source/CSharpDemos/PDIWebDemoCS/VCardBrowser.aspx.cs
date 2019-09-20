@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardBrowser.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This page is used to demonstrate the vCard classes
@@ -199,7 +199,7 @@ namespace PDIWebDemoCS
 
                         // Send the file to the user
                         this.Response.ClearContent();
-                        this.Response.ContentType = "text/x-vcard";
+                        this.Response.ContentType = "text/vcard";
                         this.Response.AppendHeader("Content-Disposition", "inline;filename=VCards.vcf");
 
                         // The collection can be written directly to the stream.  Note that more likely than not,

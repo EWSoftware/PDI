@@ -68,9 +68,11 @@ namespace EWSoftware.PDI
                     throw new ArgumentException(LR.GetString("ExPDIOVersionSetToNone"));
 
                 if(value != SpecificationVersions.vCard21 && value != SpecificationVersions.vCard30 &&
-                   value != SpecificationVersions.vCalendar10 && value != SpecificationVersions.iCalendar20 &&
-                   value != SpecificationVersions.IrMC11)
+                   value != SpecificationVersions.vCard40 && value != SpecificationVersions.vCalendar10 &&
+                   value != SpecificationVersions.iCalendar20 && value != SpecificationVersions.IrMC11)
+                {
                     throw new ArgumentException(LR.GetString("ExPDIOVersionCombo"));
+                }
 
                 if((this.VersionsSupported & value) == 0)
                     throw new ArgumentException(LR.GetString("ExPDIOVersionNotSupported"));

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AgentProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Agent property.  It is used with the Personal Data Interchange (PDI) classes such as
@@ -47,9 +47,12 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specifications</value>
+        /// <remarks>The vCard 4.0 specification states that inline vCard values are no longer supported and
+        /// does not include any documentation for the property at all.  However, since other non-inline types
+        /// are valid in the prior specifications and the 4.0 specification doesn't address them at all, this
+        /// will function as it did in the prior specifications including support for inline vCard values.</remarks>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This read-only property defines the tag (AGENT)

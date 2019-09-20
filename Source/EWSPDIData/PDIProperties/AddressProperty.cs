@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the Address property.  It is used with the Personal Data Interchange (PDI) vCard class
@@ -66,9 +66,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to establish the specification versions supported by the PDI object
         /// </summary>
-        /// <value>Supports vCard 2.1 and vCard 3.0</value>
-        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCard21 |
-            SpecificationVersions.vCard30;
+        /// <value>Supports all vCard specifications</value>
+        public override SpecificationVersions VersionsSupported => SpecificationVersions.vCardAll;
 
         /// <summary>
         /// This read-only property defines the tag (ADR)
@@ -277,7 +276,7 @@ namespace EWSoftware.PDI.Properties
         public AddressProperty()
         {
             this.Version = SpecificationVersions.vCard30;
-            this.AddressTypes = AddressTypes.Default;
+            this.AddressTypes = AddressTypes.International | AddressTypes.Postal | AddressTypes.Parcel | AddressTypes.Work;
         }
         #endregion
 
@@ -313,13 +312,24 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
+            // The default and supported values are different for vCard 4.0
+            AddressTypes defaultValue = AddressTypes.International | AddressTypes.Postal | AddressTypes.Parcel | AddressTypes.Work,
+                parameterValue = this.AddressTypes;
+
+            if(this.Version == SpecificationVersions.vCard40)
+            {
+                defaultValue = AddressTypes.Work;
+                parameterValue &= ~(AddressTypes.Domestic | AddressTypes.International | AddressTypes.Postal |
+                    AddressTypes.Parcel);
+            }
+
             // Serialize the address types if necessary
-            if(this.AddressTypes != AddressTypes.None && this.AddressTypes != AddressTypes.Default)
+            if(parameterValue != AddressTypes.None && parameterValue != defaultValue)
             {
                 StringBuilder sbTypes = new StringBuilder(50);
 
                 for(int idx = 1; idx < ntv.Length; idx++)
-                    if((this.AddressTypes & ntv[idx].EnumValue) != 0)
+                    if((parameterValue & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
                             sbTypes.Append(',');
@@ -327,14 +337,14 @@ namespace EWSoftware.PDI.Properties
                         sbTypes.Append(ntv[idx].Name);
                     }
 
-                // The format is different for the 3.0 spec
-                if(this.Version == SpecificationVersions.vCard30)
+                // The format is different for the 3.0 and later specs
+                if(this.Version == SpecificationVersions.vCard21)
+                    sbTypes.Replace(',', ';');
+                else
                 {
                     sbTypes.Insert(0, "=");
                     sbTypes.Insert(0, ParameterNames.Type);
                 }
-                else
-                    sbTypes.Replace(',', ';');
 
                 sb.Append(';');
                 sb.Append(sbTypes.ToString());

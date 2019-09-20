@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseDateTimeProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains an abstract base date/time property class used to create the other date/time property
@@ -79,6 +79,12 @@ namespace EWSoftware.PDI.Properties
                     timeZoneId = null;
             }
         }
+
+        /// <summary>
+        /// This is used to get or set the calendar scale (CALSCALE) parameter value
+        /// </summary>
+        /// <value>This property is only applicable to vCard 4.0 date/time objects</value>
+        public string CalendarScale { get; set; }
 
         /// <summary>
         /// This is used to get or set the value as a <see cref="System.DateTime"/> object expressed in the
@@ -169,6 +175,9 @@ namespace EWSoftware.PDI.Properties
         {
             get
             {
+                if(this.ValueLocation == ValLocValue.Text)
+                    return base.Value;
+
                 DateTime dtDate = propDate;
                 string format;
 
@@ -179,15 +188,15 @@ namespace EWSoftware.PDI.Properties
                 // Only save the date part if the value location is DATE
                 if(this.ValueLocation == ValLocValue.Date)
                 {
-                    // vCard 3.0 uses the extended format.  All others use the basic format.
-                    if(this.Version == SpecificationVersions.vCard30)
+                    // vCard 3.0 and later use the extended format.  All others use the basic format.
+                    if(this.Version == SpecificationVersions.vCard30 || this.Version == SpecificationVersions.vCard40)
                         format = ISO8601Format.ExtendedDate;
                     else
                         format = ISO8601Format.BasicDate;
                 }
                 else
                 {
-                    if(this.Version == SpecificationVersions.vCard30)
+                    if(this.Version == SpecificationVersions.vCard30 || this.Version == SpecificationVersions.vCard40)
                     {
                         // Floating uses the local time format
                         if(this.IsFloating)
@@ -220,13 +229,25 @@ namespace EWSoftware.PDI.Properties
 
                 if(value != null && value.Length > 0)
                 {
-                    propDate = DateUtils.FromISO8601String(value, true);
+                    // We don't handle missing date parts (i.e. --0517).  Default them to text values.
+                    if(value.IndexOf("--", StringComparison.Ordinal) != -1)
+                        this.ValueLocation = ValLocValue.Text;
 
-                    if(this.ValueLocation == ValLocValue.DateTime && timeZoneId == null)
-                        this.IsFloating = DateUtils.IsFloatingFormat(value);
+                    if(this.ValueLocation == ValLocValue.Text)
+                        base.Value = value;
+                    else
+                    {
+                        propDate = DateUtils.FromISO8601String(value, true);
+
+                        if(this.ValueLocation == ValLocValue.DateTime && timeZoneId == null)
+                            this.IsFloating = DateUtils.IsFloatingFormat(value);
+                    }
                 }
                 else
+                {
                     propDate = DateTime.MinValue;
+                    base.Value = null;
+                }
             }
         }
 
@@ -260,7 +281,11 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            timeZoneId = ((BaseDateTimeProperty)p).TimeZoneId;
+            var clone = (BaseDateTimeProperty)p;
+
+            timeZoneId = clone.TimeZoneId;
+            this.CalendarScale = clone.CalendarScale;
+
             base.Clone(p);
         }
 
@@ -289,6 +314,15 @@ namespace EWSoftware.PDI.Properties
                 else
                     sb.Append(timeZoneId);
             }
+
+            // Serialize the calendar scale if necessary
+            if(this.Version == SpecificationVersions.vCard40 && !String.IsNullOrWhiteSpace(this.CalendarScale))
+            {
+                sb.Append(';');
+                sb.Append(ParameterNames.CalendarScale);
+                sb.Append('=');
+                sb.Append(this.CalendarScale);
+            }
         }
 
         /// <summary>
@@ -301,6 +335,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "TZID=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -315,6 +350,22 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+
+                if(String.Compare(parameters[paramIdx], "CALSCALE=", StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    // Remove the parameter name
+                    parameters.RemoveAt(paramIdx);
+
+                    if(paramIdx < parameters.Count)
+                    {
+                        this.CalendarScale = parameters[paramIdx];
+
+                        // As above, remove the value
+                        parameters.RemoveAt(paramIdx);
+                    }
+                    break;
+                }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

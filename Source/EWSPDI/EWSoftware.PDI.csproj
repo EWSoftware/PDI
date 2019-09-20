@@ -18,7 +18,7 @@
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>PDI personal data interchange holiday calculation date recurrence RFC 2445</PackageTags>
 		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
-		<PackageLicenseUrl>https://github.com/EWSoftware/PDI/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageLicenseExpression>MS-PL</PackageLicenseExpression>
 		<PackageReleaseNotes>Targets .NET 4.0 and .NET Standard 2.0 and later</PackageReleaseNotes>
 		<SignAssembly>true</SignAssembly>
 		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>

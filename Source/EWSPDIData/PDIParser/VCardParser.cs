@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCardParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains a class used to parse vCard Personal Data Interchange (PDI) data streams.  It supports
@@ -78,6 +78,9 @@ namespace EWSoftware.PDI.Parser
             new NameToValue<PropertyType>("TEL", PropertyType.Telephone),
             new NameToValue<PropertyType>("EMAIL", PropertyType.EMail),
             new NameToValue<PropertyType>("AGENT", PropertyType.Agent),
+            new NameToValue<PropertyType>("ANNIVERSARY", PropertyType.Anniversary),
+            new NameToValue<PropertyType>("GENDER", PropertyType.Gender),
+            new NameToValue<PropertyType>("CLIENTPIDMAP", PropertyType.ClientPidMap),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
@@ -343,7 +346,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Version:
-                    // Version must be 2.1 or 3.0
+                    // Version must be 2.1, 3.0, or 4.0
                     temp = propertyValue.Trim();
 
                     if(temp == "2.1")
@@ -352,8 +355,11 @@ namespace EWSoftware.PDI.Parser
                         if(temp == "3.0")
                             version = SpecificationVersions.vCard30;
                         else
-                            throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedVersion",
-                                "vCard", temp));
+                            if(temp == "4.0")
+                                version = SpecificationVersions.vCard40;
+                            else
+                                throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedVersion",
+                                    "vCard", temp));
 
                     currentCard.Version = version;
                     break;
@@ -406,6 +412,11 @@ namespace EWSoftware.PDI.Parser
                     currentCard.Name.Group = group;
                     break;
 
+                case PropertyType.Gender:
+                    currentCard.Gender.EncodedValue = propertyValue;
+                    currentCard.Gender.Group = group;
+                    break;
+
                 case PropertyType.Title:
                     currentCard.Title.DeserializeParameters(parameters);
                     currentCard.Title.EncodedValue = propertyValue;
@@ -445,6 +456,12 @@ namespace EWSoftware.PDI.Parser
                     currentCard.BirthDate.DeserializeParameters(parameters);
                     currentCard.BirthDate.EncodedValue = propertyValue;
                     currentCard.BirthDate.Group = group;
+                    break;
+
+                case PropertyType.Anniversary:
+                    currentCard.Anniversary.DeserializeParameters(parameters);
+                    currentCard.Anniversary.EncodedValue = propertyValue;
+                    currentCard.Anniversary.Group = group;
                     break;
 
                 case PropertyType.Revision:
@@ -534,6 +551,11 @@ namespace EWSoftware.PDI.Parser
                     ag.EncodedValue = propertyValue;
                     ag.Group = group;
                     currentCard.Agents.Add(ag);
+                    break;
+
+                case PropertyType.ClientPidMap:
+                    currentCard.ClientPidMaps.Add(new ClientPidMapProperty { EncodedValue = propertyValue,
+                        Group = group });
                     break;
 
                 default:    // Anything else is a custom property

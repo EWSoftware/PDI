@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 05/17/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains the base property class used by the Personal Data Interchange (PDI) classes such as
@@ -52,6 +52,7 @@ namespace EWSoftware.PDI.Properties
             new NameToValue<ParameterType>(ParameterNames.CharacterSet, ParameterType.CharacterSet),
             new NameToValue<ParameterType>(ParameterNames.Language, ParameterType.Language),
             new NameToValue<ParameterType>(ParameterNames.ValueLocation, ParameterType.ValueLocation),
+            new NameToValue<ParameterType>(ParameterNames.PropertyId, ParameterType.PropertyId),
             new NameToValue<ParameterType>(EncodingValue.SevenBit, ParameterType.Encoding, true),
             new NameToValue<ParameterType>(EncodingValue.EightBit, ParameterType.Encoding, true),
             new NameToValue<ParameterType>(EncodingValue.QuotedPrintable, ParameterType.Encoding, true),
@@ -119,7 +120,7 @@ namespace EWSoftware.PDI.Properties
                 }
                 else
                     if(this.EncodingMethod == EncodingType.BEncoding)
-                    this.EncodingMethod = EncodingType.Base64;
+                        this.EncodingMethod = EncodingType.Base64;
             }
         }
 
@@ -259,6 +260,13 @@ namespace EWSoftware.PDI.Properties
                     language = LanguageValue.USEnglish;
             }
         }
+
+        /// <summary>
+        /// This is used to get or set the property ID for the value
+        /// </summary>
+        /// <remarks>This is only valid for vCard 4.0 objects.  There may be a single value or multiple values
+        /// separated by commas.  It is up to the user to decode and make use of these values.</remarks>
+        public string PropertyId { get; set; }
 
         /// <summary>
         /// The value (data) type or location of this property's value
@@ -419,6 +427,7 @@ namespace EWSoftware.PDI.Properties
             this.EncodingMethod = o.EncodingMethod;
             this.CharacterSet = o.CharacterSet;
             this.Language = o.Language;
+            this.PropertyId = o.PropertyId;
             this.ValueLocation = o.ValueLocation;
             this.CustomParameters = o.CustomParameters;
             this.Value = o.Value;
@@ -545,7 +554,9 @@ namespace EWSoftware.PDI.Properties
             else
                 if(encVal.Length > 75 && (this.EncodingMethod == EncodingType.Base64 ||
                   this.EncodingMethod == EncodingType.BEncoding))
+                {
                     sb.Append("\r\n ");
+                }
 
             sb.Append(encVal);
             sb.Append("\r\n");
@@ -602,6 +613,7 @@ namespace EWSoftware.PDI.Properties
             this.SerializeCharacterSet(sb);
             this.SerializeLanguage(sb);
             this.SerializeValueLocation(sb);
+            this.SerializePropertyId(sb);
             this.SerializeCustomParameters(sb);
         }
 
@@ -678,6 +690,23 @@ namespace EWSoftware.PDI.Properties
         }
 
         /// <summary>
+        /// This is called to serialize the PID parameter if necessary
+        /// </summary>
+        /// <param name="sb">The StringBuilder to which the parameters are appended</param>
+        /// <remarks>The method should append a semi-colon followed by the parameter name, an equal sign, and the
+        /// parameter value.  This parameter is only applicable to vCard 4.0 objects.</remarks>
+        public virtual void SerializePropertyId(StringBuilder sb)
+        {
+            if(this.Version == SpecificationVersions.vCard40 && !String.IsNullOrWhiteSpace(this.PropertyId))
+            {
+                sb.Append(';');
+                sb.Append(ParameterNames.PropertyId);
+                sb.Append('=');
+                sb.Append(this.PropertyId);
+            }
+        }
+
+        /// <summary>
         /// This is called to serialize any custom parameters if necessary
         /// </summary>
         /// <param name="sb">The StringBuilder to which the parameters are appended</param>
@@ -731,6 +760,10 @@ namespace EWSoftware.PDI.Properties
         ///     <item>
         ///         <term>Value (Location)</term>
         ///         <description>The location/data type of the property value</description>
+        ///     </item>
+        ///     <item>
+        ///         <term>Property ID (PID)</term>
+        ///         <description>The property ID for the property used to match properties across instances</description>
         ///     </item>
         ///     <item>
         ///         <term>Custom parameters</term>
@@ -788,6 +821,14 @@ namespace EWSoftware.PDI.Properties
 
                         if(paramIdx < parameters.Count)
                             this.ValueLocation = parameters[paramIdx];
+                        break;
+
+                    case ParameterType.PropertyId:
+                        if(!ntv[idx].IsParameterValue)
+                            paramIdx++;
+
+                        if(paramIdx < parameters.Count)
+                            this.PropertyId = parameters[paramIdx];
                         break;
 
                     default:
@@ -933,7 +974,8 @@ namespace EWSoftware.PDI.Properties
                     break;
             }
 
-            if(String.Compare(this.CharacterSet, CharSetValue.ASCII, StringComparison.OrdinalIgnoreCase) != 0)
+            if((this.Version == SpecificationVersions.vCard21 || this.Version == SpecificationVersions.vCalendar10) &&
+              String.Compare(this.CharacterSet, CharSetValue.ASCII, StringComparison.OrdinalIgnoreCase) != 0)
             {
                 // The string is already encoded.  We just want the bytes in array form
                 Encoding enc = Encoding.GetEncoding("iso-8859-1");

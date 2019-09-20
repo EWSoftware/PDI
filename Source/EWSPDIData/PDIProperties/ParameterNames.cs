@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ParameterNames.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 04/22/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This class holds a set of constants that define the standard parameter names for the various specifications
@@ -100,5 +100,14 @@ namespace EWSoftware.PDI.Properties
 
         /// <summary>Free/busy type (iCalendar)</summary>
         public const string FreeBusyType = "FBTYPE";
+
+        /// <summary>Sort as value (vCard 4.0)</summary>
+        public const string SortAs = "SORT-AS";
+
+        /// <summary>Property ID (vCard 4.0)</summary>
+        public const string PropertyId = "PID";
+
+        /// <summary>Calendar Scale (vCard 4.0)</summary>
+        public const string CalendarScale = "CALSCALE";
     }
 }
