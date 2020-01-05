@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardBrowserForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/14/2019
-' Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2020
+' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 '
 ' This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
 ' how to edit the various vCard properties.
@@ -23,6 +22,7 @@
 Imports System.ComponentModel
 Imports System.Globalization
 Imports System.IO
+Imports System.Linq
 Imports System.Text
 
 Imports EWSoftware.PDI.Objects
@@ -40,17 +40,17 @@ Public Partial Class VCardBrowserForm
 
     Private vCards As VCardCollection   ' The vCard collection being browsed
     Private wasModified As Boolean
-    Private sf As StringFormat
+    Private ReadOnly sf As StringFormat
 
     '===============================================================
 
     ''' <summary>
     ''' The main entry point for the application
     ''' </summary>
-    Shared Sub Main(Args As String())
+    Public Shared Sub Main(Args As String())
         Application.EnableVisualStyles()
-        Application.SetCompatibleTextRenderingDefault(false)
-        Application.Run(new VCardBrowserForm())
+        Application.SetCompatibleTextRenderingDefault(False)
+        Application.Run(New VCardBrowserForm())
     End Sub
 
     ''' <summary>
@@ -250,6 +250,12 @@ Public Partial Class VCardBrowserForm
             If dlg.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
                 Try
                     Me.Cursor = Cursors.WaitCursor
+
+                    ' Enforce UTF-8 encoding if using vCard 4.0
+                    If (Not miFileUnicode.Checked Or Not miPropUnicode.Checked) And vCards.Any(
+                      Function(c) c.Version = SpecificationVersions.vCard40) Then
+                        Me.ChangeFileEncoding_Click(miFileUnicode, e)
+                    End If
 
                     ' Open the file and write the vCards to it.  We'll use the same encoding method used by the
                     ' parser.

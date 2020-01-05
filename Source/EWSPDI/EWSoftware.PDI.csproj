@@ -14,6 +14,7 @@
 		<Description>This library contains the core set of useful Personal Data Interchange (PDI) and date utility classes for .NET applications.  They can be used for calculating holiday dates, recurrences, etc.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
+		<PackageIcon>EWSPDI.png</PackageIcon>
 		<RepositoryUrl>https://github.com/EWSoftware/PDI</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>PDI personal data interchange holiday calculation date recurrence RFC 2445</PackageTags>
@@ -46,6 +47,7 @@
 
 	<ItemGroup>
 		<EmbeddedResource Include="Schemas\Recurrence.xsd" />
+		<None Include="..\..\EWSPDI.png" Link="EWSPDI.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>

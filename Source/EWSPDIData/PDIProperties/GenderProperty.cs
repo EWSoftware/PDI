@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : GenderProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 04/22/2019
+// Updated : 12/20/2019
 // Note    : Copyright 2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the Gender property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -20,7 +19,6 @@
 
 using System;
 using System.Linq;
-using System.Text;
 
 namespace EWSoftware.PDI.Properties
 {
@@ -121,22 +119,6 @@ namespace EWSoftware.PDI.Properties
             var o = new GenderProperty();
             o.Clone(this);
             return o;
-        }
-
-        /// <summary>
-        /// The specifications do not allow parameters for this property.  Any parameters are ignored.
-        /// </summary>
-        /// <param name="sb">The StringBuilder to which the parameters are appended</param>
-        public override void SerializeParameters(StringBuilder sb)
-        {
-        }
-
-        /// <summary>
-        /// The specifications do not allow parameters for this property.  Any parameters are ignored.
-        /// </summary>
-        /// <param name="parameters">The parameters for the property</param>
-        public override void DeserializeParameters(StringCollection parameters)
-        {
         }
         #endregion
     }

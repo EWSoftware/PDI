@@ -41,7 +41,9 @@ demo.</p>
 			<asp:TemplateColumn HeaderText="Ver">
 				<ItemTemplate>
 					<%# ((EWSoftware.PDI.Objects.VCard)Container.DataItem).Version ==
-					EWSoftware.PDI.Properties.SpecificationVersions.vCard21 ? "2.1" : "3.0" %>
+								EWSoftware.PDI.Properties.SpecificationVersions.vCard21 ? "2.1" :
+						  ((EWSoftware.PDI.Objects.VCard)Container.DataItem).Version ==
+								EWSoftware.PDI.Properties.SpecificationVersions.vCard30 ? "3.0" : "4.0" %>
 				</ItemTemplate>
 			</asp:TemplateColumn>
 			<asp:TemplateColumn HeaderText="Name">

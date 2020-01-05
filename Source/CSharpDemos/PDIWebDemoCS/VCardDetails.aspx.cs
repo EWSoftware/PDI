@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardDetails.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2020
+// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This page is used to demonstrate the vCard classes.  Currently, it allows editing of some basic information.
 // Information in the data grids could also be edited.  Time constraints limit what I have implemented so far
@@ -73,7 +72,8 @@ namespace PDIWebDemoCS
                 txtClass.Text = vCard.Classification.Value;
 
                 // Enable or disable fields based on the version
-                cboVersion.SelectedIndex = (vCard.Version == SpecificationVersions.vCard21) ? 0 : 1;
+                cboVersion.SelectedIndex = (vCard.Version == SpecificationVersions.vCard21) ? 0 :
+                    (vCard.Version == SpecificationVersions.vCard30) ? 1 : 2;
 
                 // Name
                 txtLastName.Text = vCard.Name.FamilyName;
@@ -172,7 +172,7 @@ namespace PDIWebDemoCS
         protected void cboVersion_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtCategories.Enabled = txtClass.Enabled = txtNickname.Enabled = txtSortString.Enabled =
-                (cboVersion.SelectedIndex == 1);
+                (cboVersion.SelectedIndex != 0);
         }
 
         /// <summary>

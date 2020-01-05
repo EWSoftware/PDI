@@ -39,8 +39,10 @@ demo.</p>
 		<Columns>
 			<asp:TemplateColumn HeaderText="Ver">
 				<ItemTemplate>
-					<%# IIf(DirectCast(Container.DataItem, EWSoftware.PDI.Objects.VCard).Version = _
-					EWSoftware.PDI.Properties.SpecificationVersions.vCard21, "2.1", "3.0") %>
+					<%# IIf(DirectCast(Container.DataItem, EWSoftware.PDI.Objects.VCard).Version =
+											EWSoftware.PDI.Properties.SpecificationVersions.vCard21, "2.1",
+												IIf(DirectCast(Container.DataItem, EWSoftware.PDI.Objects.VCard).Version =
+														EWSoftware.PDI.Properties.SpecificationVersions.vCard30, "3.0", "4.0")) %>
 				</ItemTemplate>
 			</asp:TemplateColumn>
 			<asp:TemplateColumn HeaderText="Name">

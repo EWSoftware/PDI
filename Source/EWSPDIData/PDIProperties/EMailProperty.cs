@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EMailProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
+// Updated : 12/16/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the e-mail property class.  It is used with the Personal Data Interchange (PDI) vCard
 // class.
@@ -41,10 +40,10 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         // This private array is used to translate parameter names and values to email types
-        private static NameToValue<EMailTypes>[] ntv = {
+        private static readonly NameToValue<EMailTypes>[] ntv = {
             new NameToValue<EMailTypes>("TYPE", EMailTypes.None, false),
             new NameToValue<EMailTypes>("PREF", EMailTypes.Preferred, true),
             new NameToValue<EMailTypes>("AOL", EMailTypes.AOL, true),
@@ -60,6 +59,9 @@ namespace EWSoftware.PDI.Properties
             new NameToValue<EMailTypes>("TLX", EMailTypes.Telex, true),
             new NameToValue<EMailTypes>("X400", EMailTypes.X400, true)
         };
+
+        private short preferredOrder;
+
         #endregion
 
         #region Properties
@@ -87,6 +89,24 @@ namespace EWSoftware.PDI.Properties
         /// <value>The default is Internet</value>
         public EMailTypes EMailTypes { get; set; }
 
+        /// <summary>
+        /// This property is used to get or set the preferred order (vCard 4.0 only)
+        /// </summary>
+        /// <value>Zero if not set or the preferred usage order between 1 and 100</value>
+        public short PreferredOrder
+        {
+            get => preferredOrder;
+            set
+            {
+                if(value < 0)
+                    value = 0;
+                else
+                    if(value > 100)
+                        value = 100;
+
+                preferredOrder = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -122,7 +142,11 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            this.EMailTypes = ((EMailProperty)p).EMailTypes;
+            var clone = (EMailProperty)p;
+
+            this.EMailTypes = clone.EMailTypes;
+            this.PreferredOrder = clone.PreferredOrder;
+
             base.Clone(p);
         }
 
@@ -134,13 +158,27 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
+            EMailTypes parameterValue = this.EMailTypes;
+
+            // Preferred is handled differently in vCard 4.0
+            if(this.Version == SpecificationVersions.vCard40)
+            {
+                if((parameterValue & EMailTypes.Preferred) != 0 && this.PreferredOrder == 0)
+                    this.PreferredOrder = 1;
+
+                parameterValue &= ~EMailTypes.Preferred;
+
+                if(this.PreferredOrder > 0)
+                    sb.AppendFormat(";PREF={0}", this.PreferredOrder);
+            }
+
             // Serialize the e-mail types if necessary
-            if(this.EMailTypes != EMailTypes.None && this.EMailTypes != EMailTypes.Internet)
+            if(parameterValue != EMailTypes.None && parameterValue != EMailTypes.Internet)
             {
                 StringBuilder sbTypes = new StringBuilder(50);
 
                 for(int idx = 1; idx < ntv.Length; idx++)
-                    if((this.EMailTypes & ntv[idx].EnumValue) != 0)
+                    if((parameterValue & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
                             sbTypes.Append(',');
@@ -220,7 +258,17 @@ namespace EWSoftware.PDI.Properties
                 }
                 else
                 {
-                    et |= ntv[idx].EnumValue;
+                    // Preferred is handled differently in vCard 4.0
+                    if(ntv[idx].EnumValue == EMailTypes.Preferred &&
+                      parameters[paramIdx].EndsWith("=", StringComparison.Ordinal))
+                    {
+                        parameters.RemoveAt(paramIdx);
+
+                        if(Int16.TryParse(parameters[paramIdx], out short order))
+                            this.PreferredOrder = order;
+                    }
+                    else
+                        et |= ntv[idx].EnumValue;
 
                     // As above, remove the value
                     parameters.RemoveAt(paramIdx);

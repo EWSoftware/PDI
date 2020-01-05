@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 05/17/2019
+// Updated : 12/18/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the base property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -627,7 +626,7 @@ namespace EWSoftware.PDI.Properties
         {
             if(this.EncodingMethod != EncodingType.SevenBit && this.EncodingMethod != EncodingType.EightBit &&
               (this.ValueLocation == ValLocValue.Inline || this.ValueLocation == ValLocValue.Text ||
-              this.ValueLocation == ValLocValue.Binary))
+              this.ValueLocation == ValLocValue.Binary) && this.Version != SpecificationVersions.vCard40)
             {
                 sb.Append(';');
                 sb.Append(ParameterNames.Encoding);

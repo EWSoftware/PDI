@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardDetails.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 12/31/2014
-' Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2020
+' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 '
 ' This page is used to demonstrate the vCard classes.  Currently, it allows editing of some basic information.
 ' Information in the data grids could also be edited.  Time constraints limit what I have implemented so far but
@@ -65,7 +64,11 @@ Namespace PDIWebDemoVB
                 If vCard.Version = SpecificationVersions.vCard21 Then
                     cboVersion.SelectedIndex = 0
                 Else
-                    cboVersion.SelectedIndex = 1
+                    If vCard.Version = SpecificationVersions.vCard30 Then
+                        cboVersion.SelectedIndex = 1
+                    Else
+                        cboVersion.SelectedIndex = 2
+                    End If
                 End If
 
                 ' Name
@@ -150,7 +153,7 @@ Namespace PDIWebDemoVB
         ' Enable/disable controls based on the version selected
         Private Sub cboVersion_SelectedIndexChanged(ByVal sender As Object, _
           ByVal e As System.EventArgs) Handles cboVersion.SelectedIndexChanged
-            Dim enabled As Boolean = (cboVersion.SelectedIndex = 1)
+            Dim enabled As Boolean = (cboVersion.SelectedIndex <> 0)
 
             txtCategories.Enabled = enabled
             txtClass.Enabled = enabled

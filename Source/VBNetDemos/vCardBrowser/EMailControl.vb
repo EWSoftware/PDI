@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : EMailControl.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2020
+' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a vCard's e-mail address information.  It's nothing elaborate but does let you edit the
 ' collection fairly well.
@@ -43,6 +42,14 @@ Public Partial Class EMailControl
 
         ' Use a default collection as the data source
         Me.BindingSource.DataSource = New EMailPropertyCollection()
+    End Sub
+
+    ''' <summary>
+    ''' Set the control states based on the vCard version
+    ''' </summary>
+    ''' <param name="version">The vCard version</param>
+    Public Sub SetControlStateBasedOnVersion(version As SpecificationVersions)
+        chkPreferred.Visible = (version <> SpecificationVersions.vCard40)
     End Sub
 
     ''' <summary>

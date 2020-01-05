@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCardParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 05/17/2019
+// Updated : 12/20/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains a class used to parse vCard Personal Data Interchange (PDI) data streams.  It supports
 // both the vCard 2.1 and vCard 3.0 specification file formats.
@@ -39,16 +38,17 @@ namespace EWSoftware.PDI.Parser
         //=====================================================================
 
         private VCard currentCard;          // The current vCard being processed
-        private VCardCollection vCards;     // The collection of vCards
+        private readonly VCardCollection vCards;    // The collection of vCards
 
         //=====================================================================
 
         // This private array is used to translate property names into property types
-        private static NameToValue<PropertyType>[] ntv = {
+        private static readonly NameToValue<PropertyType>[] ntv = {
             new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
             new NameToValue<PropertyType>("END", PropertyType.End),
             new NameToValue<PropertyType>("VERSION", PropertyType.Version),
             new NameToValue<PropertyType>("PROFILE", PropertyType.Profile),
+            new NameToValue<PropertyType>("KIND", PropertyType.Kind),
             new NameToValue<PropertyType>("NAME", PropertyType.MimeName),
             new NameToValue<PropertyType>("SOURCE", PropertyType.MimeSource),
             new NameToValue<PropertyType>("PRODID", PropertyType.ProductId),
@@ -81,6 +81,8 @@ namespace EWSoftware.PDI.Parser
             new NameToValue<PropertyType>("ANNIVERSARY", PropertyType.Anniversary),
             new NameToValue<PropertyType>("GENDER", PropertyType.Gender),
             new NameToValue<PropertyType>("CLIENTPIDMAP", PropertyType.ClientPidMap),
+            new NameToValue<PropertyType>("MEMBER", PropertyType.Member),
+            new NameToValue<PropertyType>("RELATED", PropertyType.Related),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
@@ -274,7 +276,6 @@ namespace EWSoftware.PDI.Parser
         /// stream.  Refer to the and inner exceptions for information on the cause of the problem.</exception>
         protected override void PropertyParser(string propertyName, StringCollection parameters, string propertyValue)
         {
-            SpecificationVersions version = SpecificationVersions.None;
             string temp, group = null;
             int idx;
 
@@ -349,6 +350,8 @@ namespace EWSoftware.PDI.Parser
                     // Version must be 2.1, 3.0, or 4.0
                     temp = propertyValue.Trim();
 
+                    SpecificationVersions version;
+
                     if(temp == "2.1")
                         version = SpecificationVersions.vCard21;
                     else
@@ -375,6 +378,12 @@ namespace EWSoftware.PDI.Parser
 
                 case PropertyType.ProductId:
                     currentCard.ProductId.EncodedValue = propertyValue;
+                    break;
+
+                case PropertyType.Kind:
+                    currentCard.Kind.DeserializeParameters(parameters);
+                    currentCard.Kind.EncodedValue = propertyValue;
+                    currentCard.Kind.Group = group;
                     break;
 
                 case PropertyType.Nickname:
@@ -413,6 +422,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Gender:
+                    currentCard.Gender.DeserializeParameters(parameters);
                     currentCard.Gender.EncodedValue = propertyValue;
                     currentCard.Gender.Group = group;
                     break;
@@ -554,8 +564,27 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.ClientPidMap:
-                    currentCard.ClientPidMaps.Add(new ClientPidMapProperty { EncodedValue = propertyValue,
-                        Group = group });
+                    var cpm = new ClientPidMapProperty();
+                    cpm.DeserializeParameters(parameters);
+                    cpm.EncodedValue = propertyValue;
+                    cpm.Group = group;
+                    currentCard.ClientPidMaps.Add(cpm);
+                    break;
+
+                case PropertyType.Member:
+                    var member = new MemberProperty();
+                    member.DeserializeParameters(parameters);
+                    member.EncodedValue = propertyValue;
+                    member.Group = group;
+                    currentCard.Members.Add(member);
+                    break;
+
+                case PropertyType.Related:
+                    RelatedProperty r = new RelatedProperty();
+                    r.DeserializeParameters(parameters);
+                    r.EncodedValue = propertyValue;
+                    r.Group = group;
+                    currentCard.Related.Add(r);
                     break;
 
                 default:    // Anything else is a custom property

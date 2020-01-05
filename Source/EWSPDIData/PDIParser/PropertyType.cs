@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PropertyType.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 04/22/2019
+// Updated : 12/20/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the enumerated type that defines all known properties used by the Personal Data Interchange
 // (PDI) parser classes.
@@ -150,6 +149,12 @@ namespace EWSoftware.PDI.Parser
         Gender,
         /// <summary>A CLIENTPIDMAP property</summary>
         ClientPidMap,
+        /// <summary>A KIND property</summary>
+        Kind,
+        /// <summary>A MEMBER property</summary>
+        Member,
+        /// <summary>A RELATED property</summary>
+        Related,
 
         #endregion
 

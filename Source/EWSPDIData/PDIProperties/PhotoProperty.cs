@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PhotoProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
+// Updated : 12/18/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the Photo property that support binary encoded images.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -39,7 +38,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         // This private array is used to translate parameter names and values to image types
-        private static NameToValue<int>[] ntv = {
+        private static readonly NameToValue<int>[] ntv = {
             new NameToValue<int>("TYPE", 0, false),
             new NameToValue<int>("GIF",  1, true),
             new NameToValue<int>("CGM",  2, true),
@@ -88,6 +87,53 @@ namespace EWSoftware.PDI.Properties
         /// </value>
         public string ImageType { get; set; }
 
+        /// <summary>
+        /// This is overridden to handle the URI prefix on vCard 4.0 values
+        /// </summary>
+        public override string EncodedValue
+        {
+            get
+            {
+                if(this.Version == SpecificationVersions.vCard40 && this.ValueLocation == ValLocValue.Binary &&
+                  !String.IsNullOrWhiteSpace(base.Value))
+                {
+                    string value = "data:";
+
+                    if(!String.IsNullOrWhiteSpace(this.ImageType))
+                        value += "image/" + this.ImageType.ToLowerInvariant() + ";base64,";
+
+                    return value + this.Encode(base.Value);
+                }
+
+                return base.EncodedValue;
+            }
+            set
+            {
+                if(value != null && value.StartsWith("data:", StringComparison.OrdinalIgnoreCase))
+                {
+                    int separator = value.IndexOf('/');
+
+                    if(separator != -1)
+                    {
+                        int separator2 = value.IndexOf(';', separator);
+
+                        if(separator2 != -1)
+                        {
+                            this.ImageType = value.Substring(separator + 1, separator2 - separator - 1).ToUpperInvariant();
+                            value = value.Substring(separator2 + 1);
+
+                            if(value.StartsWith("base64,", StringComparison.OrdinalIgnoreCase))
+                            {
+                                this.EncodingMethod = EncodingType.Base64;
+                                value = value.Substring(7);
+                            }
+                        }
+                    }
+                }
+
+                base.EncodedValue = value;
+            }
+        }
         #endregion
 
         #region Constructor
@@ -134,8 +180,8 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
-            // Serialize the image type if necessary
-            if(!String.IsNullOrWhiteSpace(this.ImageType))
+            if(!String.IsNullOrWhiteSpace(this.ImageType) && (this.Version != SpecificationVersions.vCard40 ||
+              this.ValueLocation != ValLocValue.Binary))
             {
                 sb.Append(';');
 

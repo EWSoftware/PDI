@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCard.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 05/17/2019
+// Updated : 12/20/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the definition for the vCard object and a collection of vCard objects
 //
@@ -46,6 +45,7 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single vCard properties
+        private KindProperty                kind;
         private FormattedNameProperty       fn;
         private NameProperty                name;
         private TitleProperty               title;
@@ -73,6 +73,8 @@ namespace EWSoftware.PDI.Objects
         private EMailPropertyCollection         email;
         private AgentPropertyCollection         agents;
         private ClientPidMapPropertyCollection  pidMaps;
+        private MemberPropertyCollection        members;
+        private RelatedPropertyCollection       related;
 
         // This is a catch-all that holds all unknown or extension properties
         private CustomPropertyCollection customProps;
@@ -128,6 +130,20 @@ namespace EWSoftware.PDI.Objects
         /// <value>This property is valid only for the 3.0 specification.  Since it doesn't serve much purpose,
         /// it is false by default.</value>
         public bool AddProfile { get; set; }
+
+        /// <summary>
+        /// This is used to get the Kind (KIND) property
+        /// </summary>
+        public KindProperty Kind
+        {
+            get
+            {
+                if(kind == null)
+                    kind = new KindProperty();
+
+                return kind;
+            }
+        }
 
         /// <summary>
         /// This is used to get the Formatted Name (FN) property
@@ -477,6 +493,36 @@ namespace EWSoftware.PDI.Objects
         }
 
         /// <summary>
+        /// This is used to get the member (MEMBER) properties
+        /// </summary>
+        /// <value>If the returned collection is empty, there are no member properties for the vCard</value>
+        public MemberPropertyCollection Members
+        {
+            get
+            {
+                if(members == null)
+                    members = new MemberPropertyCollection();
+
+                return members;
+            }
+        }
+
+        /// <summary>
+        /// This is used to get the Related (RELATED) properties.  There may be more than one.
+        /// </summary>
+        /// <value>If the returned collection is empty, there are no Related properties for the vCard</value>
+        public RelatedPropertyCollection Related
+        {
+            get
+            {
+                if(related == null)
+                    related = new RelatedPropertyCollection();
+
+                return related;
+            }
+        }
+
+        /// <summary>
         /// This is a catch-all that holds all unknown or extension properties
         /// </summary>
         /// <value>If the returned collection is empty, there are no custom properties for the vCard
@@ -691,6 +737,7 @@ namespace EWSoftware.PDI.Objects
 
             this.Group = o.Group;
 
+            kind = (KindProperty)o.Kind.Clone();
             fn = (FormattedNameProperty)o.FormattedName.Clone();
             name = (NameProperty)o.Name.Clone();
             title = (TitleProperty)o.Title.Clone();
@@ -716,6 +763,8 @@ namespace EWSoftware.PDI.Objects
             this.EMailAddresses.CloneRange(o.EMailAddresses);
             this.Agents.CloneRange(o.Agents);
             this.ClientPidMaps.CloneRange(o.ClientPidMaps);
+            this.Members.CloneRange(o.Members);
+            this.Related.CloneRange(o.Related);
             this.CustomProperties.CloneRange(o.CustomProperties);
 
             this.AddProfile = o.AddProfile;
@@ -739,6 +788,7 @@ namespace EWSoftware.PDI.Objects
         {
             this.Group = null;
 
+            kind = null;
             fn = null;
             name = null;
             title = null;
@@ -764,6 +814,8 @@ namespace EWSoftware.PDI.Objects
             email = null;
             agents = null;
             pidMaps = null;
+            members = null;
+            related = null;
             customProps = null;
 
             this.AddProfile = false;
@@ -878,11 +930,20 @@ namespace EWSoftware.PDI.Objects
 
                 if(this.Version != SpecificationVersions.vCard30)
                 {
+                    if(kind != null)
+                        kind.Version = this.Version;
+
                     if(anniversary != null)
                         anniversary.Version = this.Version;
 
                     if(gender != null)
                         gender.Version = this.Version;
+
+                    if(members != null)
+                        members.PropagateVersion(this.Version);
+
+                    if(related != null)
+                        related.PropagateVersion(this.Version);
 
                     if(pidMaps != null)
                         pidMaps.PropagateVersion(this.Version);
@@ -1015,6 +1076,25 @@ namespace EWSoftware.PDI.Objects
                     BaseProperty.WriteToStream(mimeName, sb, tw);
 
                 BaseProperty.WriteToStream(mimeSource, sb, tw);
+            }
+
+            if(this.Version == SpecificationVersions.vCard40)
+            {
+                if(kind != null && kind.CardKind != CardKind.None)
+                {
+                    BaseProperty.WriteToStream(kind, sb, tw);
+
+                    // Only group kinds have members
+                    if(kind.CardKind == CardKind.Group)
+                    {
+                        foreach(var m in members)
+                            BaseProperty.WriteToStream(m, sb, tw);
+                    }
+                }
+
+                if(related != null && related.Count != 0)
+                    foreach(var r in related)
+                        BaseProperty.WriteToStream(r, sb, tw);
             }
 
             // These two are required properties

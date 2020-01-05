@@ -43,6 +43,7 @@
 								<asp:DropDownList ID="cboVersion" runat="server" AutoPostBack="True" CssClass="form-control">
 									<asp:ListItem>2.1</asp:ListItem>
 									<asp:ListItem>3.0</asp:ListItem>
+									<asp:ListItem>4.0</asp:ListItem>
 								</asp:DropDownList></td>
 						</tr>
 						<tr>

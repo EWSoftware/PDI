@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/14/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2020
+// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
 // how to edit the various vCard properties.
@@ -25,6 +24,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -260,6 +260,13 @@ namespace vCardBrowser
                     try
                     {
                         this.Cursor = Cursors.WaitCursor;
+
+                        // Enforce UTF-8 encoding if using vCard 4.0
+                        if((!miFileUnicode.Checked || !miPropUnicode.Checked) && vCards.Any(
+                          c => c.Version == SpecificationVersions.vCard40))
+                        {
+                            this.ChangeFileEncoding_Click(miFileUnicode, e);
+                        }
 
                         // Open the file and write the vCards to it.  We'll use the same encoding method used by
                         // the parser.

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EMailTypes.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 12/16/2019
+// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
 //
 // This enumerated type defines the various e-mail types for the EMailProperty
 //
@@ -30,7 +29,7 @@ namespace EWSoftware.PDI.Properties
     {
         /// <summary>Indicates no type specified</summary>
         None =       0x0000,
-        /// <summary>Indicates preferred e-mail (PREF) address</summary>
+        /// <summary>Indicates preferred e-mail (PREF) address (vCard 2.1 and 3.0 only)</summary>
         Preferred =  0x0001,
         /// <summary>Indicates America On-Line (AOL)</summary>
         AOL =        0x0002,

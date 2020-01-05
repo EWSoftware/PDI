@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 04/22/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2020
+// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's properties.  It supports most of the common properties of the vCard including
 // photo, logo, and sound.
@@ -80,6 +79,13 @@ namespace vCardBrowser
             txtCategories.Enabled = txtNickname.Enabled = (cboVersion.SelectedIndex != 0);
             txtClass.Enabled = txtSortString.Enabled = (cboVersion.SelectedIndex == 1);
             cboSex.Enabled = txtGenderIdentity.Enabled = (cboVersion.SelectedIndex == 2);
+
+            ucAddresses.SetControlStateBasedOnVersion((cboVersion.SelectedIndex == 0) ? SpecificationVersions.vCard21 :
+                (cboVersion.SelectedIndex == 1 ? SpecificationVersions.vCard30 : SpecificationVersions.vCard40));
+            ucEMail.SetControlStateBasedOnVersion((cboVersion.SelectedIndex == 0) ? SpecificationVersions.vCard21 :
+                (cboVersion.SelectedIndex == 1 ? SpecificationVersions.vCard30 : SpecificationVersions.vCard40));
+            ucPhones.SetControlStateBasedOnVersion((cboVersion.SelectedIndex == 0) ? SpecificationVersions.vCard21 :
+                (cboVersion.SelectedIndex == 1 ? SpecificationVersions.vCard30 : SpecificationVersions.vCard40));
         }
 
         /// <summary>

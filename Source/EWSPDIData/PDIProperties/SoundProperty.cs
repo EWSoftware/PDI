@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : SoundProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
+// Updated : 12/18/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the Sound property that support binary encoded sounds.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -39,7 +38,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         // This private array is used to translate parameter names and values to sound types
-        private static NameToValue<int>[] ntv = {
+        private static readonly NameToValue<int>[] ntv = {
             new NameToValue<int>("TYPE",  0, false),
             new NameToValue<int>("WAVE",  1, true),
             new NameToValue<int>("PCM",   2, true),
@@ -66,6 +65,54 @@ namespace EWSoftware.PDI.Properties
         /// This read-only property defines the default value type as BINARY
         /// </summary>
         public override string DefaultValueLocation => ValLocValue.Binary;
+
+        /// <summary>
+        /// This is overridden to handle the URI prefix on vCard 4.0 values
+        /// </summary>
+        public override string EncodedValue
+        {
+            get
+            {
+                if(this.Version == SpecificationVersions.vCard40 && this.ValueLocation == ValLocValue.Binary &&
+                  !String.IsNullOrWhiteSpace(base.Value))
+                {
+                    string value = "data:";
+
+                    if(!String.IsNullOrWhiteSpace(this.SoundType))
+                        value += "audio/" + this.SoundType.ToLowerInvariant() + ";base64,";
+
+                    return value + this.Encode(base.Value);
+                }
+
+                return base.EncodedValue;
+            }
+            set
+            {
+                if(value != null && value.StartsWith("data:", StringComparison.OrdinalIgnoreCase))
+                {
+                    int separator = value.IndexOf('/');
+
+                    if(separator != -1)
+                    {
+                        int separator2 = value.IndexOf(';', separator);
+
+                        if(separator2 != -1)
+                        {
+                            this.SoundType = value.Substring(separator + 1, separator2 - separator - 1).ToUpperInvariant();
+                            value = value.Substring(separator2 + 1);
+
+                            if(value.StartsWith("base64,", StringComparison.OrdinalIgnoreCase))
+                            {
+                                this.EncodingMethod = EncodingType.Base64;
+                                value = value.Substring(7);
+                            }
+                        }
+                    }
+                }
+
+                base.EncodedValue = value;
+            }
+        }
 
         /// <summary>
         /// This is used to set or get the sound type
@@ -121,8 +168,8 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
-            // Serialize the key type if necessary
-            if(this.SoundType != null && this.SoundType.Length != 0)
+            if(!String.IsNullOrWhiteSpace(this.SoundType) && (this.Version != SpecificationVersions.vCard40 ||
+              this.ValueLocation != ValLocValue.Binary))
             {
                 sb.Append(';');
 

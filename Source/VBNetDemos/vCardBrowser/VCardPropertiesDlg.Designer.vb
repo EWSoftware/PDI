@@ -96,17 +96,21 @@ Partial Class VCardPropertiesDlg
         Me.label23 = New System.Windows.Forms.Label()
         Me.cboVersion = New System.Windows.Forms.ComboBox()
         Me.epErrors = New System.Windows.Forms.ErrorProvider(Me.components)
-        Me.tabInfo.SuspendLayout
-        Me.pgName.SuspendLayout
-        Me.pgAddresses.SuspendLayout
-        Me.pgLabels.SuspendLayout
-        Me.pgPhoneEMail.SuspendLayout
-        Me.pgWork.SuspendLayout
-        Me.pgOther.SuspendLayout
-        Me.pgPhoto.SuspendLayout
-        Me.pgLogo.SuspendLayout
-        CType(Me.epErrors,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        Me.txtGenderIdentity = New System.Windows.Forms.TextBox()
+        Me.label25 = New System.Windows.Forms.Label()
+        Me.cboSex = New System.Windows.Forms.ComboBox()
+        Me.label24 = New System.Windows.Forms.Label()
+        Me.tabInfo.SuspendLayout()
+        Me.pgName.SuspendLayout()
+        Me.pgAddresses.SuspendLayout()
+        Me.pgLabels.SuspendLayout()
+        Me.pgPhoneEMail.SuspendLayout()
+        Me.pgWork.SuspendLayout()
+        Me.pgOther.SuspendLayout()
+        Me.pgPhoto.SuspendLayout()
+        Me.pgLogo.SuspendLayout()
+        CType(Me.epErrors, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'tabInfo
         '
@@ -126,6 +130,10 @@ Partial Class VCardPropertiesDlg
         '
         'pgName
         '
+        Me.pgName.Controls.Add(Me.txtGenderIdentity)
+        Me.pgName.Controls.Add(Me.label25)
+        Me.pgName.Controls.Add(Me.cboSex)
+        Me.pgName.Controls.Add(Me.label24)
         Me.pgName.Controls.Add(Me.groupBox1)
         Me.pgName.Controls.Add(Me.txtSortString)
         Me.pgName.Controls.Add(Me.label8)
@@ -148,15 +156,15 @@ Partial Class VCardPropertiesDlg
         Me.pgName.Size = New System.Drawing.Size(713, 289)
         Me.pgName.TabIndex = 0
         Me.pgName.Text = "Name"
-        Me.pgName.UseVisualStyleBackColor = true
+        Me.pgName.UseVisualStyleBackColor = True
         '
         'groupBox1
         '
-        Me.groupBox1.Location = New System.Drawing.Point(16, 128)
+        Me.groupBox1.Location = New System.Drawing.Point(16, 174)
         Me.groupBox1.Name = "groupBox1"
         Me.groupBox1.Size = New System.Drawing.Size(680, 8)
-        Me.groupBox1.TabIndex = 12
-        Me.groupBox1.TabStop = false
+        Me.groupBox1.TabIndex = 16
+        Me.groupBox1.TabStop = False
         '
         'txtSortString
         '
@@ -176,33 +184,33 @@ Partial Class VCardPropertiesDlg
         '
         'txtFormattedName
         '
-        Me.txtFormattedName.Location = New System.Drawing.Point(181, 185)
+        Me.txtFormattedName.Location = New System.Drawing.Point(181, 231)
         Me.txtFormattedName.Name = "txtFormattedName"
         Me.txtFormattedName.Size = New System.Drawing.Size(336, 26)
-        Me.txtFormattedName.TabIndex = 16
+        Me.txtFormattedName.TabIndex = 20
         '
         'label7
         '
-        Me.label7.Location = New System.Drawing.Point(16, 187)
+        Me.label7.Location = New System.Drawing.Point(16, 233)
         Me.label7.Name = "label7"
         Me.label7.Size = New System.Drawing.Size(159, 23)
-        Me.label7.TabIndex = 15
+        Me.label7.TabIndex = 19
         Me.label7.Text = "&Formatted Name"
         Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtNickname
         '
-        Me.txtNickname.Location = New System.Drawing.Point(181, 153)
+        Me.txtNickname.Location = New System.Drawing.Point(181, 199)
         Me.txtNickname.Name = "txtNickname"
         Me.txtNickname.Size = New System.Drawing.Size(176, 26)
-        Me.txtNickname.TabIndex = 14
+        Me.txtNickname.TabIndex = 18
         '
         'label4
         '
-        Me.label4.Location = New System.Drawing.Point(65, 155)
+        Me.label4.Location = New System.Drawing.Point(65, 201)
         Me.label4.Name = "label4"
         Me.label4.Size = New System.Drawing.Size(110, 23)
-        Me.label4.TabIndex = 13
+        Me.label4.TabIndex = 17
         Me.label4.Text = "&Nickname"
         Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
@@ -294,7 +302,7 @@ Partial Class VCardPropertiesDlg
         Me.pgAddresses.Size = New System.Drawing.Size(713, 289)
         Me.pgAddresses.TabIndex = 1
         Me.pgAddresses.Text = "Addresses"
-        Me.pgAddresses.UseVisualStyleBackColor = true
+        Me.pgAddresses.UseVisualStyleBackColor = True
         '
         'ucAddresses
         '
@@ -311,7 +319,7 @@ Partial Class VCardPropertiesDlg
         Me.pgLabels.Size = New System.Drawing.Size(713, 289)
         Me.pgLabels.TabIndex = 7
         Me.pgLabels.Text = "Labels"
-        Me.pgLabels.UseVisualStyleBackColor = true
+        Me.pgLabels.UseVisualStyleBackColor = True
         '
         'ucLabels
         '
@@ -330,7 +338,7 @@ Partial Class VCardPropertiesDlg
         Me.pgPhoneEMail.Size = New System.Drawing.Size(713, 289)
         Me.pgPhoneEMail.TabIndex = 3
         Me.pgPhoneEMail.Text = "Phone/E-Mail"
-        Me.pgPhoneEMail.UseVisualStyleBackColor = true
+        Me.pgPhoneEMail.UseVisualStyleBackColor = True
         '
         'groupBox2
         '
@@ -338,7 +346,7 @@ Partial Class VCardPropertiesDlg
         Me.groupBox2.Name = "groupBox2"
         Me.groupBox2.Size = New System.Drawing.Size(694, 8)
         Me.groupBox2.TabIndex = 2
-        Me.groupBox2.TabStop = false
+        Me.groupBox2.TabStop = False
         '
         'ucEMail
         '
@@ -373,7 +381,7 @@ Partial Class VCardPropertiesDlg
         Me.pgWork.Size = New System.Drawing.Size(713, 289)
         Me.pgWork.TabIndex = 2
         Me.pgWork.Text = "Work"
-        Me.pgWork.UseVisualStyleBackColor = true
+        Me.pgWork.UseVisualStyleBackColor = True
         '
         'txtRole
         '
@@ -397,7 +405,7 @@ Partial Class VCardPropertiesDlg
         Me.groupBox7.Name = "groupBox7"
         Me.groupBox7.Size = New System.Drawing.Size(684, 8)
         Me.groupBox7.TabIndex = 9
-        Me.groupBox7.TabStop = false
+        Me.groupBox7.TabStop = False
         '
         'txtCategories
         '
@@ -437,7 +445,7 @@ Partial Class VCardPropertiesDlg
         Me.groupBox6.Name = "groupBox6"
         Me.groupBox6.Size = New System.Drawing.Size(684, 8)
         Me.groupBox6.TabIndex = 4
-        Me.groupBox6.TabStop = false
+        Me.groupBox6.TabStop = False
         '
         'txtUnits
         '
@@ -495,7 +503,7 @@ Partial Class VCardPropertiesDlg
         Me.pgOther.Size = New System.Drawing.Size(713, 289)
         Me.pgOther.TabIndex = 4
         Me.pgOther.Text = "Other"
-        Me.pgOther.UseVisualStyleBackColor = true
+        Me.pgOther.UseVisualStyleBackColor = True
         '
         'btnFind
         '
@@ -507,9 +515,9 @@ Partial Class VCardPropertiesDlg
         '
         'txtComments
         '
-        Me.txtComments.AcceptsReturn = true
+        Me.txtComments.AcceptsReturn = True
         Me.txtComments.Location = New System.Drawing.Point(150, 198)
-        Me.txtComments.Multiline = true
+        Me.txtComments.Multiline = True
         Me.txtComments.Name = "txtComments"
         Me.txtComments.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.txtComments.Size = New System.Drawing.Size(528, 72)
@@ -530,7 +538,7 @@ Partial Class VCardPropertiesDlg
         Me.groupBox5.Name = "groupBox5"
         Me.groupBox5.Size = New System.Drawing.Size(688, 8)
         Me.groupBox5.TabIndex = 14
-        Me.groupBox5.TabStop = false
+        Me.groupBox5.TabStop = False
         '
         'btnWebPage
         '
@@ -562,7 +570,7 @@ Partial Class VCardPropertiesDlg
         Me.groupBox4.Name = "groupBox4"
         Me.groupBox4.Size = New System.Drawing.Size(688, 8)
         Me.groupBox4.TabIndex = 10
-        Me.groupBox4.TabStop = false
+        Me.groupBox4.TabStop = False
         '
         'groupBox3
         '
@@ -570,7 +578,7 @@ Partial Class VCardPropertiesDlg
         Me.groupBox3.Name = "groupBox3"
         Me.groupBox3.Size = New System.Drawing.Size(688, 8)
         Me.groupBox3.TabIndex = 2
-        Me.groupBox3.TabStop = false
+        Me.groupBox3.TabStop = False
         '
         'label15
         '
@@ -583,12 +591,12 @@ Partial Class VCardPropertiesDlg
         '
         'dtpBirthDate
         '
-        Me.dtpBirthDate.Checked = false
+        Me.dtpBirthDate.Checked = False
         Me.dtpBirthDate.CustomFormat = "MM/dd/yyyy hh:mm:ss tt"
         Me.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.dtpBirthDate.Location = New System.Drawing.Point(150, 14)
         Me.dtpBirthDate.Name = "dtpBirthDate"
-        Me.dtpBirthDate.ShowCheckBox = true
+        Me.dtpBirthDate.ShowCheckBox = True
         Me.dtpBirthDate.Size = New System.Drawing.Size(255, 26)
         Me.dtpBirthDate.TabIndex = 1
         '
@@ -648,11 +656,12 @@ Partial Class VCardPropertiesDlg
         Me.pgPhoto.Size = New System.Drawing.Size(713, 289)
         Me.pgPhoto.TabIndex = 5
         Me.pgPhoto.Text = "Photo"
-        Me.pgPhoto.UseVisualStyleBackColor = true
+        Me.pgPhoto.UseVisualStyleBackColor = True
         '
         'ucPhoto
         '
         Me.ucPhoto.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ucPhoto.ImageType = Nothing
         Me.ucPhoto.Location = New System.Drawing.Point(22, 40)
         Me.ucPhoto.Name = "ucPhoto"
         Me.ucPhoto.Size = New System.Drawing.Size(664, 208)
@@ -666,11 +675,12 @@ Partial Class VCardPropertiesDlg
         Me.pgLogo.Size = New System.Drawing.Size(713, 289)
         Me.pgLogo.TabIndex = 6
         Me.pgLogo.Text = "Logo"
-        Me.pgLogo.UseVisualStyleBackColor = true
+        Me.pgLogo.UseVisualStyleBackColor = True
         '
         'ucLogo
         '
         Me.ucLogo.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ucLogo.ImageType = Nothing
         Me.ucLogo.Location = New System.Drawing.Point(22, 40)
         Me.ucLogo.Name = "ucLogo"
         Me.ucLogo.Size = New System.Drawing.Size(664, 208)
@@ -687,7 +697,7 @@ Partial Class VCardPropertiesDlg
         '
         'btnCancel
         '
-        Me.btnCancel.CausesValidation = false
+        Me.btnCancel.CausesValidation = False
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Location = New System.Drawing.Point(645, 424)
         Me.btnCancel.Name = "btnCancel"
@@ -699,10 +709,10 @@ Partial Class VCardPropertiesDlg
         '
         Me.txtUniqueId.Location = New System.Drawing.Point(115, 12)
         Me.txtUniqueId.Name = "txtUniqueId"
-        Me.txtUniqueId.ReadOnly = true
+        Me.txtUniqueId.ReadOnly = True
         Me.txtUniqueId.Size = New System.Drawing.Size(376, 26)
         Me.txtUniqueId.TabIndex = 1
-        Me.txtUniqueId.TabStop = false
+        Me.txtUniqueId.TabStop = False
         '
         'label9
         '
@@ -734,10 +744,10 @@ Partial Class VCardPropertiesDlg
         '
         Me.txtLastRevised.Location = New System.Drawing.Point(115, 46)
         Me.txtLastRevised.Name = "txtLastRevised"
-        Me.txtLastRevised.ReadOnly = true
+        Me.txtLastRevised.ReadOnly = True
         Me.txtLastRevised.Size = New System.Drawing.Size(207, 26)
         Me.txtLastRevised.TabIndex = 5
-        Me.txtLastRevised.TabStop = false
+        Me.txtLastRevised.TabStop = False
         '
         'label11
         '
@@ -760,7 +770,7 @@ Partial Class VCardPropertiesDlg
         'cboVersion
         '
         Me.cboVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboVersion.Items.AddRange(New Object() {"2.1", "3.0"})
+        Me.cboVersion.Items.AddRange(New Object() {"2.1", "3.0", "4.0"})
         Me.cboVersion.Location = New System.Drawing.Point(584, 12)
         Me.cboVersion.Name = "cboVersion"
         Me.cboVersion.Size = New System.Drawing.Size(65, 28)
@@ -769,6 +779,39 @@ Partial Class VCardPropertiesDlg
         'epErrors
         '
         Me.epErrors.ContainerControl = Me
+        '
+        'txtGenderIdentity
+        '
+        Me.txtGenderIdentity.Location = New System.Drawing.Point(438, 132)
+        Me.txtGenderIdentity.Name = "txtGenderIdentity"
+        Me.txtGenderIdentity.Size = New System.Drawing.Size(195, 26)
+        Me.txtGenderIdentity.TabIndex = 15
+        '
+        'label25
+        '
+        Me.label25.Location = New System.Drawing.Point(289, 134)
+        Me.label25.Name = "label25"
+        Me.label25.Size = New System.Drawing.Size(143, 23)
+        Me.label25.TabIndex = 14
+        Me.label25.Text = "Gender Identity"
+        Me.label25.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cboSex
+        '
+        Me.cboSex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboSex.Location = New System.Drawing.Point(181, 134)
+        Me.cboSex.Name = "cboSex"
+        Me.cboSex.Size = New System.Drawing.Size(101, 28)
+        Me.cboSex.TabIndex = 13
+        '
+        'label24
+        '
+        Me.label24.Location = New System.Drawing.Point(118, 136)
+        Me.label24.Name = "label24"
+        Me.label24.Size = New System.Drawing.Size(57, 23)
+        Me.label24.TabIndex = 12
+        Me.label24.Text = "&Sex"
+        Me.label24.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'VCardPropertiesDlg
         '
@@ -884,5 +927,8 @@ End Sub
     Friend WithEvents ucLabels As vCardBrowser.LabelControl
     Friend WithEvents btnFind As System.Windows.Forms.Button
     Friend WithEvents epErrors As System.Windows.Forms.ErrorProvider
-
+    Private WithEvents txtGenderIdentity As TextBox
+    Private WithEvents label25 As Label
+    Private WithEvents cboSex As ComboBox
+    Private WithEvents label24 As Label
 End Class

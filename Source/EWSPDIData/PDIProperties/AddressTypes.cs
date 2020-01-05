@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressTypes.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
+// Updated : 12/16/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This enumerated type defines the various address types for the AddressProperty and LabelProperty classes
 //
@@ -43,7 +42,7 @@ namespace EWSoftware.PDI.Properties
         Home =          0x0010,
         /// <summary>Indicates a work delivery (WORK) address</summary>
         Work =          0x0020,
-        /// <summary>Indicates a preferred delivery (PREF) address</summary>
+        /// <summary>Indicates a preferred delivery (PREF) address (vCard 2.1 and 3.0 only)</summary>
         Preferred =     0x0040
     }
 }

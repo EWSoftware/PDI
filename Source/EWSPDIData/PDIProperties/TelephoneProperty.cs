@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TelephoneProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 05/17/2019
+// Updated : 12/16/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the Telephone property class.  It is used with the Personal Data Interchange (PDI) vCard
 // class.
@@ -43,10 +42,10 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         // This private array is used to translate parameter names and values to phone types
-        private static NameToValue<PhoneTypes>[] ntv = {
+        private static readonly NameToValue<PhoneTypes>[] ntv = {
             new NameToValue<PhoneTypes>("TYPE", PhoneTypes.None, false),
             new NameToValue<PhoneTypes>("PREF", PhoneTypes.Preferred, true),
             new NameToValue<PhoneTypes>("WORK", PhoneTypes.Work, true),
@@ -68,6 +67,9 @@ namespace EWSoftware.PDI.Properties
             // This is a non-standard one that pops up every now and then.  When it does, treat it like CELL.
             new NameToValue<PhoneTypes>("MOBILE", PhoneTypes.Cell, true)
         };
+
+        private short preferredOrder;
+
         #endregion
 
         #region Properties
@@ -93,6 +95,25 @@ namespace EWSoftware.PDI.Properties
         /// This property is used to set or get the phone type flags
         /// </summary>
         public PhoneTypes PhoneTypes { get; set; }
+
+        /// <summary>
+        /// This property is used to get or set the preferred order (vCard 4.0 only)
+        /// </summary>
+        /// <value>Zero if not set or the preferred usage order between 1 and 100</value>
+        public short PreferredOrder
+        {
+            get => preferredOrder;
+            set
+            {
+                if(value < 0)
+                    value = 0;
+                else
+                    if(value > 100)
+                        value = 100;
+
+                preferredOrder = value;
+            }
+        }
 
         /// <summary>
         /// This is used to get or set the URI prefix if the value location is set to URI
@@ -164,6 +185,7 @@ namespace EWSoftware.PDI.Properties
             var clone = (TelephoneProperty)p;
 
             this.PhoneTypes = clone.PhoneTypes;
+            this.PreferredOrder = clone.PreferredOrder;
             this.UriPrefix = clone.UriPrefix;
 
             base.Clone(p);
@@ -189,6 +211,18 @@ namespace EWSoftware.PDI.Properties
                 // Text and TextPhone are only defined in the 4.0 spec
                 if(this.Version != SpecificationVersions.vCard40)
                     pt &= ~(PhoneTypes.Text | PhoneTypes.TextPhone);
+
+                // The 4.0 spec handles Preferred differently
+                if(this.Version == SpecificationVersions.vCard40)
+                {
+                    if((pt & PhoneTypes.Preferred) != 0 && this.PreferredOrder == 0)
+                        this.PreferredOrder = 1;
+
+                    pt &= ~PhoneTypes.Preferred;
+
+                    if(this.PreferredOrder > 0)
+                        sb.AppendFormat(";PREF={0}", this.PreferredOrder);
+                }
 
                 StringBuilder sbTypes = new StringBuilder(50);
 
@@ -274,7 +308,17 @@ namespace EWSoftware.PDI.Properties
                 }
                 else
                 {
-                    pt |= ntv[idx].EnumValue;
+                    // Preferred is handled differently in vCard 4.0
+                    if(ntv[idx].EnumValue == PhoneTypes.Preferred &&
+                      parameters[paramIdx].EndsWith("=", StringComparison.Ordinal))
+                    {
+                        parameters.RemoveAt(paramIdx);
+
+                        if(Int16.TryParse(parameters[paramIdx], out short order))
+                            this.PreferredOrder = order;
+                    }
+                    else
+                        pt |= ntv[idx].EnumValue;
 
                     // As above, remove the value
                     parameters.RemoveAt(paramIdx);

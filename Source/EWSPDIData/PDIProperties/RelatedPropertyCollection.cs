@@ -1,12 +1,12 @@
 //===============================================================================================================
 // System  : Personal Data Interchange Classes
-// File    : RelatedToPropertyCollection.cs
+// File    : RelatedPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
 // Updated : 12/20/2019
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Note    : Copyright 2019, Eric Woodruff, All rights reserved
 //
-// This file contains a collection class for RelatedToProperty objects.  It is used with the Personal Data
-// Interchange (PDI) vCalendar and iCalendar class.
+// This file contains a collection class for RelatedProperty objects.  It is used with the Personal Data
+// Interchange (PDI) vCard class.
 //
 // This code is published under the Microsoft Public License (Ms-PL).  A copy of the license should be
 // distributed with the code and can be found at the project website: https://github.com/EWSoftware/PDI.
@@ -15,8 +15,7 @@
 //
 //    Date     Who  Comments
 // ==============================================================================================================
-// 04/04/2004  EFW  Created the code
-// 03/30/2007  EFW  Converted to use a generic base class
+// 12/20/2019  EFW  Created the code
 //===============================================================================================================
 
 using System.Collections.Generic;
@@ -27,10 +26,10 @@ using EWSoftware.PDI.Binding;
 namespace EWSoftware.PDI.Properties
 {
     /// <summary>
-    /// A type-safe collection of <see cref="RelatedToProperty"/> objects
+    /// A type-safe collection of <see cref="RelatedProperty"/> objects
     /// </summary>
     /// <remarks>The class has a type-safe enumerator</remarks>
-    public class RelatedToPropertyCollection : ExtendedBindingList<RelatedToProperty>
+    public class RelatedPropertyCollection : ExtendedBindingList<RelatedProperty>
     {
         #region Constructors
         //=====================================================================
@@ -39,15 +38,15 @@ namespace EWSoftware.PDI.Properties
         /// Default constructor
         /// </summary>
         /// <overloads>There are two overloads for the constructor.</overloads>
-        public RelatedToPropertyCollection()
+        public RelatedPropertyCollection()
         {
         }
 
         /// <summary>
-        /// Construct the collection using a list of <see cref="RelatedToProperty"/> objects
+        /// Construct the collection using a list of <see cref="RelatedProperty"/> objects
         /// </summary>
-        /// <param name="relatedTos">The <see cref="IList{T}"/> of related-to items to add</param>
-        public RelatedToPropertyCollection(IList<RelatedToProperty> relatedTos) : base(relatedTos)
+        /// <param name="Relateds">The <see cref="IList{T}"/> of related-to items to add</param>
+        public RelatedPropertyCollection(IList<RelatedProperty> Relateds) : base(Relateds)
         {
         }
         #endregion
@@ -56,14 +55,14 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         /// <summary>
-        /// Add a <see cref="RelatedToProperty"/> to the collection and assign it the specified type and value
+        /// Add a <see cref="RelatedProperty"/> to the collection and assign it the specified type and value
         /// </summary>
-        /// <param name="rType">The type to assign to the new property</param>
+        /// <param name="relatedTypes">The related types to assign to the new property</param>
         /// <param name="relation">The value to assign to the new property</param>
         /// <returns>Returns the new property that was created and added to the collection</returns>
-        public RelatedToProperty Add(RelationshipType rType, string relation)
+        public RelatedProperty Add(RelatedTypes relatedTypes, string relation)
         {
-            RelatedToProperty rt = new RelatedToProperty { RelationshipType = rType, Value = relation };
+            RelatedProperty rt = new RelatedProperty { RelatedTypes = relatedTypes, Value = relation };
 
             base.Add(rt);
 
@@ -80,6 +79,21 @@ namespace EWSoftware.PDI.Properties
                 o.Version = version;
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
+        }
+
+        /// <summary>
+        /// This method can be used to find the first entry that has one of the specified related types
+        /// </summary>
+        /// <param name="relatedTypes">The phone type to match</param>
+        /// <returns>The entry with a related type matching one of those specified or null if not found</returns>
+        /// <remarks>Multiple related types can be specified.  If no entry can be found, it returns null.</remarks>
+        public RelatedProperty FindFirstByType(RelatedTypes relatedTypes)
+        {
+            foreach(var r in this)
+                if((r.RelatedTypes & relatedTypes) != 0)
+                    return r;
+
+            return null;
         }
         #endregion
     }

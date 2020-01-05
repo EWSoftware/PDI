@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
+// Updated : 12/18/2019
 // Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
 //
 // This file contains the Address property.  It is used with the Personal Data Interchange (PDI) vCard class
 //
@@ -42,13 +41,16 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplitSemiColon = new Regex(@"(?:^[;])|(?<=(?:[^\\]))[;]");
-        private static Regex reSplitComma = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplitSemiColon = new Regex(@"(?:^[;])|(?<=(?:[^\\]))[;]");
+        private static readonly Regex reSplitComma = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         //=====================================================================
 
         // This private array is used to translate parameter names and values to address types.
-        private static NameToValue<AddressTypes>[] ntv = {
+        private static readonly NameToValue<AddressTypes>[] ntv = {
+            new NameToValue<AddressTypes>("GEO", AddressTypes.None, false),
+            new NameToValue<AddressTypes>("LABEL", AddressTypes.None, false),
+            new NameToValue<AddressTypes>("TZ", AddressTypes.None, false),
             new NameToValue<AddressTypes>("TYPE", AddressTypes.None, false),
             new NameToValue<AddressTypes>("DOM", AddressTypes.Domestic, true),
             new NameToValue<AddressTypes>("INTL", AddressTypes.International, true),
@@ -58,6 +60,9 @@ namespace EWSoftware.PDI.Properties
             new NameToValue<AddressTypes>("WORK", AddressTypes.Work, true),
             new NameToValue<AddressTypes>("PREF", AddressTypes.Preferred, true)
         };
+
+        private short preferredOrder;
+
         #endregion
 
         #region Properties
@@ -83,6 +88,41 @@ namespace EWSoftware.PDI.Properties
         /// This property is used to set or get the address type flags
         /// </summary>
         public AddressTypes AddressTypes { get; set; }
+
+        /// <summary>
+        /// This property is used to get or set the preferred order (vCard 4.0 only)
+        /// </summary>
+        /// <value>Zero if not set or the preferred usage order between 1 and 100</value>
+        public short PreferredOrder
+        {
+            get => preferredOrder;
+            set
+            {
+                if(value < 0)
+                    value = 0;
+                else
+                    if(value > 100)
+                        value = 100;
+
+                preferredOrder = value;
+            }
+        }
+
+        /// <summary>
+        /// This property is used to get or set the geocoded location
+        /// </summary>
+        public string Geo { get; set; }
+
+        /// <summary>
+        /// This property is used to get or set the label (the address in a format suitable for printing as an
+        /// address label.
+        /// </summary>
+        public string Label { get; set; }
+
+        /// <summary>
+        /// This property is used to get or set the time zone associated with the address
+        /// </summary>
+        public string TimeZone { get; set; }
 
         /// <summary>
         /// This property is used to set or get the PO Box
@@ -300,7 +340,14 @@ namespace EWSoftware.PDI.Properties
         /// <param name="p">The PDI object from which the settings are to be copied</param>
         protected override void Clone(PDIObject p)
         {
-            this.AddressTypes = ((AddressProperty)p).AddressTypes;
+            var clone = (AddressProperty)p;
+
+            this.AddressTypes = clone.AddressTypes;
+            this.PreferredOrder = clone.PreferredOrder;
+            this.Geo = clone.Geo;
+            this.Label = clone.Label;
+            this.TimeZone = clone.TimeZone;
+
             base.Clone(p);
         }
 
@@ -312,15 +359,30 @@ namespace EWSoftware.PDI.Properties
         {
             base.SerializeParameters(sb);
 
-            // The default and supported values are different for vCard 4.0
+            // The default and supported values are different for vCard 4.0 and Preferred is handled differently
             AddressTypes defaultValue = AddressTypes.International | AddressTypes.Postal | AddressTypes.Parcel | AddressTypes.Work,
                 parameterValue = this.AddressTypes;
 
             if(this.Version == SpecificationVersions.vCard40)
             {
+                if((parameterValue & AddressTypes.Preferred) != 0 && this.PreferredOrder == 0)
+                    this.PreferredOrder = 1;
+
                 defaultValue = AddressTypes.Work;
                 parameterValue &= ~(AddressTypes.Domestic | AddressTypes.International | AddressTypes.Postal |
-                    AddressTypes.Parcel);
+                    AddressTypes.Parcel | AddressTypes.Preferred);
+
+                if(this.PreferredOrder > 0)
+                    sb.AppendFormat(";PREF={0}", this.PreferredOrder);
+
+                if(!String.IsNullOrWhiteSpace(this.Geo))
+                    sb.AppendFormat(";GEO={0}", this.Geo);
+
+                if(!String.IsNullOrWhiteSpace(this.Label))
+                    sb.AppendFormat(";LABEL={0}", EncodingUtils.Escape(this.Label));
+
+                if(!String.IsNullOrWhiteSpace(this.TimeZone))
+                    sb.AppendFormat(";TZ={0}", EncodingUtils.Escape(this.TimeZone));
             }
 
             // Serialize the address types if necessary
@@ -383,33 +445,63 @@ namespace EWSoftware.PDI.Properties
                 // Parameters may appear as a pair (name followed by value) or by value alone
                 if(!ntv[idx].IsParameterValue && paramIdx < parameters.Count - 1)
                 {
-                    // Remove the TYPE parameter name so that the base class won't put it in the custom
-                    // parameters.  We'll skip this one and decode the parameter value.
+                    // Remove the parameter name so that the base class won't put it in the custom parameters.
+                    // We'll skip this one and decode the parameter value.
                     parameters.RemoveAt(paramIdx);
 
-                    // If the values contain a comma, split it on the comma and parse the types (i.e. vCard 3.0
-                    // spec).  If not, just continue and handle it as normal.
-                    if(reSplitComma.IsMatch(parameters[paramIdx]))
+                    switch(ntv[idx].Name)
                     {
-                        types = reSplitComma.Split(parameters[paramIdx]);
+                        case "GEO":
+                            this.Geo = parameters[paramIdx];
+                            parameters.RemoveAt(paramIdx);
+                            break;
 
-                        foreach(string s in types)
-                        {
-                            for(subIdx = 1; subIdx < ntv.Length; subIdx++)
-                                if(ntv[subIdx].IsMatch(s))
-                                    break;
+                        case "LABEL":
+                            this.Label = EncodingUtils.Unescape(parameters[paramIdx]);
+                            parameters.RemoveAt(paramIdx);
+                            break;
 
-                            // Unrecognized ones are ignored
-                            if(subIdx < ntv.Length)
-                                at |= ntv[subIdx].EnumValue;
-                        }
+                        case "TZ":
+                            this.TimeZone = EncodingUtils.Unescape(parameters[paramIdx]);
+                            parameters.RemoveAt(paramIdx);
+                            break;
 
-                        parameters.RemoveAt(paramIdx);
+                        default:    // TYPE
+                            // If the values contain a comma, split it on the comma and parse the types (i.e.
+                            // vCard 3.0 spec).  If not, just continue and handle it as normal.
+                            if(reSplitComma.IsMatch(parameters[paramIdx]))
+                            {
+                                types = reSplitComma.Split(parameters[paramIdx]);
+
+                                foreach(string s in types)
+                                {
+                                    for(subIdx = 1; subIdx < ntv.Length; subIdx++)
+                                        if(ntv[subIdx].IsMatch(s))
+                                            break;
+
+                                    // Unrecognized ones are ignored
+                                    if(subIdx < ntv.Length)
+                                        at |= ntv[subIdx].EnumValue;
+                                }
+
+                                parameters.RemoveAt(paramIdx);
+                            }
+                            break;
                     }
                 }
                 else
                 {
-                    at |= ntv[idx].EnumValue;
+                    // Preferred is handled differently in vCard 4.0
+                    if(ntv[idx].EnumValue == AddressTypes.Preferred &&
+                      parameters[paramIdx].EndsWith("=", StringComparison.Ordinal))
+                    {
+                        parameters.RemoveAt(paramIdx);
+
+                        if(Int16.TryParse(parameters[paramIdx], out short order))
+                            this.PreferredOrder = order;
+                    }
+                    else
+                        at |= ntv[idx].EnumValue;
 
                     // As above, remove the value
                     parameters.RemoveAt(paramIdx);

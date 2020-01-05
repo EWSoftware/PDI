@@ -44,6 +44,7 @@
 									OnSelectedIndexChanged="cboVersion_SelectedIndexChanged">
 									<asp:ListItem>2.1</asp:ListItem>
 									<asp:ListItem>3.0</asp:ListItem>
+									<asp:ListItem>4.0</asp:ListItem>
 								</asp:DropDownList></td>
 						</tr>
 						<tr>

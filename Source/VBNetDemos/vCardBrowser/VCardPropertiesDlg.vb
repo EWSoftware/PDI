@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardPropertiesDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2020
+' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a vCard's information.  It supports most of the common properties of the vCard including
 ' photo, logo, and sound.
@@ -20,6 +19,7 @@
 ' 05/16/2007  EFW  Updated for use with .NET 2.0
 '================================================================================================================
 
+Imports System.Collections.Generic
 Imports System.Globalization
 
 Imports EWSoftware.PDI
@@ -29,7 +29,7 @@ Imports EWSoftware.PDI.Properties
 ''' <summary>
 ''' This dialog box is used to edit a vCard's properties
 ''' </summary>
-Public Partial Class VCardPropertiesDlg
+Partial Public Class VCardPropertiesDlg
     Inherits System.Windows.Forms.Form
 
     Public Sub New()
@@ -42,6 +42,19 @@ Public Partial Class VCardPropertiesDlg
         ' Set the short date/long time pattern based on the current culture
         dtpBirthDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern & " " &
             CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern
+
+        cboSex.ValueMember = "Value"
+        cboSex.DisplayMember = "Display"
+        cboSex.DataSource = New List(Of ListItem) From
+        {
+            New ListItem(Convert.ToChar(0), String.Empty),
+            New ListItem("M"c, "Male"),
+            New ListItem("F"c, "Female"),
+            New ListItem("O"c, "Other"),
+            New ListItem("N"c, "N/A"),
+            New ListItem("U"c, "Unknown")
+        }
+
     End Sub
 
     ''' <summary>
@@ -49,12 +62,21 @@ Public Partial Class VCardPropertiesDlg
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event parameters</param>
-    Private Sub cboVersion_SelectedIndexChanged(ByVal sender As System.Object, _
+    Private Sub cboVersion_SelectedIndexChanged(ByVal sender As System.Object,
       ByVal e As System.EventArgs) Handles cboVersion.SelectedIndexChanged
-        txtCategories.Enabled = (cboVersion.SelectedIndex = 1)
+        txtCategories.Enabled = (cboVersion.SelectedIndex <> 0)
+        txtNickname.Enabled = (cboVersion.SelectedIndex <> 0)
         txtClass.Enabled = (cboVersion.SelectedIndex = 1)
-        txtNickname.Enabled = (cboVersion.SelectedIndex = 1)
         txtSortString.Enabled = (cboVersion.SelectedIndex = 1)
+        cboSex.Enabled = (cboVersion.SelectedIndex = 2)
+        txtGenderIdentity.Enabled = (cboVersion.SelectedIndex = 2)
+
+        ucAddresses.SetControlStateBasedOnVersion(If(cboVersion.SelectedIndex = 0, SpecificationVersions.vCard21,
+            If(cboVersion.SelectedIndex = 1, SpecificationVersions.vCard30, SpecificationVersions.vCard40)))
+        ucEMail.SetControlStateBasedOnVersion(If(cboVersion.SelectedIndex = 0, SpecificationVersions.vCard21,
+            If(cboVersion.SelectedIndex = 1, SpecificationVersions.vCard30, SpecificationVersions.vCard40)))
+        ucPhones.SetControlStateBasedOnVersion(If(cboVersion.SelectedIndex = 0, SpecificationVersions.vCard21,
+            If(cboVersion.SelectedIndex = 1, SpecificationVersions.vCard30, SpecificationVersions.vCard40)))
     End Sub
 
     ''' <summary>
@@ -62,7 +84,7 @@ Public Partial Class VCardPropertiesDlg
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event parameters</param>
-    Private Sub btnFind_Click(ByVal sender As System.Object, _
+    Private Sub btnFind_Click(ByVal sender As System.Object,
       ByVal e As System.EventArgs) Handles btnFind.Click
         Dim url As String = String.Format("https://www.google.com/maps/place/{0},{1}", txtLatitude.Text,
             txtLongitude.Text)
@@ -84,7 +106,7 @@ Public Partial Class VCardPropertiesDlg
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event parameters</param>
-    Private Sub btnWebPage_Click(ByVal sender As System.Object, _
+    Private Sub btnWebPage_Click(ByVal sender As System.Object,
       ByVal e As System.EventArgs) Handles btnWebPage.Click
         If txtWebPage.Text.Length = 0 Then
             MessageBox.Show("Enter a web page URL first", "No URL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -107,7 +129,7 @@ Public Partial Class VCardPropertiesDlg
     ''' </summary>
     ''' <param name="sender">The sender of the event</param>
     ''' <param name="e">The event parameters</param>
-    Private Sub VCardPropertiesDlg_Closing(ByVal sender As Object, _
+    Private Sub VCardPropertiesDlg_Closing(ByVal sender As Object,
       ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         Dim latitude, longitude As Double
 
@@ -146,7 +168,11 @@ Public Partial Class VCardPropertiesDlg
         If vCard.Version = SpecificationVersions.vCard21 Then
             cboVersion.SelectedIndex = 0
         Else
-            cboVersion.SelectedIndex = 1
+            If vCard.Version = SpecificationVersions.vCard30 Then
+                cboVersion.SelectedIndex = 1
+            Else
+                cboVersion.SelectedIndex = 2
+            End If
         End If
 
         ' General properties
@@ -165,6 +191,9 @@ Public Partial Class VCardPropertiesDlg
 
         ' We'll edit nicknames as a comma separated string
         txtNickname.Text = vCard.Nickname.NicknamesString
+
+        cboSex.SelectedValue = If(vCard.Gender.Sex, Convert.ToChar(0))
+        txtGenderIdentity.Text = vCard.Gender.GenderIdentity
 
         ' We could bind directly to the existing collections but that would modify them.  To preserve the
         ' original items, we'll pass a copy of the collections instead.
@@ -189,7 +218,7 @@ Public Partial Class VCardPropertiesDlg
         txtCategories.Text = vCard.Categories.CategoriesString
 
         ' Other
-        If vCard.BirthDate.DateTimeValue = DateTime.MinValue
+        If vCard.BirthDate.DateTimeValue = DateTime.MinValue Then
             dtpBirthDate.Checked = False
         Else
             dtpBirthDate.Value = vCard.BirthDate.DateTimeValue
@@ -202,7 +231,7 @@ Public Partial Class VCardPropertiesDlg
         txtWebPage.Text = vCard.Url.Value
 
         ' We'll only edit the first note.  Chances are there won't be more than one unless grouping is used
-        If vCard.Notes.Count <> 0
+        If vCard.Notes.Count <> 0 Then
             txtComments.Text = vCard.Notes(0).Value
         End If
 
@@ -240,7 +269,11 @@ Public Partial Class VCardPropertiesDlg
         If cboVersion.SelectedIndex = 0 Then
             vCard.Version = SpecificationVersions.vCard21
         Else
-            vCard.Version = SpecificationVersions.vCard30
+            If cboVersion.SelectedIndex = 1 Then
+                vCard.Version = SpecificationVersions.vCard30
+            Else
+                vCard.Version = SpecificationVersions.vCard40
+            End If
         End If
 
         ' General properties.  Unique ID is not changed.  Last Revision is set to the current date and time.
@@ -258,6 +291,10 @@ Public Partial Class VCardPropertiesDlg
 
         ' We'll parse nicknames as a comma separated string
         vCard.Nickname.NicknamesString = txtNickname.Text
+
+
+        vCard.Gender.Sex = If(cboSex.SelectedIndex = 0, Nothing, Convert.ToChar(cboSex.SelectedValue))
+        vCard.Gender.GenderIdentity = txtGenderIdentity.Text
 
         ' For the collections, we'll clear the existing items and copy the modified items from the browse control
         ' binding sources.
@@ -293,7 +330,7 @@ Public Partial Class VCardPropertiesDlg
             vCard.BirthDate.DateTimeValue = dtpBirthDate.Value
 
             ' Store time too if it isn't midnight
-            If dtpBirthDate.Value <> dtpBirthDate.Value.Date
+            If dtpBirthDate.Value <> dtpBirthDate.Value.Date Then
                 vCard.BirthDate.ValueLocation = ValLocValue.DateTime
             Else
                 vCard.BirthDate.ValueLocation = ValLocValue.Date
@@ -325,14 +362,14 @@ Public Partial Class VCardPropertiesDlg
         vCard.Url.Value = txtWebPage.Text
 
         If txtComments.Text.Length <> 0 Then
-            If vCard.Notes.Count <> 0
+            If vCard.Notes.Count <> 0 Then
                 vCard.Notes(0).Value = txtComments.Text
             Else
                 vCard.Notes.Add(txtComments.Text)
             End If
         Else
             If vCard.Notes.Count <> 0 Then
-               vCard.Notes.RemoveAt(0)
+                vCard.Notes.RemoveAt(0)
             End If
         End If
 

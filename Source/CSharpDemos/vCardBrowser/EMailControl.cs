@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : EMailControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/27/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/01/2020
+// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's e-mail address information.  It's nothing elaborate but does let you edit the
 // collection fairly well.
@@ -55,6 +54,19 @@ namespace vCardBrowser
 
             // Use a default collection as the data source
             this.BindingSource.DataSource = new EMailPropertyCollection();
+        }
+        #endregion
+
+        #region Helper methods
+        //=====================================================================
+
+        /// <summary>
+        /// Set the control states based on the vCard version
+        /// </summary>
+        /// <param name="version">The vCard version</param>
+        public void SetControlStateBasedOnVersion(SpecificationVersions version)
+        {
+            chkPreferred.Visible = (version != SpecificationVersions.vCard40);
         }
         #endregion
 
