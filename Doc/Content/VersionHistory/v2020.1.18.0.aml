@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="42acd77f-8657-45ca-a71c-14fa093e43ed" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2020.1.18.0.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<para>Added partial support for the vCard 4.0 specification (RFC 6350).  See the
+<link xlink:href="ada69918-d59a-4340-8c77-28b9726a7205" /> topic for information on features that have not been
+implemented.  The following changes were made to support it.  Some of these are breaking changes.</para>
+
+				<list class="bullet">
+					<listItem>
+						<para>Added support for the <codeInline>PID</codeInline> property parameter.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added support for the <codeInline>ANNIVERSARY</codeInline>, <codeInline>CLIENTPIDMAP</codeInline>,
+<codeInline>GENDER</codeInline>, <codeInline>KIND</codeInline>, <codeInline>MEMBER</codeInline>, and
+<codeInline>RELATED</codeInline> properties.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added support for the <codeInline>CALSCALE</codeInline> parameter to the <codeInline>BDAY</codeInline>
+property.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added support for URI prefixes on the <codeInline>GEO</codeInline> and <codeInline>TEL</codeInline>
+property values and URI encoding prefixes on binary values in the <codeInline>PHOTO</codeInline>,
+<codeInline>LOGO</codeInline>, and <codeInline>SOUND</codeInline> properties.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added support for the <codeInline>GEO</codeInline>, <codeInline>LABEL</codeInline>, and
+<codeInline>TZ</codeInline> parameters on the <codeInline>ADR</codeInline> property.</para>
+					</listItem>
+
+					<listItem>
+						<para><codeInline>AddressTypes.Default</codeInline> was removed as most of its options were removed
+for vCard 4.0.</para>
+					</listItem>
+
+					<listItem>
+						<para>Added <codeInline>Text</codeInline> and <codeInline>TextPhone</codeInline> to the
+<codeInline>PhoneTypes</codeInline> enumeration for vCard 4.0.</para>
+					</listItem>
+
+					<listItem>
+						<para>The <codeInline>PREF</codeInline> value of the <codeInline>TYPE</codeInline> parameter on the
+<codeInline>ADR</codeInline>, <codeInline>EMAIL</codeInline>, and <codeInline>TEL</codeInline> properties has
+changed.  It now indicates the preferred order when multiple values are specified using a positive integer value
+between 1 and 100.  This can be useful for ranking multiple values. For example, when providing several phone
+number contacts, they can be ranked in order of most preferred to least preferred.</para>
+					</listItem>
+
+					<listItem>
+						<para>When a vCard 4.0 file is saved:</para>
+
+						<list class="bullet">
+							<listItem>
+								<para>The <codeInline>CONTEXT</codeInline> and <codeInline>CHARSET</codeInline> parameters are
+not used by vCard 4.0 and will not be saved.  The <codeInline>CHARSET</codeInline> parameter is no longer
+required as the vCard 4.0 format only supports one character set (UTF-8).</para>
+							</listItem>
+
+							<listItem>
+								<para>When the vCard address property (<codeInline>ADR</codeInline>) is saved, the
+<codeInline>INTL</codeInline>, <codeInline>DOM</codeInline>, <codeInline>POSTAL</codeInline>, and
+<codeInline>PARCEL</codeInline> address types will be ignored if saved in the vCard 4.0 format.</para>
+							</listItem>
+
+							<listItem>
+								<para>The <codeInline>NAME</codeInline> (MIME), <codeInline>MAILER</codeInline>,
+<codeInline>LABEL</codeInline>, and <codeInline>CLASS</codeInline> properties are not saved as they are not part
+of the vCard 4.0 specification.</para>
+							</listItem>
+
+							<listItem>
+								<para>The <codeInline>SORT-STRING</codeInline> property is not saved as it has been replaced by a
+<codeInline>SORT-AS</codeInline> parameter on the <codeInline>N</codeInline> and <codeInline>ORG</codeInline>
+properties in vCard 4.0 files.</para>
+							</listItem>
+						</list>
+					</listItem>
+
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

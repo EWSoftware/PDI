@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : AssemblyInfo.cs
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 12/1/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/18/2020
+' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 '
 ' PDI library demos common assembly attributes
 '
@@ -27,7 +26,7 @@ Imports System.Runtime.InteropServices
 ' General assembly information
 <Assembly: AssemblyProduct("EWSoftware Personal Data Interchange Library")>
 <Assembly: AssemblyCompany("Eric Woodruff")>
-<Assembly: AssemblyCopyright("Copyright \xA9 2003-2018, Eric Woodruff, All Rights Reserved")>
+<Assembly: AssemblyCopyright("Copyright \xA9 2003-2020, Eric Woodruff, All Rights Reserved")>
 <Assembly: AssemblyCulture("")>
 #If DEBUG
 <Assembly: AssemblyConfiguration("Debug")>
@@ -51,5 +50,5 @@ Imports System.Runtime.InteropServices
 '      Day of release
 '      Revision (typically zero unless multiple releases are made on the same day)
 '
-<Assembly: AssemblyVersion("2018.12.1.0")>
-<Assembly: AssemblyFileVersion("18.12.1.0")>
+<Assembly: AssemblyVersion("2020.1.18.0")>
+<Assembly: AssemblyFileVersion("20.1.18.0")>

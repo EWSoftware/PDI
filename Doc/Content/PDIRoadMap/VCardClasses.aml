@@ -109,6 +109,31 @@ be more than one.</para>
 					<row>
 						<entry>
 							<para>
+								<codeInline>ANNIVERSARY</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Anniversary</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.AnniversaryProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseDateTimeProperty.DateTimeValue</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCard 4.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
 								<codeInline>BDAY</codeInline>
 							</para>
 						</entry>
@@ -152,7 +177,7 @@ be more than one.</para>
 and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.CategoriesProperty.CategoriesString</codeEntityReference></para>
 						</entry>
 						<entry>
-							<para>vCard 3.0 only.</para>
+							<para>vCard 3.0 and 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -178,6 +203,33 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.Categor
 						</entry>
 						<entry>
 							<para>vCard 3.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>CLIENTPIDMAP</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.ClientPidMaps</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ClientPidMapProperty</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.ClientPidMapPropertyCollection</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ClientPidMapProperty.Id</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ClientPidMapProperty.Uri</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCard 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -231,6 +283,32 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BasePro
 					<row>
 						<entry>
 							<para>
+								<codeInline>GENDER</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Gender</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.GenderProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.GenderProperty.Sex</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.GenderProperty.GenderIdentity</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCard 4.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
 								<codeInline>GEO</codeInline>
 							</para>
 						</entry>
@@ -278,6 +356,32 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BasePro
 							<para>If the value location is inline, the data value is a binary encoded string representing the
 key.  If not inline, the <codeInline>Value</codeInline> property refers to something like a URI where the key can
 be found.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>KIND</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Kind</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.KindProperty</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.KindProperty.CardKind</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.KindProperty.OtherKind</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCard 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -357,6 +461,32 @@ can be found.</para>
 					<row>
 						<entry>
 							<para>
+								<codeInline>MEMBER</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Members</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.MemberProperty</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.MemberPropertyCollection</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCard 4.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
 								<codeInline>N</codeInline>
 							</para>
 						</entry>
@@ -429,7 +559,7 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.NamePro
 and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.NicknameProperty.NicknamesString</codeEntityReference></para>
 						</entry>
 						<entry>
-							<para>vCard 3.0 only.</para>
+							<para>vCard 3.0 and 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -529,7 +659,7 @@ can be found.</para>
 and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.ProductIdProperty.IsRegistered</codeEntityReference></para>
 						</entry>
 						<entry>
-							<para>vCard 3.0 only.</para>
+							<para>vCard 3.0 and 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -550,7 +680,34 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.Product
 							<para>&#160;</para>
 						</entry>
 						<entry>
-							<para>vCard 3.0 only.</para>
+							<para>vCard 3.0 and 4.0 only.</para>
+						</entry>
+					</row>
+					<row>
+						<entry>
+							<para>
+								<codeInline>RELATED</codeInline>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Related</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RelatedProperty</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.RelatedPropertyCollection</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RelatedProperty.RelatedTypes</codeEntityReference>
+								and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.RelatedProperty.PreferredOrder</codeEntityReference>
+							</para>
+						</entry>
+						<entry>
+							<para>vCard 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -677,7 +834,7 @@ can be found.</para>
 and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.BaseProperty.Value</codeEntityReference></para>
 						</entry>
 						<entry>
-							<para>vCard 3.0 only.</para>
+							<para>vCard 3.0 and 4.0 only.</para>
 						</entry>
 					</row>
 					<row>
@@ -821,7 +978,8 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.TimeZon
 							<para>&#160;</para>
 						</entry>
 						<entry>
-							<para>Version will be <codeInline>vCard21</codeInline> or <codeInline>vCard30</codeInline>.</para>
+							<para>Version will be <codeInline>vCard21</codeInline>, <codeInline>vCard30</codeInline>, or
+<codeInline>vCard40</codeInline>.</para>
 						</entry>
 					</row>
 					<row>

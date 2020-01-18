@@ -6,7 +6,7 @@
 
 		<introduction>
 			<para>To the best of my knowledge, all specifications are fully implemented except for the following noted
-limitations.  The four specifications contain a large amount of information and it is possible that I may have
+limitations.  The five specifications contain a large amount of information and it is possible that I may have
 missed something.  If you do find something that is not implemented or is not correct, please let me know and I
 will do my best to correct the problem.</para>
 		</introduction>
@@ -25,6 +25,53 @@ the inline decoded binary data but it is up to you to convert the byte array int
 an image, sound, digital certificate, file, etc.  The demo applications provide some examples of this.</para>
 					</definition>
 
+					<definedTerm>vCard 4.0</definedTerm>
+					<definition>
+						<para>Support for RFC 6350 is only partially implemented.  The following items are not supported.
+They may be addressed in future releases as the need arises:</para>
+
+						<list class="bullet">
+							<listItem>
+								<para>The <codeInline>ALTID</codeInline> and <codeInline>LANGUAGE</codeInline> parameters are not
+supported.  The introduction of these parameters significantly changes the cardinality of many properties which
+would require reimplementing both the vCard parser and the vCard object itself.  As such, these parameters will
+be ignored and will be added to the custom parameter collection on any property on which they appear.  If
+multiple vCard properties of the same type are encountered due to the use of these parameters, only the value
+from the last property instance seen will be used.  If the vCard is subsequently saved, the other properties
+instances of the same type will be lost.</para>
+							</listItem>
+
+							<listItem>
+								<para>For similar reasons, the <codeInline>PREF</codeInline> and <codeInline>TYPE</codeInline>
+parameters on the <codeInline>CATEGORIES</codeInline>, <codeInline>FN</codeInline>, <codeInline>GEO</codeInline>,
+<codeInline>KEY</codeInline>, <codeInline>LOGO</codeInline>, <codeInline>NICKNAME</codeInline>,
+<codeInline>ORG</codeInline>, <codeInline>PHOTO</codeInline>, <codeInline>ROLE</codeInline>, <codeInline>SOUND</codeInline>,
+<codeInline>SOURCE</codeInline>, <codeInline>TITLE</codeInline>, <codeInline>TZ</codeInline>, and <codeInline>URL</codeInline>
+properties are not supported either.  As above, these will pass through as custom properties and only the last
+property instance seen will be used.</para>
+							</listItem>
+
+							<listItem>
+								<para>The <codeInline>MEDIATYPE</codeInline> parameter is ignored on properties that support it.
+It will be passed through in the custom parameters.</para>
+							</listItem>
+
+							<listItem>
+								<para>The <codeInline>CALADRURI</codeInline>, <codeInline>CALURI</codeInline>, <codeInline>FBURL</codeInline>,
+<codeInline>IMPP</codeInline>, <codeInline>LANG</codeInline>, and <codeInline>XML</codeInline> properties are not
+handled.  These will be passed through in the custom properties collection.  Support will be added for these
+later if there is a need for them.</para>
+							</listItem>
+
+						</list>
+
+						<para>The vCard 4.0 specification states that inline vCard values such as on the
+<codeInline>AGENT</codeInline> property are no longer supported and does not include any documentation for the
+property at all.  However, since other non-inline types are valid in the prior specifications and the 4.0
+specification does not address them at all, the	<codeInline>AGENT</codeInline> property will function as it did
+in the prior specifications including support for inline vCard values.</para>
+					</definition>
+					
 					<definedTerm>vCalendar 1.0 and iCalendar 2.0</definedTerm>
 					<definition>
 						<para>Recurrence rules in vCalendar 1.0 basic format are supported.  The vCalendar 1.0 extended

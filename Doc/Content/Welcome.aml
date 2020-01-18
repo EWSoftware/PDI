@@ -13,12 +13,12 @@
 			<content>
 				<para>The <legacyBold>EWSoftware Personal Data Interchange (PDI) Library</legacyBold> presents you with a
 complete set of classes that let you have access to all objects, properties, parameter types, and data types as
-defined by the vCard (RFC 2426), vCalendar, and iCalendar (RFC 2445) specifications.  Using these classes, you
-can read and write data files in a well-defined format used by many applications on various platforms to exchange
-personal information such as business cards, telephone numbers, addresses, dates and times of appointments, etc.
-A recurrence engine is also provided that allows you to easily and reliably calculate recurrence dates and times
-for even the most complex recurrence patterns.  The classes can be used in both Windows Forms applications and
-ASP.NET web applications.</para>
+defined by the vCard (RFC 2426 and 6350), vCalendar, and iCalendar (RFC 2445) specifications.  Using these
+classes, you can read and write data files in a well-defined format used by many applications on various
+platforms to exchange personal information such as business cards, telephone numbers, addresses, dates and times
+of appointments, etc.  A recurrence engine is also provided that allows you to easily and reliably calculate
+recurrence dates and times for even the most complex recurrence patterns.  The classes can be used in both
+desktop applications and web applications.</para>
 
 				<para>For flexibility, a number of the data type classes such as <codeInline>Duration</codeInline>,
 <codeInline>Period</codeInline>, <codeInline>DateTimeCollection</codeInline>, and the <codeInline>Recurrence</codeInline>
@@ -32,7 +32,7 @@ This lets you take advantage of their features without including any unnecessary
 						<para>The library is built in 100% .NET managed code written in C# and provides a complete
 implementation of the vCard 2.1, vCard 3.0 (RFC 2426), vCalendar 1.0, and iCalendar 2.0 (RFC 2445) specifications.
 Partial support for the Infrared Mobile Computing (IrMC) 1.1 specification is also provided to allow working with
-vNote objects.</para>
+vNote objects.  Partial support is included for vCard 4.0 (RFC 6350).</para>
 					</listItem>
 
 					<listItem>

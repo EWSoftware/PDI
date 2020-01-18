@@ -11,7 +11,7 @@
       <HelpKeyword index="K" term="license agreement" />
     </HelpKeywords>
   </Topic>
-  <Topic id="695cc5b6-0937-42cd-9e7a-2f8aab4f09b0" visible="True" title="Usage Notes">
+  <Topic id="695cc5b6-0937-42cd-9e7a-2f8aab4f09b0" visible="True" isExpanded="true" title="Usage Notes">
     <HelpKeywords>
       <HelpKeyword index="K" term="usage notes" />
     </HelpKeywords>
@@ -112,12 +112,17 @@
       <HelpKeyword index="K" term="support, donate" />
     </HelpKeywords>
   </Topic>
-  <Topic id="8885fe94-537b-45a2-84e9-112fa9c976ff" visible="True" isExpanded="true" title="Version History">
+  <Topic id="8885fe94-537b-45a2-84e9-112fa9c976ff" visible="True" isSelected="true" title="Version History">
     <HelpKeywords>
       <HelpKeyword index="K" term="history" />
       <HelpKeyword index="K" term="version history" />
     </HelpKeywords>
-    <Topic id="76059656-b2b1-4b89-8ba2-af4aa8aaebb6" visible="True" isSelected="true" title="Version 2018.12.1.0">
+    <Topic id="42acd77f-8657-45ca-a71c-14fa093e43ed" visible="True" title="Version 2020.1.18.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="versions, 2020.1.18.0" />
+      </HelpKeywords>
+    </Topic>
+    <Topic id="76059656-b2b1-4b89-8ba2-af4aa8aaebb6" visible="True" title="Version 2018.12.1.0">
       <HelpKeywords>
         <HelpKeyword index="K" term="versions, 2018.12.1.0" />
       </HelpKeywords>
