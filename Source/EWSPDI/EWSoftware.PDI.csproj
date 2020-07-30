@@ -9,8 +9,8 @@
 		<Title>EWSoftware PDI Library</Title>
 		<Copyright>Copyright (c) 2003-2020, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2020.1.18.0</Version>
-		<FileVersion>20.1.18.0</FileVersion>
+		<Version>2020.7.24.0</Version>
+		<FileVersion>20.7.24.0</FileVersion>
 		<Description>This library contains the core set of useful Personal Data Interchange (PDI) and date utility classes for .NET applications.  They can be used for calculating holiday dates, recurrences, etc.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>

@@ -2,7 +2,7 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardDetails.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2020
+// Updated : 07/24/2020
 // Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This page is used to demonstrate the vCard classes.  Currently, it allows editing of some basic information.
@@ -103,7 +103,10 @@ namespace PDIWebDemoCS
                 txtTimeZone.Text = vCard.TimeZone.Value;
                 txtLatitude.Text = vCard.GeographicPosition.Latitude.ToString();
                 txtLongitude.Text = vCard.GeographicPosition.Longitude.ToString();
-                txtWebPage.Text = vCard.Url.Value;
+
+                // We'll only edit the first one
+                if(vCard.Urls.Count != 0)
+                    txtWebPage.Text = vCard.Urls[0].Value;
 
                 // We'll only edit the first note.  Chances are there won't be more than one unless grouping is
                 // used.
@@ -255,7 +258,16 @@ namespace PDIWebDemoCS
             else
                 vCard.GeographicPosition.Latitude = vCard.GeographicPosition.Longitude = 0.0F;
 
-            vCard.Url.Value = txtWebPage.Text;
+            if(txtWebPage.Text.Length != 0)
+            {
+                if(vCard.Urls.Count != 0)
+                    vCard.Urls[0].Value = txtWebPage.Text;
+                else
+                    vCard.Urls.Add(txtWebPage.Text);
+            }
+            else
+                if(vCard.Urls.Count != 0)
+                    vCard.Urls.RemoveAt(0);
 
             if(txtComments.Text.Length != 0)
             {

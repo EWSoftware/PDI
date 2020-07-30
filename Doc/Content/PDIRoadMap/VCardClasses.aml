@@ -941,12 +941,13 @@ and <codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Properties.TimeZon
 						</entry>
 						<entry>
 							<para>
-								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Url</codeEntityReference>
+								<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Urls</codeEntityReference>
 							</para>
 						</entry>
 						<entry>
 							<para>
 								<codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.UrlProperty</codeEntityReference>
+and <codeEntityReference qualifyHint="false">T:EWSoftware.PDI.Properties.UrlPropertyCollection</codeEntityReference>
 							</para>
 						</entry>
 						<entry>

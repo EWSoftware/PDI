@@ -117,6 +117,11 @@
       <HelpKeyword index="K" term="history" />
       <HelpKeyword index="K" term="version history" />
     </HelpKeywords>
+    <Topic id="1b2453e6-586d-4d6f-83a4-435fea3d473c" visible="True" title="Version 2020.7.24.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="versions, 2020.7.24.0" />
+      </HelpKeywords>
+    </Topic>
     <Topic id="42acd77f-8657-45ca-a71c-14fa093e43ed" visible="True" title="Version 2020.1.18.0">
       <HelpKeywords>
         <HelpKeyword index="K" term="versions, 2020.1.18.0" />

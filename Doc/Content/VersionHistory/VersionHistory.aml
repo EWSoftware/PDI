@@ -15,6 +15,11 @@ Data Interchange (PDI) Library </legacyBold> over the life of the project.</para
 				<para>Select a version below to see a description of its changes.</para>
 
 				<list class="bullet">
+          <listItem>
+            <para>
+              <link xlink:href="1b2453e6-586d-4d6f-83a4-435fea3d473c" />
+            </para>
+          </listItem>
 					<listItem>
 						<para>
 							<link xlink:href="42acd77f-8657-45ca-a71c-14fa093e43ed" />

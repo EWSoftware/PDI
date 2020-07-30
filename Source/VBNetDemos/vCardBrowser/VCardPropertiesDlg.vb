@@ -2,7 +2,7 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardPropertiesDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2020
+' Updated : 07/24/2020
 ' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a vCard's information.  It supports most of the common properties of the vCard including
@@ -228,7 +228,11 @@ Partial Public Class VCardPropertiesDlg
         txtTimeZone.Text = vCard.TimeZone.Value
         txtLatitude.Text = vCard.GeographicPosition.Latitude.ToString()
         txtLongitude.Text = vCard.GeographicPosition.Longitude.ToString()
-        txtWebPage.Text = vCard.Url.Value
+
+        ' We'll only edit the first one
+        If vCard.Urls.Count <> 0 Then
+            txtWebPage.Text = vCard.Urls(0).Value
+        End If
 
         ' We'll only edit the first note.  Chances are there won't be more than one unless grouping is used
         If vCard.Notes.Count <> 0 Then
@@ -359,7 +363,17 @@ Partial Public Class VCardPropertiesDlg
             vCard.GeographicPosition.Longitude = 0.0
         End If
 
-        vCard.Url.Value = txtWebPage.Text
+        If txtWebPage.Text.Length <> 0 Then
+            If vCard.Urls.Count <> 0 Then
+                vCard.Urls(0).Value = txtWebPage.Text
+            Else
+                vCard.Urls.Add(txtWebPage.Text)
+            End If
+        Else
+            If vCard.Urls.Count <> 0 Then
+                vCard.Urls.RemoveAt(0)
+            End If
+        End If
 
         If txtComments.Text.Length <> 0 Then
             If vCard.Notes.Count <> 0 Then
