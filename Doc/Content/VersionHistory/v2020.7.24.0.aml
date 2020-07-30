@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="1b2453e6-586d-4d6f-83a4-435fea3d473c" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2020.7.24.0.</para>
+		</introduction>
+		
+    <!-- Ignore Spelling: Karshakevich -->
+		<section>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para><legacyBold>Breaking Change:</legacyBold> The vCard <codeInline>Url</codeInline> property has
+been deprecated and will be removed in a future release.  Use the new
+<codeEntityReference qualifyHint="false">P:EWSoftware.PDI.Objects.VCard.Urls</codeEntityReference> property
+instead.</para>
+					</listItem>
+
+          <listItem>
+            <para>Merged changes from Dmitri Karshakevich to support multiple URL properties in vCards.</para>
+          </listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

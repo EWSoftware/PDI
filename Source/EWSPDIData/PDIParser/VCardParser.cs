@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCardParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 07/24/2020
+// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to parse vCard Personal Data Interchange (PDI) data streams.  It supports
 // both the vCard 2.1 and vCard 3.0 specification file formats.
@@ -445,12 +445,6 @@ namespace EWSoftware.PDI.Parser
                     currentCard.Mailer.Group = group;
                     break;
 
-                case PropertyType.Url:
-                    currentCard.Url.DeserializeParameters(parameters);
-                    currentCard.Url.EncodedValue = propertyValue;
-                    currentCard.Url.Group = group;
-                    break;
-
                 case PropertyType.Organization:
                     currentCard.Organization.DeserializeParameters(parameters);
                     currentCard.Organization.EncodedValue = propertyValue;
@@ -553,6 +547,14 @@ namespace EWSoftware.PDI.Parser
                     e.EncodedValue = propertyValue;
                     e.Group = group;
                     currentCard.EMailAddresses.Add(e);
+                    break;
+
+                case PropertyType.Url:
+                    UrlProperty u = new UrlProperty();
+                    u.DeserializeParameters(parameters);
+                    u.EncodedValue = propertyValue;
+                    u.Group = group;
+                    currentCard.Urls.Add(u);
                     break;
 
                 case PropertyType.Agent:

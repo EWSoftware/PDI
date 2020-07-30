@@ -49,7 +49,7 @@
       <NamespaceSummaryItem name="EWSoftware.PDI.Web.Design" isDocumented="True">Personal Data Interchange ASP.NET web server control designers developed by Eric Woodruff.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EWSoftware.PDI.Windows.Forms" isDocumented="True">Personal Data Interchange Windows Forms controls developed by Eric Woodruff.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <HelpFileVersion>2020.1.18.0</HelpFileVersion>
+    <HelpFileVersion>2020.7.24.0</HelpFileVersion>
     <ApiFilter />
     <PlugInConfigurations>
       <PlugInConfig id="Output Deployment" enabled="True">
@@ -189,6 +189,7 @@
     <None Include="Content\VersionHistory\v2015.1.19.0.aml" />
     <None Include="Content\VersionHistory\v2018.12.1.0.aml" />
     <None Include="Content\VersionHistory\v2020.1.18.0.aml" />
+    <None Include="Content\VersionHistory\v2020.7.24.0.aml" />
     <None Include="Content\Welcome.aml" />
     <None Include="Content\VersionHistory\v2.0.0.2.aml" />
     <None Include="Content\VersionHistory\v2.0.0.0.aml" />

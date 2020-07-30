@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCard.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 07/24/2020
+// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the vCard object and a collection of vCard objects
 //
@@ -17,7 +17,7 @@
 // 03/14/2004  EFW  Created the code
 //===============================================================================================================
 
-// Ignore Spelling: vc sw
+// Ignore Spelling: vc sw Urls
 
 using System;
 using System.ComponentModel;
@@ -51,7 +51,6 @@ namespace EWSoftware.PDI.Objects
         private TitleProperty               title;
         private RoleProperty                role;
         private MailerProperty              mailer;
-        private UrlProperty                 url;
         private OrganizationProperty        org;
         private UniqueIdProperty            uid;
         private BirthDateProperty           bday;
@@ -71,6 +70,7 @@ namespace EWSoftware.PDI.Objects
         private LabelPropertyCollection         labels;
         private TelephonePropertyCollection     phones;
         private EMailPropertyCollection         email;
+        private UrlPropertyCollection           urls;
         private AgentPropertyCollection         agents;
         private ClientPidMapPropertyCollection  pidMaps;
         private MemberPropertyCollection        members;
@@ -218,14 +218,18 @@ namespace EWSoftware.PDI.Objects
         /// <summary>
         /// This is used to get the Uniform Resource Locator (URL) property
         /// </summary>
+        /// <value>This has been deprecated and replaced by the <see cref="Urls"/> property.  For the time
+        /// being this will return the first entry in the collection.  If the collection is empty, a blank
+        /// URL is added to it and returned for backward compatibility.</value>
+        [Obsolete("Use the Urls collection property instead")]
         public UrlProperty Url
         {
             get
             {
-                if(url == null)
-                    url = new UrlProperty();
+                if(this.Urls.Count == 0)
+                    this.Urls.Add(new UrlProperty());
 
-                return url;
+                return this.Urls[0];
             }
         }
 
@@ -461,6 +465,23 @@ namespace EWSoftware.PDI.Objects
                 return email;
             }
         }
+
+
+        /// <summary>
+        /// This is used to get the URL (URL) properties.  There may be more than one.
+        /// </summary>
+        /// <value>If the returned collection is empty, there are no IRL properties for the vCard</value>
+        public UrlPropertyCollection Urls
+        {
+            get
+            {
+                if(urls == null)
+                    urls = new UrlPropertyCollection();
+
+                return urls;
+            }
+        }
+
 
         /// <summary>
         /// This is used to get the Agent (AGENT) properties.  There may be more than one agent.
@@ -743,7 +764,6 @@ namespace EWSoftware.PDI.Objects
             title = (TitleProperty)o.Title.Clone();
             role = (RoleProperty)o.Role.Clone();
             mailer = (MailerProperty)o.Mailer.Clone();
-            url = (UrlProperty)o.Url.Clone();
             org = (OrganizationProperty)o.Organization.Clone();
             uid = (UniqueIdProperty)o.UniqueId.Clone();
             bday = (BirthDateProperty)o.BirthDate.Clone();
@@ -761,6 +781,7 @@ namespace EWSoftware.PDI.Objects
             this.Labels.CloneRange(o.Labels);
             this.Telephones.CloneRange(o.Telephones);
             this.EMailAddresses.CloneRange(o.EMailAddresses);
+            this.Urls.CloneRange(o.Urls);
             this.Agents.CloneRange(o.Agents);
             this.ClientPidMaps.CloneRange(o.ClientPidMaps);
             this.Members.CloneRange(o.Members);
@@ -794,7 +815,6 @@ namespace EWSoftware.PDI.Objects
             title = null;
             role = null;
             mailer = null;
-            url = null;
             org = null;
             uid = null;
             bday = null;
@@ -812,6 +832,7 @@ namespace EWSoftware.PDI.Objects
             labels = null;
             phones = null;
             email = null;
+            urls = null;
             agents = null;
             pidMaps = null;
             members = null;
@@ -850,9 +871,6 @@ namespace EWSoftware.PDI.Objects
 
             if(mailer != null)
                 mailer.Version = this.Version;
-
-            if(url != null)
-                url.Version = this.Version;
 
             if(org != null)
                 org.Version = this.Version;
@@ -898,6 +916,9 @@ namespace EWSoftware.PDI.Objects
 
             if(email != null)
                 email.PropagateVersion(this.Version);
+
+            if(urls != null)
+                urls.PropagateVersion(this.Version);
 
             if(agents != null)
                 agents.PropagateVersion(this.Version);
@@ -1152,7 +1173,10 @@ namespace EWSoftware.PDI.Objects
                 foreach(NoteProperty n in notes)
                     BaseProperty.WriteToStream(n, sb, tw);
 
-            BaseProperty.WriteToStream(url, sb, tw);
+            if(urls != null && urls.Count != 0)
+                foreach(UrlProperty u in urls)
+                    BaseProperty.WriteToStream(u, sb, tw);
+
             BaseProperty.WriteToStream(tz, sb, tw);
             BaseProperty.WriteToStream(geo, sb, tw);
 

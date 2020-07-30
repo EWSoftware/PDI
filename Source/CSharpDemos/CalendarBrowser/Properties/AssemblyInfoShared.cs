@@ -2,7 +2,7 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/18/2020
+// Updated : 07/24/2020
 // Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
 //
 // PDI library demos common assembly attributes
@@ -51,5 +51,5 @@ using System.Runtime.InteropServices;
 //      Day of release
 //      Revision (typically zero unless multiple releases are made on the same day)
 //
-[assembly: AssemblyVersion("2020.1.18.0")]
-[assembly: AssemblyFileVersion("20.1.18.0")]
+[assembly: AssemblyVersion("2020.7.24.0")]
+[assembly: AssemblyFileVersion("20.7.24.0")]
