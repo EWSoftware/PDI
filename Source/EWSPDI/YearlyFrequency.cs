@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : YearlyFrequency.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/25/2020
+// Note    : Copyright 2003-2020, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to implements the Yearly frequency rules
 //
@@ -259,7 +258,7 @@ namespace EWSoftware.PDI
                             rdtNew = new RecurDateTime(rdt) { Month = 0, Day = 1 };
                             rdtNew.AddDays(((int)dow + 7 - (int)rdtNew.DayOfWeek) % 7);
 
-                            while(rdtNew.Year == rdt.Year)
+                            while(rdtNew.IsValidDate() && rdtNew.Year == rdt.Year)
                             {
                                 dates.Add(new RecurDateTime(rdtNew));
                                 rdtNew.AddDays(7);

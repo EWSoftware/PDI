@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Expand.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/25/2020
+// Note    : Copyright 2003-2020, Eric Woodruff, All rights reserved
 //
 // This file contains a static class containing recurrence expansion methods
 //
@@ -114,7 +113,7 @@ namespace EWSoftware.PDI
 
                             rdtNew.AddDays(((int)dow + 7 - (int)rdtNew.DayOfWeek) % 7);
 
-                            while(rdtNew.Year == rdt.Year && rdtNew.Month == rdt.Month)
+                            while(rdtNew.IsValidDate() && rdtNew.Year == rdt.Year && rdtNew.Month == rdt.Month)
                             {
                                 dates.Add(new RecurDateTime(rdtNew));
                                 rdtNew.AddDays(7);

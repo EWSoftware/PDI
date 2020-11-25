@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d3124c41-0d7f-435c-ab09-4deda9e40173" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2020.11.25.0.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>Fixed an issue in the <codeInline>Recurrence</codeInline> class that could cause an out of
+memory exception on an endless recurrence with a By Day condition.</para>
+					</listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>
