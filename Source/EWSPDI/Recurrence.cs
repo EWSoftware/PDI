@@ -948,7 +948,7 @@ namespace EWSoftware.PDI
                 }
 
                 // As long as by week number isn't specified either, we'll expand the by day rule here too
-                if(byWeekNo.Count == 0)
+                if(byWeekNo.Count == 0 && byDay.Count != 0)
                 {
                     isExpanded = true;
                     rdtcDay = new RecurDateTimeCollection(dates);
