@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Holidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/22/2021
+// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
 //
 // This file contains an abstract base classes used to automatically calculate holiday dates
 //
@@ -64,6 +63,20 @@ namespace EWSoftware.PDI
         [XmlText]
         public string Description { get; set; }
 
+        /// <summary>
+        /// The minimum year for the holiday
+        /// </summary>
+        /// <value>If not set, the default is 1</value>
+        [XmlAttribute]
+        public int MinimumYear { get; set; }
+
+        /// <summary>
+        /// The maximum year for the holiday
+        /// </summary>
+        /// <value>If not set, the default is 9999</value>
+        [XmlAttribute]
+        public int MaximumYear { get; set; }
+
         #endregion
 
         #region Constructor
@@ -74,6 +87,8 @@ namespace EWSoftware.PDI
         /// </summary>
         protected Holiday()
         {
+            this.MinimumYear = 1;
+            this.MaximumYear = 9999;
         }
         #endregion
 

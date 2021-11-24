@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : Global.asax.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/21/2021
+// Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
 //
 // At application start up, a common set of time zones is loaded into the VCalendar.TimeZones collection and a
 // common set of holidays is loaded into the Recurrence.Holidays collection.
@@ -74,7 +73,7 @@ namespace PDIWebDemoCS
                 lock(((ICollection)Recurrence.Holidays).SyncRoot)
                 {
                     if(Recurrence.Holidays.Count == 0)
-                        Recurrence.Holidays.AddStandardHolidays();
+                        Recurrence.Holidays.AddStandardHolidays(new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 });
                 }
             }
 		}

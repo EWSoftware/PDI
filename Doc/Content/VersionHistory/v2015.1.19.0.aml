@@ -59,7 +59,7 @@ sort the results in a different way without incurring any overhead from the meth
 					</listItem>
 
 					<listItem>
-						<para><codeEntityReference qualifyHint="true" autoUpgrade="true">M:EWSoftware.PDI.HolidayCollection.AddStandardHolidays</codeEntityReference>
+						<para><codeEntityReference qualifyHint="false" autoUpgrade="true">M:EWSoftware.PDI.HolidayCollection.AddStandardHolidays(EWSoftware.PDI.Holiday[])</codeEntityReference>
 has been changed to return a reference to the collection rather than void.</para>
 					</listItem>
 

@@ -26,10 +26,10 @@
     </HtmlHelp1xCompilerPath>
     <WorkingPath>
     </WorkingPath>
-    <FrameworkVersion>Cross-platform (.NET Core/.NET Standard)</FrameworkVersion>
+    <FrameworkVersion>.NET Framework 4.0</FrameworkVersion>
     <HelpTitle>EWSoftware.PDI Namespace Documentation</HelpTitle>
     <CopyrightHref>https://github.com/EWSoftware/PDI</CopyrightHref>
-    <CopyrightText>[v{%40HelpFileVersion}] Copyright \xA9 2003-2020, Eric Woodruff, All Rights Reserved</CopyrightText>
+    <CopyrightText>[v{%40HelpFileVersion}] Copyright \xA9 2003-2021, Eric Woodruff, All Rights Reserved</CopyrightText>
     <FeedbackEMailAddress>Eric%40EWoodruff.us</FeedbackEMailAddress>
     <PresentationStyle>VS2013</PresentationStyle>
     <SyntaxFilters>Standard</SyntaxFilters>
@@ -49,18 +49,12 @@
       <NamespaceSummaryItem name="EWSoftware.PDI.Web.Design" isDocumented="True">Personal Data Interchange ASP.NET web server control designers developed by Eric Woodruff.</NamespaceSummaryItem>
       <NamespaceSummaryItem name="EWSoftware.PDI.Windows.Forms" isDocumented="True">Personal Data Interchange Windows Forms controls developed by Eric Woodruff.</NamespaceSummaryItem>
     </NamespaceSummaries>
-    <HelpFileVersion>2020.11.25.0</HelpFileVersion>
+    <HelpFileVersion>2021.11.23.0</HelpFileVersion>
     <ApiFilter />
     <PlugInConfigurations>
       <PlugInConfig id="Output Deployment" enabled="True">
         <configuration deleteAfterDeploy="true" verboseLogging="false">
           <deploymentLocation id="help1x" location="..\Deployment\">
-            <userCredentials useDefault="true" userName="" password="" />
-            <proxyCredentials useProxy="false" proxyServer="">
-              <userCredentials useDefault="true" userName="" password="" />
-            </proxyCredentials>
-          </deploymentLocation>
-          <deploymentLocation id="help2x" location="">
             <userCredentials useDefault="true" userName="" password="" />
             <proxyCredentials useProxy="false" proxyServer="">
               <userCredentials useDefault="true" userName="" password="" />
@@ -106,6 +100,7 @@
       <Argument Key="logoAltText" Value="EWSoftware.PDI Library" />
       <Argument Key="logoPlacement" Value="left" />
       <Argument Key="logoAlignment" Value="left" />
+      <Argument Key="logoUrl" Value="https://github.com/EWSoftware/PDI" />
       <Argument Key="maxVersionParts" Value="" />
       <Argument Key="defaultLanguage" Value="cs" />
       <Argument Key="includeEnumValues" Value="true" />
@@ -191,6 +186,7 @@
     <None Include="Content\VersionHistory\v2020.1.18.0.aml" />
     <None Include="Content\VersionHistory\v2020.11.25.0.aml" />
     <None Include="Content\VersionHistory\v2020.7.24.0.aml" />
+    <None Include="Content\VersionHistory\v2021.11.23.0.aml" />
     <None Include="Content\Welcome.aml" />
     <None Include="Content\VersionHistory\v2.0.0.2.aml" />
     <None Include="Content\VersionHistory\v2.0.0.0.aml" />

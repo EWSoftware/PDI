@@ -121,7 +121,8 @@ Public Partial Class RRuleTestForm
         ' collection and will take care of adding, editing, and deleting entries from it.  If an existing
         ' collection is passed, it won't be modified.
         Recurrence.Holidays.Clear()
-        Recurrence.Holidays.AddStandardHolidays()
+        Recurrence.Holidays.AddStandardHolidays(New FixedHoliday(6, 19, True, "Juneteenth") With { .MinimumYear = 2021 })
+        hmHolidays.Defaults = Recurrence.Holidays
         hmHolidays.Holidays = Recurrence.Holidays
 
     End Sub

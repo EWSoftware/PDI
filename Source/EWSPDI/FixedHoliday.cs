@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FixedHolidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/22/2021
+// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to automatically calculate fixed holidays.  The class is serializable.
 //
@@ -140,6 +139,8 @@ namespace EWSoftware.PDI
                 this.Day = (int)info.GetValue("Day", typeof(int));
                 this.AdjustFixedDate = (bool)info.GetValue("AdjustFixedDate", typeof(bool));
                 this.Description = (string)info.GetValue("Description", typeof(string));
+                this.MinimumYear = (int)info.GetValue("MinimumYear", typeof(int));
+                this.MaximumYear = (int)info.GetValue("MaximumYear", typeof(int));
             }
         }
 
@@ -175,7 +176,11 @@ namespace EWSoftware.PDI
         /// <returns>A clone of the object.</returns>
         public override object Clone()
         {
-            return new FixedHoliday(this.Month, this.Day, this.AdjustFixedDate, this.Description);
+            return new FixedHoliday(this.Month, this.Day, this.AdjustFixedDate, this.Description)
+            {
+                MinimumYear = this.MinimumYear,
+                MaximumYear = this.MaximumYear
+            };
         }
 
         /// <summary>
@@ -250,6 +255,8 @@ namespace EWSoftware.PDI
                 info.AddValue("Day", this.Day);
                 info.AddValue("AdjustFixedDate", this.AdjustFixedDate);
                 info.AddValue("Description", this.Description);
+                info.AddValue("MinimumYear", this.MinimumYear);
+                info.AddValue("MaximumYear", this.MaximumYear);
             }
         }
         #endregion

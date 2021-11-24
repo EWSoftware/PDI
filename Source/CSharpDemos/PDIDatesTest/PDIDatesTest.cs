@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PDIDatesTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/19/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 11/22/2021
+// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
 //
 // This is a console mode application that runs through a few simple configurations to test the basics in the
 // date utility, holiday, and recurrence classes.
@@ -529,6 +528,7 @@ namespace PDIDatesTest
             holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 1, 0, "Martin Luther King Day");
             holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 2, 0, "President's Day");
             holidays.AddFloating(DayOccurrence.Last, DayOfWeek.Monday, 5, 0, "Memorial Day");
+            holidays.AddFixed(6, 19, true, "Juneteenth").MinimumYear = 2021;
             holidays.AddFixed(7, 4, true, "Independence Day");
             holidays.AddFloating(DayOccurrence.First, DayOfWeek.Monday, 9, 0, "Labor Day");
             holidays.AddFixed(11, 11, true, "Veteran's Day");

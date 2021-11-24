@@ -7,10 +7,10 @@
 		<Company>Eric Woodruff</Company>
 		<Product>EWSoftware Personal Data Interchange Library</Product>
 		<Title>EWSoftware PDI Web Controls Library</Title>
-		<Copyright>Copyright (c) 2003-2020, Eric Woodruff, All Rights Reserved</Copyright>
+		<Copyright>Copyright (c) 2003-2021, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2020.11.25.0</Version>
-		<FileVersion>20.11.25.0</FileVersion>
+		<Version>2021.11.23.0</Version>
+		<FileVersion>21.11.23.0</FileVersion>
 		<Description>This library contains some web controls that can be used to edit recurrence settings.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>

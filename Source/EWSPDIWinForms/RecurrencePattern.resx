@@ -160,7 +160,7 @@
     <value>10, 215</value>
   </data>
   <data name="rbSecondly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbSecondly.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -187,7 +187,7 @@
     <value>10, 185</value>
   </data>
   <data name="rbMinutely.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbMinutely.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -214,7 +214,7 @@
     <value>10, 155</value>
   </data>
   <data name="rbHourly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbHourly.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -271,7 +271,7 @@
     <value>ucSecondly</value>
   </data>
   <data name="&gt;&gt;ucSecondly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.SecondlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.SecondlyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucSecondly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -292,7 +292,7 @@
     <value>ucHourly</value>
   </data>
   <data name="&gt;&gt;ucHourly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.HourlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.HourlyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucHourly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -313,7 +313,7 @@
     <value>ucMinutely</value>
   </data>
   <data name="&gt;&gt;ucMinutely.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.MinutelyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.MinutelyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucMinutely.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -334,7 +334,7 @@
     <value>ucDaily</value>
   </data>
   <data name="&gt;&gt;ucDaily.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.DailyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.DailyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucDaily.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -355,7 +355,7 @@
     <value>ucWeekly</value>
   </data>
   <data name="&gt;&gt;ucWeekly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.WeeklyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.WeeklyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucWeekly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -376,7 +376,7 @@
     <value>ucMonthly</value>
   </data>
   <data name="&gt;&gt;ucMonthly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.MonthlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.MonthlyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucMonthly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -397,7 +397,7 @@
     <value>ucYearly</value>
   </data>
   <data name="&gt;&gt;ucYearly.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.YearlyPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.YearlyPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucYearly.Parent" xml:space="preserve">
     <value>pnlPatterns</value>
@@ -433,7 +433,7 @@
     <value>10, 35</value>
   </data>
   <data name="rbYearly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbYearly.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -460,7 +460,7 @@
     <value>10, 65</value>
   </data>
   <data name="rbMonthly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbMonthly.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -487,7 +487,7 @@
     <value>10, 95</value>
   </data>
   <data name="rbWeekly.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbWeekly.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -514,7 +514,7 @@
     <value>10, 125</value>
   </data>
   <data name="rbDaily.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 24</value>
+    <value>105, 24</value>
   </data>
   <data name="rbDaily.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -556,7 +556,7 @@
     <value>ucAdvanced</value>
   </data>
   <data name="&gt;&gt;ucAdvanced.Type" xml:space="preserve">
-    <value>EWSoftware.PDI.Windows.Forms.AdvancedPattern, EWSoftware.PDI.Windows.Forms, Version=2018.11.17.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
+    <value>EWSoftware.PDI.Windows.Forms.AdvancedPattern, EWSoftware.PDI.Windows.Forms, Version=2020.1.18.0, Culture=neutral, PublicKeyToken=69a3299ed3c63934</value>
   </data>
   <data name="&gt;&gt;ucAdvanced.Parent" xml:space="preserve">
     <value>grpPattern</value>

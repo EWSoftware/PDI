@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : Global.asax.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/21/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 11/21/2021
+' Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
 '
 ' At application start up, a common set of time zones is loaded into the VCalendar.TimeZones collection and a
 ' common set of holidays is loaded into the Recurrence.Holidays collection.
@@ -60,7 +59,7 @@ Namespace PDIWebDemoVB
             ' it probably won't change after being set, it uses a simple SyncRoot property to lock the collection.
             SyncLock CType(Recurrence.Holidays, ICollection).SyncRoot
                 If Recurrence.Holidays.Count = 0 Then
-                    Recurrence.Holidays.AddStandardHolidays()
+                    Recurrence.Holidays.AddStandardHolidays(New FixedHoliday(6, 19, True, "Juneteenth") With  { .MinimumYear = 2021 })
                 End If
             End SyncLock
         End Sub

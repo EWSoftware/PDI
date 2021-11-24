@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : PDIDatesTest.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/20/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 11/22/2021
+' Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
 '
 ' This is a console mode application that runs through a few simple configurations to test the basics in the
 ' date utility, holiday, and recurrence classes.
@@ -435,20 +434,15 @@ Module PDIDatesTest
         Dim holidays As New HolidayCollection()
 
         holidays.AddFixed(1, 1, True, "New Year's Day")
-        holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 1, 0, _
-            "Martin Luther King Day")
-        holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 2, 0, _
-            "President's Day")
-        holidays.AddFloating(DayOccurrence.Last, DayOfWeek.Monday, 5, 0, _
-            "Memorial Day")
+        holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 1, 0, "Martin Luther King Day")
+        holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 2, 0, "President's Day")
+        holidays.AddFloating(DayOccurrence.Last, DayOfWeek.Monday, 5, 0, "Memorial Day")
+        holidays.AddFixed(6, 19, true, "Juneteenth").MinimumYear = 2021
         holidays.AddFixed(7, 4, True, "Independence Day")
-        holidays.AddFloating(DayOccurrence.First, DayOfWeek.Monday, 9, 0, _
-            "Labor Day")
+        holidays.AddFloating(DayOccurrence.First, DayOfWeek.Monday, 9, 0, "Labor Day")
         holidays.AddFixed(11, 11, True, "Veteran's Day")
-        holidays.AddFloating(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 0, _
-            "Thanksgiving Day")
-        holidays.AddFloating(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 1, _
-            "Day After Thanksgiving")
+        holidays.AddFloating(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 0, "Thanksgiving Day")
+        holidays.AddFloating(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 1, "Day After Thanksgiving")
         holidays.AddFixed(12, 25, True, "Christmas Day")
 
         ' Serialize the holidays to a file

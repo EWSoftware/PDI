@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="3ebeed58-ecb5-475f-93c1-c9e0098ac5a0" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2021.11.23.0.</para>
+		</introduction>
+
+		<!-- Ignore Spelling: Giménez -->
+		<section>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>Added <codeInline>MinimumYear</codeInline> and <codeInline>MaximumYear</codeInline> properties
+to the <codeInline>Holiday</codeInline> base class.  This allows defining the year range for which a holiday is
+valid.  The defaults are a minimum year of 1 and a maximum year of 9999.</para>
+					</listItem>
+
+					<listItem>
+						<para>The <codeInline>AddFixed</codeInline> and <codeInline>AddFloating</codeInline> methods of the
+<codeInline>HolidayCollection</codeInline> class now return the added instance.</para>
+					</listItem>
+
+					<listItem>
+						<para>The <codeInline>HolidayCollection</codeInline> class will now only return a holiday date if the
+instance falls within the valid year range for the holiday definition.</para>
+					</listItem>
+
+					<listItem>
+						<para>The <codeInline>AddStandardHolidays</codeInline> method of the
+<codeInline>HolidayCollection</codeInline> class was updated to allow passing in a set of one or more additional
+holiday instances to add to the standard set.  If none are specified, only the standard set is used.</para>
+					</listItem>
+
+					<listItem>
+						<para>Merged a change from Jorge Giménez to the <codeInline>Recurrence</codeInline> class that fixes
+a bug that caused incorrect results for a rule with a yearly frequency and only a By Month Day rule.</para>
+					</listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

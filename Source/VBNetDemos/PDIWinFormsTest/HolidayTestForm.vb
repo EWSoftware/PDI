@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : HolidayTestForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 11/22/2021
+' Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
 '
 ' This is used to test the various Holiday classes and the DateUtils class
 '
@@ -40,10 +39,14 @@ Public Partial Class HolidayTestForm
         dgvDatesFound.AutoGenerateColumns = False
         tbcDate.DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern
 
-        ' Use standard set of holidays by default.  The holiday manager control will make a copy of the
+        Dim hols As Holiday() = { New FixedHoliday(6, 19, True, "Juneteenth") With { .MinimumYear = 2021 } }
+
+        hmHolidays.Defaults = hmHolidays.Defaults.Concat(hols).OrderBy(Function(h) h.Month).ToList()
+
+        ' Use the standard set of holidays by default.  The holiday manager control will make a copy of the
         ' collection and will take care of adding, editing, and deleting entries from it.  If an existing
         ' collection is passed, it won't be modified.
-        hmHolidays.Holidays = New HolidayCollection().AddStandardHolidays()
+        hmHolidays.Holidays = hmHolidays.Defaults
 
         udcFromYear.Value = DateTime.Now.Year - 1
         udcToYear.Value = udcFromYear.Value + 6

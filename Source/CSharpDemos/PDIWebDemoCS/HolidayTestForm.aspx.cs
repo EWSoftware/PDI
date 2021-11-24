@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : HolidayTestForm.aspx.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/23/2021
+// Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
 //
 // This page is used to demonstrate the Holiday and date utility classes
 //
@@ -48,7 +47,7 @@ namespace PDIWebDemoCS
                 if(hc == null)
                 {
                     hc = new HolidayCollection();
-                    hc.AddStandardHolidays();
+                    hc.AddStandardHolidays(new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 });
                     Session["Holidays"] = hc;
                 }
 
@@ -105,7 +104,7 @@ namespace PDIWebDemoCS
                     // Revert to the default set
                     hc = (HolidayCollection)Session["Holidays"];
                     hc.Clear();
-                    hc.AddStandardHolidays();
+                    hc.AddStandardHolidays(new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 });
 
                     dgHolidays.EditItemIndex = -1;
                     dgHolidays.DataSource = hc;
@@ -229,6 +228,8 @@ namespace PDIWebDemoCS
                 {
                     Month = cboMonth.SelectedIndex + 1,
                     Description = ((TextBox)e.Item.FindControl("txtDescription")).Text,
+                    MinimumYear = Convert.ToInt32(((TextBox)e.Item.FindControl("txtMinimumYear")).Text),
+                    MaximumYear = Convert.ToInt32(((TextBox)e.Item.FindControl("txtMaximumYear")).Text),
                     Occurrence = (DayOccurrence)((DropDownList)e.Item.FindControl("cboOccurrence")).SelectedIndex + 1,
                     Weekday = (DayOfWeek)((DropDownList)e.Item.FindControl("cboDayOfWeek")).SelectedIndex,
                     Offset = Convert.ToInt32(((TextBox)e.Item.FindControl("txtOffset")).Text)
@@ -251,6 +252,8 @@ namespace PDIWebDemoCS
                 {
                     Month = cboMonth.SelectedIndex + 1,
                     Description = ((TextBox)e.Item.FindControl("txtDescription")).Text,
+                    MinimumYear = Convert.ToInt32(((TextBox)e.Item.FindControl("txtMinimumYear")).Text),
+                    MaximumYear = Convert.ToInt32(((TextBox)e.Item.FindControl("txtMaximumYear")).Text),
                     AdjustFixedDate = ((CheckBox)e.Item.FindControl("chkAdjustDate")).Checked,
                     Day = Convert.ToInt32(((TextBox)e.Item.FindControl("txtDayOfMonth")).Text)
                 };
@@ -335,6 +338,12 @@ namespace PDIWebDemoCS
 
                 cboMonth.SelectedIndex = hc[e.Item.ItemIndex].Month - 1;
                 ((TextBox)e.Item.FindControl("txtDescription")).Text = hc[e.Item.ItemIndex].Description;
+                ((TextBox)e.Item.FindControl("txtMinimumYear")).Text =
+                    ((hc[e.Item.ItemIndex].MinimumYear < 1) ? 1 : (hc[e.Item.ItemIndex].MinimumYear > 9999) ?
+                    9999 : hc[e.Item.ItemIndex].MinimumYear).ToString();
+                ((TextBox)e.Item.FindControl("txtMaximumYear")).Text =
+                    ((hc[e.Item.ItemIndex].MaximumYear < 1) ? 1 : (hc[e.Item.ItemIndex].MaximumYear > 9999) ?
+                    9999 : hc[e.Item.ItemIndex].MaximumYear).ToString();
             }
         }
 

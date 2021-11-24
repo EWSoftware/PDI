@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : HolidayTestForm.aspx.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/22/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 11/23/2021
+' Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
 '
 ' This page is used to demonstrate the Holiday and date utility classes
 '
@@ -26,9 +25,9 @@ Imports EWSoftware.PDI
 Namespace PDIWebDemoVB
 
     Partial Class HolidayTestForm
-        Inherits System.Web.UI.Page
+        Inherits Page
 
-        Private Sub Page_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Private Sub Page_Load(sender As Object, e As EventArgs) Handles MyBase.Load
             Me.Page.Title = "Holiday Detection Demo"
 
             ' Create a holiday collection with some default holidays, store it in the session, and bind it to the
@@ -39,7 +38,7 @@ Namespace PDIWebDemoVB
                 ' If we haven't been here before, create a new collection
                 If hc Is Nothing Then
                     hc = New HolidayCollection()
-                    hc.AddStandardHolidays()
+                    hc.AddStandardHolidays(New FixedHoliday(6, 19, True, "Juneteenth") With  { .MinimumYear = 2021 })
                     Session("Holidays") = hc
                 End If
 
@@ -53,8 +52,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' This handles various commands for the data grid
-        Private Sub dgHolidays_ItemCommand(ByVal source As Object, _
-          ByVal e As System.Web.UI.WebControls.DataGridCommandEventArgs) Handles dgHolidays.ItemCommand
+        Private Sub dgHolidays_ItemCommand(source As Object, e As DataGridCommandEventArgs) Handles dgHolidays.ItemCommand
             Dim hc As HolidayCollection
 
             Select Case e.CommandName
@@ -91,7 +89,7 @@ Namespace PDIWebDemoVB
                     ' Revert to the default set
                     hc = DirectCast(Session("Holidays"), HolidayCollection)
                     hc.Clear()
-                    hc.AddStandardHolidays()
+                    hc.AddStandardHolidays(New FixedHoliday(6, 19, True, "Juneteenth") With  { .MinimumYear = 2021 })
 
                     dgHolidays.EditItemIndex = -1
                     dgHolidays.DataSource = hc
@@ -125,8 +123,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Edit a holiday in the collection
-        Private Sub dgHolidays_EditCommand(ByVal source As Object, _
-          ByVal e As System.Web.UI.WebControls.DataGridCommandEventArgs) Handles dgHolidays.EditCommand
+        Private Sub dgHolidays_EditCommand(source As Object, e As DataGridCommandEventArgs) Handles dgHolidays.EditCommand
             ' Ignore the request if the page is not valid
             If Page.IsValid = False Then
                 Return
@@ -148,8 +145,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Delete a holiday from the collection
-        Private Sub dgHolidays_DeleteCommand(source As Object, _
-          e As System.Web.UI.WebControls.DataGridCommandEventArgs) Handles dgHolidays.DeleteCommand
+        Private Sub dgHolidays_DeleteCommand(source As Object, e As DataGridCommandEventArgs) Handles dgHolidays.DeleteCommand
             ' Save changes to the edited item if it isn't the one being deleted
             If dgHolidays.EditItemIndex <> -1 And dgHolidays.EditItemIndex <> e.Item.ItemIndex Then
                 Page.Validate()
@@ -170,8 +166,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Cancel changes to a holiday in the collection
-        Private Sub dgHolidays_CancelCommand(ByVal source As Object, _
-          ByVal e As System.Web.UI.WebControls.DataGridCommandEventArgs) Handles dgHolidays.CancelCommand
+        Private Sub dgHolidays_CancelCommand(source As Object, e As DataGridCommandEventArgs) Handles dgHolidays.CancelCommand
             Dim hc As HolidayCollection = DirectCast(Session("Holidays"),  HolidayCollection)
 
             ' If it was a new item, remove it
@@ -185,8 +180,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Update a holiday item in the collection
-        Private Sub dgHolidays_UpdateCommand(ByVal source As Object, _
-          ByVal e As System.Web.UI.WebControls.DataGridCommandEventArgs) Handles dgHolidays.UpdateCommand
+        Private Sub dgHolidays_UpdateCommand(source As Object, e As DataGridCommandEventArgs) Handles dgHolidays.UpdateCommand
             Dim hc As HolidayCollection = DirectCast(Session("Holidays"),  HolidayCollection)
 
             If Page.IsValid = False Then
@@ -201,6 +195,8 @@ Namespace PDIWebDemoVB
                 Dim fl As New FloatingHoliday With {
                     .Month = cboMonth.SelectedIndex + 1,
                     .Description = DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text,
+                    .MinimumYear = Convert.ToInt32(DirectCast(e.Item.FindControl("txtMinimumYear"), TextBox).Text),
+                    .MaximumYear = Convert.ToInt32(DirectCast(e.Item.FindControl("txtMaximumYear"), TextBox).Text),
                     .Occurrence = CType(DirectCast(e.Item.FindControl("cboOccurrence"),
                     DropDownList).SelectedIndex + 1, DayOccurrence),
                     .Weekday = CType(DirectCast(e.Item.FindControl("cboDayOfWeek"), DropDownList).SelectedIndex,
@@ -219,9 +215,11 @@ Namespace PDIWebDemoVB
                     Return
                 End If
 
-                Dim fx As FixedHoliday = New FixedHoliday With {
+                Dim fx As New FixedHoliday With {
                     .Month = cboMonth.SelectedIndex + 1,
                     .Description = DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text,
+                    .MinimumYear = Convert.ToInt32(DirectCast(e.Item.FindControl("txtMinimumYear"), TextBox).Text),
+                    .MaximumYear = Convert.ToInt32(DirectCast(e.Item.FindControl("txtMaximumYear"), TextBox).Text),
                     .AdjustFixedDate = DirectCast(e.Item.FindControl("chkAdjustDate"), CheckBox).Checked,
                     .Day = Convert.ToInt32(DirectCast(e.Item.FindControl("txtDayOfMonth"), TextBox).Text)
                 }
@@ -236,8 +234,7 @@ Namespace PDIWebDemoVB
 
         ' Bind data to the edit item template.  Since the holiday collection  uses the abstract class, we'll bind
         ' data in here rather than in the HTML since we have to determine the type first.
-        Private Sub dgHolidays_ItemDataBound(ByVal sender As Object, _
-          ByVal e As System.Web.UI.WebControls.DataGridItemEventArgs) Handles dgHolidays.ItemDataBound
+        Private Sub dgHolidays_ItemDataBound(sender As Object, e As DataGridItemEventArgs) Handles dgHolidays.ItemDataBound
             If e.Item.ItemType = ListItemType.EditItem Then
                 ' The RecurOptsDataSource class contains static methods that return lists of common values we can
                 ' uses as the data sources for these drop down lists.
@@ -309,11 +306,34 @@ Namespace PDIWebDemoVB
 
                 cboMonth.SelectedIndex = hc(e.Item.ItemIndex).Month - 1
                 DirectCast(e.Item.FindControl("txtDescription"), TextBox).Text = hc(e.Item.ItemIndex).Description
+
+                Dim minYear As Integer = hc(e.Item.ItemIndex).MinimumYear,
+                    maxYear As Integer = hc(e.Item.ItemIndex).MaximumYear
+
+                If minYear < 1 Then
+                    minYear = 1
+                Else
+                    If minYear > 9999 Then
+                        minYear = 9999
+                    End If
+                End If
+
+                If maxYear < 1 Then
+                    maxYear = 1
+                Else
+                    If maxYear > 9999 Then
+                        maxYear = 9999
+                    End If
+                End If
+
+                DirectCast(e.Item.FindControl("txtMinimumYear"), TextBox).Text = minYear.ToString()
+                DirectCast(e.Item.FindControl("txtMaximumYear"), TextBox).Text = maxYear.ToString()
+
             End If
         End Sub
 
         ' Enable or disable the controls when the radio buttons are clicked
-        Public Sub Type_CheckChanged(ByVal sender As Object, ByVal e As EventArgs)
+        Public Sub Type_CheckChanged(sender As Object, e As EventArgs)
             Dim dgi As DataGridItem = dgHolidays.Items(dgHolidays.EditItemIndex)
 
             Dim rbFloating As RadioButton = DirectCast(dgi.FindControl("rbFloating"), RadioButton)
@@ -352,8 +372,7 @@ Namespace PDIWebDemoVB
 
         ' Find holidays defined by the holiday collection in the given range
         ' of years.
-        Private Sub btnFindHolidays_Click(ByVal sender As Object, _
-            ByVal e As System.EventArgs) Handles btnFindHolidays.Click
+        Private Sub btnFindHolidays_Click(sender As Object, e As EventArgs) Handles btnFindHolidays.Click
 
             Dim hc As HolidayCollection = DirectCast(Session("Holidays"), HolidayCollection)
             Dim dt As DateTime
@@ -391,8 +410,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Find all instances of Easter using the selected method in the given range of years
-        Private Sub btnFindEaster_Click(ByVal sender As Object, _
-          ByVal e As System.EventArgs) Handles btnFindEaster.Click
+        Private Sub btnFindEaster_Click(sender As Object, e As EventArgs) Handles btnFindEaster.Click
             Dim em As EasterMethod
             Dim yearFrom, yearTo, tempYear As Integer
             Dim desc As String
@@ -438,8 +456,7 @@ Namespace PDIWebDemoVB
         End Sub
 
         ' Test to see if the entered date is a holiday based on the set defined in the collection
-        Private Sub btnIsHoliday_Click(ByVal sender As Object, _
-          ByVal e As System.EventArgs) Handles btnIsHoliday.Click
+        Private Sub btnIsHoliday_Click(sender As Object, e As EventArgs) Handles btnIsHoliday.Click
             If Page.IsValid Then
                 Dim hc As HolidayCollection = DirectCast(Session("Holidays"), HolidayCollection)
 

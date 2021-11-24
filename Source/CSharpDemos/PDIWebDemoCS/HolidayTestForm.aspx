@@ -42,6 +42,26 @@ the test search range to a maximum of 50 years from the starting year.</p>
 									<asp:DropDownList ID="cboMonth" runat="server" CssClass="form-control" /></td>
 							</tr>
 							<tr>
+								<td class="control-label">Minimum Year</td>
+								<td colspan="2">
+									<asp:TextBox ID="txtMinimumYear" runat="server" Columns="4" MaxLength="4" CssClass="form-control" />
+									<asp:RequiredFieldValidator ID="rfvMinimumYear" runat="server" Display="None"
+										ErrorMessage="A minimum year is required.  Use 1 for no minimum." ControlToValidate="txtMinimumYear" />
+									<asp:RangeValidator ID="rvMinimumYear" runat="server" Display="None"
+										ErrorMessage="Minimum year should be between 1 and 9999" Type="Integer"
+										MinimumValue="1" MaximumValue="9999" ControlToValidate="txtMinimumYear" /></td>
+							</tr>
+							<tr>
+								<td class="control-label">Maximum Year</td>
+								<td colspan="2">
+									<asp:TextBox ID="txtMaximumYear" runat="server" Columns="4" MaxLength="4" CssClass="form-control" />
+									<asp:RequiredFieldValidator ID="rfvMaximumYear" runat="server" Display="None"
+										ErrorMessage="A maximum year is required.  Use 9999 for no maximum." ControlToValidate="txtMaximumYear" />
+									<asp:RangeValidator ID="rvMaximumYear" runat="server" Display="None"
+										ErrorMessage="Maximum year should be between 1 and 9999" Type="Integer"
+										MinimumValue="1" MaximumValue="9999" ControlToValidate="txtMaximumYear" /></td>
+							</tr>
+							<tr>
 								<td>
 									<asp:RadioButton ID="rbFloating" runat="server"
 										AutoPostBack="True" Text="Floating" OnCheckedChanged="Type_CheckChanged" /></td>

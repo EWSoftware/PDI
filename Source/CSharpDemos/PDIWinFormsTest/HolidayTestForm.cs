@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : HolidayTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 11/22/2021
+// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
 //
 // This is used to test the various Holiday classes and the DateUtils class
 //
@@ -46,10 +45,13 @@ namespace PDIWinFormsTest
             dgvDatesFound.AutoGenerateColumns = false;
             tbcDate.DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
 
+            hmHolidays.Defaults = hmHolidays.Defaults.Concat(new[] {
+                new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 } }).OrderBy(h => h.Month).ToList();
+
             // Use the standard set of holidays by default.  The holiday manager control will make a copy of the
             // collection and will take care of adding, editing, and deleting entries from it.  If an existing
             // collection is passed, it won't be modified.
-            hmHolidays.Holidays = new HolidayCollection().AddStandardHolidays();
+            hmHolidays.Holidays = hmHolidays.Defaults;
 
             udcFromYear.Value = DateTime.Now.Year - 1;
             udcToYear.Value = udcFromYear.Value + 6;

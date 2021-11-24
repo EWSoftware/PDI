@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
@@ -7,10 +7,10 @@
 		<Company>Eric Woodruff</Company>
 		<Product>EWSoftware Personal Data Interchange Library</Product>
 		<Title>EWSoftware PDI Library</Title>
-		<Copyright>Copyright (c) 2003-2020, Eric Woodruff, All Rights Reserved</Copyright>
+		<Copyright>Copyright (c) 2003-2021, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2020.11.25.0</Version>
-		<FileVersion>20.11.25.0</FileVersion>
+		<Version>2021.11.23.0</Version>
+		<FileVersion>21.11.23.0</FileVersion>
 		<Description>This library contains the core set of useful Personal Data Interchange (PDI) and date utility classes for .NET applications.  They can be used for calculating holiday dates, recurrences, etc.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
@@ -48,6 +48,9 @@
 	<ItemGroup>
 		<EmbeddedResource Include="Schemas\Recurrence.xsd" />
 		<None Include="..\..\EWSPDI.png" Link="EWSPDI.png" Pack="true" PackagePath="\" />
+
+		<!-- This is not included for the time being as it is incomplete -->
+		<EmbeddedResource Remove="PDI.de.resx" />
 	</ItemGroup>
 
 </Project>

@@ -136,8 +136,8 @@ namespace PDIWinFormsTest
             // collection and will take care of adding, editing, and deleting entries from it.  If an existing
             // collection is passed, it won't be modified.
             Recurrence.Holidays.Clear();
-            Recurrence.Holidays.AddStandardHolidays();
-            hmHolidays.Holidays = Recurrence.Holidays;
+            Recurrence.Holidays.AddStandardHolidays(new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 });
+            hmHolidays.Defaults = hmHolidays.Holidays = Recurrence.Holidays;
         }
 
         /// <summary>

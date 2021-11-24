@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Holidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/17/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 11/23/2021
+// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
 //
 // This file contains a holiday collection class.  The collection is serializable.
 //
@@ -23,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Xml.Serialization;
 
 namespace EWSoftware.PDI
@@ -82,9 +82,12 @@ namespace EWSoftware.PDI
         /// <param name="adjust">Set to true to adjust date to the Friday or Monday if it falls on a weekend or
         /// false to always keep it on the specified day of the month.</param>
         /// <param name="description">A description of the holiday.</param>
-        public void AddFixed(int month, int day, bool adjust, string description)
+        /// <returns>The fixed holiday that was added</returns>
+        public FixedHoliday AddFixed(int month, int day, bool adjust, string description)
         {
-            base.Add(new FixedHoliday(month, day, adjust, description));
+            var fh = new FixedHoliday(month, day, adjust, description);
+            base.Add(fh);
+            return fh;
         }
 
         /// <summary>
@@ -97,9 +100,12 @@ namespace EWSoftware.PDI
         /// holiday actually occurs.  See the <see cref="FloatingHoliday.Offset"/> property for more information
         /// about this parameter.</param>
         /// <param name="description">A description of the holiday.</param>
-        public void AddFloating(DayOccurrence occur, DayOfWeek dow, int month, int offset, string description)
+        /// <returns>The floating holiday that was added</returns>
+        public FloatingHoliday AddFloating(DayOccurrence occur, DayOfWeek dow, int month, int offset, string description)
         {
-            base.Add(new FloatingHoliday(occur, dow, month, offset, description));
+            var fh = new FloatingHoliday(occur, dow, month, offset, description);
+            base.Add(fh);
+            return fh;
         }
 
         /// <summary>
@@ -120,7 +126,7 @@ namespace EWSoftware.PDI
                 holiday = hol.ToDateTime(year);
 
                 // Compare date part only, times may differ
-                if(holiday.Date == date.Date)
+                if(holiday.Date == date.Date && holiday.Year >= hol.MinimumYear && holiday.Year <= hol.MaximumYear)
                 {
                     isHoliday = true;
                     break;
@@ -134,7 +140,7 @@ namespace EWSoftware.PDI
                     {
                         holiday = hol.ToDateTime(year - 1);
 
-                        if(holiday.Date == date.Date)
+                        if(holiday.Date == date.Date && holiday.Year >= hol.MinimumYear && holiday.Year <= hol.MaximumYear)
                         {
                             isHoliday = true;
                             break;
@@ -145,7 +151,7 @@ namespace EWSoftware.PDI
                     {
                         holiday = hol.ToDateTime(year + 1);
 
-                        if(holiday.Date == date.Date)
+                        if(holiday.Date == date.Date && holiday.Year >= hol.MinimumYear && holiday.Year <= hol.MaximumYear)
                         {
                             isHoliday = true;
                             break;
@@ -176,7 +182,7 @@ namespace EWSoftware.PDI
                 holiday = hol.ToDateTime(year);
 
                 // Compare date part only, times may differ
-                if(holiday.Date == date.Date)
+                if(holiday.Date == date.Date && holiday.Year >= hol.MinimumYear && holiday.Year <= hol.MaximumYear)
                 {
                     desc = hol.Description;
                     break;
@@ -190,7 +196,7 @@ namespace EWSoftware.PDI
                     {
                         holiday = hol.ToDateTime(year - 1);
 
-                        if(holiday.Date == date.Date)
+                        if(holiday.Date == date.Date && holiday.Year >= hol.MinimumYear && holiday.Year <= hol.MaximumYear)
                         {
                             desc = hol.Description;
                             break;
@@ -201,7 +207,7 @@ namespace EWSoftware.PDI
                     {
                         holiday = hol.ToDateTime(year + 1);
 
-                        if(holiday.Date == date.Date)
+                        if(holiday.Date == date.Date && holiday.Year >= hol.MinimumYear && holiday.Year <= hol.MaximumYear)
                         {
                             desc = hol.Description;
                             break;
@@ -254,17 +260,20 @@ namespace EWSoftware.PDI
                 {
                     holiday = hol.ToDateTime(year);
 
-                    if(holiday.Year >= startYear && holiday.Year <= endYear)
+                    if(holiday.Year >= startYear && holiday.Year <= endYear && holiday.Year >= hol.MinimumYear &&
+                      holiday.Year <= hol.MaximumYear)
+                    {
                         yield return holiday;
+                    }
                 }
         }
 
         /// <summary>
-        /// This adds a standard set of holidays to the collection
+        /// This adds a standard set of United States holidays to the collection
         /// </summary>
-        /// <remarks><para>This adds a standard set of holidays to the collection that the author gets to take.
-        /// If you do not get the same set, you can modify the collection after the call or derive a class and
-        /// override this method to provide the set that you need.</para>
+        /// <remarks><para>This adds a standard set of United States holidays to the collection that the author
+        /// gets to take.  If you do not get the same set, you can modify the collection after the call or derive
+        /// a class and override this method to provide the set that you need.</para>
         /// 
         /// <para>As an alternative, you could serialize a set of holidays to an XML file and load them from it
         /// instead.</para>
@@ -318,11 +327,15 @@ namespace EWSoftware.PDI
         ///         <description>December 25th</description>
         ///     </item>
         /// </list>
+        /// <para>Juneteenth is not included as its adoption as a recognized federal holiday varies from state
+        /// to state.  It can be added as an additional holiday with an appropriate minimum year.</para>
         /// </remarks>
+        /// <param name="additionalDates">An optional set of additional holiday instances to add to the standard
+        /// set.</param>
         /// <returns>A reference to the holiday collection</returns>
-        public virtual HolidayCollection AddStandardHolidays()
+        public virtual HolidayCollection AddStandardHolidays(params Holiday[] additionalDates)
         {
-            this.AddRange(new Holiday[] {
+            var defaultHolidays = new Holiday[] {
                 new FixedHoliday(1, 1, true, LR.GetString("HCNewYearsDay")),
                 new FloatingHoliday(DayOccurrence.Third, DayOfWeek.Monday, 1, 0, LR.GetString("HCMLKDay")),
                 new FloatingHoliday(DayOccurrence.Third, DayOfWeek.Monday, 2, 0, LR.GetString("HCPresidentsDay")),
@@ -333,7 +346,9 @@ namespace EWSoftware.PDI
                 new FloatingHoliday(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 0, LR.GetString("HCThanksgiving")),
                 new FloatingHoliday(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 1, LR.GetString("HCDayAfterTG")),
                 new FixedHoliday(12, 25, true, LR.GetString("HCChristmas"))
-            });
+            };
+
+            this.AddRange(defaultHolidays.Concat(additionalDates).OrderBy(h => h.Month));
 
             return this;
         }

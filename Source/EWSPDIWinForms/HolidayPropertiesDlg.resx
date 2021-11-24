@@ -123,14 +123,14 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnOK.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 337</value>
+    <value>12, 371</value>
   </data>
   <data name="btnOK.Size" type="System.Drawing.Size, System.Drawing">
     <value>117, 40</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnOK.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
+    <value>19</value>
   </data>
   <data name="btnOK.Text" xml:space="preserve">
     <value>OK</value>
@@ -145,19 +145,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnOK.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>19</value>
   </data>
   <data name="btnCancel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="btnCancel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>480, 337</value>
+    <value>480, 371</value>
   </data>
   <data name="btnCancel.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 40</value>
   </data>
   <data name="btnCancel.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="btnCancel.Text" xml:space="preserve">
     <value>Cancel</value>
@@ -172,7 +172,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnCancel.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>18</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>17</value>
   </data>
   <data name="txtDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>139, 20</value>
@@ -223,7 +223,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtDescription.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -253,19 +253,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>16</value>
   </data>
   <data name="rbFloating.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="rbFloating.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 120</value>
+    <value>25, 148</value>
   </data>
   <data name="rbFloating.Size" type="System.Drawing.Size, System.Drawing">
     <value>195, 31</value>
   </data>
   <data name="rbFloating.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="rbFloating.Text" xml:space="preserve">
     <value>&amp;Floating Holiday</value>
@@ -280,19 +280,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbFloating.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>20</value>
   </data>
   <data name="rbFixed.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="rbFixed.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 240</value>
+    <value>25, 268</value>
   </data>
   <data name="rbFixed.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 30</value>
   </data>
   <data name="rbFixed.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>15</value>
   </data>
   <data name="rbFixed.Text" xml:space="preserve">
     <value>F&amp;ixed Holiday</value>
@@ -307,19 +307,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rbFixed.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>15</value>
   </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>214, 241</value>
+    <value>214, 269</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 29</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+    <value>16</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Day of Month</value>
@@ -337,19 +337,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>14</value>
   </data>
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>281, 200</value>
+    <value>281, 228</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>74, 30</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Offset</value>
@@ -367,13 +367,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>13</value>
   </data>
   <data name="cboOccurrence.ItemHeight" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
   <data name="cboOccurrence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 122</value>
+    <value>361, 150</value>
   </data>
   <data name="cboOccurrence.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
@@ -382,7 +382,7 @@
     <value>107, 28</value>
   </data>
   <data name="cboOccurrence.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;cboOccurrence.Name" xml:space="preserve">
     <value>cboOccurrence</value>
@@ -394,19 +394,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboOccurrence.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 121</value>
+    <value>230, 149</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 29</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>Occurrence</value>
@@ -424,19 +424,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 161</value>
+    <value>193, 189</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>162, 29</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Day of the week</value>
@@ -454,13 +454,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>8</value>
   </data>
   <data name="cboDayOfWeek.ItemHeight" type="System.Int32, mscorlib">
     <value>20</value>
   </data>
   <data name="cboDayOfWeek.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 162</value>
+    <value>361, 190</value>
   </data>
   <data name="cboDayOfWeek.MaxDropDownItems" type="System.Int32, mscorlib">
     <value>12</value>
@@ -469,7 +469,7 @@
     <value>160, 28</value>
   </data>
   <data name="cboDayOfWeek.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;cboDayOfWeek.Name" xml:space="preserve">
     <value>cboDayOfWeek</value>
@@ -481,7 +481,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboDayOfWeek.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <data name="cboMonth.ItemHeight" type="System.Int32, mscorlib">
     <value>20</value>
@@ -508,7 +508,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cboMonth.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>7</value>
   </data>
   <metadata name="epErrors.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -520,16 +520,124 @@
     <value>8, 19</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>610, 389</value>
+    <value>610, 423</value>
+  </data>
+  <data name="udcMaximumYear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 104</value>
+  </data>
+  <data name="udcMaximumYear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="udcMaximumYear.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="udcMaximumYear.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;udcMaximumYear.Name" xml:space="preserve">
+    <value>udcMaximumYear</value>
+  </data>
+  <data name="&gt;&gt;udcMaximumYear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udcMaximumYear.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;udcMaximumYear.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>226, 101</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 30</value>
+  </data>
+  <data name="label8.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>Maximum Year</value>
+  </data>
+  <data name="label8.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;label8.Name" xml:space="preserve">
+    <value>label8</value>
+  </data>
+  <data name="&gt;&gt;label8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label8.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="udcMinimumYear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 104</value>
+  </data>
+  <data name="udcMinimumYear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 26</value>
+  </data>
+  <data name="udcMinimumYear.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="udcMinimumYear.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;udcMinimumYear.Name" xml:space="preserve">
+    <value>udcMinimumYear</value>
+  </data>
+  <data name="&gt;&gt;udcMinimumYear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;udcMinimumYear.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;udcMinimumYear.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 101</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>129, 30</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Minimum Year</value>
+  </data>
+  <data name="label7.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleRight</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="udcDayOfMonth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 243</value>
+    <value>361, 271</value>
   </data>
   <data name="udcDayOfMonth.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 26</value>
   </data>
   <data name="udcDayOfMonth.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+    <value>17</value>
   </data>
   <data name="udcDayOfMonth.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -544,16 +652,16 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;udcDayOfMonth.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="udcOffset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>361, 203</value>
+    <value>361, 231</value>
   </data>
   <data name="udcOffset.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 26</value>
   </data>
   <data name="udcOffset.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>14</value>
   </data>
   <data name="udcOffset.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
     <value>Right</value>
@@ -568,19 +676,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;udcOffset.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="chkAdjustDate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="chkAdjustDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 289</value>
+    <value>139, 317</value>
   </data>
   <data name="chkAdjustDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>352, 30</value>
   </data>
   <data name="chkAdjustDate.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+    <value>18</value>
   </data>
   <data name="chkAdjustDate.Text" xml:space="preserve">
     <value>Adjust date if it falls on a weekend</value>
@@ -595,7 +703,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;chkAdjustDate.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>6</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>

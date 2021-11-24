@@ -272,10 +272,11 @@ Recurrence.Holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 2, 0,
     "President's Day");
 Recurrence.Holidays.AddFloating(DayOccurrence.Last, DayOfWeek.Monday, 5, 0,
     "Memorial Day");
-Recurrence.Holidays.AddFixed(7, 4, True, "Independence Day");
+Recurrence.Holidays.AddFixed(6, 19, true, "Juneteenth").MinimumYear = 2021;
+Recurrence.Holidays.AddFixed(7, 4, true, "Independence Day");
 Recurrence.Holidays.AddFloating(DayOccurrence.First, DayOfWeek.Monday, 9, 0,
     "Labor Day");
-Recurrence.Holidays.AddFixed(11, 11, True, "Veteran's Day");
+Recurrence.Holidays.AddFixed(11, 11, true, "Veteran's Day");
 Recurrence.Holidays.AddFloating(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 0,
     "Thanksgiving Day");
 Recurrence.Holidays.AddFloating(DayOccurrence.Fourth, DayOfWeek.Thursday, 11, 1,
@@ -305,6 +306,7 @@ Recurrence.Holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 2, 0,
     "President's Day")
 Recurrence.Holidays.AddFloating(DayOccurrence.Last, DayOfWeek.Monday, 5, 0,
     "Memorial Day")
+Recurrence.Holidays.AddFixed(6, 19, True, "Juneteenth").MinimumYear = 2021
 Recurrence.Holidays.AddFixed(7, 4, True, "Independence Day")
 Recurrence.Holidays.AddFloating(DayOccurrence.First, DayOfWeek.Monday, 9, 0,
     "Labor Day")

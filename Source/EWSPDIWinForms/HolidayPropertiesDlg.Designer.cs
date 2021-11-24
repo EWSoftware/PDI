@@ -47,9 +47,15 @@ namespace EWSoftware.PDI.Windows.Forms
             this.chkAdjustDate = new System.Windows.Forms.CheckBox();
             this.udcOffset = new System.Windows.Forms.NumericUpDown();
             this.udcDayOfMonth = new System.Windows.Forms.NumericUpDown();
+            this.udcMinimumYear = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.udcMaximumYear = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epErrors)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udcOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.udcDayOfMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udcMinimumYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udcMaximumYear)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOK
@@ -178,11 +184,65 @@ namespace EWSoftware.PDI.Windows.Forms
             0,
             0});
             // 
+            // udcMinimumYear
+            // 
+            resources.ApplyResources(this.udcMinimumYear, "udcMinimumYear");
+            this.udcMinimumYear.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.udcMinimumYear.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.udcMinimumYear.Name = "udcMinimumYear";
+            this.udcMinimumYear.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // udcMaximumYear
+            // 
+            resources.ApplyResources(this.udcMaximumYear, "udcMaximumYear");
+            this.udcMaximumYear.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.udcMaximumYear.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.udcMaximumYear.Name = "udcMaximumYear";
+            this.udcMaximumYear.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
             // HolidayPropertiesDlg
             // 
             this.AcceptButton = this.btnOK;
             resources.ApplyResources(this, "$this");
             this.CancelButton = this.btnCancel;
+            this.Controls.Add(this.udcMaximumYear);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.udcMinimumYear);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.udcDayOfMonth);
             this.Controls.Add(this.udcOffset);
             this.Controls.Add(this.chkAdjustDate);
@@ -210,6 +270,8 @@ namespace EWSoftware.PDI.Windows.Forms
             ((System.ComponentModel.ISupportInitialize)(this.epErrors)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udcOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.udcDayOfMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udcMinimumYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.udcMaximumYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,5 +296,9 @@ namespace EWSoftware.PDI.Windows.Forms
         private System.Windows.Forms.CheckBox chkAdjustDate;
         private System.Windows.Forms.NumericUpDown udcOffset;
         private System.Windows.Forms.NumericUpDown udcDayOfMonth;
+        private System.Windows.Forms.NumericUpDown udcMaximumYear;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown udcMinimumYear;
+        private System.Windows.Forms.Label label7;
     }
 }

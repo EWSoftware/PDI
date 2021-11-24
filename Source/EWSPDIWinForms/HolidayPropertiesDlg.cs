@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : HolidayPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 11/23/2021
+// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
 //
 // This is used to add or edit holiday object information
 //
@@ -70,6 +69,12 @@ namespace EWSoftware.PDI.Windows.Forms
 
                 cboMonth.SelectedValue = holiday.Month;
                 txtDescription.Text = holiday.Description;
+
+                if(holiday.MinimumYear > 0 && holiday.MinimumYear < 10000)
+                    udcMinimumYear.Value = holiday.MinimumYear;
+
+                if(holiday.MaximumYear > 0 && holiday.MaximumYear < 10000)
+                    udcMaximumYear.Value = holiday.MaximumYear;
             }
         }
         #endregion
@@ -124,6 +129,13 @@ namespace EWSoftware.PDI.Windows.Forms
             txtDescription.Text = txtDescription.Text.Trim();
             epErrors.Clear();
 
+            if(udcMinimumYear.Value > udcMaximumYear.Value)
+            {
+                decimal tempYear = udcMinimumYear.Value;
+                udcMinimumYear.Value = udcMaximumYear.Value;
+                udcMaximumYear.Value = tempYear;
+            }
+
             // We must have a description
             if(txtDescription.Text.Length == 0)
             {
@@ -161,6 +173,8 @@ namespace EWSoftware.PDI.Windows.Forms
 
                 holiday.Month = (int)cboMonth.SelectedValue;
                 holiday.Description = txtDescription.Text;
+                holiday.MinimumYear = (int)udcMinimumYear.Value;
+                holiday.MaximumYear = (int)udcMaximumYear.Value;
             }
         }
 
