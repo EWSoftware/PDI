@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : HolidayManager.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This file contains a user controls that can be used to manage a set of holidays in a HolidayCollection
 //
@@ -25,6 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace EWSoftware.PDI.Windows.Forms
@@ -248,7 +248,11 @@ namespace EWSoftware.PDI.Windows.Forms
                         using(FileStream fs = new FileStream(dlg.FileName, FileMode.Open))
                         {
                             XmlSerializer xs = new XmlSerializer(typeof(HolidayCollection));
-                            holidays = (HolidayCollection)xs.Deserialize(fs);
+
+                            using(var rdr = XmlReader.Create(fs))
+                            {
+                                holidays = (HolidayCollection)xs.Deserialize(rdr);
+                            }
                         }
 
                         this.LoadHolidayList();

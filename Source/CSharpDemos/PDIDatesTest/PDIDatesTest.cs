@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PDIDatesTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2021
-// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
+// Updated : 01/02/2023
+// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
 //
 // This is a console mode application that runs through a few simple configurations to test the basics in the
 // date utility, holiday, and recurrence classes.
@@ -20,8 +20,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml.Serialization;
 
 using EWSoftware.PDI;
@@ -57,8 +57,8 @@ namespace PDIDatesTest
             {
                 try
                 {
-                    yearFrom = Convert.ToInt32(args[0]);
-                    yearTo = Convert.ToInt32(args[1]);
+                    yearFrom = Convert.ToInt32(args[0], CultureInfo.InvariantCulture);
+                    yearTo = Convert.ToInt32(args[1], CultureInfo.InvariantCulture);
 
                     if(yearFrom < 1)
                         yearFrom = 1;
@@ -547,7 +547,7 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Holidays saved to Holidays.xml");
                 }
-#if NETFramework
+#if NETFRAMEWORK
                 // The SOAP formatter is only supported on the full .NET Framework
                 // SOAP
                 using(var fs = new FileStream("Holidays.soap", FileMode.Create))
@@ -555,19 +555,20 @@ namespace PDIDatesTest
                     var sf = new System.Runtime.Serialization.Formatters.Soap.SoapFormatter();
 
                     // SOAP doesn't support generics directly so use an array
-                    sf.Serialize(fs, holidays.ToArray());
+                    holidays = new HolidayCollection((Holiday[])sf.Deserialize(fs));
 
                     Console.WriteLine("Holidays saved to Holidays.soap");
                 }
-#endif
+
                 // Binary
                 using(var fs = new FileStream("Holidays.bin", FileMode.Create))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
+                    var bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                     bf.Serialize(fs, holidays);
 
                     Console.WriteLine("Holidays saved to Holidays.bin\n");
                 }
+#endif
             }
             catch(Exception ex)
             {
@@ -595,7 +596,7 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Holidays retrieved from Holidays.xml");
                 }
-#if NETFramework
+#if NETFRAMEWORK
                 // SOAP
                 using(var fs = new FileStream("Holidays.soap", FileMode.Open))
                 {
@@ -606,15 +607,16 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Holidays retrieved from Holidays.soap");
                 }
-#endif
+
                 // Binary
                 using(var fs = new FileStream("Holidays.bin", FileMode.Open))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
+                    var bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                     holidays = (HolidayCollection)bf.Deserialize(fs);
 
                     Console.WriteLine("Holidays retrieved from Holidays.bin\n");
                 }
+#endif
             }
             catch(Exception ex)
             {
@@ -713,7 +715,7 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Recurrence saved to Recurrence.xml");
                 }
-#if NETFramework
+#if NETFRAMEWORK
                 // SOAP
                 using(var fs = new FileStream("Recurrence.soap", FileMode.Create))
                 {
@@ -722,15 +724,16 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Recurrence saved to Recurrence.soap");
                 }
-#endif
+
                 // Binary
                 using(var fs = new FileStream("Recurrence.bin", FileMode.Create))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
+                    var bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                     bf.Serialize(fs, rRecur);
 
                     Console.WriteLine("Recurrence saved to Recurrence.bin\n");
                 }
+#endif
             }
             catch(Exception ex)
             {
@@ -758,7 +761,7 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Recurrence restored from Recurrence.xml");
                 }
-#if NETFramework
+#if NETFRAMEWORK
                 // SOAP
                 using(var fs = new FileStream("Recurrence.soap", FileMode.Open))
                 {
@@ -767,15 +770,16 @@ namespace PDIDatesTest
 
                     Console.WriteLine("Recurrence retrieved from Recurrence.soap");
                 }
-#endif
+
                 // Binary
                 using(var fs = new FileStream("Recurrence.bin", FileMode.Open))
                 {
-                    BinaryFormatter bf = new BinaryFormatter();
+                    var bf = new System.Runtime.Serialization.Formatters.Binary.BinaryFormatter();
                     rRecur = (Recurrence)bf.Deserialize(fs);
 
                     Console.WriteLine("Recurrence retrieved from Recurrence.bin\n");
                 }
+#endif
             }
             catch(Exception ex)
             {

@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VCardPropertiesDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 07/24/2020
-' Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a vCard's information.  It supports most of the common properties of the vCard including
 ' photo, logo, and sound.
@@ -86,11 +86,13 @@ Partial Public Class VCardPropertiesDlg
     ''' <param name="e">The event parameters</param>
     Private Sub btnFind_Click(ByVal sender As System.Object,
       ByVal e As System.EventArgs) Handles btnFind.Click
-        Dim url As String = String.Format("https://www.google.com/maps/place/{0},{1}", txtLatitude.Text,
-            txtLongitude.Text)
+        Dim url As String = $"https://www.google.com/maps/place/{txtLatitude.Text},{txtLongitude.Text}"
 
         Try
-            System.Diagnostics.Process.Start(url)
+            Process.Start(New ProcessStartInfo With {
+                .FileName = url,
+                .UseShellExecute = True
+            })
 
         Catch ex As Exception
             MessageBox.Show("Unable to start web browser", "Launch Error", MessageBoxButtons.OK,
@@ -164,6 +166,10 @@ Partial Public Class VCardPropertiesDlg
     ''' </summary>
     ''' <param name="vCard">The vCard from which to get the settings</param>
     Public Sub SetValues(vCard As VCard)
+        If vCard Is Nothing
+            Throw New ArgumentNullException(NameOf(vCard))
+        End If
+
         ' Enable or disable fields based on the version
         If vCard.Version = SpecificationVersions.vCard21 Then
             cboVersion.SelectedIndex = 0
@@ -178,7 +184,7 @@ Partial Public Class VCardPropertiesDlg
         ' General properties
         txtUniqueId.Text = vCard.UniqueId.Value
         txtClass.Text = vCard.Classification.Value
-        txtLastRevised.Text = vCard.LastRevision.DateTimeValue.ToString("G")
+        txtLastRevised.Text = vCard.LastRevision.DateTimeValue.ToString("G", CultureInfo.CurrentCulture)
 
         ' Name properties
         txtLastName.Text = vCard.Name.FamilyName
@@ -226,8 +232,8 @@ Partial Public Class VCardPropertiesDlg
         End If
 
         txtTimeZone.Text = vCard.TimeZone.Value
-        txtLatitude.Text = vCard.GeographicPosition.Latitude.ToString()
-        txtLongitude.Text = vCard.GeographicPosition.Longitude.ToString()
+        txtLatitude.Text = vCard.GeographicPosition.Latitude.ToString(CultureInfo.InvariantCulture)
+        txtLongitude.Text = vCard.GeographicPosition.Longitude.ToString(CultureInfo.InvariantCulture)
 
         ' We'll only edit the first one
         If vCard.Urls.Count <> 0 Then
@@ -269,6 +275,10 @@ Partial Public Class VCardPropertiesDlg
     ''' </summary>
     ''' <param name="vCard">The vCard in which the settings are updated</param>
     Public Sub GetValues(vCard As VCard)
+        If vCard Is Nothing
+            Throw New ArgumentNullException(NameOf(vCard))
+        End If
+
         ' Set the version based on the one selected
         If cboVersion.SelectedIndex = 0 Then
             vCard.Version = SpecificationVersions.vCard21
@@ -297,7 +307,8 @@ Partial Public Class VCardPropertiesDlg
         vCard.Nickname.NicknamesString = txtNickname.Text
 
 
-        vCard.Gender.Sex = If(cboSex.SelectedIndex = 0, Nothing, Convert.ToChar(cboSex.SelectedValue))
+        vCard.Gender.Sex = If(cboSex.SelectedIndex = 0, Nothing, Convert.ToChar(cboSex.SelectedValue,
+            CultureInfo.InvariantCulture))
         vCard.Gender.GenderIdentity = txtGenderIdentity.Text
 
         ' For the collections, we'll clear the existing items and copy the modified items from the browse control

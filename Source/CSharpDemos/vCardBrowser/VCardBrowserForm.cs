@@ -217,7 +217,7 @@ namespace vCardBrowser
                     }
                     catch(Exception ex)
                     {
-                        string error = String.Format("Unable to load vCards:\n{0}", ex.Message);
+                        string error = $"Unable to load vCards:\n{ex.Message}";
 
                         if(ex.InnerException != null)
                         {
@@ -280,7 +280,7 @@ namespace vCardBrowser
                     }
                     catch(Exception ex)
                     {
-                        string error = String.Format("Unable to save vCards:\n{0}", ex.Message);
+                        string error = $"Unable to save vCards:\n{ex.Message}";
 
                         if(ex.InnerException != null)
                         {

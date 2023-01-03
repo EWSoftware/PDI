@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VTimeZoneTestForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is a simple demonstration used to test the EWSoftware PDI time zone classes and methods.  This
 ' demonstration depends on the time zone information present in the Windows registry.
@@ -77,16 +76,16 @@ Public Partial Class VTimeZoneTestForm
 
         Dim dti As DateTimeInstance = VCalendar.TimeZoneTimeToLocalTime(dt, vtzSource.TimeZoneId.Value)
 
-        lblLocalTime.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName)
+        lblLocalTime.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}"
 
         dti = VCalendar.LocalTimeToTimeZoneTime(dti.StartDateTime, vtzSource.TimeZoneId.Value)
-        lblLocalBackToSource.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName)
+        lblLocalBackToSource.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}"
 
         dti = VCalendar.TimeZoneToTimeZone(dt, vtzSource.TimeZoneId.Value, vtzDest.TimeZoneId.Value)
-        lblDestTime.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName)
+        lblDestTime.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}"
 
         dti = VCalendar.TimeZoneToTimeZone(dti.StartDateTime, vtzDest.TimeZoneId.Value, vtzSource.TimeZoneId.Value)
-        lblDestBackToSource.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName)
+        lblDestBackToSource.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}"
     End Sub
 
     ''' <summary>
@@ -165,8 +164,7 @@ Public Partial Class VTimeZoneTestForm
                     End Using
 
                 Catch ex As Exception
-                    Dim errorMsg As String = String.Format("Unable to save time zone info:{0}{1}",
-                        Environment.NewLine, ex.Message)
+                    Dim errorMsg As String = $"Unable to save time zone info:{Environment.NewLine}{ex.Message}"
 
                     If Not (ex.InnerException Is Nothing) Then
                         errorMsg &= ex.InnerException.Message & Environment.NewLine

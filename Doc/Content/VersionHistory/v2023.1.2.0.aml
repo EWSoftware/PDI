@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="d1d9a1d2-7495-457e-9095-880ab00515a3" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2023.1.2.0.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>Added support for <codeInline>net6.0-windows</codeInline> to the
+<localUri>EWSoftware.PDI.Windows.Forms</localUri> library.</para>
+					</listItem>
+
+					<listItem>
+						<para>Updated all Windows Forms demo projects to support .NET 6.0.</para>
+					</listItem>
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

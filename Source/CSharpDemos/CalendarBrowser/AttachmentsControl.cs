@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AttachmentsControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's attachment properties
 //
@@ -82,9 +81,9 @@ namespace CalendarBrowser
             foreach(AttachProperty a in attach)
             {
                 if(a.ValueLocation == ValLocValue.Binary)
-                    desc = String.Format("Inline - {0}", a.FormatType);
+                    desc = $"Inline - {a.FormatType}";
                 else
-                    desc = String.Format("External - {0}, {1}", a.FormatType, a.Value);
+                    desc = $"External - {a.FormatType}, {a.Value}";
 
                 lbAttachments.Items.Add(desc);
             }
@@ -103,8 +102,8 @@ namespace CalendarBrowser
         /// <param name="attachments">The attachments collection to update</param>
         public void GetValues(AttachPropertyCollection attachments)
         {
-            attachments.Clear();
-            attachments.CloneRange(attach);
+            attachments?.Clear();
+            attachments?.CloneRange(attach);
         }
         #endregion
 
@@ -177,7 +176,7 @@ namespace CalendarBrowser
                 {
                     a.ValueLocation = ValLocValue.Uri;
                     a.Value = txtFilename.Text;
-                    desc = String.Format("External - {0}, {1}", a.FormatType, a.Value);
+                    desc = $"External - {a.FormatType}, {a.Value}";
                 }
                 else
                 {
@@ -190,7 +189,7 @@ namespace CalendarBrowser
                         a.SetAttachmentBytes(byData);
                     }
 
-                    desc = String.Format("Inline - {0}", a.FormatType);
+                    desc = $"Inline - {a.FormatType}";
                 }
 
                 attach.Add(a);
@@ -198,7 +197,7 @@ namespace CalendarBrowser
             }
             catch(Exception ex)
             {
-                string error = String.Format("Unable to add attachment:\n{0}", ex.Message);
+                string error = $"Unable to add attachment:\n{ex.Message}";
 
                 if(ex.InnerException != null)
                 {
@@ -278,7 +277,7 @@ namespace CalendarBrowser
                     }
                     catch(Exception ex)
                     {
-                        string error = String.Format("Unable to save attachment:\n{0}", ex.Message);
+                        string error = $"Unable to save attachment:\n{ex.Message}";
 
                         if(ex.InnerException != null)
                         {

@@ -187,17 +187,17 @@ Public Partial Class AddressControl
 
         If txtStreetAddress.Text.Length <> 0 Then
             sb.Append(HttpUtility.UrlEncode(txtStreetAddress.Text))
-            sb.Append("+")
+            sb.Append("+"c)
         End If
 
         If txtLocality.Text.Length <> 0 Then
             sb.Append(HttpUtility.UrlEncode(txtLocality.Text))
-            sb.Append("+")
+            sb.Append("+"c)
         End If
 
         If txtRegion.Text.Length <> 0 Then
             sb.Append(HttpUtility.UrlEncode(txtRegion.Text))
-            sb.Append("+")
+            sb.Append("+"c)
         End If
 
         If txtPostalCode.Text.Length <> 0 Then

@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PDIWinFormsTest", "VBNetDemos\PDIWinFormsTest\PDIWinFormsTest.vbproj", "{32B39562-144C-4272-9251-1FC72D7D4303}"
 EndProject
@@ -12,7 +12,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Common.vsspell = Common.vsspell
-		EWSPDIDemos.ruleset = EWSPDIDemos.ruleset
 		VBNetDemos.sln.vsspell = VBNetDemos.sln.vsspell
 	EndProjectSection
 EndProject

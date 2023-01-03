@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : MainForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This application is used to demonstrate various features of the EWSoftware PDI classes
 '
@@ -27,7 +26,7 @@ Public Partial Class MainForm
     ''' <summary>
     ''' The main entry point for the application
     ''' </summary>
-    Shared Sub Main(Args As String())
+    Shared Sub Main()
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(false)
         Application.Run(new MainForm())

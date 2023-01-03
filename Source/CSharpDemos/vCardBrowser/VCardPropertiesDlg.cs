@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 07/24/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's properties.  It supports most of the common properties of the vCard including
 // photo, logo, and sound.
@@ -95,12 +95,15 @@ namespace vCardBrowser
         /// <param name="e">The event parameters</param>
         private void btnFind_Click(object sender, EventArgs e)
         {
-            string url = String.Format("https://www.google.com/maps/place/{0},{1}", txtLatitude.Text,
-                txtLongitude.Text);
+            string url = $"https://www.google.com/maps/place/{txtLatitude.Text},{txtLongitude.Text}";
 
             try
             {
-                System.Diagnostics.Process.Start(url);
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true,
+                });
             }
             catch(Exception ex)
             {
@@ -179,6 +182,9 @@ namespace vCardBrowser
         /// <param name="vCard">The vCard from which to get the settings</param>
         public void SetValues(VCard vCard)
         {
+            if(vCard == null)
+                throw new ArgumentNullException(nameof(vCard));
+
             // Enable or disable fields based on the version
             cboVersion.SelectedIndex = (vCard.Version == SpecificationVersions.vCard21) ? 0 :
                 (vCard.Version == SpecificationVersions.vCard30) ? 1 : 2;
@@ -186,7 +192,7 @@ namespace vCardBrowser
             // General properties
             txtUniqueId.Text = vCard.UniqueId.Value;
             txtClass.Text = vCard.Classification.Value;
-            txtLastRevised.Text = vCard.LastRevision.DateTimeValue.ToString("G");
+            txtLastRevised.Text = vCard.LastRevision.DateTimeValue.ToString("G", CultureInfo.CurrentCulture);
 
             // Name properties
             txtLastName.Text = vCard.Name.FamilyName;
@@ -235,8 +241,8 @@ namespace vCardBrowser
             }
 
             txtTimeZone.Text = vCard.TimeZone.Value;
-            txtLatitude.Text = vCard.GeographicPosition.Latitude.ToString();
-            txtLongitude.Text = vCard.GeographicPosition.Longitude.ToString();
+            txtLatitude.Text = vCard.GeographicPosition.Latitude.ToString(CultureInfo.CurrentCulture);
+            txtLongitude.Text = vCard.GeographicPosition.Longitude.ToString(CultureInfo.CurrentCulture);
 
             // We'll only edit the first one
             if(vCard.Urls.Count != 0)
@@ -260,6 +266,7 @@ namespace vCardBrowser
 
             // Logo
             if(vCard.Logo.Value != null)
+            {
                 if(vCard.Logo.ValueLocation == ValLocValue.Binary)
                 {
                     ucLogo.SetImageBytes(vCard.Logo.GetImageBytes());
@@ -267,6 +274,7 @@ namespace vCardBrowser
                 }
                 else
                     ucLogo.ImageFilename = vCard.Logo.Value;
+            }
 
             ucLogo.ImageType = vCard.Logo.ImageType;
         }
@@ -277,6 +285,9 @@ namespace vCardBrowser
         /// <param name="vCard">The vCard in which the settings are updated</param>
         public void GetValues(VCard vCard)
         {
+            if(vCard == null)
+                throw new ArgumentNullException(nameof(vCard));
+
             // Set the version based on the one selected
             vCard.Version = (cboVersion.SelectedIndex == 0) ? SpecificationVersions.vCard21 :
                 (cboVersion.SelectedIndex == 1) ? SpecificationVersions.vCard30 : SpecificationVersions.vCard40;

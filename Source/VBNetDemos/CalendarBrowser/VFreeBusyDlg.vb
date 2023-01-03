@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VFreeBusyDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a VFreeBusy object's properties
 '
@@ -79,9 +78,10 @@ Public Partial Class VFreeBusyDlg
             Return
         End If
 
-        If MessageBox.Show(String.Format("Do you want to convert all times from the '{0}' time zone to the " &
-          "'{1}' time zone?", cboTimeZone.Items(timeZoneIdx), cboTimeZone.Items(cboTimeZone.SelectedIndex)),
-          "Change Time Zone", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.No Then
+        If MessageBox.Show(String.Format(CultureInfo.CurrentCulture, "Do you want to convert all times from " &
+          "the '{0}' time zone to the '{1}' time zone?", cboTimeZone.Items(timeZoneIdx),
+          cboTimeZone.Items(cboTimeZone.SelectedIndex)), "Change Time Zone", MessageBoxButtons.YesNo,
+          MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.No Then
             Return
         End If
 
@@ -166,6 +166,10 @@ Public Partial Class VFreeBusyDlg
     ''' </summary>
     ''' <param name="fb">The free/busy object from which to get the settings</param>
     Public Sub SetValues(fb As VFreeBusy)
+        If fb Is Nothing
+            Throw New ArgumentNullException(NameOf(fb))
+        End If
+
         Dim timeZoneId As String = fb.StartDateTime.TimeZoneId
 
         txtUniqueId.Text = fb.UniqueId.Value
@@ -221,6 +225,10 @@ Public Partial Class VFreeBusyDlg
     ''' </summary>
     ''' <param name="fb">The free/busy object in which the settings are updated</param>
     Public Sub GetValues(fb As VFreeBusy)
+        If fb Is Nothing
+            Throw New ArgumentNullException(NameOf(fb))
+        End If
+
         ' The unique ID is not changed
         fb.Organizer.Value = txtOrganizer.Text
         fb.Contact.Value = txtContact.Text

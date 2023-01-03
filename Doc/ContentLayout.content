@@ -112,11 +112,16 @@
       <HelpKeyword index="K" term="support, donate" />
     </HelpKeywords>
   </Topic>
-  <Topic id="8885fe94-537b-45a2-84e9-112fa9c976ff" visible="True" isExpanded="true" isSelected="true" title="Version History">
+  <Topic id="8885fe94-537b-45a2-84e9-112fa9c976ff" visible="True" isExpanded="true" title="Version History">
     <HelpKeywords>
       <HelpKeyword index="K" term="history" />
       <HelpKeyword index="K" term="version history" />
     </HelpKeywords>
+    <Topic id="d1d9a1d2-7495-457e-9095-880ab00515a3" visible="True" isSelected="true" title="Version 2023.1.2.0">
+      <HelpKeywords>
+        <HelpKeyword index="K" term="versions, 2023.1.2.0" />
+      </HelpKeywords>
+    </Topic>
     <Topic id="3ebeed58-ecb5-475f-93c1-c9e0098ac5a0" visible="True" title="Version 2021.11.23.0">
       <HelpKeywords>
         <HelpKeyword index="K" term="versions, 2021.11.23.0" />

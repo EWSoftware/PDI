@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : VTimeZoneDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a VTimeZone object's properties
 '
@@ -18,6 +17,8 @@
 ' 12/09/2004  EFW  Created the code
 ' 05/21/2007  EFW  Converted for use with .NET 2.0
 '================================================================================================================
+
+Imports System.Globalization
 
 Imports EWSoftware.PDI.Objects
 
@@ -71,10 +72,14 @@ Public Partial Class VTimeZoneDlg
     ''' </summary>
     ''' <param name="tz">The time zone object from which to get the settings</param>
     Public Sub SetValues(tz As VTimeZone)
+        If tz Is Nothing
+            Throw New ArgumentNullException(NameOf(tz))
+        End If
+
         originalId = tz.TimeZoneId.Value
         txtTimeZoneId.Text = tz.TimeZoneId.Value
         txtTimeZoneUrl.Text = tz.TimeZoneUrl.Value
-        txtLastModified.Text = tz.LastModified.DateTimeValue.ToString("G")
+        txtLastModified.Text = tz.LastModified.DateTimeValue.ToString("G", CultureInfo.CurrentCulture)
 
         ' We could bind directly to the existing collection but that would modify it.  To preserve the original
         ' items, we'll pass a copy of the collection instead.
@@ -86,6 +91,10 @@ Public Partial Class VTimeZoneDlg
     ''' </summary>
     ''' <param name="tz">The time zone object in which the settings are updated</param>
     Public Sub GetValues(tz As VTimeZone)
+        If tz Is Nothing
+            Throw New ArgumentNullException(NameOf(tz))
+        End If
+
         tz.TimeZoneId.Value = txtTimeZoneId.Text
         tz.TimeZoneUrl.Value = txtTimeZoneUrl.Text
         tz.LastModified.DateTimeValue = DateTime.Now

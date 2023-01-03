@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : AttachmentsControl.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a calendar object's attachment properties
 '
@@ -29,7 +28,7 @@ Imports EWSoftware.PDI.Properties
 Public Partial Class AttachmentsControl
     Inherits System.Windows.Forms.UserControl
 
-    Private attach As AttachPropertyCollection
+    Private ReadOnly attach As AttachPropertyCollection
 
     Public Sub New()
         MyBase.New()
@@ -65,9 +64,9 @@ Public Partial Class AttachmentsControl
 
         For Each a In attach
             If a.ValueLocation = ValLocValue.Binary Then
-                desc = String.Format("Inline - {0}", a.FormatType)
+                desc = $"Inline - {a.FormatType}"
             Else
-                desc = String.Format("External - {0}, {1}", a.FormatType, a.Value)
+                desc = $"External - {a.FormatType}, {a.Value}"
             End If
 
             lbAttachments.Items.Add(desc)
@@ -87,8 +86,8 @@ Public Partial Class AttachmentsControl
     ''' </summary>
     ''' <param name="attachments">The attachments collection to update.</param>
     Public Sub GetValues(attachments As AttachPropertyCollection)
-        attachments.Clear()
-        attachments.CloneRange(attach)
+        attachments?.Clear()
+        attachments?.CloneRange(attach)
     End Sub
 
     ''' <summary>
@@ -159,7 +158,7 @@ Public Partial Class AttachmentsControl
             If chkInline.Checked = False Then
                 a.ValueLocation = ValLocValue.Uri
                 a.Value = txtFilename.Text
-                desc = String.Format("External - {0}, {1}", a.FormatType, a.Value)
+                desc = $"External - {a.FormatType}, {a.Value}"
             Else
                 Using fs As New FileStream(txtFilename.Text, FileMode.Open, FileAccess.Read)
                     Dim byData As Byte() = New Byte(CType(fs.Length - 1, Integer)) {}
@@ -169,15 +168,14 @@ Public Partial Class AttachmentsControl
                     a.SetAttachmentBytes(byData)
                 End Using
 
-                desc = String.Format("Inline - {0}", a.FormatType)
+                desc = $"Inline - {a.FormatType}"
             End If
 
             attach.Add(a)
             lbAttachments.Items.Add(desc)
 
         Catch ex As Exception
-            Dim errorMsg As String = String.Format("Unable to add attachment:{0}{1}", Environment.NewLine,
-                ex.Message)
+            Dim errorMsg As String = $"Unable to add attachment:{Environment.NewLine}{ex.Message}"
 
             If Not (ex.InnerException Is Nothing) Then
                 errorMsg &= ex.InnerException.Message & Environment.NewLine
@@ -248,8 +246,7 @@ Public Partial Class AttachmentsControl
                     End Using
 
                 Catch ex As Exception
-                    Dim errorMsg As String = String.Format("Unable to save attachment:{0}{1}", Environment.NewLine,
-                        ex.Message)
+                    Dim errorMsg As String = $"Unable to save attachment:{Environment.NewLine}{ex.Message}"
 
                     If Not (ex.InnerException Is Nothing) Then
                         errorMsg &= ex.InnerException.Message + Environment.NewLine

@@ -22,7 +22,6 @@
 Imports System.ComponentModel
 Imports System.Globalization
 Imports System.IO
-Imports System.Linq
 Imports System.Text
 
 Imports EWSoftware.PDI.Objects
@@ -47,7 +46,7 @@ Public Partial Class VCardBrowserForm
     ''' <summary>
     ''' The main entry point for the application
     ''' </summary>
-    Public Shared Sub Main(Args As String())
+    Public Shared Sub Main()
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
         Application.Run(New VCardBrowserForm())
@@ -146,7 +145,7 @@ Public Partial Class VCardBrowserForm
         End If
 
         ' For descending order, change this to compare name 2 to name 1 instead
-        Return String.Compare(sortName1, sortName2, StringComparison.CurrentCulture)
+        Return String.Compare(sortName1, sortName2, StringComparison.Ordinal)
     End Function
 
     ''' <summary>
@@ -212,8 +211,7 @@ Public Partial Class VCardBrowserForm
                     lblFilename.Text = dlg.FileName
 
                 Catch ex As Exception
-                    Dim errorMsg As String = String.Format("Unable to load vCards:{0}{1}", Environment.NewLine,
-                        ex.Message)
+                    Dim errorMsg As String = $"Unable to load vCards:{Environment.NewLine}{ex.Message}"
 
                     If Not (ex.InnerException Is Nothing)
                         errorMsg &= ex.InnerException.Message & Environment.NewLine
@@ -267,8 +265,7 @@ Public Partial Class VCardBrowserForm
                     wasModified = False
 
                 Catch ex As Exception
-                    Dim errorMsg As String = String.Format("Unable to save vCards:{0}{1}", Environment.NewLine,
-                        ex.Message)
+                    Dim errorMsg As String = $"Unable to save vCards:{Environment.NewLine}{ex.Message}"
 
                     If Not (ex.InnerException Is Nothing) Then
                         errorMsg &= ex.InnerException.Message + Environment.NewLine
@@ -511,7 +508,7 @@ Public Partial Class VCardBrowserForm
                 foreColor = e.CellStyle.ForeColor
             End If
 
-            Using b As SolidBrush = New SolidBrush(foreColor)
+            Using b As New SolidBrush(foreColor)
                 e.Graphics.DrawString(version, e.CellStyle.Font, b, e.CellBounds, Me.sf)
             End Using
 

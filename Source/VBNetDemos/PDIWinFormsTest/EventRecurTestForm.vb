@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : EventRecurTestForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is a simple demonstration used to test the event recurrence generation features of the calendar classes
 '
@@ -38,7 +37,7 @@ Public Partial Class EventRecurTestForm
 
         InitializeComponent()
 
-        lblCount.Text = String.Format(lblCount.Text, DateTime.Today.AddMonths(1))
+        lblCount.Text = String.Format(CultureInfo.CurrentCulture, lblCount.Text, DateTime.Today.AddMonths(1))
 
         ' Set the short date/long time pattern based on the current culture
         dtpStartDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern & " " &
@@ -63,8 +62,7 @@ Public Partial Class EventRecurTestForm
             lblCount.Text = String.Empty
 
             ' Wrap it in VCALENDAR tags and parse it
-            calendar = String.Format("BEGIN:VCALENDAR{0}VERSION:2.0{0}{1}{0}END:VCALENDAR", Environment.NewLine,
-                txtCalendar.Text)
+            calendar = $"BEGIN:VCALENDAR{Environment.NewLine}VERSION:2.0{Environment.NewLine}{txtCalendar.Text}{Environment.NewLine}END:VCALENDAR"
 
             Dim cal As VCalendar = VCalendarParser.ParseFromString(calendar)
 
@@ -110,7 +108,8 @@ Public Partial Class EventRecurTestForm
             ' based on the "In Local Time" parameter of the InstancesBetween() method and whether or not the
             ' component has a Time Zone ID specified.
             For Each dti As DateTimeInstance In instances
-                lbDates.Items.Add(String.Format("{0:d} {0:hh:mm:ss tt} {1} to {2:d} {2:hh:mm:ss tt} {3} ({4})",
+                lbDates.Items.Add(String.Format(CultureInfo.CurrentCulture,
+                    "{0:d} {0:hh:mm:ss tt} {1} to {2:d} {2:hh:mm:ss tt} {3} ({4})",
                     dti.StartDateTime, dti.AbbreviatedStartTimeZoneName, dti.EndDateTime,
                     dti.AbbreviatedEndTimeZoneName, dti.Duration.ToDescription()))
 
@@ -129,8 +128,8 @@ Public Partial Class EventRecurTestForm
                     "to make sure that they do overlap")
             End If
 
-            lblCount.Text &= String.Format("Found {0:N0} instances in {1:N2} seconds ({2:N2} instances/second)",
-                instances.Count, elapsed, instances.Count / elapsed)
+            lblCount.Text &= $"Found {instances.Count:N0} instances in {elapsed:N2} seconds " &
+                "({instances.Count / elapsed:N2} instances/second)"
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())
@@ -159,19 +158,19 @@ Public Partial Class EventRecurTestForm
 
         cboTimeZone.SelectedIndex = 0
 
-        Dim dtDate As DateTime = New DateTime(DateTime.Today.Year, 1, 1)
+        Dim dtDate As New DateTime(DateTime.Today.Year, 1, 1)
         cboTimeZone.SelectedIndex = 0
         dtpStartDate.Value = dtDate
         dtpEndDate.Value = dtDate.AddMonths(3)
 
-        txtCalendar.Text = String.Format(
+        txtCalendar.Text = String.Format(CultureInfo.InvariantCulture,
             "BEGIN:VEVENT{0}" &
             "DTSTART:{1}{0}" &
             "DTEND:{2}{0}" &
             "RRULE:FREQ=DAILY;COUNT=10;INTERVAL=5{0}" &
             "END:VEVENT{0}", Environment.NewLine,
-            dtDate.AddHours(9).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal),
-            dtDate.AddHours(10).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal))
+            dtDate.AddHours(9).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture),
+            dtDate.AddHours(10).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture))
     End Sub
 
     ''' <summary>

@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : EventRecurTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/27/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration used to test the event recurrence generation features of the calendar classes
 //
@@ -76,14 +75,14 @@ namespace PDIWinFormsTest
             dtpStartDate.Value = dtDate;
             dtpEndDate.Value = dtDate.AddMonths(3);
 
-            txtCalendar.Text = String.Format(
+            txtCalendar.Text = String.Format(CultureInfo.InvariantCulture,
                 "BEGIN:VEVENT\r\n" +
                 "DTSTART:{0}\r\n" +
                 "DTEND:{1}\r\n" +
                 "RRULE:FREQ=DAILY;COUNT=10;INTERVAL=5\r\n" +
                 "END:VEVENT\r\n",
-                dtDate.AddHours(9).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal),
-                dtDate.AddHours(10).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal));
+                dtDate.AddHours(9).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture),
+                dtDate.AddHours(10).ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture));
         }
 
         /// <summary>
@@ -114,7 +113,7 @@ namespace PDIWinFormsTest
                 lblCount.Text = null;
 
                 // Wrap it in VCALENDAR tags and parse it
-                calendar = String.Format("BEGIN:VCALENDAR\nVERSION:2.0\n{0}\nEND:VCALENDAR", txtCalendar.Text);
+                calendar = $"BEGIN:VCALENDAR\nVERSION:2.0\n{txtCalendar.Text}\nEND:VCALENDAR";
 
                 VCalendar cal = VCalendarParser.ParseFromString(calendar);
 
@@ -146,9 +145,9 @@ namespace PDIWinFormsTest
                 lbDates.Items.Clear();
                 this.Cursor = Cursors.WaitCursor;
 
-                start = System.Environment.TickCount;
+                start = Environment.TickCount;
                 instances = ro.InstancesBetween(dtpStartDate.Value, dtpEndDate.Value, chkInLocalTime.Checked);
-                elapsed = (System.Environment.TickCount - start) / 1000.0;
+                elapsed = (Environment.TickCount - start) / 1000.0;
 
                 cal.Dispose();
 
@@ -158,9 +157,8 @@ namespace PDIWinFormsTest
                 // and whether or not the component has a Time Zone ID specified.
                 foreach(DateTimeInstance dti in instances)
                 {
-                    lbDates.Items.Add(String.Format("{0:G} {1} to {2:G} {3} ({4})", dti.StartDateTime,
-                      dti.AbbreviatedStartTimeZoneName, dti.EndDateTime, dti.AbbreviatedEndTimeZoneName,
-                      dti.Duration.ToDescription()));
+                    lbDates.Items.Add($"{dti.StartDateTime:G} {dti.AbbreviatedStartTimeZoneName} to " +
+                        $"{dti.EndDateTime:G} {dti.AbbreviatedEndTimeZoneName} ({dti.Duration.ToDescription()})");
 
                     if(lbDates.Items.Count > 5000)
                     {
@@ -177,8 +175,8 @@ namespace PDIWinFormsTest
                         "the two date/time text boxes at the top of the form and the calendar item date/time " +
                         "properties to make sure that they do overlap");
 
-                lblCount.Text += String.Format("Found {0:N0} instances in {1:N2} seconds ({2:N2} instances/second)",
-                    instances.Count, elapsed, instances.Count / elapsed);
+                lblCount.Text += $"Found {instances.Count:N0} instances in {elapsed:N2} seconds " +
+                    $"({instances.Count / elapsed:N2} instances/second)";
             }
             catch(Exception ex)
             {

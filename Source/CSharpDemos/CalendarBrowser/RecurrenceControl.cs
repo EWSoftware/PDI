@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RecurrenceControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a recurring calendar object's recurrence rule and recurrence date properties
 //
@@ -39,8 +38,8 @@ namespace CalendarBrowser
         #region Private data members
         //=====================================================================
 
-        private RRulePropertyCollection rRules;
-        private RDatePropertyCollection rDates;
+        private readonly RRulePropertyCollection rRules;
+        private readonly RDatePropertyCollection rDates;
         private bool editsExceptions;
 
         #endregion
@@ -136,10 +135,12 @@ namespace CalendarBrowser
             lbRDates.Items.Clear();
 
             foreach(RDateProperty rdt in rDates)
+            {
                 if(rdt.ValueLocation == ValLocValue.Date)
-                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d"));
+                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d", CultureInfo.CurrentCulture));
                 else
-                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G"));
+                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture));
+            }
 
             this.SetButtonStates();
         }
@@ -151,6 +152,9 @@ namespace CalendarBrowser
         /// <param name="ed">The exception dates from which to get the settings</param>
         public void SetValues(RRulePropertyCollection er, ExDatePropertyCollection ed)
         {
+            if(ed == null)
+                throw new ArgumentNullException(nameof(ed));
+
             rRules.Clear();
             rDates.Clear();
             rRules.CloneRange(er);
@@ -177,9 +181,9 @@ namespace CalendarBrowser
 
             foreach(RDateProperty rdt in rDates)
                 if(rdt.ValueLocation == ValLocValue.Date)
-                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d"));
+                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d", CultureInfo.CurrentCulture));
                 else
-                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G"));
+                    lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture));
 
             this.SetButtonStates();
         }
@@ -193,10 +197,10 @@ namespace CalendarBrowser
         /// make sure that it is consistent with the containing component.</remarks>
         public void GetValues(RRulePropertyCollection rr, RDatePropertyCollection rd)
         {
-            rr.Clear();
-            rd.Clear();
-            rr.CloneRange(rRules);
-            rd.CloneRange(rDates);
+            rr?.Clear();
+            rd?.Clear();
+            rr?.CloneRange(rRules);
+            rd?.CloneRange(rDates);
         }
 
         /// <summary>
@@ -208,9 +212,9 @@ namespace CalendarBrowser
         /// make sure that it is consistent with the containing component.</remarks>
         public void GetValues(RRulePropertyCollection er, ExDatePropertyCollection ed)
         {
-            er.Clear();
-            ed.Clear();
-            er.CloneRange(rRules);
+            er?.Clear();
+            ed?.Clear();
+            er?.CloneRange(rRules);
 
             // Convert the RDates to ExDate format
             foreach(RDateProperty rdate in rDates)
@@ -222,7 +226,7 @@ namespace CalendarBrowser
                     TimeZoneDateTime = rdate.TimeZoneDateTime
                 };
 
-                ed.Add(edate);
+                ed?.Add(edate);
             }
         }
 
@@ -248,7 +252,7 @@ namespace CalendarBrowser
                         dti = VCalendar.TimeZoneToTimeZone(rdt.TimeZoneDateTime, oldTZ, newTZ);
 
                     rdt.TimeZoneDateTime = dti.StartDateTime;
-                    lbRDates.Items[idx] = dti.StartDateTime.ToString("G");
+                    lbRDates.Items[idx] = dti.StartDateTime.ToString("G", CultureInfo.CurrentCulture);
                 }
 
                 idx++;
@@ -375,14 +379,14 @@ namespace CalendarBrowser
                 };
 
                 rDates.Add(rdate);
-                lbRDates.Items.Add(dtpRDate.Value.Date.ToString("d"));
+                lbRDates.Items.Add(dtpRDate.Value.Date.ToString("d", CultureInfo.CurrentCulture));
             }
             else
             {
                 RDateProperty rdate = new RDateProperty { TimeZoneDateTime = dtpRDate.Value };
 
                 rDates.Add(rdate);
-                lbRDates.Items.Add(dtpRDate.Value.ToString("G"));
+                lbRDates.Items.Add(dtpRDate.Value.ToString("G", CultureInfo.CurrentCulture));
             }
 
             this.SetButtonStates();

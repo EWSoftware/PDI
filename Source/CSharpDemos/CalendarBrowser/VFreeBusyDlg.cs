@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VFreeBusyDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a VFreeBusy object's properties
 //
@@ -77,6 +76,9 @@ namespace CalendarBrowser
         /// <param name="fb">The free/busy object from which to get the settings</param>
         public void SetValues(VFreeBusy fb)
         {
+            if(fb == null)
+                throw new ArgumentNullException(nameof(fb));
+
             string timeZoneId = fb.StartDateTime.TimeZoneId;
 
             txtUniqueId.Text = fb.UniqueId.Value;
@@ -132,6 +134,9 @@ namespace CalendarBrowser
         /// <param name="fb">The free/busy object in which the settings are updated</param>
         public void GetValues(VFreeBusy fb)
         {
+            if(fb == null)
+                throw new ArgumentNullException(nameof(fb));
+
             // The unique ID is not changed
             fb.Organizer.Value = txtOrganizer.Text;
             fb.Contact.Value = txtContact.Text;
@@ -208,10 +213,12 @@ namespace CalendarBrowser
                 return;
             }
 
-            if(MessageBox.Show(String.Format("Do you want to convert all times from the '{0}' time zone to " +
-              "the '{1}' time zone?", cboTimeZone.Items[timeZoneIdx], cboTimeZone.Items[cboTimeZone.SelectedIndex]),
-              "Change Time Zone", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if(MessageBox.Show($"Do you want to convert all times from the '{cboTimeZone.Items[timeZoneIdx]}' " +
+              $"time zone to the '{cboTimeZone.Items[cboTimeZone.SelectedIndex]}' time zone?", "Change Time Zone",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
                 return;
+            }
 
             // Get the time zone IDs
             if(timeZoneIdx == 0)
@@ -269,7 +276,7 @@ namespace CalendarBrowser
 
             epErrors.Clear();
 
-            if(txtDuration.Text.Length != 0 && !Duration.TryParse(txtDuration.Text, out Duration d))
+            if(txtDuration.Text.Length != 0 && !Duration.TryParse(txtDuration.Text, out _))
             {
                 epErrors.SetError(txtDuration, "Invalid duration value");
                 e.Cancel = true;

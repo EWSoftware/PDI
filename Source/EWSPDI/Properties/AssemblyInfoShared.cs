@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2021
-// Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // PDI library common assembly attributes
 //
@@ -56,10 +56,10 @@ using System.Runtime.InteropServices;
 //
 // This is used to set the assembly file version.  This will change with each new release.  MSIs only support a
 // Major value between 0 and 255 so we drop the century from the year on this one.
-[assembly: AssemblyFileVersion("21.11.23.0")]
+[assembly: AssemblyFileVersion("23.1.2.0")]
 
 // Common product version
 //
 // This may contain additional text to indicate Alpha or Beta states.  The version number will always match the
 // file version above but includes the century on the year.
-[assembly: AssemblyInformationalVersion("2021.11.23.0")]
+[assembly: AssemblyInformationalVersion("2023.1.2.0")]

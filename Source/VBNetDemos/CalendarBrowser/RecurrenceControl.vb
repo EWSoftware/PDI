@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : RecurrenceControl.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/25/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a recurring calendar object's recurrence rule and recurrence date properties
 '
@@ -32,8 +31,8 @@ Imports EWSoftware.PDI.Windows.Forms
 Public Partial Class RecurrenceControl
     Inherits System.Windows.Forms.UserControl
 
-    Private rRules As RRulePropertyCollection
-    Private rDates As RDatePropertyCollection
+    Private ReadOnly rRules As RRulePropertyCollection
+    Private ReadOnly rDates As RDatePropertyCollection
     Private ctrlEditsExceptions As Boolean
 
     Public Sub New()
@@ -113,9 +112,9 @@ Public Partial Class RecurrenceControl
 
         For Each rdt In rDates
             If rdt.ValueLocation = ValLocValue.Date Then
-                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d"))
+                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d", CultureInfo.CurrentCulture))
             Else
-                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G"))
+                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture))
             End If
         Next
 
@@ -130,6 +129,10 @@ Public Partial Class RecurrenceControl
     Public Sub SetValues(er As RRulePropertyCollection, ed As ExDatePropertyCollection)
         Dim r As RRuleProperty, edate As ExDateProperty
         Dim rdt, rd As RDateProperty
+
+        If ed Is Nothing
+            Throw New ArgumentNullException(NameOf(ed))
+        End If
 
         rRules.Clear()
         rDates.Clear()
@@ -156,9 +159,9 @@ Public Partial Class RecurrenceControl
 
         For Each rdt In rDates
             If(rdt.ValueLocation = ValLocValue.Date)
-                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d"))
+                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("d", CultureInfo.CurrentCulture))
             Else
-                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G"))
+                lbRDates.Items.Add(rdt.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture))
             End If
         Next
 
@@ -173,10 +176,10 @@ Public Partial Class RecurrenceControl
     ''' <remarks>Note that the time zone ID will need to be set in the returned RDATE property collection to make
     ''' sure that it is consistent with the containing component.</remarks>
     Public Sub GetValues(rr As RRulePropertyCollection, rd As RDatePropertyCollection)
-        rr.Clear()
-        rd.Clear()
-        rr.CloneRange(rRules)
-        rd.CloneRange(rDates)
+        rr?.Clear()
+        rd?.Clear()
+        rr?.CloneRange(rRules)
+        rd?.CloneRange(rDates)
     End Sub
 
     ''' <summary>
@@ -189,9 +192,9 @@ Public Partial Class RecurrenceControl
     Public Sub GetValues(er As RRulePropertyCollection, ed As ExDatePropertyCollection)
         Dim rdate As RDateProperty, edate As ExDateProperty
 
-        er.Clear()
-        ed.Clear()
-        er.CloneRange(rRules)
+        er?.Clear()
+        ed?.Clear()
+        er?.CloneRange(rRules)
 
         ' Convert the RDates to ExDate format
         For Each rdate In rDates
@@ -201,7 +204,7 @@ Public Partial Class RecurrenceControl
                 .TimeZoneDateTime = rdate.TimeZoneDateTime
             }
 
-            ed.Add(edate)
+            ed?.Add(edate)
         Next
     End Sub
 
@@ -225,7 +228,7 @@ Public Partial Class RecurrenceControl
                 End If
 
                 rdt.TimeZoneDateTime = dti.StartDateTime
-                lbRDates.Items(idx) = dti.StartDateTime.ToString("G")
+                lbRDates.Items(idx) = dti.StartDateTime.ToString("G", CultureInfo.CurrentCulture)
             End If
 
             idx += 1
@@ -335,14 +338,14 @@ Public Partial Class RecurrenceControl
             }
 
             rDates.Add(rdate)
-            lbRDates.Items.Add(dtpRDate.Value.Date.ToString("d"))
+            lbRDates.Items.Add(dtpRDate.Value.Date.ToString("d", CultureInfo.CurrentCulture))
         Else
             Dim rdate As New RDateProperty With {
                 .TimeZoneDateTime = dtpRDate.Value
             }
 
             rDates.Add(rdate)
-            lbRDates.Items.Add(dtpRDate.Value.ToString("G"))
+            lbRDates.Items.Add(dtpRDate.Value.ToString("G", CultureInfo.CurrentCulture))
         End If
 
         Me.SetButtonStates()

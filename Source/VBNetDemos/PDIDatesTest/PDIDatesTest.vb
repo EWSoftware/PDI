@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : PDIDatesTest.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/22/2021
-' Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is a console mode application that runs through a few simple configurations to test the basics in the
 ' date utility, holiday, and recurrence classes.
@@ -18,8 +18,8 @@
 ' 12/01/2004  EFW  Created the code
 '================================================================================================================
 
+Imports System.Globalization
 Imports System.IO
-Imports System.Runtime.Serialization.Formatters.Binary
 Imports System.Xml.Serialization
 
 Imports EWSoftware.PDI
@@ -42,8 +42,8 @@ Module PDIDatesTest
             yearTo = yearFrom + 8
         Else
             Try
-                yearFrom = Convert.ToInt32(args(0))
-                yearTo = Convert.ToInt32(args(1))
+                yearFrom = Convert.ToInt32(args(0), CultureInfo.InvariantCulture)
+                yearTo = Convert.ToInt32(args(1), CultureInfo.InvariantCulture)
 
                 If yearFrom < 1 Then yearFrom = 1
                 If yearFrom > 9999 Then yearFrom = 9999
@@ -453,24 +453,24 @@ Module PDIDatesTest
                 xs.Serialize(fs, holidays)
                 Console.WriteLine("Holidays saved to Holidays.xml")
             End Using
-#If NETFramework
+#If NETFRAMEWORK
             ' The SOAP formatter is only supported on the full .NET Framework
             ' SOAP
             Using fs As New FileStream("Holidays.soap", FileMode.Create)
-                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
+                Dim sf As New Runtime.Serialization.Formatters.Soap.SoapFormatter()
 
                 ' SOAP doesn't support generics directly so use an array
                 sf.Serialize(fs, holidays.ToArray())
                 Console.WriteLine("Holidays saved to Holidays.soap")
             End Using
-#End If
+
             ' Binary
             Using fs As New FileStream("Holidays.bin", FileMode.Create)
-                Dim bf As New BinaryFormatter()
+                Dim bf As New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
                 bf.Serialize(fs, holidays)
                 Console.WriteLine("Holidays saved to Holidays.bin{0}", Environment.NewLine)
             End Using
-
+#End If
         Catch ex As Exception
             Console.WriteLine("Unable to save holidays:{0}{1}", Environment.NewLine, ex.Message)
 
@@ -486,32 +486,31 @@ Module PDIDatesTest
 
         ' Delete the collection and read it back in
         holidays = Nothing
-
-        Try
-            ' XML
+Try
+' XML
             Using fs AS New FileStream("Holidays.xml", FileMode.Open)
                 Dim xs As New XmlSerializer(GetType(HolidayCollection))
                 holidays = DirectCast(xs.Deserialize(fs), HolidayCollection)
                 Console.WriteLine("Holidays retrieved from Holidays.xml")
             End Using
-#If NETFramework
+#If NETFRAMEWORK
             ' SOAP
             Using fs As New FileStream("Holidays.soap", FileMode.Open)
-                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
+                Dim sf As New Runtime.Serialization.Formatters.Soap.SoapFormatter()
 
                 ' As noted, SOAP doesn't support generics to an array is used instead
                 holidays = New HolidayCollection(DirectCast(sf.Deserialize(fs), Holiday()))
 
                 Console.WriteLine("Holidays retrieved from Holidays.soap")
             End Using
-#End If
+
             ' Binary
             Using fs As New FileStream("Holidays.bin", FileMode.Open)
-                Dim bf As New BinaryFormatter()
+                Dim bf As New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
                 holidays = DirectCast(bf.Deserialize(fs), HolidayCollection)
                 Console.WriteLine("Holidays retrieved from Holidays.bin{0}", Environment.NewLine)
             End Using
-
+#End If
         Catch ex As Exception
             Console.WriteLine("Unable to load holidays:{0}{1}", Environment.NewLine, ex.Message)
 
@@ -603,21 +602,21 @@ Module PDIDatesTest
                 xs.Serialize(fs, rRecur)
                 Console.WriteLine("Recurrence saved to Recurrence.xml")
             End Using
-#If NETFramework
+#If NETFRAMEWORK
             ' SOAP
             Using fs As New FileStream("Recurrence.soap", FileMode.Create)
-                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
+                Dim sf As New Runtime.Serialization.Formatters.Soap.SoapFormatter()
                 sf.Serialize(fs, rRecur)
                 Console.WriteLine("Recurrence saved to Recurrence.soap")
             End Using
-#End If
+
             ' Binary
             Using fs As New FileStream("Recurrence.bin", FileMode.Create)
-                Dim bf As New BinaryFormatter()
+                Dim bf As New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
                 bf.Serialize(fs, rRecur)
                 Console.WriteLine("Recurrence saved to Recurrence.bin{0}", Environment.NewLine)
             End Using
-
+#End If
         Catch ex As Exception
             Console.WriteLine("Unable to save recurrence:{0}{1}", Environment.NewLine, ex.Message)
 
@@ -641,21 +640,21 @@ Module PDIDatesTest
                 rRecur = DirectCast(xs.Deserialize(fs), Recurrence)
                 Console.WriteLine("Recurrence restored from Recurrence.xml")
             End Using
-#If NETFramework
+#If NETFRAMEWORK
             ' SOAP
             Using fs As New FileStream("Recurrence.soap", FileMode.Open)
-                Dim sf As New System.Runtime.Serialization.Formatters.Soap.SoapFormatter()
+                Dim sf As New Runtime.Serialization.Formatters.Soap.SoapFormatter()
                 rRecur = DirectCast(sf.Deserialize(fs), Recurrence)
                 Console.WriteLine("Recurrence retrieved from Recurrence.soap")
             End Using
-#End If
+
             ' Binary
             Using fs As New FileStream("Recurrence.bin", FileMode.Open)
-                Dim bf As New BinaryFormatter()
+                Dim bf As New Runtime.Serialization.Formatters.Binary.BinaryFormatter()
                 rRecur = DirectCast(bf.Deserialize(fs), Recurrence)
                 Console.WriteLine("Recurrence retrieved from Recurrence.bin{0}", Environment.NewLine)
             End Using
-
+#End If
         Catch ex As Exception
             Console.WriteLine("Unable to restore recurrence:{0}{1}", Environment.NewLine, ex.Message)
 

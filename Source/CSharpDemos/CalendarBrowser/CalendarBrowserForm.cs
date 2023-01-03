@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration application that shows how to load, save, and manage vCalendar and iCalendar
 // files including how to edit the properties on the various components.
@@ -45,7 +44,7 @@ namespace CalendarBrowser
 
         private VCalendar vCal;     // The calendar being browsed
         private bool wasModified;
-        private StringFormat sf;
+        private readonly StringFormat sf;
 
         #endregion
 
@@ -271,23 +270,29 @@ namespace CalendarBrowser
                         if(vCal.Events.Count != 0)
                             cboComponents.SelectedIndex = 0;
                         else
+                        {
                             if(vCal.ToDos.Count != 0)
                                 cboComponents.SelectedIndex = 1;
                             else
+                            {
                                 if(vCal.Journals.Count != 0)
                                     cboComponents.SelectedIndex = 2;
                                 else
+                                {
                                     if(vCal.FreeBusys.Count != 0)
                                         cboComponents.SelectedIndex = 3;
                                     else
                                         cboComponents.SelectedIndex = 0;
+                                }
+                            }
+                        }
 
                         LoadGridWithItems(true);
                         lblFilename.Text = dlg.FileName;
                     }
                     catch(Exception ex)
                     {
-                        string error = String.Format("Unable to load calendar:\n{0}", ex.Message);
+                        string error = $"Unable to load calendar:\n{ex.Message}";
 
                         if(ex.InnerException != null)
                         {
@@ -354,7 +359,7 @@ namespace CalendarBrowser
                     }
                     catch(Exception ex)
                     {
-                        string error = String.Format("Unable to save calendar:\n{0}", ex.Message);
+                        string error = $"Unable to save calendar:\n{ex.Message}";
 
                         if(ex.InnerException != null)
                         {
@@ -786,9 +791,9 @@ namespace CalendarBrowser
             DateTime d1, d2;
             string summary1, summary2;
 
-            if(x is VEvent)
+            if(x is VEvent e1)
             {
-                VEvent e1 = (VEvent)x, e2 = (VEvent)y;
+                VEvent e2 = (VEvent)y;
 
                 d1 = e1.StartDateTime.TimeZoneDateTime;
                 d2 = e2.StartDateTime.TimeZoneDateTime;
@@ -796,9 +801,10 @@ namespace CalendarBrowser
                 summary2 = e2.Summary.Value;
             }
             else
-                if(x is VToDo)
+            {
+                if(x is VToDo t1)
                 {
-                    VToDo t1 = (VToDo)x, t2 = (VToDo)y;
+                    VToDo t2 = (VToDo)y;
 
                     d1 = t1.StartDateTime.TimeZoneDateTime;
                     d2 = t2.StartDateTime.TimeZoneDateTime;
@@ -806,9 +812,10 @@ namespace CalendarBrowser
                     summary2 = t2.Summary.Value;
                 }
                 else
-                    if(x is VJournal)
+                {
+                    if(x is VJournal j1)
                     {
-                        VJournal j1 = (VJournal)x, j2 = (VJournal)y;
+                        VJournal j2 = (VJournal)y;
 
                         d1 = j1.StartDateTime.TimeZoneDateTime;
                         d2 = j2.StartDateTime.TimeZoneDateTime;
@@ -824,6 +831,8 @@ namespace CalendarBrowser
                         summary1 = f1.Organizer.Value;
                         summary2 = f2.Organizer.Value;
                     }
+                }
+            }
 
             if(d1.CompareTo(d2) == 0)
             {
@@ -834,7 +843,7 @@ namespace CalendarBrowser
                     summary2 = String.Empty;
 
                 // For descending order, change this to compare summary 2 to summary 1 instead
-                return String.Compare(summary1, summary2, StringComparison.CurrentCulture);
+                return String.Compare(summary1, summary2, StringComparison.Ordinal);
             }
 
             // For descending order, change this to compare date 2 to date 1 instead
@@ -866,58 +875,70 @@ namespace CalendarBrowser
 
                 if(e.ColumnIndex == 0)
                 {
-                    if(item is VEvent)
-                        startProp = ((VEvent)item).StartDateTime;
+                    if(item is VEvent ev)
+                        startProp = ev.StartDateTime;
                     else
-                        if(item is VToDo)
-                            startProp = ((VToDo)item).StartDateTime;
+                    {
+                        if(item is VToDo td)
+                            startProp = td.StartDateTime;
                         else
-                            if(item is VJournal)
-                                startProp = ((VJournal)item).StartDateTime;
+                        {
+                            if(item is VJournal jr)
+                                startProp = jr.StartDateTime;
                             else
                                 startProp = ((VFreeBusy)item).StartDateTime;
+                        }
+                    }
 
                     dti = VCalendar.TimeZoneTimeInfo(startProp.TimeZoneDateTime, startProp.TimeZoneId);
 
                     // Format as date or date/time and include time zone if available
                     if(startProp.ValueLocation == ValLocValue.Date)
-                        columnText = String.Format("{0:d} {1}", dti.StartDateTime, dti.AbbreviatedStartTimeZoneName);
+                        columnText = $"{dti.StartDateTime:d} {dti.AbbreviatedStartTimeZoneName}";
                     else
-                        columnText = String.Format("{0} {1}", dti.StartDateTime, dti.AbbreviatedStartTimeZoneName);
+                        columnText = $"{dti.StartDateTime} {dti.AbbreviatedStartTimeZoneName}";
                 }
                 else
+                {
                     if(e.ColumnIndex == 1)
                     {
-                        if(item is VEvent)
+                        if(item is VEvent ev)
                         {
-                            summaryProp = ((VEvent)item).Summary;
-                            descProp = ((VEvent)item).Description;
+                            summaryProp = ev.Summary;
+                            descProp = ev.Description;
                         }
                         else
-                            if(item is VToDo)
+                        {
+                            if(item is VToDo td)
                             {
-                                summaryProp = ((VToDo)item).Summary;
-                                descProp = ((VToDo)item).Description;
+                                summaryProp = td.Summary;
+                                descProp = td.Description;
                             }
                             else
-                                if(item is VJournal)
+                            {
+                                if(item is VJournal jr)
                                 {
-                                    summaryProp = ((VJournal)item).Summary;
-                                    descProp = ((VJournal)item).Description;
+                                    summaryProp = jr.Summary;
+                                    descProp = jr.Description;
                                 }
                                 else
                                 {
                                     summaryProp = null;
                                     descProp = null;
                                 }
+                            }
+                        }
 
                         // If summary is empty, use description instead
                         if(summaryProp != null && summaryProp.Value != null)
                             columnText = summaryProp.Value;
                         else
+                        {
                             if(descProp != null)
                                 columnText = descProp.Value;
+                        }
                     }
+                }
 
                 if(columnText != null)
                 {

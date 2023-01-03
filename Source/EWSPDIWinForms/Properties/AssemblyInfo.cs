@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : AssemblyInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // Windows forms controls that are used in conjunction with the EWSoftware.PDI classes
 //
@@ -22,5 +21,9 @@ using System.Reflection;
 
 // General assembly information
 [assembly: AssemblyTitle("EWSoftware.PDI Windows Forms Controls")]
+
+#if NET6_0_OR_GREATER
+[assembly: System.Runtime.Versioning.SupportedOSPlatform("windows")]
+#endif
 
 // See AssemblyInfoShared.cs for the shared attributes common to all projects in the solution

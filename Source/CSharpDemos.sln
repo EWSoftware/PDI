@@ -1,19 +1,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarBrowser", "CSharpDemos\CalendarBrowser\CalendarBrowser.csproj", "{20487237-F96A-4725-A82D-96FD26AF9DFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarBrowser", "CSharpDemos\CalendarBrowser\CalendarBrowser.csproj", "{20487237-F96A-4725-A82D-96FD26AF9DFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDIWinFormsTest", "CSharpDemos\PDIWinFormsTest\PDIWinFormsTest.csproj", "{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vCardBrowser", "CSharpDemos\vCardBrowser\vCardBrowser.csproj", "{AC9020EB-63D3-4515-A868-8D290356FBE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "vCardBrowser", "CSharpDemos\vCardBrowser\vCardBrowser.csproj", "{AC9020EB-63D3-4515-A868-8D290356FBE5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D3E23A2C-E571-4DF2-BCA1-172B2C994300}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		Common.vsspell = Common.vsspell
 		CSharpDemos.sln.vsspell = CSharpDemos.sln.vsspell
-		EWSPDIDemos.ruleset = EWSPDIDemos.ruleset
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWSoftware.PDI", "EWSPDI\EWSoftware.PDI.csproj", "{024821DE-3508-476A-97E7-441334A1B2DF}"
@@ -28,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDIParserTest", "CSharpDemo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RFC2445RecurTest", "CSharpDemos\RFC2445RecurTest\RFC2445RecurTest.csproj", "{E0D46484-AAAE-41A1-85A7-9903B3DACB28}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PDIWinFormsTest", "CSharpDemos\PDIWinFormsTest\PDIWinFormsTest.csproj", "{969B43B1-5E6E-4C96-AE49-36A4D88119D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,10 +37,6 @@ Global
 		{20487237-F96A-4725-A82D-96FD26AF9DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20487237-F96A-4725-A82D-96FD26AF9DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20487237-F96A-4725-A82D-96FD26AF9DFE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{011CC2DB-A5AE-4788-AF84-C4C1A8CDF10A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC9020EB-63D3-4515-A868-8D290356FBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC9020EB-63D3-4515-A868-8D290356FBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC9020EB-63D3-4515-A868-8D290356FBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -70,6 +65,10 @@ Global
 		{E0D46484-AAAE-41A1-85A7-9903B3DACB28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0D46484-AAAE-41A1-85A7-9903B3DACB28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0D46484-AAAE-41A1-85A7-9903B3DACB28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{969B43B1-5E6E-4C96-AE49-36A4D88119D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{969B43B1-5E6E-4C96-AE49-36A4D88119D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{969B43B1-5E6E-4C96-AE49-36A4D88119D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{969B43B1-5E6E-4C96-AE49-36A4D88119D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

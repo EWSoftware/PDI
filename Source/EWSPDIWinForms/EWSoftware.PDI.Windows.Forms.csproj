@@ -1,17 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net40</TargetFrameworks>
+		<TargetFrameworks>net6.0-windows;net40</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Company>Eric Woodruff</Company>
 		<Product>EWSoftware Personal Data Interchange Library</Product>
 		<Title>EWSoftware PDI Windows Forms Control Library</Title>
-		<Copyright>Copyright (c) 2003-2021, Eric Woodruff, All Rights Reserved</Copyright>
+		<Copyright>Copyright (c) 2003-2023, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2021.11.23.0</Version>
-		<FileVersion>21.11.23.0</FileVersion>
+		<Version>2023.1.2.0</Version>
+		<FileVersion>23.1.2.0</FileVersion>
 		<Description>This library contains some Windows Forms controls that can be used to edit holiday calculation settings and to edit recurrence settings.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
@@ -21,15 +21,15 @@
 		<PackageTags>PDI personal data interchange Windows Forms controls recurrence RFC 2445</PackageTags>
 		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
 		<PackageLicenseExpression>MS-PL</PackageLicenseExpression>
-		<PackageReleaseNotes>Targets .NET 4.0 and later</PackageReleaseNotes>
+		<PackageReleaseNotes>Targets .NET Framework 4.0 and later and .NET 6.0 and later (Windows platform only)</PackageReleaseNotes>
 		<SignAssembly>true</SignAssembly>
 		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
 		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
 		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
 		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
 		<AssemblyOriginatorKeyFile>..\EWSPDI.snk</AssemblyOriginatorKeyFile>
-		<CodeAnalysisRuleSet>..\EWSPDI.ruleset</CodeAnalysisRuleSet>
-		<RunCodeAnalysis>false</RunCodeAnalysis>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
 		<DebugType>pdbonly</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 	</PropertyGroup>
@@ -72,7 +72,4 @@
 		<ProjectReference Include="..\EWSPDI\EWSoftware.PDI.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Reference Include="System.Windows.Forms" />
-	</ItemGroup>
 </Project>

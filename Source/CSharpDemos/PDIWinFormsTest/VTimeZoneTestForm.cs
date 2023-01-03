@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VTimeZoneTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/2/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration used to test the EWSoftware PDI time zone classes and methods.  This
 // demonstration depends on the time zone information present in the Windows registry.
@@ -120,16 +119,16 @@ namespace PDIWinFormsTest
 
             DateTimeInstance dti = VCalendar.TimeZoneTimeToLocalTime(dt, vtzSource.TimeZoneId.Value);
 
-            lblLocalTime.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName);
+            lblLocalTime.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}";
 
             dti = VCalendar.LocalTimeToTimeZoneTime(dti.StartDateTime, vtzSource.TimeZoneId.Value);
-            lblLocalBackToSource.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName);
+            lblLocalBackToSource.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}";
 
             dti = VCalendar.TimeZoneToTimeZone(dt, vtzSource.TimeZoneId.Value, vtzDest.TimeZoneId.Value);
-            lblDestTime.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName);
+            lblDestTime.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}";
 
             dti = VCalendar.TimeZoneToTimeZone(dti.StartDateTime, vtzDest.TimeZoneId.Value, vtzSource.TimeZoneId.Value);
-            lblDestBackToSource.Text = String.Format("{0} {1}", dti.StartDateTime, dti.StartTimeZoneName);
+            lblDestBackToSource.Text = $"{dti.StartDateTime} {dti.StartTimeZoneName}";
         }
 
         /// <summary>
@@ -171,7 +170,7 @@ namespace PDIWinFormsTest
                     }
                     catch(Exception ex)
                     {
-                        string errorMsg = String.Format("Unable to save time zone info:\n{0}", ex.Message);
+                        string errorMsg = $"Unable to save time zone info:\n{ex.Message}";
 
                         if(ex.InnerException != null)
                         {

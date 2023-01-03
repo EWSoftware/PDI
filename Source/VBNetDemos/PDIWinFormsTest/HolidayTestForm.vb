@@ -2,8 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : HolidayTestForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/22/2021
-' Note    : Copyright 2004-2021, Eric Woodruff, All rights reserved
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to test the various Holiday classes and the DateUtils class
 '
@@ -61,7 +61,7 @@ Public Partial Class HolidayTestForm
     ''' <param name="e">The event arguments</param>
     Private Sub btnTestDate_Click(ByVal sender As System.Object, _
       ByVal e As System.EventArgs) Handles btnTestDate.Click
-        Dim hcHols As HolidayCollection = New HolidayCollection(hmHolidays.Holidays)
+        Dim hcHols As New HolidayCollection(hmHolidays.Holidays)
 
         If hcHols.IsHoliday(dtpTestDate.Value) = True Then
             MessageBox.Show("The test date is a holiday", "Found!", MessageBoxButtons.OK,
@@ -80,7 +80,7 @@ Public Partial Class HolidayTestForm
     ''' <param name="e">The event arguments</param>
     Private Sub btnFind_Click(ByVal sender As System.Object, _
       ByVal e As System.EventArgs) Handles btnFind.Click
-        Dim holidays As HolidayCollection = New HolidayCollection(hmHolidays.Holidays)
+        Dim holidays As New HolidayCollection(hmHolidays.Holidays)
         Dim fromYear, toYear, year As Integer
 
         fromYear = CType(udcFromYear.Value, Integer)
@@ -150,7 +150,7 @@ Public Partial Class HolidayTestForm
 
         ' Create the grid view's data source
         Dim items As New List(Of ListItem)()
-        desc = String.Format("Easter ({0})", em.ToString())
+        desc = $"Easter ({em})"
 
         Do While fromYear <= toYear
             items.Add(New ListItem(DateUtils.EasterSunday(fromYear, em), desc))

@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : CalendarObjectDlg.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a calendar object's properties (VEvent, VToDo, or a VJournal component)
 '
@@ -79,8 +78,8 @@ Public Partial Class CalendarObjectDlg
             Return
         End If
 
-        If MessageBox.Show(String.Format("Do you want to convert all times from the '{0}' time zone to the " &
-          "'{1}' time zone?", cboTimeZone.Items(timeZoneIdx), cboTimeZone.Items(cboTimeZone.SelectedIndex)),
+        If MessageBox.Show(String.Format(CultureInfo.CurrentCulture, "Do you want to convert all times from the " &
+          "'{0}' time zone to the '{1}' time zone?", cboTimeZone.Items(timeZoneIdx), cboTimeZone.Items(cboTimeZone.SelectedIndex)),
           "Change Time Zone", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = System.Windows.Forms.DialogResult.No Then
             Return
         End if
@@ -131,11 +130,13 @@ Public Partial Class CalendarObjectDlg
     ''' <param name="e">The event parameters</param>
     Private Sub btnFind_Click(sender As Object, e As System.EventArgs) _
       Handles btnFind.Click
-        Dim url As String = String.Format("https://www.google.com/maps/place/{0},{1}", txtLatitude.Text,
-            txtLongitude.Text)
+        Dim url As String = $"https://www.google.com/maps/place/{txtLatitude.Text},{txtLongitude.Text}"
 
         Try
-            System.Diagnostics.Process.Start(url)
+            Process.Start(New ProcessStartInfo With {
+                .FileName = url,
+                .UseShellExecute = True
+            })
 
         Catch ex As Exception
             MessageBox.Show("Unable to start web browser", "Launch Error", MessageBoxButtons.OK,
@@ -225,7 +226,7 @@ Public Partial Class CalendarObjectDlg
     ''' <param name="oCal">The calendar object from which to get the settings</param>
     Public Sub SetValues(oCal As CalendarObject)
         Dim timeZoneId As String = Nothing
-        Dim isICalendar As Boolean = (oCal.Version = SpecificationVersions.iCalendar20)
+        Dim isICalendar As Boolean = (oCal?.Version = SpecificationVersions.iCalendar20)
 
         ' Disable controls that aren't relevant to the vCalendar spec
         txtDuration.Enabled = isICalendar
@@ -250,8 +251,8 @@ Public Partial Class CalendarObjectDlg
             ' Header
             txtUniqueId.Text = e.UniqueId.Value
             chkTransparent.Checked = e.Transparency.IsTransparent
-            txtCreated.Text = e.DateCreated.TimeZoneDateTime.ToString("G")
-            txtLastModified.Text = e.LastModified.TimeZoneDateTime.ToString("G")
+            txtCreated.Text = e.DateCreated.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture)
+            txtLastModified.Text = e.LastModified.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture)
             txtClass.Text = e.Classification.Value
             udcSequence.Value = e.Sequence.SequenceNumber
             udcPriority.Value = e.Priority.PriorityValue
@@ -315,8 +316,8 @@ Public Partial Class CalendarObjectDlg
             ucAlarms.BindingSource.DataSource = New VAlarmCollection().CloneRange(e.Alarms)
 
             ' Miscellaneous
-            txtLatitude.Text = e.GeographicPosition.Latitude.ToString()
-            txtLongitude.Text = e.GeographicPosition.Longitude.ToString()
+            txtLatitude.Text = e.GeographicPosition.Latitude.ToString(CultureInfo.CurrentCulture)
+            txtLongitude.Text = e.GeographicPosition.Longitude.ToString(CultureInfo.CurrentCulture)
 
             ucRequestStatus.BindingSource.DataSource = New RequestStatusPropertyCollection().CloneRange(e.RequestStatuses)
 
@@ -339,8 +340,8 @@ Public Partial Class CalendarObjectDlg
 
             ' Header
             txtUniqueId.Text = td.UniqueId.Value
-            txtCreated.Text = td.DateCreated.TimeZoneDateTime.ToString("G")
-            txtLastModified.Text = td.LastModified.TimeZoneDateTime.ToString("G")
+            txtCreated.Text = td.DateCreated.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture)
+            txtLastModified.Text = td.LastModified.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture)
             txtClass.Text = td.Classification.Value
             udcSequence.Value = td.Sequence.SequenceNumber
             udcPriority.Value = td.Priority.PriorityValue
@@ -413,8 +414,8 @@ Public Partial Class CalendarObjectDlg
             ucAlarms.BindingSource.DataSource = New VAlarmCollection().CloneRange(td.Alarms)
 
             ' Miscellaneous
-            txtLatitude.Text = td.GeographicPosition.Latitude.ToString()
-            txtLongitude.Text = td.GeographicPosition.Longitude.ToString()
+            txtLatitude.Text = td.GeographicPosition.Latitude.ToString(CultureInfo.CurrentCulture)
+            txtLongitude.Text = td.GeographicPosition.Longitude.ToString(CultureInfo.CurrentCulture)
 
             ucRequestStatus.BindingSource.DataSource = New RequestStatusPropertyCollection().CloneRange(td.RequestStatuses)
 
@@ -451,8 +452,8 @@ Public Partial Class CalendarObjectDlg
 
             ' Header
             txtUniqueId.Text = j.UniqueId.Value
-            txtCreated.Text = j.DateCreated.TimeZoneDateTime.ToString("G")
-            txtLastModified.Text = j.LastModified.TimeZoneDateTime.ToString("G")
+            txtCreated.Text = j.DateCreated.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture)
+            txtLastModified.Text = j.LastModified.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture)
             txtClass.Text = j.Classification.Value
             udcSequence.Value = j.Sequence.SequenceNumber
 
@@ -733,9 +734,9 @@ Public Partial Class CalendarObjectDlg
         ' Set the time zone in the object after getting all the data.  The "Set" method will not modify the
         ' date/times like the "Apply" method does.
         If cboTimeZone.Enabled = True And cboTimeZone.SelectedIndex <> 0 Then
-            oCal.SetTimeZone(VCalendar.TimeZones(cboTimeZone.SelectedIndex - 1))
+            oCal?.SetTimeZone(VCalendar.TimeZones(cboTimeZone.SelectedIndex - 1))
         Else
-            oCal.SetTimeZone(Nothing)
+            oCal?.SetTimeZone(Nothing)
         End If
     End Sub
 

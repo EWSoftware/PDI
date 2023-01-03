@@ -131,8 +131,10 @@ namespace PDIWinFormsTest
             if(rbJulian.Checked)
                 em = EasterMethod.Julian;
             else
+            {
                 if(rbOrthodox.Checked)
                     em = EasterMethod.Orthodox;
+            }
 
             // Adjust years as necessary based on the method
             if(em != EasterMethod.Julian)
@@ -172,7 +174,7 @@ namespace PDIWinFormsTest
 
             // Create the grid view's data source
             List<ListItem> items = new List<ListItem>();
-            desc = String.Format("Easter ({0})", em.ToString());
+            desc = $"Easter ({em})";
 
             while(fromYear <= toYear)
                 items.Add(new ListItem(DateUtils.EasterSunday(fromYear++, em), desc));

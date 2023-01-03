@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VTimeZoneDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a VTimeZone object's properties
 //
@@ -21,6 +20,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows.Forms;
 
 using EWSoftware.PDI.Objects;
@@ -60,9 +60,12 @@ namespace CalendarBrowser
         /// <param name="tz">The time zone object from which to get the settings</param>
         public void SetValues(VTimeZone tz)
         {
+            if(tz == null)
+                throw new ArgumentNullException(nameof(tz));
+
             originalId = txtTimeZoneId.Text = tz.TimeZoneId.Value;
             txtTimeZoneUrl.Text = tz.TimeZoneUrl.Value;
-            txtLastModified.Text = tz.LastModified.DateTimeValue.ToString("G");
+            txtLastModified.Text = tz.LastModified.DateTimeValue.ToString("G", CultureInfo.InvariantCulture);
 
             // We could bind directly to the existing collection but that would modify it.  To preserve the
             // original items, we'll pass a copy of the collection instead.
@@ -75,6 +78,9 @@ namespace CalendarBrowser
         /// <param name="tz">The time zone object in which the settings are updated</param>
         public void GetValues(VTimeZone tz)
         {
+            if(tz == null)
+                throw new ArgumentNullException(nameof(tz));
+
             tz.TimeZoneId.Value = txtTimeZoneId.Text;
             tz.TimeZoneUrl.Value = txtTimeZoneUrl.Text;
             tz.LastModified.DateTimeValue = DateTime.Now;

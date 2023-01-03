@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PhotoControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's photo and logo information.  It's nothing elaborate but does let you edit the
 // properties fairly well.
@@ -25,7 +24,6 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
 
 namespace vCardBrowser
@@ -56,8 +54,6 @@ namespace vCardBrowser
             get => txtFilename.Text;
             set
             {
-                Stream s = null;
-
                 // We probably should also check that the image type is supported and set the image type combo
                 // box too, but this is a demo, so I'm going to leave it for a future enhancement once I get all
                 // the other demos done.
@@ -70,38 +66,48 @@ namespace vCardBrowser
                   value.StartsWith("https:", StringComparison.OrdinalIgnoreCase) ||
                   value.StartsWith("file:", StringComparison.OrdinalIgnoreCase)))
                 {
+#if NETFRAMEWORK
                     try
                     {
-                        if(value.StartsWith("http:", StringComparison.OrdinalIgnoreCase) ||
-                          value.StartsWith("https:", StringComparison.OrdinalIgnoreCase))
+                        System.Net.ServicePointManager.SecurityProtocol = (System.Net.SecurityProtocolType)3072;
+
+                        var wrq = System.Net.WebRequest.Create(new Uri(value));
+
+                        using(var wrsp = wrq.GetResponse())
+                        using(var s = wrsp.GetResponseStream())
                         {
-                            HttpWebRequest wrq = (HttpWebRequest)WebRequest.Create(new Uri(value));
-
-                            WebResponse wrsp = wrq.GetResponse();
-                            s = wrsp.GetResponseStream();
+                            bmImage.Dispose();
+                            bmImage = new Bitmap(s);
                         }
-                        else
-                            if(value.StartsWith("file:", StringComparison.OrdinalIgnoreCase))
-                        {
-                            FileWebRequest frq = (FileWebRequest)WebRequest.Create(new Uri(value));
-
-                            WebResponse frsp = frq.GetResponse();
-                            s = frsp.GetResponseStream();
-                        }
-
-                        bmImage.Dispose();
-                        bmImage = new Bitmap(s);
                     }
                     catch
                     {
                         // Ignore it, just create a blank image
                         bmImage = new Bitmap(1, 1);
                     }
-                    finally
+#else
+                    try
                     {
-                        if(s != null)
-                            s.Close();
+                        byte[] imageBytes;
+
+                        using(var c = new System.Net.Http.HttpClient())
+                        {
+                            imageBytes = c.GetByteArrayAsync(new Uri(value)).Result;
+                        }
+
+                        bmImage.Dispose();
+
+                        using(var ms = new MemoryStream(imageBytes))
+                        {
+                            bmImage = new Bitmap(ms);
+                        }
                     }
+                    catch
+                    {
+                        // Ignore it, just create a blank image
+                        bmImage = new Bitmap(1, 1);
+                    }
+#endif
                 }
                 else
                 {
@@ -154,9 +160,9 @@ namespace vCardBrowser
             get => chkInline.Checked;
             set => chkInline.Checked = value;
         }
-        #endregion
+#endregion
 
-        #region Constructor
+#region Constructor
         //=====================================================================
 
         /// <summary>
@@ -168,9 +174,9 @@ namespace vCardBrowser
 
             bmImage = new Bitmap(1, 1);
 		}
-        #endregion
+#endregion
 
-        #region Helper methods
+#region Helper methods
         //=====================================================================
 
         /// <summary>
@@ -212,9 +218,9 @@ namespace vCardBrowser
                 return ms.ToArray();
             }
         }
-        #endregion
+#endregion
 
-        #region Event handlers
+#region Event handlers
         //=====================================================================
 
         /// <summary>
@@ -267,6 +273,6 @@ namespace vCardBrowser
                 }
             }
         }
-        #endregion
+#endregion
     }
 }

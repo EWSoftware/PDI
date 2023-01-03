@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : CalendarBrowserForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/05/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Microsoft VB.NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is a simple demonstration application that shows how to load, save, and manage vCalendar and iCalendar
 ' files including how to edit the properties on the various components.
@@ -39,12 +38,12 @@ Partial Public Class CalendarBrowserForm
 
     Private vCal As VCalendar       ' The calendar being browsed
     Private wasModified As Boolean
-    Private sf As StringFormat
+    Private ReadOnly sf As StringFormat
 
     ''' <summary>
     ''' The main entry point for the application
     ''' </summary>
-    Shared Sub Main(Args As String())
+    Shared Sub Main()
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
         Application.Run(New CalendarBrowserForm())
@@ -254,8 +253,7 @@ Partial Public Class CalendarBrowserForm
                     lblFilename.Text = dlg.FileName
 
                 Catch ex As Exception
-                    Dim errorMsg As String = String.Format("Unable to load calendar:{0}{1}", Environment.NewLine,
-                        ex.Message)
+                    Dim errorMsg As String = $"Unable to load calendar:{Environment.NewLine}{ex.Message}"
 
                     If Not (ex.InnerException Is Nothing) Then
                         errorMsg &= ex.InnerException.Message & Environment.NewLine
@@ -310,8 +308,7 @@ Partial Public Class CalendarBrowserForm
                     lblFilename.Text = dlg.FileName
 
                 Catch ex As Exception
-                    Dim errorMsg As String = String.Format("Unable to save calendar:{0}{1}", Environment.NewLine,
-                        ex.Message)
+                    Dim errorMsg As String = $"Unable to save calendar:{Environment.NewLine}{ex.Message}"
 
                     If Not (ex.InnerException Is Nothing) Then
                         errorMsg &= ex.InnerException.Message & Environment.NewLine
@@ -741,9 +738,9 @@ Partial Public Class CalendarBrowserForm
 
                 ' Format as date or date/time and include time zone if available
                 If startProp.ValueLocation = ValLocValue.Date Then
-                    columnText = String.Format("{0:d} {1}", dti.StartDateTime, dti.AbbreviatedStartTimeZoneName)
+                    columnText = $"{dti.StartDateTime:d} {dti.AbbreviatedStartTimeZoneName}"
                 Else
-                    columnText = String.Format("{0} {1}", dti.StartDateTime, dti.AbbreviatedStartTimeZoneName)
+                    columnText = $"{dti.StartDateTime} {dti.AbbreviatedStartTimeZoneName}"
                 End If
             Else
                 If e.ColumnIndex = 1 Then
@@ -862,7 +859,7 @@ Partial Public Class CalendarBrowserForm
             If summary2 Is Nothing Then summary2 = String.Empty
 
             ' For descending order, change this to compare summary 2 to summary 1 instead
-            Return String.Compare(summary1, summary2, StringComparison.CurrentCulture)
+            Return String.Compare(summary1, summary2, StringComparison.Ordinal)
         End If
 
         ' For descending order, change this to compare date 2 to date 1 instead

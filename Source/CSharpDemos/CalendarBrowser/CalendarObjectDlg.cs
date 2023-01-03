@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarObjectDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/02/2023
+// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's properties (VEvent, VToDo, or a VJournal component)
 //
@@ -77,7 +76,7 @@ namespace CalendarBrowser
         public void SetValues(CalendarObject oCal)
         {
             string timeZoneId = null;
-            bool isICalendar = (oCal.Version == SpecificationVersions.iCalendar20);
+            bool isICalendar = (oCal?.Version == SpecificationVersions.iCalendar20);
 
             // Disable controls that aren't relevant to the vCalendar spec
             txtDuration.Enabled = txtOrganizer.Enabled = ucRequestStatus.Enabled = txtLatitude.Enabled =
@@ -93,8 +92,8 @@ namespace CalendarBrowser
                 // Header
                 txtUniqueId.Text = e.UniqueId.Value;
                 chkTransparent.Checked = e.Transparency.IsTransparent;
-                txtCreated.Text = e.DateCreated.TimeZoneDateTime.ToString("G");
-                txtLastModified.Text = e.LastModified.TimeZoneDateTime.ToString("G");
+                txtCreated.Text = e.DateCreated.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture);
+                txtLastModified.Text = e.LastModified.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture);
                 txtClass.Text = e.Classification.Value;
                 udcSequence.Value = e.Sequence.SequenceNumber;
                 udcPriority.Value = e.Priority.PriorityValue;
@@ -156,8 +155,8 @@ namespace CalendarBrowser
                 ucAlarms.BindingSource.DataSource = new VAlarmCollection().CloneRange(e.Alarms);
 
                 // Miscellaneous
-                txtLatitude.Text = e.GeographicPosition.Latitude.ToString();
-                txtLongitude.Text = e.GeographicPosition.Longitude.ToString();
+                txtLatitude.Text = e.GeographicPosition.Latitude.ToString(CultureInfo.CurrentCulture);
+                txtLongitude.Text = e.GeographicPosition.Longitude.ToString(CultureInfo.CurrentCulture);
 
                 ucRequestStatus.BindingSource.DataSource = new RequestStatusPropertyCollection().CloneRange(e.RequestStatuses);
 
@@ -175,8 +174,8 @@ namespace CalendarBrowser
 
                 // Header
                 txtUniqueId.Text = td.UniqueId.Value;
-                txtCreated.Text = td.DateCreated.TimeZoneDateTime.ToString("G");
-                txtLastModified.Text = td.LastModified.TimeZoneDateTime.ToString("G");
+                txtCreated.Text = td.DateCreated.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture);
+                txtLastModified.Text = td.LastModified.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture);
                 txtClass.Text = td.Classification.Value;
                 udcSequence.Value = td.Sequence.SequenceNumber;
                 udcPriority.Value = td.Priority.PriorityValue;
@@ -248,8 +247,8 @@ namespace CalendarBrowser
                 ucAlarms.BindingSource.DataSource = new VAlarmCollection().CloneRange(td.Alarms);
 
                 // Miscellaneous
-                txtLatitude.Text = td.GeographicPosition.Latitude.ToString();
-                txtLongitude.Text = td.GeographicPosition.Longitude.ToString();
+                txtLatitude.Text = td.GeographicPosition.Latitude.ToString(CultureInfo.CurrentCulture);
+                txtLongitude.Text = td.GeographicPosition.Longitude.ToString(CultureInfo.CurrentCulture);
 
                 ucRequestStatus.BindingSource.DataSource = new RequestStatusPropertyCollection().CloneRange(td.RequestStatuses);
 
@@ -271,8 +270,8 @@ namespace CalendarBrowser
 
                 // Header
                 txtUniqueId.Text = j.UniqueId.Value;
-                txtCreated.Text = j.DateCreated.TimeZoneDateTime.ToString("G");
-                txtLastModified.Text = j.LastModified.TimeZoneDateTime.ToString("G");
+                txtCreated.Text = j.DateCreated.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture);
+                txtLastModified.Text = j.LastModified.TimeZoneDateTime.ToString("G", CultureInfo.CurrentCulture);
                 txtClass.Text = j.Classification.Value;
                 udcSequence.Value = j.Sequence.SequenceNumber;
 
@@ -554,9 +553,9 @@ namespace CalendarBrowser
             // Set the time zone in the object after getting all the data.  The "Set" method will not modify the
             // date/times like the "Apply" method does.
             if(cboTimeZone.Enabled && cboTimeZone.SelectedIndex != 0)
-                oCal.SetTimeZone(VCalendar.TimeZones[cboTimeZone.SelectedIndex - 1]);
+                oCal?.SetTimeZone(VCalendar.TimeZones[cboTimeZone.SelectedIndex - 1]);
             else
-                oCal.SetTimeZone(null);
+                oCal?.SetTimeZone(null);
         }
         #endregion
 
@@ -590,10 +589,12 @@ namespace CalendarBrowser
                 return;
             }
 
-            if(MessageBox.Show(String.Format("Do you want to convert all times from the '{0}' time zone to " +
-              "the '{1}' time zone?", cboTimeZone.Items[timeZoneIdx], cboTimeZone.Items[cboTimeZone.SelectedIndex]),
-              "Change Time Zone", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if(MessageBox.Show($"Do you want to convert all times from the '{cboTimeZone.Items[timeZoneIdx]}' " +
+              $"time zone to the '{cboTimeZone.Items[cboTimeZone.SelectedIndex]}' time zone?", "Change Time Zone",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
                 return;
+            }
 
             // Get the time zone IDs
             if(timeZoneIdx == 0)
@@ -647,12 +648,15 @@ namespace CalendarBrowser
         /// <param name="e">The event parameters</param>
         private void btnFind_Click(object sender, EventArgs e)
         {
-            string url = String.Format("https://www.google.com/maps/place/{0},{1}", txtLatitude.Text,
-                txtLongitude.Text);
+            string url = $"https://www.google.com/maps/place/{txtLatitude.Text},{txtLongitude.Text}";
 
             try
             {
-                System.Diagnostics.Process.Start(url);
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true,
+                });
             }
             catch(Exception ex)
             {

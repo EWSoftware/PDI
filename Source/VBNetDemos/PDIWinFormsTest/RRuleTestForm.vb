@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : RRuleTestForm.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 11/25/2018
-' Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is a simple demonstration used to test the recurrence engine which encapsulates the iCalendar 2.0 RRULE
 ' feature set.  It is separate from the other PDI calendar classes so that you can use the recurrence engine
@@ -42,7 +41,7 @@ Public Partial Class RRuleTestForm
 
         InitializeComponent()
 
-        lblCount.Text = String.Format(lblCount.Text, DateTime.Today.AddMonths(1))
+        lblCount.Text = String.Format(CultureInfo.CurrentCulture, lblCount.Text, DateTime.Today.AddMonths(1))
 
         ' Set the short date/long time pattern based on the current culture
         dtpStartDate.CustomFormat = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern & " " &
@@ -97,8 +96,7 @@ Public Partial Class RRuleTestForm
 
             ' DateTimeCollection is bindable so we can assign it as the list box's data source
             lbDates.DataSource = dc
-            lblCount.Text &= String.Format("Found {0:N0} instances in {1:N2} seconds ({2:N2} instances/second)",
-                count, elapsed, count / elapsed)
+            lblCount.Text &= $"Found {count:N0} instances in {elapsed:N2} seconds ({count / elapsed:N2} instances/second)"
 
         Catch ex As Exception
             MessageBox.Show(ex.ToString())

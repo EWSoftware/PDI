@@ -2,9 +2,8 @@
 ' System  : EWSoftware PDI Demonstration Applications
 ' File    : PhotoControl.vb
 ' Author  : Eric Woodruff  (Eric@EWoodruff.us)
-' Updated : 01/02/2015
-' Note    : Copyright 2004-2015, Eric Woodruff, All rights reserved
-' Compiler: Visual Basic .NET
+' Updated : 01/02/2023
+' Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
 '
 ' This is used to edit a vCard's photo and logo information.  It's nothing elaborate but does let you edit the
 ' properties fairly well.
@@ -23,7 +22,6 @@
 
 Imports System.ComponentModel
 Imports System.IO
-Imports System.Net
 
 ''' <summary>
 ''' A user control for editing vCard photo and logo properties
@@ -52,8 +50,6 @@ Public Partial Class PhotoControl
             Return txtFilename.Text
         End Get
         Set
-            Dim s As Stream = Nothing
-
             ' We probably should also check that the image type is supported and set the image type combo box
             ' too, but this is a demo, so I'm going to leave it for a future enhancement once I get all the other
             ' demos done.
@@ -65,29 +61,40 @@ Public Partial Class PhotoControl
             If Not (Value Is Nothing) AndAlso (Value.StartsWith("http:", StringComparison.OrdinalIgnoreCase) OrElse
               Value.StartsWith("https:", StringComparison.OrdinalIgnoreCase) OrElse
               Value.StartsWith("file:", StringComparison.OrdinalIgnoreCase)) Then
+#If NETFRAMEWORK
                 Try
-                    If Value.StartsWith("http:", StringComparison.OrdinalIgnoreCase) = True Or _
-                      Value.StartsWith("https:", StringComparison.OrdinalIgnoreCase) = True Then
-                        Dim wrq As HttpWebRequest = DirectCast(WebRequest.Create(New Uri(Value)), HttpWebRequest)
+                    Net.ServicePointManager.SecurityProtocol = 3072
 
-                        Dim wrsp As WebResponse = wrq.GetResponse()
-                        s = wrsp.GetResponseStream()
-                    Else
-                        If Value.StartsWith("file:", StringComparison.OrdinalIgnoreCase) = True Then
-                            Dim frq As FileWebRequest = DirectCast(WebRequest.Create(New Uri(Value)), FileWebRequest)
-                            Dim frsp As WebResponse = frq.GetResponse()
-                            s = frsp.GetResponseStream()
-                        End If
-                    End If
+                    Dim wrq = Net.WebRequest.Create(New Uri(value))
+
+                    Using wrsp = wrq.GetResponse()
+                        Using s = wrsp.GetResponseStream()
+                            bmImage.Dispose()
+                            bmImage = New Bitmap(s)
+                        End Using
+                    End Using
+                Catch
+                    ' Ignore it, just create a blank image
+                    bmImage = new Bitmap(1, 1)
+                End Try
+#Else
+                Try
+                    Dim imageBytes As Byte()
+
+                    Using c As New System.Net.Http.HttpClient()
+                        imageBytes = c.GetByteArrayAsync(new Uri(value)).Result
+                    End Using
 
                     bmImage.Dispose()
-                    bmImage = New Bitmap(s)
+
+                    Using ms As New MemoryStream(imageBytes)
+                        bmImage = new Bitmap(ms)
+                    End Using
                 Catch
                     ' Ignore it, just create a blank image
                     bmImage = New Bitmap(1, 1)
-                Finally
-                    If Not (s Is Nothing) Then s.Close()
                 End Try
+#End If
             Else
                 Try
                     bmImage.Dispose()
