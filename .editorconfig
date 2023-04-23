@@ -1,11 +1,18 @@
-# Top-most EditorConfig file
-root = true
-
-# Don't use tabs for indentation unless otherwise overridden
 [*]
+# Don't use tabs for indentation unless otherwise overridden
 indent_style = space
 end_of_line = crlf
+guidelines = 80 dotted, 114 dotted
 # (Please don't specify an indent_size here; that has too many unintended consequences.)
+
+# VSSPELL: Spell checker settings for all files
+vsspell_section_id = c3dde3791ccd496a9a3bfd0c6940e0dd
+vsspell_ignored_words_c3dde3791ccd496a9a3bfd0c6940e0dd = File:IgnoredWords.dic
+
+[*.{ics,vcf}]
+# VSSPELL: Ignore spell checking in .ics and .vcf files
+vsspell_spell_check_as_you_type = false
+vsspell_include_in_project_spell_check = false
 
 # XML files of various types
 [*.{aml,asax,ascx,asmx,asp,aspx,axml,config,content,cshtml,csproj,database,datasource,dbml,disco,discomap,dtsx,edmx,exclude,fxcop,htm,html,items,layout,maml,manifest,master,msha,myapp,nunit,nuspec,proj,projitems,props,publishproj,pubxml,rdl,rdlc,resx,ruleset,settings,shfbproj,shproj,sitemap,snippets,soap,svc,svcinfo,svcmap,targets,tasks,tokens,vbhtml,vbproj,vcxproj,vcxproj.filters,vsct,vsixmanifest,vstemplate,webinfo,wsdl,xaml,xamlcfg,xml,xsd,xsl,xslt,xsx}]

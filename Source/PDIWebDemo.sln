@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PDIWebDemoCS", "CSharpDemos\PDIWebDemoCS\", "{60252946-B338-4A43-B49A-350776966EAB}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -53,9 +53,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{760BE6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3A883170-D3A8-4356-A405-1755B7DA5E4F}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		Common.vsspell = Common.vsspell
-		PDIWebDemo.sln.vsspell = PDIWebDemo.sln.vsspell
+		..\.editorconfig = ..\.editorconfig
+		..\IgnoredWords.dic = ..\IgnoredWords.dic
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWSoftware.PDI", "EWSPDI\EWSoftware.PDI.csproj", "{1A26024A-D3A3-4F39-AC16-13467866E54E}"

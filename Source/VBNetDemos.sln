@@ -2,17 +2,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PDIWinFormsTest", "VBNetDemos\PDIWinFormsTest\PDIWinFormsTest.vbproj", "{32B39562-144C-4272-9251-1FC72D7D4303}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "PDIWinFormsTest", "VBNetDemos\PDIWinFormsTest\PDIWinFormsTest.vbproj", "{32B39562-144C-4272-9251-1FC72D7D4303}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "vCardBrowser", "VBNetDemos\vCardBrowser\vCardBrowser.vbproj", "{DC514DED-802F-4871-A220-661C0E697A54}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "vCardBrowser", "VBNetDemos\vCardBrowser\vCardBrowser.vbproj", "{DC514DED-802F-4871-A220-661C0E697A54}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CalendarBrowser", "VBNetDemos\CalendarBrowser\CalendarBrowser.vbproj", "{45A94A5D-36E8-41CC-A013-88B44A97F5E3}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "CalendarBrowser", "VBNetDemos\CalendarBrowser\CalendarBrowser.vbproj", "{45A94A5D-36E8-41CC-A013-88B44A97F5E3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E4FCD09-D7DE-448A-B2DD-DE5168D6A54B}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		Common.vsspell = Common.vsspell
-		VBNetDemos.sln.vsspell = VBNetDemos.sln.vsspell
+		..\.editorconfig = ..\.editorconfig
+		..\IgnoredWords.dic = ..\IgnoredWords.dic
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EWSoftware.PDI", "EWSPDI\EWSoftware.PDI.csproj", "{E4BE35A2-31C3-4BE1-A257-413FB78CDD9B}"
