@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NicknameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Nickname property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -35,9 +34,9 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[,;])|(?<=(?:[^\\]))[,;]");
+        private static readonly Regex reSplit = new(@"(?:^[,;])|(?<=(?:[^\\]))[,;]");
 
-        private StringCollection nicknames;
+        private readonly StringCollection nicknames;
 
         #endregion
 
@@ -77,18 +76,15 @@ namespace EWSoftware.PDI.Properties
             get => String.Join(", ", nicknames);
             set
             {
-                string tempName;
-                string[] entries;
-
                 nicknames.Clear();
 
                 if(value != null)
                 {
-                    entries = value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] entries = value.Split([',', ';'], StringSplitOptions.RemoveEmptyEntries);
 
                     foreach(string s in entries)
                     {
-                        tempName = s.Trim();
+                        string tempName = s.Trim();
 
                         if(tempName.Length > 0)
                             nicknames.Add(tempName);
@@ -101,7 +97,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle parsing the nicknames and concatenating them when requested
         /// </summary>
         /// <value>The nicknames are escaped as needed</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -109,7 +105,7 @@ namespace EWSoftware.PDI.Properties
                 if(this.Nicknames.Count == 0)
                     return null;
 
-                StringBuilder sb = new StringBuilder(256);
+                StringBuilder sb = new(256);
 
                 foreach(string s in this.Nicknames)
                 {
@@ -123,19 +119,16 @@ namespace EWSoftware.PDI.Properties
             }
             set
             {
-                string tempName;
-                string[] entries;
-
                 this.Nicknames.Clear();
 
                 if(value != null && value.Length > 0)
                 {
                     // Split on all semi-colons and commas except escaped ones
-                    entries = reSplit.Split(value);
+                    string[] entries = reSplit.Split(value);
 
                     foreach(string s in entries)
                     {
-                        tempName = EncodingUtils.Unescape(s.Trim());
+                        string tempName = EncodingUtils.Unescape(s.Trim())!;
 
                         if(tempName.Length > 0)
                             nicknames.Add(tempName);
@@ -148,7 +141,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle parsing the nicknames and concatenating them when requested
         /// </summary>
         /// <value>The nicknames are escaped as needed</value>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -164,7 +157,7 @@ namespace EWSoftware.PDI.Properties
         public NicknameProperty()
         {
             this.Version = SpecificationVersions.vCard30;
-            nicknames = new StringCollection();
+            nicknames = [];
         }
         #endregion
 
@@ -177,7 +170,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            NicknameProperty o = new NicknameProperty();
+            NicknameProperty o = new();
             o.Clone(this);
             return o;
         }

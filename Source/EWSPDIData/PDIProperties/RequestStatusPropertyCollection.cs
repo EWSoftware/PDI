@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RequestStatusPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for RequestStatusProperty objects.  It is used by the Personal Data
 // Interchange (PDI) iCalendar class.
@@ -66,14 +65,14 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public RequestStatusProperty Add(string code, string message, string data)
         {
-            RequestStatusProperty rs = new RequestStatusProperty
+            RequestStatusProperty rs = new()
             {
                 StatusCode = code,
                 StatusMessage = message,
                 ExtendedData = data
             };
 
-            base.Add(rs);
+            this.Add(rs);
 
             return rs;
         }

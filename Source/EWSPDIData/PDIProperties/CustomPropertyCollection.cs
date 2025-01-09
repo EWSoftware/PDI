@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CustomProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for CustomProperty objects.  It is used with the Personal Data
 // Interchange (PDI) classes such as vCalendar, iCalendar, and vCard.
@@ -65,24 +64,28 @@ namespace EWSoftware.PDI.Properties
         /// <exception cref="ArgumentException">This is thrown if an attempt is made to set an item using a name
         /// that does not exist in the collection.</exception>
         /// <remarks>The property name is case-insensitive</remarks>
-        public CustomProperty this[string propertyName]
+        public CustomProperty? this[string propertyName]
         {
             get
             {
                 for(int idx = 0; idx < base.Count; idx++)
+                {
                     if(String.Compare(base[idx].Tag, propertyName, StringComparison.OrdinalIgnoreCase) == 0)
                         return base[idx];
+                }
 
                 return null;
             }
             set
             {
                 for(int idx = 0; idx < base.Count; idx++)
+                {
                     if(String.Compare(base[idx].Tag, propertyName, StringComparison.OrdinalIgnoreCase) == 0)
                     {
-                        base[idx] = value;
+                        base[idx] = value!;
                         return;
                     }
+                }
 
                 throw new ArgumentException(LR.GetString("ExCPropIDNotFound"));
             }
@@ -100,7 +103,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the newly created custom property</returns>
         public CustomProperty Add(string tag, string propertyValue)
         {
-            CustomProperty cprop = new CustomProperty(tag) { Value = propertyValue };
+            CustomProperty cprop = new(tag) { Value = propertyValue };
 
             base.Add(cprop);
 

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MimeSourceProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains Mime Source property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -58,7 +57,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>The value is a string defining the context of the property value such as LDAP, HTTP, etc.  It
         /// is only applicable to vCard 3.0 objects.</value>
-        public string Context { get; set; }
+        public string? Context { get; set; }
 
         #endregion
 
@@ -83,7 +82,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            MimeSourceProperty o = new MimeSourceProperty();
+            MimeSourceProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -126,6 +125,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "CONTEXT=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -140,6 +140,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

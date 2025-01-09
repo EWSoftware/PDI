@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FormattedNameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Formatted Name property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -55,11 +54,11 @@ namespace EWSoftware.PDI.Properties
         /// specifications.</value>
         /// <exception cref="ArgumentNullException">This is thrown if an attempt is made to set this property to
         /// null.</exception>
-        public override string Value
+        public override string? Value
         {
             get
             {
-                string nameValue = base.Value;
+                string? nameValue = base.Value;
 
                 if(String.IsNullOrWhiteSpace(nameValue))
                     return "Unknown";
@@ -76,11 +75,11 @@ namespace EWSoftware.PDI.Properties
         /// specifications.</value>
         /// <exception cref="ArgumentNullException">This is thrown if an attempt is made to set this property to
         /// null.</exception>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
-                string nameValue = base.EncodedValue;
+                string? nameValue = base.EncodedValue;
 
                 if(String.IsNullOrWhiteSpace(nameValue))
                     return "Unknown";
@@ -111,7 +110,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            FormattedNameProperty o = new FormattedNameProperty();
+            FormattedNameProperty o = new();
             o.Clone(this);
             return o;
         }

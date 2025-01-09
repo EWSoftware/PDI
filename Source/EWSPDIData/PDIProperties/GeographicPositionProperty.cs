@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : GeographicPositionProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 05/17/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 // Compiler: Microsoft Visual C#
 //
 // This file contains Geographic Position property class used by the Personal Data Interchange (PDI) classes
@@ -80,7 +80,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the component parts to/from their string form
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -105,7 +105,7 @@ namespace EWSoftware.PDI.Properties
 
                 if(!String.IsNullOrWhiteSpace(value))
                 {
-                    if(value.StartsWith("geo:", StringComparison.OrdinalIgnoreCase))
+                    if(value!.StartsWith("geo:", StringComparison.OrdinalIgnoreCase))
                     {
                         this.IncludeGeoUriPrefix = true;
                         value = value.Substring(4);
@@ -113,7 +113,7 @@ namespace EWSoftware.PDI.Properties
                     else
                         this.IncludeGeoUriPrefix = false;
 
-                    string[] parts = value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] parts = value.Split([',', ';'], StringSplitOptions.RemoveEmptyEntries);
 
                     if(parts.Length == 2)
                     {
@@ -127,7 +127,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the component parts to/from their string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -157,7 +157,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            GeographicPositionProperty o = new GeographicPositionProperty();
+            GeographicPositionProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -174,7 +174,6 @@ namespace EWSoftware.PDI.Properties
 
             base.Clone(p);
         }
-
 
         /// <summary>
         /// The specifications do not allow parameters for this property.  Any parameters are ignored.

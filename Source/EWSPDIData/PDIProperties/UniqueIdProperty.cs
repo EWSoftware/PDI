@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : UniqueIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Unique ID property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -67,12 +66,12 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to create a unique ID if one does not already exist
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
                 if(String.IsNullOrWhiteSpace(base.Value))
-                    base.Value = System.Guid.NewGuid().ToString().ToUpperInvariant();
+                    base.Value = Guid.NewGuid().ToString().ToUpperInvariant();
 
                 return base.Value;
             }
@@ -82,7 +81,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to create a unique ID if one does not already exist
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => base.Value = value;
@@ -111,7 +110,7 @@ namespace EWSoftware.PDI.Properties
         /// calendar.  You must manually assign a new unique ID after cloning if necessary.</remarks>
         public override object Clone()
         {
-            UniqueIdProperty o = new UniqueIdProperty();
+            UniqueIdProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -139,13 +138,13 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <param name="forceNew">If true, a new unique ID is assigned regardless of whether one already exists.
         /// If false and the object already has a unique ID, it keeps the old one.</param>
-        /// <returns>It returns the new unique ID</returns>
+        /// <returns>It returns the new or existing unique ID</returns>
         public string AssignNewId(bool forceNew)
         {
             if(!String.IsNullOrWhiteSpace(base.Value) && forceNew)
                 base.Value = null;
 
-            return this.Value;
+            return this.Value!;
         }
         #endregion
     }

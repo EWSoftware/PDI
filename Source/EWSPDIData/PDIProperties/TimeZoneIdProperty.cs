@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Time Zone ID property classes used by the Personal Data Interchange (PDI) iCalendar
 // classes.
@@ -58,7 +57,7 @@ namespace EWSoftware.PDI.Properties
         /// This is overridden to raise the <see cref="TimeZoneIdChanged"/> event when the ID changes
         /// </summary>
         /// <exception cref="ArgumentException">This is thrown if the value is set to null or an empty string</exception>
-        public override string Value
+        public override string? Value
         {
             get => base.Value;
             set
@@ -66,7 +65,7 @@ namespace EWSoftware.PDI.Properties
                 if(String.IsNullOrWhiteSpace(value))
                     throw new ArgumentException(LR.GetString("ExTZIDCannotBeNull"));
 
-                string oldId = base.Value;
+                string? oldId = base.Value;
 
                 // If changed, set it and raise the TimeZoneIdChanged event except on first use (old ID = null)
                 if(oldId != value)
@@ -83,7 +82,7 @@ namespace EWSoftware.PDI.Properties
         /// This is overridden to raise the <see cref="TimeZoneIdChanged"/> event when the ID changes
         /// </summary>
         /// <exception cref="ArgumentException">This is thrown if the value is set to null</exception>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => base.EncodedValue;
             set
@@ -95,7 +94,7 @@ namespace EWSoftware.PDI.Properties
                 // The decoded values are sent as the event arguments, not the encoded values.
                 if(base.EncodedValue != value)
                 {
-                    string oldId = base.Value;
+                    string? oldId = base.Value;
 
                     base.EncodedValue = value;
 
@@ -112,7 +111,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This event is raised when the <see cref="Value"/> property is changed
         /// </summary>
-        public event EventHandler<TimeZoneIdChangedEventArgs> TimeZoneIdChanged;
+        public event EventHandler<TimeZoneIdChangedEventArgs>? TimeZoneIdChanged;
 
         /// <summary>
         /// This raises the <see cref="TimeZoneIdChanged"/> event
@@ -145,7 +144,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TimeZoneIdProperty o = new TimeZoneIdProperty();
+            TimeZoneIdProperty o = new();
             o.Clone(this);
             return o;
         }

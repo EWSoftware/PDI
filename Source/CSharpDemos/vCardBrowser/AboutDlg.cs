@@ -1,9 +1,8 @@
 //===============================================================================================================
 // File    : AboutDlg.cs
 // Author  : Eric Woodruff
-// Updated : 11/23/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This form is used to display application version information
 //
@@ -25,7 +24,7 @@ using System.Windows.Forms;
 
 namespace vCardBrowser
 {
-    public partial class AboutDlg : System.Windows.Forms.Form
+    public partial class AboutDlg : Form
     {
         #region Constructor
         //=====================================================================
@@ -50,13 +49,13 @@ namespace vCardBrowser
         private void AboutDlg_Load(object sender, EventArgs e)
         {
             // Get assembly information not available from the application object
-            Assembly asm = Assembly.GetEntryAssembly();
+            Assembly asm = Assembly.GetEntryAssembly()!;
             AssemblyTitleAttribute title = (AssemblyTitleAttribute)
-                AssemblyTitleAttribute.GetCustomAttribute(asm, typeof(AssemblyTitleAttribute));
+                Attribute.GetCustomAttribute(asm, typeof(AssemblyTitleAttribute))!;
             AssemblyCopyrightAttribute copyright = (AssemblyCopyrightAttribute)
-                AssemblyCopyrightAttribute.GetCustomAttribute(asm, typeof(AssemblyCopyrightAttribute));
+                Attribute.GetCustomAttribute(asm, typeof(AssemblyCopyrightAttribute))!;
             AssemblyDescriptionAttribute desc = (AssemblyDescriptionAttribute)
-                AssemblyDescriptionAttribute.GetCustomAttribute(asm, typeof(AssemblyDescriptionAttribute));
+                Attribute.GetCustomAttribute(asm, typeof(AssemblyDescriptionAttribute))!;
 
             // Set the labels
             lblName.Text = title.Title;
@@ -68,7 +67,7 @@ namespace vCardBrowser
             foreach(AssemblyName an in asm.GetReferencedAssemblies())
             {
                 ListViewItem lvi = lvComponents.Items.Add(an.Name);
-                lvi.SubItems.Add(an.Version.ToString());
+                lvi.SubItems.Add(an.Version!.ToString());
             }
 
             lvComponents.Sorting = SortOrder.Ascending;
@@ -109,7 +108,11 @@ namespace vCardBrowser
             try
             {
                 // Launch the e-mail URL, this will fail if user does not have an association for e-mail URLs
-                System.Diagnostics.Process.Start((string)e.Link.LinkData);
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = (string)e.Link!.LinkData!,
+                    UseShellExecute = true,
+                });
             }
             catch(Exception ex)
             {

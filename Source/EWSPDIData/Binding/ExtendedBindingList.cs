@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ExtendedBindingList.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a generic, bindable base class used to hold a collection of items and supports various
 // useful features such as sorting and searching.
@@ -40,7 +39,7 @@ namespace EWSoftware.PDI.Binding
         private bool isSorted;
 
         // The property descriptor and direction for the current sort
-        private PropertyDescriptor sortProperty;
+        private PropertyDescriptor? sortProperty;
         private ListSortDirection sortDirection;
 
         #endregion
@@ -81,8 +80,10 @@ namespace EWSoftware.PDI.Binding
         public void AddRange(T[] items)
         {
             if(items != null)
+            {
                 foreach(T item in items)
-                    base.Add(item);
+                    this.Add(item);
+            }
         }
 
         /// <summary>
@@ -94,8 +95,10 @@ namespace EWSoftware.PDI.Binding
         public ExtendedBindingList<T> CloneRange(IEnumerable<T> items)
         {
             if(items != null)
+            {
                 foreach(T item in items)
-                    base.Add((T)item.Clone());
+                    this.Add((T)item.Clone());
+            }
 
             return this;
         }
@@ -112,7 +115,7 @@ namespace EWSoftware.PDI.Binding
         /// <returns>Returns true if at least one item matches the conditions or false if none of them do</returns>
         public bool Exists(Predicate<T> match)
         {
-            return (((List<T>)base.Items).FindIndex(0, base.Count, match) != -1);
+            return ((List<T>)this.Items).FindIndex(0, this.Count, match) != -1;
         }
 
         /// <summary>
@@ -123,7 +126,7 @@ namespace EWSoftware.PDI.Binding
         /// is found.</returns>
         public T Find(Predicate<T> match)
         {
-            return ((List<T>)base.Items).Find(match);
+            return ((List<T>)this.Items).Find(match);
         }
 
         /// <summary>
@@ -134,12 +137,9 @@ namespace EWSoftware.PDI.Binding
         /// conditions defined by the specified predicate.  If none are found, the collection will be empty.</returns>
         public ExtendedBindingList<T> FindAll(Predicate<T> match)
         {
-            List<T> foundItems = ((List<T>)base.Items).FindAll(match);
+            List<T> foundItems = ((List<T>)this.Items).FindAll(match);
 
-            ExtendedBindingList<T> collection = new ExtendedBindingList<T>();
-
-            foreach(T item in foundItems)
-                collection.Add(item);
+            ExtendedBindingList<T> collection = [.. foundItems];
 
             return collection;
         }
@@ -154,7 +154,7 @@ namespace EWSoftware.PDI.Binding
         /// <overloads>There are three overloads for this method.</overloads>
         public int FindIndex(Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindIndex(0, base.Count, match);
+            return ((List<T>)this.Items).FindIndex(0, this.Count, match);
         }
 
         /// <summary>
@@ -167,7 +167,7 @@ namespace EWSoftware.PDI.Binding
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindIndex(int startIndex, Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindIndex(startIndex, base.Count, match);
+            return ((List<T>)this.Items).FindIndex(startIndex, this.Count, match);
         }
 
         /// <summary>
@@ -181,7 +181,7 @@ namespace EWSoftware.PDI.Binding
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindIndex(int startIndex, int count, Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindIndex(startIndex, count, match);
+            return ((List<T>)this.Items).FindIndex(startIndex, count, match);
         }
 
         /// <summary>
@@ -192,7 +192,7 @@ namespace EWSoftware.PDI.Binding
         /// is found.</returns>
         public T FindLast(Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindLast(match);
+            return ((List<T>)this.Items).FindLast(match);
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace EWSoftware.PDI.Binding
         /// <overloads>There are three overloads for this method</overloads>
         public int FindLastIndex(Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindLastIndex(0, base.Count, match);
+            return ((List<T>)this.Items).FindLastIndex(0, this.Count, match);
         }
 
         /// <summary>
@@ -219,7 +219,7 @@ namespace EWSoftware.PDI.Binding
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindLastIndex(int startIndex, Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindLastIndex(startIndex, base.Count, match);
+            return ((List<T>)this.Items).FindLastIndex(startIndex, this.Count, match);
         }
 
         /// <summary>
@@ -234,7 +234,7 @@ namespace EWSoftware.PDI.Binding
         /// defined by the predicate or -1 if nothing is found.</returns>
         public int FindLastIndex(int startIndex, int count, Predicate<T> match)
         {
-            return ((List<T>)base.Items).FindLastIndex(startIndex, count, match);
+            return ((List<T>)this.Items).FindLastIndex(startIndex, count, match);
         }
 
         /// <summary>
@@ -243,7 +243,7 @@ namespace EWSoftware.PDI.Binding
         /// <param name="action">The <see cref="Action{T}"/> delegate to perform on each item in the collection</param>
         public void ForEach(Action<T> action)
         {
-            ((List<T>)base.Items).ForEach(action);
+            ((List<T>)this.Items).ForEach(action);
         }
 
         /// <summary>
@@ -253,7 +253,7 @@ namespace EWSoftware.PDI.Binding
         /// <returns>Returns the number of items removed from the collection</returns>
         public int RemoveAll(Predicate<T> match)
         {
-            int count = ((List<T>)base.Items).RemoveAll(match);
+            int count = ((List<T>)this.Items).RemoveAll(match);
 
             if(count != 0)
                 base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
@@ -268,7 +268,7 @@ namespace EWSoftware.PDI.Binding
         /// <param name="count">The number of items to remove</param>
         public void RemoveRange(int index, int count)
         {
-            ((List<T>)base.Items).RemoveRange(index, count);
+            ((List<T>)this.Items).RemoveRange(index, count);
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -279,7 +279,7 @@ namespace EWSoftware.PDI.Binding
         /// <overloads>There are three overloads for this method</overloads>
         public void Sort()
         {
-            ((List<T>)base.Items).Sort(0, base.Count, null);
+            ((List<T>)this.Items).Sort(0, this.Count, null);
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -291,7 +291,7 @@ namespace EWSoftware.PDI.Binding
         /// null to use the default comparer.</param>
         public void Sort(IComparer<T> comparer)
         {
-            ((List<T>)base.Items).Sort(comparer);
+            ((List<T>)this.Items).Sort(comparer);
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -302,7 +302,7 @@ namespace EWSoftware.PDI.Binding
         /// <param name="comparison">The <see cref="Comparison{T}"/> delegate to use for the comparisons</param>
         public void Sort(Comparison<T> comparison)
         {
-            ((List<T>)base.Items).Sort(comparison);
+            ((List<T>)this.Items).Sort(comparison);
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -317,7 +317,7 @@ namespace EWSoftware.PDI.Binding
         /// conditions.</returns>
         public bool TrueForAll(Predicate<T> match)
         {
-            return ((List<T>)base.Items).TrueForAll(match);
+            return ((List<T>)this.Items).TrueForAll(match);
         }
         #endregion
 
@@ -344,7 +344,7 @@ namespace EWSoftware.PDI.Binding
         /// <summary>
         /// This returns the current property descriptor if sorting has been applied
         /// </summary>
-        protected override PropertyDescriptor SortPropertyCore => sortProperty;
+        protected override PropertyDescriptor? SortPropertyCore => sortProperty;
 
         /// <summary>
         /// This is overridden to apply a sort based on the selected property descriptor and sort direction
@@ -353,8 +353,8 @@ namespace EWSoftware.PDI.Binding
         /// <param name="direction">The direction of the sort</param>
         protected override void ApplySortCore(PropertyDescriptor prop, ListSortDirection direction)
         {
-            PropertyComparer<T> comparer = new PropertyComparer<T>(prop, direction);
-            ((List<T>)base.Items).Sort(comparer);
+            PropertyComparer<T> comparer = new(prop, direction);
+            ((List<T>)this.Items).Sort(comparer);
 
             sortProperty = prop;
             sortDirection = direction;
@@ -393,31 +393,33 @@ namespace EWSoftware.PDI.Binding
         /// the specified value.</returns>
         protected override int FindCore(PropertyDescriptor prop, object key)
         {
-            return ((List<T>)base.Items).FindIndex(0, base.Count, (x) =>
+            return ((List<T>)this.Items).FindIndex(0, this.Count, x =>
+            {
+                int result;
+
+                object? value = PropertyComparer<T>.GetPropertyValue(x, prop.Name);
+
+                // Handle null values first
+                if(key == null && value == null)
+                    return true;
+
+                if((key == null && value != null) || (key != null && value == null))
+                    return false;
+
+                // Try comparing using IComparable.  If that won't work, see if they are equal.  If not,
+                // compare them as strings.
+                if(key is IComparable c)
+                    result = c.CompareTo(value);
+                else
                 {
-                    int result;
-
-                    object value = PropertyComparer<T>.GetPropertyValue(x, prop.Name);
-
-                    // Handle null values first
-                    if(key == null && value == null)
-                        return true;
-
-                    if((key == null && value != null) || (key != null && value == null))
-                        return false;
-
-                    // Try comparing using IComparable.  If that won't work, see if they are equal.  If not,
-                    // compare them as strings.
-                    if(key is IComparable)
-                        result = ((IComparable)key).CompareTo(value);
+                    if(key!.Equals(value))
+                        result = 0;
                     else
-                        if(key.Equals(value))
-                            result = 0;
-                        else
-                            result = String.Compare(key.ToString(), value.ToString(), StringComparison.Ordinal);
+                        result = String.Compare(key.ToString(), value!.ToString(), StringComparison.Ordinal);
+                }
 
-                    return (result == 0);
-                });
+                return result == 0;
+            });
         }
         #endregion
     }

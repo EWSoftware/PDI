@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : SpecificationVersions.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This enumerated type defines the various specification versions that can be supported by the objects
 //
@@ -27,9 +26,9 @@ namespace EWSoftware.PDI.Properties
     /// <summary>
     /// This enumerated type defines the various specification versions that can be supported by the objects
     /// </summary>
-    /// <seealso cref="EWSoftware.PDI.Objects.VCard"/>
-    /// <seealso cref="EWSoftware.PDI.Objects.VCalendar"/>
-    /// <seealso cref="EWSoftware.PDI.Objects.VNote"/>
+    /// <seealso cref="Objects.VCard"/>
+    /// <seealso cref="Objects.VCalendar"/>
+    /// <seealso cref="Objects.VNote"/>
     [Flags, Serializable]
     public enum SpecificationVersions
     {

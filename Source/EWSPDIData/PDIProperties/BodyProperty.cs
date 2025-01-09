@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BodyProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Body property.  It is used with the Personal Data Interchange (PDI) vNote class.
 //
@@ -69,7 +68,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            BodyProperty o = new BodyProperty();
+            BodyProperty o = new();
             o.Clone(this);
             return o;
         }

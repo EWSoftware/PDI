@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VFreeBusyDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a VFreeBusy object's properties
 //
@@ -61,7 +61,7 @@ namespace CalendarBrowser
             cboTimeZone.Items.Add("No time zone");
 
             foreach(VTimeZone tz in VCalendar.TimeZones)
-                cboTimeZone.Items.Add(tz.TimeZoneId.Value);
+                cboTimeZone.Items.Add(tz.TimeZoneId.Value!);
 
             cboTimeZone.SelectedIndex = 0;
 		}
@@ -79,7 +79,7 @@ namespace CalendarBrowser
             if(fb == null)
                 throw new ArgumentNullException(nameof(fb));
 
-            string timeZoneId = fb.StartDateTime.TimeZoneId;
+            string? timeZoneId = fb.StartDateTime.TimeZoneId;
 
             txtUniqueId.Text = fb.UniqueId.Value;
             txtOrganizer.Text = fb.Organizer.Value;
@@ -204,7 +204,7 @@ namespace CalendarBrowser
         private void btnApplyTZ_Click(object sender, EventArgs e)
         {
             DateTimeInstance dti;
-            string sourceTZ, destTZ;
+            string? sourceTZ, destTZ;
 
             if(cboTimeZone.SelectedIndex == timeZoneIdx)
             {
@@ -224,9 +224,9 @@ namespace CalendarBrowser
             if(timeZoneIdx == 0)
                 sourceTZ = null;
             else
-                sourceTZ = (string)cboTimeZone.Items[timeZoneIdx];
+                sourceTZ = (string)cboTimeZone.Items[timeZoneIdx]!;
 
-            destTZ = (string)cboTimeZone.Items[cboTimeZone.SelectedIndex];
+            destTZ = (string)cboTimeZone.Items[cboTimeZone.SelectedIndex]!;
 
             // Convert the times
             if(sourceTZ == null)
@@ -299,12 +299,14 @@ namespace CalendarBrowser
                 e.Cancel = true;
             }
             else
+            {
                 if(!ucFreeBusy.ValidateItems())
                 {
                     tabInfo.SelectedTab = pgFreeBusy;
                     ucFreeBusy.Focus();
                     e.Cancel = true;
                 }
+            }
         }
         #endregion
 	}

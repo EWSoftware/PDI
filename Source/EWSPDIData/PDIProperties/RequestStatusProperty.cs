@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RequestStatusProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Request Status property.  It is used with the iCalendar Personal Data Interchange
 // (PDI) classes.
@@ -52,36 +51,36 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to get or set the status code value
         /// </summary>
-        public string StatusCode { get; set; }
+        public string? StatusCode { get; set; }
 
         /// <summary>
         /// This is used to get or set the status message
         /// </summary>
-        public string StatusMessage { get; set; }
+        public string? StatusMessage { get; set; }
 
         /// <summary>
         /// This is used to get or set the extended data value
         /// </summary>
-        public string ExtendedData { get; set; }
+        public string? ExtendedData { get; set; }
 
         /// <summary>
         /// This property is overridden to handle parsing the request status components and concatenating them
         /// when requested.
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
-                string statValue = null;
+                string? statValue = null;
 
                 // Return nothing if undefined
                 if(!String.IsNullOrWhiteSpace(this.StatusCode) || !String.IsNullOrWhiteSpace(this.StatusMessage) ||
                    !String.IsNullOrWhiteSpace(this.ExtendedData))
                 {
-                    statValue = String.Join(";", new[] { this.StatusCode, this.StatusMessage });
+                    statValue = String.Join(";", [this.StatusCode, this.StatusMessage]);
 
                     if(!String.IsNullOrWhiteSpace(this.ExtendedData))
-                        statValue = String.Join(";", new[] { statValue, this.ExtendedData });
+                        statValue = String.Join(";", [statValue, this.ExtendedData]);
                 }
 
                 return statValue;
@@ -110,7 +109,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle parsing the request status components and concatenating them
         /// when requested.
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -138,7 +137,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            RequestStatusProperty o = new RequestStatusProperty();
+            RequestStatusProperty o = new();
             o.Clone(this);
             return o;
         }

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DateUtils.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a sealed class that contains various helpful date utility methods used by other classes in
 // the PDI library.
@@ -35,13 +34,13 @@ namespace EWSoftware.PDI
         //=====================================================================
 
         // These are used to parse date/time strings in ISO 8601 format
-        private static Regex reISO8601 = new Regex(@"^\s*(?<Year>\d{4})-?" +
+        private static readonly Regex reISO8601 = new(@"^\s*(?<Year>\d{4})-?" +
             @"(?<Month>\d{2})-?(?<Day>\d{2})(?<Time>T(?<Hour>\d{2}):?" +
             @"(?<Minutes>\d{2})?:?(?<Seconds>\d{2}(\.\d*)?)?)?((?<Zulu>Z)|" +
             @"((?<TZHours>(\+|-)\d{2})(:?(?<TZMinutes>\d{2})?)))?\s*$",
             RegexOptions.IgnoreCase);
 
-        private static Regex reTimeZone = new Regex(
+        private static readonly Regex reTimeZone = new(
             @"^\s*(?<TZHours>(\+|-)\d{2})(:?(?<TZMinutes>\d{2})?)(:?(?<TZSeconds>\d{2})?)\s*$");
 
         #endregion
@@ -164,15 +163,17 @@ namespace EWSoftware.PDI
         public static DateTime CalculateFixedDate(int year, int month, int day)
         {
             // Get the date and the day if falls on
-            DateTime dtDate = new DateTime(year, month, day);
+            DateTime dtDate = new(year, month, day);
             DayOfWeek dowDay = dtDate.DayOfWeek;
 
             // Adjust for weekend if necessary
             if(dowDay == DayOfWeek.Sunday)
                 dtDate = dtDate.AddDays(1);
             else
+            {
                 if(dowDay == DayOfWeek.Saturday)
                     dtDate = dtDate.AddDays(-1);
+            }
 
             return dtDate;
         }
@@ -234,8 +235,8 @@ namespace EWSoftware.PDI
         /// </example>
         /// <exception cref="ArgumentException">This is thrown if <c>None</c> is passed for the <c>DayOccurrence</c>
         /// parameter.</exception>
-        public static DateTime CalculateFloatingDate(int year, int month, DayOccurrence occur,
-          System.DayOfWeek dowDay, int offset)
+        public static DateTime CalculateFloatingDate(int year, int month, DayOccurrence occur, DayOfWeek dowDay,
+          int offset)
         {
             DateTime dtDate;
 

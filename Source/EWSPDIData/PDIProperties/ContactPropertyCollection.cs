@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ContactPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for ContactProperty objects.  It is used with the iCalendar Personal
 // Data Interchange (PDI) classes.
@@ -63,7 +62,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public ContactProperty Add(string contact)
         {
-            ContactProperty c = new ContactProperty { Value = contact };
+            ContactProperty c = new() { Value = contact };
 
             base.Add(c);
 

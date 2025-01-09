@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DurationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Duration property class used by the Personal Data Interchange (PDI) vCalendar and
 // iCalendar classes.
@@ -61,7 +60,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Due to the variable nature of the definition of months and years, the value is always returned
         /// with the maximum unit of time expressed in weeks if needed.</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -77,7 +76,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to a duration object
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -105,7 +104,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            DurationProperty o = new DurationProperty();
+            DurationProperty o = new();
             o.Clone(this);
             return o;
         }

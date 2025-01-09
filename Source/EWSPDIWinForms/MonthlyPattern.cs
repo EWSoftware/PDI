@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : MonthlyPattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
 // parameters.  This one is used to specify the settings for a monthly recurrence pattern.
@@ -21,7 +20,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace EWSoftware.PDI.Windows.Forms
 {
@@ -77,28 +75,28 @@ namespace EWSoftware.PDI.Windows.Forms
                 recurrence.Interval = (int)udcDOWMonths.Value;
 
                 // If it's a single day, use ByDay.  If it's a combination, use ByDay with BySetPos
-                rd = (DaysOfWeek)cboDOW.SelectedValue;
-                instance = ((DayOccurrence)cboOccurrence.SelectedValue == DayOccurrence.Last) ? -1 :
+                rd = (DaysOfWeek)cboDOW.SelectedValue!;
+                instance = ((DayOccurrence)cboOccurrence.SelectedValue! == DayOccurrence.Last) ? -1 :
                     (int)cboOccurrence.SelectedValue;
 
                 switch(rd)
                 {
                     case DaysOfWeek.EveryDay:
                         recurrence.BySetPos.Add(instance);
-                        recurrence.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Sunday, DayOfWeek.Monday,
+                        recurrence.ByDay.AddRange([ DayOfWeek.Sunday, DayOfWeek.Monday,
                             DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday,
-                            DayOfWeek.Saturday });
+                            DayOfWeek.Saturday ]);
                         break;
 
                     case DaysOfWeek.Weekdays:
                         recurrence.BySetPos.Add(instance);
-                        recurrence.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Monday, DayOfWeek.Tuesday,
-                            DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday });
+                        recurrence.ByDay.AddRange([ DayOfWeek.Monday, DayOfWeek.Tuesday,
+                            DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday ]);
                         break;
 
                     case DaysOfWeek.Weekends:
                         recurrence.BySetPos.Add(instance);
-                        recurrence.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Sunday, DayOfWeek.Saturday });
+                        recurrence.ByDay.AddRange([DayOfWeek.Sunday, DayOfWeek.Saturday]);
                         break;
 
                     default:
@@ -111,29 +109,29 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// This is called to set the values for the controls based on the current recurrence settings
         /// </summary>
-        /// <param name="rrecurrence">The recurrence object from which to get the settings</param>
-        public void SetValues(Recurrence rrecurrence)
+        /// <param name="recurrence">The recurrence object from which to get the settings</param>
+        public void SetValues(Recurrence recurrence)
         {
             DaysOfWeek rd = DaysOfWeek.None;
 
             rbDayXEveryYMonths.Checked = true;
 
             // Use default values if not a monthly frequency
-            if(rrecurrence.Frequency != RecurFrequency.Monthly)
+            if(recurrence.Frequency != RecurFrequency.Monthly)
             {
                 udcDay.Value = udcMonths.Value = udcDOWMonths.Value = 1;
                 cboOccurrence.SelectedIndex = cboDOW.SelectedIndex = 0;
             }
             else
             {
-                if(rrecurrence.ByDay.Count == 0)
+                if(recurrence.ByDay.Count == 0)
                 {
-                    if(rrecurrence.ByMonthDay.Count != 0)
-                        udcDay.Value = rrecurrence.ByMonthDay[0];
+                    if(recurrence.ByMonthDay.Count != 0)
+                        udcDay.Value = recurrence.ByMonthDay[0];
                     else
-                        udcDay.Value = rrecurrence.StartDateTime.Day;
+                        udcDay.Value = recurrence.StartDateTime.Day;
 
-                    udcMonths.Value = (rrecurrence.Interval < 1000) ? rrecurrence.Interval : 999;
+                    udcMonths.Value = (recurrence.Interval < 1000) ? recurrence.Interval : 999;
 
                     cboOccurrence.SelectedIndex = cboDOW.SelectedIndex = 0;
                     udcDOWMonths.Value = 1;
@@ -143,28 +141,31 @@ namespace EWSoftware.PDI.Windows.Forms
                     rbDayOfWeek.Checked = true;
 
                     udcDay.Value = udcMonths.Value = 1;
-                    udcDOWMonths.Value = (rrecurrence.Interval < 1000) ? rrecurrence.Interval : 999;
+                    udcDOWMonths.Value = (recurrence.Interval < 1000) ? recurrence.Interval : 999;
 
                     // If it's a single day, use ByDay.  If it's a combination, use ByDay with BySetPos.
-                    if(rrecurrence.ByDay.Count == 1)
+                    if(recurrence.ByDay.Count == 1)
                     {
-                        cboOccurrence.SelectedValue = (rrecurrence.ByDay[0].Instance < 1 ||
-                          rrecurrence.ByDay[0].Instance > 4) ? DayOccurrence.Last :
-                            (DayOccurrence)rrecurrence.ByDay[0].Instance;
+                        cboOccurrence.SelectedValue = (recurrence.ByDay[0].Instance < 1 ||
+                          recurrence.ByDay[0].Instance > 4) ? DayOccurrence.Last :
+                            (DayOccurrence)recurrence.ByDay[0].Instance;
 
-                        cboDOW.SelectedValue = DateUtils.ToDaysOfWeek(rrecurrence.ByDay[0].DayOfWeek);
+                        cboDOW.SelectedValue = DateUtils.ToDaysOfWeek(recurrence.ByDay[0].DayOfWeek);
                     }
                     else
                     {
-                        if(rrecurrence.BySetPos.Count == 0)
+                        if(recurrence.BySetPos.Count == 0)
                             cboOccurrence.SelectedIndex = 0;
                         else
-                            cboOccurrence.SelectedValue = (rrecurrence.BySetPos[0] < 1 ||
-                              rrecurrence.BySetPos[0] > 4) ? DayOccurrence.Last :
-                                (DayOccurrence)rrecurrence.BySetPos[0];
+                        {
+                            cboOccurrence.SelectedValue = (recurrence.BySetPos[0] < 1 ||
+                              recurrence.BySetPos[0] > 4) ? DayOccurrence.Last :
+                                (DayOccurrence)recurrence.BySetPos[0];
+                        }
 
                         // Figure out days used
-                        foreach(DayInstance di in rrecurrence.ByDay)
+                        foreach(DayInstance di in recurrence.ByDay)
+                        {
                             switch(di.DayOfWeek)
                             {
                                 case DayOfWeek.Sunday:
@@ -195,11 +196,14 @@ namespace EWSoftware.PDI.Windows.Forms
                                     rd |= DaysOfWeek.Saturday;
                                     break;
                             }
+                        }
 
                         // If not EveryDay, Weekdays, or Weekends, force it to a single day of the week
                         if(rd == DaysOfWeek.None || (rd != DaysOfWeek.EveryDay && rd != DaysOfWeek.Weekdays &&
                           rd != DaysOfWeek.Weekends))
+                        {
                             rd = DateUtils.ToDaysOfWeek(DateUtils.ToDayOfWeek(rd));
+                        }
 
                         cboDOW.SelectedValue = rd;
                     }
@@ -214,12 +218,10 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Enable or disable the controls based on the selection
         /// </summary>
-        private void Monthly_CheckedChanged(object sender, System.EventArgs e)
+        private void Monthly_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton r = (sender as RadioButton);
-
-            udcDay.Enabled = udcMonths.Enabled = (r == rbDayXEveryYMonths);
-            cboOccurrence.Enabled = cboDOW.Enabled = udcDOWMonths.Enabled =  (r == rbDayOfWeek);
+            udcDay.Enabled = udcMonths.Enabled = sender == rbDayXEveryYMonths;
+            cboOccurrence.Enabled = cboDOW.Enabled = udcDOWMonths.Enabled = sender == rbDayOfWeek;
         }
         #endregion
     }

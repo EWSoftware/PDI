@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LabelProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Label property.  It is used with the Personal Data Interchange (PDI) vCard class
 //
@@ -39,19 +38,20 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplit = new(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         // This private array is used to translate parameter names and values to address types
-        private static NameToValue<AddressTypes>[] ntv = {
-            new NameToValue<AddressTypes>("TYPE", AddressTypes.None, false),
-            new NameToValue<AddressTypes>("DOM", AddressTypes.Domestic, true),
-            new NameToValue<AddressTypes>("INTL", AddressTypes.International, true),
-            new NameToValue<AddressTypes>("POSTAL", AddressTypes.Postal, true),
-            new NameToValue<AddressTypes>("PARCEL", AddressTypes.Parcel, true),
-            new NameToValue<AddressTypes>("HOME", AddressTypes.Home, true),
-            new NameToValue<AddressTypes>("WORK", AddressTypes.Work, true),
-            new NameToValue<AddressTypes>("PREF", AddressTypes.Preferred, true)
-        };
+        private static readonly NameToValue<AddressTypes>[] ntv =
+        [
+            new("TYPE", AddressTypes.None, false),
+            new("DOM", AddressTypes.Domestic, true),
+            new("INTL", AddressTypes.International, true),
+            new("POSTAL", AddressTypes.Postal, true),
+            new("PARCEL", AddressTypes.Parcel, true),
+            new("HOME", AddressTypes.Home, true),
+            new("WORK", AddressTypes.Work, true),
+            new("PREF", AddressTypes.Preferred, true)
+        ];
         #endregion
 
         #region Properties
@@ -88,8 +88,10 @@ namespace EWSoftware.PDI.Properties
                 if(value == SpecificationVersions.vCard21)
                     this.EncodingMethod = EncodingType.QuotedPrintable;
                 else
+                {
                     if(this.EncodingMethod == EncodingType.QuotedPrintable)
                         this.EncodingMethod = EncodingType.EightBit;
+                }
             }
         }
 
@@ -123,7 +125,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            LabelProperty o = new LabelProperty();
+            LabelProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -151,9 +153,10 @@ namespace EWSoftware.PDI.Properties
             // Serialize the address types if necessary
             if(this.AddressTypes != AddressTypes.None && this.AddressTypes != defaultValue)
             {
-                StringBuilder sbTypes = new StringBuilder(50);
+                StringBuilder sbTypes = new(50);
 
                 for(int idx = 1; idx < ntv.Length; idx++)
+                {
                     if((this.AddressTypes & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
@@ -161,6 +164,7 @@ namespace EWSoftware.PDI.Properties
 
                         sbTypes.Append(ntv[idx].Name);
                     }
+                }
 
                 // The format is different for the 3.0 spec
                 if(this.Version == SpecificationVersions.vCard21)
@@ -221,8 +225,10 @@ namespace EWSoftware.PDI.Properties
                         foreach(string s in types)
                         {
                             for(subIdx = 1; subIdx < ntv.Length; subIdx++)
+                            {
                                 if(ntv[subIdx].IsMatch(s))
                                     break;
+                            }
 
                             // Unrecognized ones are ignored
                             if(subIdx < ntv.Length)

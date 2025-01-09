@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NoteProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Note property and its collection class.  It is used with the Personal Data Interchange
 // (PDI) vCard class.
@@ -89,7 +88,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            NoteProperty o = new NoteProperty();
+            NoteProperty o = new();
             o.Clone(this);
             return o;
         }

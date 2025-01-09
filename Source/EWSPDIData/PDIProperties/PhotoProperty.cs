@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PhotoProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/18/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Photo property that support binary encoded images.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -38,26 +38,27 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         // This private array is used to translate parameter names and values to image types
-        private static readonly NameToValue<int>[] ntv = {
-            new NameToValue<int>("TYPE", 0, false),
-            new NameToValue<int>("GIF",  1, true),
-            new NameToValue<int>("CGM",  2, true),
-            new NameToValue<int>("WMF",  3, true),
-            new NameToValue<int>("BMP",  4, true),
-            new NameToValue<int>("MET",  5, true),
-            new NameToValue<int>("PMB",  6, true),
-            new NameToValue<int>("DIB",  7, true),
-            new NameToValue<int>("PICT", 8, true),
-            new NameToValue<int>("TIFF", 9, true),
-            new NameToValue<int>("PS",   10, true),
-            new NameToValue<int>("PDF",  11, true),
-            new NameToValue<int>("JPEG", 12, true),
-            new NameToValue<int>("MPEG", 13, true),
-            new NameToValue<int>("MPEG2", 14, true),
-            new NameToValue<int>("AVI",  15, true),
-            new NameToValue<int>("QTIME", 16, true),
-            new NameToValue<int>("PNG", 17, true)
-        };
+        private static readonly NameToValue<int>[] ntv =
+        [
+            new("TYPE", 0, false),
+            new("GIF",  1, true),
+            new("CGM",  2, true),
+            new("WMF",  3, true),
+            new("BMP",  4, true),
+            new("MET",  5, true),
+            new("PMB",  6, true),
+            new("DIB",  7, true),
+            new("PICT", 8, true),
+            new("TIFF", 9, true),
+            new("PS",   10, true),
+            new("PDF",  11, true),
+            new("JPEG", 12, true),
+            new("MPEG", 13, true),
+            new("MPEG2", 14, true),
+            new("AVI",  15, true),
+            new("QTIME", 16, true),
+            new("PNG", 17, true)
+        ];
         #endregion
 
         #region Properties
@@ -85,12 +86,12 @@ namespace EWSoftware.PDI.Properties
         /// <value>The value is a string defining the type of image that the property value represents such as
         /// GIF, JPEG, TIFF, AVI, etc.
         /// </value>
-        public string ImageType { get; set; }
+        public string? ImageType { get; set; }
 
         /// <summary>
         /// This is overridden to handle the URI prefix on vCard 4.0 values
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
@@ -100,7 +101,7 @@ namespace EWSoftware.PDI.Properties
                     string value = "data:";
 
                     if(!String.IsNullOrWhiteSpace(this.ImageType))
-                        value += "image/" + this.ImageType.ToLowerInvariant() + ";base64,";
+                        value += "image/" + this.ImageType!.ToLowerInvariant() + ";base64,";
 
                     return value + this.Encode(base.Value);
                 }
@@ -157,7 +158,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            PhotoProperty o = new PhotoProperty();
+            PhotoProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -210,8 +211,10 @@ namespace EWSoftware.PDI.Properties
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
             {
                 for(idx = 0; idx < ntv.Length; idx++)
+                {
                     if(ntv[idx].IsMatch(parameters[paramIdx]))
                         break;
+                }
 
                 if(idx == ntv.Length)
                 {

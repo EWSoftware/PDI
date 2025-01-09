@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PhoneControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/01/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's phone information.  It's nothing elaborate but does let you edit the collection
 // fairly well.
@@ -85,49 +85,49 @@ namespace vCardBrowser
 
             // For the checkboxes, the Format and Parse events are needed to get and set the checked state.  We
             // aren't going to check for a few of the less common ones.
-            Binding b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            Binding b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkWork.Tag = PhoneTypes.Work;
             chkWork.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkHome.Tag = PhoneTypes.Home;
             chkHome.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkVoice.Tag = PhoneTypes.Voice;
             chkVoice.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkFax.Tag = PhoneTypes.Fax;
             chkFax.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkMessage.Tag = PhoneTypes.Message;
             chkMessage.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkCell.Tag = PhoneTypes.Cell;
             chkCell.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPager.Tag = PhoneTypes.Pager;
             chkPager.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "PhoneTypes");
+            b = new("Checked", this.BindingSource, "PhoneTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPreferred.Tag = PhoneTypes.Preferred;
@@ -143,11 +143,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Format(object sender, ConvertEventArgs e)
+        private void CheckBox_Format(object? sender, ConvertEventArgs e)
         {
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            PhoneTypes checkType = (PhoneTypes)cb.Tag;
-            PhoneTypes addrTypes = (PhoneTypes)e.Value;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            PhoneTypes checkType = (PhoneTypes)cb.Tag!;
+            PhoneTypes addrTypes = (PhoneTypes)e.Value!;
 
             e.Value = (addrTypes & checkType) == checkType;
         }
@@ -157,11 +157,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Parse(object sender, ConvertEventArgs e)
+        private void CheckBox_Parse(object? sender, ConvertEventArgs e)
         {
             TelephoneProperty t = (TelephoneProperty)this.BindingSource.Current;
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            PhoneTypes checkType = (PhoneTypes)cb.Tag;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            PhoneTypes checkType = (PhoneTypes)cb.Tag!;
 
             if(cb.Checked)
                 t.PhoneTypes |= checkType;

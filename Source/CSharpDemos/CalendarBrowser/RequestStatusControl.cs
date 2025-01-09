@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RequestStatusControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's request status collection
 //
@@ -89,6 +88,7 @@ namespace CalendarBrowser
             RequestStatusPropertyCollection requests = (RequestStatusPropertyCollection)this.BindingSource.DataSource;
 
             foreach(RequestStatusProperty status in requests)
+            {
                 if(String.IsNullOrWhiteSpace(status.StatusMessage))
                 {
                     this.BindingSource.Position = requests.IndexOf(status);
@@ -96,6 +96,7 @@ namespace CalendarBrowser
                     txtMessage_Validating(txtMessage, new CancelEventArgs());
                     return false;
                 }
+            }
 
             return true;
         }

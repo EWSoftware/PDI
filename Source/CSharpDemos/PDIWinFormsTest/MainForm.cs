@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : MainForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/24/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This application is used to demonstrate various features of the EWSoftware PDI classes
 //
@@ -75,10 +74,9 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnHolidays_Click(object sender, EventArgs e)
         {
-            using(HolidayTestForm dlg = new HolidayTestForm())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new HolidayTestForm();
+            
+            dlg.ShowDialog();
         }
 
         /// <summary>
@@ -88,10 +86,9 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnRRULE_Click(object sender, EventArgs e)
         {
-            using(RRuleTestForm dlg = new RRuleTestForm())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new RRuleTestForm();
+            
+            dlg.ShowDialog();
         }
 
         /// <summary>
@@ -101,10 +98,9 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnTestCalRecur_Click(object sender, EventArgs e)
         {
-            using(EventRecurTestForm dlg = new EventRecurTestForm())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new EventRecurTestForm();
+            
+            dlg.ShowDialog();
         }
 
         /// <summary>
@@ -114,10 +110,9 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnTestVTimeZone_Click(object sender, EventArgs e)
         {
-            using(VTimeZoneTestForm dlg = new VTimeZoneTestForm())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new VTimeZoneTestForm();
+            
+            dlg.ShowDialog();
         }
 
         /// <summary>
@@ -127,10 +122,9 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            using(AboutDlg dlg = new AboutDlg())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new AboutDlg();
+            
+            dlg.ShowDialog();
         }
         #endregion
     }

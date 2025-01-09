@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration application that shows how to load, save, and manage a set of vCards including
 // how to edit the various vCard properties.
@@ -45,7 +45,7 @@ namespace vCardBrowser
 
         private VCardCollection vCards;
         private bool wasModified;
-        private StringFormat sf;
+        private readonly StringFormat sf;
 
         #endregion
 
@@ -88,7 +88,7 @@ namespace vCardBrowser
                   CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern;
 
             cboVersion.SelectedIndex = 0;
-            vCards = new VCardCollection();
+            vCards = [];
             LoadGridWithVCards();
 		}
         #endregion
@@ -113,7 +113,7 @@ namespace vCardBrowser
             // the collection can be sorted in the grid by clicking on the column headers.
             vCards.Sort((x, y) =>
             {
-                string sortName1, sortName2;
+                string? sortName1, sortName2;
 
                 // Get the names to compare.  Precedence is given to the SortString property or SortAs parameter
                 // as that is the purpose of their existence.
@@ -161,7 +161,7 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void vCards_ListChanged(object sender, ListChangedEventArgs e)
+        private void vCards_ListChanged(object? sender, ListChangedEventArgs e)
         {
             miClear.Enabled = btnEdit.Enabled = btnDelete.Enabled = cboVersion.Enabled =
                 btnApplyVersion.Enabled = (vCards.Count != 0);
@@ -194,47 +194,46 @@ namespace vCardBrowser
               MessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
-            using(OpenFileDialog dlg = new OpenFileDialog())
+            using var dlg = new OpenFileDialog();
+            
+            dlg.Title = "Load vCard File";
+            dlg.DefaultExt = "vcf";
+            dlg.Filter = "VCF files (*.vcf)|*.vcf|All files (*.*)|*.*";
+            dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
+                Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                dlg.Title = "Load vCard File";
-                dlg.DefaultExt = "vcf";
-                dlg.Filter = "VCF files (*.vcf)|*.vcf|All files (*.*)|*.*";
-                dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
-                    Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
-
-                if(dlg.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    // Parse the vCard information from the file and load the data grid with some basic
+                    // information about the vCards in it.
+                    vCards = VCardParser.ParseFromFile(dlg.FileName);
+                    this.LoadGridWithVCards();
+
+                    lblFilename.Text = dlg.FileName;
+                }
+                catch(Exception ex)
+                {
+                    string error = $"Unable to load vCards:\n{ex.Message}";
+
+                    if(ex.InnerException != null)
                     {
-                        this.Cursor = Cursors.WaitCursor;
+                        error += ex.InnerException.Message + "\n";
 
-                        // Parse the vCard information from the file and load the data grid with some basic
-                        // information about the vCards in it.
-                        vCards = VCardParser.ParseFromFile(dlg.FileName);
-                        this.LoadGridWithVCards();
-
-                        lblFilename.Text = dlg.FileName;
+                        if(ex.InnerException.InnerException != null)
+                            error += ex.InnerException.InnerException.Message;
                     }
-                    catch(Exception ex)
-                    {
-                        string error = $"Unable to load vCards:\n{ex.Message}";
 
-                        if(ex.InnerException != null)
-                        {
-                            error += ex.InnerException.Message + "\n";
+                    System.Diagnostics.Debug.Write(ex);
 
-                            if(ex.InnerException.InnerException != null)
-                                error += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.Write(ex);
-
-                        MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }
@@ -246,58 +245,57 @@ namespace vCardBrowser
         /// <param name="e">The event arguments</param>
         private void miSave_Click(object sender, EventArgs e)
         {
-            using(SaveFileDialog dlg = new SaveFileDialog())
+            using var dlg = new SaveFileDialog();
+            
+            dlg.Title = "Save vCard File";
+            dlg.DefaultExt = "vcf";
+            dlg.Filter = "VCF files (*.vcf)|*.vcf|All files (*.*)|*.*";
+            dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
+                Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
+            dlg.FileName = lblFilename.Text;
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                dlg.Title = "Save vCard File";
-                dlg.DefaultExt = "vcf";
-                dlg.Filter = "VCF files (*.vcf)|*.vcf|All files (*.*)|*.*";
-                dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
-                    Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
-                dlg.FileName = lblFilename.Text;
-
-                if(dlg.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    // Enforce UTF-8 encoding if using vCard 4.0
+                    if((!miFileUnicode.Checked || !miPropUnicode.Checked) && vCards.Any(
+                      c => c.Version == SpecificationVersions.vCard40))
                     {
-                        this.Cursor = Cursors.WaitCursor;
-
-                        // Enforce UTF-8 encoding if using vCard 4.0
-                        if((!miFileUnicode.Checked || !miPropUnicode.Checked) && vCards.Any(
-                          c => c.Version == SpecificationVersions.vCard40))
-                        {
-                            this.ChangeFileEncoding_Click(miFileUnicode, e);
-                        }
-
-                        // Open the file and write the vCards to it.  We'll use the same encoding method used by
-                        // the parser.
-                        using(var sw = new StreamWriter(dlg.FileName, false, PDIParser.DefaultEncoding))
-                        {
-                            vCards.WriteToStream(sw);
-                        }
-
-                        lblFilename.Text = dlg.FileName;
-                        wasModified = false;
+                        this.ChangeFileEncoding_Click(miFileUnicode, e);
                     }
-                    catch(Exception ex)
+
+                    // Open the file and write the vCards to it.  We'll use the same encoding method used by
+                    // the parser.
+                    using(var sw = new StreamWriter(dlg.FileName, false, PDIParser.DefaultEncoding))
                     {
-                        string error = $"Unable to save vCards:\n{ex.Message}";
-
-                        if(ex.InnerException != null)
-                        {
-                            error += ex.InnerException.Message + "\n";
-
-                            if(ex.InnerException.InnerException != null)
-                                error += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.Write(ex);
-
-                        MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        vCards.WriteToStream(sw);
                     }
-                    finally
+
+                    lblFilename.Text = dlg.FileName;
+                    wasModified = false;
+                }
+                catch(Exception ex)
+                {
+                    string error = $"Unable to save vCards:\n{ex.Message}";
+
+                    if(ex.InnerException != null)
                     {
-                        this.Cursor = Cursors.Default;
+                        error += ex.InnerException.Message + "\n";
+
+                        if(ex.InnerException.InnerException != null)
+                            error += ex.InnerException.InnerException.Message;
                     }
+
+                    System.Diagnostics.Debug.Write(ex);
+
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }
@@ -321,10 +319,9 @@ namespace vCardBrowser
         /// <param name="e">The event arguments</param>
         private void miAbout_Click(object sender, EventArgs e)
         {
-            using(AboutDlg dlg = new AboutDlg())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new AboutDlg();
+            
+            dlg.ShowDialog();
         }
 
         /// <summary>
@@ -344,18 +341,17 @@ namespace vCardBrowser
         /// <param name="e">The event arguments</param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using(VCardPropertiesDlg dlg = new VCardPropertiesDlg())
+            using var dlg = new VCardPropertiesDlg();
+            
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                if(dlg.ShowDialog() == DialogResult.OK)
-                {
-                    VCard newVCard = new VCard();
-                    dlg.GetValues(newVCard);
+                var newVCard = new VCard();
+                dlg.GetValues(newVCard);
 
-                    // Create a unique ID for the new vCard
-                    newVCard.UniqueId.AssignNewId(true);
+                // Create a unique ID for the new vCard
+                newVCard.UniqueId.AssignNewId(true);
 
-                    vCards.Add(newVCard);
-                }
+                vCards.Add(newVCard);
             }
         }
 
@@ -373,17 +369,16 @@ namespace vCardBrowser
                 return;
             }
 
-            using(VCardPropertiesDlg dlg = new VCardPropertiesDlg())
-            {
-                this.Cursor = Cursors.WaitCursor;
-                dlg.SetValues(vCards[dgvCards.CurrentCellAddress.Y]);
-                this.Cursor = Cursors.Default;
+            using var dlg = new VCardPropertiesDlg();
+            
+            this.Cursor = Cursors.WaitCursor;
+            dlg.SetValues(vCards[dgvCards.CurrentCellAddress.Y]);
+            this.Cursor = Cursors.Default;
 
-                if(dlg.ShowDialog() == DialogResult.OK)
-                {
-                    dlg.GetValues(vCards[dgvCards.CurrentCellAddress.Y]);
-                    wasModified = true;
-                }
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                dlg.GetValues(vCards[dgvCards.CurrentCellAddress.Y]);
+                wasModified = true;
             }
         }
 
@@ -512,7 +507,7 @@ namespace vCardBrowser
 
             if(e.RowIndex > -1 && e.ColumnIndex == 0)
             {
-                var specVer = (SpecificationVersions)e.Value;
+                var specVer = (SpecificationVersions)e.Value!;
                 string version = (specVer == SpecificationVersions.vCard21) ? "2.1" :
                     (specVer == SpecificationVersions.vCard30) ? "3.0" : "4.0";
 
@@ -520,14 +515,13 @@ namespace vCardBrowser
 
                 // Based the foreground color on the selected state
                 if((e.State & DataGridViewElementStates.Selected) != 0)
-                    foreColor = e.CellStyle.SelectionForeColor;
+                    foreColor = e.CellStyle!.SelectionForeColor;
                 else
-                    foreColor = e.CellStyle.ForeColor;
+                    foreColor = e.CellStyle!.ForeColor;
 
-                using(SolidBrush b = new SolidBrush(foreColor))
-                {
-                    e.Graphics.DrawString(version, e.CellStyle.Font, b, e.CellBounds, sf);
-                }
+                using var b = new SolidBrush(foreColor);
+
+                e.Graphics!.DrawString(version, e.CellStyle.Font, b, e.CellBounds, sf);
 
                 e.Handled = true;
             }

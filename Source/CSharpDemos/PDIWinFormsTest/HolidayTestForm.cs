@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : HolidayTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2021
-// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is used to test the various Holiday classes and the DateUtils class
 //
@@ -45,8 +45,8 @@ namespace PDIWinFormsTest
             dgvDatesFound.AutoGenerateColumns = false;
             tbcDate.DefaultCellStyle.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
 
-            hmHolidays.Defaults = hmHolidays.Defaults.Concat(new[] {
-                new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 } }).OrderBy(h => h.Month).ToList();
+            hmHolidays.Defaults = [.. hmHolidays.Defaults.Concat(
+                [new FixedHoliday(6, 19, true, "Juneteenth") { MinimumYear = 2021 }]).OrderBy(h => h.Month)];
 
             // Use the standard set of holidays by default.  The holiday manager control will make a copy of the
             // collection and will take care of adding, editing, and deleting entries from it.  If an existing
@@ -70,7 +70,7 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnTestDate_Click(object sender, EventArgs e)
         {
-            HolidayCollection holidays = new HolidayCollection(hmHolidays.Holidays);
+            var holidays = new HolidayCollection(hmHolidays.Holidays);
 
             if(holidays.IsHoliday(dtpTestDate.Value))
             {
@@ -78,8 +78,10 @@ namespace PDIWinFormsTest
                     MessageBoxIcon.Information);
             }
             else
+            {
                 MessageBox.Show("The test date is not a holiday", "Not Found!", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
         }
 
         /// <summary>
@@ -90,7 +92,7 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnFind_Click(object sender, EventArgs e)
         {
-            HolidayCollection holidays = new HolidayCollection(hmHolidays.Holidays);
+            var holidays = new HolidayCollection(hmHolidays.Holidays);
             int fromYear, toYear, year;
 
             fromYear = (int)udcFromYear.Value;
@@ -173,7 +175,7 @@ namespace PDIWinFormsTest
             this.Cursor = Cursors.WaitCursor;
 
             // Create the grid view's data source
-            List<ListItem> items = new List<ListItem>();
+            List<ListItem> items = [];
             desc = $"Easter ({em})";
 
             while(fromYear <= toYear)

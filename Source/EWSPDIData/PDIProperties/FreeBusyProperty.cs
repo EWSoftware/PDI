@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FreeBusyProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class for the FREEBUSY property used by the Personal Data Interchange (PDI) VFreeBusy
 // class.
@@ -21,7 +20,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Globalization;
 using System.Text;
 
 using EWSoftware.PDI.Binding;
@@ -40,9 +38,9 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private Period period;
+        private Period? period;
         private FreeBusyType freeBusyType;
-        private string otherType;
+        private string? otherType;
 
         #endregion
 
@@ -90,7 +88,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Setting this parameter automatically sets the <see cref="FreeBusyType"/> property to
         /// <c>Other</c>.</value>
-        public string OtherType
+        public string? OtherType
         {
             get => otherType;
             set
@@ -122,7 +120,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the period to/from its string form
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -145,7 +143,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the period to/from its string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -173,7 +171,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            FreeBusyProperty o = new FreeBusyProperty();
+            FreeBusyProperty o = new();
             o.Clone(this);
             return o;
         }

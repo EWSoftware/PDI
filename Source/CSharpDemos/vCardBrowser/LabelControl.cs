@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : LabelControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/27/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 // Compiler: Visual C#
 //
 // This is used to edit a vCard's label information.  It's nothing elaborate but does let you edit the collection
@@ -69,43 +69,43 @@ namespace vCardBrowser
             txtLabelText.DataBindings.Add("Text", this.BindingSource, "Value");
 
             // For the checkboxes, the Format and Parse events are needed to get and set the checked state
-            Binding b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            Binding b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkDomestic.Tag = AddressTypes.Domestic;
             chkDomestic.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkInternational.Tag = AddressTypes.International;
             chkInternational.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPostal.Tag = AddressTypes.Postal;
             chkPostal.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkParcel.Tag = AddressTypes.Parcel;
             chkParcel.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkHome.Tag = AddressTypes.Home;
             chkHome.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkWork.Tag = AddressTypes.Work;
             chkWork.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPreferred.Tag = AddressTypes.Preferred;
@@ -121,11 +121,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Format(object sender, ConvertEventArgs e)
+        private void CheckBox_Format(object? sender, ConvertEventArgs e)
         {
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            AddressTypes checkType = (AddressTypes)cb.Tag;
-            AddressTypes addrTypes = (AddressTypes)e.Value;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            AddressTypes checkType = (AddressTypes)cb.Tag!;
+            AddressTypes addrTypes = (AddressTypes)e.Value!;
 
             e.Value = (addrTypes & checkType) == checkType;
         }
@@ -135,11 +135,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Parse(object sender, ConvertEventArgs e)
+        private void CheckBox_Parse(object? sender, ConvertEventArgs e)
         {
             LabelProperty l = (LabelProperty)this.BindingSource.Current;
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            AddressTypes checkType = (AddressTypes)cb.Tag;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            AddressTypes checkType = (AddressTypes)cb.Tag!;
 
             if(cb.Checked)
                 l.AddressTypes |= checkType;

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : SoundProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/18/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Sound property that support binary encoded sounds.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -38,13 +38,14 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         // This private array is used to translate parameter names and values to sound types
-        private static readonly NameToValue<int>[] ntv = {
-            new NameToValue<int>("TYPE",  0, false),
-            new NameToValue<int>("WAVE",  1, true),
-            new NameToValue<int>("PCM",   2, true),
-            new NameToValue<int>("AIF",   3, true),
-            new NameToValue<int>("BASIC", 4, true)
-        };
+        private static readonly NameToValue<int>[] ntv =
+        [
+            new("TYPE",  0, false),
+            new("WAVE",  1, true),
+            new("PCM",   2, true),
+            new("AIF",   3, true),
+            new("BASIC", 4, true)
+        ];
         #endregion
 
         #region Properties
@@ -69,7 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to handle the URI prefix on vCard 4.0 values
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
@@ -79,7 +80,7 @@ namespace EWSoftware.PDI.Properties
                     string value = "data:";
 
                     if(!String.IsNullOrWhiteSpace(this.SoundType))
-                        value += "audio/" + this.SoundType.ToLowerInvariant() + ";base64,";
+                        value += "audio/" + this.SoundType!.ToLowerInvariant() + ";base64,";
 
                     return value + this.Encode(base.Value);
                 }
@@ -119,7 +120,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>The value is a string defining the type of sound that the property value represents such as
         /// basic, WAV, etc.</value>
-        public string SoundType { get; set; }
+        public string? SoundType { get; set; }
 
         #endregion
 
@@ -145,7 +146,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            SoundProperty o = new SoundProperty();
+            SoundProperty o = new();
             o.Clone(this);
             return o;
         }

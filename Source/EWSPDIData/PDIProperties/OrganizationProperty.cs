@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : OrganizationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/14/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Organization property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -35,9 +34,9 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[;])|(?<=(?:[^\\]))[;]");
+        private static readonly Regex reSplit = new(@"(?:^[;])|(?<=(?:[^\\]))[;]");
 
-        private StringCollection units;
+        private readonly StringCollection units;
 
         #endregion
 
@@ -63,13 +62,13 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is used to set or get the organization name
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// This property is used to set or get the string to use when sorting organizations
         /// </summary>
         /// <value>If set, this value should be given precedence over the <see cref="Name"/> property</value>
-        public string SortAs { get; set; }
+        public string? SortAs { get; set; }
 
         /// <summary>
         /// This property is used to get the Organization Units string collection
@@ -87,18 +86,15 @@ namespace EWSoftware.PDI.Properties
             get => String.Join(", ", units);
             set
             {
-                string tempUnit;
-                string[] entries;
-
                 units.Clear();
 
                 if(value != null)
                 {
-                    entries = value.Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] entries = value.Split([',', ';'], StringSplitOptions.RemoveEmptyEntries);
 
                     foreach(string s in entries)
                     {
-                        tempUnit = s.Trim();
+                        string tempUnit = s.Trim();
 
                         if(tempUnit.Length > 0)
                             units.Add(tempUnit);
@@ -112,7 +108,7 @@ namespace EWSoftware.PDI.Properties
         /// requested.
         /// </summary>
         /// <value>The component parts are escaped as needed</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -122,7 +118,7 @@ namespace EWSoftware.PDI.Properties
                 if(String.IsNullOrWhiteSpace(this.Name) && this.Units.Count == 0)
                     return null;
 
-                StringBuilder sb = new StringBuilder(256);
+                StringBuilder sb = new(256);
 
                 if(v == SpecificationVersions.vCard21)
                     sb.Append(EncodingUtils.RestrictedEscape(this.Name));
@@ -143,22 +139,19 @@ namespace EWSoftware.PDI.Properties
             }
             set
             {
-                string tempUnit;
-                string[] parts;
-
                 this.Name = null;
                 this.Units.Clear();
 
                 if(!String.IsNullOrWhiteSpace(value))
                 {
                     // Split on all semi-colons except escaped ones
-                    parts = reSplit.Split(value);
+                    string[] parts = reSplit.Split(value);
 
                     this.Name = EncodingUtils.Unescape(parts[0]);
 
                     for(int idx = 1; idx < parts.Length; idx++)
                     {
-                        tempUnit = EncodingUtils.Unescape(parts[idx].Trim());
+                        string tempUnit = EncodingUtils.Unescape(parts[idx].Trim())!;
 
                         if(tempUnit.Length > 0)
                             this.Units.Add(tempUnit);
@@ -172,15 +165,15 @@ namespace EWSoftware.PDI.Properties
         /// requested.
         /// </summary>
         /// <value>The component parts are escaped as needed</value>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
-                string orgValue = this.Value;
+                string? orgValue = this.Value;
 
                 // Encode using the character set?  If so, unescape the backslashes as they get double-encoded.
                 if(orgValue != null && this.Version == SpecificationVersions.vCard21)
-                    orgValue = base.Encode(orgValue).Replace(@"\\", @"\");
+                    orgValue = base.Encode(orgValue)?.Replace(@"\\", @"\");
 
                 return orgValue;
             }
@@ -196,7 +189,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         public OrganizationProperty()
         {
-            units = new StringCollection();
+            units = [];
         }
         #endregion
 
@@ -209,7 +202,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            OrganizationProperty o = new OrganizationProperty();
+            OrganizationProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -245,6 +238,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "SORT-AS=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -259,6 +253,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

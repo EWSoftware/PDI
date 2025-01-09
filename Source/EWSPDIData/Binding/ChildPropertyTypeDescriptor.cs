@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ChildPropertyTypeDescriptor.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/05/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a custom type descriptor that is used to add child properties to the set of visible,
 // bindable properties for an object.
@@ -79,7 +78,7 @@ namespace EWSoftware.PDI.Binding
         /// <remarks>To prevent endless recursion and stack overflows, it will only go down three levels.
         /// Properties with a <see cref="BrowsableAttribute"/> set to false are ignored.  Properties with a
         /// <see cref="HidePropertyAttribute"/> are not added to the collection but their children are added.</remarks>
-        private void GetChildProperties(PropertyDescriptor parentProp, string baseName, Attribute[] filter,
+        private void GetChildProperties(PropertyDescriptor? parentProp, string baseName, Attribute[] filter,
           PropertyDescriptorCollection props, List<PropertyDescriptor> newProps)
         {
             PropertyDescriptorCollection childProps, otherChildren;
@@ -97,6 +96,7 @@ namespace EWSoftware.PDI.Binding
                 nestingLevel++;
 
                 foreach(PropertyDescriptor pd in props)
+                {
                     if(!pd.PropertyType.IsPrimitive && pd.PropertyType != typeof(string))
                     {
                         // If it's not browsable, ignore it.  We shouldn't have to do this but the initial
@@ -136,6 +136,7 @@ namespace EWSoftware.PDI.Binding
                                 this.GetChildProperties(parent, rootName, filter, otherChildren, newProps);
                         }
                     }
+                }
             }
             finally
             {
@@ -155,7 +156,7 @@ namespace EWSoftware.PDI.Binding
             // This seems to ignore the filter so GetChildProperties() will get rid of all non-browsable
             // properties.
             PropertyDescriptorCollection props = base.GetProperties(attributes);
-            List<PropertyDescriptor> newProps = new List<PropertyDescriptor>();
+            List<PropertyDescriptor> newProps = [];
 
             this.GetChildProperties(null, String.Empty, attributes, props, newProps);
 
@@ -171,11 +172,13 @@ namespace EWSoftware.PDI.Binding
 
                 // Now we'll remove hidden top-level properties
                 for(int idx = 0; idx < props.Count; idx++)
+                {
                     if(props[idx].Attributes[typeof(HidePropertyAttribute)] != null)
                     {
                         props.RemoveAt(idx);
                         idx--;
                     }
+                }
             }
 
             return props;

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DateTimeInstance.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the date/time instance class used by the time zone conversion methods
 // in the VCalendar class and the recurring instance generation methods of the RecurringObject class.
@@ -32,23 +31,24 @@ namespace EWSoftware.PDI
     /// class.  It is also used by the <see cref="Objects.RecurringObject"/>-derived classes to return a
     /// collection of recurring instances.
     /// </summary>
-    /// <seealso cref="Objects.VCalendar.TimeZoneTimeToLocalTime"/>
-    /// <seealso cref="Objects.VCalendar.LocalTimeToTimeZoneTime"/>
-    /// <seealso cref="Objects.VCalendar.TimeZoneTimeToUtc"/>
-    /// <seealso cref="Objects.VCalendar.UtcToTimeZoneTime"/>
-    /// <seealso cref="Objects.VCalendar.TimeZoneToTimeZone"/>
-    /// <seealso cref="Objects.RecurringObject"/>
+    /// <seealso cref="VCalendar.TimeZoneTimeToLocalTime"/>
+    /// <seealso cref="VCalendar.LocalTimeToTimeZoneTime"/>
+    /// <seealso cref="VCalendar.TimeZoneTimeToUtc"/>
+    /// <seealso cref="VCalendar.UtcToTimeZoneTime"/>
+    /// <seealso cref="VCalendar.TimeZoneToTimeZone"/>
+    /// <seealso cref="RecurringObject"/>
     public class DateTimeInstance
     {
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"\s+");
+        private static readonly Regex reSplit = new(@"\s+");
 
         private DateTime startDate, endDate;
         private Duration duration;
         private bool startIsDST, endIsDST;
-        private string startTZName, endTZName, timeZoneID;
+        private string? timeZoneID;
+        private string startTZName, endTZName;
 
         #endregion
 
@@ -60,7 +60,7 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <value>The value can be used to look up a <see cref="VTimeZone"/> object in a
         /// <see cref="VTimeZoneCollection"/>.  If this is null, the times are assumed to be in local time.</value>
-        public string TimeZoneId
+        public string? TimeZoneId
         {
             get => timeZoneID;
             set
@@ -169,11 +169,13 @@ namespace EWSoftware.PDI
                 char[] letters = new char[parts.Length];
 
                 for(int idx = 0; idx < parts.Length; idx++)
+                {
                     if(Char.IsLetter(parts[idx][0]))
                     {
                         letters[idx] = parts[idx][0];
                         count++;
                     }
+                }
 
                 return new String(letters, 0, count);
             }
@@ -199,11 +201,13 @@ namespace EWSoftware.PDI
                 char[] letters = new char[parts.Length];
 
                 for(int idx = 0; idx < parts.Length; idx++)
+                {
                     if(Char.IsLetter(parts[idx][0]))
                     {
                         letters[idx] = parts[idx][0];
                         count++;
                     }
+                }
 
                 return new String(letters, 0, count);
             }
@@ -243,20 +247,22 @@ namespace EWSoftware.PDI
         /// <summary>
         /// Copy constructor
         /// </summary>
-        /// <param name="dti">The date/time instance to copy</param>
-        public DateTimeInstance(DateTimeInstance dti)
+        /// <param name="dateTimeInstance">The date/time instance to copy</param>
+        public DateTimeInstance(DateTimeInstance? dateTimeInstance)
         {
-            if(dti != null)
+            if(dateTimeInstance != null)
             {
-                timeZoneID = dti.TimeZoneId;
-                startDate = dti.StartDateTime;
-                endDate = dti.EndDateTime;
-                duration = dti.Duration;
-                startIsDST = dti.StartIsDaylightSavingTime;
-                endIsDST = dti.EndIsDaylightSavingTime;
-                startTZName = dti.StartTimeZoneName;
-                endTZName = dti.EndTimeZoneName;
+                timeZoneID = dateTimeInstance.TimeZoneId;
+                startDate = dateTimeInstance.StartDateTime;
+                endDate = dateTimeInstance.EndDateTime;
+                duration = dateTimeInstance.Duration;
+                startIsDST = dateTimeInstance.StartIsDaylightSavingTime;
+                endIsDST = dateTimeInstance.EndIsDaylightSavingTime;
+                startTZName = dateTimeInstance.StartTimeZoneName;
+                endTZName = dateTimeInstance.EndTimeZoneName;
             }
+            else
+                startTZName = endTZName = String.Empty;
         }
         #endregion
 
@@ -270,12 +276,12 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is DateTimeInstance dti))
+            if(obj is not DateTimeInstance dti)
                 return false;
 
-            return (startDate == dti.StartDateTime && endDate == dti.EndDateTime && duration == dti.Duration &&
+            return startDate == dti.StartDateTime && endDate == dti.EndDateTime && duration == dti.Duration &&
                   startIsDST == dti.StartIsDaylightSavingTime && endIsDST == dti.EndIsDaylightSavingTime &&
-                  startTZName == dti.StartTimeZoneName && endTZName == dti.EndTimeZoneName);
+                  startTZName == dti.StartTimeZoneName && endTZName == dti.EndTimeZoneName;
         }
 
         /// <summary>
@@ -293,7 +299,7 @@ namespace EWSoftware.PDI
         /// <returns>A string containing the object information</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder(256);
+            StringBuilder sb = new(256);
 
             sb.AppendFormat("Start Date: {0} {1}\r\n", startDate, startTZName);
             sb.AppendFormat("End Date: {0} {1}\r\n", endDate, endTZName);
@@ -337,7 +343,7 @@ namespace EWSoftware.PDI
         /// <remarks>This converts the date time instance information from its current time zone identified by
         /// the <see cref="TimeZoneId"/> property to the specified time zone.  The time zone ID property will be
         /// set to the specified time zone after conversion.</remarks>
-        public void ToTimeZone(string tzid)
+        public void ToTimeZone(string? tzid)
         {
             DateTimeInstance dti, dtiEnd;
 
@@ -348,8 +354,8 @@ namespace EWSoftware.PDI
             // Convert from local time?
             if(timeZoneID == null)
             {
-                dti = VCalendar.LocalTimeToTimeZoneTime(startDate, tzid);
-                dtiEnd = VCalendar.LocalTimeToTimeZoneTime(endDate, tzid);
+                dti = VCalendar.LocalTimeToTimeZoneTime(startDate, tzid!);
+                dtiEnd = VCalendar.LocalTimeToTimeZoneTime(endDate, tzid!);
             }
             else
             {

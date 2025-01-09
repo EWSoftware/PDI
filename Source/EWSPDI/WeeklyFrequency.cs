@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : WeeklyFrequency.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to implements the Weekly frequency rules
 //
@@ -36,10 +35,10 @@ namespace EWSoftware.PDI
         /// <param name="from">The start date of the range limiting the instances generated</param>
         /// <param name="to">The end date of the range limiting the instances generated</param>
         /// <returns>The first instance date or null if there are no more instances</returns>
-        public RecurDateTime FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
+        public RecurDateTime? FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
           RecurDateTime to)
         {
-            RecurDateTime rdtWeek, rdt = new RecurDateTime(start);
+            RecurDateTime rdtWeek, rdt = new(start);
             int adjust;
 
             // Get the difference between the recurrence start and the limiting range start
@@ -63,7 +62,9 @@ namespace EWSoftware.PDI
 
             if(RecurDateTime.Compare(rdtWeek, end, RecurDateTime.DateTimePart.Day) > 0 ||
               RecurDateTime.Compare(rdtWeek, to, RecurDateTime.DateTimePart.Day) > 0)
+            {
                 return null;
+            }
 
             return rdt;
         }
@@ -89,7 +90,9 @@ namespace EWSoftware.PDI
 
             if(RecurDateTime.Compare(rdtWeek, end, RecurDateTime.DateTimePart.Day) > 0 ||
               RecurDateTime.Compare(rdtWeek, to, RecurDateTime.DateTimePart.Day) > 0)
+            {
                 return false;
+            }
 
             return true;
         }

@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : HolidayManager.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a user controls that can be used to manage a set of holidays in a HolidayCollection
 //
@@ -84,8 +84,10 @@ namespace EWSoftware.PDI.Windows.Forms
                 holidays.Clear();
 
                 if(value != null)
+                {
                     foreach(Holiday h in value)
                         holidays.Add((Holiday)h.Clone());
+                }
 
                 this.LoadHolidayList();
             }
@@ -102,7 +104,7 @@ namespace EWSoftware.PDI.Windows.Forms
 		{
 			InitializeComponent();
 
-            holidays = new HolidayCollection();
+            holidays = [];
 
             this.Defaults = new HolidayCollection().AddStandardHolidays();
 
@@ -127,10 +129,12 @@ namespace EWSoftware.PDI.Windows.Forms
             if(holidays.Count > 0)
             {
                 if(lastIdx > -1)
+                {
                     if(lastIdx < lbHolidays.Items.Count)
                         lbHolidays.SelectedIndex = lastIdx;
                     else
                         lbHolidays.SelectedIndex = lbHolidays.Items.Count - 1;
+                }
 
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
@@ -151,22 +155,21 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Add a new holiday to the list box
         /// </summary>
-        private void btnAdd_Click(object sender, System.EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            using(HolidayPropertiesDlg dlg = new HolidayPropertiesDlg())
+            using HolidayPropertiesDlg dlg = new();
+            
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                if(dlg.ShowDialog() == DialogResult.OK)
-                {
-                    holidays.Add(dlg.HolidayInfo);
-                    this.LoadHolidayList();
-                }
+                holidays.Add(dlg.HolidayInfo);
+                this.LoadHolidayList();
             }
         }
 
         /// <summary>
         /// Edit a holiday entry in the list box
         /// </summary>
-        private void btnEdit_Click(object sender, System.EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             if(lbHolidays.SelectedIndex == -1)
             {
@@ -174,25 +177,24 @@ namespace EWSoftware.PDI.Windows.Forms
                 return;
             }
 
-            using(HolidayPropertiesDlg dlg = new HolidayPropertiesDlg())
-            {
-                // The dialog takes care loading data from the object
-                dlg.HolidayInfo = holidays[lbHolidays.SelectedIndex];
+            using HolidayPropertiesDlg dlg = new();
 
-                if(dlg.ShowDialog() == DialogResult.OK)
-                {
-                    // Replace the holiday with the edited information.  Because the type may change, the
-                    // add/edit dialog returns a new instance.
-                    holidays[lbHolidays.SelectedIndex] = dlg.HolidayInfo;
-                    this.LoadHolidayList();
-                }
+            // The dialog takes care loading data from the object
+            dlg.HolidayInfo = holidays[lbHolidays.SelectedIndex];
+
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                // Replace the holiday with the edited information.  Because the type may change, the
+                // add/edit dialog returns a new instance.
+                holidays[lbHolidays.SelectedIndex] = dlg.HolidayInfo;
+                this.LoadHolidayList();
             }
         }
 
         /// <summary>
         /// Delete a holiday from the list box
         /// </summary>
-        private void btnRemove_Click(object sender, System.EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
             if(lbHolidays.SelectedIndex == -1)
                 MessageBox.Show(LR.GetString("EditHMSelectHoliday"));
@@ -206,7 +208,7 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Clear all holidays from the list box
         /// </summary>
-        private void btnClear_Click(object sender, System.EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             holidays.Clear();
             this.LoadHolidayList();
@@ -215,13 +217,15 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Clear all holidays and add the default set as defined by the <see cref="Defaults"/> property
         /// </summary>
-        private void btnDefault_Click(object sender, System.EventArgs e)
+        private void btnDefault_Click(object sender, EventArgs e)
         {
             holidays.Clear();
 
             if(this.Defaults != null)
+            {
                 foreach(Holiday h in this.Defaults)
                     holidays.Add((Holiday)h.Clone());
+            }
 
             this.LoadHolidayList();
         }
@@ -229,57 +233,54 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Load the holiday info from a file in the format selected by the user
         /// </summary>
-        private void btnLoad_Click(object sender, System.EventArgs e)
+        private void btnLoad_Click(object sender, EventArgs e)
         {
-            using(OpenFileDialog dlg = new OpenFileDialog())
+            using OpenFileDialog dlg = new()
             {
-                dlg.Title = LR.GetString("HMLoadTitle");
-                dlg.DefaultExt = "xml";
-                dlg.Filter = LR.GetString("HMFileDlgFilter");
-                dlg.InitialDirectory = Environment.CurrentDirectory;
+                Title = LR.GetString("HMLoadTitle"),
+                DefaultExt = "xml",
+                Filter = LR.GetString("HMFileDlgFilter"),
+                InitialDirectory = Environment.CurrentDirectory
+            };
 
-                if(dlg.ShowDialog() == DialogResult.OK)
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                // Deserialize the holidays from a file of the selected format
+                try
                 {
-                    // Deserialize the holidays from a file of the selected format
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    using FileStream fs = new(dlg.FileName, FileMode.Open);
+                    XmlSerializer xs = new(typeof(HolidayCollection));
+
+                    using var rdr = XmlReader.Create(fs);
+
+                    holidays = (HolidayCollection)xs.Deserialize(rdr)!;
+
+                    this.LoadHolidayList();
+                }
+                catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.Write(ex.ToString());
+
+                    string errorMsg = LR.GetString("HMLoadError", ex.Message);
+
+                    if(ex.InnerException != null)
                     {
-                        this.Cursor = Cursors.WaitCursor;
+                        errorMsg += ex.InnerException.Message + "\n";
 
-                        using(FileStream fs = new FileStream(dlg.FileName, FileMode.Open))
-                        {
-                            XmlSerializer xs = new XmlSerializer(typeof(HolidayCollection));
-
-                            using(var rdr = XmlReader.Create(fs))
-                            {
-                                holidays = (HolidayCollection)xs.Deserialize(rdr);
-                            }
-                        }
-
-                        this.LoadHolidayList();
+                        if(ex.InnerException.InnerException != null)
+                            errorMsg += ex.InnerException.InnerException.Message;
                     }
-                    catch(Exception ex)
-                    {
-                        System.Diagnostics.Debug.Write(ex.ToString());
 
-                        string errorMsg = LR.GetString("HMLoadError", ex.Message);
+                    System.Diagnostics.Debug.WriteLine(errorMsg);
 
-                        if(ex.InnerException != null)
-                        {
-                            errorMsg += ex.InnerException.Message + "\n";
-
-                            if(ex.InnerException.InnerException != null)
-                                errorMsg += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.WriteLine(errorMsg);
-
-                        MessageBox.Show(errorMsg, LR.GetString("HMErrorLoading"), MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    MessageBox.Show(errorMsg, LR.GetString("HMErrorLoading"), MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }
@@ -289,49 +290,48 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         private void btnSave_Click(object sender, System.EventArgs e)
         {
-            using(SaveFileDialog dlg = new SaveFileDialog())
+            using SaveFileDialog dlg = new()
             {
-                dlg.Title = LR.GetString("HMSaveTitle");
-                dlg.DefaultExt = "xml";
-                dlg.Filter = LR.GetString("HMFileDlgFilter");
-                dlg.InitialDirectory = Environment.CurrentDirectory;
+                Title = LR.GetString("HMSaveTitle"),
+                DefaultExt = "xml",
+                Filter = LR.GetString("HMFileDlgFilter"),
+                InitialDirectory = Environment.CurrentDirectory
+            };
 
-                if(dlg.ShowDialog() == DialogResult.OK)
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                // Serialize the holidays to a file of the selected format
+                try
                 {
-                    // Serialize the holidays to a file of the selected format
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    using FileStream fs = new(dlg.FileName, FileMode.Create);
+                    XmlSerializer xs = new(typeof(HolidayCollection));
+                    
+                    xs.Serialize(fs, holidays);
+                }
+                catch(Exception ex)
+                {
+                    System.Diagnostics.Debug.Write(ex.ToString());
+
+                    string errorMsg = LR.GetString("HMSaveError", ex.Message);
+
+                    if(ex.InnerException != null)
                     {
-                        this.Cursor = Cursors.WaitCursor;
+                        errorMsg += ex.InnerException.Message + "\n";
 
-                        using(FileStream fs = new FileStream(dlg.FileName, FileMode.Create))
-                        {
-                            XmlSerializer xs = new XmlSerializer(typeof(HolidayCollection));
-                            xs.Serialize(fs, holidays);
-                        }
+                        if(ex.InnerException.InnerException != null)
+                            errorMsg += ex.InnerException.InnerException.Message;
                     }
-                    catch(Exception ex)
-                    {
-                        System.Diagnostics.Debug.Write(ex.ToString());
 
-                        string errorMsg = LR.GetString("HMSaveError", ex.Message);
+                    System.Diagnostics.Debug.WriteLine(errorMsg);
 
-                        if(ex.InnerException != null)
-                        {
-                            errorMsg += ex.InnerException.Message + "\n";
-
-                            if(ex.InnerException.InnerException != null)
-                                errorMsg += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.WriteLine(errorMsg);
-
-                        MessageBox.Show(errorMsg, LR.GetString("HMErrorSaving"), MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    MessageBox.Show(errorMsg, LR.GetString("HMErrorSaving"), MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }

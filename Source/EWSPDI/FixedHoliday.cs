@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FixedHolidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2021
-// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to automatically calculate fixed holidays.  The class is serializable.
 //
@@ -212,11 +212,11 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is FixedHoliday h))
+            if(obj is not FixedHoliday h)
                 return false;
 
-            return (this == h || (this.Month == h.Month && dayOfMonth == h.Day &&
-                adjustFixed == h.AdjustFixedDate && this.Description == h.Description));
+            return this == h || (this.Month == h.Month && dayOfMonth == h.Day &&
+                adjustFixed == h.AdjustFixedDate && this.Description == h.Description);
         }
 
         /// <summary>

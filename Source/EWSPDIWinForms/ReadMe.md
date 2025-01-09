@@ -1,5 +1,4 @@
-EWSoftware.PDI.Windows.Forms Control Library
---------------------------------------------
+# EWSoftware.PDI.Windows.Forms Control Library
 This library contains some Windows Forms controls that can be used to edit holiday calculation settings and to
 edit recurrence settings.
 

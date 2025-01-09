@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CalendarObject.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the base class for all calendar related Personal Data Interchange (PDI) classes and the
 // interface that it implements.
@@ -78,7 +77,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public abstract void UpdateTimeZoneId(string oldId, string newId);
+        public abstract void UpdateTimeZoneId(string? oldId, string? newId);
 
         /// <summary>
         /// This is used to apply the selected time zone to all date/time objects in the component and convert
@@ -87,7 +86,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public abstract void ApplyTimeZone(VTimeZone vTimeZone);
+        public abstract void ApplyTimeZone(VTimeZone? vTimeZone);
 
         /// <summary>
         /// This is used to set the selected time zone in all date/time objects in the component without
@@ -96,7 +95,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public abstract void SetTimeZone(VTimeZone vTimeZone);
+        public abstract void SetTimeZone(VTimeZone? vTimeZone);
 
         /// <summary>
         /// This helper method can be used to add a time zone ID to the string collection when one is used on the
@@ -111,7 +110,7 @@ namespace EWSoftware.PDI.Objects
         {
             if(dateProp != null && dateProp.TimeZoneDateTime != DateTime.MinValue)
             {
-                string tzId = dateProp.TimeZoneId;
+                string? tzId = dateProp.TimeZoneId;
 
                 if(tzId != null && !timeZoneIds.Contains(tzId))
                     timeZoneIds.Add(tzId);
@@ -125,7 +124,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
         /// <remarks>If the property's current time zone ID matches the old ID, it is replaced with the new ID</remarks>
-        protected static void UpdatePropertyTimeZoneId(BaseDateTimeProperty dateProp, string oldId, string newId)
+        protected static void UpdatePropertyTimeZoneId(BaseDateTimeProperty dateProp, string? oldId, string? newId)
         {
             if(dateProp != null && dateProp.TimeZoneId == oldId)
                 dateProp.TimeZoneId = newId;
@@ -138,7 +137,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">The new time zone component to use</param>
         /// <remarks>If the property's current time zone ID does not match the one in the new time zone, it is
         /// updated with the new ID and the date/time is adjusted to the new time zone.</remarks>
-        protected static void ApplyPropertyTimeZone(BaseDateTimeProperty dateProp, VTimeZone vTimeZone)
+        protected static void ApplyPropertyTimeZone(BaseDateTimeProperty dateProp, VTimeZone? vTimeZone)
         {
             if(dateProp != null && (vTimeZone == null || dateProp.TimeZoneId != vTimeZone.TimeZoneId.Value))
             {
@@ -165,7 +164,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">The new time zone component to use</param>
         /// <remarks>If the property's current time zone ID does not match the one in the new time zone, it is
         /// updated with the new ID.  The date/time value is not changed.</remarks>
-        protected static void SetPropertyTimeZone(BaseDateTimeProperty dateProp, VTimeZone vTimeZone)
+        protected static void SetPropertyTimeZone(BaseDateTimeProperty dateProp, VTimeZone? vTimeZone)
         {
             if(dateProp != null && (vTimeZone == null || dateProp.TimeZoneId != vTimeZone.TimeZoneId.Value))
             {
@@ -183,11 +182,11 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns a text description of the object suitable for saving to a PDI data stream</returns>
         public override string ToString()
         {
-            using(var sw = new StringWriter(new StringBuilder(1024), CultureInfo.InvariantCulture))
-            {
-                this.WriteToStream(sw, null);
-                return sw.ToString();
-            }
+            using var sw = new StringWriter(new StringBuilder(1024), CultureInfo.InvariantCulture);
+            
+            this.WriteToStream(sw, null);
+            
+            return sw.ToString();
         }
 
         /// <summary>
@@ -215,7 +214,7 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="ToString"/> as well as owning objects when they convert
         /// themselves to a string or write themselves to a PDI data stream.</remarks>
-        public abstract void WriteToStream(TextWriter tw, StringBuilder sb);
+        public abstract void WriteToStream(TextWriter tw, StringBuilder? sb);
 
         #endregion
     }

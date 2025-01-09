@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarBrowserForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration application that shows how to load, save, and manage vCalendar and iCalendar
 // files including how to edit the properties on the various components.
@@ -37,7 +37,7 @@ namespace CalendarBrowser
     /// This application demonstrates loading, saving, and managing a vCalendar or iCalendar file including how
     /// to edit the properties on the various components.
     /// </summary>
-    public partial class CalendarBrowserForm : System.Windows.Forms.Form
+    public partial class CalendarBrowserForm : Form
     {
         #region Private data members
         //=====================================================================
@@ -182,7 +182,7 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void Calendar_ListChanged(object sender, ListChangedEventArgs e)
+        private void Calendar_ListChanged(object? sender, ListChangedEventArgs e)
         {
             int count;
 
@@ -234,82 +234,82 @@ namespace CalendarBrowser
               MessageBoxDefaultButton.Button2) == DialogResult.No)
                 return;
 
-            using(OpenFileDialog dlg = new OpenFileDialog())
+            using var dlg = new OpenFileDialog();
+            
+            dlg.Title = "Load Calendar File";
+            dlg.Filter = "ICS files (*.ics)|*.ics|VCS files (*.vcs)|*.vcs|All files (*.*)|*.*";
+
+            if(vCal.Version == SpecificationVersions.vCalendar10)
             {
-                dlg.Title = "Load Calendar File";
-                dlg.Filter = "ICS files (*.ics)|*.ics|VCS files (*.vcs)|*.vcs|All files (*.*)|*.*";
+                dlg.DefaultExt = "vcs";
+                dlg.FilterIndex = 2;
+            }
+            else
+            {
+                dlg.DefaultExt = "ics";
+                dlg.FilterIndex = 1;
+            }
 
-                if(vCal.Version == SpecificationVersions.vCalendar10)
-                {
-                    dlg.DefaultExt = "vcs";
-                    dlg.FilterIndex = 2;
-                }
-                else
-                {
-                    dlg.DefaultExt = "ics";
-                    dlg.FilterIndex = 1;
-                }
+            dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
+                Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
 
-                dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
-                    Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
-
-                if(dlg.ShowDialog() == DialogResult.OK)
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    // Parse the calendar information from the file and load the data grid with some basic
+                    // information about the items in it.
+                    vCal.Dispose();
+                    vCal = VCalendarParser.ParseFromFile(dlg.FileName) ??
+                        throw new InvalidOperationException("Invalid calendar file");
+
+                    LoadComponentList();
+
+                    // Find the first collection with items
+                    if(vCal.Events.Count != 0)
+                        cboComponents.SelectedIndex = 0;
+                    else
                     {
-                        this.Cursor = Cursors.WaitCursor;
-
-                        // Parse the calendar information from the file and load the data grid with some basic
-                        // information about the items in it.
-                        vCal.Dispose();
-                        vCal = VCalendarParser.ParseFromFile(dlg.FileName);
-
-                        LoadComponentList();
-
-                        // Find the first collection with items
-                        if(vCal.Events.Count != 0)
-                            cboComponents.SelectedIndex = 0;
+                        if(vCal.ToDos.Count != 0)
+                            cboComponents.SelectedIndex = 1;
                         else
                         {
-                            if(vCal.ToDos.Count != 0)
-                                cboComponents.SelectedIndex = 1;
+                            if(vCal.Journals.Count != 0)
+                                cboComponents.SelectedIndex = 2;
                             else
                             {
-                                if(vCal.Journals.Count != 0)
-                                    cboComponents.SelectedIndex = 2;
+                                if(vCal.FreeBusys.Count != 0)
+                                    cboComponents.SelectedIndex = 3;
                                 else
-                                {
-                                    if(vCal.FreeBusys.Count != 0)
-                                        cboComponents.SelectedIndex = 3;
-                                    else
-                                        cboComponents.SelectedIndex = 0;
-                                }
+                                    cboComponents.SelectedIndex = 0;
                             }
                         }
-
-                        LoadGridWithItems(true);
-                        lblFilename.Text = dlg.FileName;
                     }
-                    catch(Exception ex)
+
+                    LoadGridWithItems(true);
+                    lblFilename.Text = dlg.FileName;
+                }
+                catch(Exception ex)
+                {
+                    string error = $"Unable to load calendar:\n{ex.Message}";
+
+                    if(ex.InnerException != null)
                     {
-                        string error = $"Unable to load calendar:\n{ex.Message}";
+                        error += ex.InnerException.Message + "\n";
 
-                        if(ex.InnerException != null)
-                        {
-                            error += ex.InnerException.Message + "\n";
-
-                            if(ex.InnerException.InnerException != null)
-                                error += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.Write(ex);
-
-                        MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if(ex.InnerException.InnerException != null)
+                            error += ex.InnerException.InnerException.Message;
                     }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+
+                    System.Diagnostics.Debug.Write(ex);
+
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }
@@ -321,62 +321,61 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void miSave_Click(object sender, EventArgs e)
         {
-            using(SaveFileDialog dlg = new SaveFileDialog())
+            using var dlg = new SaveFileDialog();
+            
+            dlg.Title = "Save Calendar File";
+            dlg.Filter = "ICS files (*.ics)|*.ics|VCS files (*.vcs)|*.vcs|All files (*.*)|*.*";
+
+            if(vCal.Version == SpecificationVersions.vCalendar10)
             {
-                dlg.Title = "Save Calendar File";
-                dlg.Filter = "ICS files (*.ics)|*.ics|VCS files (*.vcs)|*.vcs|All files (*.*)|*.*";
+                dlg.DefaultExt = "vcs";
+                dlg.FilterIndex = 2;
+            }
+            else
+            {
+                dlg.DefaultExt = "ics";
+                dlg.FilterIndex = 1;
+            }
 
-                if(vCal.Version == SpecificationVersions.vCalendar10)
+            dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
+                Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
+            dlg.FileName = lblFilename.Text;
+
+            if(dlg.ShowDialog() == DialogResult.OK)
+            {
+                try
                 {
-                    dlg.DefaultExt = "vcs";
-                    dlg.FilterIndex = 2;
+                    this.Cursor = Cursors.WaitCursor;
+
+                    // Open the file and write the calendar to it. We'll use the same encoding method used by
+                    // the parser.
+                    using(var sw = new StreamWriter(dlg.FileName, false, PDIParser.DefaultEncoding))
+                    {
+                        vCal.WriteToStream(sw);
+                    }
+
+                    wasModified = false;
+                    lblFilename.Text = dlg.FileName;
                 }
-                else
+                catch(Exception ex)
                 {
-                    dlg.DefaultExt = "ics";
-                    dlg.FilterIndex = 1;
+                    string error = $"Unable to save calendar:\n{ex.Message}";
+
+                    if(ex.InnerException != null)
+                    {
+                        error += ex.InnerException.Message + "\n";
+
+                        if(ex.InnerException.InnerException != null)
+                            error += ex.InnerException.InnerException.Message;
+                    }
+
+                    System.Diagnostics.Debug.Write(ex);
+
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-                dlg.InitialDirectory = Path.GetFullPath(Path.Combine(
-                    Environment.CurrentDirectory, @"..\..\..\..\..\PDIFiles"));
-                dlg.FileName = lblFilename.Text;
-
-                if(dlg.ShowDialog() == DialogResult.OK)
+                finally
                 {
-                    try
-                    {
-                        this.Cursor = Cursors.WaitCursor;
-
-                        // Open the file and write the calendar to it. We'll use the same encoding method used by
-                        // the parser.
-                        using(var sw = new StreamWriter(dlg.FileName, false, PDIParser.DefaultEncoding))
-                        {
-                            vCal.WriteToStream(sw);
-                        }
-
-                        wasModified = false;
-                        lblFilename.Text = dlg.FileName;
-                    }
-                    catch(Exception ex)
-                    {
-                        string error = $"Unable to save calendar:\n{ex.Message}";
-
-                        if(ex.InnerException != null)
-                        {
-                            error += ex.InnerException.Message + "\n";
-
-                            if(ex.InnerException.InnerException != null)
-                                error += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.Write(ex);
-
-                        MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    this.Cursor = Cursors.Default;
                 }
             }
         }
@@ -405,10 +404,9 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void miAbout_Click(object sender, EventArgs e)
         {
-            using(AboutDlg dlg = new AboutDlg())
-            {
-                dlg.ShowDialog();
-            }
+            using var dlg = new AboutDlg();
+            
+            dlg.ShowDialog();
         }
 
         /// <summary>
@@ -431,9 +429,9 @@ namespace CalendarBrowser
             switch(cboComponents.SelectedIndex)
             {
                 case 0:
-                    using(CalendarObjectDlg dlg = new CalendarObjectDlg())
+                    using(var dlg = new CalendarObjectDlg())
                     {
-                        VEvent evt = new VEvent();
+                        var evt = new VEvent();
                         evt.UniqueId.AssignNewId(true);
                         evt.DateCreated.TimeZoneDateTime = DateTime.Now;
                         evt.LastModified.TimeZoneDateTime = evt.DateCreated.TimeZoneDateTime;
@@ -452,9 +450,9 @@ namespace CalendarBrowser
                     break;
 
                 case 1:
-                    using(CalendarObjectDlg dlg = new CalendarObjectDlg())
+                    using(var dlg = new CalendarObjectDlg())
                     {
-                        VToDo td = new VToDo();
+                        var td = new VToDo();
                         td.DateCreated.TimeZoneDateTime = DateTime.Now;
                         td.LastModified.TimeZoneDateTime = td.DateCreated.TimeZoneDateTime;
                         dlg.SetValues(td);
@@ -472,9 +470,9 @@ namespace CalendarBrowser
                     break;
 
                 case 2:
-                    using(CalendarObjectDlg dlg = new CalendarObjectDlg())
+                    using(var dlg = new CalendarObjectDlg())
                     {
-                        VJournal j = new VJournal();
+                        var j = new VJournal();
                         j.DateCreated.TimeZoneDateTime = DateTime.Now;
                         j.LastModified.TimeZoneDateTime = j.DateCreated.TimeZoneDateTime;
                         dlg.SetValues(j);
@@ -492,11 +490,11 @@ namespace CalendarBrowser
                     break;
 
                 case 3:
-                    using(VFreeBusyDlg dlg = new VFreeBusyDlg())
+                    using(var dlg = new VFreeBusyDlg())
                     {
                         if(dlg.ShowDialog() == DialogResult.OK)
                         {
-                            VFreeBusy fb = new VFreeBusy();
+                            var fb = new VFreeBusy();
                             dlg.GetValues(fb);
 
                             // Create a unique ID for the new item
@@ -526,7 +524,7 @@ namespace CalendarBrowser
             switch(cboComponents.SelectedIndex)
             {
                 case 0:
-                    using(CalendarObjectDlg dlg = new CalendarObjectDlg())
+                    using(var dlg = new CalendarObjectDlg())
                     {
                         dlg.SetValues(vCal.Events[dgvCalendar.CurrentCellAddress.Y]);
 
@@ -540,7 +538,7 @@ namespace CalendarBrowser
                     break;
 
                 case 1:
-                    using(CalendarObjectDlg dlg = new CalendarObjectDlg())
+                    using(var dlg = new CalendarObjectDlg())
                     {
                         dlg.SetValues(vCal.ToDos[dgvCalendar.CurrentCellAddress.Y]);
 
@@ -554,7 +552,7 @@ namespace CalendarBrowser
                     break;
 
                 case 2:
-                    using(CalendarObjectDlg dlg = new CalendarObjectDlg())
+                    using(var dlg = new CalendarObjectDlg())
                     {
                         dlg.SetValues(vCal.Journals[dgvCalendar.CurrentCellAddress.Y]);
 
@@ -568,7 +566,7 @@ namespace CalendarBrowser
                     break;
 
                 case 3:
-                    using(VFreeBusyDlg dlg = new VFreeBusyDlg())
+                    using(var dlg = new VFreeBusyDlg())
                     {
                         dlg.SetValues(vCal.FreeBusys[dgvCalendar.CurrentCellAddress.Y]);
 
@@ -691,17 +689,16 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void btnChgTimeZone_Click(object sender, EventArgs e)
         {
-            using(TimeZoneListDlg dlg = new TimeZoneListDlg())
-            {
-                dlg.CurrentCalendar = vCal;
-                dlg.Modified = wasModified;
-                dlg.ShowDialog();
+            using var dlg = new TimeZoneListDlg();
+            
+            dlg.CurrentCalendar = vCal;
+            dlg.Modified = wasModified;
+            dlg.ShowDialog();
 
-                if(wasModified != dlg.Modified)
-                {
-                    wasModified = true;
-                    LoadGridWithItems(false);
-                }
+            if(wasModified != dlg.Modified)
+            {
+                wasModified = true;
+                LoadGridWithItems(false);
             }
         }
 
@@ -789,7 +786,7 @@ namespace CalendarBrowser
         private static int CalendarSorter(CalendarObject x, CalendarObject y)
         {
             DateTime d1, d2;
-            string summary1, summary2;
+            string? summary1, summary2;
 
             if(x is VEvent e1)
             {
@@ -836,11 +833,8 @@ namespace CalendarBrowser
 
             if(d1.CompareTo(d2) == 0)
             {
-                if(summary1 == null)
-                    summary1 = String.Empty;
-
-                if(summary2 == null)
-                    summary2 = String.Empty;
+                summary1 ??= String.Empty;
+                summary2 ??= String.Empty;
 
                 // For descending order, change this to compare summary 2 to summary 1 instead
                 return String.Compare(summary1, summary2, StringComparison.Ordinal);
@@ -860,18 +854,18 @@ namespace CalendarBrowser
         {
             CurrencyManager cm;
             StartDateProperty startProp;
-            SummaryProperty summaryProp;
-            DescriptionProperty descProp;
+            SummaryProperty? summaryProp;
+            DescriptionProperty? descProp;
             DateTimeInstance dti;
 
             Color foreColor;
             object item;
-            string columnText = null;
+            string? columnText = null;
 
             if(e.RowIndex > -1 && (e.ColumnIndex == 0 || e.ColumnIndex == 1))
             {
-                cm = (CurrencyManager)dgvCalendar.BindingContext[dgvCalendar.DataSource];
-                item = cm.List[e.RowIndex];
+                cm = (CurrencyManager)dgvCalendar.BindingContext![dgvCalendar.DataSource];
+                item = cm.List[e.RowIndex]!;
 
                 if(e.ColumnIndex == 0)
                 {
@@ -950,14 +944,13 @@ namespace CalendarBrowser
 
                     // Based the foreground color on the selected state
                     if((e.State & DataGridViewElementStates.Selected) != 0)
-                        foreColor = e.CellStyle.SelectionForeColor;
+                        foreColor = e.CellStyle!.SelectionForeColor;
                     else
-                        foreColor = e.CellStyle.ForeColor;
+                        foreColor = e.CellStyle!.ForeColor;
 
-                    using(SolidBrush b = new SolidBrush(foreColor))
-                    {
-                        e.Graphics.DrawString(columnText, e.CellStyle.Font, b, e.CellBounds, sf);
-                    }
+                    using var b = new SolidBrush(foreColor);
+                    
+                    e.Graphics!.DrawString(columnText, e.CellStyle.Font, b, e.CellBounds, sf);
 
                     e.Handled = true;
                 }

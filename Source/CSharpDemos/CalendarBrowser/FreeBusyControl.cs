@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : FreeBusyControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a free/busy object's free/busy collection
 //
@@ -79,18 +78,18 @@ namespace CalendarBrowser
             txtOtherType.DataBindings.Add("Text", this.BindingSource, "OtherType");
 
             // The binding events translate between the index value and the free/busy type
-            Binding b = new Binding("SelectedIndex", this.BindingSource, "FreeBusyType");
+            Binding b = new("SelectedIndex", this.BindingSource, "FreeBusyType");
             b.Format += FreeBusyType_Format;
             b.Parse += FreeBusyType_Parse;
             cboBusyType.DataBindings.Add(b);
 
             // This binding events will take care of values that haven't been set in the date/time controls
-            b = new Binding("Value", this.BindingSource, "PeriodValue_StartDateTime");
+            b = new("Value", this.BindingSource, "PeriodValue_StartDateTime");
             b.Format += DateTime_Format;
             b.Parse += DateTime_Parse;
             dtpStartDate.DataBindings.Add(b);
 
-            b = new Binding("Value", this.BindingSource, "PeriodValue_EndDateTime");
+            b = new("Value", this.BindingSource, "PeriodValue_EndDateTime");
             b.Format += DateTime_Format;
             b.Parse += DateTime_Parse;
             dtpEndDate.DataBindings.Add(b);
@@ -115,7 +114,7 @@ namespace CalendarBrowser
 
             foreach(FreeBusyProperty fb in freebusys)
             {
-                if(fb.FreeBusyType == FreeBusyType.Other && fb.OtherType.Trim().Length == 0)
+                if(fb.FreeBusyType == FreeBusyType.Other && fb.OtherType!.Trim().Length == 0)
                 {
                     this.BindingSource.Position = freebusys.IndexOf(fb);
                     txtOtherType.Focus();
@@ -157,7 +156,7 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="oldTZ">The old time zone's ID</param>
         /// <param name="newTZ">The new time zone's ID</param>
-        public void ApplyTimeZone(string oldTZ, string newTZ)
+        public void ApplyTimeZone(string? oldTZ, string? newTZ)
         {
             DateTimeInstance dti;
 
@@ -200,9 +199,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void FreeBusyType_Format(object sender, ConvertEventArgs e)
+        private void FreeBusyType_Format(object? sender, ConvertEventArgs e)
         {
-            e.Value = (int)e.Value;
+            e.Value = (int)e.Value!;
         }
 
         /// <summary>
@@ -210,9 +209,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void FreeBusyType_Parse(object sender, ConvertEventArgs e)
+        private void FreeBusyType_Parse(object? sender, ConvertEventArgs e)
         {
-            e.Value = (FreeBusyType)e.Value;
+            e.Value = (FreeBusyType)e.Value!;
         }
 
         /// <summary>
@@ -220,10 +219,10 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void DateTime_Format(object sender, ConvertEventArgs e)
+        private void DateTime_Format(object? sender, ConvertEventArgs e)
         {
-            DateTimePicker dtp = (DateTimePicker)(((Binding)sender).Control);
-            DateTime date = (DateTime)e.Value;
+            DateTimePicker dtp = (DateTimePicker)(((Binding)sender!).Control);
+            DateTime date = (DateTime)e.Value!;
 
             if(date == DateTime.MinValue)
             {
@@ -239,9 +238,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        void DateTime_Parse(object sender, ConvertEventArgs e)
+        void DateTime_Parse(object? sender, ConvertEventArgs e)
         {
-            DateTimePicker dtp = (DateTimePicker)(((Binding)sender).Control);
+            DateTimePicker dtp = (DateTimePicker)(((Binding)sender!).Control);
 
             if(!dtp.Checked)
                 e.Value = DateTime.MinValue;

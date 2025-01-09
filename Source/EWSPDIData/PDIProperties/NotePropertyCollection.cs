@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NotePropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for LabelProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -63,9 +62,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public NoteProperty Add(string note)
         {
-            NoteProperty n = new NoteProperty { Value = note };
+            NoteProperty n = new() { Value = note };
 
-            base.Add(n);
+            this.Add(n);
 
             return n;
         }

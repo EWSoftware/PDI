@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VAlarmCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for VAlarm objects
 //
@@ -85,7 +84,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public void UpdateTimeZoneId(string oldId, string newId)
+        public void UpdateTimeZoneId(string? oldId, string? newId)
         {
             foreach(VAlarm a in this)
                 a.UpdateTimeZoneId(oldId, newId);
@@ -100,7 +99,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public void ApplyTimeZone(VTimeZone vTimeZone)
+        public void ApplyTimeZone(VTimeZone? vTimeZone)
         {
             foreach(VAlarm a in this)
                 a.ApplyTimeZone(vTimeZone);
@@ -115,7 +114,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public void SetTimeZone(VTimeZone vTimeZone)
+        public void SetTimeZone(VTimeZone? vTimeZone)
         {
             foreach(VAlarm a in this)
                 a.SetTimeZone(vTimeZone);

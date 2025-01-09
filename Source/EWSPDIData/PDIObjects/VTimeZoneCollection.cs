@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VTimeZoneCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/21/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for VTimeZone objects
 //
@@ -44,9 +43,9 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         [NonSerialized]
-        private ReaderWriterLockSlim rwl;
+        private ReaderWriterLockSlim? rwl;
 
-        private List<VTimeZone> items;
+        private readonly List<VTimeZone> items;
 
         #endregion
 
@@ -73,7 +72,7 @@ namespace EWSoftware.PDI.Objects
         /// This event is raised when the value of a <see cref="VTimeZone.TimeZoneId"/> property of an item in
         /// the collection is changed.
         /// </summary>
-        public event EventHandler<TimeZoneIdChangedEventArgs> TimeZoneIdChanged;
+        public event EventHandler<TimeZoneIdChangedEventArgs>? TimeZoneIdChanged;
 
         /// <summary>
         /// This raises the <see cref="TimeZoneIdChanged"/> event
@@ -106,7 +105,7 @@ namespace EWSoftware.PDI.Objects
         public VTimeZoneCollection()
         {
             this.MergingEnabled = true;
-            items = new List<VTimeZone>();
+            items = [];
         }
 
         /// <summary>
@@ -151,15 +150,17 @@ namespace EWSoftware.PDI.Objects
         /// <param name="tzid">The time zone ID to find</param>
         /// <returns>The zero-based index of the entry if it exists within the collection or -1 if it is not
         /// found.  This version is much faster than the other version as it only has to compare ID values.</returns>
-        public int IndexOf(string tzid)
+        public int IndexOf(string? tzid)
         {
             this.AcquireReaderLock(250);
 
             try
             {
                 for(int idx = 0; idx < items.Count; idx++)
+                {
                     if(items[idx].TimeZoneId.Value == tzid)
                         return idx;
+                }
 
                 return -1;
             }
@@ -179,7 +180,7 @@ namespace EWSoftware.PDI.Objects
         /// </remarks>
         public void Insert(int index, VTimeZone item)
         {
-            VTimeZone existing = this[item.TimeZoneId.Value];
+            VTimeZone? existing = this[item.TimeZoneId.Value];
 
             if(existing == null)
             {
@@ -275,7 +276,7 @@ namespace EWSoftware.PDI.Objects
         /// is returned if it does not exist in the collection.</param>
         /// <exception cref="ArgumentException">This is thrown if an attempt is made to set an item using a time
         /// zone ID that does not exist in the collection.</exception>
-        public VTimeZone this[string timeZoneId]
+        public VTimeZone? this[string? timeZoneId]
         {
             get
             {
@@ -284,8 +285,10 @@ namespace EWSoftware.PDI.Objects
                 try
                 {
                     for(int idx = 0; idx < items.Count; idx++)
+                    {
                         if(items[idx].TimeZoneId.Value == timeZoneId)
                             return items[idx];
+                    }
 
                     return null;
                 }
@@ -298,14 +301,19 @@ namespace EWSoftware.PDI.Objects
             {
                 this.AcquireWriterLock(250);
 
+                if(value == null)
+                    throw new ArgumentNullException(nameof(value)); 
+
                 try
                 {
                     for(int idx = 0; idx < items.Count; idx++)
+                    {
                         if(items[idx].TimeZoneId.Value == timeZoneId)
                         {
                             this[idx] = value;
                             return;
                         }
+                    }
 
                     throw new ArgumentException(LR.GetString("ExVTZIDNotFound"));
                 }
@@ -569,8 +577,8 @@ namespace EWSoftware.PDI.Objects
         /// <param name="index">The index at which to start copying</param>
         void ICollection.CopyTo(Array array, int index)
         {
-            VTimeZone[] zones = array as VTimeZone[];
-            this.CopyTo(zones, index);
+            if(array is VTimeZone[] zones)
+                this.CopyTo(zones, index);
         }
 
         /// <summary>
@@ -616,12 +624,11 @@ namespace EWSoftware.PDI.Objects
             {
                 lock(this.SyncRoot)
                 {
-                    if(rwl == null)
-                        rwl = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+                    rwl ??= new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
                 }
             }
 
-            bool success = false;
+            bool success;
 
             if(upgradeable || rwl.IsUpgradeableReadLockHeld)
                 success = rwl.TryEnterUpgradeableReadLock(timeout);
@@ -638,11 +645,15 @@ namespace EWSoftware.PDI.Objects
         public void ReleaseReaderLock()
         {
             if(rwl != null)
+            {
                 if(rwl.IsUpgradeableReadLockHeld)
                     rwl.ExitUpgradeableReadLock();
                 else
+                {
                     if(rwl.IsReadLockHeld)
                         rwl.ExitReadLock();
+                }
+            }
         }
 
         /// <summary>
@@ -663,8 +674,7 @@ namespace EWSoftware.PDI.Objects
             {
                 lock(this.SyncRoot)
                 {
-                    if(rwl == null)
-                        rwl = new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
+                    rwl ??= new ReaderWriterLockSlim(LockRecursionPolicy.SupportsRecursion);
                 }
             }
 
@@ -735,10 +745,7 @@ namespace EWSoftware.PDI.Objects
             {
                 List<VTimeZone> foundItems = items.FindAll(match);
 
-                ExtendedBindingList<VTimeZone> collection = new ExtendedBindingList<VTimeZone>();
-
-                foreach(VTimeZone item in foundItems)
-                    collection.Add(item);
+                ExtendedBindingList<VTimeZone> collection = [.. foundItems];
 
                 return collection;
             }
@@ -1108,7 +1115,9 @@ namespace EWSoftware.PDI.Objects
                     this.ReleaseWriterLock();
                 }
             }
-            else    // Merge the rules if allowed
+            else
+            {
+                // Merge the rules if allowed
                 if(this.MergingEnabled)
                 {
                     this.AcquireWriterLock(250);
@@ -1120,8 +1129,10 @@ namespace EWSoftware.PDI.Objects
                         foreach(ObservanceRule or in vTimeZone.ObservanceRules)
                         {
                             for(idx = 0; idx < rules.Count; idx++)
+                            {
                                 if(rules[idx].Equals(or))
                                     break;
+                            }
 
                             if(idx == rules.Count)
                                 rules.Add(or);
@@ -1132,6 +1143,7 @@ namespace EWSoftware.PDI.Objects
                         this.ReleaseWriterLock();
                     }
                 }
+            }
 
             return tzIdx;
         }

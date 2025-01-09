@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VNote.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2013-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2013-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the vNote object
 //
@@ -45,16 +44,16 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single vNote properties
-        private UniqueIdProperty uid;
-        private SummaryProperty summary;
-        private BodyProperty body;
-        private CategoriesProperty categories;
-        private ClassificationProperty classification;
-        private DateCreatedProperty dateCreated;
-        private LastModifiedProperty lastModified;
+        private UniqueIdProperty uid = null!;
+        private SummaryProperty summary = null!;
+        private BodyProperty body = null!;
+        private CategoriesProperty categories = null!;
+        private ClassificationProperty classification = null!;
+        private DateCreatedProperty dateCreated = null!;
+        private LastModifiedProperty lastModified = null!;
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         #endregion
 
@@ -106,8 +105,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(summary == null)
-                    summary = new SummaryProperty();
+                summary ??= new SummaryProperty();
 
                 return summary;
             }
@@ -120,8 +118,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(body == null)
-                    body = new BodyProperty();
+                body ??= new BodyProperty();
 
                 return body;
             }
@@ -134,8 +131,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(categories == null)
-                    categories = new CategoriesProperty();
+                categories ??= new CategoriesProperty();
 
                 return categories;
             }
@@ -148,8 +144,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(classification == null)
-                    classification = new ClassificationProperty();
+                classification ??= new ClassificationProperty();
 
                 return classification;
             }
@@ -162,8 +157,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(dateCreated == null)
-                    dateCreated = new DateCreatedProperty();
+                dateCreated ??= new DateCreatedProperty();
 
                 return dateCreated;
             }
@@ -176,8 +170,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(lastModified == null)
-                    lastModified = new LastModifiedProperty();
+                lastModified ??= new LastModifiedProperty();
 
                 return lastModified;
             }
@@ -191,8 +184,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -240,8 +232,7 @@ namespace EWSoftware.PDI.Objects
         [SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            if(info != null)
-                info.AddValue("VNOTE", this.ToString());
+            info?.AddValue("VNOTE", this.ToString());
         }
         #endregion
 
@@ -254,7 +245,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            VNote o = new VNote();
+            VNote o = new();
             o.Clone(this);
             return o;
         }
@@ -286,15 +277,15 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public void ClearProperties()
         {
-            uid = null;
-            summary = null;
-            body = null;
-            classification = null;
-            categories = null;
-            dateCreated = null;
-            lastModified = null;
+            uid = null!;
+            summary = null!;
+            body = null!;
+            classification = null!;
+            categories = null!;
+            dateCreated = null!;
+            lastModified = null!;
 
-            customProps = null;
+            customProps = null!;
         }
 
         /// <summary>
@@ -323,8 +314,7 @@ namespace EWSoftware.PDI.Objects
             if(lastModified != null)
                 lastModified.Version = this.Version;
 
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
         }
 
         /// <summary>
@@ -334,12 +324,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is VNote vn))
+            if(obj is not VNote vn)
                 return false;
 
             // The ToString() method returns a text representation of the vNote based on all of its settings so
             // it's a reliable way to tell if two instances are the same.
-            return (this == vn || this.ToString() == vn.ToString());
+            return this == vn || this.ToString() == vn.ToString();
         }
 
         /// <summary>
@@ -359,11 +349,10 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns a text description of the vNote suitable for saving to a PDI data stream</returns>
         public override string ToString()
         {
-            using(var sw = new StringWriter(new StringBuilder(1024), CultureInfo.InvariantCulture))
-            {
-                this.WriteToStream(sw, null);
-                return sw.ToString();
-            }
+            using var sw = new StringWriter(new StringBuilder(1024), CultureInfo.InvariantCulture);
+
+            this.WriteToStream(sw, null);
+            return sw.ToString();
         }
 
         /// <summary>
@@ -413,7 +402,7 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="ToString"/> as well as owning objects when they convert
         /// themselves to a string or write themselves to a PDI data stream.</remarks>
-        public void WriteToStream(TextWriter tw, StringBuilder sb)
+        public void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             PropagateVersion();
 
@@ -436,8 +425,10 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(lastModified, sb, tw);
 
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             tw.Write("END:VNOTE\r\n");
         }

@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : DailyPattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/17/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
 // parameters.  This one is used to specify the settings for a daily recurrence pattern.
@@ -21,7 +20,6 @@
 
 using System;
 using System.ComponentModel;
-using System.Windows.Forms;
 
 namespace EWSoftware.PDI.Windows.Forms
 {
@@ -54,14 +52,16 @@ namespace EWSoftware.PDI.Windows.Forms
         public void GetValues(Recurrence recurrence)
         {
             if(recurrence.Frequency == RecurFrequency.Daily)
+            {
                 if(rbEveryXDays.Checked)
                     recurrence.Interval = (int)udcDays.Value;
                 else
                 {
                     recurrence.Interval = 1;
-                    recurrence.ByDay.AddRange(new[] { DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
-                        DayOfWeek.Thursday, DayOfWeek.Friday });
+                    recurrence.ByDay.AddRange([ DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
+                        DayOfWeek.Thursday, DayOfWeek.Friday ]);
                 }
+            }
         }
 
         /// <summary>
@@ -84,9 +84,13 @@ namespace EWSoftware.PDI.Windows.Forms
                 if(recurrence.ByDay.Count == 5 && recurrence.Interval == 1)
                 {
                     for(idx = 0; idx < 5; idx++)
+                    {
                         if(recurrence.ByDay[idx].Instance != 0 || recurrence.ByDay[idx].DayOfWeek == DayOfWeek.Saturday ||
                           recurrence.ByDay[idx].DayOfWeek == DayOfWeek.Sunday)
+                        {
                             break;
+                        }
+                    }
 
                     rbEveryWeekday.Checked = (idx == 5);
                 }
@@ -100,9 +104,9 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <summary>
         /// Enable or disable the days text box based on the selection
         /// </summary>
-        private void Daily_CheckedChanged(object sender, System.EventArgs e)
+        private void Daily_CheckedChanged(object sender, EventArgs e)
         {
-            udcDays.Enabled = ((sender as RadioButton) == rbEveryXDays);
+            udcDays.Enabled = sender == rbEveryXDays;
         }
         #endregion
     }

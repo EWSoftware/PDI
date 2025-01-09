@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VTimeZone.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the VTimeZone object used by vCalendar and iCalendar objects
 //
@@ -40,16 +39,16 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single properties
-        private TimeZoneIdProperty   timeZoneId;
-        private TimeZoneUrlProperty  timeZoneUrl;
-        private LastModifiedProperty lastMod;
+        private TimeZoneIdProperty   timeZoneId = null!;
+        private TimeZoneUrlProperty  timeZoneUrl = null!;
+        private LastModifiedProperty lastMod = null!;
 
         // Time zone property collections.  There can be one or more of each of these properties so they are
         // stored in a collection.
-        private ObservanceRuleCollection rules;
+        private ObservanceRuleCollection rules = null!;
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         #endregion
 
@@ -86,8 +85,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(timeZoneUrl == null)
-                    timeZoneUrl = new TimeZoneUrlProperty();
+                timeZoneUrl ??= new TimeZoneUrlProperty();
 
                 return timeZoneUrl;
             }
@@ -100,8 +98,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(lastMod == null)
-                    lastMod = new LastModifiedProperty();
+                lastMod ??= new LastModifiedProperty();
 
                 return lastMod;
             }
@@ -115,8 +112,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(rules == null)
-                    rules = new ObservanceRuleCollection();
+                rules ??= [];
 
                 return rules;
             }
@@ -130,8 +126,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -144,7 +139,7 @@ namespace EWSoftware.PDI.Objects
         /// <summary>
         /// This event is raised when the <see cref="TimeZoneId"/> property is changed
         /// </summary>
-        public event EventHandler<TimeZoneIdChangedEventArgs> TimeZoneIdChanged;
+        public event EventHandler<TimeZoneIdChangedEventArgs>? TimeZoneIdChanged;
 
         /// <summary>
         /// This raises the <see cref="TimeZoneIdChanged"/> event
@@ -187,7 +182,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            VTimeZone o = new VTimeZone();
+            VTimeZone o = new();
             o.Clone(this);
             return o;
         }
@@ -221,14 +216,14 @@ namespace EWSoftware.PDI.Objects
             if(timeZoneId != null)
             {
                 timeZoneId.TimeZoneIdChanged -= tzid_TimeZoneIdChanged;
-                timeZoneId = null;
+                timeZoneId = null!;
             }
 
-            timeZoneUrl = null;
-            lastMod = null;
+            timeZoneUrl = null!;
+            lastMod = null!;
 
-            rules = null;
-            customProps = null;
+            rules = null!;
+            customProps = null!;
         }
 
         /// <summary>
@@ -245,11 +240,8 @@ namespace EWSoftware.PDI.Objects
             if(lastMod != null)
                 lastMod.Version = this.Version;
 
-            if(rules != null)
-                rules.PropagateVersion(this.Version);
-
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            rules?.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
         }
 
         /// <summary>
@@ -266,7 +258,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public override void UpdateTimeZoneId(string oldId, string newId)
+        public override void UpdateTimeZoneId(string? oldId, string? newId)
         {
         }
 
@@ -275,7 +267,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
-        public override void ApplyTimeZone(VTimeZone vTimeZone)
+        public override void ApplyTimeZone(VTimeZone? vTimeZone)
         {
         }
 
@@ -284,7 +276,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
-        public override void SetTimeZone(VTimeZone vTimeZone)
+        public override void SetTimeZone(VTimeZone? vTimeZone)
         {
         }
 
@@ -298,7 +290,7 @@ namespace EWSoftware.PDI.Objects
         /// <remarks>This is called by <see cref="CalendarObject.ToString"/> as well as owning objects when they
         /// convert themselves to a string or write themselves to a PDI data stream.</remarks>
         /// <exception cref="ArgumentException">This is thrown if the TimeZoneId's Value property is null</exception>
-        public override void WriteToStream(TextWriter tw, StringBuilder sb)
+        public override void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             PropagateVersion();
 
@@ -313,12 +305,16 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(lastMod, sb, tw);
 
             if(rules != null && rules.Count != 0)
+            {
                 foreach(ObservanceRule r in rules)
                     r.WriteToStream(tw, sb);
+            }
 
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             tw.Write("END:VTIMEZONE\r\n");
         }
@@ -330,12 +326,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is VTimeZone tz))
+            if(obj is not VTimeZone tz)
                 return false;
 
             // The ToString() method returns a text representation of the time zone based on all of its settings
             // so it's a reliable way to tell if two instances are the same.
-            return (this == tz || this.ToString() == tz.ToString());
+            return this == tz || this.ToString() == tz.ToString();
         }
 
         /// <summary>

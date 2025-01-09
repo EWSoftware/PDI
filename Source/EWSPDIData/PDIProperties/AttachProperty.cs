@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BinaryProperties.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Attach property that support binary encoded attachments.  It is used with the Personal
 // Data Interchange (PDI) vCalendar and iCalendar classes.
@@ -59,7 +58,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>The value is a string defining the type of attachment that the property value represents such
         /// as <c>image/jpeg</c>, <c>application/binary</c>, <c>audio/basic</c>, etc.</value>
-        public string FormatType { get; set; }
+        public string? FormatType { get; set; }
 
         #endregion
 
@@ -83,7 +82,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            AttachProperty o = new AttachProperty();
+            AttachProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -126,6 +125,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "FMTTYPE=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -140,6 +140,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

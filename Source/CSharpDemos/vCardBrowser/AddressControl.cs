@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AddressControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's address information.  It's nothing elaborate but does let you edit the
 // collection fairly well.
@@ -21,6 +21,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Security.Policy;
 using System.Text;
 using System.Web;
 using System.Windows.Forms;
@@ -94,43 +95,43 @@ namespace vCardBrowser
             txtCountry.DataBindings.Add("Text", this.BindingSource, "Country");
 
             // For the checkboxes, the Format and Parse events are needed to get and set the checked state
-            Binding b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            Binding b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkDomestic.Tag = AddressTypes.Domestic;
             chkDomestic.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkInternational.Tag = AddressTypes.International;
             chkInternational.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPostal.Tag = AddressTypes.Postal;
             chkPostal.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkParcel.Tag = AddressTypes.Parcel;
             chkParcel.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkHome.Tag = AddressTypes.Home;
             chkHome.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkWork.Tag = AddressTypes.Work;
             chkWork.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "AddressTypes");
+            b = new("Checked", this.BindingSource, "AddressTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPreferred.Tag = AddressTypes.Preferred;
@@ -146,11 +147,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Format(object sender, ConvertEventArgs e)
+        private void CheckBox_Format(object? sender, ConvertEventArgs e)
         {
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            AddressTypes checkType = (AddressTypes)cb.Tag;
-            AddressTypes addrTypes = (AddressTypes)e.Value;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            AddressTypes checkType = (AddressTypes)cb.Tag!;
+            AddressTypes addrTypes = (AddressTypes)e.Value!;
 
             e.Value = (addrTypes & checkType) == checkType;
         }
@@ -160,11 +161,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Parse(object sender, ConvertEventArgs e)
+        private void CheckBox_Parse(object? sender, ConvertEventArgs e)
         {
             AddressProperty a = (AddressProperty)this.BindingSource.Current;
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            AddressTypes checkType = (AddressTypes)cb.Tag;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            AddressTypes checkType = (AddressTypes)cb.Tag!;
 
             if(cb.Checked)
                 a.AddressTypes |= checkType;
@@ -199,7 +200,7 @@ namespace vCardBrowser
         /// <param name="e">The event arguments</param>
         private void btnMap_Click(object sender, EventArgs e)
         {
-            StringBuilder sb = new StringBuilder("https://www.google.com/maps/place/", 512);
+            StringBuilder sb = new("https://www.google.com/maps/place/", 512);
 
             if(txtStreetAddress.Text.Length != 0)
             {
@@ -227,7 +228,11 @@ namespace vCardBrowser
 
             try
             {
-                System.Diagnostics.Process.Start(sb.ToString());
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = sb.ToString(),
+                    UseShellExecute = true,
+                });
             }
             catch(Exception ex)
             {

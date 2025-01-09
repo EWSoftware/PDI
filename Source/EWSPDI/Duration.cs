@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Duration.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class that represents a duration.  It contains a TimeSpan object and adds support for
 // handling ISO 8601 duration values.
@@ -78,7 +77,7 @@ namespace EWSoftware.PDI
         // The number of days in a month and year
         private static double daysInMonth = 30, daysInYear = 365;
 
-        private static Regex reDuration = new Regex(@"^\s*(?<Negative>-)?" +
+        private static readonly Regex reDuration = new(@"^\s*(?<Negative>-)?" +
             @"P(((?<Years>\d*)Y)?((?<Months>\d*)M)?((?<Weeks>\d*)W)?" +
             @"((?<Days>\d*)D)?(T((?<Hours>\d*)H)?((?<Mins>\d*)M)?" +
             @"((?<Secs>\d*)S)?)?)\s*$", RegexOptions.IgnoreCase);
@@ -95,7 +94,8 @@ namespace EWSoftware.PDI
         /// <summary>
         /// This represents a zero length duration.  This field is read-only.
         /// </summary>
-        public static readonly Duration Zero = new Duration(0L);
+        public static readonly Duration Zero = new(0L);
+
         #endregion
 
         #region Properties
@@ -131,13 +131,13 @@ namespace EWSoftware.PDI
         /// This returns the number of timer ticks in one month based on the current setting of
         /// <see cref="DaysInOneMonth"/>.
         /// </summary>
-        public static long TicksPerMonth => (long)(TimeSpan.TicksPerDay * Duration.DaysInOneMonth);
+        public static long TicksPerMonth => (long)(TimeSpan.TicksPerDay * DaysInOneMonth);
 
         /// <summary>
         /// This returns the number of timer ticks in one year based on the current setting of
         /// <see cref="DaysInOneYear"/>.
         /// </summary>
-        public static long TicksPerYear => (long)(TimeSpan.TicksPerDay * Duration.DaysInOneYear);
+        public static long TicksPerYear => (long)(TimeSpan.TicksPerDay * DaysInOneYear);
 
         /// <summary>
         /// This allows access to the underlying <see cref="TimeSpan"/> object
@@ -163,22 +163,22 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <remarks>Note that this returns the number of whole days in the <strong>duration</strong> rather than
         /// the number of whole days in the underlying time span.</remarks>
-        public int Days => (int)(ts.TotalDays % Duration.DaysInOneYear % Duration.DaysInOneMonth % 7);
+        public int Days => (int)(ts.TotalDays % DaysInOneYear % DaysInOneMonth % 7);
 
         /// <summary>
         /// Gets the number of whole weeks represented by this instance
         /// </summary>
-        public int Weeks => (int)(ts.TotalDays % Duration.DaysInOneYear % Duration.DaysInOneMonth / 7);
+        public int Weeks => (int)(ts.TotalDays % DaysInOneYear % DaysInOneMonth / 7);
 
         /// <summary>
         /// Gets the number of whole months represented by this instance
         /// </summary>
-        public int Months => (int)(ts.TotalDays % Duration.DaysInOneYear / Duration.DaysInOneMonth);
+        public int Months => (int)(ts.TotalDays % DaysInOneYear / DaysInOneMonth);
 
         /// <summary>
         /// Gets the number of whole years represented by this instance
         /// </summary>
-        public int Years => (int)(ts.TotalDays / Duration.DaysInOneYear);
+        public int Years => (int)(ts.TotalDays / DaysInOneYear);
 
         /// <summary>
         /// Gets the value of this instance expressed in whole and fractional weeks
@@ -188,12 +188,12 @@ namespace EWSoftware.PDI
         /// <summary>
         /// Gets the value of this instance expressed in whole and fractional months
         /// </summary>
-        public double TotalMonths => ts.TotalDays / Duration.DaysInOneMonth;
+        public double TotalMonths => ts.TotalDays / DaysInOneMonth;
 
         /// <summary>
         /// Gets the value of this instance expressed in whole and fractional years
         /// </summary>
-        public double TotalYears => ts.TotalDays / Duration.DaysInOneYear;
+        public double TotalYears => ts.TotalDays / DaysInOneYear;
 
         #endregion
 
@@ -226,7 +226,7 @@ namespace EWSoftware.PDI
         /// <param name="timeSpan">The time span used to initialize the instance</param>
         public Duration(int weeks, TimeSpan timeSpan)
         {
-            ts = timeSpan.Add(new TimeSpan(weeks * Duration.TicksPerWeek));
+            ts = timeSpan.Add(new TimeSpan(weeks * TicksPerWeek));
         }
 
         /// <summary>
@@ -237,8 +237,8 @@ namespace EWSoftware.PDI
         /// <param name="timeSpan">The time span used to initialize the instance</param>
         public Duration(int months, int weeks, TimeSpan timeSpan)
         {
-            ts = timeSpan.Add(new TimeSpan(months * Duration.TicksPerMonth)).Add(
-                new TimeSpan(weeks * Duration.TicksPerWeek));
+            ts = timeSpan.Add(new TimeSpan(months * TicksPerMonth)).Add(
+                new TimeSpan(weeks * TicksPerWeek));
         }
 
         /// <summary>
@@ -250,9 +250,9 @@ namespace EWSoftware.PDI
         /// <param name="timeSpan">The time span used to initialize the instance</param>
         public Duration(int years, int months, int weeks, TimeSpan timeSpan)
         {
-            ts = timeSpan.Add(new TimeSpan(years * Duration.TicksPerYear)).Add(
-                new TimeSpan(months * Duration.TicksPerMonth)).Add(
-                    new TimeSpan(weeks * Duration.TicksPerWeek));
+            ts = timeSpan.Add(new TimeSpan(years * TicksPerYear)).Add(
+                new TimeSpan(months * TicksPerMonth)).Add(
+                    new TimeSpan(weeks * TicksPerWeek));
         }
 
         /// <summary>
@@ -264,11 +264,11 @@ namespace EWSoftware.PDI
         /// minutes, and seconds.  Any of the parts except the leading 'P' and the 'T' time separator can be
         /// omitted entirely if not needed.</remarks>
         /// <exception cref="ArgumentException">This is thrown if the specified duration string is not valid</exception>
-        public Duration(string duration)
+        public Duration(string? duration)
         {
             int years = 0, months = 0, weeks = 0, days = 0, hours = 0, minutes = 0, seconds = 0;
 
-            // If null or empty, default to zero
+            // If null or whitespace, default to zero
             if(String.IsNullOrWhiteSpace(duration))
             {
                 ts = TimeSpan.Zero;
@@ -304,13 +304,13 @@ namespace EWSoftware.PDI
             ts = new TimeSpan(days, hours, minutes, seconds, 0);
 
             if(years != 0)
-                ts += new TimeSpan(years * Duration.TicksPerYear);
+                ts += new TimeSpan(years * TicksPerYear);
 
             if(months != 0)
-                ts += new TimeSpan(months * Duration.TicksPerMonth);
+                ts += new TimeSpan(months * TicksPerMonth);
 
             if(weeks != 0)
-                ts += new TimeSpan(weeks * Duration.TicksPerWeek);
+                ts += new TimeSpan(weeks * TicksPerWeek);
 
             if(m.Groups["Negative"].Value == "-")
                 ts = ts.Negate();
@@ -339,7 +339,7 @@ namespace EWSoftware.PDI
         /// <returns>A <see cref="Duration"/> that represents the value</returns>
         public static Duration FromMonths(double value)
         {
-            return new Duration(TimeSpan.FromDays(value * Duration.DaysInOneMonth));
+            return new Duration(TimeSpan.FromDays(value * DaysInOneMonth));
         }
 
         /// <summary>
@@ -350,7 +350,7 @@ namespace EWSoftware.PDI
         /// <returns>A <see cref="Duration"/> that represents the value</returns>
         public static Duration FromYears(double value)
         {
-            return new Duration(TimeSpan.FromDays(value * Duration.DaysInOneYear));
+            return new Duration(TimeSpan.FromDays(value * DaysInOneYear));
         }
 
         /// <summary>
@@ -362,11 +362,11 @@ namespace EWSoftware.PDI
         /// specified by s, or <see cref="Zero"/> if the conversion failed. This parameter is passed in
         /// uninitialized.</param>
         /// <returns>True if successfully parsed or false if the value could not be parsed</returns>
-        public static bool TryParse(string duration, out Duration result)
+        public static bool TryParse(string? duration, out Duration result)
         {
-            if(!reDuration.IsMatch(duration))
+            if(String.IsNullOrWhiteSpace(duration) || !reDuration.IsMatch(duration))
             {
-                result = Duration.Zero;
+                result = Zero;
                 return false;
             }
 
@@ -376,7 +376,7 @@ namespace EWSoftware.PDI
             }
             catch(OverflowException )
             {
-                result = Duration.Zero;
+                result = Zero;
                 return false;
             }
 
@@ -405,7 +405,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            return (obj != null && (obj is Duration) && ts.Ticks == ((Duration)obj).Ticks);
+            return obj is Duration d && ts.Ticks == d.Ticks;
         }
 
         /// <summary>
@@ -434,7 +434,7 @@ namespace EWSoftware.PDI
         /// <overloads>There are two overloads for this method</overloads>
         public override string ToString()
         {
-            return this.ToString(Duration.MaxUnit.Years);
+            return this.ToString(MaxUnit.Years);
         }
 
         /// <summary>
@@ -449,8 +449,8 @@ namespace EWSoftware.PDI
         /// time unit of weeks if a month is defined as 30 days).</remarks>
         public string ToString(MaxUnit maxUnit)
         {
-            StringBuilder sb = new StringBuilder("P", 50);
-            Duration d = new Duration(this.Ticks);
+            StringBuilder sb = new("P", 50);
+            Duration d = new(this.Ticks);
 
             int years, months, weeks, days, hours, minutes, seconds;
 
@@ -461,9 +461,9 @@ namespace EWSoftware.PDI
             {
                 case MaxUnit.Months:
                     years = 0;
-                    months = (int)(d.TimeSpan.Days / Duration.DaysInOneMonth);
-                    weeks = d.TimeSpan.Days - (int)(months * Duration.DaysInOneMonth);
-                    days = d.TimeSpan.Days - (int)(months * Duration.DaysInOneMonth) - (int)(weeks * 7);
+                    months = (int)(d.TimeSpan.Days / DaysInOneMonth);
+                    weeks = d.TimeSpan.Days - (int)(months * DaysInOneMonth);
+                    days = d.TimeSpan.Days - (int)(months * DaysInOneMonth) - (int)(weeks * 7);
                     hours = d.TimeSpan.Hours;
                     minutes = d.TimeSpan.Minutes;
                     seconds = d.TimeSpan.Seconds;
@@ -563,7 +563,7 @@ namespace EWSoftware.PDI
         /// <overloads>There are two overloads for this method</overloads>
         public string ToDescription()
         {
-            return this.ToDescription(Duration.MaxUnit.Years);
+            return this.ToDescription(MaxUnit.Years);
         }
 
         /// <summary>
@@ -578,8 +578,8 @@ namespace EWSoftware.PDI
         /// maximum time unit of weeks if a month is defined as 30 days).</remarks>
         public string ToDescription(MaxUnit maxUnit)
         {
-            StringBuilder sb = new StringBuilder(50);
-            Duration d = new Duration(this.Ticks);
+            StringBuilder sb = new (50);
+            Duration d = new(this.Ticks);
 
             int years, months, weeks, days, hours, minutes, seconds;
 
@@ -590,9 +590,9 @@ namespace EWSoftware.PDI
             {
                 case MaxUnit.Months:
                     years = 0;
-                    months = (int)(d.TimeSpan.Days / Duration.DaysInOneMonth);
-                    weeks = d.TimeSpan.Days - (int)(months * Duration.DaysInOneMonth);
-                    days = d.TimeSpan.Days - (int)(months * Duration.DaysInOneMonth) - (int)(weeks * 7);
+                    months = (int)(d.TimeSpan.Days / DaysInOneMonth);
+                    weeks = d.TimeSpan.Days - (int)(months * DaysInOneMonth);
+                    days = d.TimeSpan.Days - (int)(months * DaysInOneMonth) - (int)(weeks * 7);
                     hours = d.TimeSpan.Hours;
                     minutes = d.TimeSpan.Minutes;
                     seconds = d.TimeSpan.Seconds;
@@ -724,10 +724,10 @@ namespace EWSoftware.PDI
         /// <exception cref="ArgumentException">This is thrown if the object to be compared is not a Duration</exception>
         public int CompareTo(object obj)
         {
-              if(!(obj is Duration))
+            if(obj is not Duration)
                 throw new ArgumentException(LR.GetString("ExDurBadCompareObject"));
 
-            return Duration.Compare(this, (Duration)obj);
+            return Compare(this, (Duration)obj);
         }
 
         /// <summary>
@@ -756,7 +756,7 @@ namespace EWSoftware.PDI
         /// <returns>True if equal, false if not</returns>
         public static bool operator == (Duration d1, Duration d2)
         {
-            return (Duration.Compare(d1, d2) == 0);
+            return Compare(d1, d2) == 0;
         }
 
         /// <summary>
@@ -767,7 +767,7 @@ namespace EWSoftware.PDI
         /// <returns>True if not equal, false if they are equal</returns>
         public static bool operator != (Duration d1, Duration d2)
         {
-            return (Duration.Compare(d1, d2) != 0);
+            return Compare(d1, d2) != 0;
         }
 
         /// <summary>
@@ -778,7 +778,7 @@ namespace EWSoftware.PDI
         /// <returns>True if r1 is less than r2, false if not</returns>
         public static bool operator < (Duration d1, Duration d2)
         {
-            return (Duration.Compare(d1, d2) < 0);
+            return Compare(d1, d2) < 0;
         }
 
         /// <summary>
@@ -789,7 +789,7 @@ namespace EWSoftware.PDI
         /// <returns>True if r1 is greater than r2, false if not</returns>
         public static bool operator > (Duration d1, Duration d2)
         {
-            return (Duration.Compare(d1, d2) > 0);
+            return Compare(d1, d2) > 0;
         }
 
         /// <summary>
@@ -800,7 +800,7 @@ namespace EWSoftware.PDI
         /// <returns>True if r1 is less than or equal r2, false if not</returns>
         public static bool operator <= (Duration d1, Duration d2)
         {
-            return (Duration.Compare(d1, d2) <= 0);
+            return Compare(d1, d2) <= 0;
         }
 
         /// <summary>
@@ -811,7 +811,7 @@ namespace EWSoftware.PDI
         /// <returns>True if r1 is greater than or equal r2, false if not</returns>
         public static bool operator >= (Duration d1, Duration d2)
         {
-            return (Duration.Compare(d1, d2) >= 0);
+            return Compare(d1, d2) >= 0;
         }
         #endregion
     }

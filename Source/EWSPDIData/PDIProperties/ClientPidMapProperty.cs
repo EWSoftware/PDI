@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ClientPidMapProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2019-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Client PID Map property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -56,12 +56,12 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to get or set the URI
         /// </summary>
-        public string Uri { get; set; }
+        public string? Uri { get; set; }
 
         /// <summary>
         /// This property is overridden to handle parsing the component parts to/from their string form
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -77,7 +77,7 @@ namespace EWSoftware.PDI.Properties
 
                 if(!String.IsNullOrWhiteSpace(value))
                 {
-                    string[] parts = value.Split(';');
+                    string[] parts = value!.Split(';');
 
                     if(parts[0].Length != 0 && Int32.TryParse(parts[0], out int id) && id != 0)
                         this.Id = id;
@@ -91,7 +91,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the component parts to/from their string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;

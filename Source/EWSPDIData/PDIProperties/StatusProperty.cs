@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : StatusProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Status property class used by the Personal Data Interchange (PDI) vCalendar and
 // iCalendar classes.
@@ -35,21 +34,22 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         // This private array is used to translate status value names to enumerated status values
-        private static NameToValue<StatusValue>[] ntv = {
-            new NameToValue<StatusValue>("ACCEPTED", StatusValue.Accepted, true),
-            new NameToValue<StatusValue>("NEEDS-ACTION", StatusValue.NeedsAction, true),
-            new NameToValue<StatusValue>("NEEDS ACTION", StatusValue.NeedsAction, true),
-            new NameToValue<StatusValue>("SENT", StatusValue.Sent, true),
-            new NameToValue<StatusValue>("TENTATIVE", StatusValue.Tentative, true),
-            new NameToValue<StatusValue>("CONFIRMED", StatusValue.Confirmed, true),
-            new NameToValue<StatusValue>("DECLINED", StatusValue.Declined, true),
-            new NameToValue<StatusValue>("COMPLETED", StatusValue.Completed, true),
-            new NameToValue<StatusValue>("DELEGATED", StatusValue.Delegated, true),
-            new NameToValue<StatusValue>("CANCELLED", StatusValue.Cancelled, true),
-            new NameToValue<StatusValue>("IN-PROCESS", StatusValue.InProcess, true),
-            new NameToValue<StatusValue>("DRAFT", StatusValue.Draft, true),
-            new NameToValue<StatusValue>("FINAL", StatusValue.Final, true)
-        };
+        private static readonly NameToValue<StatusValue>[] ntv =
+        [
+            new("ACCEPTED", StatusValue.Accepted, true),
+            new("NEEDS-ACTION", StatusValue.NeedsAction, true),
+            new("NEEDS ACTION", StatusValue.NeedsAction, true),
+            new("SENT", StatusValue.Sent, true),
+            new("TENTATIVE", StatusValue.Tentative, true),
+            new("CONFIRMED", StatusValue.Confirmed, true),
+            new("DECLINED", StatusValue.Declined, true),
+            new("COMPLETED", StatusValue.Completed, true),
+            new("DELEGATED", StatusValue.Delegated, true),
+            new("CANCELLED", StatusValue.Cancelled, true),
+            new("IN-PROCESS", StatusValue.InProcess, true),
+            new("DRAFT", StatusValue.Draft, true),
+            new("FINAL", StatusValue.Final, true)
+        ];
         #endregion
 
         #region Properties
@@ -80,7 +80,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to an enumerated status value
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -89,8 +89,10 @@ namespace EWSoftware.PDI.Properties
                     return null;
 
                 for(int idx = 0; idx < ntv.Length; idx++)
+                {
                     if(this.StatusValue == ntv[idx].EnumValue)
                         return ntv[idx].Name;
+                }
 
                 return null;
             }
@@ -99,19 +101,23 @@ namespace EWSoftware.PDI.Properties
                 this.StatusValue = StatusValue.None;
 
                 if(value != null && value.Length != 0)
+                {
                     for(int idx = 0; idx < ntv.Length; idx++)
+                    {
                         if(ntv[idx].IsMatch(value))
                         {
                             this.StatusValue = ntv[idx].EnumValue;
                             break;
                         }
+                    }
+                }
             }
         }
 
         /// <summary>
         /// This property is overridden to handle converting the text value to an enumerated status value
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -140,7 +146,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            StatusProperty o = new StatusProperty();
+            StatusProperty o = new();
             o.Clone(this);
             return o;
         }

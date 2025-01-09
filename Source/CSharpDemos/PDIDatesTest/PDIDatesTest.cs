@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PDIDatesTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
+// Updated : 01/04/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is a console mode application that runs through a few simple configurations to test the basics in the
 // date utility, holiday, and recurrence classes.
@@ -31,7 +31,7 @@ namespace PDIDatesTest
 	/// <summary>
 	/// A simple test of the EWSoftware.PDI date and recurrence classes
 	/// </summary>
-	class PDIDatesTest
+	sealed class PDIDatesTest
 	{
 		/// <summary>
         /// This is used to test the EWSoftware.PDI namespace date utility and recurrence classes.  It displays
@@ -87,17 +87,17 @@ namespace PDIDatesTest
             }
 
             // Test DateUtils.CalculateOccurrenceDate
-            Console.WriteLine("Fourth weekday in January 2018: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 0));
+            Console.WriteLine("Fourth weekday in January {0}: {1:d}", yearFrom,
+                DateUtils.CalculateOccurrenceDate(yearFrom, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 0));
 
-            Console.WriteLine("Fourth weekday in January 2018 + 2: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 2));
+            Console.WriteLine("Fourth weekday in January {0} + 2: {1:d}", yearFrom,
+                DateUtils.CalculateOccurrenceDate(yearFrom, 1, DayOccurrence.Fourth, DaysOfWeek.Weekdays, 2));
 
-            Console.WriteLine("Last weekend day in January 2018: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 0));
+            Console.WriteLine("Last weekend day in January {0}: {1:d}", yearFrom,
+                DateUtils.CalculateOccurrenceDate(yearFrom, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 0));
 
-            Console.WriteLine("Last weekend day in January 2018 + 2: {0:d}",
-                DateUtils.CalculateOccurrenceDate(2018, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 2));
+            Console.WriteLine("Last weekend day in January {0} + 2: {1:d}", yearFrom,
+                DateUtils.CalculateOccurrenceDate(yearFrom, 1, DayOccurrence.Last, DaysOfWeek.Weekends, 2));
 
             // Pause to review output
             Console.WriteLine("Press ENTER to continue");
@@ -113,6 +113,7 @@ namespace PDIDatesTest
             for(year = yearFrom; year <= yearTo; year++)
             {
                 for(idx = 1; idx < 54; idx++)
+                {
                     if(idx != 53 || DateUtils.WeeksInYear(year, dow) == 53)
                     {
                         weekFrom = DateUtils.DateFromWeek(year, idx, dow, 0);
@@ -121,6 +122,7 @@ namespace PDIDatesTest
                         Console.WriteLine("{0} Week {1}: {2:d} - {3:d}  {4}", year, idx, weekFrom, weekTo,
                             DateUtils.WeekFromDate(weekFrom.AddDays(3), dow));
                     }
+                }
 
                 // Pause to review output
                 Console.WriteLine("Press ENTER to continue");
@@ -268,7 +270,7 @@ namespace PDIDatesTest
             Console.WriteLine("Assumptions: 1 year = {0} days, 1 month = {1} days\n", Duration.DaysInOneYear,
                 Duration.DaysInOneMonth);
 
-            Duration d = new Duration("P1Y2M3W4DT5H6M7S");
+            Duration d = new("P1Y2M3W4DT5H6M7S");
 
             Console.WriteLine("P1Y2M3W4DT5H6M7S = {0}", d.ToString());
             Console.WriteLine("P1Y2M3W4DT5H6M7S = {0} (max units = months)", d.ToString(Duration.MaxUnit.Months));
@@ -522,7 +524,7 @@ namespace PDIDatesTest
             Console.ReadLine();
 
             // Create a set of fixed and floating holidays
-            HolidayCollection holidays = new HolidayCollection();
+            HolidayCollection? holidays = [];
 
             holidays.AddFixed(1, 1, true, "New Year's Day");
             holidays.AddFloating(DayOccurrence.Third, DayOfWeek.Monday, 1, 0, "Martin Luther King Day");
@@ -542,7 +544,7 @@ namespace PDIDatesTest
                 // XML
                 using(var fs = new FileStream("Holidays.xml", FileMode.Create))
                 {
-                    XmlSerializer xs = new XmlSerializer(typeof(HolidayCollection));
+                    var xs = new XmlSerializer(typeof(HolidayCollection));
                     xs.Serialize(fs, holidays);
 
                     Console.WriteLine("Holidays saved to Holidays.xml");
@@ -591,8 +593,8 @@ namespace PDIDatesTest
                 // XML
                 using(var fs = new FileStream("Holidays.xml", FileMode.Open))
                 {
-                    XmlSerializer xs = new XmlSerializer(typeof(HolidayCollection));
-                    holidays = (HolidayCollection)xs.Deserialize(fs);
+                    var xs = new XmlSerializer(typeof(HolidayCollection));
+                    holidays = (HolidayCollection?)xs.Deserialize(fs);
 
                     Console.WriteLine("Holidays retrieved from Holidays.xml");
                 }
@@ -634,9 +636,11 @@ namespace PDIDatesTest
             // Display the holidays added to the list
             Console.WriteLine("Holidays on file.  Is Holiday should be true for all.");
 
-            foreach(Holiday hol in holidays)
+            foreach(Holiday hol in holidays!)
+            {
                 Console.WriteLine("Holiday Date: {0:d}   Is Holiday: {1}  Description: {2}",
                     hol.ToDateTime(yearFrom), holidays.IsHoliday(hol.ToDateTime(yearFrom)), hol.Description);
+            }
 
             // Pause to review output
             Console.WriteLine("Press ENTER to continue");
@@ -691,7 +695,7 @@ namespace PDIDatesTest
             //=================================================================
 
             // Test recurrence
-            Recurrence rRecur = new Recurrence();
+            Recurrence? rRecur = new();
             Recurrence.Holidays.AddRange(holidays);
 
             // Disallow occurrences on any of the defined holidays
@@ -710,7 +714,7 @@ namespace PDIDatesTest
                 // XML
                 using(var fs = new FileStream("Recurrence.xml", FileMode.Create))
                 {
-                    XmlSerializer xs = new XmlSerializer(typeof(Recurrence));
+                    var  xs = new XmlSerializer(typeof(Recurrence));
                     xs.Serialize(fs, rRecur);
 
                     Console.WriteLine("Recurrence saved to Recurrence.xml");
@@ -756,8 +760,8 @@ namespace PDIDatesTest
                 // XML
                 using(var fs = new FileStream("Recurrence.xml", FileMode.Open))
                 {
-                    XmlSerializer xs = new XmlSerializer(typeof(Recurrence));
-                    rRecur = (Recurrence)xs.Deserialize(fs);
+                    var xs = new XmlSerializer(typeof(Recurrence));
+                    rRecur = (Recurrence?)xs.Deserialize(fs);
 
                     Console.WriteLine("Recurrence restored from Recurrence.xml");
                 }
@@ -794,7 +798,7 @@ namespace PDIDatesTest
                 }
             }
 
-            recurDates = rRecur.InstancesBetween(testDate, testDate.AddMonths(1));
+            recurDates = rRecur!.InstancesBetween(testDate, testDate.AddMonths(1));
 
             Console.WriteLine(rRecur.ToStringWithStartDateTime());
 

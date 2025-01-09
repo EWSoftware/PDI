@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : TimeZoneListDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit view and edit time zones and apply them to the calendar
 //
@@ -31,12 +30,12 @@ namespace CalendarBrowser
 	/// <summary>
 	/// This form is used for editing time zone information.
 	/// </summary>
-	public partial class TimeZoneListDlg : System.Windows.Forms.Form
+	public partial class TimeZoneListDlg : Form
 	{
         #region Private data members
         //=====================================================================
 
-        private VTimeZoneCollection timeZones;
+        private readonly VTimeZoneCollection timeZones;
 
         #endregion
 
@@ -46,7 +45,7 @@ namespace CalendarBrowser
         /// <summary>
         /// Get or set the currently loaded calendar
         /// </summary>
-        public VCalendar CurrentCalendar { get; set; }
+        public VCalendar? CurrentCalendar { get; set; }
 
         /// <summary>
         /// Set or get the modified state
@@ -71,7 +70,7 @@ namespace CalendarBrowser
                 CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern + " " +
                 CultureInfo.CurrentCulture.DateTimeFormat.ShortTimePattern;
 
-            timeZones = new VTimeZoneCollection();
+            timeZones = [];
             LoadGridWithItems();
 		}
         #endregion
@@ -93,7 +92,7 @@ namespace CalendarBrowser
             if(chkLimitToCalendar.Checked)
             {
                 // Get just the time zones used
-                StringCollection timeZonesUsed = new StringCollection();
+                StringCollection timeZonesUsed = [];
 
                 if(this.CurrentCalendar != null)
                 {
@@ -101,18 +100,20 @@ namespace CalendarBrowser
 
                     // Remove entries that don't exist
                     for(int idx = 0; idx < timeZonesUsed.Count; idx++)
+                    {
                         if(VCalendar.TimeZones[timeZonesUsed[idx]] == null)
                         {
                             timeZonesUsed.RemoveAt(idx);
                             idx--;
                         }
+                    }
                 }
 
                 // Add each instance to a temporary collection and bind it to the grid
                 timeZones.Clear();
 
                 foreach(string timeZoneId in timeZonesUsed)
-                    timeZones.Add(VCalendar.TimeZones[timeZoneId]);
+                    timeZones.Add(VCalendar.TimeZones[timeZoneId]!);
 
                 dgvCalendar.DataSource = timeZones;
             }
@@ -158,18 +159,17 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            using(VTimeZoneDlg dlg = new VTimeZoneDlg())
+            using var dlg = new VTimeZoneDlg();
+            
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                if(dlg.ShowDialog() == DialogResult.OK)
-                {
-                    VTimeZone tz = new VTimeZone();
-                    dlg.GetValues(tz);
+                VTimeZone tz = new();
+                dlg.GetValues(tz);
 
-                    VCalendar.TimeZones.Add(tz);
+                VCalendar.TimeZones.Add(tz);
 
-                    this.Modified = true;
-                    this.LoadGridWithItems();
-                }
+                this.Modified = true;
+                this.LoadGridWithItems();
             }
         }
 
@@ -187,18 +187,17 @@ namespace CalendarBrowser
                 return;
             }
 
-            using(VTimeZoneDlg dlg = new VTimeZoneDlg())
+            using var dlg = new VTimeZoneDlg();
+            
+            string timeZoneId = (string)dgvCalendar[0, dgvCalendar.CurrentCellAddress.Y].Value;
+            dlg.SetValues(VCalendar.TimeZones[timeZoneId]!);
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                string timeZoneId = (string)dgvCalendar[0, dgvCalendar.CurrentCellAddress.Y].Value;
-                dlg.SetValues(VCalendar.TimeZones[timeZoneId]);
+                dlg.GetValues(VCalendar.TimeZones[timeZoneId]!);
 
-                if(dlg.ShowDialog() == DialogResult.OK)
-                {
-                    dlg.GetValues(VCalendar.TimeZones[timeZoneId]);
-
-                    this.Modified = true;
-                    this.LoadGridWithItems();
-                }
+                this.Modified = true;
+                this.LoadGridWithItems();
             }
         }
 
@@ -216,12 +215,11 @@ namespace CalendarBrowser
                 return;
             }
 
-            StringCollection timeZonesUsed = new StringCollection();
+            StringCollection timeZonesUsed = [];
 
             string timeZoneId = (string)dgvCalendar[0, dgvCalendar.CurrentCellAddress.Y].Value;
 
-            if(this.CurrentCalendar != null)
-                this.CurrentCalendar.TimeZonesUsed(timeZonesUsed);
+            this.CurrentCalendar?.TimeZonesUsed(timeZonesUsed);
 
             if(timeZonesUsed.Contains(timeZoneId))
             {
@@ -233,7 +231,7 @@ namespace CalendarBrowser
             if(MessageBox.Show("Are you sure you want to delete the selected item?", "Delete Item",
               MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                VCalendar.TimeZones.Remove(VCalendar.TimeZones[timeZoneId]);
+                VCalendar.TimeZones.Remove(VCalendar.TimeZones[timeZoneId]!);
 
                 this.Modified = true;
                 this.LoadGridWithItems();
@@ -261,7 +259,7 @@ namespace CalendarBrowser
             {
                 string timeZoneId = (string)dgvCalendar[0, dgvCalendar.CurrentCellAddress.Y].Value;
 
-                this.CurrentCalendar.ApplyTimeZone(VCalendar.TimeZones[timeZoneId]);
+                this.CurrentCalendar?.ApplyTimeZone(VCalendar.TimeZones[timeZoneId]);
 
                 this.Modified = true;
             }

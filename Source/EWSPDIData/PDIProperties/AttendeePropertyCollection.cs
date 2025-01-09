@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AttendeeProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for AttendeeProperty objects
 //
@@ -63,7 +62,7 @@ namespace EWSoftware.PDI.Properties
         /// <overloads>There are two overloads for this method</overloads>
         public AttendeeProperty Add(string attendee)
         {
-            AttendeeProperty a = new AttendeeProperty { Value = attendee };
+            AttendeeProperty a = new() { Value = attendee };
 
             base.Add(a);
 
@@ -79,7 +78,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public AttendeeProperty Add(string attendee, string commonName)
         {
-            AttendeeProperty a = new AttendeeProperty { Value = attendee, CommonName = commonName };
+            AttendeeProperty a = new() { Value = attendee, CommonName = commonName };
 
             base.Add(a);
 

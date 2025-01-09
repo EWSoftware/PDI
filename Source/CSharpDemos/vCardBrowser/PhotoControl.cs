@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PhotoControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's photo and logo information.  It's nothing elaborate but does let you edit the
 // properties fairly well.
@@ -73,12 +73,11 @@ namespace vCardBrowser
 
                         var wrq = System.Net.WebRequest.Create(new Uri(value));
 
-                        using(var wrsp = wrq.GetResponse())
-                        using(var s = wrsp.GetResponseStream())
-                        {
-                            bmImage.Dispose();
-                            bmImage = new Bitmap(s);
-                        }
+                        using var wrsp = wrq.GetResponse();
+                        using var s = wrsp.GetResponseStream();
+
+                        bmImage.Dispose();
+                        bmImage = new Bitmap(s);
                     }
                     catch
                     {
@@ -90,17 +89,15 @@ namespace vCardBrowser
                     {
                         byte[] imageBytes;
 
-                        using(var c = new System.Net.Http.HttpClient())
-                        {
-                            imageBytes = c.GetByteArrayAsync(new Uri(value)).Result;
-                        }
+                        using var c = new System.Net.Http.HttpClient();
+                        
+                        imageBytes = c.GetByteArrayAsync(new Uri(value)).Result;
 
                         bmImage.Dispose();
 
-                        using(var ms = new MemoryStream(imageBytes))
-                        {
-                            bmImage = new Bitmap(ms);
-                        }
+                        using var ms = new MemoryStream(imageBytes);
+                        
+                        bmImage = new Bitmap(ms);
                     }
                     catch
                     {
@@ -136,9 +133,9 @@ namespace vCardBrowser
         /// This is used to set or get the image type
         /// </summary>
         [DefaultValue("GIF"), Description("The image type")]
-        public string ImageType
+        public string? ImageType
         {
-            get => (string)cboImageType.SelectedItem;
+            get => (string)cboImageType.SelectedItem!;
             set
             {
                 int idx = (value != null) ? cboImageType.Items.IndexOf(value) : 0;
@@ -160,9 +157,9 @@ namespace vCardBrowser
             get => chkInline.Checked;
             set => chkInline.Checked = value;
         }
-#endregion
+        #endregion
 
-#region Constructor
+        #region Constructor
         //=====================================================================
 
         /// <summary>
@@ -174,9 +171,9 @@ namespace vCardBrowser
 
             bmImage = new Bitmap(1, 1);
 		}
-#endregion
+        #endregion
 
-#region Helper methods
+        #region Helper methods
         //=====================================================================
 
         /// <summary>
@@ -212,15 +209,14 @@ namespace vCardBrowser
         /// <returns>The bytes for the current image</returns>
         public byte[] GetImageBytes()
         {
-            using(var ms = new MemoryStream())
-            {
-                bmImage.Save(ms, bmImage.RawFormat);
-                return ms.ToArray();
-            }
-        }
-#endregion
+            using var ms = new MemoryStream();
 
-#region Event handlers
+            bmImage.Save(ms, bmImage.RawFormat);
+            return ms.ToArray();
+        }
+        #endregion
+
+        #region Event handlers
         //=====================================================================
 
         /// <summary>
@@ -245,34 +241,33 @@ namespace vCardBrowser
         {
             string extension;
 
-            using(OpenFileDialog dlg = new OpenFileDialog())
+            using var dlg = new OpenFileDialog();
+            
+            dlg.Title = "Load Image File";
+            dlg.DefaultExt = "jpg";
+            dlg.Filter = "Image files|*.jpg;*.gif;*.tif;*.bmp";
+            dlg.InitialDirectory = Environment.CurrentDirectory;
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                dlg.Title = "Load Image File";
-                dlg.DefaultExt = "jpg";
-                dlg.Filter = "Image files|*.jpg;*.gif;*.tif;*.bmp";
-                dlg.InitialDirectory = Environment.CurrentDirectory;
+                this.ImageFilename = dlg.FileName;
 
-                if(dlg.ShowDialog() == DialogResult.OK)
+                // If it loaded successfully, default to storing it inline
+                if(bmImage.Height != 1 && bmImage.Width != 1)
                 {
-                    this.ImageFilename = dlg.FileName;
+                    this.IsInline = true;
+                    extension = Path.GetExtension(dlg.FileName).ToUpperInvariant();
 
-                    // If it loaded successfully, default to storing it inline
-                    if(bmImage.Height != 1 && bmImage.Width != 1)
-                    {
-                        this.IsInline = true;
-                        extension = Path.GetExtension(dlg.FileName).ToUpperInvariant();
+                    if(extension.Length > 1 && extension[0] == '.')
+                        extension = extension.Substring(1);
 
-                        if(extension.Length > 1 && extension[0] == '.')
-                            extension = extension.Substring(1);
+                    if(extension == "JPG")
+                        extension = "JPEG";
 
-                        if(extension == "JPG")
-                            extension = "JPEG";
-
-                        this.ImageType = extension;
-                    }
+                    this.ImageType = extension;
                 }
             }
         }
-#endregion
+        #endregion
     }
 }

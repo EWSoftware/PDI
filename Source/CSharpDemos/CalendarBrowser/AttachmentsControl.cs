@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AttachmentsControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's attachment properties
 //
@@ -29,12 +29,12 @@ namespace CalendarBrowser
 	/// <summary>
 	/// This is used to edit a calendar object's attachment properties
 	/// </summary>
-	public partial class AttachmentsControl : System.Windows.Forms.UserControl
+	public partial class AttachmentsControl : UserControl
 	{
         #region Private data members
         //=====================================================================
 
-        private AttachPropertyCollection attach;
+        private readonly AttachPropertyCollection attach;
 
         #endregion
 
@@ -48,7 +48,7 @@ namespace CalendarBrowser
 		{
 			InitializeComponent();
 
-            attach = new AttachPropertyCollection();
+            attach = [];
             this.SetButtonStates();
 		}
         #endregion
@@ -128,14 +128,13 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            using(OpenFileDialog dlg = new OpenFileDialog())
-            {
-                dlg.Title = "Add Attachment";
-                dlg.InitialDirectory = Environment.CurrentDirectory;
+            using var dlg = new OpenFileDialog();
+            
+            dlg.Title = "Add Attachment";
+            dlg.InitialDirectory = Environment.CurrentDirectory;
 
-                if(dlg.ShowDialog() == DialogResult.OK)
-                    txtFilename.Text = dlg.FileName;
-            }
+            if(dlg.ShowDialog() == DialogResult.OK)
+                txtFilename.Text = dlg.FileName;
         }
 
         /// <summary>
@@ -166,7 +165,7 @@ namespace CalendarBrowser
             {
                 this.Cursor = Cursors.WaitCursor;
 
-                AttachProperty a = new AttachProperty
+                var a = new AttachProperty
                 {
                     FormatType = (txtFormat.Text.Trim().Length == 0) ? null : txtFormat.Text
                 };
@@ -180,14 +179,13 @@ namespace CalendarBrowser
                 }
                 else
                 {
-                    using(var fs = new FileStream(txtFilename.Text, FileMode.Open, FileAccess.Read))
-                    {
-                        byte[] byData = new byte[fs.Length];
-                        fs.Read(byData, 0, byData.Length);
+                    using var fs = new FileStream(txtFilename.Text, FileMode.Open, FileAccess.Read);
 
-                        a.ValueLocation = ValLocValue.Binary;
-                        a.SetAttachmentBytes(byData);
-                    }
+                    byte[] byData = new byte[fs.Length];
+                    _ = fs.Read(byData, 0, byData.Length);
+
+                    a.ValueLocation = ValLocValue.Binary;
+                    a.SetAttachmentBytes(byData);
 
                     desc = $"Inline - {a.FormatType}";
                 }
@@ -257,44 +255,42 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void btnDetach_Click(object sender, EventArgs e)
         {
-            using(SaveFileDialog dlg = new SaveFileDialog())
+            using var dlg = new SaveFileDialog();
+            
+            dlg.Title = "Save Inline Attachment";
+            dlg.InitialDirectory = Environment.CurrentDirectory;
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                dlg.Title = "Save Inline Attachment";
-                dlg.InitialDirectory = Environment.CurrentDirectory;
-
-                if(dlg.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    // Open the file and write the data to it
+                    using var fs = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write);
+                    
+                    byte[] byData = attach[lbAttachments.SelectedIndex].GetAttachmentBytes();
+                    fs.Write(byData, 0, byData.Length);
+                }
+                catch(Exception ex)
+                {
+                    string error = $"Unable to save attachment:\n{ex.Message}";
+
+                    if(ex.InnerException != null)
                     {
-                        this.Cursor = Cursors.WaitCursor;
+                        error += ex.InnerException.Message + "\n";
 
-                        // Open the file and write the data to it
-                        using(var fs = new FileStream(dlg.FileName, FileMode.Create, FileAccess.Write))
-                        {
-                            byte[] byData = attach[lbAttachments.SelectedIndex].GetAttachmentBytes();
-                            fs.Write(byData, 0, byData.Length);
-                        }
+                        if(ex.InnerException.InnerException != null)
+                            error += ex.InnerException.InnerException.Message;
                     }
-                    catch(Exception ex)
-                    {
-                        string error = $"Unable to save attachment:\n{ex.Message}";
 
-                        if(ex.InnerException != null)
-                        {
-                            error += ex.InnerException.Message + "\n";
+                    System.Diagnostics.Debug.Write(ex);
 
-                            if(ex.InnerException.InnerException != null)
-                                error += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.Write(ex);
-
-                        MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }

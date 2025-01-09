@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AgentPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for AgentProperty objects.  It is used with the Personal Data
 // Interchange (PDI) classes such as vCalendar, iCalendar, and vCard.
@@ -64,9 +63,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public AgentProperty Add(VCard vCard)
         {
-            AgentProperty a = new AgentProperty { VCard = vCard };
+            AgentProperty a = new() { VCard = vCard };
 
-            base.Add(a);
+            this.Add(a);
 
             return a;
         }
@@ -80,7 +79,7 @@ namespace EWSoftware.PDI.Properties
             foreach(PDIObject o in this)
                 o.Version = version;
 
-            base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
+            this.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
         #endregion
     }

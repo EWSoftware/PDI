@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : UniqueIntegerCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a type-safe collection class that is used to contain a set of unique integer values with
 // an optional range restriction and zero exclusion.
@@ -41,8 +40,8 @@ namespace EWSoftware.PDI
         //=====================================================================
 
         // These are used to parse a string of values for adding into the collection
-        private static Regex reStripNonDigits = new Regex(@"[^0-9\-,]");
-        private static Regex reIsRange = new Regex("(?<=[^-])-");
+        private static readonly Regex reStripNonDigits = new(@"[^0-9\-,]");
+        private static readonly Regex reIsRange = new("(?<=[^-])-");
 
         #endregion
 
@@ -150,8 +149,10 @@ namespace EWSoftware.PDI
         public void AddRange(IEnumerable<int> values)
         {
             if(values != null)
+            {
                 foreach(int v in values)
-                    base.Add(v);
+                    this.Add(v);
+            }
         }
 
         /// <summary>
@@ -172,20 +173,22 @@ namespace EWSoftware.PDI
             if(item == 0 && !this.AllowZero)
                 throw new ArgumentException(LR.GetString("ExUICZerosNotAllowed"), nameof(item));
 
-            int curIdx = base.IndexOf(item);
+            int curIdx = this.IndexOf(item);
 
             if(curIdx == -1)
                 base.InsertItem(index, item);
             else
+            {
                 if(index != curIdx)
                 {
-                    base.RemoveAt(curIdx);
+                    this.RemoveAt(curIdx);
 
-                    if(index > base.Count)
-                        base.InsertItem(base.Count, item);
+                    if(index > this.Count)
+                        base.InsertItem(this.Count, item);
                     else
                         base.InsertItem(index, item);
                 }
+            }
         }
 
         /// <summary>
@@ -196,7 +199,7 @@ namespace EWSoftware.PDI
         /// <remarks>If the integer already exists in the collection, it will be moved to the new position</remarks>
         protected override void SetItem(int index, int item)
         {
-            int curIdx = base.IndexOf(item);
+            int curIdx = this.IndexOf(item);
 
             if(curIdx == -1)
                 base.SetItem(index, item);
@@ -212,7 +215,7 @@ namespace EWSoftware.PDI
         /// <param name="count">The number of items to remove</param>
         public void RemoveRange(int index, int count)
         {
-            ((List<int>)base.Items).RemoveRange(index, count);
+            ((List<int>)this.Items).RemoveRange(index, count);
         }
 
         /// <summary>
@@ -221,7 +224,7 @@ namespace EWSoftware.PDI
         /// <param name="ascending">Pass true for ascending order, false for descending order</param>
         public void Sort(bool ascending)
         {
-            ((List<int>)base.Items).Sort((x, y) =>
+            ((List<int>)this.Items).Sort((x, y) =>
             {
                 if(ascending)
                     return x.CompareTo(y);
@@ -237,13 +240,13 @@ namespace EWSoftware.PDI
         /// format.  For example: 1,10,15-20,30-35,100</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder(256);
-            int idx, value, startValue, count = base.Count;
+            StringBuilder sb = new(256);
+            int idx, value, startValue, count = this.Count;
 
             // Copy the items to an array and sort them in ascending order.  We do this so as not to disturb the
             // order of the collection.
-            int[] array = new int[base.Count];
-            base.CopyTo(array, 0);
+            int[] array = new int[this.Count];
+            this.CopyTo(array, 0);
 
             Array.Sort(array);
 
@@ -292,23 +295,29 @@ namespace EWSoftware.PDI
         /// ic.ParseValues("1, 10, 15-20, 30-35, 100")
         /// </code>
         /// </example>
-        public void ParseValues(string values)
+        public void ParseValues(string? values)
         {
             string[] parts, range;
             int value;
 
+            if(String.IsNullOrWhiteSpace(values))
+                return;
+
             // Remove all characters that are not a digit, dash, or comma
             string parse = reStripNonDigits.Replace(values, String.Empty);
 
-            parts = parse.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            parts = parse.Split([','], StringSplitOptions.RemoveEmptyEntries);
 
             foreach(string s in parts)
+            {
                 if(!reIsRange.IsMatch(s))
                 {
                     // Single value.  Discard invalid and out of range entries.
                     if(Int32.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out value) &&
                       value >= this.MinimumValue && value <= this.MaximumValue && (value != 0 || this.AllowZero))
-                        base.Add(value);
+                    {
+                        this.Add(value);
+                    }
                 }
                 else
                 {
@@ -331,12 +340,13 @@ namespace EWSoftware.PDI
                         while(low <= high)
                         {
                             if(low >= this.MinimumValue && low <= this.MaximumValue && (low != 0 || this.AllowZero))
-                                base.Add(low);
+                                this.Add(low);
 
                             low++;
                         }
                     }
                 }
+            }
         }
         #endregion
     }

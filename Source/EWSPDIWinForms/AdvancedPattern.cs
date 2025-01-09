@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : AdvancedPattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/14/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
 // parameters.  This one is used to specify the settings for an advanced pattern that uses a more complex
@@ -42,7 +41,7 @@ namespace EWSoftware.PDI.Windows.Forms
         private RecurFrequency rf;
 
         // Day instances for the ByDay option with and without instances
-        private DayInstanceCollection dicWithInst, dicDayOnly;
+        private readonly DayInstanceCollection dicWithInst, dicDayOnly;
 
         #endregion
 
@@ -54,8 +53,8 @@ namespace EWSoftware.PDI.Windows.Forms
 		/// </summary>
         public AdvancedPattern()
 		{
-            dicWithInst = new DayInstanceCollection();
-            dicDayOnly = new DayInstanceCollection();
+            dicWithInst = [];
+            dicDayOnly = [];
 
 			InitializeComponent();
 
@@ -237,12 +236,12 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event parameters</param>
-        private void btnAdd_Click(object sender, System.EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if(udcDayInstance.Enabled)
-                dicWithInst.Add((int)udcDayInstance.Value, (DayOfWeek)cboDOW.SelectedValue);
+                dicWithInst.Add((int)udcDayInstance.Value, (DayOfWeek)cboDOW.SelectedValue!);
 
-            dicDayOnly.Add((DayOfWeek)cboDOW.SelectedValue);
+            dicDayOnly.Add((DayOfWeek)cboDOW.SelectedValue!);
 
             LoadByDayValues();
         }
@@ -252,15 +251,17 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event parameters</param>
-        private void btnRemove_Click(object sender, System.EventArgs e)
+        private void btnRemove_Click(object sender, EventArgs e)
         {
             if(lbByDay.SelectedIndex == -1)
                 lbByDay.SelectedIndex = 0;
             else
+            {
                 if(udcDayInstance.Enabled)
                     dicWithInst.RemoveAt(lbByDay.SelectedIndex);
                 else
                     dicDayOnly.RemoveAt(lbByDay.SelectedIndex);
+            }
 
             LoadByDayValues();
         }
@@ -270,7 +271,7 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event parameters</param>
-        private void btnClear_Click(object sender, System.EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             dicWithInst.Clear();
             dicDayOnly.Clear();
@@ -282,7 +283,7 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event parameters</param>
-        private void SetDayInstanceEnabledState(object sender, System.EventArgs e)
+        private void SetDayInstanceEnabledState(object sender, EventArgs e)
         {
             bool newState = udcDayInstance.Enabled;
 
@@ -294,8 +295,10 @@ namespace EWSoftware.PDI.Windows.Forms
                     newState = (txtByWeekNo.Text.Length == 0);
             }
             else
+            {
                 if(rf == RecurFrequency.Monthly)
                     newState = (txtByMonthDay.Text.Length == 0);
+            }
 
             if(udcDayInstance.Enabled != newState)
             {

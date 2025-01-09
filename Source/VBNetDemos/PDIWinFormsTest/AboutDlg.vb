@@ -75,7 +75,10 @@ Public Partial Class AboutDlg
       ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkHelp.LinkClicked
         Try
             ' Launch the e-mail URL, this will fail if user does not have an association for e-mail URLs
-            System.Diagnostics.Process.Start(DirectCast(e.Link.LinkData, String))
+            Process.Start(New ProcessStartInfo With {
+                .FileName = DirectCast(e.Link.LinkData, String),
+                .UseShellExecute = True
+            })
         Catch ex As Exception
             MessageBox.Show("Unable to launch e-mail editor", "E-Mail Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error)

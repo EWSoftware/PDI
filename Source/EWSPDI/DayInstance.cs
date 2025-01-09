@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DayInstance.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to specify day instances for the BYDAY rule of a recurrence object.  The class
 // is serializable.
@@ -40,7 +39,7 @@ namespace EWSoftware.PDI
 
         // This is used to convert the instance to its string form.  This is convenient for generating its
         // iCalendar representation.
-        private static readonly string[] abbrevDays = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+        private static readonly string[] abbrevDays = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
         private int instance;
         private DayOfWeek dow;
@@ -152,7 +151,7 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is DayInstance d))
+            if(obj is not DayInstance d)
                 return false;
 
             return (this == d || (this.Instance == d.Instance && this.DayOfWeek == d.DayOfWeek));

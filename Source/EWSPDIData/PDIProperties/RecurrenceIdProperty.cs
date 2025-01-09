@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurrenceIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Recurrence ID property class used by the Personal Data Interchange (PDI) iCalendar
 // class.
@@ -41,7 +40,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private string range;
+        private string? range;
 
         #endregion
 
@@ -67,7 +66,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is used to get or set the range (RANGE) parameter
         /// </summary>
-        public string Range
+        public string? Range
         {
             get => range;
             set
@@ -101,7 +100,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            RecurrenceIdProperty o = new RecurrenceIdProperty();
+            RecurrenceIdProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -144,6 +143,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "RANGE=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -158,6 +158,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

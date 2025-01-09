@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ChildPropertyDescriptor.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a property descriptor that is used to return information for a child property
 //
@@ -32,7 +31,8 @@ namespace EWSoftware.PDI.Binding
         //=====================================================================
 
         // The parent and child property descriptors
-        private PropertyDescriptor parentPD, childPD;
+        private readonly PropertyDescriptor parentPD, childPD;
+
         #endregion
 
         #region Properties

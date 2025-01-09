@@ -20,6 +20,7 @@
 ' Ignore Spelling: mailto
 
 Imports System.Reflection
+Imports System.Security.Policy
 
 Public Partial Class AboutDlg
     Inherits System.Windows.Forms.Form
@@ -35,28 +36,28 @@ Public Partial Class AboutDlg
         Dim asm As [Assembly] = [Assembly].GetEntryAssembly()
         Dim title As AssemblyTitleAttribute = DirectCast(AssemblyTitleAttribute.GetCustomAttribute(asm,
             GetType(AssemblyTitleAttribute)), AssemblyTitleAttribute)
-		Dim copyright As AssemblyCopyrightAttribute= DirectCast(AssemblyCopyrightAttribute.GetCustomAttribute(asm,
-			GetType(AssemblyCopyrightAttribute)), AssemblyCopyrightAttribute)
-		Dim desc As AssemblyDescriptionAttribute= DirectCast(AssemblyDescriptionAttribute.GetCustomAttribute(asm,
-			GetType(AssemblyDescriptionAttribute)), AssemblyDescriptionAttribute)
+Dim copyright As AssemblyCopyrightAttribute= DirectCast(AssemblyCopyrightAttribute.GetCustomAttribute(asm,
+GetType(AssemblyCopyrightAttribute)), AssemblyCopyrightAttribute)
+Dim desc As AssemblyDescriptionAttribute= DirectCast(AssemblyDescriptionAttribute.GetCustomAttribute(asm,
+GetType(AssemblyDescriptionAttribute)), AssemblyDescriptionAttribute)
 
-		' Set the labels
+' Set the labels
         lblName.Text = title.Title
-		lblDescription.Text = desc.Description
-		lblVersion.Text = "Version: " & Application.ProductVersion
+lblDescription.Text = desc.Description
+lblVersion.Text = "Version: " & Application.ProductVersion
 		lblCopyright.Text = copyright.Copyright
 
-		' Display components used by this assembly sorted by name
-		For Each an As AssemblyName In asm.GetReferencedAssemblies()
-			Dim lvi As  ListViewItem= lvComponents.Items.Add(an.Name)
-			lvi.SubItems.Add(an.Version.ToString())
-		Next
+' Display components used by this assembly sorted by name
+For Each an As AssemblyName In asm.GetReferencedAssemblies()
+Dim lvi As  ListViewItem= lvComponents.Items.Add(an.Name)
+lvi.SubItems.Add(an.Version.ToString())
+Next
 
         lvComponents.Sorting = SortOrder.Ascending
         lvComponents.Sort()
 
-        ' Set e-mail link
-		lnkHelp.Links(0).LinkData = "mailto:" & lnkHelp.Text & "?Subject=EWSoftware CalendarBrowser Demo"
+' Set e-mail link
+lnkHelp.Links(0).LinkData = "mailto:" & lnkHelp.Text & "?Subject=EWSoftware CalendarBrowser Demo"
     End Sub
 
     Private Sub btnSysInfo_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSysInfo.Click
@@ -75,7 +76,11 @@ Public Partial Class AboutDlg
       ByVal e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkHelp.LinkClicked
         Try
             ' Launch the e-mail URL, this will fail if user does not have an association for e-mail URLs
-            System.Diagnostics.Process.Start(DirectCast(e.Link.LinkData, String))
+            Process.Start(New ProcessStartInfo With {
+                .FileName = DirectCast(e.Link.LinkData, String),
+                .UseShellExecute = True
+            })
+
         Catch ex As Exception
             MessageBox.Show("Unable to launch e-mail editor", "E-Mail Error", MessageBoxButtons.OK,
                 MessageBoxIcon.Error)

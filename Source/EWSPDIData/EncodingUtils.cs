@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EncodeDecode.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/31/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a utility classes that helps with encoding and decoding values
 //
@@ -39,7 +38,7 @@ namespace EWSoftware.PDI
         /// of the encoded data to satisfy the requirements of some specifications such as vCard 2.1.  If false,
         /// they are not appended.</param>
         /// <returns>The Base 64 encoded string</returns>
-        public static string ToBase64(this string encode, int foldWidth, bool appendBlankLine)
+        public static string? ToBase64(this string? encode, int foldWidth, bool appendBlankLine)
         {
             // Don't bother if there is nothing to encode
             if(encode == null || encode.Length == 0)
@@ -48,7 +47,7 @@ namespace EWSoftware.PDI
             Encoding enc = Encoding.GetEncoding("iso-8859-1");
             byte[] ba = enc.GetBytes(encode);
 
-            StringBuilder sb = new StringBuilder(Convert.ToBase64String(ba));
+            StringBuilder sb = new(Convert.ToBase64String(ba));
 
             // Insert line folds where necessary if requested.
             if(foldWidth > 0)
@@ -69,7 +68,7 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <param name="decode">The string to decode</param>
         /// <returns>The decoded data as a string.  This may or may not be a human-readable string.</returns>
-        public static string FromBase64(this string decode)
+        public static string? FromBase64(this string? decode)
         {
             // Don't bother if there is nothing to decode
             if(decode == null || decode.Length == 0)
@@ -85,16 +84,16 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <param name="escapeText">The string to escape</param>
         /// <returns>The escaped string</returns>
-        public static string Escape(this string escapeText)
+        public static string? Escape(this string? escapeText)
         {
             // Don't bother if there is nothing to escape
-            if(escapeText == null || escapeText.Length == 0 || escapeText.IndexOfAny(new[] {
-              '\r', '\n', ',', ';', '\\'}) == -1)
+            if(escapeText == null || escapeText.Length == 0 || escapeText.IndexOfAny(
+              ['\r', '\n', ',', ';', '\\']) == -1)
             {
                 return escapeText;
             }
 
-            StringBuilder sb = new StringBuilder(escapeText, escapeText.Length + 100);
+            StringBuilder sb = new(escapeText, escapeText.Length + 100);
 
             sb.Replace("\\", "\\\\");
             sb.Replace(";", "\\;");
@@ -116,13 +115,13 @@ namespace EWSoftware.PDI
         /// <returns>The escaped string</returns>
         /// <remarks>This is mainly for vCard 2.1 properties in which commas and semi-colons should not be
         /// escaped.</remarks>
-        public static string RestrictedEscape(this string escapeText)
+        public static string? RestrictedEscape(this string? escapeText)
         {
             // Don't bother if there is nothing to escape
-            if(escapeText == null || escapeText.Length == 0 || escapeText.IndexOfAny(new[] { '\r', '\n', '\\'}) == -1)
+            if(escapeText == null || escapeText.Length == 0 || escapeText.IndexOfAny(['\r', '\n', '\\']) == -1)
                 return escapeText;
 
-            StringBuilder sb = new StringBuilder(escapeText, escapeText.Length + 100);
+            StringBuilder sb = new(escapeText, escapeText.Length + 100);
 
             sb.Replace("\\", "\\\\");
 
@@ -144,13 +143,13 @@ namespace EWSoftware.PDI
         /// unescaped.  The specifications do not state that they have to be escaped, but some implementations
         /// do, so they are handled here too just in case.  However, they will not be escaped when written back
         /// out.</remarks>
-        public static string Unescape(this string unescapeText)
+        public static string? Unescape(this string? unescapeText)
         {
             // Don't bother if there is nothing to escape
             if(unescapeText == null || unescapeText.Length == 0 || unescapeText.IndexOf('\\') == -1)
                 return unescapeText;
 
-            StringBuilder sb = new StringBuilder(unescapeText, unescapeText.Length + 100);
+            StringBuilder sb = new(unescapeText, unescapeText.Length + 100);
 
             sb.Replace("\\r\\n", "\r\n");
             sb.Replace("\\R\\N", "\r\n");
@@ -180,13 +179,13 @@ namespace EWSoftware.PDI
         /// <returns>The Quoted-Printable encoded string</returns>
         /// <remarks>Character values 9, 32-60, and 62-126 go through as-is.  All others are encoded as "=XX"
         /// where XX is the 2 digit hex value of the character (i.e. =0D=0A for a carriage return and line feed).</remarks>
-        public static string ToQuotedPrintable(this string encode, int foldWidth)
+        public static string? ToQuotedPrintable(this string? encode, int foldWidth)
         {
             // Don't bother if there's nothing to encode
             if(encode == null || encode.Length == 0)
                 return encode;
 
-            StringBuilder sb = new StringBuilder(encode.Length + 100);
+            StringBuilder sb = new(encode.Length + 100);
 
             foldWidth--;    // Account for soft line break character
 
@@ -227,13 +226,13 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <param name="decode">The string to decode</param>
         /// <returns>The decoded data as a string</returns>
-        public static string FromQuotedPrintable(this string decode)
+        public static string? FromQuotedPrintable(this string? decode)
         {
             // Don't bother if there's nothing to decode
             if(decode == null || decode.Length == 0 || decode.IndexOf('=') == -1)
                 return decode;
 
-            StringBuilder sb = new StringBuilder(decode.Length);
+            StringBuilder sb = new(decode.Length);
 
             string hexDigits = "0123456789ABCDEF";
             int pos1, pos2;

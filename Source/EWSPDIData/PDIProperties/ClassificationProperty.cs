@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ClassificationProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains Classification property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -76,7 +75,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            ClassificationProperty o = new ClassificationProperty();
+            ClassificationProperty o = new();
             o.Clone(this);
             return o;
         }

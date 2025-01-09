@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MinutelyFrequency.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to implements the Minutely frequency rules
 //
@@ -36,10 +35,10 @@ namespace EWSoftware.PDI
         /// <param name="from">The start date of the range limiting the instances generated</param>
         /// <param name="to">The end date of the range limiting the instances generated</param>
         /// <returns>The first instance date or null if there are no more instances</returns>
-        public RecurDateTime FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
+        public RecurDateTime? FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
           RecurDateTime to)
         {
-            RecurDateTime rdt = new RecurDateTime(start);
+            RecurDateTime rdt = new(start);
             int adjust;
 
             if(RecurDateTime.Compare(start, from, RecurDateTime.DateTimePart.Hour) < 0)
@@ -57,7 +56,9 @@ namespace EWSoftware.PDI
 
             if(RecurDateTime.Compare(rdt, end, RecurDateTime.DateTimePart.Hour) > 0 ||
               RecurDateTime.Compare(rdt, to, RecurDateTime.DateTimePart.Hour) > 0)
+            {
                 return null;
+            }
 
             return rdt;
         }
@@ -77,7 +78,9 @@ namespace EWSoftware.PDI
 
             if(RecurDateTime.Compare(last, end, RecurDateTime.DateTimePart.Minute) > 0 ||
               RecurDateTime.Compare(last, to, RecurDateTime.DateTimePart.Minute) > 0)
+            {
                 return false;
+            }
 
             return true;
         }

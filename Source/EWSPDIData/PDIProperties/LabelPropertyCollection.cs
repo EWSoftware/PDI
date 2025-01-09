@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LabelPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for LabelProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -65,9 +64,9 @@ namespace EWSoftware.PDI.Properties
         /// <overloads>There are two overloads for this method</overloads>
         public LabelProperty Add(string label)
         {
-            LabelProperty l = new LabelProperty { Value = label };
+            LabelProperty l = new() { Value = label };
 
-            base.Add(l);
+            this.Add(l);
 
             return l;
         }
@@ -80,9 +79,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public LabelProperty Add(AddressTypes addressTypes, string label)
         {
-            LabelProperty l = new LabelProperty { AddressTypes = addressTypes, Value = label };
+            LabelProperty l = new() { AddressTypes = addressTypes, Value = label };
 
-            base.Add(l);
+            this.Add(l);
 
             return l;
         }
@@ -129,10 +128,12 @@ namespace EWSoftware.PDI.Properties
                 throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExLabelInvalidIndex"));
 
             for(int lblIdx = 0; lblIdx < base.Count; lblIdx++)
+            {
                 if(lblIdx == idx)
                     this[lblIdx].AddressTypes |= AddressTypes.Preferred;
                 else
                     this[lblIdx].AddressTypes &= ~AddressTypes.Preferred;
+            }
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -146,15 +147,19 @@ namespace EWSoftware.PDI.Properties
         /// the one with the <c>Preferred</c> flag set.  If a preferred label with one of the given types cannot
         /// be found, it will return the first label matching one of the given types without the <c>Preferred</c>
         /// flag set.  If no label can be found, it returns null.</remarks>
-        public LabelProperty FindFirstByType(AddressTypes addressType)
+        public LabelProperty? FindFirstByType(AddressTypes addressType)
         {
             AddressTypes addrNoPref = addressType & ~AddressTypes.Preferred;
             bool usePreferred = (addrNoPref != addressType);
 
             foreach(LabelProperty label in this)
+            {
                 if((label.AddressTypes & addrNoPref) != 0 && (!usePreferred ||
                   (label.AddressTypes & AddressTypes.Preferred) != 0))
+                {
                     return label;
+                }
+            }
 
             // Try again without the preferred flag?
             if(usePreferred)

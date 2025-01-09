@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TelephoneProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/16/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Telephone property class.  It is used with the Personal Data Interchange (PDI) vCard
 // class.
@@ -42,31 +42,32 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static readonly Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplit = new(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         // This private array is used to translate parameter names and values to phone types
-        private static readonly NameToValue<PhoneTypes>[] ntv = {
-            new NameToValue<PhoneTypes>("TYPE", PhoneTypes.None, false),
-            new NameToValue<PhoneTypes>("PREF", PhoneTypes.Preferred, true),
-            new NameToValue<PhoneTypes>("WORK", PhoneTypes.Work, true),
-            new NameToValue<PhoneTypes>("HOME", PhoneTypes.Home, true),
-            new NameToValue<PhoneTypes>("VOICE", PhoneTypes.Voice, true),
-            new NameToValue<PhoneTypes>("FAX", PhoneTypes.Fax, true),
-            new NameToValue<PhoneTypes>("MSG", PhoneTypes.Message, true),
-            new NameToValue<PhoneTypes>("CELL", PhoneTypes.Cell, true),
-            new NameToValue<PhoneTypes>("PAGER", PhoneTypes.Pager, true),
-            new NameToValue<PhoneTypes>("BBS", PhoneTypes.BBS, true),
-            new NameToValue<PhoneTypes>("MODEM", PhoneTypes.Modem, true),
-            new NameToValue<PhoneTypes>("CAR", PhoneTypes.Car, true),
-            new NameToValue<PhoneTypes>("ISDN", PhoneTypes.ISDN, true),
-            new NameToValue<PhoneTypes>("VIDEO", PhoneTypes.Video, true),
-            new NameToValue<PhoneTypes>("PCS", PhoneTypes.PCS, true),
-            new NameToValue<PhoneTypes>("TEXT", PhoneTypes.Text, true),
-            new NameToValue<PhoneTypes>("TEXTPHONE", PhoneTypes.TextPhone, true),
+        private static readonly NameToValue<PhoneTypes>[] ntv =
+        [
+            new("TYPE", PhoneTypes.None, false),
+            new("PREF", PhoneTypes.Preferred, true),
+            new("WORK", PhoneTypes.Work, true),
+            new("HOME", PhoneTypes.Home, true),
+            new("VOICE", PhoneTypes.Voice, true),
+            new("FAX", PhoneTypes.Fax, true),
+            new("MSG", PhoneTypes.Message, true),
+            new("CELL", PhoneTypes.Cell, true),
+            new("PAGER", PhoneTypes.Pager, true),
+            new("BBS", PhoneTypes.BBS, true),
+            new("MODEM", PhoneTypes.Modem, true),
+            new("CAR", PhoneTypes.Car, true),
+            new("ISDN", PhoneTypes.ISDN, true),
+            new("VIDEO", PhoneTypes.Video, true),
+            new("PCS", PhoneTypes.PCS, true),
+            new("TEXT", PhoneTypes.Text, true),
+            new("TEXTPHONE", PhoneTypes.TextPhone, true),
 
             // This is a non-standard one that pops up every now and then.  When it does, treat it like CELL.
             new NameToValue<PhoneTypes>("MOBILE", PhoneTypes.Cell, true)
-        };
+        ];
 
         private short preferredOrder;
 
@@ -118,12 +119,12 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to get or set the URI prefix if the value location is set to URI
         /// </summary>
-        public string UriPrefix { get; set; }
+        public string? UriPrefix { get; set; }
 
         /// <summary>
         /// This is overridden to handle the URI prefix on the value if the value location is set to URI
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
@@ -135,7 +136,7 @@ namespace EWSoftware.PDI.Properties
             set
             {
                 if(this.ValueLocation == ValLocValue.Uri && !String.IsNullOrWhiteSpace(value) &&
-                  value.IndexOf(':') != -1)
+                  value!.IndexOf(':') != -1)
                 {
                     int pos = value.IndexOf(':');
 
@@ -171,7 +172,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TelephoneProperty o = new TelephoneProperty();
+            TelephoneProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -224,10 +225,11 @@ namespace EWSoftware.PDI.Properties
                         sb.AppendFormat(";PREF={0}", this.PreferredOrder);
                 }
 
-                StringBuilder sbTypes = new StringBuilder(50);
+                StringBuilder sbTypes = new(50);
 
                 // This ignores the last entry (MOBILE) as it's a duplicate of CELL
                 for(int idx = 1; idx < ntv.Length - 1; idx++)
+                {
                     if((pt & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
@@ -235,6 +237,7 @@ namespace EWSoftware.PDI.Properties
 
                         sbTypes.Append(ntv[idx].Name);
                     }
+                }
 
                 // The format is different for the 3.0 spec and later
                 if(this.Version == SpecificationVersions.vCard21)
@@ -267,8 +270,10 @@ namespace EWSoftware.PDI.Properties
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
             {
                 for(idx = 0; idx < ntv.Length; idx++)
+                {
                     if(ntv[idx].IsMatch(parameters[paramIdx]))
                         break;
+                }
 
                 if(idx == ntv.Length)
                 {
@@ -295,8 +300,10 @@ namespace EWSoftware.PDI.Properties
                         foreach(string s in types)
                         {
                             for(subIdx = 1; subIdx < ntv.Length; subIdx++)
+                            {
                                 if(ntv[subIdx].IsMatch(s))
                                     break;
+                            }
 
                             // Unrecognized ones are ignored
                             if(subIdx < ntv.Length)

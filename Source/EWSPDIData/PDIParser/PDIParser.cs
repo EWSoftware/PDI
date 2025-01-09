@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PDIParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to parse Personal Data Interchange (PDI) data streams containing vCalendar,
 // iCalendar, and vCard objects.
@@ -75,12 +74,12 @@ namespace EWSoftware.PDI.Parser
 
         private ParserState state;      // Current parser state
 
-        private StringBuilder sb;       // The parsing buffer
+        private readonly StringBuilder sb;  // The parsing buffer
 
-        private string propertyName;    // The property name
+        private string propertyName = null!;    // The property name
 
         // The string collection of parameters.  It's re-used to save resources
-        private StringCollection propParams;
+        private readonly StringCollection propParams;
 
         #endregion
 
@@ -115,7 +114,7 @@ namespace EWSoftware.PDI.Parser
         protected PDIParser()
         {
             sb = new StringBuilder(100);
-            propParams = new StringCollection();
+            propParams = [];
         }
         #endregion
 
@@ -311,24 +310,22 @@ namespace EWSoftware.PDI.Parser
         /// </summary>
         private void ProcessParameters()
         {
-            string[] parameters = null;
-
             // Null characters terminate each parameter name and value in the string builder so we can split on
             // them.
             propParams.Clear();
 
             if(sb.Length > 0)
             {
-                parameters = sb.ToString().Split('\x0');
+                var parameters = sb.ToString().Split('\x0');
 
                 // Look for a QUOTED-PRINTABLE parameter value.  If present, the upcoming value is encoded that
                 // way and may contain soft line breaks that require us to unfold the lines.
-                for(int nIdx = 0; nIdx < parameters.Length; nIdx++)
+                for(int idx = 0; idx < parameters.Length; idx++)
                 {
-                    if(String.Compare(parameters[nIdx], EncodingValue.QuotedPrintable, StringComparison.OrdinalIgnoreCase) == 0)
+                    if(String.Compare(parameters[idx], EncodingValue.QuotedPrintable, StringComparison.OrdinalIgnoreCase) == 0)
                         isQPValue = true;
 
-                    propParams.Add(parameters[nIdx]);
+                    propParams.Add(parameters[idx]);
                 }
             }
 
@@ -395,7 +392,7 @@ namespace EWSoftware.PDI.Parser
         /// Dim vCards As VCardCollection = vcp.VCards
         /// </code>
         /// </example>
-        public void ParseString(string pdiText)
+        public void ParseString(string? pdiText)
         {
             // Ignore it if there is nothing to parse
             if(pdiText == null || pdiText.Length == 0)
@@ -403,10 +400,9 @@ namespace EWSoftware.PDI.Parser
 
             // We could parse it here for speed, but the code would be identical to the TextReader version below
             // so we'll save some code maintenance and wrap it in a StringReader.
-            using(var sr = new StringReader(pdiText))
-            {
-                this.ParseReader(sr);
-            }
+            using var sr = new StringReader(pdiText);
+
+            this.ParseReader(sr);
         }
 
         /// <summary>
@@ -502,8 +498,7 @@ namespace EWSoftware.PDI.Parser
                         {
                             // We should be in the property value except if just starting
                             if(lineNbr > 0 && state != ParserState.PropertyValue)
-                                throw new PDIParserException(lineNbr,
-                                    LR.GetString("ExParseSepNotFound"));
+                                throw new PDIParserException(lineNbr, LR.GetString("ExParseSepNotFound"));
 
                             this.ProcessCharacter('\n');
                         }
@@ -520,6 +515,7 @@ namespace EWSoftware.PDI.Parser
                             isUnfolding = true;
                         }
                         else
+                        {
                             if(ch == '\n')
                             {
                                 isStartOfLine = true;    // End of line
@@ -528,6 +524,7 @@ namespace EWSoftware.PDI.Parser
                             }
                             else    // Continuing current line
                                 this.ProcessCharacter(ch);
+                        }
                     }
                 }
 
@@ -577,7 +574,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public void ParseFile(string filename)
         {
-            StreamReader sr = null;
+            StreamReader? sr = null;
 
             if(filename == null || filename.Length == 0)
                 throw new ArgumentNullException(nameof(filename), LR.GetString("ExParseNoFilename"));
@@ -593,6 +590,7 @@ namespace EWSoftware.PDI.Parser
                     sr = new StreamReader(wrsp.GetResponseStream(), DefaultEncoding);
                 }
                 else
+                {
                     if(filename.StartsWith("file:", StringComparison.OrdinalIgnoreCase))
                     {
                         FileWebRequest frq = (FileWebRequest)WebRequest.Create(new Uri(filename));
@@ -601,6 +599,7 @@ namespace EWSoftware.PDI.Parser
                     }
                     else
                         sr = new StreamReader(filename, DefaultEncoding);
+                }
 
                 this.ParseReader(sr);
             }
@@ -616,8 +615,7 @@ namespace EWSoftware.PDI.Parser
             }
             finally
             {
-                if(sr != null)
-                    sr.Close();
+                sr?.Close();
             }
         }
         #endregion

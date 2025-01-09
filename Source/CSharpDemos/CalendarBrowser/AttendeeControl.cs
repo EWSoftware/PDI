@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AttendeeControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's attendee collection
 //
@@ -77,12 +76,12 @@ namespace CalendarBrowser
             chkRSVP.DataBindings.Add("Checked", this.BindingSource, "Rsvp");
 
             // For the combo boxes, we'll handle unknown values too via the binding events
-            Binding b = new Binding("SelectedIndex", this.BindingSource, "Role");
+            Binding b = new("SelectedIndex", this.BindingSource, "Role");
             b.Format += RoleStatus_Format;
             b.Parse += RoleStatus_Parse;
             cboRole.DataBindings.Add(b);
 
-            b = new Binding("SelectedIndex", this.BindingSource, "ParticipationStatus");
+            b = new("SelectedIndex", this.BindingSource, "ParticipationStatus");
             b.Format += RoleStatus_Format;
             b.Parse += RoleStatus_Parse;
             cboStatus.DataBindings.Add(b);
@@ -97,9 +96,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void RoleStatus_Format(object sender, ConvertEventArgs e)
+        private void RoleStatus_Format(object? sender, ConvertEventArgs e)
         {
-            ComboBox c = (ComboBox)(((Binding)sender).Control);
+            ComboBox c = (ComboBox)(((Binding)sender!).Control);
             int idx;
 
             if(e.Value == null)
@@ -120,9 +119,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void RoleStatus_Parse(object sender, ConvertEventArgs e)
+        private void RoleStatus_Parse(object? sender, ConvertEventArgs e)
         {
-            ComboBox c = (ComboBox)(((Binding)sender).Control);
+            ComboBox c = (ComboBox)(((Binding)sender!).Control);
 
             if(c.SelectedIndex != -1)
                 e.Value = c.Items[c.SelectedIndex];

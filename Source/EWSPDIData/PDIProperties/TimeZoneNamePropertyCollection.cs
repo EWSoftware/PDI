@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneNamePropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for TimeZoneNameProperty objects.  It is used by the Personal Data
 // Interchange (PDI) iCalendar class.
@@ -65,9 +64,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public TimeZoneNameProperty Add(string tzId)
         {
-            TimeZoneNameProperty tzn = new TimeZoneNameProperty { Value = tzId };
+            TimeZoneNameProperty tzn = new() { Value = tzId };
 
-            base.Add(tzn);
+            this.Add(tzn);
 
             return tzn;
         }
@@ -80,19 +79,18 @@ namespace EWSoftware.PDI.Properties
         /// language ID is returned.  If an exact match is not found, an attempt is made to locate a match using
         /// only the two letter ISO language name.  If that fails, an attempt is made to find an entry using the
         /// current culture.  If that fails, it returns the first entry in the list or null if there are none.</returns>
-        public TimeZoneNameProperty this[string languageId]
+        public TimeZoneNameProperty? this[string? languageId]
         {
             get
             {
                 if(languageId == null || languageId.Length == 0)
                     languageId = "??";
 
-                string isoName = languageId.Split('-')[0];
-                string currentName = CultureInfo.CurrentCulture.Name;
-                string currentISOName = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+                string isoName = languageId.Split('-')[0], currentName = CultureInfo.CurrentCulture.Name,
+                    currentISOName = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
 
                 int idx, cultureIdx = -1;
-                TimeZoneNameProperty tzn = null;
+                TimeZoneNameProperty? tzn = null;
 
                 string propLang;
 
@@ -114,9 +112,12 @@ namespace EWSoftware.PDI.Properties
                     // if all else fails.
                     if(String.Compare(propLang, currentName, StringComparison.InvariantCultureIgnoreCase) == 0)
                         cultureIdx = idx;
-                    else    // Only use ISO match if there's no full match
+                    else
+                    {
+                        // Only use ISO match if there's no full match
                         if(cultureIdx == -1 && String.Compare(propLang, currentISOName, StringComparison.InvariantCultureIgnoreCase) == 0)
                             cultureIdx = idx;
+                    }
                 }
 
                 // Found a match by the passed ID?
@@ -128,7 +129,7 @@ namespace EWSoftware.PDI.Properties
                     return base[cultureIdx];
 
                 // Otherwise, give up and return the first entry in the list or null if there are no entries
-                if(base.Count != 0)
+                if(this.Count != 0)
                     return base[0];
 
                 return null;

@@ -1,5 +1,4 @@
-EWSoftware.PDI.Web.Controls Library
------------------------------------
+# EWSoftware.PDI.Web.Controls Library
 This library contains some web controls that can be used to edit recurrence settings.
 
 See the online help content for usage and API information: http://EWSoftware.github.io/PDI/index.html

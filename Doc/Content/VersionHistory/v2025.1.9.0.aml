@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="54933123-5d15-4a68-b3b4-53e6a583ee01" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<introduction>
+			<para>Release notes for version 2025.1.9.0.</para>
+		</introduction>
+
+		<section>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>Removed support for .NET 6 and added support for .NET 8 and later.</para>
+					</listItem>
+
+					<listItem>
+						<para>Enabled nullable reference types in all projects and updated the classes to support them.</para>
+					</listItem>
+
+					<listItem>
+						<para>Fixed an inconsistency with how the version property was applied when parsing vCard files.</para>
+					</listItem>
+
+				</list>
+
+			</content>
+		</section>
+
+		<relatedTopics>
+			<link xlink:href="8885fe94-537b-45a2-84e9-112fa9c976ff" />
+		</relatedTopics>
+
+	</developerConceptualDocument>
+</topic>

@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RecurrenceControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a recurring calendar object's recurrence rule and recurrence date properties
 //
@@ -89,8 +89,8 @@ namespace CalendarBrowser
                 CultureInfo.CurrentCulture.DateTimeFormat.LongTimePattern;
             dtpRDate.Value = DateTime.Today;
 
-            rRules = new RRulePropertyCollection();
-            rDates = new RDatePropertyCollection();
+            rRules = [];
+            rDates = [];
             this.SetButtonStates();
 		}
         #endregion
@@ -162,7 +162,7 @@ namespace CalendarBrowser
             // Convert the exception dates to RDate format internally
             foreach(ExDateProperty edate in ed)
             {
-                RDateProperty rd = new RDateProperty
+                RDateProperty rd = new()
                 {
                     ValueLocation = edate.ValueLocation,
                     TimeZoneId = edate.TimeZoneId,
@@ -219,7 +219,7 @@ namespace CalendarBrowser
             // Convert the RDates to ExDate format
             foreach(RDateProperty rdate in rDates)
             {
-                ExDateProperty edate = new ExDateProperty
+                ExDateProperty edate = new()
                 {
                     ValueLocation = rdate.ValueLocation,
                     TimeZoneId = rdate.TimeZoneId,
@@ -236,7 +236,7 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="oldTZ">The old time zone's ID</param>
         /// <param name="newTZ">The new time zone's ID</param>
-        public void ApplyTimeZone(string oldTZ, string newTZ)
+        public void ApplyTimeZone(string? oldTZ, string? newTZ)
         {
             DateTimeInstance dti;
             int idx = 0;
@@ -270,25 +270,24 @@ namespace CalendarBrowser
         /// <param name="e">The event parameters</param>
         private void btnAddRRule_Click(object sender, EventArgs e)
         {
-            using(RecurrencePropertiesDlg dlg = new RecurrencePropertiesDlg())
+            using var dlg = new RecurrencePropertiesDlg();
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                if(dlg.ShowDialog() == DialogResult.OK)
+                // Add the recurrence rule to the collection and the list box using the appropriate type
+                if(!editsExceptions)
                 {
-                    // Add the recurrence rule to the collection and the list box using the appropriate type
-                    if(!editsExceptions)
-                    {
-                        RRuleProperty rr = new RRuleProperty();
-                        dlg.GetRecurrence(rr.Recurrence);
-                        rRules.Add(rr);
-                        lbRRules.Items.Add(rr.Recurrence.ToString());
-                    }
-                    else
-                    {
-                        ExRuleProperty er = new ExRuleProperty();
-                        dlg.GetRecurrence(er.Recurrence);
-                        rRules.Add(er);
-                        lbRRules.Items.Add(er.Recurrence.ToString());
-                    }
+                    RRuleProperty rr = new();
+                    dlg.GetRecurrence(rr.Recurrence);
+                    rRules.Add(rr);
+                    lbRRules.Items.Add(rr.Recurrence.ToString());
+                }
+                else
+                {
+                    ExRuleProperty er = new();
+                    dlg.GetRecurrence(er.Recurrence);
+                    rRules.Add(er);
+                    lbRRules.Items.Add(er.Recurrence.ToString());
                 }
             }
 
@@ -308,24 +307,23 @@ namespace CalendarBrowser
                 return;
             }
 
-            using(RecurrencePropertiesDlg dlg = new RecurrencePropertiesDlg())
+            using var dlg = new RecurrencePropertiesDlg();
+            
+            try
             {
-                try
-                {
-                    Recurrence r = rRules[lbRRules.SelectedIndex].Recurrence;
-                    dlg.SetRecurrence(r);
+                Recurrence r = rRules[lbRRules.SelectedIndex].Recurrence;
+                dlg.SetRecurrence(r);
 
-                    if(dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        // Update the recurrence rule in the collection and the list box
-                        dlg.GetRecurrence(r);
-                        lbRRules.Items[lbRRules.SelectedIndex] = r.ToString();
-                    }
-                }
-                catch(Exception ex)
+                if(dlg.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show(ex.ToString());
+                    // Update the recurrence rule in the collection and the list box
+                    dlg.GetRecurrence(r);
+                    lbRRules.Items[lbRRules.SelectedIndex] = r.ToString();
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -372,7 +370,7 @@ namespace CalendarBrowser
             // time part is omitted.
             if(chkExcludeDay.Checked)
             {
-                RDateProperty rdate = new RDateProperty
+                RDateProperty rdate = new()
                 {
                     ValueLocation = ValLocValue.Date,
                     TimeZoneDateTime = dtpRDate.Value.Date
@@ -383,7 +381,7 @@ namespace CalendarBrowser
             }
             else
             {
-                RDateProperty rdate = new RDateProperty { TimeZoneDateTime = dtpRDate.Value };
+                RDateProperty rdate = new() { TimeZoneDateTime = dtpRDate.Value };
 
                 rDates.Add(rdate);
                 lbRDates.Items.Add(dtpRDate.Value.ToString("G", CultureInfo.CurrentCulture));

@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : PDIParserTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/19/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is just a quick test of the PDI vCard and calendar parser classes in a console mode application
 //
@@ -33,7 +32,7 @@ namespace PDIParserTest
 	/// <summary>
     /// A simple test of the EWSoftware.PDI Personal Data Interchange classes
 	/// </summary>
-	class PDIParserTest
+	sealed class PDIParserTest
 	{
 		/// <summary>
         /// This is used to test the EWSoftware.PDI.Data namespace Personal Data Interchange classes.  It scans
@@ -50,7 +49,7 @@ namespace PDIParserTest
             if(args.Length != 2)
             {
                 Console.WriteLine("Using files from .\\PDIFiles for the test\r\n");
-                args = new[] { @"..\..\..\..\..\..\PDIFiles", @"..\..\..\..\..\..\PDIFiles_Copy" };
+                args = [@"..\..\..\..\..\..\PDIFiles", @"..\..\..\..\..\..\PDIFiles_Copy"];
             }
 
             try
@@ -71,7 +70,7 @@ namespace PDIParserTest
 
                 // Since we'll be parsing multiple files, we'll create an instance of the parser and re-use it
                 // rather than using the static parsing methods.
-                VCardParser vcardp = new VCardParser();
+                VCardParser vcardp = new();
 
                 foreach(string file in Directory.EnumerateFiles(args[0], "*.vcf"))
                 {
@@ -98,7 +97,7 @@ namespace PDIParserTest
 
                 // Since we'll be parsing multiple files, we'll create an instance of the parser and re-use it
                 // rather than using the static parser methods.
-                VCalendarParser vcalp = new VCalendarParser();
+                VCalendarParser vcalp = new();
 
                 foreach(string file in Directory.EnumerateFiles(args[0], "*.vcs"))
                 {
@@ -106,7 +105,7 @@ namespace PDIParserTest
 
                     vcalp.ParseFile(file);
 
-                    Console.WriteLine(vcalp.VCalendar.ToString());
+                    Console.WriteLine(vcalp.VCalendar!.ToString());
 
                     // Write it to a stream
                     outputFile = outputFolder + Path.GetFileName(file);
@@ -130,7 +129,7 @@ namespace PDIParserTest
 
                     vcalp.ParseFile(file);
 
-                    Console.WriteLine(vcalp.VCalendar.ToString());
+                    Console.WriteLine(vcalp.VCalendar!.ToString());
 
                     // Write it to a stream
                     outputFile = outputFolder + Path.GetFileName(file);
@@ -149,7 +148,7 @@ namespace PDIParserTest
 
                 // Since we'll be parsing multiple files, we'll create an instance of the parser and re-use it
                 // rather than using the static parser methods.
-                VNoteParser vnp = new VNoteParser();
+                VNoteParser vnp = new();
 
                 foreach(string file in Directory.EnumerateFiles(args[0], "*.vnt"))
                 {

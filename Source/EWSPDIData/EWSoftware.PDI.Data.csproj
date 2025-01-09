@@ -7,10 +7,10 @@
 		<Company>Eric Woodruff</Company>
 		<Product>EWSoftware Personal Data Interchange Library</Product>
 		<Title>EWSoftware PDI Data Library</Title>
-		<Copyright>Copyright (c) 2003-2023, Eric Woodruff, All Rights Reserved</Copyright>
+		<Copyright>Copyright (c) 2003-2025, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2023.1.2.0</Version>
-		<FileVersion>23.1.2.0</FileVersion>
+		<Version>2025.1.9.0</Version>
+		<FileVersion>25.1.9.0</FileVersion>
 		<Description>This library contains classes used to create and consume vCard, vCalendar, and iCalendar files used to exchange contact and appointment information between applications such as Microsoft Outlook.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
@@ -21,32 +21,28 @@
 		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
 		<PackageLicenseExpression>MS-PL</PackageLicenseExpression>
 		<PackageReleaseNotes>Targets .NET Framework 4.0 and later and .NET Standard 2.0 and later</PackageReleaseNotes>
-		<SignAssembly>true</SignAssembly>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
 		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
 		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
 		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
 		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
+		<SignAssembly>true</SignAssembly>
 		<AssemblyOriginatorKeyFile>..\EWSPDI.snk</AssemblyOriginatorKeyFile>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
 		<DebugType>pdbonly</DebugType>
 		<DebugSymbols>true</DebugSymbols>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="ReadMe.txt" />
+		<None Include="..\..\EWSPDI.png" Link="EWSPDI.png" Pack="true" PackagePath="\" />
+		<None Include="ReadMe.md" Pack="True" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Compile Include="..\EWSPDI\Properties\AssemblyInfoShared.cs" Link="Properties\AssemblyInfoShared.cs" />
-		<None Include="..\..\EWSPDI.png" Link="EWSPDI.png" Pack="true" PackagePath="\" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="ReadMe.txt">
-			<Pack>true</Pack>
-			<PackagePath>\</PackagePath>
-		</Content>
 	</ItemGroup>
 
 	<ItemGroup>

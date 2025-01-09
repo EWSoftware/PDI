@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : AlarmControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's alarm collection properties
 //
@@ -38,7 +37,7 @@ namespace CalendarBrowser
         #region Private data members
         //=====================================================================
 
-        private VAlarm currentAlarm;
+        private VAlarm? currentAlarm;
 
         #endregion
 
@@ -93,7 +92,7 @@ namespace CalendarBrowser
             txtDescription.DataBindings.Add("Text", this.BindingSource, "Description_Value");
 
             // The binding events translate between the index value and the action type
-            Binding b = new Binding("SelectedIndex", this.BindingSource, "Action_Action");
+            Binding b = new("SelectedIndex", this.BindingSource, "Action_Action");
             b.Format += AlarmAction_Format;
             b.Parse += AlarmAction_Parse;
             cboAction.DataBindings.Add(b);
@@ -137,12 +136,14 @@ namespace CalendarBrowser
                 }
 
                 if(a.Action.Action == AlarmAction.EMail)
+                {
                     if(String.IsNullOrWhiteSpace(a.Summary.Value))
                     {
                         this.ErrorProvider.SetError(txtSummary, "A summary is required for an e-mail alarm");
                         result = false;
                     }
                     else
+                    {
                         if(result && a.Attendees.Count == 0)
                         {
                             tabInfo.SelectedTab = pgAttendees;
@@ -150,6 +151,8 @@ namespace CalendarBrowser
                                 "an e-mail alarm");
                             result = false;
                         }
+                    }
+                }
 
                 if(!result)
                     break;
@@ -193,7 +196,7 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="oldTZ">The old time zone's ID</param>
         /// <param name="newTZ">The new time zone's ID</param>
-        public void ApplyTimeZone(string oldTZ, string newTZ)
+        public void ApplyTimeZone(string? oldTZ, string? newTZ)
         {
             DateTimeInstance dti;
 
@@ -218,9 +221,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void AlarmAction_Format(object sender, ConvertEventArgs e)
+        private void AlarmAction_Format(object? sender, ConvertEventArgs e)
         {
-            e.Value = (int)e.Value;
+            e.Value = (int)e.Value!;
         }
 
         /// <summary>
@@ -228,9 +231,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void AlarmAction_Parse(object sender, ConvertEventArgs e)
+        private void AlarmAction_Parse(object? sender, ConvertEventArgs e)
         {
-            e.Value = (AlarmAction)e.Value;
+            e.Value = (AlarmAction)e.Value!;
         }
 
         /// <summary>
@@ -239,9 +242,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void BindingSource_PositionChanged(object sender, EventArgs e)
+        private void BindingSource_PositionChanged(object? sender, EventArgs e)
         {
-            VAlarm newItem = (VAlarm)this.BindingSource.Current;
+            VAlarm? newItem = (VAlarm)this.BindingSource.Current;
 
             // If all deleted, ignore it
             if(newItem == null)
@@ -352,7 +355,7 @@ namespace CalendarBrowser
 
             t.Text = t.Text.Trim();
 
-            if(t.Text.Length != 0 && !Duration.TryParse(t.Text, out Duration d))
+            if(t.Text.Length != 0 && !Duration.TryParse(t.Text, out _))
             {
                 this.ErrorProvider.SetError(t, "Invalid duration value");
                 e.Cancel = true;

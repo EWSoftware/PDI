@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FloatingHolidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2021
-// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to automatically calculate floating holidays.  The class is serializable.
 //
@@ -211,12 +211,12 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is FloatingHoliday h))
+            if(obj is not FloatingHoliday h)
                 return false;
 
-            return (this == h || (this.Month == h.Month && dayOfWeek == h.Weekday &&
+            return this == h || (this.Month == h.Month && dayOfWeek == h.Weekday &&
                 holidayOccurrence == h.Occurrence && holidayOffset == h.Offset &&
-                this.Description == h.Description));
+                this.Description == h.Description);
         }
 
         /// <summary>

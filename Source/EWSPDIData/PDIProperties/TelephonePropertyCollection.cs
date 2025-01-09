@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TelephonePropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for TelephoneProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -64,9 +63,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public TelephoneProperty Add(string phone)
         {
-            TelephoneProperty t = new TelephoneProperty { Value = phone };
+            TelephoneProperty t = new() { Value = phone };
 
-            base.Add(t);
+            this.Add(t);
 
             return t;
         }
@@ -79,9 +78,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public TelephoneProperty Add(PhoneTypes phoneTypes, string phone)
         {
-            TelephoneProperty t = new TelephoneProperty { PhoneTypes = phoneTypes, Value = phone };
+            TelephoneProperty t = new() { PhoneTypes = phoneTypes, Value = phone };
 
-            base.Add(t);
+            this.Add(t);
 
             return t;
         }
@@ -129,10 +128,12 @@ namespace EWSoftware.PDI.Properties
                 throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExPhoneInvalidIndex"));
 
             for(int phoneIdx = 0; phoneIdx < base.Count; phoneIdx++)
+            {
                 if(phoneIdx == idx)
                     this[phoneIdx].PhoneTypes |= PhoneTypes.Preferred;
                 else
                     this[phoneIdx].PhoneTypes &= ~PhoneTypes.Preferred;
+            }
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -146,15 +147,19 @@ namespace EWSoftware.PDI.Properties
         /// the one with the <c>Preferred</c> flag set.  If a preferred phone number with one of the given types
         /// cannot be found, it will return the first phone number matching one of the given types without the
         /// <c>Preferred</c> flag set.  If no phone number can be found, it returns null.</remarks>
-        public TelephoneProperty FindFirstByType(PhoneTypes phoneType)
+        public TelephoneProperty? FindFirstByType(PhoneTypes phoneType)
         {
             PhoneTypes phoneNoPref = phoneType & ~PhoneTypes.Preferred;
             bool usePreferred = (phoneNoPref != phoneType);
 
             foreach(TelephoneProperty phone in this)
+            {
                 if((phone.PhoneTypes & phoneNoPref) != 0 && (!usePreferred ||
                   (phone.PhoneTypes & PhoneTypes.Preferred) != 0))
+                {
                     return phone;
+                }
+            }
 
             // Try again without the preferred flag?
             if(usePreferred)

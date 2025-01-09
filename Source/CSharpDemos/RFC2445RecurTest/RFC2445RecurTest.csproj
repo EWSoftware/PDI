@@ -1,28 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFrameworks>net6.0;net40</TargetFrameworks>
-    <GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
-    <GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
-    <GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
-    <GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
-    <GenerateAssemblyCompanyAttribute>False</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyConfigurationAttribute>False</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyProductAttribute>ProductAttribute</GenerateAssemblyProductAttribute>
-    <AssemblyOriginatorKeyFile>RFC2445RecurTest.snk</AssemblyOriginatorKeyFile>
-    <SignAssembly>true</SignAssembly>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net8.0;net40</TargetFrameworks>
+		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
+		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
+		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
+		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
+		<GenerateAssemblyCompanyAttribute>False</GenerateAssemblyCompanyAttribute>
+		<GenerateAssemblyConfigurationAttribute>False</GenerateAssemblyConfigurationAttribute>
+		<GenerateAssemblyProductAttribute>ProductAttribute</GenerateAssemblyProductAttribute>
+		<AssemblyOriginatorKeyFile>RFC2445RecurTest.snk</AssemblyOriginatorKeyFile>
+		<SignAssembly>true</SignAssembly>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\CalendarBrowser\Properties\AssemblyInfoShared.cs" Link="Properties\AssemblyInfoShared.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\CalendarBrowser\Properties\AssemblyInfoShared.cs" Link="Properties\AssemblyInfoShared.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\EWSPDIData\EWSoftware.PDI.Data.csproj" />
-    <ProjectReference Include="..\..\EWSPDI\EWSoftware.PDI.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\EWSPDIData\EWSoftware.PDI.Data.csproj" />
+		<ProjectReference Include="..\..\EWSPDI\EWSoftware.PDI.csproj" />
+	</ItemGroup>
 
 </Project>

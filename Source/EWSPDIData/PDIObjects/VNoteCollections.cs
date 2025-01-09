@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VNoteCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for VNote objects
 //
@@ -69,24 +68,28 @@ namespace EWSoftware.PDI.Objects
         /// returned if it does not exist in the collection.</param>
         /// <exception cref="ArgumentException">This is thrown if an attempt is made to set an item using a
         /// unique ID that does not exist in the collection.</exception>
-        public VNote this[string uniqueId]
+        public VNote? this[string uniqueId]
         {
             get
             {
                 for(int idx = 0; idx < base.Count; idx++)
+                {
                     if(base[idx].UniqueId.Value == uniqueId)
                         return base[idx];
+                }
 
                 return null;
             }
             set
             {
                 for(int idx = 0; idx < base.Count; idx++)
+                {
                     if(base[idx].UniqueId.Value == uniqueId)
                     {
-                        base[idx] = value;
+                        base[idx] = value!;
                         return;
                     }
+                }
 
                 throw new ArgumentException(LR.GetString("ExUIDNotFound"));
             }
@@ -102,11 +105,10 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A string containing the entire vNote collection</returns>
         public override string ToString()
         {
-            using(var sw = new StringWriter(new StringBuilder(4096), CultureInfo.InvariantCulture))
-            {
-                this.WriteToStream(sw);
-                return sw.ToString();
-            }
+            using var sw = new StringWriter(new StringBuilder(4096), CultureInfo.InvariantCulture);
+
+            this.WriteToStream(sw);
+            return sw.ToString();
         }
 
         /// <summary>
@@ -149,9 +151,9 @@ namespace EWSoftware.PDI.Objects
         /// </example>
         public void WriteToStream(TextWriter tw)
         {
-            StringBuilder sb = null;
+            StringBuilder? sb = null;
 
-            if(!(tw is StringWriter))
+            if(tw is not StringWriter)
                 sb = new StringBuilder(256);
 
             foreach(VNote n in this)

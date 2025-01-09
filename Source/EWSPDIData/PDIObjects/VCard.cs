@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCard.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 07/24/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the vCard object and a collection of vCard objects
 //
@@ -45,51 +45,51 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single vCard properties
-        private KindProperty                kind;
-        private FormattedNameProperty       fn;
-        private NameProperty                name;
-        private TitleProperty               title;
-        private RoleProperty                role;
-        private MailerProperty              mailer;
-        private OrganizationProperty        org;
-        private UniqueIdProperty            uid;
-        private BirthDateProperty           bday;
-        private AnniversaryProperty         anniversary;
-        private LastRevisionProperty        rev;
-        private TimeZoneProperty            tz;
-        private GeographicPositionProperty  geo;
-        private PublicKeyProperty           key;
-        private PhotoProperty               photo;
-        private LogoProperty                logo;
-        private SoundProperty               sound;
+        private KindProperty                kind = null!;
+        private FormattedNameProperty       fn = null!;
+        private NameProperty                name = null!;
+        private TitleProperty               title = null!;
+        private RoleProperty                role = null!;
+        private MailerProperty              mailer = null!;
+        private OrganizationProperty        org = null!;
+        private UniqueIdProperty            uid = null!;
+        private BirthDateProperty           bday = null!;
+        private AnniversaryProperty         anniversary = null!;
+        private LastRevisionProperty        rev = null!;
+        private TimeZoneProperty            tz = null!;
+        private GeographicPositionProperty  geo = null!;
+        private PublicKeyProperty           key = null!;
+        private PhotoProperty               photo = null!;
+        private LogoProperty                logo = null!;
+        private SoundProperty               sound = null!;
 
         // vCard property collections.  There can be one or more of each of these properties so they are stored
         // in a collection.
-        private NotePropertyCollection          notes;
-        private AddressPropertyCollection       addrs;
-        private LabelPropertyCollection         labels;
-        private TelephonePropertyCollection     phones;
-        private EMailPropertyCollection         email;
-        private UrlPropertyCollection           urls;
-        private AgentPropertyCollection         agents;
-        private ClientPidMapPropertyCollection  pidMaps;
-        private MemberPropertyCollection        members;
-        private RelatedPropertyCollection       related;
+        private NotePropertyCollection          notes = null!;
+        private AddressPropertyCollection       addrs = null!;
+        private LabelPropertyCollection         labels = null!;
+        private TelephonePropertyCollection     phones = null!;
+        private EMailPropertyCollection         email = null!;
+        private UrlPropertyCollection           urls = null!;
+        private AgentPropertyCollection         agents = null!;
+        private ClientPidMapPropertyCollection  pidMaps = null!;
+        private MemberPropertyCollection        members = null!;
+        private RelatedPropertyCollection       related = null!;
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         // These properties are only valid for the 3.0 and later specifications
-        private MimeNameProperty        mimeName;
-        private MimeSourceProperty      mimeSource;
-        private ProductIdProperty       prodId;
-        private NicknameProperty        nickname;
-        private SortStringProperty      sortString;
-        private ClassificationProperty  classification;
-        private CategoriesProperty      categories;
+        private MimeNameProperty        mimeName = null!;
+        private MimeSourceProperty      mimeSource = null!;
+        private ProductIdProperty       prodId = null!;
+        private NicknameProperty        nickname = null!;
+        private SortStringProperty      sortString = null!;
+        private ClassificationProperty  classification = null!;
+        private CategoriesProperty      categories = null!;
 
         // These properties are valid for the 4.0 specification only
-        private GenderProperty gender;
+        private GenderProperty gender = null!;
 
         #endregion
 
@@ -121,7 +121,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <remarks>vCards support grouping.  If grouped, this property will contain the name of the group with
         /// which the vCard is associated.</remarks>
-        public string Group { get; set; }
+        public string? Group { get; set; }
 
         /// <summary>
         /// This property is used to set or get a flag indicating whether or not the PROFILE:VCARD property
@@ -138,8 +138,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(kind == null)
-                    kind = new KindProperty();
+                kind ??= new KindProperty();
 
                 return kind;
             }
@@ -152,8 +151,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(fn == null)
-                    fn = new FormattedNameProperty();
+                fn ??= new FormattedNameProperty();
 
                 return fn;
             }
@@ -166,8 +164,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(name == null)
-                    name = new NameProperty();
+                name ??= new NameProperty() { Version = this.Version };
 
                 return name;
             }
@@ -180,8 +177,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(title == null)
-                    title = new TitleProperty();
+                title ??= new TitleProperty();
 
                 return title;
             }
@@ -194,8 +190,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(role == null)
-                    role = new RoleProperty();
+                role ??= new RoleProperty();
 
                 return role;
             }
@@ -208,8 +203,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(mailer == null)
-                    mailer = new MailerProperty();
+                mailer ??= new MailerProperty();
 
                 return mailer;
             }
@@ -240,8 +234,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(org == null)
-                    org = new OrganizationProperty();
+                org ??= new OrganizationProperty() { Version = this.Version };
 
                 return org;
             }
@@ -272,8 +265,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(bday == null)
-                    bday = new BirthDateProperty();
+                bday ??= new BirthDateProperty() { Version = this.Version };
 
                 return bday;
             }
@@ -286,8 +278,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(anniversary == null)
-                    anniversary = new AnniversaryProperty();
+                anniversary ??= new AnniversaryProperty();
 
                 return anniversary;
             }
@@ -300,8 +291,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(rev == null)
-                    rev = new LastRevisionProperty();
+                rev ??= new LastRevisionProperty() { Version = this.Version };
 
                 return rev;
             }
@@ -314,8 +304,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(tz == null)
-                    tz = new TimeZoneProperty();
+                tz ??= new TimeZoneProperty();
 
                 return tz;
             }
@@ -328,8 +317,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(geo == null)
-                    geo = new GeographicPositionProperty();
+                geo ??= new GeographicPositionProperty();
 
                 return geo;
             }
@@ -342,8 +330,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(key == null)
-                    key = new PublicKeyProperty();
+                key ??= new PublicKeyProperty() { Version = this.Version };
 
                 return key;
             }
@@ -356,8 +343,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(photo == null)
-                    photo = new PhotoProperty();
+                photo ??= new PhotoProperty() { Version = this.Version };
 
                 return photo;
             }
@@ -370,8 +356,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(logo == null)
-                    logo = new LogoProperty();
+                logo ??= new LogoProperty() { Version = this.Version };
 
                 return logo;
             }
@@ -384,8 +369,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(sound == null)
-                    sound = new SoundProperty();
+                sound ??= new SoundProperty() { Version = this.Version };
 
                 return sound;
             }
@@ -399,8 +383,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(notes == null)
-                    notes = new NotePropertyCollection();
+                notes ??= [];
 
                 return notes;
             }
@@ -414,8 +397,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(addrs == null)
-                    addrs = new AddressPropertyCollection();
+                addrs ??= [];
 
                 return addrs;
             }
@@ -429,8 +411,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(labels == null)
-                    labels = new LabelPropertyCollection();
+                labels ??= [];
 
                 return labels;
             }
@@ -444,8 +425,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(phones == null)
-                    phones = new TelephonePropertyCollection();
+                phones ??= [];
 
                 return phones;
             }
@@ -459,8 +439,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(email == null)
-                    email = new EMailPropertyCollection();
+                email ??= [];
 
                 return email;
             }
@@ -475,8 +454,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(urls == null)
-                    urls = new UrlPropertyCollection();
+                urls ??= [];
 
                 return urls;
             }
@@ -491,8 +469,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(agents == null)
-                    agents = new AgentPropertyCollection();
+                agents ??= [];
 
                 return agents;
             }
@@ -506,8 +483,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(pidMaps == null)
-                    pidMaps = new ClientPidMapPropertyCollection();
+                pidMaps ??= [];
 
                 return pidMaps;
             }
@@ -521,8 +497,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(members == null)
-                    members = new MemberPropertyCollection();
+                members ??= [];
 
                 return members;
             }
@@ -536,8 +511,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(related == null)
-                    related = new RelatedPropertyCollection();
+                related ??= [];
 
                 return related;
             }
@@ -552,8 +526,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -570,8 +543,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(mimeName == null)
-                    mimeName = new MimeNameProperty();
+                mimeName ??= new MimeNameProperty();
 
                 return mimeName;
             }
@@ -585,8 +557,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(mimeSource == null)
-                    mimeSource = new MimeSourceProperty();
+                mimeSource ??= new MimeSourceProperty();
 
                 return mimeSource;
             }
@@ -600,8 +571,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(prodId == null)
-                    prodId = new ProductIdProperty();
+                prodId ??= new ProductIdProperty();
 
                 return prodId;
             }
@@ -615,8 +585,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(nickname == null)
-                    nickname = new NicknameProperty();
+                nickname ??= new NicknameProperty();
 
                 return nickname;
             }
@@ -630,8 +599,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(sortString == null)
-                    sortString = new SortStringProperty();
+                sortString ??= new SortStringProperty();
 
                 return sortString;
             }
@@ -645,8 +613,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(classification == null)
-                    classification = new ClassificationProperty();
+                classification ??= new ClassificationProperty();
 
                 return classification;
             }
@@ -661,8 +628,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(categories == null)
-                    categories = new CategoriesProperty();
+                categories ??= new CategoriesProperty();
 
                 return categories;
             }
@@ -677,8 +643,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(gender == null)
-                    gender = new GenderProperty();
+                gender ??= new GenderProperty();
 
                 return gender;
             }
@@ -727,8 +692,7 @@ namespace EWSoftware.PDI.Objects
         [SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            if(info != null)
-                info.AddValue("VCARD", this.ToString());
+            info?.AddValue("VCARD", this.ToString());
         }
         #endregion
 
@@ -741,7 +705,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            VCard o = new VCard();
+            VCard o = new();
             o.Clone(this);
             return o;
         }
@@ -809,47 +773,47 @@ namespace EWSoftware.PDI.Objects
         {
             this.Group = null;
 
-            kind = null;
-            fn = null;
-            name = null;
-            title = null;
-            role = null;
-            mailer = null;
-            org = null;
-            uid = null;
-            bday = null;
-            anniversary = null;
-            rev = null;
-            tz = null;
-            geo = null;
-            key = null;
-            photo = null;
-            logo = null;
-            sound = null;
+            kind = null!;
+            fn = null!;
+            name = null!;
+            title = null!;
+            role = null!;
+            mailer = null!;
+            org = null!;
+            uid = null!;
+            bday = null!;
+            anniversary = null!;
+            rev = null!;
+            tz = null!;
+            geo = null!;
+            key = null!;
+            photo = null!;
+            logo = null!;
+            sound = null!;
 
-            notes = null;
-            addrs = null;
-            labels = null;
-            phones = null;
-            email = null;
-            urls = null;
-            agents = null;
-            pidMaps = null;
-            members = null;
-            related = null;
-            customProps = null;
+            notes = null!;
+            addrs = null!;
+            labels = null!;
+            phones = null!;
+            email = null!;
+            urls = null!;
+            agents = null!;
+            pidMaps = null!;
+            members = null!;
+            related = null!;
+            customProps = null!;
 
             this.AddProfile = false;
 
-            mimeName = null;
-            mimeSource = null;
-            prodId = null;
-            nickname = null;
-            sortString = null;
-            classification = null;
-            categories = null;
+            mimeName = null!;
+            mimeSource = null!;
+            prodId = null!;
+            nickname = null!;
+            sortString = null!;
+            classification = null!;
+            categories = null!;
 
-            gender = null;
+            gender = null!;
         }
 
         /// <summary>
@@ -902,29 +866,14 @@ namespace EWSoftware.PDI.Objects
             if(sound != null)
                 sound.Version = this.Version;
 
-            if(notes != null)
-                notes.PropagateVersion(this.Version);
-
-            if(addrs != null)
-                addrs.PropagateVersion(this.Version);
-
-            if(labels != null)
-                labels.PropagateVersion(this.Version);
-
-            if(phones != null)
-                phones.PropagateVersion(this.Version);
-
-            if(email != null)
-                email.PropagateVersion(this.Version);
-
-            if(urls != null)
-                urls.PropagateVersion(this.Version);
-
-            if(agents != null)
-                agents.PropagateVersion(this.Version);
-
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            notes?.PropagateVersion(this.Version);
+            addrs?.PropagateVersion(this.Version);
+            labels?.PropagateVersion(this.Version);
+            phones?.PropagateVersion(this.Version);
+            email?.PropagateVersion(this.Version);
+            urls?.PropagateVersion(this.Version);
+            agents?.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
 
             if(this.Version != SpecificationVersions.vCard21)
             {
@@ -960,14 +909,9 @@ namespace EWSoftware.PDI.Objects
                     if(gender != null)
                         gender.Version = this.Version;
 
-                    if(members != null)
-                        members.PropagateVersion(this.Version);
-
-                    if(related != null)
-                        related.PropagateVersion(this.Version);
-
-                    if(pidMaps != null)
-                        pidMaps.PropagateVersion(this.Version);
+                    members?.PropagateVersion(this.Version);
+                    related?.PropagateVersion(this.Version);
+                    pidMaps?.PropagateVersion(this.Version);
                 }
             }
         }
@@ -979,12 +923,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is VCard vc))
+            if(obj is not VCard vc)
                 return false;
 
             // The ToString() method returns a text representation of the vCard based on all of its settings so
             // it's a reliable way to tell if two instances are the same.
-            return (this == vc || this.ToString() == vc.ToString());
+            return this == vc || this.ToString() == vc.ToString();
         }
 
         /// <summary>
@@ -1004,11 +948,10 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns a text description of the vCard suitable for saving to a PDI data stream</returns>
         public override string ToString()
         {
-            using(var sw = new StringWriter(new StringBuilder(1024), CultureInfo.InvariantCulture))
-            {
-                this.WriteToStream(sw, null);
-                return sw.ToString();
-            }
+            using var sw = new StringWriter(new StringBuilder(1024), CultureInfo.InvariantCulture);
+
+            this.WriteToStream(sw, null);
+            return sw.ToString();
         }
 
         /// <summary>
@@ -1060,7 +1003,7 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="ToString"/> as well as owning objects when they convert
         /// themselves to a string or write themselves to a PDI data stream.</remarks>
-        public void WriteToStream(TextWriter tw, StringBuilder sb)
+        public void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             // If Formatted Name is undefined, try to set it based on Name
             if(fn == null || fn.Value == "Unknown")
@@ -1079,10 +1022,12 @@ namespace EWSoftware.PDI.Objects
             if(this.Version == SpecificationVersions.vCard21)
                 tw.Write("VERSION:2.1\r\n");
             else
+            {
                 if(this.Version == SpecificationVersions.vCard30)
                     tw.Write("VERSION:3.0\r\n");
                 else
                     tw.Write("VERSION:4.0\r\n");
+            }
 
             if(this.Version == SpecificationVersions.vCard30 && this.AddProfile)
                 tw.Write("PROFILE:VCARD\r\n");
@@ -1114,8 +1059,10 @@ namespace EWSoftware.PDI.Objects
                 }
 
                 if(related != null && related.Count != 0)
+                {
                     foreach(var r in related)
                         BaseProperty.WriteToStream(r, sb, tw);
+                }
             }
 
             // These two are required properties
@@ -1150,32 +1097,46 @@ namespace EWSoftware.PDI.Objects
             }
 
             if(addrs != null && addrs.Count != 0)
+            {
                 foreach(AddressProperty a in addrs)
                     BaseProperty.WriteToStream(a, sb, tw);
+            }
 
             if(this.Version != SpecificationVersions.vCard40 && labels != null && labels.Count != 0)
+            {
                 foreach(LabelProperty l in labels)
                     BaseProperty.WriteToStream(l, sb, tw);
+            }
 
             if(phones != null && phones.Count != 0)
+            {
                 foreach(TelephoneProperty t in phones)
                     BaseProperty.WriteToStream(t, sb, tw);
+            }
 
             if(email != null && email.Count != 0)
+            {
                 foreach(EMailProperty e in email)
                     BaseProperty.WriteToStream(e, sb, tw);
+            }
 
             if(agents != null && agents.Count != 0)
+            {
                 foreach(AgentProperty a in agents)
                     BaseProperty.WriteToStream(a, sb, tw);
+            }
 
             if(notes != null && notes.Count != 0)
+            {
                 foreach(NoteProperty n in notes)
                     BaseProperty.WriteToStream(n, sb, tw);
+            }
 
             if(urls != null && urls.Count != 0)
+            {
                 foreach(UrlProperty u in urls)
                     BaseProperty.WriteToStream(u, sb, tw);
+            }
 
             BaseProperty.WriteToStream(tz, sb, tw);
             BaseProperty.WriteToStream(geo, sb, tw);
@@ -1187,8 +1148,10 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(uid, sb, tw);
 
             if(pidMaps != null && pidMaps.Count != 0 && this.Version == SpecificationVersions.vCard40)
+            {
                 foreach(var p in pidMaps)
                     BaseProperty.WriteToStream(p, sb, tw);
+            }
 
             BaseProperty.WriteToStream(key, sb, tw);
             BaseProperty.WriteToStream(photo, sb, tw);
@@ -1196,8 +1159,10 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(sound, sb, tw);
 
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             if(this.Group != null)
             {

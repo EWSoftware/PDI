@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows;net40</TargetFrameworks>
+		<TargetFrameworks>net8.0-windows;net40</TargetFrameworks>
 		<UseWindowsForms>true</UseWindowsForms>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Company>Eric Woodruff</Company>
 		<Product>EWSoftware Personal Data Interchange Library</Product>
 		<Title>EWSoftware PDI Windows Forms Control Library</Title>
-		<Copyright>Copyright (c) 2003-2023, Eric Woodruff, All Rights Reserved</Copyright>
+		<Copyright>Copyright (c) 2003-2025, Eric Woodruff, All Rights Reserved</Copyright>
 		<NeutralLanguage>en</NeutralLanguage>
-		<Version>2023.1.2.0</Version>
-		<FileVersion>23.1.2.0</FileVersion>
+		<Version>2025.1.9.0</Version>
+		<FileVersion>25.1.9.0</FileVersion>
 		<Description>This library contains some Windows Forms controls that can be used to edit holiday calculation settings and to edit recurrence settings.  See the project website for the code, a help file, and demos.</Description>
 		<Authors>Eric Woodruff</Authors>
 		<PackageIconUrl>https://raw.githubusercontent.com/EWSoftware/PDI/master/EWSPDI.png</PackageIconUrl>
@@ -22,17 +22,25 @@
 		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
 		<PackageLicenseExpression>MS-PL</PackageLicenseExpression>
 		<PackageReleaseNotes>Targets .NET Framework 4.0 and later and .NET 6.0 and later (Windows platform only)</PackageReleaseNotes>
-		<SignAssembly>true</SignAssembly>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
 		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
 		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
 		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
 		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
+		<SignAssembly>true</SignAssembly>
 		<AssemblyOriginatorKeyFile>..\EWSPDI.snk</AssemblyOriginatorKeyFile>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
 		<DebugType>pdbonly</DebugType>
 		<DebugSymbols>true</DebugSymbols>
+		<LangVersion>latest</LangVersion>
+		<Nullable>enable</Nullable>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\EWSPDI.png" Link="EWSPDI.png" Pack="true" PackagePath="\" />
+		<None Include="ReadMe.md" Pack="True" PackagePath="\" />
+	</ItemGroup>
 
 	<ItemGroup>
 	  <Compile Remove="binDesignOnly\**" />
@@ -44,28 +52,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Remove="BrowseControl.bmp" />
-		<None Remove="HolidayManager.bmp" />
-		<None Remove="ReadMe.txt" />
-		<None Remove="RecurrencePattern.bmp" />
+	  <None Remove="BrowseControl.png" />
+	  <None Remove="HolidayManager.png" />
+	  <None Remove="RecurrencePattern.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Compile Include="..\EWSPDI\Properties\AssemblyInfoShared.cs" Link="Properties\AssemblyInfoShared.cs" />
-		<None Include="..\..\EWSPDI.png" Link="EWSPDI.png" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="ReadMe.txt">
-			<Pack>true</Pack>
-			<PackagePath>\</PackagePath>
-		</Content>
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Include="BrowseControl.bmp" />
-		<EmbeddedResource Include="HolidayManager.bmp" />
-		<EmbeddedResource Include="RecurrencePattern.bmp" />
+		<EmbeddedResource Include="BrowseControl.png" />
+		<EmbeddedResource Include="HolidayManager.png" />
+		<EmbeddedResource Include="RecurrencePattern.png" />
 	</ItemGroup>
 
 	<ItemGroup>

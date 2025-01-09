@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : DaylightProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Daylight property used by the Personal Data Interchange (PDI) vCalendar classes
 //
@@ -78,21 +77,21 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to get or set the standard time designation (i.e. PST, EST)
         /// </summary>
-        public string StandardDesignation { get; set; }
+        public string? StandardDesignation { get; set; }
 
         /// <summary>
         /// This is used to get or set the daylight saving time designation (i.e. PDT, EDT)
         /// </summary>
-        public string DaylightDesignation { get; set; }
+        public string? DaylightDesignation { get; set; }
 
         /// <summary>
         /// This property is overridden to handle parsing the components and concatenating them when requested
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
-                string[] parts = new string[6];
+                string?[] parts = new string[6];
 
                 // If false, don't bother
                 if(!this.UsesDaylightSavingTime)
@@ -159,7 +158,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the components and concatenating them when requested
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -187,7 +186,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            DaylightProperty o = new DaylightProperty();
+            DaylightProperty o = new();
             o.Clone(this);
             return o;
         }

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : StringCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2014-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2014-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a type-safe collection class that is used to contain string objects
 //
@@ -45,7 +44,7 @@ namespace EWSoftware.PDI
         /// This event is raised when an item is added or removed from the list, when the list is cleared, and
         /// when an item is replaced in the list.
         /// </summary>
-        public event ListChangedEventHandler ListChanged;
+        public event ListChangedEventHandler? ListChanged;
 
         /// <summary>
         /// This raises the <see cref="ListChanged"/> event
@@ -89,12 +88,13 @@ namespace EWSoftware.PDI
         public void AddRange(IEnumerable<string> values)
         {
             if(values != null)
+            {
                 try
                 {
                     suppressListChanged = true;
 
                     foreach(string s in values)
-                        base.Add(s);
+                        this.Add(s);
                 }
                 finally
                 {
@@ -102,6 +102,7 @@ namespace EWSoftware.PDI
 
                     OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
                 }
+            }
         }
 
         /// <summary>
@@ -111,7 +112,7 @@ namespace EWSoftware.PDI
         /// <param name="count">The number of items to remove</param>
         public void RemoveRange(int index, int count)
         {
-            ((List<string>)base.Items).RemoveRange(index, count);
+            ((List<string>)this.Items).RemoveRange(index, count);
 
             OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -127,7 +128,7 @@ namespace EWSoftware.PDI
         /// <param name="ignoreCase">Pass true for a case-insensitive sort or false for a case-sensitive sort</param>
         public void Sort(bool ascending, bool ignoreCase)
         {
-            ((List<string>)base.Items).Sort((x, y) =>
+            ((List<string>)this.Items).Sort((x, y) =>
             {
                 if(ascending)
                     return String.Compare(x, y, ignoreCase ? StringComparison.CurrentCultureIgnoreCase : StringComparison.CurrentCulture);

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ChildPropertyTypeDescriptionProvider.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/05/2014
-// Note    : Copyright 2007-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a custom type description provider that associates the ChildPropertyTypeDescriptor with a
 // specific type of object.
@@ -33,7 +32,7 @@ namespace EWSoftware.PDI.Binding
         #region Private data members
         //=====================================================================
 
-        private ICustomTypeDescriptor customTD;
+        private ICustomTypeDescriptor customTD = null!;
 
         #endregion
 
@@ -71,8 +70,7 @@ namespace EWSoftware.PDI.Binding
         /// <returns>An <see cref="ICustomTypeDescriptor"/> that can provide metadata for the type</returns>
         public override ICustomTypeDescriptor GetTypeDescriptor(Type objectType, object instance)
         {
-            if(customTD == null)
-                customTD = new ChildPropertyTypeDescriptor(base.GetTypeDescriptor(objectType, instance));
+            customTD ??= new ChildPropertyTypeDescriptor(base.GetTypeDescriptor(objectType, instance));
 
             return customTD;
         }

@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : TimeZoneRegInfo.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This class is used to create a time zone information from the time zone data found in the registry on Windows
 // PCs.
@@ -123,7 +122,7 @@ namespace EWSoftware.PDI
 
                     Marshal.Copy(tziBytes, 0, buffer, size);
 
-                    tzi = (TIMEZONE)Marshal.PtrToStructure(buffer, typeof(TIMEZONE));
+                    tzi = (TIMEZONE)Marshal.PtrToStructure(buffer, typeof(TIMEZONE))!;
                 }
                 finally
                 {
@@ -144,7 +143,7 @@ namespace EWSoftware.PDI
         /// </summary>
         public static void LoadTimeZoneInfo()
         {
-            string keyName, display, standardDesc, dstDesc;
+            string? keyName, display, standardDesc, dstDesc;
             TIMEZONE tz;
 
             VCalendar.TimeZones.Clear();
@@ -157,86 +156,93 @@ namespace EWSoftware.PDI
             else
                 keyName = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Time Zones";
 
-            using(var rk = Registry.LocalMachine.OpenSubKey(keyName))
+            using var rk = Registry.LocalMachine.OpenSubKey(keyName);
+
+            if(rk == null)
+                return;
+
+            foreach(string s in rk.GetSubKeyNames())
             {
-                foreach(string s in rk.GetSubKeyNames())
+                using var rsk = rk.OpenSubKey(s);
+
+                var t = rsk?.GetValue("TZI");
+
+                if(t == null)
+                    continue;
+
+                display = (string)rsk!.GetValue("Display")!;
+                standardDesc = (string)rsk.GetValue("Std")!;
+                dstDesc = (string)rsk.GetValue("Dlt")!;
+
+                tz = TIMEZONE.FromRegistry(t);
+
+                // Create the time zone object
+                VTimeZone vtz = new();
+                vtz.TimeZoneId.Value = display;
+
+                ObservanceRule or = vtz.ObservanceRules.Add(ObservanceRuleType.Standard);
+
+                or.OffsetFrom.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nDaylightBias).Negate();
+                or.OffsetTo.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nStandardBias).Negate();
+                or.TimeZoneNames.Add(standardDesc);
+
+                // If the standard date month is zero, it doesn't use standard time.  Assume 01/01/1970 and
+                // set it up to return the offset.
+                if(tz.standardDate.wMonth == 0)
+                    or.StartDateTime.DateTimeValue = new DateTime(1970, 1, 1);
+                else
                 {
-                    using(var rsk = rk.OpenSubKey(s))
+                    // If year is zero, its a recurrence.  If not zero, it's a fixed date.
+                    if(tz.standardDate.wYear == 0)
                     {
-                        display = (string)rsk.GetValue("Display");
-                        standardDesc = (string)rsk.GetValue("Std");
-                        dstDesc = (string)rsk.GetValue("Dlt");
-                        tz = TIMEZONE.FromRegistry(rsk.GetValue("TZI"));
+                        or.StartDateTime.DateTimeValue = tz.standardDate.ToDateTime(1970);
+
+                        RRuleProperty rrule = new();
+
+                        rrule.Recurrence.RecurYearly(
+                            (tz.standardDate.wDay > 4) ? DayOccurrence.Last : (DayOccurrence)tz.standardDate.wDay,
+                            tz.standardDate.DayOfWeek(), tz.standardDate.wMonth, 1);
+
+                        or.RecurrenceRules.Add(rrule);
                     }
-
-                    // Create the time zone object
-                    VTimeZone vtz = new VTimeZone();
-                    vtz.TimeZoneId.Value = display;
-
-                    ObservanceRule or = vtz.ObservanceRules.Add(ObservanceRuleType.Standard);
-
-                    or.OffsetFrom.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nDaylightBias).Negate();
-                    or.OffsetTo.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nStandardBias).Negate();
-                    or.TimeZoneNames.Add(standardDesc);
-
-                    // If the standard date month is zero, it doesn't use standard time.  Assume 01/01/1970 and
-                    // set it up to return the offset.
-                    if(tz.standardDate.wMonth == 0)
-                        or.StartDateTime.DateTimeValue = new DateTime(1970, 1, 1);
                     else
                     {
-                        // If year is zero, its a recurrence.  If not zero, it's a fixed date.
-                        if(tz.standardDate.wYear == 0)
-                        {
-                            or.StartDateTime.DateTimeValue = tz.standardDate.ToDateTime(1970);
-
-                            RRuleProperty rrule = new RRuleProperty();
-
-                            rrule.Recurrence.RecurYearly(
-                                (tz.standardDate.wDay > 4) ? DayOccurrence.Last : (DayOccurrence)tz.standardDate.wDay,
-                                tz.standardDate.DayOfWeek(), tz.standardDate.wMonth, 1);
-
-                            or.RecurrenceRules.Add(rrule);
-                        }
-                        else
-                        {
-                            or.StartDateTime.DateTimeValue = tz.standardDate.ToDateTime();
-                            or.RecurDates.Add(or.StartDateTime.DateTimeValue);
-                        }
+                        or.StartDateTime.DateTimeValue = tz.standardDate.ToDateTime();
+                        or.RecurDates.Add(or.StartDateTime.DateTimeValue);
                     }
-
-                    // If the daylight month is zero, it doesn't use DST.  The standard rule will handle
-                    // everything.
-                    if(tz.daylightDate.wMonth != 0)
-                    {
-                        or = vtz.ObservanceRules.Add(ObservanceRuleType.Daylight);
-
-                        or.OffsetFrom.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nStandardBias).Negate();
-                        or.OffsetTo.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nDaylightBias).Negate();
-                        or.TimeZoneNames.Add(dstDesc);
-
-                        // If year is zero, its a recurrence.  If not zero, it's a fixed date.
-                        if(tz.daylightDate.wYear == 0)
-                        {
-                            or.StartDateTime.DateTimeValue = tz.daylightDate.ToDateTime(1970);
-
-                            RRuleProperty rrule = new RRuleProperty();
-
-                            rrule.Recurrence.RecurYearly(
-                                (tz.daylightDate.wDay > 4) ? DayOccurrence.Last : (DayOccurrence)tz.daylightDate.wDay,
-                                tz.daylightDate.DayOfWeek(), tz.daylightDate.wMonth, 1);
-
-                            or.RecurrenceRules.Add(rrule);
-                        }
-                        else
-                        {
-                            or.StartDateTime.DateTimeValue = tz.daylightDate.ToDateTime();
-                            or.RecurDates.Add(or.StartDateTime.DateTimeValue);
-                        }
-                    }
-
-                    VCalendar.TimeZones.Add(vtz);
                 }
+
+                // If the daylight month is zero, it doesn't use DST.  The standard rule will handle
+                // everything.
+                if(tz.daylightDate.wMonth != 0)
+                {
+                    or = vtz.ObservanceRules.Add(ObservanceRuleType.Daylight);
+
+                    or.OffsetFrom.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nStandardBias).Negate();
+                    or.OffsetTo.TimeSpanValue = TimeSpan.FromMinutes(tz.nBias + tz.nDaylightBias).Negate();
+                    or.TimeZoneNames.Add(dstDesc);
+
+                    // If year is zero, its a recurrence.  If not zero, it's a fixed date.
+                    if(tz.daylightDate.wYear == 0)
+                    {
+                        or.StartDateTime.DateTimeValue = tz.daylightDate.ToDateTime(1970);
+
+                        RRuleProperty rrule = new();
+
+                        rrule.Recurrence.RecurYearly(
+                            (tz.daylightDate.wDay > 4) ? DayOccurrence.Last : (DayOccurrence)tz.daylightDate.wDay,
+                            tz.daylightDate.DayOfWeek(), tz.daylightDate.wMonth, 1);
+
+                        or.RecurrenceRules.Add(rrule);
+                    }
+                    else
+                    {
+                        or.StartDateTime.DateTimeValue = tz.daylightDate.ToDateTime();
+                        or.RecurDates.Add(or.StartDateTime.DateTimeValue);
+                    }
+                }
+
+                VCalendar.TimeZones.Add(vtz);
             }
 
             // Put the time zones in sorted order

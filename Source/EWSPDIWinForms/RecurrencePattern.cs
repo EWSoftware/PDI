@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : RecurrencePattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
 // parameters.  This one is used to contain all the other user controls and sets the overall pattern to use for
@@ -131,7 +130,9 @@ namespace EWSoftware.PDI.Windows.Forms
                     case RecurFrequency.Yearly:
                         if(rbMonthly.Checked || rbWeekly.Checked || rbDaily.Checked || rbHourly.Checked ||
                           rbMinutely.Checked || rbSecondly.Checked)
+                        {
                             rbYearly.Checked = true;
+                        }
 
                         rbMonthly.Visible = rbWeekly.Visible = rbDaily.Visible = rbHourly.Visible =
                             rbMinutely.Visible = rbSecondly.Visible = false;
@@ -140,7 +141,9 @@ namespace EWSoftware.PDI.Windows.Forms
                     case RecurFrequency.Monthly:
                         if(rbWeekly.Checked || rbDaily.Checked || rbHourly.Checked || rbMinutely.Checked ||
                           rbSecondly.Checked)
+                        {
                             rbMonthly.Checked = true;
+                        }
 
                         rbMonthly.Visible = true;
                         rbWeekly.Visible = rbDaily.Visible = rbHourly.Visible = rbMinutely.Visible =
@@ -198,7 +201,7 @@ namespace EWSoftware.PDI.Windows.Forms
          Description("Show or hide the time value in the 'end by date' option")]
         public bool ShowEndTime
         {
-            get => (dtpEndDate.Width == 235);
+            get => dtpEndDate.Width == 235;
             set
             {
                 // Set the date/time pattern based on the current culture
@@ -249,14 +252,14 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <exception cref="ArgumentNullException">This is thrown if the passed recurrence object is null</exception>
         public void GetRecurrence(Recurrence recurrence)
         {
-            Recurrence r = new Recurrence();
+            Recurrence r = new();
 
             if(recurrence == null)
                 throw new ArgumentNullException(nameof(recurrence), LR.GetString("ExRPRecurrenceIsNull"));
 
             // Get the basic stuff
             r.Reset();
-            r.WeekStart = (DayOfWeek)cboWeekStartDay.SelectedValue;
+            r.WeekStart = (DayOfWeek)cboWeekStartDay.SelectedValue!;
             r.CanOccurOnHoliday = chkHolidays.Checked;
 
             r.Frequency = rbYearly.Checked ? RecurFrequency.Yearly :
@@ -269,35 +272,51 @@ namespace EWSoftware.PDI.Windows.Forms
             if(rbEndAfter.Checked)
                 r.MaximumOccurrences = (int)udcOccurrences.Value;
             else
+            {
                 if(rbEndByDate.Checked)
+                {
                     if(this.ShowEndTime)
                         r.RecurUntil = dtpEndDate.Value;
                     else
                         r.RecurUntil = dtpEndDate.Value.Date;
+                }
+            }
 
             // Get the frequency-specific stuff
             if(chkAdvanced.Checked)
                 ucAdvanced.GetValues(r);
             else
+            {
                 if(rbYearly.Checked)
                     ucYearly.GetValues(r);
                 else
+                {
                     if(rbMonthly.Checked)
                         ucMonthly.GetValues(r);
                     else
+                    {
                         if(rbWeekly.Checked)
                             ucWeekly.GetValues(r);
                         else
+                        {
                             if(rbDaily.Checked)
                                 ucDaily.GetValues(r);
                             else
+                            {
                                 if(rbHourly.Checked)
                                     ucHourly.GetValues(r);
                                 else
+                                {
                                     if(rbMinutely.Checked)
                                         ucMinutely.GetValues(r);
                                     else
                                         ucSecondly.GetValues(r);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
 
             recurrence.Parse(r.ToString());
         }
@@ -307,9 +326,9 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="recurrence">The recurrence from which to get the settings.  If null, it uses a default
         /// daily recurrence pattern.</param>
-        public void SetRecurrence(Recurrence recurrence)
+        public void SetRecurrence(Recurrence? recurrence)
         {
-            Recurrence r = new Recurrence();
+            Recurrence r = new();
 
             if(recurrence == null)
             {
@@ -321,6 +340,7 @@ namespace EWSoftware.PDI.Windows.Forms
 
             // If the given pattern is not available, set it to the next best pattern
             if(maxPattern < r.Frequency)
+            {
                 switch(maxPattern)
                 {
                     case RecurFrequency.Yearly:
@@ -349,6 +369,7 @@ namespace EWSoftware.PDI.Windows.Forms
                         r.Frequency = RecurFrequency.Minutely;
                         break;
                 }
+            }
 
             switch(r.Frequency)
             {
@@ -397,6 +418,7 @@ namespace EWSoftware.PDI.Windows.Forms
                 udcOccurrences.Value = (r.MaximumOccurrences < 1000) ? r.MaximumOccurrences : 999;
             }
             else
+            {
                 if(r.RecurUntil == DateTime.MaxValue)
                     rbNeverEnds.Checked = true;
                 else
@@ -404,6 +426,7 @@ namespace EWSoftware.PDI.Windows.Forms
                     rbEndByDate.Checked = true;
                     dtpEndDate.Value = r.RecurUntil;
                 }
+            }
 
             // Set parameters in the sub-controls.  Set them all so that when the Advanced pane is hidden or
             // shown, it keeps them consistent when first opened.
@@ -433,10 +456,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void Pattern_CheckedChanged(object sender, System.EventArgs e)
+        private void Pattern_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton r = sender as RadioButton;
-
             ucAdvanced.SetFrequency(rbYearly.Checked ? RecurFrequency.Yearly :
                 rbMonthly.Checked ? RecurFrequency.Monthly :
                     rbWeekly.Checked ? RecurFrequency.Weekly :
@@ -444,13 +465,13 @@ namespace EWSoftware.PDI.Windows.Forms
                             rbHourly.Checked ? RecurFrequency.Hourly :
                                 rbMinutely.Checked ? RecurFrequency.Minutely : RecurFrequency.Secondly);
 
-            ucYearly.Visible = (r == rbYearly);
-            ucMonthly.Visible = (r == rbMonthly);
-            ucWeekly.Visible = (r == rbWeekly);
-            ucDaily.Visible = (r == rbDaily);
-            ucHourly.Visible = (r == rbHourly);
-            ucMinutely.Visible = (r == rbMinutely);
-            ucSecondly.Visible = (r == rbSecondly);
+            ucYearly.Visible = rbYearly.Checked;
+            ucMonthly.Visible = rbMonthly.Checked;
+            ucWeekly.Visible = rbWeekly.Checked;
+            ucDaily.Visible = rbDaily.Checked;
+            ucHourly.Visible = rbHourly.Checked;
+            ucMinutely.Visible = rbMinutely.Checked;
+            ucSecondly.Visible = rbSecondly.Checked;
         }
 
         /// <summary>
@@ -458,12 +479,10 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void Range_CheckedChanged(object sender, System.EventArgs e)
+        private void Range_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton r = sender as RadioButton;
-
-            udcOccurrences.Enabled = (r == rbEndAfter);
-            dtpEndDate.Enabled = (r == rbEndByDate);
+            udcOccurrences.Enabled = sender == rbEndAfter;
+            dtpEndDate.Enabled = sender == rbEndByDate;
         }
 
         /// <summary>
@@ -471,9 +490,9 @@ namespace EWSoftware.PDI.Windows.Forms
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void chkAdvanced_CheckedChanged(object sender, System.EventArgs e)
+        private void chkAdvanced_CheckedChanged(object sender, EventArgs e)
         {
-            Recurrence r = new Recurrence();
+            Recurrence r = new();
 
             // Don't copy settings if the current context doesn't warrant it.  Just change the state of the
             // panels.
@@ -514,22 +533,32 @@ namespace EWSoftware.PDI.Windows.Forms
                 if(rbYearly.Checked)
                     ucYearly.GetValues(r);
                 else
+                {
                     if(rbMonthly.Checked)
                         ucMonthly.GetValues(r);
                     else
+                    {
                         if(rbWeekly.Checked)
                             ucWeekly.GetValues(r);
                         else
+                        {
                             if(rbDaily.Checked)
                                 ucDaily.GetValues(r);
                             else
+                            {
                                 if(rbHourly.Checked)
                                     ucHourly.GetValues(r);
                                 else
+                                {
                                     if(rbMinutely.Checked)
                                         ucMinutely.GetValues(r);
                                     else
                                         ucSecondly.GetValues(r);
+                                }
+                            }
+                        }
+                    }
+                }
 
                 ucAdvanced.SetValues(r);
 

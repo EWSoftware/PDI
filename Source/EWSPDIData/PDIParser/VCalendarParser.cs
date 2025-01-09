@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCalendarParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to parse vCalendar and iCalendar Personal Data Interchange (PDI) data streams.
 // It supports both the vCalendar 1.0 and iCalendar 2.0 specification file formats.
@@ -69,256 +68,265 @@ namespace EWSoftware.PDI.Parser
         #region Private data members
         //=====================================================================
 
-        private VCalendar vCal;             // The vCalendar/iCalendar being processed
-        private VEvent    vEvent;           // The event item being processed
-        private VToDo     vToDo;            // The to-do item being processed
-        private VJournal  vJournal;         // The journal item being processed
-        private VAlarm    vAlarm;           // The alarm item being processed
-        private VFreeBusy vFreeBusy;        // The free/busy item being processed
-        private VTimeZone vTimeZone;        // The time zone being processed
-        private ObservanceRule obsRule;     // The observance rule being processed
+        private VCalendar? vCal;            // The vCalendar/iCalendar being processed
+        private VEvent?    vEvent;          // The event item being processed
+        private VToDo?     vToDo;           // The to-do item being processed
+        private VJournal?  vJournal;        // The journal item being processed
+        private VAlarm?    vAlarm;          // The alarm item being processed
+        private VFreeBusy? vFreeBusy;       // The free/busy item being processed
+        private VTimeZone? vTimeZone;       // The time zone being processed
+        private ObservanceRule? obsRule;    // The observance rule being processed
 
         // The current calendar parser state
         private VCalendarParserState currentState;
 
         // Prior states
-        private Stack<VCalendarParserState> priorState;
-        private Stack<string> beginValue;
+        private readonly Stack<VCalendarParserState> priorState;
+        private readonly Stack<string> beginValue;
 
         //=====================================================================
         // These private arrays are used to translate property names into property types
 
         // The calendar overall
-        private static NameToValue<PropertyType>[] ntvCal = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("VERSION", PropertyType.Version),
-            new NameToValue<PropertyType>("PRODID", PropertyType.ProductId),
-            new NameToValue<PropertyType>("CALSCALE", PropertyType.CalendarScale),
-            new NameToValue<PropertyType>("METHOD", PropertyType.Method),
-            new NameToValue<PropertyType>("GEO", PropertyType.GeographicPosition),
-            new NameToValue<PropertyType>("TZ", PropertyType.TimeZone),
-            new NameToValue<PropertyType>("DAYLIGHT", PropertyType.Daylight),
+        private static readonly NameToValue<PropertyType>[] ntvCal =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("VERSION", PropertyType.Version),
+            new("PRODID", PropertyType.ProductId),
+            new("CALSCALE", PropertyType.CalendarScale),
+            new("METHOD", PropertyType.Method),
+            new("GEO", PropertyType.GeographicPosition),
+            new("TZ", PropertyType.TimeZone),
+            new("DAYLIGHT", PropertyType.Daylight),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // The calendar objects
-        private static NameToValue<VCalendarParserState>[] ntvObjs = {
-            new NameToValue<VCalendarParserState>("VCALENDAR", VCalendarParserState.VCalendar),
-            new NameToValue<VCalendarParserState>("VEVENT", VCalendarParserState.VEvent),
-            new NameToValue<VCalendarParserState>("VTODO", VCalendarParserState.VToDo),
-            new NameToValue<VCalendarParserState>("VJOURNAL", VCalendarParserState.VJournal),
-            new NameToValue<VCalendarParserState>("VFREEBUSY", VCalendarParserState.VFreeBusy),
-            new NameToValue<VCalendarParserState>("VTIMEZONE", VCalendarParserState.VTimeZone),
+        private static readonly NameToValue<VCalendarParserState>[] ntvObjs =
+        [
+            new("VCALENDAR", VCalendarParserState.VCalendar),
+            new("VEVENT", VCalendarParserState.VEvent),
+            new("VTODO", VCalendarParserState.VToDo),
+            new("VJOURNAL", VCalendarParserState.VJournal),
+            new("VFREEBUSY", VCalendarParserState.VFreeBusy),
+            new("VTIMEZONE", VCalendarParserState.VTimeZone),
 
             // The last entry should always be custom to catch all unrecognized objects.  The actual property
             // name is not relevant.
-            new NameToValue<VCalendarParserState>("X-", VCalendarParserState.Custom)
-        };
+            new("X-", VCalendarParserState.Custom)
+        ];
 
         // Event items
-        private static NameToValue<PropertyType>[] ntvEvent = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("CLASS", PropertyType.Class),
-            new NameToValue<PropertyType>("CATEGORIES", PropertyType.Categories),
-            new NameToValue<PropertyType>("RESOURCES", PropertyType.Resources),
-            new NameToValue<PropertyType>("URL", PropertyType.Url),
-            new NameToValue<PropertyType>("UID", PropertyType.UniqueId),
-            new NameToValue<PropertyType>("LAST-MODIFIED", PropertyType.LastModified),
-            new NameToValue<PropertyType>("GEO", PropertyType.GeographicPosition),
-            new NameToValue<PropertyType>("DCREATED", PropertyType.DateCreated),
-            new NameToValue<PropertyType>("CREATED", PropertyType.DateCreated),
-            new NameToValue<PropertyType>("DTSTART", PropertyType.StartDateTime),
-            new NameToValue<PropertyType>("DTEND", PropertyType.EndDateTime),
-            new NameToValue<PropertyType>("DTSTAMP", PropertyType.TimeStamp),
-            new NameToValue<PropertyType>("SUMMARY", PropertyType.Summary),
-            new NameToValue<PropertyType>("DESCRIPTION", PropertyType.Description),
-            new NameToValue<PropertyType>("LOCATION", PropertyType.Location),
-            new NameToValue<PropertyType>("PRIORITY", PropertyType.Priority),
-            new NameToValue<PropertyType>("SEQUENCE", PropertyType.Sequence),
-            new NameToValue<PropertyType>("TRANSP", PropertyType.Transparency),
-            new NameToValue<PropertyType>("RNUM", PropertyType.RecurrenceCount),
-            new NameToValue<PropertyType>("COMMENT", PropertyType.Comment),
-            new NameToValue<PropertyType>("CONTACT", PropertyType.Contact),
-            new NameToValue<PropertyType>("ORGANIZER", PropertyType.Organizer),
-            new NameToValue<PropertyType>("ATTENDEE", PropertyType.Attendee),
-            new NameToValue<PropertyType>("RELATED-TO", PropertyType.RelatedTo),
-            new NameToValue<PropertyType>("ATTACH", PropertyType.Attachment),
-            new NameToValue<PropertyType>("RECURRENCE-ID", PropertyType.RecurrenceId),
-            new NameToValue<PropertyType>("STATUS", PropertyType.Status),
-            new NameToValue<PropertyType>("REQUEST-STATUS", PropertyType.RequestStatus),
-            new NameToValue<PropertyType>("DURATION", PropertyType.Duration),
-            new NameToValue<PropertyType>("AALARM", PropertyType.AudioAlarm),
-            new NameToValue<PropertyType>("DALARM", PropertyType.DisplayAlarm),
-            new NameToValue<PropertyType>("MALARM", PropertyType.EMailAlarm),
-            new NameToValue<PropertyType>("PALARM", PropertyType.ProcedureAlarm),
-            new NameToValue<PropertyType>("RRULE", PropertyType.RecurrenceRule),
-            new NameToValue<PropertyType>("RDATE", PropertyType.RecurDate),
-            new NameToValue<PropertyType>("EXRULE", PropertyType.ExceptionRule),
-            new NameToValue<PropertyType>("EXDATE", PropertyType.ExceptionDate),
-            new NameToValue<PropertyType>("X-EWSOFTWARE-EXCLUDESTART", PropertyType.ExcludeStartDateTime),
+        private static readonly NameToValue<PropertyType>[] ntvEvent =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("CLASS", PropertyType.Class),
+            new("CATEGORIES", PropertyType.Categories),
+            new("RESOURCES", PropertyType.Resources),
+            new("URL", PropertyType.Url),
+            new("UID", PropertyType.UniqueId),
+            new("LAST-MODIFIED", PropertyType.LastModified),
+            new("GEO", PropertyType.GeographicPosition),
+            new("DCREATED", PropertyType.DateCreated),
+            new("CREATED", PropertyType.DateCreated),
+            new("DTSTART", PropertyType.StartDateTime),
+            new("DTEND", PropertyType.EndDateTime),
+            new("DTSTAMP", PropertyType.TimeStamp),
+            new("SUMMARY", PropertyType.Summary),
+            new("DESCRIPTION", PropertyType.Description),
+            new("LOCATION", PropertyType.Location),
+            new("PRIORITY", PropertyType.Priority),
+            new("SEQUENCE", PropertyType.Sequence),
+            new("TRANSP", PropertyType.Transparency),
+            new("RNUM", PropertyType.RecurrenceCount),
+            new("COMMENT", PropertyType.Comment),
+            new("CONTACT", PropertyType.Contact),
+            new("ORGANIZER", PropertyType.Organizer),
+            new("ATTENDEE", PropertyType.Attendee),
+            new("RELATED-TO", PropertyType.RelatedTo),
+            new("ATTACH", PropertyType.Attachment),
+            new("RECURRENCE-ID", PropertyType.RecurrenceId),
+            new("STATUS", PropertyType.Status),
+            new("REQUEST-STATUS", PropertyType.RequestStatus),
+            new("DURATION", PropertyType.Duration),
+            new("AALARM", PropertyType.AudioAlarm),
+            new("DALARM", PropertyType.DisplayAlarm),
+            new("MALARM", PropertyType.EMailAlarm),
+            new("PALARM", PropertyType.ProcedureAlarm),
+            new("RRULE", PropertyType.RecurrenceRule),
+            new("RDATE", PropertyType.RecurDate),
+            new("EXRULE", PropertyType.ExceptionRule),
+            new("EXDATE", PropertyType.ExceptionDate),
+            new("X-EWSOFTWARE-EXCLUDESTART", PropertyType.ExcludeStartDateTime),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // To-Do items
-        private static NameToValue<PropertyType>[] ntvToDo = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("CLASS", PropertyType.Class),
-            new NameToValue<PropertyType>("CATEGORIES", PropertyType.Categories),
-            new NameToValue<PropertyType>("RESOURCES", PropertyType.Resources),
-            new NameToValue<PropertyType>("URL", PropertyType.Url),
-            new NameToValue<PropertyType>("UID", PropertyType.UniqueId),
-            new NameToValue<PropertyType>("LAST-MODIFIED", PropertyType.LastModified),
-            new NameToValue<PropertyType>("GEO", PropertyType.GeographicPosition),
-            new NameToValue<PropertyType>("DCREATED", PropertyType.DateCreated),
-            new NameToValue<PropertyType>("CREATED", PropertyType.DateCreated),
-            new NameToValue<PropertyType>("DUE", PropertyType.DueDate),
-            new NameToValue<PropertyType>("DTSTART", PropertyType.StartDateTime),
-            new NameToValue<PropertyType>("COMPLETED", PropertyType.CompletedDate),
-            new NameToValue<PropertyType>("DTSTAMP", PropertyType.TimeStamp),
-            new NameToValue<PropertyType>("SUMMARY", PropertyType.Summary),
-            new NameToValue<PropertyType>("DESCRIPTION", PropertyType.Description),
-            new NameToValue<PropertyType>("PRIORITY", PropertyType.Priority),
-            new NameToValue<PropertyType>("SEQUENCE", PropertyType.Sequence),
-            new NameToValue<PropertyType>("RNUM", PropertyType.RecurrenceCount),
-            new NameToValue<PropertyType>("COMMENT", PropertyType.Comment),
-            new NameToValue<PropertyType>("CONTACT", PropertyType.Contact),
-            new NameToValue<PropertyType>("ORGANIZER", PropertyType.Organizer),
-            new NameToValue<PropertyType>("ATTENDEE", PropertyType.Attendee),
-            new NameToValue<PropertyType>("RELATED-TO", PropertyType.RelatedTo),
-            new NameToValue<PropertyType>("ATTACH", PropertyType.Attachment),
-            new NameToValue<PropertyType>("RECURRENCE-ID", PropertyType.RecurrenceId),
-            new NameToValue<PropertyType>("STATUS", PropertyType.Status),
-            new NameToValue<PropertyType>("REQUEST-STATUS", PropertyType.RequestStatus),
-            new NameToValue<PropertyType>("PERCENT-COMPLETE", PropertyType.PercentComplete),
-            new NameToValue<PropertyType>("DURATION", PropertyType.Duration),
-            new NameToValue<PropertyType>("AALARM", PropertyType.AudioAlarm),
-            new NameToValue<PropertyType>("DALARM", PropertyType.DisplayAlarm),
-            new NameToValue<PropertyType>("MALARM", PropertyType.EMailAlarm),
-            new NameToValue<PropertyType>("PALARM", PropertyType.ProcedureAlarm),
-            new NameToValue<PropertyType>("RRULE", PropertyType.RecurrenceRule),
-            new NameToValue<PropertyType>("RDATE", PropertyType.RecurDate),
-            new NameToValue<PropertyType>("EXRULE", PropertyType.ExceptionRule),
-            new NameToValue<PropertyType>("EXDATE", PropertyType.ExceptionDate),
-            new NameToValue<PropertyType>("X-EWSOFTWARE-EXCLUDESTART", PropertyType.ExcludeStartDateTime),
+        private static readonly NameToValue<PropertyType>[] ntvToDo =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("CLASS", PropertyType.Class),
+            new("CATEGORIES", PropertyType.Categories),
+            new("RESOURCES", PropertyType.Resources),
+            new("URL", PropertyType.Url),
+            new("UID", PropertyType.UniqueId),
+            new("LAST-MODIFIED", PropertyType.LastModified),
+            new("GEO", PropertyType.GeographicPosition),
+            new("DCREATED", PropertyType.DateCreated),
+            new("CREATED", PropertyType.DateCreated),
+            new("DUE", PropertyType.DueDate),
+            new("DTSTART", PropertyType.StartDateTime),
+            new("COMPLETED", PropertyType.CompletedDate),
+            new("DTSTAMP", PropertyType.TimeStamp),
+            new("SUMMARY", PropertyType.Summary),
+            new("DESCRIPTION", PropertyType.Description),
+            new("PRIORITY", PropertyType.Priority),
+            new("SEQUENCE", PropertyType.Sequence),
+            new("RNUM", PropertyType.RecurrenceCount),
+            new("COMMENT", PropertyType.Comment),
+            new("CONTACT", PropertyType.Contact),
+            new("ORGANIZER", PropertyType.Organizer),
+            new("ATTENDEE", PropertyType.Attendee),
+            new("RELATED-TO", PropertyType.RelatedTo),
+            new("ATTACH", PropertyType.Attachment),
+            new("RECURRENCE-ID", PropertyType.RecurrenceId),
+            new("STATUS", PropertyType.Status),
+            new("REQUEST-STATUS", PropertyType.RequestStatus),
+            new("PERCENT-COMPLETE", PropertyType.PercentComplete),
+            new("DURATION", PropertyType.Duration),
+            new("AALARM", PropertyType.AudioAlarm),
+            new("DALARM", PropertyType.DisplayAlarm),
+            new("MALARM", PropertyType.EMailAlarm),
+            new("PALARM", PropertyType.ProcedureAlarm),
+            new("RRULE", PropertyType.RecurrenceRule),
+            new("RDATE", PropertyType.RecurDate),
+            new("EXRULE", PropertyType.ExceptionRule),
+            new("EXDATE", PropertyType.ExceptionDate),
+            new("X-EWSOFTWARE-EXCLUDESTART", PropertyType.ExcludeStartDateTime),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // Journal items
-        private static NameToValue<PropertyType>[] ntvJournal = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("CLASS", PropertyType.Class),
-            new NameToValue<PropertyType>("CATEGORIES", PropertyType.Categories),
-            new NameToValue<PropertyType>("URL", PropertyType.Url),
-            new NameToValue<PropertyType>("UID", PropertyType.UniqueId),
-            new NameToValue<PropertyType>("LAST-MODIFIED", PropertyType.LastModified),
-            new NameToValue<PropertyType>("CREATED", PropertyType.DateCreated),
-            new NameToValue<PropertyType>("DTSTART", PropertyType.StartDateTime),
-            new NameToValue<PropertyType>("DTSTAMP", PropertyType.TimeStamp),
-            new NameToValue<PropertyType>("SUMMARY", PropertyType.Summary),
-            new NameToValue<PropertyType>("DESCRIPTION", PropertyType.Description),
-            new NameToValue<PropertyType>("SEQUENCE", PropertyType.Sequence),
-            new NameToValue<PropertyType>("COMMENT", PropertyType.Comment),
-            new NameToValue<PropertyType>("CONTACT", PropertyType.Contact),
-            new NameToValue<PropertyType>("ORGANIZER", PropertyType.Organizer),
-            new NameToValue<PropertyType>("ATTENDEE", PropertyType.Attendee),
-            new NameToValue<PropertyType>("RELATED-TO", PropertyType.RelatedTo),
-            new NameToValue<PropertyType>("ATTACH", PropertyType.Attachment),
-            new NameToValue<PropertyType>("RECURRENCE-ID", PropertyType.RecurrenceId),
-            new NameToValue<PropertyType>("STATUS", PropertyType.Status),
-            new NameToValue<PropertyType>("REQUEST-STATUS", PropertyType.RequestStatus),
-            new NameToValue<PropertyType>("RRULE", PropertyType.RecurrenceRule),
-            new NameToValue<PropertyType>("RDATE", PropertyType.RecurDate),
-            new NameToValue<PropertyType>("EXRULE", PropertyType.ExceptionRule),
-            new NameToValue<PropertyType>("EXDATE", PropertyType.ExceptionDate),
-            new NameToValue<PropertyType>("X-EWSOFTWARE-EXCLUDESTART", PropertyType.ExcludeStartDateTime),
+        private static readonly NameToValue<PropertyType>[] ntvJournal =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("CLASS", PropertyType.Class),
+            new("CATEGORIES", PropertyType.Categories),
+            new("URL", PropertyType.Url),
+            new("UID", PropertyType.UniqueId),
+            new("LAST-MODIFIED", PropertyType.LastModified),
+            new("CREATED", PropertyType.DateCreated),
+            new("DTSTART", PropertyType.StartDateTime),
+            new("DTSTAMP", PropertyType.TimeStamp),
+            new("SUMMARY", PropertyType.Summary),
+            new("DESCRIPTION", PropertyType.Description),
+            new("SEQUENCE", PropertyType.Sequence),
+            new("COMMENT", PropertyType.Comment),
+            new("CONTACT", PropertyType.Contact),
+            new("ORGANIZER", PropertyType.Organizer),
+            new("ATTENDEE", PropertyType.Attendee),
+            new("RELATED-TO", PropertyType.RelatedTo),
+            new("ATTACH", PropertyType.Attachment),
+            new("RECURRENCE-ID", PropertyType.RecurrenceId),
+            new("STATUS", PropertyType.Status),
+            new("REQUEST-STATUS", PropertyType.RequestStatus),
+            new("RRULE", PropertyType.RecurrenceRule),
+            new("RDATE", PropertyType.RecurDate),
+            new("EXRULE", PropertyType.ExceptionRule),
+            new("EXDATE", PropertyType.ExceptionDate),
+            new("X-EWSOFTWARE-EXCLUDESTART", PropertyType.ExcludeStartDateTime),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // VAlarm items
-        private static NameToValue<PropertyType>[] ntvAlarm = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("ACTION", PropertyType.Action),
-            new NameToValue<PropertyType>("TRIGGER", PropertyType.Trigger),
-            new NameToValue<PropertyType>("REPEAT", PropertyType.Repeat),
-            new NameToValue<PropertyType>("DURATION", PropertyType.Duration),
-            new NameToValue<PropertyType>("SUMMARY", PropertyType.Summary),
-            new NameToValue<PropertyType>("DESCRIPTION", PropertyType.Description),
-            new NameToValue<PropertyType>("ATTACH", PropertyType.Attachment),
-            new NameToValue<PropertyType>("ATTENDEE", PropertyType.Attendee),
+        private static readonly NameToValue<PropertyType>[] ntvAlarm =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("ACTION", PropertyType.Action),
+            new("TRIGGER", PropertyType.Trigger),
+            new("REPEAT", PropertyType.Repeat),
+            new("DURATION", PropertyType.Duration),
+            new("SUMMARY", PropertyType.Summary),
+            new("DESCRIPTION", PropertyType.Description),
+            new("ATTACH", PropertyType.Attachment),
+            new("ATTENDEE", PropertyType.Attendee),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // Free/Busy items
-        private static NameToValue<PropertyType>[] ntvFreeBusy = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("URL", PropertyType.Url),
-            new NameToValue<PropertyType>("UID", PropertyType.UniqueId),
-            new NameToValue<PropertyType>("DTSTART", PropertyType.StartDateTime),
-            new NameToValue<PropertyType>("DTEND", PropertyType.EndDateTime),
-            new NameToValue<PropertyType>("DURATION", PropertyType.Duration),
-            new NameToValue<PropertyType>("DTSTAMP", PropertyType.TimeStamp),
-            new NameToValue<PropertyType>("COMMENT", PropertyType.Comment),
-            new NameToValue<PropertyType>("CONTACT", PropertyType.Contact),
-            new NameToValue<PropertyType>("ORGANIZER", PropertyType.Organizer),
-            new NameToValue<PropertyType>("ATTENDEE", PropertyType.Attendee),
-            new NameToValue<PropertyType>("REQUEST-STATUS", PropertyType.RequestStatus),
-            new NameToValue<PropertyType>("FREEBUSY", PropertyType.FreeBusy),
+        private static readonly NameToValue<PropertyType>[] ntvFreeBusy =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("URL", PropertyType.Url),
+            new("UID", PropertyType.UniqueId),
+            new("DTSTART", PropertyType.StartDateTime),
+            new("DTEND", PropertyType.EndDateTime),
+            new("DURATION", PropertyType.Duration),
+            new("DTSTAMP", PropertyType.TimeStamp),
+            new("COMMENT", PropertyType.Comment),
+            new("CONTACT", PropertyType.Contact),
+            new("ORGANIZER", PropertyType.Organizer),
+            new("ATTENDEE", PropertyType.Attendee),
+            new("REQUEST-STATUS", PropertyType.RequestStatus),
+            new("FREEBUSY", PropertyType.FreeBusy),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // Time Zone items
-        private static NameToValue<PropertyType>[] ntvTimeZone = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("TZID", PropertyType.TimeZoneId),
-            new NameToValue<PropertyType>("TZURL", PropertyType.TimeZoneUrl),
-            new NameToValue<PropertyType>("LAST-MODIFIED", PropertyType.LastModified),
+        private static readonly NameToValue<PropertyType>[] ntvTimeZone =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("TZID", PropertyType.TimeZoneId),
+            new("TZURL", PropertyType.TimeZoneUrl),
+            new("LAST-MODIFIED", PropertyType.LastModified),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
 
         // Time zone observance rule items
-        private static NameToValue<PropertyType>[] ntvORule = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("DTSTART", PropertyType.StartDateTime),
-            new NameToValue<PropertyType>("TZOFFSETFROM", PropertyType.TimeZoneOffsetFrom),
-            new NameToValue<PropertyType>("TZOFFSETTO", PropertyType.TimeZoneOffsetTo),
-            new NameToValue<PropertyType>("COMMENT", PropertyType.Comment),
-            new NameToValue<PropertyType>("RRULE", PropertyType.RecurrenceRule),
-            new NameToValue<PropertyType>("RDATE", PropertyType.RecurDate),
-            new NameToValue<PropertyType>("TZNAME", PropertyType.TimeZoneName),
+        private static readonly NameToValue<PropertyType>[] ntvORule =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("DTSTART", PropertyType.StartDateTime),
+            new("TZOFFSETFROM", PropertyType.TimeZoneOffsetFrom),
+            new("TZOFFSETTO", PropertyType.TimeZoneOffsetTo),
+            new("COMMENT", PropertyType.Comment),
+            new("RRULE", PropertyType.RecurrenceRule),
+            new("RDATE", PropertyType.RecurDate),
+            new("TZNAME", PropertyType.TimeZoneName),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
         #endregion
 
         #region Properties
@@ -332,7 +340,7 @@ namespace EWSoftware.PDI.Parser
         /// <remarks>The calendar from prior calls to the parsing methods is not cleared automatically.  Call
         /// <c>VCalendar.ClearProperties</c> before calling a parsing method if you do not want to retain the
         /// calendar information from prior runs.</remarks>
-        public VCalendar VCalendar => vCal;
+        public VCalendar? VCalendar => vCal;
 
         #endregion
 
@@ -409,10 +417,10 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VCalendar ParseFromString(string calendarText)
         {
-            VCalendarParser vcp = new VCalendarParser();
+            VCalendarParser vcp = new();
             vcp.ParseString(calendarText);
 
-            return vcp.VCalendar;
+            return vcp.VCalendar!;
         }
 
         /// <summary>
@@ -435,7 +443,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static void ParseFromString(string calendarText, VCalendar calendar)
         {
-            VCalendarParser vcp = new VCalendarParser(calendar);
+            VCalendarParser vcp = new(calendar);
             vcp.ParseString(calendarText);
         }
 
@@ -457,9 +465,9 @@ namespace EWSoftware.PDI.Parser
         ///     "http://www.mydomain.com/Calendars/MySchedule.ics")
         /// </code>
         /// </example>
-        public static VCalendar ParseFromFile(string filename)
+        public static VCalendar? ParseFromFile(string filename)
         {
-            VCalendarParser vcp = new VCalendarParser();
+            VCalendarParser vcp = new();
             vcp.ParseFile(filename);
 
             return vcp.VCalendar;
@@ -484,9 +492,9 @@ namespace EWSoftware.PDI.Parser
         /// sr.Close()
         /// </code>
         /// </example>
-        public static VCalendar ParseFromStream(TextReader stream)
+        public static VCalendar? ParseFromStream(TextReader stream)
         {
-            VCalendarParser vcp = new VCalendarParser();
+            VCalendarParser vcp = new();
             vcp.ParseReader(stream);
 
             return vcp.VCalendar;
@@ -511,7 +519,6 @@ namespace EWSoftware.PDI.Parser
         /// stream.  Refer to the and inner exceptions for information on the cause of the problem.</exception>
         protected override void PropertyParser(string propertyName, StringCollection parameters, string propertyValue)
         {
-            SpecificationVersions version = SpecificationVersions.None;
             string temp;
             int idx;
 
@@ -558,13 +565,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvCal.Length - 1; idx++)
+            {
                 if(ntvCal[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VCALENDAR property must have been seen
             if(vCal == null && ntvCal[idx].EnumValue != PropertyType.Begin)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VCALENDAR",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvCal[idx].EnumValue)
@@ -575,8 +586,10 @@ namespace EWSoftware.PDI.Parser
 
                     // The last entry is always Custom so scan for length - 1
                     for(idx = 0; idx < ntvObjs.Length - 1; idx++)
+                    {
                         if(ntvObjs[idx].IsMatch(temp))
                             break;
+                    }
 
                     priorState.Push(currentState);
                     currentState = ntvObjs[idx].EnumValue;
@@ -587,28 +600,27 @@ namespace EWSoftware.PDI.Parser
                             // NOTE: If serializing into an existing instance, this may not be null.  If so, it
                             // is ignored. It may also exist if two calendars appear in the same file.  In that
                             // case, they will be merged into one calendar.
-                            if(vCal == null)
-                                vCal = new VCalendar();
+                            vCal ??= new VCalendar();
                             break;
 
                         case VCalendarParserState.VEvent:
                             vEvent = new VEvent();
-                            vCal.Events.Add(vEvent);
+                            vCal!.Events.Add(vEvent);
                             break;
 
                         case VCalendarParserState.VToDo:
                             vToDo = new VToDo();
-                            vCal.ToDos.Add(vToDo);
+                            vCal!.ToDos.Add(vToDo);
                             break;
 
                         case VCalendarParserState.VJournal:
                             vJournal = new VJournal();
-                            vCal.Journals.Add(vJournal);
+                            vCal!.Journals.Add(vJournal);
                             break;
 
                         case VCalendarParserState.VFreeBusy:
                             vFreeBusy = new VFreeBusy();
-                            vCal.FreeBusys.Add(vFreeBusy);
+                            vCal!.FreeBusys.Add(vFreeBusy);
                             break;
 
                         case VCalendarParserState.VTimeZone:
@@ -630,58 +642,64 @@ namespace EWSoftware.PDI.Parser
                             ntvCal[idx].Name, propertyValue));
 
                     // When done, we'll propagate the version number to all objects to make it consistent
-                    vCal.PropagateVersion();
+                    vCal!.PropagateVersion();
                     break;
 
                 case PropertyType.Version:
                     // Version must be 1.0 or 2.0
                     temp = propertyValue.Trim();
 
+                    SpecificationVersions version;
+
                     if(temp == "1.0")
                         version = SpecificationVersions.vCalendar10;
                     else
+                    {
                         if(temp == "2.0")
                             version = SpecificationVersions.iCalendar20;
                         else
+                        {
                             throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedVersion",
                                 "vCalendar/iCalendar", temp));
+                        }
+                    }
 
-                    vCal.Version = version;
+                    vCal!.Version = version;
                     break;
 
                 case PropertyType.ProductId:
-                    vCal.ProductId.EncodedValue = propertyValue;
+                    vCal!.ProductId.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.CalendarScale:
-                    vCal.CalendarScale.DeserializeParameters(parameters);
+                    vCal!.CalendarScale.DeserializeParameters(parameters);
                     vCal.CalendarScale.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Method:
-                    vCal.Method.DeserializeParameters(parameters);
+                    vCal!.Method.DeserializeParameters(parameters);
                     vCal.Method.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.GeographicPosition:
-                    vCal.VCalendarGeographicPosition.EncodedValue = propertyValue;
+                    vCal!.VCalendarGeographicPosition.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.TimeZone:
-                    vCal.VCalendarTimeZone.DeserializeParameters(parameters);
+                    vCal!.VCalendarTimeZone.DeserializeParameters(parameters);
                     vCal.VCalendarTimeZone.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Daylight:
-                    vCal.VCalendarDaylightRule.DeserializeParameters(parameters);
+                    vCal!.VCalendarDaylightRule.DeserializeParameters(parameters);
                     vCal.VCalendarDaylightRule.EncodedValue = propertyValue;
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty c = new CustomProperty(propertyName);
+                    CustomProperty c = new(propertyName);
                     c.DeserializeParameters(parameters);
                     c.EncodedValue = propertyValue;
-                    vCal.CustomProperties.Add(c);
+                    vCal!.CustomProperties.Add(c);
                     break;
             }
         }
@@ -701,13 +719,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvEvent.Length - 1; idx++)
+            {
                 if(ntvEvent[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VEVENT property must have been seen
             if(vEvent == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VEVENT",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvEvent[idx].EnumValue)
@@ -733,8 +755,10 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.End:
                     // For this, the value must be VEVENT
                     if(String.Compare(propertyValue.Trim(), "VEVENT", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntvEvent[idx].Name, propertyValue));
+                    }
 
                     // The event is added to the collection when created so we don't have to rely on an END tag
                     // to add it.
@@ -748,7 +772,7 @@ namespace EWSoftware.PDI.Parser
 
                 case PropertyType.Categories:
                     // If this is seen more than once, just add the new stuff to the existing property
-                    CategoriesProperty cp = new CategoriesProperty();
+                    CategoriesProperty cp = new();
                     cp.DeserializeParameters(parameters);
                     cp.EncodedValue = propertyValue;
 
@@ -758,7 +782,7 @@ namespace EWSoftware.PDI.Parser
 
                 case PropertyType.Resources:
                     // If this is seen more than once, just add the new stuff to the existing property
-                    ResourcesProperty rp = new ResourcesProperty();
+                    ResourcesProperty rp = new();
                     rp.DeserializeParameters(parameters);
                     rp.EncodedValue = propertyValue;
 
@@ -854,7 +878,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Contact:
-                    ContactProperty c = new ContactProperty();
+                    ContactProperty c = new();
                     c.DeserializeParameters(parameters);
                     c.EncodedValue = propertyValue;
                     vEvent.Contacts.Add(c);
@@ -866,21 +890,21 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Attendee:
-                    AttendeeProperty ap = new AttendeeProperty();
+                    AttendeeProperty ap = new();
                     ap.DeserializeParameters(parameters);
                     ap.EncodedValue = propertyValue;
                     vEvent.Attendees.Add(ap);
                     break;
 
                 case PropertyType.RelatedTo:
-                    RelatedToProperty rt = new RelatedToProperty();
+                    RelatedToProperty rt = new();
                     rt.DeserializeParameters(parameters);
                     rt.EncodedValue = propertyValue;
                     vEvent.RelatedTo.Add(rt);
                     break;
 
                 case PropertyType.Attachment:
-                    AttachProperty att = new AttachProperty();
+                    AttachProperty att = new();
                     att.DeserializeParameters(parameters);
                     att.EncodedValue = propertyValue;
                     vEvent.Attachments.Add(att);
@@ -897,7 +921,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.RequestStatus:
-                    RequestStatusProperty rs = new RequestStatusProperty();
+                    RequestStatusProperty rs = new();
                     rs.DeserializeParameters(parameters);
                     rs.EncodedValue = propertyValue;
                     vEvent.RequestStatuses.Add(rs);
@@ -920,7 +944,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.RecurrenceRule:
-                    RRuleProperty rr = new RRuleProperty();
+                    RRuleProperty rr = new();
                     rr.DeserializeParameters(parameters);
                     rr.EncodedValue = propertyValue;
                     vEvent.RecurrenceRules.Add(rr);
@@ -938,10 +962,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        RDateProperty rd = new RDateProperty();
+                        RDateProperty rd = new();
                         rd.DeserializeParameters(sc);
                         rd.EncodedValue = s;
 
@@ -950,7 +973,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.ExceptionRule:
-                    ExRuleProperty er = new ExRuleProperty();
+                    ExRuleProperty er = new();
                     er.DeserializeParameters(parameters);
                     er.EncodedValue = propertyValue;
                     vEvent.ExceptionRules.Add(er);
@@ -968,10 +991,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        ExDateProperty ed = new ExDateProperty();
+                        ExDateProperty ed = new();
                         ed.DeserializeParameters(sc);
                         ed.EncodedValue = s;
 
@@ -985,7 +1007,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     vEvent.CustomProperties.Add(cust);
@@ -1008,13 +1030,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvToDo.Length - 1; idx++)
+            {
                 if(ntvToDo[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VTODO property must have been seen
             if(vToDo == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VTODO",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvToDo[idx].EnumValue)
@@ -1055,7 +1081,7 @@ namespace EWSoftware.PDI.Parser
 
                 case PropertyType.Categories:
                     // If this is seen more than once, just add the new stuff to the existing property
-                    CategoriesProperty cp = new CategoriesProperty();
+                    CategoriesProperty cp = new();
                     cp.DeserializeParameters(parameters);
                     cp.EncodedValue = propertyValue;
 
@@ -1065,7 +1091,7 @@ namespace EWSoftware.PDI.Parser
 
                 case PropertyType.Resources:
                     // If this is seen more than once, just add the new stuff to the existing property
-                    ResourcesProperty rp = new ResourcesProperty();
+                    ResourcesProperty rp = new();
                     rp.DeserializeParameters(parameters);
                     rp.EncodedValue = propertyValue;
 
@@ -1156,7 +1182,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Contact:
-                    ContactProperty cont = new ContactProperty();
+                    ContactProperty cont = new();
                     cont.DeserializeParameters(parameters);
                     cont.EncodedValue = propertyValue;
                     vToDo.Contacts.Add(cont);
@@ -1168,21 +1194,21 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Attendee:
-                    AttendeeProperty ap = new AttendeeProperty();
+                    AttendeeProperty ap = new();
                     ap.DeserializeParameters(parameters);
                     ap.EncodedValue = propertyValue;
                     vToDo.Attendees.Add(ap);
                     break;
 
                 case PropertyType.RelatedTo:
-                    RelatedToProperty rt = new RelatedToProperty();
+                    RelatedToProperty rt = new();
                     rt.DeserializeParameters(parameters);
                     rt.EncodedValue = propertyValue;
                     vToDo.RelatedTo.Add(rt);
                     break;
 
                 case PropertyType.Attachment:
-                    AttachProperty att = new AttachProperty();
+                    AttachProperty att = new();
                     att.DeserializeParameters(parameters);
                     att.EncodedValue = propertyValue;
                     vToDo.Attachments.Add(att);
@@ -1199,7 +1225,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.RequestStatus:
-                    RequestStatusProperty rs = new RequestStatusProperty();
+                    RequestStatusProperty rs = new();
                     rs.DeserializeParameters(parameters);
                     rs.EncodedValue = propertyValue;
                     vToDo.RequestStatuses.Add(rs);
@@ -1227,7 +1253,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.RecurrenceRule:
-                    RRuleProperty rr = new RRuleProperty();
+                    RRuleProperty rr = new();
                     rr.DeserializeParameters(parameters);
                     rr.EncodedValue = propertyValue;
                     vToDo.RecurrenceRules.Add(rr);
@@ -1245,10 +1271,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        RDateProperty rd = new RDateProperty();
+                        RDateProperty rd = new();
                         rd.DeserializeParameters(sc);
                         rd.EncodedValue = s;
 
@@ -1257,7 +1282,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.ExceptionRule:
-                    ExRuleProperty er = new ExRuleProperty();
+                    ExRuleProperty er = new();
                     er.DeserializeParameters(parameters);
                     er.EncodedValue = propertyValue;
                     vToDo.ExceptionRules.Add(er);
@@ -1275,10 +1300,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        ExDateProperty ed = new ExDateProperty();
+                        ExDateProperty ed = new();
                         ed.DeserializeParameters(sc);
                         ed.EncodedValue = s;
 
@@ -1292,7 +1316,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     vToDo.CustomProperties.Add(cust);
@@ -1315,13 +1339,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvJournal.Length - 1; idx++)
+            {
                 if(ntvJournal[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VJOURNAL property must have been seen
             if(vJournal == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VJOURNAL",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvJournal[idx].EnumValue)
@@ -1335,8 +1363,10 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.End:
                     // For this, the value must be VJOURNAL
                     if(String.Compare(propertyValue.Trim(), "VJOURNAL", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntvJournal[idx].Name, propertyValue));
+                    }
 
                     // The journal is added to the collection when created so we don't have to rely on an END tag
                     // to add it.
@@ -1350,7 +1380,7 @@ namespace EWSoftware.PDI.Parser
 
                 case PropertyType.Categories:
                     // If this is seen more than once, just add the new stuff to the existing property
-                    CategoriesProperty cp = new CategoriesProperty();
+                    CategoriesProperty cp = new();
                     cp.DeserializeParameters(parameters);
                     cp.EncodedValue = propertyValue;
 
@@ -1417,7 +1447,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Contact:
-                    ContactProperty cont = new ContactProperty();
+                    ContactProperty cont = new();
                     cont.DeserializeParameters(parameters);
                     cont.EncodedValue = propertyValue;
                     vJournal.Contacts.Add(cont);
@@ -1429,21 +1459,21 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Attendee:
-                    AttendeeProperty ap = new AttendeeProperty();
+                    AttendeeProperty ap = new();
                     ap.DeserializeParameters(parameters);
                     ap.EncodedValue = propertyValue;
                     vJournal.Attendees.Add(ap);
                     break;
 
                 case PropertyType.RelatedTo:
-                    RelatedToProperty rt = new RelatedToProperty();
+                    RelatedToProperty rt = new();
                     rt.DeserializeParameters(parameters);
                     rt.EncodedValue = propertyValue;
                     vJournal.RelatedTo.Add(rt);
                     break;
 
                 case PropertyType.Attachment:
-                    AttachProperty att = new AttachProperty();
+                    AttachProperty att = new();
                     att.DeserializeParameters(parameters);
                     att.EncodedValue = propertyValue;
                     vJournal.Attachments.Add(att);
@@ -1460,14 +1490,14 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.RequestStatus:
-                    RequestStatusProperty rs = new RequestStatusProperty();
+                    RequestStatusProperty rs = new();
                     rs.DeserializeParameters(parameters);
                     rs.EncodedValue = propertyValue;
                     vJournal.RequestStatuses.Add(rs);
                     break;
 
                 case PropertyType.RecurrenceRule:
-                    RRuleProperty rr = new RRuleProperty();
+                    RRuleProperty rr = new();
                     rr.DeserializeParameters(parameters);
                     rr.EncodedValue = propertyValue;
                     vJournal.RecurrenceRules.Add(rr);
@@ -1485,10 +1515,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        RDateProperty rd = new RDateProperty();
+                        RDateProperty rd = new();
                         rd.DeserializeParameters(sc);
                         rd.EncodedValue = s;
 
@@ -1497,7 +1526,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.ExceptionRule:
-                    ExRuleProperty er = new ExRuleProperty();
+                    ExRuleProperty er = new();
                     er.DeserializeParameters(parameters);
                     er.EncodedValue = propertyValue;
                     vJournal.ExceptionRules.Add(er);
@@ -1515,10 +1544,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        ExDateProperty ed = new ExDateProperty();
+                        ExDateProperty ed = new();
                         ed.DeserializeParameters(sc);
                         ed.EncodedValue = s;
 
@@ -1532,7 +1560,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     vJournal.CustomProperties.Add(cust);
@@ -1553,13 +1581,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvTimeZone.Length - 1; idx++)
+            {
                 if(ntvTimeZone[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VTIMEZONE property must have been seen
             if(vTimeZone == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VTIMEZONE",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvTimeZone[idx].EnumValue)
@@ -1575,6 +1607,7 @@ namespace EWSoftware.PDI.Parser
                         currentState = VCalendarParserState.ObservanceRule;
                     }
                     else
+                    {
                         if(String.Compare(propertyValue.Trim(), "DAYLIGHT", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             obsRule = new ObservanceRule(ObservanceRuleType.Daylight);
@@ -1587,13 +1620,16 @@ namespace EWSoftware.PDI.Parser
                             currentState = VCalendarParserState.Custom;
                             CustomObjectParser(propertyName, parameters, propertyValue);
                         }
+                    }
                     break;
 
                 case PropertyType.End:
                     // For this, the value must be VTIMEZONE
                     if(String.Compare(propertyValue.Trim(), "VTIMEZONE", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntvTimeZone[idx].Name, propertyValue));
+                    }
 
                     // Unlike other objects, we do rely on the end tag to add the time zone object to the
                     // collection as they are shared amongst all instances.
@@ -1617,7 +1653,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     vTimeZone.CustomProperties.Add(cust);
@@ -1638,13 +1674,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvAlarm.Length - 1; idx++)
+            {
                 if(ntvAlarm[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VALARM property must have been seen
             if(vAlarm == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VALARM",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvAlarm[idx].EnumValue)
@@ -1658,8 +1698,10 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.End:
                     // For this, the value must be VALARM
                     if(String.Compare(propertyValue.Trim(), "VALARM", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntvAlarm[idx].Name, propertyValue));
+                    }
 
                     // The alarm is added to the collection when created so we don't have to rely on an END tag
                     // to add it.
@@ -1698,21 +1740,21 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Attendee:
-                    AttendeeProperty ap = new AttendeeProperty();
+                    AttendeeProperty ap = new();
                     ap.DeserializeParameters(parameters);
                     ap.EncodedValue = propertyValue;
                     vAlarm.Attendees.Add(ap);
                     break;
 
                 case PropertyType.Attachment:
-                    AttachProperty att = new AttachProperty();
+                    AttachProperty att = new();
                     att.DeserializeParameters(parameters);
                     att.EncodedValue = propertyValue;
                     vAlarm.Attachments.Add(att);
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     vAlarm.CustomProperties.Add(cust);
@@ -1735,22 +1777,22 @@ namespace EWSoftware.PDI.Parser
             string[] parts = propertyValue.Split(';');
 
             if(parts.Length != 0 && parts[0].Length > 0)
-                vAlarm.Trigger.EncodedValue = parts[0];
+                vAlarm!.Trigger.EncodedValue = parts[0];
 
             if(parts.Length > 1 && parts[1].Length > 0)
-                vAlarm.Duration.EncodedValue = parts[1];
+                vAlarm!.Duration.EncodedValue = parts[1];
 
             if(parts.Length > 2 && parts[2].Length > 0)
-                vAlarm.Repeat.EncodedValue = parts[2];
+                vAlarm!.Repeat.EncodedValue = parts[2];
 
             switch(propertyType)
             {
                 case PropertyType.AudioAlarm:
-                    vAlarm.Action.Action = AlarmAction.Audio;
+                    vAlarm!.Action.Action = AlarmAction.Audio;
 
                     if(parts.Length > 3 && parts[3].Length > 0)
                     {
-                        AttachProperty att = new AttachProperty();
+                        AttachProperty att = new();
                         att.DeserializeParameters(parameters);
                         att.EncodedValue = parts[3];
                         vAlarm.Attachments.Add(att);
@@ -1758,7 +1800,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.DisplayAlarm:
-                    vAlarm.Action.Action = AlarmAction.Display;
+                    vAlarm!.Action.Action = AlarmAction.Display;
 
                     if(parts.Length > 3 && parts[3].Length > 0)
                     {
@@ -1768,11 +1810,11 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.EMailAlarm:
-                    vAlarm.Action.Action = AlarmAction.EMail;
+                    vAlarm!.Action.Action = AlarmAction.EMail;
 
                     if(parts.Length > 3 && parts[3].Length > 0)
                     {
-                        AttendeeProperty ap = new AttendeeProperty();
+                        AttendeeProperty ap = new();
                         ap.DeserializeParameters(parameters);
                         ap.EncodedValue = parts[3];
                         vAlarm.Attendees.Add(ap);
@@ -1783,11 +1825,11 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.ProcedureAlarm:
-                    vAlarm.Action.Action = AlarmAction.Procedure;
+                    vAlarm!.Action.Action = AlarmAction.Procedure;
 
                     if(parts.Length > 3 && parts[3].Length > 0)
                     {
-                        AttachProperty att = new AttachProperty();
+                        AttachProperty att = new();
                         att.DeserializeParameters(parameters);
                         att.EncodedValue = parts[3];
                         vAlarm.Attachments.Add(att);
@@ -1811,13 +1853,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvFreeBusy.Length - 1; idx++)
+            {
                 if(ntvFreeBusy[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VFREEBUSY property must have been seen
             if(vFreeBusy == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VFREEBUSY",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntvFreeBusy[idx].EnumValue)
@@ -1831,8 +1877,10 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.End:
                     // For this, the value must be VFREEBUSY
                     if(String.Compare(propertyValue.Trim(), "VFREEBUSY", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntvFreeBusy[idx].Name, propertyValue));
+                    }
 
                     // The free/busy item is added to the collection when created so we don't have to rely on an
                     // END tag to add it.
@@ -1894,14 +1942,14 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.Attendee:
-                    AttendeeProperty ap = new AttendeeProperty();
+                    AttendeeProperty ap = new();
                     ap.DeserializeParameters(parameters);
                     ap.EncodedValue = propertyValue;
                     vFreeBusy.Attendees.Add(ap);
                     break;
 
                 case PropertyType.RequestStatus:
-                    RequestStatusProperty rs = new RequestStatusProperty();
+                    RequestStatusProperty rs = new();
                     rs.DeserializeParameters(parameters);
                     rs.EncodedValue = propertyValue;
                     vFreeBusy.RequestStatuses.Add(rs);
@@ -1919,10 +1967,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        FreeBusyProperty fb = new FreeBusyProperty();
+                        FreeBusyProperty fb = new();
                         fb.DeserializeParameters(sc);
                         fb.EncodedValue = s;
 
@@ -1931,7 +1978,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     vFreeBusy.CustomProperties.Add(cust);
@@ -1954,13 +2001,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntvORule.Length - 1; idx++)
+            {
                 if(ntvORule[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:STANDARD or BEGIN:DAYLIGHT property must have been seen.
             if(obsRule == null)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp",
                         "BEGIN:STANDARD/BEGIN:DAYLIGHT", propertyName));
+            }
 
             // Handle or create the property
             switch(ntvORule[idx].EnumValue)
@@ -2018,7 +2069,7 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.RecurrenceRule:
-                    RRuleProperty rr = new RRuleProperty();
+                    RRuleProperty rr = new();
                     rr.DeserializeParameters(parameters);
                     rr.EncodedValue = propertyValue;
                     obsRule.RecurrenceRules.Add(rr);
@@ -2036,10 +2087,9 @@ namespace EWSoftware.PDI.Parser
 
                     foreach(string s in parts)
                     {
-                        sc = new StringCollection();
-                        sc.AddRange(parms);
+                        sc = [.. parms];
 
-                        RDateProperty rd = new RDateProperty();
+                        RDateProperty rd = new();
                         rd.DeserializeParameters(sc);
                         rd.EncodedValue = s;
 
@@ -2048,14 +2098,14 @@ namespace EWSoftware.PDI.Parser
                     break;
 
                 case PropertyType.TimeZoneName:
-                    TimeZoneNameProperty tzn = new TimeZoneNameProperty();
+                    TimeZoneNameProperty tzn = new();
                     tzn.DeserializeParameters(parameters);
                     tzn.EncodedValue = propertyValue;
                     obsRule.TimeZoneNames.Add(tzn);
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty cust = new CustomProperty(propertyName);
+                    CustomProperty cust = new(propertyName);
                     cust.DeserializeParameters(parameters);
                     cust.EncodedValue = propertyValue;
                     obsRule.CustomProperties.Add(cust);
@@ -2075,38 +2125,38 @@ namespace EWSoftware.PDI.Parser
         /// processed.</remarks>
         protected virtual void CustomObjectParser(string propertyName, StringCollection parameters, string propertyValue)
         {
-            CustomProperty cust = new CustomProperty(propertyName);
+            CustomProperty cust = new(propertyName);
             cust.DeserializeParameters(parameters);
             cust.EncodedValue = propertyValue;
 
             switch(priorState.Peek())
             {
                 case VCalendarParserState.VCalendar:
-                    vCal.CustomProperties.Add(cust);
+                    vCal!.CustomProperties.Add(cust);
                     break;
 
                 case VCalendarParserState.VEvent:
-                    vEvent.CustomProperties.Add(cust);
+                    vEvent!.CustomProperties.Add(cust);
                     break;
 
                 case VCalendarParserState.VToDo:
-                    vToDo.CustomProperties.Add(cust);
+                    vToDo!.CustomProperties.Add(cust);
                     break;
 
                 case VCalendarParserState.VJournal:
-                    vJournal.CustomProperties.Add(cust);
+                    vJournal!.CustomProperties.Add(cust);
                     break;
 
                 case VCalendarParserState.VAlarm:
-                    vAlarm.CustomProperties.Add(cust);
+                    vAlarm!.CustomProperties.Add(cust);
                     break;
 
                 case VCalendarParserState.VFreeBusy:
-                    vFreeBusy.CustomProperties.Add(cust);
+                    vFreeBusy!.CustomProperties.Add(cust);
                     break;
 
                 case VCalendarParserState.VTimeZone:
-                    vTimeZone.CustomProperties.Add(cust);
+                    vTimeZone!.CustomProperties.Add(cust);
                     break;
 
                 default:
@@ -2116,8 +2166,11 @@ namespace EWSoftware.PDI.Parser
             // Is it another nested object
             if(String.Compare(propertyName, "BEGIN", StringComparison.OrdinalIgnoreCase) == 0)
                 beginValue.Push(propertyValue.Trim());
-            else    // Is it the end of the object?
+            else
+            {
+                // Is it the end of the object?
                 if(String.Compare(propertyName, "END", StringComparison.OrdinalIgnoreCase) == 0)
+                {
                     if(String.Compare(propertyValue.Trim(), beginValue.Peek(), StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         beginValue.Pop();
@@ -2126,8 +2179,12 @@ namespace EWSoftware.PDI.Parser
                             currentState = priorState.Pop();
                     }
                     else
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExCOPUnexpectedEnd",
                             beginValue.Pop(), propertyValue));
+                    }
+                }
+            }
         }
         #endregion
     }

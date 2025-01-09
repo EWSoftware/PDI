@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : CalendarObjectDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a calendar object's properties (VEvent, VToDo, or a VJournal component)
 //
@@ -60,7 +60,7 @@ namespace CalendarBrowser
             cboTimeZone.Items.Add("No time zone");
 
             foreach(VTimeZone tz in VCalendar.TimeZones)
-                cboTimeZone.Items.Add(tz.TimeZoneId.Value);
+                cboTimeZone.Items.Add(tz.TimeZoneId.Value!);
 
             cboTimeZone.SelectedIndex = 0;
 		}
@@ -75,7 +75,7 @@ namespace CalendarBrowser
         /// <param name="oCal">The calendar object from which to get the settings</param>
         public void SetValues(CalendarObject oCal)
         {
-            string timeZoneId = null;
+            string? timeZoneId = null;
             bool isICalendar = (oCal?.Version == SpecificationVersions.iCalendar20);
 
             // Disable controls that aren't relevant to the vCalendar spec
@@ -125,7 +125,7 @@ namespace CalendarBrowser
                 txtDescription.Text = e.Description.Value;
 
                 // Load status values and set status
-                cboStatus.Items.AddRange(new[] { "None", "Tentative", "Confirmed", "Cancelled" });
+                cboStatus.Items.AddRange(["None", "Tentative", "Confirmed", "Cancelled"]);
 
                 if(!cboStatus.Items.Contains(e.Status.StatusValue.ToString()))
                     cboStatus.Items.Add(e.Status.StatusValue.ToString());
@@ -217,7 +217,7 @@ namespace CalendarBrowser
                 txtDescription.Text = td.Description.Value;
 
                 // Load status values and set status
-                cboStatus.Items.AddRange(new[] { "None", "NeedsAction", "Completed", "InProcess", "Cancelled" });
+                cboStatus.Items.AddRange(["None", "NeedsAction", "Completed", "InProcess", "Cancelled"]);
 
                 if(!cboStatus.Items.Contains(td.Status.StatusValue.ToString()))
                     cboStatus.Items.Add(td.Status.StatusValue.ToString());
@@ -290,7 +290,7 @@ namespace CalendarBrowser
                 txtDescription.Text = j.Description.Value;
 
                 // Load status values and set status
-                cboStatus.Items.AddRange(new[] { "None", "Draft", "Final", "Cancelled" });
+                cboStatus.Items.AddRange(["None", "Draft", "Final", "Cancelled"]);
 
                 if(!cboStatus.Items.Contains(j.Status.StatusValue.ToString()))
                     cboStatus.Items.Add(j.Status.StatusValue.ToString());
@@ -378,7 +378,7 @@ namespace CalendarBrowser
 
                 // Get status value
                 e.Status.StatusValue = (StatusValue)Enum.Parse(typeof(StatusValue),
-                    cboStatus.Items[cboStatus.SelectedIndex].ToString(), true);
+                    cboStatus.Items[cboStatus.SelectedIndex]!.ToString()!, true);
 
                 // We'll edit categories and resources as comma separated strings
                 e.Categories.CategoriesString = txtCategories.Text;
@@ -459,7 +459,7 @@ namespace CalendarBrowser
 
                 // Get status value
                 td.Status.StatusValue = (StatusValue)Enum.Parse(typeof(StatusValue),
-                    cboStatus.Items[cboStatus.SelectedIndex].ToString(), true);
+                    cboStatus.Items[cboStatus.SelectedIndex]!.ToString()!, true);
 
                 // We'll edit categories and resources as comma separated strings
                 td.Categories.CategoriesString = txtCategories.Text;
@@ -521,7 +521,7 @@ namespace CalendarBrowser
 
                 // Get status value
                 j.Status.StatusValue = (StatusValue)Enum.Parse(typeof(StatusValue),
-                    cboStatus.Items[cboStatus.SelectedIndex].ToString(), true);
+                    cboStatus.Items[cboStatus.SelectedIndex]!.ToString()!, true);
 
                 // We'll edit categories as a comma separated string
                 j.Categories.CategoriesString = txtCategories.Text;
@@ -580,7 +580,7 @@ namespace CalendarBrowser
         private void btnApplyTZ_Click(object sender, EventArgs e)
         {
             DateTimeInstance dti;
-            string sourceTZ, destTZ;
+            string? sourceTZ, destTZ;
 
             if(cboTimeZone.SelectedIndex == timeZoneIdx)
             {
@@ -600,9 +600,9 @@ namespace CalendarBrowser
             if(timeZoneIdx == 0)
                 sourceTZ = null;
             else
-                sourceTZ = (string)cboTimeZone.Items[timeZoneIdx];
+                sourceTZ = (string?)cboTimeZone.Items[timeZoneIdx];
 
-            destTZ = (string)cboTimeZone.Items[cboTimeZone.SelectedIndex];
+            destTZ = (string?)cboTimeZone.Items[cboTimeZone.SelectedIndex];
 
             // Convert the times.  Note that the completed date is always in universal time so it isn't touched.
             if(sourceTZ == null)
@@ -684,6 +684,7 @@ namespace CalendarBrowser
             tabInfo.SelectedTab = pgGeneral;
 
             if(txtDuration.Visible && txtDuration.Text.Length != 0)
+            {
                 if(!Duration.TryParse(txtDuration.Text, out Duration d))
                 {
                     e.Cancel = true;
@@ -691,12 +692,15 @@ namespace CalendarBrowser
                     txtDuration.Focus();
                 }
                 else
+                {
                     if(d != Duration.Zero && dtpEndDate.Visible && dtpEndDate.Checked)
                     {
                         e.Cancel = true;
                         epErrors.SetError(dtpEndDate, "A duration or an end date can be specified, but not both");
                         dtpEndDate.Focus();
                     }
+                }
+            }
 
             if(dtpEndDate.Visible && dtpStartDate.Checked && dtpEndDate.Checked && dtpStartDate.Value > dtpEndDate.Value)
             {
@@ -708,6 +712,7 @@ namespace CalendarBrowser
             if(txtLatitude.Enabled)
             {
                 if(txtLatitude.Text.Length != 0)
+                {
                     if(!Double.TryParse(txtLatitude.Text, out double latitude) || latitude < -90.0 || latitude > 90.0)
                     {
                         e.Cancel = true;
@@ -715,8 +720,10 @@ namespace CalendarBrowser
                         tabInfo.SelectedTab = pgMisc;
                         txtLatitude.Focus();
                     }
+                }
 
                 if(txtLongitude.Text.Length != 0)
+                {
                     if(!Double.TryParse(txtLongitude.Text, out double longitude) || longitude < -180.0 || longitude > 180.0)
                     {
                         e.Cancel = true;
@@ -724,6 +731,7 @@ namespace CalendarBrowser
                         tabInfo.SelectedTab = pgMisc;
                         txtLongitude.Focus();
                     }
+                }
             }
 
             if(ucRequestStatus.Enabled && !ucRequestStatus.ValidateItems())

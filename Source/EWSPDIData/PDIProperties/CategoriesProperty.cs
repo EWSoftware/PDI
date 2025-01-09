@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CategoriesProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Categories property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -38,9 +37,9 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[,;])|(?<=(?:[^\\]))[,;]");
+        private static readonly Regex reSplit = new(@"(?:^[,;])|(?<=(?:[^\\]))[,;]");
 
-        private StringCollection categories;
+        private readonly StringCollection categories;
 
         #endregion
 
@@ -80,18 +79,15 @@ namespace EWSoftware.PDI.Properties
             get => String.Join(", ", categories);
             set
             {
-                string tempCat;
-                string[] entries;
-
                 categories.Clear();
 
                 if(value != null)
                 {
-                    entries = value.Split(',', ';');
+                    string[] entries = value.Split(',', ';');
 
                     foreach(string s in entries)
                     {
-                        tempCat = s.Trim();
+                        string tempCat = s.Trim();
 
                         if(tempCat.Length > 0)
                             categories.Add(tempCat);
@@ -104,7 +100,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle parsing the categories and concatenating them when requested
         /// </summary>
         /// <value>The categories are escaped as needed</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -112,7 +108,7 @@ namespace EWSoftware.PDI.Properties
                 if(this.Categories.Count == 0)
                     return null;
 
-                StringBuilder sb = new StringBuilder(256);
+                StringBuilder sb = new(256);
 
                 foreach(string s in this.Categories)
                 {
@@ -131,22 +127,19 @@ namespace EWSoftware.PDI.Properties
             }
             set
             {
-                string tempCat;
-                string[] entries;
-
                 this.Categories.Clear();
 
                 if(value != null && value.Length > 0)
                 {
                     // Split on all semi-colons and commas except escaped ones
-                    entries = reSplit.Split(value);
+                    string[] entries = reSplit.Split(value);
 
                     foreach(string s in entries)
                     {
-                        tempCat = EncodingUtils.Unescape(s.Trim());
+                        string? tempCat = EncodingUtils.Unescape(s.Trim());
 
-                        if(tempCat.Length > 0)
-                            categories.Add(tempCat);
+                        if((tempCat?.Length ?? 0) > 0)
+                            categories.Add(tempCat!);
                     }
                 }
             }
@@ -156,7 +149,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle parsing the categories and concatenating them when requested
         /// </summary>
         /// <value>The categories are escaped as needed</value>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -173,7 +166,7 @@ namespace EWSoftware.PDI.Properties
         public CategoriesProperty()
         {
             this.Version = SpecificationVersions.iCalendar20;
-            categories = new StringCollection();
+            categories = [];
         }
         #endregion
 
@@ -186,7 +179,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            CategoriesProperty o = new CategoriesProperty();
+            CategoriesProperty o = new();
             o.Clone(this);
             return o;
         }

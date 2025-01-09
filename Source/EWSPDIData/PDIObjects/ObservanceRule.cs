@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ObservanceRule.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the Observance Rule object used by iCalendar STANDARD and DAYLIGHT
 // objects.
@@ -38,22 +37,20 @@ namespace EWSoftware.PDI.Objects
         #region Private data members
         //=====================================================================
 
-        private ObservanceRuleType ruleType;
-
         // Single properties
-        private StartDateProperty      startDate;
-        private TimeZoneOffsetProperty offsetFrom;
-        private TimeZoneOffsetProperty offsetTo;
-        private CommentProperty        comment;
+        private StartDateProperty      startDate = null!;
+        private TimeZoneOffsetProperty offsetFrom = null!;
+        private TimeZoneOffsetProperty offsetTo = null!;
+        private CommentProperty        comment = null!;
 
         // Observance property collections.  There can be one or more of each of these properties so they are
         // stored in a collection.
-        private RRulePropertyCollection        rRules;
-        private RDatePropertyCollection        rDates;
-        private TimeZoneNamePropertyCollection tzNames;
+        private RRulePropertyCollection        rRules = null!;
+        private RDatePropertyCollection        rDates = null!;
+        private TimeZoneNamePropertyCollection tzNames = null!;
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         #endregion
 
@@ -69,11 +66,7 @@ namespace EWSoftware.PDI.Objects
         /// <summary>
         /// This is used to set or get the rule type
         /// </summary>
-        public ObservanceRuleType RuleType
-        {
-            get => ruleType;
-            set => ruleType = value;
-        }
+        public ObservanceRuleType RuleType { get; set; }
 
         /// <summary>
         /// This is used to get the start date/time (DTSTART) property
@@ -83,8 +76,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(startDate == null)
-                    startDate = new StartDateProperty();
+                startDate ??= new StartDateProperty();
 
                 return startDate;
             }
@@ -98,8 +90,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(offsetFrom == null)
-                    offsetFrom = new TimeZoneOffsetProperty(true);
+                offsetFrom ??= new TimeZoneOffsetProperty(true);
 
                 return offsetFrom;
             }
@@ -115,8 +106,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(offsetTo == null)
-                    offsetTo = new TimeZoneOffsetProperty(false);
+                offsetTo ??= new TimeZoneOffsetProperty(false);
 
                 return offsetTo;
             }
@@ -130,8 +120,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(comment == null)
-                    comment = new CommentProperty();
+                comment ??= new CommentProperty();
 
                 return comment;
             }
@@ -145,8 +134,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(rRules == null)
-                    rRules = new RRulePropertyCollection();
+                rRules ??= [];
 
                 return rRules;
             }
@@ -161,8 +149,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(rDates == null)
-                    rDates = new RDatePropertyCollection();
+                rDates ??= [];
 
                 return rDates;
             }
@@ -176,8 +163,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(tzNames == null)
-                    tzNames = new TimeZoneNamePropertyCollection();
+                tzNames ??= [];
 
                 return tzNames;
             }
@@ -192,8 +178,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -218,7 +203,7 @@ namespace EWSoftware.PDI.Objects
         public ObservanceRule(ObservanceRuleType type)
         {
             this.Version = SpecificationVersions.iCalendar20;
-            ruleType = type;
+            this.RuleType = type;
         }
         #endregion
 
@@ -231,7 +216,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object.</returns>
         public override object Clone()
         {
-            ObservanceRule o = new ObservanceRule();
+            ObservanceRule o = new();
             o.Clone(this);
             return o;
         }
@@ -246,7 +231,8 @@ namespace EWSoftware.PDI.Objects
 
             this.ClearProperties();
 
-            ruleType = o.RuleType;
+            this.RuleType = o.RuleType;
+
             startDate = (StartDateProperty)o.StartDateTime.Clone();
             offsetFrom = (TimeZoneOffsetProperty)o.OffsetFrom.Clone();
             offsetTo = (TimeZoneOffsetProperty)o.OffsetTo.Clone();
@@ -264,16 +250,16 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public override void ClearProperties()
         {
-            startDate = null;
-            offsetFrom = null;
-            offsetTo = null;
-            comment = null;
+            startDate = null!;
+            offsetFrom = null!;
+            offsetTo = null!;
+            comment = null!;
 
-            rRules = null;
-            rDates = null;
-            tzNames = null;
+            rRules = null!;
+            rDates = null!;
+            tzNames = null!;
 
-            customProps = null;
+            customProps = null!;
         }
 
         /// <summary>
@@ -293,17 +279,10 @@ namespace EWSoftware.PDI.Objects
             if(comment != null)
                 comment.Version = this.Version;
 
-            if(rRules != null)
-                rRules.PropagateVersion(this.Version);
-
-            if(rDates != null)
-                rDates.PropagateVersion(this.Version);
-
-            if(tzNames != null)
-                tzNames.PropagateVersion(this.Version);
-
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            rRules?.PropagateVersion(this.Version);
+            rDates?.PropagateVersion(this.Version);
+            tzNames?.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
         }
 
         /// <summary>
@@ -320,7 +299,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public override void UpdateTimeZoneId(string oldId, string newId)
+        public override void UpdateTimeZoneId(string? oldId, string? newId)
         {
         }
 
@@ -329,7 +308,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
-        public override void ApplyTimeZone(VTimeZone vTimeZone)
+        public override void ApplyTimeZone(VTimeZone? vTimeZone)
         {
         }
 
@@ -338,7 +317,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
-        public override void SetTimeZone(VTimeZone vTimeZone)
+        public override void SetTimeZone(VTimeZone? vTimeZone)
         {
         }
 
@@ -351,11 +330,11 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="CalendarObject.ToString"/> as well as owning objects when they
         /// convert themselves to a string or write themselves to a PDI data stream.</remarks>
-        public override void WriteToStream(TextWriter tw, StringBuilder sb)
+        public override void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             PropagateVersion();
 
-            if(ruleType == ObservanceRuleType.Standard)
+            if(this.RuleType == ObservanceRuleType.Standard)
                 tw.Write("BEGIN:STANDARD\r\n");
             else
                 tw.Write("BEGIN:DAYLIGHT\r\n");
@@ -376,6 +355,7 @@ namespace EWSoftware.PDI.Objects
                     BaseProperty.WriteToStream(r, sb, tw);
 
             if(rDates != null && rDates.Count != 0)
+            {
                 foreach(RDateProperty rdt in rDates)
                 {
                     rdt.TimeZoneId = null;  // Never use a time zone ID
@@ -387,16 +367,21 @@ namespace EWSoftware.PDI.Objects
 
                     BaseProperty.WriteToStream(rdt, sb, tw);
                 }
+            }
 
             if(tzNames != null && tzNames.Count != 0)
+            {
                 foreach(TimeZoneNameProperty tzn in tzNames)
                     BaseProperty.WriteToStream(tzn, sb, tw);
+            }
 
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
-            if(ruleType == ObservanceRuleType.Standard)
+            if(this.RuleType == ObservanceRuleType.Standard)
                 tw.Write("END:STANDARD\r\n");
             else
                 tw.Write("END:DAYLIGHT\r\n");
@@ -409,12 +394,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is ObservanceRule obr))
+            if(obj is not ObservanceRule obr)
                 return false;
 
             // The ToString() method returns a text representation of the observance based on all of its settings
             // so it's a reliable way to tell if two instances are the same.
-            return (this == obr || this.ToString() == obr.ToString());
+            return this == obr || this.ToString() == obr.ToString();
         }
 
         /// <summary>

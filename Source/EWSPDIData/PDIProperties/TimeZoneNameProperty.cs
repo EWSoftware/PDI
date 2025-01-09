@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneNameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Time Zone Name property classes used by the Personal Data Interchange (PDI) iCalendar
 // classes.
@@ -36,7 +35,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"\s+");
+        private static readonly Regex reSplit = new(@"\s+");
 
         #endregion
 
@@ -71,6 +70,9 @@ namespace EWSoftware.PDI.Properties
         {
             get
             {
+                if(String.IsNullOrWhiteSpace(this.Value))
+                    return String.Empty;
+
                 string[] parts = reSplit.Split(this.Value);
                 int count = 0;
 
@@ -80,11 +82,13 @@ namespace EWSoftware.PDI.Properties
                 char[] letters = new char[parts.Length];
 
                 for(int idx = 0; idx < parts.Length; idx++)
+                {
                     if(Char.IsLetter(parts[idx][0]))
                     {
                         letters[idx] = parts[idx][0];
                         count++;
                     }
+                }
 
                 return new String(letters, 0, count);
             }
@@ -112,7 +116,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TimeZoneNameProperty o = new TimeZoneNameProperty();
+            TimeZoneNameProperty o = new();
             o.Clone(this);
             return o;
         }

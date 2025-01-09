@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AttendeeProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Attendee property used by the vCalendar and iCalendar classes
 //
@@ -43,40 +42,41 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private StringCollection delFrom, delTo, member;
+        private StringCollection delFrom = null!, delTo = null!, member = null!;
 
         // This is used to map parameter name and value strings to a ParameterType enumeration
-        private static NameToValue<ParameterType>[] ntv = {
-            new NameToValue<ParameterType>(ParameterNames.Role, ParameterType.Role),
-            new NameToValue<ParameterType>(ParameterNames.Rsvp, ParameterType.Rsvp),
-            new NameToValue<ParameterType>(ParameterNames.Expect, ParameterType.Expect),
-            new NameToValue<ParameterType>(ParameterNames.CalendarUserType, ParameterType.CalendarUserType),
-            new NameToValue<ParameterType>(ParameterNames.DelegatedFrom, ParameterType.DelegatedFrom),
-            new NameToValue<ParameterType>(ParameterNames.DelegatedTo, ParameterType.DelegatedTo),
-            new NameToValue<ParameterType>(ParameterNames.Member, ParameterType.Member),
-            new NameToValue<ParameterType>(ParameterNames.Status, ParameterType.Status),
-            new NameToValue<ParameterType>(ParameterNames.PartStatus, ParameterType.Status),
-            new NameToValue<ParameterType>("ATTENDEE", ParameterType.Role, true),
-            new NameToValue<ParameterType>("ORGANIZER", ParameterType.Role, true),
-            new NameToValue<ParameterType>("OWNER", ParameterType.Role, true),
-            new NameToValue<ParameterType>("DELEGATE", ParameterType.Role, true),
-            new NameToValue<ParameterType>("ACCEPTED", ParameterType.Status, true),
-            new NameToValue<ParameterType>("NEEDS ACTION", ParameterType.Status, true),
-            new NameToValue<ParameterType>("NEEDS-ACTION", ParameterType.Status, true),
-            new NameToValue<ParameterType>("NEEDSACTION", ParameterType.Status, true),
-            new NameToValue<ParameterType>("SENT", ParameterType.Status, true),
-            new NameToValue<ParameterType>("TENTATIVE", ParameterType.Status, true),
-            new NameToValue<ParameterType>("CONFIRMED", ParameterType.Status, true),
-            new NameToValue<ParameterType>("DECLINED", ParameterType.Status, true),
-            new NameToValue<ParameterType>("COMPLETED", ParameterType.Status, true),
-            new NameToValue<ParameterType>("DELEGATED", ParameterType.Status, true),
-            new NameToValue<ParameterType>("YES", ParameterType.Rsvp, true),
-            new NameToValue<ParameterType>("NO", ParameterType.Rsvp, true),
-            new NameToValue<ParameterType>("FYI", ParameterType.Expect, true),
-            new NameToValue<ParameterType>("REQUIRE", ParameterType.Expect, true),
-            new NameToValue<ParameterType>("REQUEST", ParameterType.Expect, true),
-            new NameToValue<ParameterType>("IMMEDIATE", ParameterType.Expect, true)
-        };
+        private static readonly NameToValue<ParameterType>[] ntv =
+        [
+            new(ParameterNames.Role, ParameterType.Role),
+            new(ParameterNames.Rsvp, ParameterType.Rsvp),
+            new(ParameterNames.Expect, ParameterType.Expect),
+            new(ParameterNames.CalendarUserType, ParameterType.CalendarUserType),
+            new(ParameterNames.DelegatedFrom, ParameterType.DelegatedFrom),
+            new(ParameterNames.DelegatedTo, ParameterType.DelegatedTo),
+            new(ParameterNames.Member, ParameterType.Member),
+            new(ParameterNames.Status, ParameterType.Status),
+            new(ParameterNames.PartStatus, ParameterType.Status),
+            new("ATTENDEE", ParameterType.Role, true),
+            new("ORGANIZER", ParameterType.Role, true),
+            new("OWNER", ParameterType.Role, true),
+            new("DELEGATE", ParameterType.Role, true),
+            new("ACCEPTED", ParameterType.Status, true),
+            new("NEEDS ACTION", ParameterType.Status, true),
+            new("NEEDS-ACTION", ParameterType.Status, true),
+            new("NEEDSACTION", ParameterType.Status, true),
+            new("SENT", ParameterType.Status, true),
+            new("TENTATIVE", ParameterType.Status, true),
+            new("CONFIRMED", ParameterType.Status, true),
+            new("DECLINED", ParameterType.Status, true),
+            new("COMPLETED", ParameterType.Status, true),
+            new("DELEGATED", ParameterType.Status, true),
+            new("YES", ParameterType.Rsvp, true),
+            new("NO", ParameterType.Rsvp, true),
+            new("FYI", ParameterType.Expect, true),
+            new("REQUIRE", ParameterType.Expect, true),
+            new("REQUEST", ParameterType.Expect, true),
+            new("IMMEDIATE", ParameterType.Expect, true)
+        ];
         #endregion
 
         #region Properties
@@ -100,14 +100,14 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects.  It is used to define the type of
         /// calendar user specified by the property such as INDIVIDUAL, GROUP, RESOURCE, etc.</value>
-        public string CalendarUserType { get; set; }
+        public string? CalendarUserType { get; set; }
 
         /// <summary>
         /// This property is used to set or get the calendar user expectation (EXPECT) parameter for the calendar
         /// user specified by the property value.
         /// </summary>
         /// <value>This parameter is only applicable to vCalendar 1.0 objects</value>
-        public string Expectation { get; set; }
+        public string? Expectation { get; set; }
 
         /// <summary>
         /// This property is used to set or get the "delegated from" (DELEGATED-FROM) parameters for the calendar
@@ -119,8 +119,7 @@ namespace EWSoftware.PDI.Properties
         {
             get
             {
-                if(delFrom == null)
-                    delFrom = new StringCollection();
+                delFrom ??= [];
 
                 return delFrom;
             }
@@ -136,8 +135,7 @@ namespace EWSoftware.PDI.Properties
         {
             get
             {
-                if(delTo == null)
-                    delTo = new StringCollection();
+                delTo ??= [];
 
                 return delTo;
             }
@@ -153,8 +151,7 @@ namespace EWSoftware.PDI.Properties
         {
             get
             {
-                if(member == null)
-                    member = new StringCollection();
+                member ??= [];
 
                 return member;
             }
@@ -165,14 +162,14 @@ namespace EWSoftware.PDI.Properties
         /// property value.
         /// </summary>
         /// <value>This parameter is applicable to vCalendar and iCalendar objects</value>
-        public string Role { get; set; }
+        public string? Role { get; set; }
 
         /// <summary>
         /// This property is used to set or get the participation status parameter (STATUS for vCalendar,
         /// PART-STATUS for iCalendar) for the calendar user specified by the property value.
         /// </summary>
         /// <value>This parameter is applicable to vCalendar and iCalendar objects</value>
-        public string ParticipationStatus { get; set; }
+        public string? ParticipationStatus { get; set; }
 
         /// <summary>
         /// This property is used to set or get the RSVP (RSVP) parameter for the calendar user specified by the
@@ -203,7 +200,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            AttendeeProperty o = new AttendeeProperty();
+            AttendeeProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -377,8 +374,10 @@ namespace EWSoftware.PDI.Properties
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
             {
                 for(idx = 0; idx < ntv.Length; idx++)
+                {
                     if(ntv[idx].IsMatch(parameters[paramIdx]))
                         break;
+                }
 
                 if(idx == ntv.Length)
                 {

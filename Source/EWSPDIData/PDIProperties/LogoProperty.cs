@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : LogoProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Logo property that support binary encoded images.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -64,7 +63,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            LogoProperty o = new LogoProperty();
+            LogoProperty o = new();
             o.Clone(this);
             return o;
         }

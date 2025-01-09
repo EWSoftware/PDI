@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CommentProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Comment property class used by the Personal Data Interchange (PDI) vCalendar and
 // iCalendar classes.
@@ -72,7 +71,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            CommentProperty o = new CommentProperty();
+            CommentProperty o = new();
             o.Clone(this);
             return o;
         }

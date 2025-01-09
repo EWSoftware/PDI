@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VNoteParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to parse vNote Personal Data Interchange (PDI) data streams.  It supports
 // the IrMC 1.1 specification file format.
@@ -37,28 +36,29 @@ namespace EWSoftware.PDI.Parser
         #region Private data members
         //=====================================================================
 
-        private VNote currentNote;          // The current vNote being processed
-        private VNoteCollection vNotes;     // The collection of vNotes
+        private VNote? currentNote;                 // The current vNote being processed
+        private readonly VNoteCollection vNotes;    // The collection of vNotes
 
         //=====================================================================
 
         // This private array is used to translate property names into property types
-        private static NameToValue<PropertyType>[] ntv = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("VERSION", PropertyType.Version),
-            new NameToValue<PropertyType>("X-IRMC-LUID", PropertyType.UniqueId),
-            new NameToValue<PropertyType>("SUMMARY", PropertyType.Summary),
-            new NameToValue<PropertyType>("BODY", PropertyType.Body),
-            new NameToValue<PropertyType>("DCREATED", PropertyType.DateCreated),
-            new NameToValue<PropertyType>("LAST-MODIFIED", PropertyType.LastModified),
-            new NameToValue<PropertyType>("CLASS", PropertyType.Class),
-            new NameToValue<PropertyType>("CATEGORIES", PropertyType.Categories),
+        private static readonly NameToValue<PropertyType>[] ntv =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("VERSION", PropertyType.Version),
+            new("X-IRMC-LUID", PropertyType.UniqueId),
+            new("SUMMARY", PropertyType.Summary),
+            new("BODY", PropertyType.Body),
+            new("DCREATED", PropertyType.DateCreated),
+            new("LAST-MODIFIED", PropertyType.LastModified),
+            new("CLASS", PropertyType.Class),
+            new("CATEGORIES", PropertyType.Categories),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
         #endregion
 
         #region Properties
@@ -83,7 +83,7 @@ namespace EWSoftware.PDI.Parser
         /// <overloads>There are two overloads for the constructor</overloads>
         public VNoteParser()
         {
-            vNotes = new VNoteCollection();
+            vNotes = [];
         }
 
         /// <summary>
@@ -122,7 +122,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VNote ParseFromString(string vNoteText)
         {
-            VNoteParser vcp = new VNoteParser();
+            VNoteParser vcp = new();
             vcp.ParseString(vNoteText);
 
             return vcp.VNotes[0];
@@ -148,7 +148,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static void ParseFromString(string vNoteText, VNote vNote)
         {
-            VNoteParser vcp = new VNoteParser(vNote);
+            VNoteParser vcp = new(vNote);
             vcp.ParseString(vNoteText);
         }
 
@@ -168,7 +168,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VNoteCollection ParseSetFromString(string vNotes)
         {
-            VNoteParser vcp = new VNoteParser();
+            VNoteParser vcp = new();
             vcp.ParseString(vNotes);
 
             return vcp.VNotes;
@@ -194,7 +194,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VNoteCollection ParseFromFile(string filename)
         {
-            VNoteParser vcp = new VNoteParser();
+            VNoteParser vcp = new();
             vcp.ParseFile(filename);
 
             return vcp.VNotes;
@@ -222,7 +222,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VNoteCollection ParseFromStream(TextReader stream)
         {
-            VNoteParser vcp = new VNoteParser();
+            VNoteParser vcp = new();
             vcp.ParseReader(stream);
 
             return vcp.VNotes;
@@ -252,13 +252,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntv.Length - 1; idx++)
+            {
                 if(ntv[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VNOTE property must have been seen
             if(currentNote == null && ntv[idx].EnumValue != PropertyType.Begin)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VNOTE",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntv[idx].EnumValue)
@@ -266,8 +270,10 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.Begin:
                     // The value must be VNOTE
                     if(String.Compare(propertyValue.Trim(), "VNOTE", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntv[idx].Name, propertyValue));
+                    }
 
                     // NOTE: If serializing into an existing instance, this may not be null.  If so, it is
                     // ignored.
@@ -285,7 +291,7 @@ namespace EWSoftware.PDI.Parser
                             ntv[idx].Name, propertyValue));
 
                     // When done, we'll propagate the version number to all objects to make it consistent
-                    currentNote.PropagateVersion();
+                    currentNote!.PropagateVersion();
 
                     // The vNote is added to the collection when created so we don't have to rely on an END:VNOTE
                     // to add it.
@@ -297,50 +303,52 @@ namespace EWSoftware.PDI.Parser
                     temp = propertyValue.Trim();
 
                     if(temp != "1.1")
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedVersion",
                             "vNote", temp));
+                    }
 
-                    currentNote.Version = SpecificationVersions.IrMC11;
+                    currentNote!.Version = SpecificationVersions.IrMC11;
                     break;
 
                 case PropertyType.UniqueId:
-                    currentNote.UniqueId.EncodedValue = propertyValue;
+                    currentNote!.UniqueId.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Summary:
-                    currentNote.Summary.DeserializeParameters(parameters);
+                    currentNote!.Summary.DeserializeParameters(parameters);
                     currentNote.Summary.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Body:
-                    currentNote.Body.DeserializeParameters(parameters);
+                    currentNote!.Body.DeserializeParameters(parameters);
                     currentNote.Body.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Class:
-                    currentNote.Classification.EncodedValue = propertyValue;
+                    currentNote!.Classification.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Categories:
-                    currentNote.Categories.DeserializeParameters(parameters);
+                    currentNote!.Categories.DeserializeParameters(parameters);
                     currentNote.Categories.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.DateCreated:
-                    currentNote.DateCreated.DeserializeParameters(parameters);
+                    currentNote!.DateCreated.DeserializeParameters(parameters);
                     currentNote.DateCreated.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.LastModified:
-                    currentNote.LastModified.DeserializeParameters(parameters);
+                    currentNote!.LastModified.DeserializeParameters(parameters);
                     currentNote.LastModified.EncodedValue = propertyValue;
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty c = new CustomProperty(propertyName);
+                    CustomProperty c = new(propertyName);
                     c.DeserializeParameters(parameters);
                     c.EncodedValue = propertyValue;
-                    currentNote.CustomProperties.Add(c);
+                    currentNote!.CustomProperties.Add(c);
                     break;
             }
         }

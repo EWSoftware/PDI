@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AgentProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Agent property.  It is used with the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -37,7 +36,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private VCard agent;
+        private VCard? agent;
 
         #endregion
 
@@ -71,7 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// vCard.  This property returns it as a parsed vCard object.  It can also be used to set or modify the
         /// vCard object.  Null is returned if no agent is defined or the value is not inline.  If set to a vCard
         /// object, the location is forced to be inline.</value>
-        public VCard VCard
+        public VCard? VCard
         {
             get => agent;
             set
@@ -87,7 +86,7 @@ namespace EWSoftware.PDI.Properties
         /// <value>If inline, the value is stored as a vCard object.  If not inline, it is stored as a text
         /// string.</value>
         /// <exception cref="PDIParserException">This is thrown if the vCard data is not valid</exception>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -115,7 +114,7 @@ namespace EWSoftware.PDI.Properties
         /// <value>If inline, the value is stored as a vCard object.  If not inline, it is stored as a text
         /// string.</value>
         /// <exception cref="PDIParserException">This is thrown if the vCard data is not valid</exception>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
@@ -158,7 +157,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            AgentProperty o = new AgentProperty();
+            AgentProperty o = new();
             o.Clone(this);
             return o;
         }

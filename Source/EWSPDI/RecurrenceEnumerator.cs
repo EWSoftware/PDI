@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurrenceEnumerator.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a type-safe enumerator for Recurrence objects
 //
@@ -33,8 +32,8 @@ namespace EWSoftware.PDI
 
         // These are used to generate the recurrence dates and track progress through the sequence
         private int idx;
-        private DateTimeCollection dates;
-        private Recurrence recurrence;
+        private DateTimeCollection? dates;
+        private readonly Recurrence recurrence;
         private DateTime start, end;
 
         #endregion
@@ -59,12 +58,12 @@ namespace EWSoftware.PDI
         /// <summary>
         /// Type-safe enumerator <c>Current</c> method
         /// </summary>
-        public DateTime Current => dates[idx];
+        public DateTime Current => dates?[idx] ?? DateTime.MinValue;
 
         /// <summary>
         /// Type-unsafe <c>IEnumerator.Current</c>
         /// </summary>
-        object System.Collections.IEnumerator.Current => dates[idx];
+        object IEnumerator.Current => dates?[idx] ?? DateTime.MinValue;
 
         /// <summary>
         /// Move to the next element

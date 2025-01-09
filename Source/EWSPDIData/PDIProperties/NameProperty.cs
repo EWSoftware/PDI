@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : NameProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/14/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Name property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -34,7 +33,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex(@"(?:^[;])|(?<=(?:[^\\]))[;]");
+        private static readonly Regex reSplit = new(@"(?:^[;])|(?<=(?:[^\\]))[;]");
 
         #endregion
 
@@ -60,33 +59,33 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is used to set or get the family name (last name)
         /// </summary>
-        public string FamilyName { get; set; }
+        public string? FamilyName { get; set; }
 
         /// <summary>
         /// This property is used to set or get the given name (first name)
         /// </summary>
-        public string GivenName { get; set; }
+        public string? GivenName { get; set; }
 
         /// <summary>
         /// This property is used to set or get additional names such as one or more middle names
         /// </summary>
-        public string AdditionalNames { get; set; }
+        public string? AdditionalNames { get; set; }
 
         /// <summary>
         /// This property is used to set or get the name prefix (i.e. Mr., Mrs.)
         /// </summary>
-        public string NamePrefix { get; set; }
+        public string? NamePrefix { get; set; }
 
         /// <summary>
         /// This property is used to set or get the name suffix (i.e. Jr, Sr)
         /// </summary>
-        public string NameSuffix { get; set; }
+        public string? NameSuffix { get; set; }
 
         /// <summary>
         /// This property is used to set or get the string to use when sorting names
         /// </summary>
         /// <value>If set, this value should be given precedence over the <see cref="SortableName"/> property</value>
-        public string SortAs { get; set; }
+        public string? SortAs { get; set; }
 
         /// <summary>
         /// This read-only property can be used to get the name in a format suitable for sorting by last name
@@ -102,19 +101,19 @@ namespace EWSoftware.PDI.Properties
 
                 // Only include as much as necessary
                 if(!String.IsNullOrWhiteSpace(this.FamilyName))
-                    parts[count++] = this.FamilyName;
+                    parts[count++] = this.FamilyName!;
 
                 if(!String.IsNullOrWhiteSpace(this.GivenName))
-                    parts[count++] = this.GivenName;
+                    parts[count++] = this.GivenName!;
 
                 if(!String.IsNullOrWhiteSpace(this.AdditionalNames))
-                    parts[count++] = this.AdditionalNames;
+                    parts[count++] = this.AdditionalNames!;
 
                 if(!String.IsNullOrWhiteSpace(this.NameSuffix))
-                    parts[count++] = this.NameSuffix;
+                    parts[count++] = this.NameSuffix!;
 
                 if(!String.IsNullOrWhiteSpace(this.NamePrefix))
-                    parts[count++] = this.NamePrefix;
+                    parts[count++] = this.NamePrefix!;
 
                 // If empty, return "Unknown" as it is a required property
                 if(count == 0)
@@ -136,19 +135,19 @@ namespace EWSoftware.PDI.Properties
 
                 // Only include as much as necessary
                 if(!String.IsNullOrWhiteSpace(this.NamePrefix))
-                    parts[count++] = this.NamePrefix;
+                    parts[count++] = this.NamePrefix!;
 
                 if(!String.IsNullOrWhiteSpace(this.GivenName))
-                    parts[count++] = this.GivenName;
+                    parts[count++] = this.GivenName!;
 
                 if(!String.IsNullOrWhiteSpace(this.AdditionalNames))
-                    parts[count++] = this.AdditionalNames;
+                    parts[count++] = this.AdditionalNames!;
 
                 if(!String.IsNullOrWhiteSpace(this.FamilyName))
-                    parts[count++] = this.FamilyName;
+                    parts[count++] = this.FamilyName!;
 
                 if(!String.IsNullOrWhiteSpace(this.NameSuffix))
-                    parts[count++] = this.NameSuffix;
+                    parts[count++] = this.NameSuffix!;
 
                 // If empty, return "Unknown" as it is a required property
                 if(count == 0)
@@ -166,12 +165,12 @@ namespace EWSoftware.PDI.Properties
         /// value for both the 2.1 and 3.0 specifications.  The parts will be escaped as needed.</value>
         /// <exception cref="ArgumentNullException">This is thrown if an attempt is made to set this property to
         /// null.</exception>
-        public override string Value
+        public override string? Value
         {
             get
             {
                 SpecificationVersions v = this.Version;
-                string[] parts = new string[5];
+                string?[] parts = new string[5];
                 int count = 0;
 
                 // Only include as much as necessary
@@ -271,15 +270,15 @@ namespace EWSoftware.PDI.Properties
         /// value for both the 2.1 and 3.0 specifications.  The parts will be escaped as needed.</value>
         /// <exception cref="ArgumentNullException">This is thrown if an attempt is made to set this property to
         /// null.</exception>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
-                string nameValue = this.Value;
+                string? nameValue = this.Value;
 
                 // Encode using the character set?  If so, unescape the backslashes as they get double-encoded.
                 if(this.Version == SpecificationVersions.vCard21)
-                    nameValue = base.Encode(nameValue).Replace(@"\\", @"\");
+                    nameValue = base.Encode(nameValue)?.Replace(@"\\", @"\");
 
                 return nameValue;
             }
@@ -313,7 +312,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            NameProperty o = new NameProperty();
+            NameProperty o = new();
             o.Clone(this);
             return o;
         }

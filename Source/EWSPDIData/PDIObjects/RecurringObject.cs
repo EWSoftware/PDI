@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurringObject.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains an abstract base class from which recurring calendar objects are derived.  It defines a
 // common set of properties and methods used to resolve an object to one or more dates based on the combination
@@ -23,6 +22,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 using EWSoftware.PDI.Properties;
@@ -39,9 +39,9 @@ namespace EWSoftware.PDI.Objects
         #region Private data members
         //=====================================================================
 
-        private RRulePropertyCollection  rRules, exRules;
-        private RDatePropertyCollection  rDates;
-        private ExDatePropertyCollection exDates;
+        private RRulePropertyCollection  rRules = null!, exRules = null!;
+        private RDatePropertyCollection rDates = null!;
+        private ExDatePropertyCollection exDates = null!;
 
         #endregion
 
@@ -71,8 +71,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(rRules == null)
-                    rRules = new RRulePropertyCollection();
+                rRules ??= [];
 
                 return rRules;
             }
@@ -86,8 +85,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(exRules == null)
-                    exRules = new RRulePropertyCollection();
+                exRules ??= [];
 
                 return exRules;
             }
@@ -101,8 +99,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(rDates == null)
-                    rDates = new RDatePropertyCollection();
+                rDates ??= [];
 
                 return rDates;
             }
@@ -116,8 +113,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(exDates == null)
-                    exDates = new ExDatePropertyCollection();
+                exDates ??= [];
 
                 return exDates;
             }
@@ -128,8 +124,8 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <value>It returns true if any recurrence rules, exception rules, recurrence dates, or exception dates
         /// are defined.  It returns false if none of those items have been specified.</value>
-        public bool IsRecurring => (this.RecurrenceRules.Count != 0 || this.ExceptionRules.Count != 0 ||
-            this.RecurDates.Count != 0 || this.ExceptionDates.Count != 0);
+        public bool IsRecurring => this.RecurrenceRules.Count != 0 || this.ExceptionRules.Count != 0 ||
+            this.RecurDates.Count != 0 || this.ExceptionDates.Count != 0;
 
         /// <summary>
         /// This must be implemented to return the start date/time property that is used to determine when the
@@ -151,7 +147,7 @@ namespace EWSoftware.PDI.Objects
         /// <summary>
         /// This must be implemented to return the time zone ID for the start date
         /// </summary>
-        public abstract string TimeZoneId
+        public abstract string? TimeZoneId
         {
             get;
         }
@@ -204,10 +200,12 @@ namespace EWSoftware.PDI.Objects
         /// unique time zone IDs used by the calendar objects.</param>
         public override void TimeZonesUsed(StringCollection timeZoneIds)
         {
-            string timeZoneId;
+            string? timeZoneId;
 
             if(rDates != null)
+            {
                 foreach(RDateProperty rdt in rDates)
+                {
                     if(rdt.ValueLocation == ValLocValue.DateTime && rdt.TimeZoneDateTime != DateTime.MinValue)
                     {
                         timeZoneId = rdt.TimeZoneId;
@@ -215,10 +213,14 @@ namespace EWSoftware.PDI.Objects
                         if(timeZoneId != null && !timeZoneIds.Contains(timeZoneId))
                             timeZoneIds.Add(timeZoneId);
                     }
+                }
+            }
 
             if(exDates != null)
+            {
                 foreach(ExDateProperty edt in exDates)
-                    CalendarObject.AddTimeZoneIfUsed(edt, timeZoneIds);
+                    AddTimeZoneIfUsed(edt, timeZoneIds);
+            }
         }
 
         /// <summary>
@@ -227,16 +229,22 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public override void UpdateTimeZoneId(string oldId, string newId)
+        public override void UpdateTimeZoneId(string? oldId, string? newId)
         {
             if(rDates != null)
+            {
                 foreach(RDateProperty rdt in rDates)
+                {
                     if(rdt.TimeZoneId == oldId)
                         rdt.TimeZoneId = newId;
+                }
+            }
 
             if(exDates != null)
+            {
                 foreach(ExDateProperty edt in exDates)
-                    CalendarObject.UpdatePropertyTimeZoneId(edt, oldId, newId);
+                    UpdatePropertyTimeZoneId(edt, oldId, newId);
+            }
         }
 
         /// <summary>
@@ -246,10 +254,12 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public override void ApplyTimeZone(VTimeZone vTimeZone)
+        public override void ApplyTimeZone(VTimeZone? vTimeZone)
         {
             if(rDates != null)
+            {
                 foreach(RDateProperty rdt in rDates)
+                {
                     if(vTimeZone == null || rdt.TimeZoneId != vTimeZone.TimeZoneId.Value)
                     {
                         // If the time zone is null, just clear the time zone ID
@@ -264,10 +274,14 @@ namespace EWSoftware.PDI.Objects
                             rdt.TimeZoneId = vTimeZone.TimeZoneId.Value;
                         }
                     }
+                }
+            }
 
             if(exDates != null)
+            {
                 foreach(ExDateProperty edt in exDates)
-                    CalendarObject.ApplyPropertyTimeZone(edt, vTimeZone);
+                    ApplyPropertyTimeZone(edt, vTimeZone);
+            }
         }
 
         /// <summary>
@@ -277,10 +291,12 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public override void SetTimeZone(VTimeZone vTimeZone)
+        public override void SetTimeZone(VTimeZone? vTimeZone)
         {
             if(rDates != null)
+            {
                 foreach(RDateProperty rdt in rDates)
+                {
                     if(vTimeZone == null || rdt.TimeZoneId != vTimeZone.TimeZoneId.Value)
                     {
                         // If the time zone is null, just clear the time zone ID
@@ -289,10 +305,14 @@ namespace EWSoftware.PDI.Objects
                         else
                             rdt.TimeZoneId = vTimeZone.TimeZoneId.Value;
                     }
+                }
+            }
 
             if(exDates != null)
+            {
                 foreach(ExDateProperty edt in exDates)
-                    CalendarObject.SetPropertyTimeZone(edt, vTimeZone);
+                    SetPropertyTimeZone(edt, vTimeZone);
+            }
         }
 
         /// <summary>
@@ -303,23 +323,31 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="CalendarObject.ToString"/> as well as owning objects when they
         /// convert themselves to a string or write themselves to a PDI data stream.</remarks>
-        public override void WriteToStream(TextWriter tw, StringBuilder sb)
+        public override void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             if(rRules != null && rRules.Count != 0)
+            {
                 foreach(RRuleProperty r in rRules)
                     BaseProperty.WriteToStream(r, sb, tw);
+            }
 
             if(rDates != null && rDates.Count != 0)
+            {
                 foreach(RDateProperty r in rDates)
                     BaseProperty.WriteToStream(r, sb, tw);
+            }
 
             if(exRules != null && exRules.Count != 0)
-                foreach(ExRuleProperty e in exRules)
+            {
+                foreach(ExRuleProperty e in exRules.Cast<ExRuleProperty>())
                     BaseProperty.WriteToStream(e, sb, tw);
+            }
 
             if(exDates != null && exDates.Count != 0)
+            {
                 foreach(ExDateProperty e in exDates)
                     BaseProperty.WriteToStream(e, sb, tw);
+            }
 
             if(this.ExcludeStartDateTime)
                 tw.Write("X-EWSOFTWARE-EXCLUDESTART:1\r\n");
@@ -459,9 +487,9 @@ namespace EWSoftware.PDI.Objects
             Period p;
             DateTime endDate, tempDate1 = DateTime.MaxValue, tempDate2;
             int idx, count;
-            string timeZoneID = this.TimeZoneId;
+            string? timeZoneID = this.TimeZoneId;
 
-            PeriodCollection periods = new PeriodCollection();
+            PeriodCollection periods = [];
             DateTime startDate = this.StartDateTime.TimeZoneDateTime;
             Duration dur = this.InstanceDuration;
 
@@ -522,6 +550,7 @@ namespace EWSoftware.PDI.Objects
 
                 // Add on recurrence dates within the range
                 foreach(RDateProperty rd in this.RecurDates)
+                {
                     if(rd.ValueLocation != ValLocValue.Period)
                     {
                         // If it's not a period, use the component's duration.  If it's only a date, assume it's
@@ -556,6 +585,7 @@ namespace EWSoftware.PDI.Objects
                             periods.Add(new Period(tempDate1, tempDate2));
                         }
                     }
+                }
 
                 // Expand exception rules and filter out those instances
                 count = periods.Count;
@@ -576,13 +606,17 @@ namespace EWSoftware.PDI.Objects
                         er.Recurrence.RecurUntil = tempDate1;
 
                     foreach(DateTime dt in recurDates)
+                    {
                         for(idx = 0; idx < count; idx++)
+                        {
                             if(periods[idx].StartDateTime == dt)
                             {
                                 periods.RemoveAt(idx);
                                 idx--;
                                 count--;
                             }
+                        }
+                    }
                 }
 
                 // Filter out any exception dates
@@ -604,30 +638,38 @@ namespace EWSoftware.PDI.Objects
                                 }
                     }
                     else
+                    {
                         if(dt >= fromDate.Date && dt <= toDate.Date)
+                        {
                             for(idx = 0; idx < count; idx++)
+                            {
                                 if(periods[idx].StartDateTime.Date == dt)
                                 {
                                     periods.RemoveAt(idx);
                                     idx--;
                                     count--;
                                 }
+                            }
+                        }
+                    }
                 }
 
                 // Sort the periods and remove duplicates
                 periods.Sort(true);
 
                 for(idx = 1; idx < count; idx++)
+                {
                     if(periods[idx] == periods[idx - 1])
                     {
                         periods.RemoveAt(idx);
                         idx--;
                         count--;
                     }
+                }
             }
 
             // Now convert the periods to DateTimeInstances that include the necessary time zone information
-            DateTimeInstanceCollection dtic = new DateTimeInstanceCollection();
+            DateTimeInstanceCollection dtic = [];
             DateTimeInstance dti, dtiEnd;
 
             // Always in local time if there is no time zone ID
@@ -658,12 +700,14 @@ namespace EWSoftware.PDI.Objects
                 if(!dtic.Contains(dti))
                     dtic.Add(dti);
                 else
+                {
                     if(dti.StartIsDaylightSavingTime)
                     {
                         dti.StartDateTime = dti.StartDateTime.AddHours(1);
                         dti.EndDateTime = dti.EndDateTime.AddHours(1);
                         dtic.Add(dti);
                     }
+                }
             }
 
             return dtic;     // And finally, we are done

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : OrganizerProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Organizer property.  This property only applies to iCalendar 2.0
 //
@@ -58,21 +57,21 @@ namespace EWSoftware.PDI.Properties
         /// specified by the property value.
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects</value>
-        public string CommonName { get; set; }
+        public string? CommonName { get; set; }
 
         /// <summary>
         /// This property is used to set or get the directory entry (DIR) parameter associated with the calendar
         /// user specified by the property value.
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects</value>
-        public string DirectoryEntry { get; set; }
+        public string? DirectoryEntry { get; set; }
 
         /// <summary>
         /// This property is used to set or get the sent-by (SENT-BY) parameter that specifies the calendar user
         /// that is acting on behalf of the calendar user specified by the property value.
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects</value>
-        public string SentBy { get; set; }
+        public string? SentBy { get; set; }
 
         #endregion
 
@@ -97,7 +96,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            OrganizerProperty o = new OrganizerProperty();
+            OrganizerProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -135,7 +134,7 @@ namespace EWSoftware.PDI.Properties
                     sb.Append(ParameterNames.CommonName);
                     sb.Append('=');
 
-                    if(this.CommonName.IndexOfAny(new char[] { ',', ';', ':' }) != -1)
+                    if(this.CommonName!.IndexOfAny([',', ';', ':']) != -1)
                     {
                         sb.Append('\"');
                         sb.Append(this.CommonName);
@@ -192,6 +191,7 @@ namespace EWSoftware.PDI.Properties
                     }
                 }
                 else
+                {
                     if(String.Compare(parameters[paramIdx], "DIR=", StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         parameters.RemoveAt(paramIdx);
@@ -203,6 +203,7 @@ namespace EWSoftware.PDI.Properties
                         }
                     }
                     else
+                    {
                         if(String.Compare(parameters[paramIdx], "SENT-BY=", StringComparison.OrdinalIgnoreCase) == 0)
                         {
                             parameters.RemoveAt(paramIdx);
@@ -213,6 +214,8 @@ namespace EWSoftware.PDI.Properties
                                 parameters.RemoveAt(paramIdx);
                             }
                         }
+                    }
+                }
             }
 
             // Let the base class handle all other parameters

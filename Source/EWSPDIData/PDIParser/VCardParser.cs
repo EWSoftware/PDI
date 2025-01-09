@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCardParser.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 07/24/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/09/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to parse vCard Personal Data Interchange (PDI) data streams.  It supports
 // both the vCard 2.1 and vCard 3.0 specification file formats.
@@ -37,57 +37,58 @@ namespace EWSoftware.PDI.Parser
         #region Private data members
         //=====================================================================
 
-        private VCard currentCard;          // The current vCard being processed
-        private readonly VCardCollection vCards;    // The collection of vCards
+        private VCard? currentCard;                 // The current vCard being processed
+        private readonly VCardCollection vCards;   // The collection of vCards
 
         //=====================================================================
 
         // This private array is used to translate property names into property types
-        private static readonly NameToValue<PropertyType>[] ntv = {
-            new NameToValue<PropertyType>("BEGIN", PropertyType.Begin),
-            new NameToValue<PropertyType>("END", PropertyType.End),
-            new NameToValue<PropertyType>("VERSION", PropertyType.Version),
-            new NameToValue<PropertyType>("PROFILE", PropertyType.Profile),
-            new NameToValue<PropertyType>("KIND", PropertyType.Kind),
-            new NameToValue<PropertyType>("NAME", PropertyType.MimeName),
-            new NameToValue<PropertyType>("SOURCE", PropertyType.MimeSource),
-            new NameToValue<PropertyType>("PRODID", PropertyType.ProductId),
-            new NameToValue<PropertyType>("NICKNAME", PropertyType.Nickname),
-            new NameToValue<PropertyType>("SORT-STRING", PropertyType.SortString),
-            new NameToValue<PropertyType>("CLASS", PropertyType.Class),
-            new NameToValue<PropertyType>("CATEGORIES", PropertyType.Categories),
-            new NameToValue<PropertyType>("FN", PropertyType.FormattedName),
-            new NameToValue<PropertyType>("N", PropertyType.Name),
-            new NameToValue<PropertyType>("TITLE", PropertyType.Title),
-            new NameToValue<PropertyType>("ROLE", PropertyType.Role),
-            new NameToValue<PropertyType>("MAILER", PropertyType.Mailer),
-            new NameToValue<PropertyType>("URL", PropertyType.Url),
-            new NameToValue<PropertyType>("ORG", PropertyType.Organization),
-            new NameToValue<PropertyType>("UID", PropertyType.UniqueId),
-            new NameToValue<PropertyType>("BDAY", PropertyType.BirthDate),
-            new NameToValue<PropertyType>("REV", PropertyType.Revision),
-            new NameToValue<PropertyType>("TZ", PropertyType.TimeZone),
-            new NameToValue<PropertyType>("GEO", PropertyType.GeographicPosition),
-            new NameToValue<PropertyType>("KEY", PropertyType.PublicKey),
-            new NameToValue<PropertyType>("PHOTO", PropertyType.Photo),
-            new NameToValue<PropertyType>("LOGO", PropertyType.Logo),
-            new NameToValue<PropertyType>("SOUND", PropertyType.Sound),
-            new NameToValue<PropertyType>("NOTE", PropertyType.Note),
-            new NameToValue<PropertyType>("ADR", PropertyType.Address),
-            new NameToValue<PropertyType>("LABEL", PropertyType.Label),
-            new NameToValue<PropertyType>("TEL", PropertyType.Telephone),
-            new NameToValue<PropertyType>("EMAIL", PropertyType.EMail),
-            new NameToValue<PropertyType>("AGENT", PropertyType.Agent),
-            new NameToValue<PropertyType>("ANNIVERSARY", PropertyType.Anniversary),
-            new NameToValue<PropertyType>("GENDER", PropertyType.Gender),
-            new NameToValue<PropertyType>("CLIENTPIDMAP", PropertyType.ClientPidMap),
-            new NameToValue<PropertyType>("MEMBER", PropertyType.Member),
-            new NameToValue<PropertyType>("RELATED", PropertyType.Related),
+        private static readonly NameToValue<PropertyType>[] ntv =
+        [
+            new("BEGIN", PropertyType.Begin),
+            new("END", PropertyType.End),
+            new("VERSION", PropertyType.Version),
+            new("PROFILE", PropertyType.Profile),
+            new("KIND", PropertyType.Kind),
+            new("NAME", PropertyType.MimeName),
+            new("SOURCE", PropertyType.MimeSource),
+            new("PRODID", PropertyType.ProductId),
+            new("NICKNAME", PropertyType.Nickname),
+            new("SORT-STRING", PropertyType.SortString),
+            new("CLASS", PropertyType.Class),
+            new("CATEGORIES", PropertyType.Categories),
+            new("FN", PropertyType.FormattedName),
+            new("N", PropertyType.Name),
+            new("TITLE", PropertyType.Title),
+            new("ROLE", PropertyType.Role),
+            new("MAILER", PropertyType.Mailer),
+            new("URL", PropertyType.Url),
+            new("ORG", PropertyType.Organization),
+            new("UID", PropertyType.UniqueId),
+            new("BDAY", PropertyType.BirthDate),
+            new("REV", PropertyType.Revision),
+            new("TZ", PropertyType.TimeZone),
+            new("GEO", PropertyType.GeographicPosition),
+            new("KEY", PropertyType.PublicKey),
+            new("PHOTO", PropertyType.Photo),
+            new("LOGO", PropertyType.Logo),
+            new("SOUND", PropertyType.Sound),
+            new("NOTE", PropertyType.Note),
+            new("ADR", PropertyType.Address),
+            new("LABEL", PropertyType.Label),
+            new("TEL", PropertyType.Telephone),
+            new("EMAIL", PropertyType.EMail),
+            new("AGENT", PropertyType.Agent),
+            new("ANNIVERSARY", PropertyType.Anniversary),
+            new("GENDER", PropertyType.Gender),
+            new("CLIENTPIDMAP", PropertyType.ClientPidMap),
+            new("MEMBER", PropertyType.Member),
+            new("RELATED", PropertyType.Related),
 
             // The last entry should always be CustomProperty to catch all unrecognized properties.  The actual
             // property name is not relevant.
-            new NameToValue<PropertyType>("X-", PropertyType.Custom)
-        };
+            new("X-", PropertyType.Custom)
+        ];
         #endregion
 
         #region Properties
@@ -112,7 +113,7 @@ namespace EWSoftware.PDI.Parser
         /// <overloads>There are two overloads for the constructor</overloads>
         public VCardParser()
         {
-            vCards = new VCardCollection();
+            vCards = [];
         }
 
         /// <summary>
@@ -149,9 +150,9 @@ namespace EWSoftware.PDI.Parser
         /// Dim vCard As VCard = VCardParser.ParseFromString(oneVCard)
         /// </code>
         /// </example>
-        public static VCard ParseFromString(string vCardText)
+        public static VCard ParseFromString(string? vCardText)
         {
-            VCardParser vcp = new VCardParser();
+            VCardParser vcp = new();
             vcp.ParseString(vCardText);
 
             return vcp.VCards[0];
@@ -175,9 +176,9 @@ namespace EWSoftware.PDI.Parser
         /// VCardParser.ParseFromString(oneVCard, vCard)
         /// </code>
         /// </example>
-        public static void ParseFromString(string vCardText, VCard vCard)
+        public static void ParseFromString(string? vCardText, VCard vCard)
         {
-            VCardParser vcp = new VCardParser(vCard);
+            VCardParser vcp = new(vCard);
             vcp.ParseString(vCardText);
         }
 
@@ -195,9 +196,9 @@ namespace EWSoftware.PDI.Parser
         /// Dim vCards As VCardCollection = VCardParser.ParseSetFromString(vCards)
         /// </code>
         /// </example>
-        public static VCardCollection ParseSetFromString(string vCards)
+        public static VCardCollection ParseSetFromString(string? vCards)
         {
-            VCardParser vcp = new VCardParser();
+            VCardParser vcp = new();
             vcp.ParseString(vCards);
 
             return vcp.VCards;
@@ -223,7 +224,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VCardCollection ParseFromFile(string filename)
         {
-            VCardParser vcp = new VCardParser();
+            VCardParser vcp = new();
             vcp.ParseFile(filename);
 
             return vcp.VCards;
@@ -251,7 +252,7 @@ namespace EWSoftware.PDI.Parser
         /// </example>
         public static VCardCollection ParseFromStream(TextReader stream)
         {
-            VCardParser vcp = new VCardParser();
+            VCardParser vcp = new();
             vcp.ParseReader(stream);
 
             return vcp.VCards;
@@ -276,7 +277,8 @@ namespace EWSoftware.PDI.Parser
         /// stream.  Refer to the and inner exceptions for information on the cause of the problem.</exception>
         protected override void PropertyParser(string propertyName, StringCollection parameters, string propertyValue)
         {
-            string temp, group = null;
+            string temp;
+            string? group = null;
             int idx;
 
             // Parse out the group name if there is one
@@ -290,13 +292,17 @@ namespace EWSoftware.PDI.Parser
 
             // The last entry is always CustomProperty so scan for length minus one
             for(idx = 0; idx < ntv.Length - 1; idx++)
+            {
                 if(ntv[idx].IsMatch(propertyName))
                     break;
+            }
 
             // An opening BEGIN:VCARD property must have been seen
             if(currentCard == null && ntv[idx].EnumValue != PropertyType.Begin)
+            {
                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseNoBeginProp", "BEGIN:VCARD",
                     propertyName));
+            }
 
             // Handle or create the property
             switch(ntv[idx].EnumValue)
@@ -304,8 +310,10 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.Begin:
                     // The value must be VCARD
                     if(String.Compare(propertyValue.Trim(), "VCARD", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntv[idx].Name, propertyValue));
+                    }
 
                     // NOTE: If serializing into an existing instance, this may not be null.  If so, it is
                     // ignored.
@@ -325,9 +333,11 @@ namespace EWSoftware.PDI.Parser
                             ntv[idx].Name, propertyValue));
 
                     // The group must match too
-                    if(currentCard.Group != group)
+                    if(currentCard!.Group != group)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnexpectedGroupTag",
                             currentCard.Group, group));
+                    }
 
                     // When done, we'll propagate the version number to all objects to make it consistent
                     currentCard.PropagateVersion();
@@ -340,10 +350,12 @@ namespace EWSoftware.PDI.Parser
                 case PropertyType.Profile:
                     // The value must be VCARD
                     if(String.Compare(propertyValue.Trim(), "VCARD", StringComparison.OrdinalIgnoreCase) != 0)
+                    {
                         throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedTagValue",
                             ntv[idx].Name, propertyValue));
+                    }
 
-                    currentCard.AddProfile = true;
+                    currentCard!.AddProfile = true;
                     break;
 
                 case PropertyType.Version:
@@ -355,214 +367,220 @@ namespace EWSoftware.PDI.Parser
                     if(temp == "2.1")
                         version = SpecificationVersions.vCard21;
                     else
+                    {
                         if(temp == "3.0")
                             version = SpecificationVersions.vCard30;
                         else
+                        {
                             if(temp == "4.0")
                                 version = SpecificationVersions.vCard40;
                             else
+                            {
                                 throw new PDIParserException(this.LineNumber, LR.GetString("ExParseUnrecognizedVersion",
                                     "vCard", temp));
+                            }
+                        }
+                    }
 
-                    currentCard.Version = version;
+                    currentCard!.Version = version;
                     break;
 
                 case PropertyType.MimeName:
-                    currentCard.MimeName.EncodedValue = propertyValue;
+                    currentCard!.MimeName.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.MimeSource:
-                    currentCard.MimeSource.DeserializeParameters(parameters);
+                    currentCard!.MimeSource.DeserializeParameters(parameters);
                     currentCard.MimeSource.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.ProductId:
-                    currentCard.ProductId.EncodedValue = propertyValue;
+                    currentCard!.ProductId.EncodedValue = propertyValue;
                     break;
 
                 case PropertyType.Kind:
-                    currentCard.Kind.DeserializeParameters(parameters);
+                    currentCard!.Kind.DeserializeParameters(parameters);
                     currentCard.Kind.EncodedValue = propertyValue;
                     currentCard.Kind.Group = group;
                     break;
 
                 case PropertyType.Nickname:
-                    currentCard.Nickname.DeserializeParameters(parameters);
+                    currentCard!.Nickname.DeserializeParameters(parameters);
                     currentCard.Nickname.EncodedValue = propertyValue;
                     currentCard.Nickname.Group = group;
                     break;
 
                 case PropertyType.SortString:
-                    currentCard.SortString.DeserializeParameters(parameters);
+                    currentCard!.SortString.DeserializeParameters(parameters);
                     currentCard.SortString.EncodedValue = propertyValue;
                     currentCard.SortString.Group = group;
                     break;
 
                 case PropertyType.Class:
-                    currentCard.Classification.EncodedValue = propertyValue;
+                    currentCard!.Classification.EncodedValue = propertyValue;
                     currentCard.Classification.Group = group;
                     break;
 
                 case PropertyType.Categories:
-                    currentCard.Categories.DeserializeParameters(parameters);
+                    currentCard!.Categories.DeserializeParameters(parameters);
                     currentCard.Categories.EncodedValue = propertyValue;
                     currentCard.Categories.Group = group;
                     break;
 
                 case PropertyType.FormattedName:
-                    currentCard.FormattedName.DeserializeParameters(parameters);
+                    currentCard!.FormattedName.DeserializeParameters(parameters);
                     currentCard.FormattedName.EncodedValue = propertyValue;
                     currentCard.FormattedName.Group = group;
                     break;
 
                 case PropertyType.Name:
-                    currentCard.Name.DeserializeParameters(parameters);
+                    currentCard!.Name.DeserializeParameters(parameters);
                     currentCard.Name.EncodedValue = propertyValue;
                     currentCard.Name.Group = group;
                     break;
 
                 case PropertyType.Gender:
-                    currentCard.Gender.DeserializeParameters(parameters);
+                    currentCard!.Gender.DeserializeParameters(parameters);
                     currentCard.Gender.EncodedValue = propertyValue;
                     currentCard.Gender.Group = group;
                     break;
 
                 case PropertyType.Title:
-                    currentCard.Title.DeserializeParameters(parameters);
+                    currentCard!.Title.DeserializeParameters(parameters);
                     currentCard.Title.EncodedValue = propertyValue;
                     currentCard.Title.Group = group;
                     break;
 
                 case PropertyType.Role:
-                    currentCard.Role.DeserializeParameters(parameters);
+                    currentCard!.Role.DeserializeParameters(parameters);
                     currentCard.Role.EncodedValue = propertyValue;
                     currentCard.Role.Group = group;
                     break;
 
                 case PropertyType.Mailer:
-                    currentCard.Mailer.DeserializeParameters(parameters);
+                    currentCard!.Mailer.DeserializeParameters(parameters);
                     currentCard.Mailer.EncodedValue = propertyValue;
                     currentCard.Mailer.Group = group;
                     break;
 
                 case PropertyType.Organization:
-                    currentCard.Organization.DeserializeParameters(parameters);
+                    currentCard!.Organization.DeserializeParameters(parameters);
                     currentCard.Organization.EncodedValue = propertyValue;
                     currentCard.Organization.Group = group;
                     break;
 
                 case PropertyType.UniqueId:
-                    currentCard.UniqueId.EncodedValue = propertyValue;
+                    currentCard!.UniqueId.EncodedValue = propertyValue;
                     currentCard.UniqueId.Group = group;
                     break;
 
                 case PropertyType.BirthDate:
-                    currentCard.BirthDate.DeserializeParameters(parameters);
+                    currentCard!.BirthDate.DeserializeParameters(parameters);
                     currentCard.BirthDate.EncodedValue = propertyValue;
                     currentCard.BirthDate.Group = group;
                     break;
 
                 case PropertyType.Anniversary:
-                    currentCard.Anniversary.DeserializeParameters(parameters);
+                    currentCard!.Anniversary.DeserializeParameters(parameters);
                     currentCard.Anniversary.EncodedValue = propertyValue;
                     currentCard.Anniversary.Group = group;
                     break;
 
                 case PropertyType.Revision:
-                    currentCard.LastRevision.DeserializeParameters(parameters);
+                    currentCard!.LastRevision.DeserializeParameters(parameters);
                     currentCard.LastRevision.EncodedValue = propertyValue;
                     currentCard.LastRevision.Group = group;
                     break;
 
                 case PropertyType.TimeZone:
-                    currentCard.TimeZone.DeserializeParameters(parameters);
+                    currentCard!.TimeZone.DeserializeParameters(parameters);
                     currentCard.TimeZone.EncodedValue = propertyValue;
                     currentCard.TimeZone.Group = group;
                     break;
 
                 case PropertyType.GeographicPosition:
-                    currentCard.GeographicPosition.EncodedValue = propertyValue;
+                    currentCard!.GeographicPosition.EncodedValue = propertyValue;
                     currentCard.GeographicPosition.Group = group;
                     break;
 
                 case PropertyType.PublicKey:
-                    currentCard.PublicKey.DeserializeParameters(parameters);
+                    currentCard!.PublicKey.DeserializeParameters(parameters);
                     currentCard.PublicKey.EncodedValue = propertyValue;
                     currentCard.PublicKey.Group = group;
                     break;
 
                 case PropertyType.Photo:
-                    currentCard.Photo.DeserializeParameters(parameters);
+                    currentCard!.Photo.DeserializeParameters(parameters);
                     currentCard.Photo.EncodedValue = propertyValue;
                     currentCard.Photo.Group = group;
                     break;
 
                 case PropertyType.Logo:
-                    currentCard.Logo.DeserializeParameters(parameters);
+                    currentCard!.Logo.DeserializeParameters(parameters);
                     currentCard.Logo.EncodedValue = propertyValue;
                     currentCard.Logo.Group = group;
                     break;
 
                 case PropertyType.Sound:
-                    currentCard.Sound.DeserializeParameters(parameters);
+                    currentCard!.Sound.DeserializeParameters(parameters);
                     currentCard.Sound.EncodedValue = propertyValue;
                     currentCard.Sound.Group = group;
                     break;
 
                 case PropertyType.Note:
-                    NoteProperty n = new NoteProperty();
+                    NoteProperty n = new();
                     n.DeserializeParameters(parameters);
                     n.EncodedValue = propertyValue;
                     n.Group = group;
-                    currentCard.Notes.Add(n);
+                    currentCard!.Notes.Add(n);
                     break;
 
                 case PropertyType.Address:
-                    AddressProperty a = new AddressProperty();
+                    AddressProperty a = new() { Version = currentCard!.Version };
                     a.DeserializeParameters(parameters);
                     a.EncodedValue = propertyValue;
                     a.Group = group;
-                    currentCard.Addresses.Add(a);
+                    currentCard!.Addresses.Add(a);
                     break;
 
                 case PropertyType.Label:
-                    LabelProperty l = new LabelProperty();
+                    LabelProperty l = new() { Version = currentCard!.Version };
                     l.DeserializeParameters(parameters);
                     l.EncodedValue = propertyValue;
                     l.Group = group;
-                    currentCard.Labels.Add(l);
+                    currentCard!.Labels.Add(l);
                     break;
 
                 case PropertyType.Telephone:
-                    TelephoneProperty t = new TelephoneProperty();
+                    TelephoneProperty t = new() { Version = currentCard!.Version };
                     t.DeserializeParameters(parameters);
                     t.EncodedValue = propertyValue;
                     t.Group = group;
-                    currentCard.Telephones.Add(t);
+                    currentCard!.Telephones.Add(t);
                     break;
 
                 case PropertyType.EMail:
-                    EMailProperty e = new EMailProperty();
+                    EMailProperty e = new() { Version = currentCard!.Version };
                     e.DeserializeParameters(parameters);
                     e.EncodedValue = propertyValue;
                     e.Group = group;
-                    currentCard.EMailAddresses.Add(e);
+                    currentCard!.EMailAddresses.Add(e);
                     break;
 
                 case PropertyType.Url:
-                    UrlProperty u = new UrlProperty();
+                    UrlProperty u = new();
                     u.DeserializeParameters(parameters);
                     u.EncodedValue = propertyValue;
                     u.Group = group;
-                    currentCard.Urls.Add(u);
+                    currentCard!.Urls.Add(u);
                     break;
 
                 case PropertyType.Agent:
-                    AgentProperty ag = new AgentProperty();
+                    AgentProperty ag = new() { Version = currentCard!.Version };
                     ag.DeserializeParameters(parameters);
                     ag.EncodedValue = propertyValue;
                     ag.Group = group;
-                    currentCard.Agents.Add(ag);
+                    currentCard!.Agents.Add(ag);
                     break;
 
                 case PropertyType.ClientPidMap:
@@ -570,7 +588,7 @@ namespace EWSoftware.PDI.Parser
                     cpm.DeserializeParameters(parameters);
                     cpm.EncodedValue = propertyValue;
                     cpm.Group = group;
-                    currentCard.ClientPidMaps.Add(cpm);
+                    currentCard!.ClientPidMaps.Add(cpm);
                     break;
 
                 case PropertyType.Member:
@@ -578,23 +596,23 @@ namespace EWSoftware.PDI.Parser
                     member.DeserializeParameters(parameters);
                     member.EncodedValue = propertyValue;
                     member.Group = group;
-                    currentCard.Members.Add(member);
+                    currentCard!.Members.Add(member);
                     break;
 
                 case PropertyType.Related:
-                    RelatedProperty r = new RelatedProperty();
+                    RelatedProperty r = new();
                     r.DeserializeParameters(parameters);
                     r.EncodedValue = propertyValue;
                     r.Group = group;
-                    currentCard.Related.Add(r);
+                    currentCard!.Related.Add(r);
                     break;
 
                 default:    // Anything else is a custom property
-                    CustomProperty c = new CustomProperty(propertyName);
+                    CustomProperty c = new(propertyName);
                     c.DeserializeParameters(parameters);
                     c.EncodedValue = propertyValue;
                     c.Group = group;
-                    currentCard.CustomProperties.Add(c);
+                    currentCard!.CustomProperties.Add(c);
                     break;
             }
         }

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurOptsDataSource.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a helper class that can be used to obtain a list of values suitable for binding to a combo
 // box, list box, etc.  The Windows Forms user controls use these to bind the values and descriptions for the
@@ -39,13 +38,14 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <value>An <see cref="IList" /> interface reference suitable for data binding.  The underlying object
         /// is a <see cref="List{T}"/> containing a set of <see cref="ListItem"/> objects.</value>
-        public static IList DayOccurrences => new List<ListItem>(new[] {
+        public static IList DayOccurrences => new List<ListItem>(
+        [
             new ListItem(DayOccurrence.First, LR.EnumDesc(DayOccurrence.First)),
             new ListItem(DayOccurrence.Second, LR.EnumDesc(DayOccurrence.Second)),
             new ListItem(DayOccurrence.Third, LR.EnumDesc(DayOccurrence.Third)),
             new ListItem(DayOccurrence.Fourth, LR.EnumDesc(DayOccurrence.Fourth)),
             new ListItem(DayOccurrence.Last, LR.EnumDesc(DayOccurrence.Last))
-        });
+        ]);
 
         /// <summary>
         /// This read-only property returns a data source containing the days of the week based on
@@ -59,7 +59,8 @@ namespace EWSoftware.PDI
             {
                 string[] dayNames = CultureInfo.CurrentCulture.DateTimeFormat.DayNames;
 
-                return new List<ListItem>(new[] {
+                return new List<ListItem>(
+                [
                     new ListItem(PDI.DaysOfWeek.Sunday, dayNames[0]),
                     new ListItem(PDI.DaysOfWeek.Monday, dayNames[1]),
                     new ListItem(PDI.DaysOfWeek.Tuesday, dayNames[2]),
@@ -70,7 +71,7 @@ namespace EWSoftware.PDI
                     new ListItem(PDI.DaysOfWeek.Weekdays, LR.EnumDesc(PDI.DaysOfWeek.Weekdays)),
                     new ListItem(PDI.DaysOfWeek.Weekends, LR.EnumDesc(PDI.DaysOfWeek.Weekends)),
                     new ListItem(PDI.DaysOfWeek.EveryDay, LR.EnumDesc(PDI.DaysOfWeek.EveryDay))
-                });
+                ]);
             }
         }
 

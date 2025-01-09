@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : IFrequencyRules.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2003-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains an interface that defines the methods used to expand or filter recurrence instances based
 // on the various rules in a recurrence
@@ -42,7 +41,7 @@ namespace EWSoftware.PDI
         /// <param name="from">The start date of the range limiting the instances generated</param>
         /// <param name="to">The end date of the range limiting the instances generated</param>
         /// <returns>The first instance date or null if there are no more instances in the given ranges</returns>
-        RecurDateTime FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
+        RecurDateTime? FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
             RecurDateTime to);
 
         /// <summary>

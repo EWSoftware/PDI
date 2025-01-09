@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VCardPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's properties.  It supports most of the common properties of the vCard including
 // photo, logo, and sound.
@@ -56,12 +56,12 @@ namespace vCardBrowser
             cboSex.DisplayMember = "Display";
             cboSex.DataSource = new List<ListItem>
             {
-                new ListItem('\0', String.Empty),
-                new ListItem('M', "Male"),
-                new ListItem('F', "Female"),
-                new ListItem('O', "Other"),
-                new ListItem('N', "N/A"),
-                new ListItem('U', "Unknown")
+                new('\0', String.Empty),
+                new('M', "Male"),
+                new('F', "Female"),
+                new('O', "Other"),
+                new('N', "N/A"),
+                new('U', "Unknown")
             };
         }
         #endregion
@@ -131,7 +131,12 @@ namespace vCardBrowser
             {
                 try
                 {
-                    System.Diagnostics.Process.Start(txtWebPage.Text);
+                    System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                    {
+                        FileName = txtWebPage.Text,
+                        UseShellExecute = true,
+                    });
+
                 }
                 catch(Exception ex)
                 {
@@ -308,7 +313,7 @@ namespace vCardBrowser
             // We'll parse nicknames as a comma separated string
             vCard.Nickname.NicknamesString = txtNickname.Text;
 
-            vCard.Gender.Sex = (cboSex.SelectedIndex == 0) ? (char?)null : (char)cboSex.SelectedValue;
+            vCard.Gender.Sex = (cboSex.SelectedIndex == 0) ? null : (char)cboSex.SelectedValue!;
             vCard.Gender.GenderIdentity = txtGenderIdentity.Text;
 
             // For the collections, we'll clear the existing items and copy the modified items from the browse

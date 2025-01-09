@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RecurDateTime.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class that contains a date/time object used in the calculation of recurring date/times.
 // It is different from the standard System.DateTime object in that it can be set to invalid dates which is
@@ -232,7 +231,7 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time to compare</param>
         /// <param name="r2">The second date/time to compare</param>
         /// <returns>Returns true if the date/times are equal, false if they are not</returns>
-        public static bool Equals(RecurDateTime r1, RecurDateTime r2)
+        public static bool Equals(RecurDateTime? r1, RecurDateTime? r2)
         {
             if(r1 is null && r2 is null)
                 return true;
@@ -248,15 +247,13 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <param name="obj">The object to which this instance is compared</param>
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            RecurDateTime r = obj as RecurDateTime;
-
-            if(r == null)
+            if(obj is not RecurDateTime r)
                 return false;
 
-            return (year == r.Year && month == r.Month && day == r.Day && hour == r.Hour && minute == r.Minute &&
-                second == r.Second);
+            return year == r.Year && month == r.Month && day == r.Day && hour == r.Hour && minute == r.Minute &&
+                second == r.Second;
         }
 
         /// <summary>
@@ -367,6 +364,7 @@ namespace EWSoftware.PDI
                 }
             }
             else
+            {
                 while(newDay <= 0)
                 {
                     if(month == 0)
@@ -379,6 +377,7 @@ namespace EWSoftware.PDI
 
                     newDay += DateTime.DaysInMonth(year, month + 1);
                 }
+            }
 
             day = newDay;
         }
@@ -520,12 +519,10 @@ namespace EWSoftware.PDI
         /// <c>RecurDateTime</c>.</exception>
         public int CompareTo(object obj)
         {
-            RecurDateTime rd = obj as RecurDateTime;
-
-            if(rd == null)
+            if(obj is not RecurDateTime rd)
                 throw new ArgumentException(LR.GetString("ExRDTBadCompareObject"));
 
-            return RecurDateTime.Compare(this, rd);
+            return Compare(this, rd);
         }
 
         /// <summary>
@@ -536,18 +533,18 @@ namespace EWSoftware.PDI
         /// <returns>Returns -1 if the first instance is less than the second, 0 if they are equal, or 1 if the
         /// first instance is greater than the second.</returns>
         /// <overloads>There are two versions of this method</overloads>
-        public static int Compare(RecurDateTime r1, RecurDateTime r2)
+        public static int Compare(RecurDateTime? r1, RecurDateTime? r2)
         {
             if(r1 is null && r2 is null)
                 return 0;
 
-            if(!(r1 is null) && r2 is null)
+            if(r1 is not null && r2 is null)
                 return 1;
 
-            if(r1 is null && !(r2 is null))
+            if(r1 is null && r2 is not null)
                 return -1;
 
-            if(r1.Year < r2.Year)
+            if(r1!.Year < r2!.Year)
                 return -1;
 
             if(r1.Year > r2.Year)
@@ -595,18 +592,18 @@ namespace EWSoftware.PDI
         /// <param name="part">The part up to which comparisons are made.  Parts smaller than this are ignored.</param>
         /// <returns>Returns -1 if the first instance is less than the second, 0 if they are equal, or 1 if the
         /// first instance is greater than the second.</returns>
-        public static int Compare(RecurDateTime r1, RecurDateTime r2, DateTimePart part)
+        public static int Compare(RecurDateTime? r1, RecurDateTime? r2, DateTimePart part)
         {
             if(r1 is null && r2 is null)
                 return 0;
 
-            if(!(r1 is null) && r2 is null)
+            if(r1 is not null && r2 is null)
                 return 1;
 
-            if(r1 is null && !(r2 is null))
+            if(r1 is null && r2 is not null)
                 return -1;
 
-            if(r1.Year < r2.Year)
+            if(r1!.Year < r2!.Year)
                 return -1;
 
             if(r1.Year > r2.Year)
@@ -666,9 +663,9 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time object</param>
         /// <param name="r2">The second date/time object</param>
         /// <returns>True if equal, false if not</returns>
-        public static bool operator == (RecurDateTime r1, RecurDateTime r2)
+        public static bool operator == (RecurDateTime? r1, RecurDateTime? r2)
         {
-            return (RecurDateTime.Compare(r1, r2) == 0);
+            return Compare(r1, r2) == 0;
         }
 
         /// <summary>
@@ -677,9 +674,9 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time object</param>
         /// <param name="r2">The second date/time object</param>
         /// <returns>True if not equal, false if they are equal</returns>
-        public static bool operator != (RecurDateTime r1, RecurDateTime r2)
+        public static bool operator != (RecurDateTime? r1, RecurDateTime? r2)
         {
-            return (RecurDateTime.Compare(r1, r2) != 0);
+            return Compare(r1, r2) != 0;
         }
 
         /// <summary>
@@ -688,9 +685,9 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time object</param>
         /// <param name="r2">The second date/time object</param>
         /// <returns>True if r1 is less than r2, false if not</returns>
-        public static bool operator < (RecurDateTime r1, RecurDateTime r2)
+        public static bool operator < (RecurDateTime? r1, RecurDateTime? r2)
         {
-            return (RecurDateTime.Compare(r1, r2) < 0);
+            return Compare(r1, r2) < 0;
         }
 
         /// <summary>
@@ -699,9 +696,9 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time object</param>
         /// <param name="r2">The second date/time object</param>
         /// <returns>True if r1 is greater than r2, false if not</returns>
-        public static bool operator > (RecurDateTime r1, RecurDateTime r2)
+        public static bool operator > (RecurDateTime? r1, RecurDateTime? r2)
         {
-            return (RecurDateTime.Compare(r1, r2) > 0);
+            return Compare(r1, r2) > 0;
         }
 
         /// <summary>
@@ -710,9 +707,9 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time object</param>
         /// <param name="r2">The second date/time object</param>
         /// <returns>True if r1 is less than or equal to r2, false if not</returns>
-        public static bool operator <= (RecurDateTime r1, RecurDateTime r2)
+        public static bool operator <= (RecurDateTime? r1, RecurDateTime? r2)
         {
-            return (RecurDateTime.Compare(r1, r2) <= 0);
+            return Compare(r1, r2) <= 0;
         }
 
         /// <summary>
@@ -721,9 +718,9 @@ namespace EWSoftware.PDI
         /// <param name="r1">The first date/time object</param>
         /// <param name="r2">The second date/time object</param>
         /// <returns>True if r1 is greater than or equal to r2, false if not</returns>
-        public static bool operator >= (RecurDateTime r1, RecurDateTime r2)
+        public static bool operator >= (RecurDateTime? r1, RecurDateTime? r2)
         {
-            return (RecurDateTime.Compare(r1, r2) >= 0);
+            return Compare(r1, r2) >= 0;
         }
         #endregion
     }

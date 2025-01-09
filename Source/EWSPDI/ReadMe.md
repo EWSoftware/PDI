@@ -1,5 +1,4 @@
-EWSoftware.PDI Library
-----------------------
+# EWSoftware.PDI Library
 This library contains the core set of useful Personal Data Interchange (PDI) and date utility classes for .NET
 applications.  They can be used for calculating holiday dates, recurrences, etc.
 

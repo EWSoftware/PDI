@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RRuleProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Recurrence Rule property.  It is used with the Personal Data Interchange (PDI)
 // vCalendar and iCalendar classes.
@@ -32,7 +31,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private Recurrence recur;
+        private Recurrence? recur;
 
         #endregion
 
@@ -64,8 +63,7 @@ namespace EWSoftware.PDI.Properties
         {
             get
             {
-                if(recur == null)
-                    recur = new Recurrence();
+                recur ??= new Recurrence();
 
                 return recur;
             }
@@ -74,7 +72,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to handle parsing of the recurrence value to/from its string form
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -93,7 +91,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to handle parsing of the recurrence value to/from its string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -122,7 +120,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            RRuleProperty o = new RRuleProperty();
+            RRuleProperty o = new();
             o.Clone(this);
             return o;
         }

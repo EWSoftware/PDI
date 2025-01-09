@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PropertyComparer.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2007-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2007-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a generic comparer class that compares two items based on values retrieved from a property
 // descriptor.
@@ -36,7 +35,7 @@ namespace EWSoftware.PDI.Binding
         #region Private data members
         //=====================================================================
 
-        private PropertyDescriptor property;
+        private readonly PropertyDescriptor property;
         private readonly ListSortDirection direction;
 
         #endregion
@@ -69,7 +68,7 @@ namespace EWSoftware.PDI.Binding
         /// than zero when object X is greater than object Y.</returns>
         public int Compare(T x, T y)
         {
-            object value1, value2;
+            object? value1, value2;
             int result;
 
             // Get the value from the property in each object
@@ -91,10 +90,10 @@ namespace EWSoftware.PDI.Binding
             if(value1 is IComparable comp)
                 result = comp.CompareTo(value2);
             else
-                if(value1.Equals(value2))
+                if(value1!.Equals(value2))
                     result = 0;
                 else
-                    result = String.Compare(value1.ToString(), value2.ToString(), StringComparison.Ordinal);
+                    result = String.Compare(value1.ToString(), value2!.ToString(), StringComparison.Ordinal);
 
             // Invert the result for descending order
             if(direction == ListSortDirection.Descending)
@@ -115,17 +114,19 @@ namespace EWSoftware.PDI.Binding
         /// <returns>The value of the property</returns>
         /// <remarks>This takes into account child property references as well (those where the name contains an
         /// underscore).</remarks>
-        public static object GetPropertyValue(T x, string propertyName)
+        public static object? GetPropertyValue(T x, string propertyName)
         {
-            Type t;
-            object value = x;
+            object? value = x;
 
-            string[] propNames = propertyName.Split('_');
-
-            foreach(string name in propNames)
+            if(value != null)
             {
-                t = value.GetType();
-                value = t.GetProperty(name).GetValue(value, null);
+                string[] propNames = propertyName.Split('_');
+
+                foreach(string name in propNames)
+                {
+                    Type t = value.GetType();
+                    value = t.GetProperty(name).GetValue(value, null);
+                }
             }
 
             return value;

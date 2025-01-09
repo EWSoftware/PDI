@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ObservanceRuleCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for ObservanceRule objects
 //
@@ -63,8 +62,8 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns the new rule that was created and added to the collection</returns>
         public ObservanceRule Add(ObservanceRuleType ruleType)
         {
-            ObservanceRule rule = new ObservanceRule(ruleType);
-            base.Add(rule);
+            ObservanceRule rule = new(ruleType);
+            this.Add(rule);
 
             return rule;
         }
@@ -75,7 +74,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="ascending">Pass true for ascending order, false for descending order</param>
         public void Sort(bool ascending)
         {
-            ((List<ObservanceRule>)base.Items).Sort((x, y) =>
+            ((List<ObservanceRule>)this.Items).Sort((x, y) =>
             {
                 int result;
 
@@ -85,16 +84,20 @@ namespace EWSoftware.PDI.Objects
                     result = (int)x.RuleType - (int)y.RuleType;
 
                     if(result == 0)
+                    {
                         result = (x.StartDateTime.DateTimeValue == y.StartDateTime.DateTimeValue) ? 0 :
                             (x.StartDateTime.DateTimeValue < y.StartDateTime.DateTimeValue) ? -1 : 1;
+                    }
                 }
                 else
                 {
                     result = (int)y.RuleType - (int)x.RuleType;
 
                     if(result == 0)
+                    {
                         result = (y.StartDateTime.DateTimeValue == x.StartDateTime.DateTimeValue) ? 0 :
                             (y.StartDateTime.DateTimeValue < x.StartDateTime.DateTimeValue) ? -1 : 1;
+                    }
                 }
 
                 return result;

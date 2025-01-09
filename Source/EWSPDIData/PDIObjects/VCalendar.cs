@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VCalendar.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/20/2013
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the vCalendar/iCalendar object.
 //
@@ -45,24 +44,24 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single calendar properties
-        private ProductIdProperty prodId;
+        private ProductIdProperty prodId = null!;
 
-        private CalendarScaleProperty calScale;      // iCalendar only
-        private MethodProperty        method;        // iCalendar only
+        private CalendarScaleProperty calScale = null!;      // iCalendar only
+        private MethodProperty        method = null!;        // iCalendar only
 
-        private GeographicPositionProperty geo;      // vCalendar only
-        private TimeZoneProperty           tz;       // vCalendar only
-        private DaylightProperty           daylight; // vCalendar only
+        private GeographicPositionProperty geo = null!;      // vCalendar only
+        private TimeZoneProperty           tz = null!;       // vCalendar only
+        private DaylightProperty           daylight = null!; // vCalendar only
 
         // Calendar property collections.  There can be one or more of each of these properties so they are
         // stored in a collection.
-        private VEventCollection    events;
-        private VToDoCollection     todos;
-        private VJournalCollection  journals;        // iCalendar only
-        private VFreeBusyCollection freebusy;        // iCalendar only
+        private VEventCollection    events = null!;
+        private VToDoCollection     todos = null!;
+        private VJournalCollection  journals = null!;   // iCalendar only
+        private VFreeBusyCollection freebusy = null!;   // iCalendar only
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         #endregion
 
@@ -84,8 +83,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(prodId == null)
-                    prodId = new ProductIdProperty();
+                prodId ??= new ProductIdProperty();
 
                 return prodId;
             }
@@ -100,8 +98,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(calScale == null)
-                    calScale = new CalendarScaleProperty();
+                calScale ??= new CalendarScaleProperty();
 
                 return calScale;
             }
@@ -116,8 +113,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(method == null)
-                    method = new MethodProperty();
+                method ??= new MethodProperty();
 
                 return method;
             }
@@ -132,8 +128,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(geo == null)
-                    geo = new GeographicPositionProperty();
+                geo ??= new GeographicPositionProperty();
 
                 return geo;
             }
@@ -148,8 +143,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(tz == null)
-                    tz = new TimeZoneProperty();
+                tz ??= new TimeZoneProperty();
 
                 return tz;
             }
@@ -164,8 +158,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(daylight == null)
-                    daylight = new DaylightProperty();
+                daylight ??= new DaylightProperty();
 
                 return daylight;
             }
@@ -183,7 +176,7 @@ namespace EWSoftware.PDI.Objects
         /// introduce some method of letting the sub-objects like events know who their containing calendar is in
         /// order to get a reference to a time zone collection.</para>
         /// </value>
-        public static VTimeZoneCollection TimeZones { get; } = new VTimeZoneCollection();
+        public static VTimeZoneCollection TimeZones { get; } = [];
 
         /// <summary>
         /// This is used to hold a set of event (VEVENT) objects associated with the calendar
@@ -193,8 +186,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(events == null)
-                    events = new VEventCollection();
+                events ??= [];
 
                 return events;
             }
@@ -208,8 +200,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(todos == null)
-                    todos = new VToDoCollection();
+                todos ??= [];
 
                 return todos;
             }
@@ -224,8 +215,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(journals == null)
-                    journals = new VJournalCollection();
+                journals ??= [];
 
                 return journals;
             }
@@ -240,8 +230,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(freebusy == null)
-                    freebusy = new VFreeBusyCollection();
+                freebusy ??= [];
 
                 return freebusy;
             }
@@ -255,8 +244,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -364,8 +352,7 @@ namespace EWSoftware.PDI.Objects
         [SecurityCritical]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            if(info != null)
-                info.AddValue("VCALENDAR", this.ToString());
+            info?.AddValue("VCALENDAR", this.ToString());
         }
         #endregion
 
@@ -378,7 +365,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            VCalendar o = new VCalendar();
+            VCalendar o = new();
             o.Clone(this);
             return o;
         }
@@ -415,19 +402,19 @@ namespace EWSoftware.PDI.Objects
         /// collection will not be cleared.  If you want it cleared, you must do it manually.</remarks>
         public override void ClearProperties()
         {
-            prodId = null;
-            calScale = null;
-            method = null;
-            geo = null;
-            tz = null;
-            daylight = null;
+            prodId = null!;
+            calScale = null!;
+            method = null!;
+            geo = null!;
+            tz = null!;
+            daylight = null!;
 
-            events = null;
-            todos = null;
-            journals = null;
-            freebusy = null;
+            events = null!;
+            todos = null!;
+            journals = null!;
+            freebusy = null!;
 
-            customProps = null;
+            customProps = null!;
         }
 
         /// <summary>
@@ -438,14 +425,9 @@ namespace EWSoftware.PDI.Objects
             if(prodId != null)
                 prodId.Version = this.Version;
 
-            if(events != null)
-                events.PropagateVersion(this.Version);
-
-            if(todos != null)
-                todos.PropagateVersion(this.Version);
-
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            events?.PropagateVersion(this.Version);
+            todos?.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
 
             if(geo != null)
                 geo.Version = this.Version;
@@ -466,12 +448,8 @@ namespace EWSoftware.PDI.Objects
                 if(method != null)
                     method.Version = this.Version;
 
-                if(journals != null)
-                    journals.PropagateVersion(this.Version);
-
-                if(freebusy != null)
-                    freebusy.PropagateVersion(this.Version);
-
+                journals?.PropagateVersion(this.Version);
+                freebusy?.PropagateVersion(this.Version);
                 TimeZones.PropagateVersion(this.Version);
             }
         }
@@ -483,17 +461,10 @@ namespace EWSoftware.PDI.Objects
         /// unique time zone IDs used by the calendar objects.</param>
         public override void TimeZonesUsed(StringCollection timeZoneIds)
         {
-            if(events != null)
-                events.TimeZonesUsed(timeZoneIds);
-
-            if(todos != null)
-                todos.TimeZonesUsed(timeZoneIds);
-
-            if(journals != null)
-                journals.TimeZonesUsed(timeZoneIds);
-
-            if(freebusy != null)
-                freebusy.TimeZonesUsed(timeZoneIds);
+            events?.TimeZonesUsed(timeZoneIds);
+            todos?.TimeZonesUsed(timeZoneIds);
+            journals?.TimeZonesUsed(timeZoneIds);
+            freebusy?.TimeZonesUsed(timeZoneIds);
         }
 
         /// <summary>
@@ -502,19 +473,12 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public override void UpdateTimeZoneId(string oldId, string newId)
+        public override void UpdateTimeZoneId(string? oldId, string? newId)
         {
-            if(events != null)
-                events.UpdateTimeZoneId(oldId, newId);
-
-            if(todos != null)
-                todos.UpdateTimeZoneId(oldId, newId);
-
-            if(journals != null)
-                journals.UpdateTimeZoneId(oldId, newId);
-
-            if(freebusy != null)
-                freebusy.UpdateTimeZoneId(oldId, newId);
+            events?.UpdateTimeZoneId(oldId, newId);
+            todos?.UpdateTimeZoneId(oldId, newId);
+            journals?.UpdateTimeZoneId(oldId, newId);
+            freebusy?.UpdateTimeZoneId(oldId, newId);
         }
 
         /// <summary>
@@ -524,19 +488,12 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public override void ApplyTimeZone(VTimeZone vTimeZone)
+        public override void ApplyTimeZone(VTimeZone? vTimeZone)
         {
-            if(events != null)
-                events.ApplyTimeZone(vTimeZone);
-
-            if(todos != null)
-                todos.ApplyTimeZone(vTimeZone);
-
-            if(journals != null)
-                journals.ApplyTimeZone(vTimeZone);
-
-            if(freebusy != null)
-                freebusy.ApplyTimeZone(vTimeZone);
+            events?.ApplyTimeZone(vTimeZone);
+            todos?.ApplyTimeZone(vTimeZone);
+            journals?.ApplyTimeZone(vTimeZone);
+            freebusy?.ApplyTimeZone(vTimeZone);
         }
 
         /// <summary>
@@ -546,19 +503,12 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public override void SetTimeZone(VTimeZone vTimeZone)
+        public override void SetTimeZone(VTimeZone? vTimeZone)
         {
-            if(events != null)
-                events.SetTimeZone(vTimeZone);
-
-            if(todos != null)
-                todos.SetTimeZone(vTimeZone);
-
-            if(journals != null)
-                journals.SetTimeZone(vTimeZone);
-
-            if(freebusy != null)
-                freebusy.SetTimeZone(vTimeZone);
+            events?.SetTimeZone(vTimeZone);
+            todos?.SetTimeZone(vTimeZone);
+            journals?.SetTimeZone(vTimeZone);
+            freebusy?.SetTimeZone(vTimeZone);
         }
 
         /// <summary>
@@ -570,7 +520,7 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="CalendarObject.ToString"/> as well as owning objects when they
         /// convert themselves to a string or write themselves to a PDI data stream.</remarks>
-        public override void WriteToStream(TextWriter tw, StringBuilder sb)
+        public override void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             PropagateVersion();
 
@@ -598,7 +548,8 @@ namespace EWSoftware.PDI.Objects
 
                 // Time zones are usually listed first.  Build a list to see which time zones are needed and
                 // stream only those.
-                StringCollection tzIds = new StringCollection();
+                StringCollection tzIds = [];
+
                 this.TimeZonesUsed(tzIds);
 
                 if(tzIds.Count != 0)
@@ -609,8 +560,10 @@ namespace EWSoftware.PDI.Objects
                     try
                     {
                         foreach(VTimeZone tz in TimeZones)
-                            if(tzIds.Contains(tz.TimeZoneId.Value))
+                        {
+                            if(tzIds.Contains(tz.TimeZoneId.Value!))
                                 tz.WriteToStream(tw, sb);
+                        }
                     }
                     finally
                     {
@@ -619,25 +572,35 @@ namespace EWSoftware.PDI.Objects
                 }
 
                 if(journals != null && journals.Count != 0)
+                {
                     foreach(VJournal j in journals)
                         j.WriteToStream(tw, sb);
+                }
 
                 if(freebusy != null && freebusy.Count != 0)
+                {
                     foreach(VFreeBusy f in freebusy)
                         f.WriteToStream(tw, sb);
+                }
             }
 
             if(events != null && events.Count != 0)
+            {
                 foreach(VEvent v in events)
                     v.WriteToStream(tw, sb);
+            }
 
             if(todos != null && todos.Count != 0)
+            {
                 foreach(VToDo t in todos)
                     t.WriteToStream(tw, sb);
+            }
 
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             tw.Write("END:VCALENDAR\r\n");
         }
@@ -649,12 +612,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is VCalendar c))
+            if(obj is not VCalendar c)
                 return false;
 
             // The ToString() method returns a text representation of the calendar based on all of its settings
             // so it's a reliable way to tell if two instances are the same.
-            return (this == c || this.ToString() == c.ToString());
+            return this == c || this.ToString() == c.ToString();
         }
 
         /// <summary>
@@ -694,8 +657,8 @@ namespace EWSoftware.PDI.Objects
         /// standard rule.</param>
         /// <param name="dstDate">This is used to return the start of daylight saving time for the returned
         /// daylight rule.</param>
-        private static void FindRules(DateTime convertDate, string timeZoneId, bool useLocalTime,
-          out ObservanceRule standardRule, out ObservanceRule daylightRule, out DateTime standardDate,
+        private static void FindRules(DateTime convertDate, string? timeZoneId, bool useLocalTime,
+          out ObservanceRule? standardRule, out ObservanceRule? daylightRule, out DateTime standardDate,
           out DateTime dstDate)
         {
             DateTime startDate;
@@ -704,7 +667,7 @@ namespace EWSoftware.PDI.Objects
             standardRule = daylightRule = null;
             standardDate = dstDate = DateTime.MinValue;
 
-            VTimeZone vtz = TimeZones[timeZoneId];
+            VTimeZone? vtz = TimeZones[timeZoneId];
 
             if(vtz == null)
                 return;
@@ -731,6 +694,7 @@ namespace EWSoftware.PDI.Objects
                 {
                     // Check for an RDATE that matches.
                     foreach(RDateProperty rdt in or.RecurDates)
+                    {
                         if(rdt.TimeZoneDateTime.Year == convertDate.Year)
                         {
                             standardRule = or;
@@ -742,9 +706,11 @@ namespace EWSoftware.PDI.Objects
 
                             break;
                         }
+                    }
 
                     // If there wasn't one, check the RRULEs
                     if(standardRule == null)
+                    {
                         foreach(RRuleProperty rrule in or.RecurrenceRules)
                         {
                             // Set the start date and resolve the recurrence
@@ -765,6 +731,7 @@ namespace EWSoftware.PDI.Objects
                                 break;
                             }
                         }
+                    }
 
                     // If it doesn't have any RDATEs or RRULEs and the year is on or after the start date year,
                     // use the start date.
@@ -784,6 +751,7 @@ namespace EWSoftware.PDI.Objects
                 {
                     // Check for an RDATE that matches.
                     foreach(RDateProperty rdt in or.RecurDates)
+                    {
                         if(rdt.TimeZoneDateTime.Year == convertDate.Year)
                         {
                             daylightRule = or;
@@ -795,9 +763,11 @@ namespace EWSoftware.PDI.Objects
 
                             break;
                         }
+                    }
 
                     // If there wasn't one, check the RRULEs
                     if(daylightRule == null)
+                    {
                         foreach(RRuleProperty rrule in or.RecurrenceRules)
                         {
                             // Set the start date and resolve the recurrence
@@ -818,6 +788,7 @@ namespace EWSoftware.PDI.Objects
                                 break;
                             }
                         }
+                    }
 
                     // If it doesn't have any RDATEs or RRULEs and the year is on or after the start date year,
                     // use the start date.
@@ -847,7 +818,7 @@ namespace EWSoftware.PDI.Objects
         /// collection.</param>
         /// <returns>The date/time in Universal Time (UTC) if the specified time zone is found in the collection
         /// or the unmodified date/time if it cannot be found.</returns>
-        public static DateTime TimeZoneTimeToUtc(DateTime convertDate, string timeZoneId)
+        public static DateTime TimeZoneTimeToUtc(DateTime convertDate, string? timeZoneId)
         {
 
             // We won't adjust values in year 1 or year 9999 as we could underflow or overflow the date/time
@@ -856,7 +827,7 @@ namespace EWSoftware.PDI.Objects
                 return convertDate;
 
             // Get the observance rules to use in the conversion
-            FindRules(convertDate, timeZoneId, false, out ObservanceRule standardRule, out ObservanceRule daylightRule,
+            FindRules(convertDate, timeZoneId, false, out ObservanceRule? standardRule, out ObservanceRule? daylightRule,
                 out DateTime standardDate, out DateTime dstDate);
 
             // If neither observance rule was found, use it as-is
@@ -891,16 +862,16 @@ namespace EWSoftware.PDI.Objects
             {
                 // Northern hemisphere
                 if(convertDate >= dstDate && convertDate < standardDate)
-                    return convertDate.Add(daylightRule.OffsetTo.TimeSpanValue.Negate());
+                    return convertDate.Add(daylightRule!.OffsetTo.TimeSpanValue.Negate());
 
-                return convertDate.Add(standardRule.OffsetTo.TimeSpanValue.Negate());
+                return convertDate.Add(standardRule!.OffsetTo.TimeSpanValue.Negate());
             }
 
             // Southern hemisphere
             if(convertDate >= standardDate && convertDate < dstDate)
-                return convertDate.Add(standardRule.OffsetTo.TimeSpanValue.Negate());
+                return convertDate.Add(standardRule!.OffsetTo.TimeSpanValue.Negate());
 
-            return convertDate.Add(daylightRule.OffsetTo.TimeSpanValue.Negate());
+            return convertDate.Add(daylightRule!.OffsetTo.TimeSpanValue.Negate());
         }
 
         /// <summary>
@@ -914,11 +885,11 @@ namespace EWSoftware.PDI.Objects
         /// collection or the unmodified date/time information if it cannot be found.</returns>
         /// <remarks>For this method, the end date/time information in the returned object is the same as the
         /// start date/time information and it has a zero length duration.</remarks>
-        public static DateTimeInstance UtcToTimeZoneTime(DateTime convertDate, string timeZoneId)
+        public static DateTimeInstance UtcToTimeZoneTime(DateTime convertDate, string? timeZoneId)
         {
-            TimeZoneNameProperty tzn;
+            TimeZoneNameProperty? tzn;
 
-            DateTimeInstance dti = new DateTimeInstance(convertDate);
+            DateTimeInstance dti = new(convertDate);
 
             // We won't adjust values in year 1 or year 9999 as we could underflow or overflow the date/time
             // object.
@@ -928,8 +899,8 @@ namespace EWSoftware.PDI.Objects
             dti.TimeZoneId = timeZoneId;
 
             // Get the observance rules to use in the conversion
-            FindRules(convertDate.ToLocalTime(), timeZoneId, false, out ObservanceRule standardRule,
-                out ObservanceRule daylightRule, out DateTime standardDate, out DateTime dstDate);
+            FindRules(convertDate.ToLocalTime(), timeZoneId, false, out ObservanceRule? standardRule,
+                out ObservanceRule? daylightRule, out DateTime standardDate, out DateTime dstDate);
 
             // If neither observance rule was found, use it as-is
             if(standardRule == null && daylightRule == null)
@@ -937,12 +908,16 @@ namespace EWSoftware.PDI.Objects
 
             // Keep the day part of the returned values but use the time value from the rule and shift it to UTC
             if(standardRule != null)
+            {
                 standardDate = standardDate.Date.Add(standardRule.StartDateTime.DateTimeValue.TimeOfDay.Add(
                     standardRule.OffsetFrom.TimeSpanValue.Negate()));
+            }
 
             if(daylightRule != null)
+            {
                 dstDate = dstDate.Date.Add(daylightRule.StartDateTime.DateTimeValue.TimeOfDay.Add(
                     daylightRule.OffsetFrom.TimeSpanValue.Negate()));
+            }
 
             // Standard rule only?
             if(standardRule != null && daylightRule == null)
@@ -952,7 +927,7 @@ namespace EWSoftware.PDI.Objects
                 if(convertDate >= standardDate)
                 {
                     tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(standardRule.OffsetTo.TimeSpanValue);
                 }
                 else
@@ -974,7 +949,7 @@ namespace EWSoftware.PDI.Objects
                 {
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
                     tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(daylightRule.OffsetTo.TimeSpanValue);
                 }
                 else
@@ -994,31 +969,34 @@ namespace EWSoftware.PDI.Objects
                 if(convertDate >= dstDate && convertDate < standardDate)
                 {
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
-                    tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = daylightRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(daylightRule.OffsetTo.TimeSpanValue);
                 }
                 else
                 {
-                    tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName =  dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = standardRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(standardRule.OffsetTo.TimeSpanValue);
                 }
             }
-            else    // Southern hemisphere
+            else
+            {
+                // Southern hemisphere
                 if(convertDate >= standardDate && convertDate < dstDate)
                 {
-                    tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = standardRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(standardRule.OffsetTo.TimeSpanValue);
                 }
                 else
                 {
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
-                    tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = daylightRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(daylightRule.OffsetTo.TimeSpanValue);
                 }
+            }
 
             return dti;
         }
@@ -1034,9 +1012,9 @@ namespace EWSoftware.PDI.Objects
         /// collection or the unmodified date/time information if it cannot be found.</returns>
         /// <remarks>For this method, the end date/time information in the returned object is the same as the
         /// start date/time information and it has a zero length duration.</remarks>
-        public static DateTimeInstance TimeZoneTimeToLocalTime(DateTime convertDate, string timeZoneId)
+        public static DateTimeInstance TimeZoneTimeToLocalTime(DateTime convertDate, string? timeZoneId)
         {
-            DateTimeInstance dti = new DateTimeInstance(convertDate);
+            DateTimeInstance dti = new(convertDate);
 
             // We won't adjust values in year 1 or year 9999 as we could underflow or overflow the date/time
             // object.
@@ -1044,8 +1022,8 @@ namespace EWSoftware.PDI.Objects
                 return dti;
 
             // Get the observance rules to use in the conversion
-            FindRules(convertDate, timeZoneId, false, out ObservanceRule standardRule,
-                out ObservanceRule daylightRule, out DateTime standardDate, out DateTime daylightDate);
+            FindRules(convertDate, timeZoneId, false, out ObservanceRule? standardRule,
+                out ObservanceRule? daylightRule, out DateTime standardDate, out DateTime daylightDate);
 
             // If neither observance rule was found, use it as-is
             if(standardRule == null && daylightRule == null)
@@ -1062,8 +1040,10 @@ namespace EWSoftware.PDI.Objects
                         standardRule.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
                 }
                 else
+                {
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(
                         standardRule.OffsetFrom.TimeSpanValue.Negate()).ToLocalTime();
+                }
 
                 // Base the time zone name on the local time's DST setting
                 if(TimeZoneInfo.Local.IsDaylightSavingTime(dti.StartDateTime))
@@ -1092,8 +1072,10 @@ namespace EWSoftware.PDI.Objects
                         daylightRule.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
                 }
                 else
+                {
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(
                         daylightRule.OffsetFrom.TimeSpanValue.Negate()).ToLocalTime();
+                }
 
                 // Base the time zone name on the local time's DST setting
                 if(TimeZoneInfo.Local.IsDaylightSavingTime(dti.StartDateTime))
@@ -1119,17 +1101,21 @@ namespace EWSoftware.PDI.Objects
                         convertDate = convertDate.AddHours(1);
 
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(
-                        daylightRule.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
+                        daylightRule!.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
                 }
                 else
+                {
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(
-                        standardRule.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
+                        standardRule!.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
+                }
             }
-            else    // Southern hemisphere
+            else
+            {
+                // Southern hemisphere
                 if(convertDate >= standardDate && convertDate < daylightDate)
                 {
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(
-                        standardRule.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
+                        standardRule!.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
                 }
                 else
                 {
@@ -1138,8 +1124,9 @@ namespace EWSoftware.PDI.Objects
                         convertDate = convertDate.AddHours(1);
 
                     dti.StartDateTime = dti.EndDateTime = convertDate.Add(
-                        daylightRule.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
+                        daylightRule!.OffsetTo.TimeSpanValue.Negate()).ToLocalTime();
                 }
+            }
 
             // Base the time zone name on the local time's DST setting
             if(TimeZoneInfo.Local.IsDaylightSavingTime(dti.StartDateTime))
@@ -1164,11 +1151,11 @@ namespace EWSoftware.PDI.Objects
         /// collection or the unmodified date/time information if it cannot be found.</returns>
         /// <remarks>For this method, the end date/time information in the returned object is the same as the
         /// start date/time information and it has a zero length duration.</remarks>
-        public static DateTimeInstance LocalTimeToTimeZoneTime(DateTime convertDate, string timeZoneId)
+        public static DateTimeInstance LocalTimeToTimeZoneTime(DateTime convertDate, string? timeZoneId)
         {
-            TimeZoneNameProperty tzn;
+            TimeZoneNameProperty? tzn;
 
-            DateTimeInstance dti = new DateTimeInstance(convertDate);
+            DateTimeInstance dti = new(convertDate);
 
             // We won't adjust values in year 1 or year 9999 as we could underflow or overflow the date/time
             // object
@@ -1178,7 +1165,7 @@ namespace EWSoftware.PDI.Objects
             dti.TimeZoneId = timeZoneId;
 
             // Get the observance rules to use in the conversion
-            FindRules(convertDate, timeZoneId, true, out ObservanceRule standardRule, out ObservanceRule daylightRule,
+            FindRules(convertDate, timeZoneId, true, out ObservanceRule? standardRule, out ObservanceRule? daylightRule,
                 out DateTime standardDate, out DateTime daylightDate);
 
             // If neither observance rule was found, use it as-is
@@ -1193,7 +1180,7 @@ namespace EWSoftware.PDI.Objects
                 if(convertDate >= standardDate)
                 {
                     tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.ToUniversalTime().Add(standardRule.OffsetTo.TimeSpanValue);
                 }
                 else
@@ -1216,7 +1203,7 @@ namespace EWSoftware.PDI.Objects
                     // No need to adjust if in the missing hour as the conversion to UTC will fix it up
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
                     tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.ToUniversalTime().Add(daylightRule.OffsetTo.TimeSpanValue);
                 }
                 else
@@ -1237,32 +1224,35 @@ namespace EWSoftware.PDI.Objects
                 {
                     // No need to adjust if in the missing hour as the conversion to UTC will fix it up
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
-                    tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = daylightRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.ToUniversalTime().Add(daylightRule.OffsetTo.TimeSpanValue);
                 }
                 else
                 {
-                    tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName =  dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = standardRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.ToUniversalTime().Add(standardRule.OffsetTo.TimeSpanValue);
                 }
             }
-            else    // Southern hemisphere
+            else
+            {
+                // Southern hemisphere
                 if(convertDate >= standardDate && convertDate < daylightDate)
                 {
-                    tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = standardRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.ToUniversalTime().Add(standardRule.OffsetTo.TimeSpanValue);
                 }
                 else
                 {
                     // No need to adjust if in the missing hour as the conversion to UTC will fix it up
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
-                    tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = daylightRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                     dti.StartDateTime = dti.EndDateTime = convertDate.ToUniversalTime().Add(daylightRule.OffsetTo.TimeSpanValue);
                 }
+            }
 
             return dti;
         }
@@ -1282,7 +1272,7 @@ namespace EWSoftware.PDI.Objects
         /// be found.</returns>
         /// <remarks>For this method, the end date/time information in the returned object is the same as the
         /// start date/time information and it has a zero length duration.</remarks>
-        public static DateTimeInstance TimeZoneToTimeZone(DateTime convertDate, string sourceId, string destId)
+        public static DateTimeInstance TimeZoneToTimeZone(DateTime convertDate, string? sourceId, string? destId)
         {
             DateTimeInstance dti;
 
@@ -1292,7 +1282,7 @@ namespace EWSoftware.PDI.Objects
             else
             {
                 // Convert it from the source time zone to UTC and then from UTC to the destination time zone
-                dti = VCalendar.UtcToTimeZoneTime(VCalendar.TimeZoneTimeToUtc(convertDate, sourceId), destId);
+                dti = UtcToTimeZoneTime(TimeZoneTimeToUtc(convertDate, sourceId), destId);
             }
 
             return dti;
@@ -1309,11 +1299,11 @@ namespace EWSoftware.PDI.Objects
         /// unmodified date/time information if it cannot be found.</returns>
         /// <remarks>For this method, the end date/time information in the returned object is the same as the
         /// start date/time information and it has a zero length duration.</remarks>
-        public static DateTimeInstance TimeZoneTimeInfo(DateTime infoDate, string timeZoneId)
+        public static DateTimeInstance TimeZoneTimeInfo(DateTime infoDate, string? timeZoneId)
         {
-            TimeZoneNameProperty tzn;
+            TimeZoneNameProperty? tzn;
 
-            DateTimeInstance dti = new DateTimeInstance(infoDate);
+            DateTimeInstance dti = new(infoDate);
 
             // We won't adjust values in year 1 or year 9999 as we could underflow or overflow the date/time
             // object.
@@ -1323,7 +1313,7 @@ namespace EWSoftware.PDI.Objects
             dti.TimeZoneId = timeZoneId;
 
             // Get the observance rules to use in the conversion
-            FindRules(infoDate, timeZoneId, false, out ObservanceRule standardRule, out ObservanceRule daylightRule,
+            FindRules(infoDate, timeZoneId, false, out ObservanceRule? standardRule, out ObservanceRule? daylightRule,
                 out DateTime standardDate, out DateTime dstDate);
 
             // If neither observance rule was found, use it as-is
@@ -1336,7 +1326,7 @@ namespace EWSoftware.PDI.Objects
                 if(infoDate >= standardDate)
                 {
                     tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                 }
                 else    // We don't have a time zone name for this case
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
@@ -1356,7 +1346,7 @@ namespace EWSoftware.PDI.Objects
 
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
                     tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                 }
 
                 return dti;
@@ -1374,20 +1364,22 @@ namespace EWSoftware.PDI.Objects
                         dti.StartDateTime = dti.EndDateTime = infoDate.AddHours(1);
 
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
-                    tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = daylightRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                 }
                 else
                 {
-                    tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName =  dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = standardRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                 }
             }
-            else    // Southern hemisphere
+            else
+            {
+                // Southern hemisphere
                 if(infoDate >= standardDate && infoDate < dstDate)
                 {
-                    tzn = standardRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = standardRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                 }
                 else
                 {
@@ -1396,9 +1388,10 @@ namespace EWSoftware.PDI.Objects
                         dti.StartDateTime = dti.EndDateTime = infoDate.AddHours(1);
 
                     dti.StartIsDaylightSavingTime = dti.EndIsDaylightSavingTime = true;
-                    tzn = daylightRule.TimeZoneNames[CultureInfo.CurrentCulture.Name];
-                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value;
+                    tzn = daylightRule!.TimeZoneNames[CultureInfo.CurrentCulture.Name];
+                    dti.StartTimeZoneName = dti.EndTimeZoneName = (tzn == null) ? String.Empty : tzn.Value!;
                 }
+            }
 
             return dti;
         }

@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : KindProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2019-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the kind property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -33,7 +33,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private CardKind cardKind;
-        private string otherKind;
+        private string? otherKind;
 
         #endregion
 
@@ -71,8 +71,10 @@ namespace EWSoftware.PDI.Properties
                 if(cardKind != CardKind.Other)
                     otherKind = null;
                 else
+                {
                     if(String.IsNullOrWhiteSpace(otherKind))
                         otherKind = "X-UNKNOWN";
+                }
             }
         }
 
@@ -81,7 +83,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Setting this parameter automatically sets the <see cref="CardKind"/> property to
         /// <c>Other</c>.</value>
-        public string OtherKind
+        public string? OtherKind
         {
             get => otherKind;
             set
@@ -99,11 +101,11 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle converting the text value to a <see cref="CardKind"/>
         /// value.
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
-                string kind;
+                string? kind;
 
                 switch(cardKind)
                 {
@@ -163,7 +165,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle converting the text value to a <see cref="CalendarMethod"/>
         /// value.
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -192,7 +194,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            KindProperty o = new KindProperty();
+            KindProperty o = new();
             o.Clone(this);
             return o;
         }

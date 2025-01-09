@@ -22,7 +22,7 @@ using System.Reflection;
 // General assembly information
 [assembly: AssemblyTitle("EWSoftware.PDI Windows Forms Controls")]
 
-#if NET6_0_OR_GREATER
+#if NET8_0_OR_GREATER
 [assembly: System.Runtime.Versioning.SupportedOSPlatform("windows")]
 #endif
 

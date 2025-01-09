@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RelatedProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2019-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Related property.  It is used with the vCard 4.0 Personal Data  Interchange (PDI)
 // classes.
@@ -38,33 +38,34 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static readonly Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplit = new(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         // This private array is used to translate parameter names and values to phone types
-        private static readonly NameToValue<RelatedTypes>[] ntv = {
-            new NameToValue<RelatedTypes>("PREF", RelatedTypes.None, false),
-            new NameToValue<RelatedTypes>("TYPE", RelatedTypes.None, false),
-            new NameToValue<RelatedTypes>("ACQUIANTANCE", RelatedTypes.Acquaintance, true),
-            new NameToValue<RelatedTypes>("AGENT", RelatedTypes.Agent, true),
-            new NameToValue<RelatedTypes>("CHILD", RelatedTypes.Child, true),
-            new NameToValue<RelatedTypes>("CO-RESIDENT", RelatedTypes.CoResident, true),
-            new NameToValue<RelatedTypes>("CO-WORKER", RelatedTypes.CoWorker, true),
-            new NameToValue<RelatedTypes>("COLLEAGUE", RelatedTypes.Colleague, true),
-            new NameToValue<RelatedTypes>("CONTACT", RelatedTypes.Contact, true),
-            new NameToValue<RelatedTypes>("CRUSH", RelatedTypes.Crush, true),
-            new NameToValue<RelatedTypes>("DATE", RelatedTypes.Date, true),
-            new NameToValue<RelatedTypes>("EMERGENCY", RelatedTypes.Emergency, true),
-            new NameToValue<RelatedTypes>("FRIEND", RelatedTypes.Friend, true),
-            new NameToValue<RelatedTypes>("KIN", RelatedTypes.Kin, true),
-            new NameToValue<RelatedTypes>("ME", RelatedTypes.Me, true),
-            new NameToValue<RelatedTypes>("MET", RelatedTypes.Met, true),
-            new NameToValue<RelatedTypes>("MUSE", RelatedTypes.Muse, true),
-            new NameToValue<RelatedTypes>("NEIGHBOR", RelatedTypes.Neighbor, true),
-            new NameToValue<RelatedTypes>("PARENT", RelatedTypes.Parent, true),
-            new NameToValue<RelatedTypes>("SIBLING", RelatedTypes.Sibling, true),
-            new NameToValue<RelatedTypes>("SPOUSE", RelatedTypes.Spouse, true),
-            new NameToValue<RelatedTypes>("SWEETHEART", RelatedTypes.Sweetheart, true),
-        };
+        private static readonly NameToValue<RelatedTypes>[] ntv =
+        [
+            new("PREF", RelatedTypes.None, false),
+            new("TYPE", RelatedTypes.None, false),
+            new("ACQUIANTANCE", RelatedTypes.Acquaintance, true),
+            new("AGENT", RelatedTypes.Agent, true),
+            new("CHILD", RelatedTypes.Child, true),
+            new("CO-RESIDENT", RelatedTypes.CoResident, true),
+            new("CO-WORKER", RelatedTypes.CoWorker, true),
+            new("COLLEAGUE", RelatedTypes.Colleague, true),
+            new("CONTACT", RelatedTypes.Contact, true),
+            new("CRUSH", RelatedTypes.Crush, true),
+            new("DATE", RelatedTypes.Date, true),
+            new("EMERGENCY", RelatedTypes.Emergency, true),
+            new("FRIEND", RelatedTypes.Friend, true),
+            new("KIN", RelatedTypes.Kin, true),
+            new("ME", RelatedTypes.Me, true),
+            new("MET", RelatedTypes.Met, true),
+            new("MUSE", RelatedTypes.Muse, true),
+            new("NEIGHBOR", RelatedTypes.Neighbor, true),
+            new("PARENT", RelatedTypes.Parent, true),
+            new("SIBLING", RelatedTypes.Sibling, true),
+            new("SPOUSE", RelatedTypes.Spouse, true),
+            new("SWEETHEART", RelatedTypes.Sweetheart, true),
+        ];
 
         private short preferredOrder;
 
@@ -136,7 +137,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            RelatedProperty o = new RelatedProperty();
+            RelatedProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -169,9 +170,10 @@ namespace EWSoftware.PDI.Properties
             // Serialize the related types if necessary
             if(rt != RelatedTypes.None)
             {
-                StringBuilder sbTypes = new StringBuilder(50);
+                StringBuilder sbTypes = new(50);
 
                 for(int idx = 1; idx < ntv.Length; idx++)
+                {
                     if((rt & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
@@ -179,6 +181,7 @@ namespace EWSoftware.PDI.Properties
 
                         sbTypes.Append(ntv[idx].Name.ToLowerInvariant());
                     }
+                }
 
                 sbTypes.Insert(0, "=");
                 sbTypes.Insert(0, ParameterNames.Type);
@@ -205,8 +208,10 @@ namespace EWSoftware.PDI.Properties
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
             {
                 for(idx = 0; idx < ntv.Length; idx++)
+                {
                     if(ntv[idx].IsMatch(parameters[paramIdx]))
                         break;
+                }
 
                 if(idx == ntv.Length)
                 {
@@ -244,8 +249,10 @@ namespace EWSoftware.PDI.Properties
                             foreach(string s in types)
                             {
                                 for(subIdx = 1; subIdx < ntv.Length; subIdx++)
+                                {
                                     if(ntv[subIdx].IsMatch(s))
                                         break;
+                                }
 
                                 // Unrecognized ones are ignored
                                 if(subIdx < ntv.Length)

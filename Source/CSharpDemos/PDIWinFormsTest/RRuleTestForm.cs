@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RRuleTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration used to test the recurrence engine which encapsulates the iCalendar 2.0 RRULE
 // feature set.  It is separate from the other PDI calendar classes so that you can use the recurrence engine
@@ -75,7 +75,7 @@ namespace PDIWinFormsTest
                 lblCount.Text = String.Empty;
 
                 // Define the recurrence rule by parsing the text
-                Recurrence r = new Recurrence(txtRRULE.Text) { StartDateTime = dtpStartDate.Value };
+                var r = new Recurrence(txtRRULE.Text) { StartDateTime = dtpStartDate.Value };
 
                 // Get the currently defined set of holidays if necessary
                 if(!r.CanOccurOnHoliday)
@@ -87,16 +87,20 @@ namespace PDIWinFormsTest
                 // For hourly, minutely, and secondly, warn the user if there is no end date or max occurrences
                 if(r.Frequency >= RecurFrequency.Hourly && r.MaximumOccurrences == 0 &&
                   r.RecurUntil > r.StartDateTime.AddDays(100))
+                {
                     if(MessageBox.Show("This recurrence may run for a very long time.  Continue?", "Confirm",
                       MessageBoxButtons.YesNo) == DialogResult.No)
+                    {
                         return;
+                    }
+                }
 
                 lbDates.DataSource = null;
                 this.Cursor = Cursors.WaitCursor;
 
-                start = System.Environment.TickCount;
+                start = Environment.TickCount;
                 dc = r.InstancesBetween(r.StartDateTime, DateTime.MaxValue);
-                elapsed = (System.Environment.TickCount - start) / 1000.0;
+                elapsed = (Environment.TickCount - start) / 1000.0;
                 count = dc.Count;
 
                 if(count > 5000)
@@ -155,24 +159,23 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnDesign_Click(object sender, EventArgs e)
         {
-            using(RecurrencePropertiesDlg dlg = new RecurrencePropertiesDlg())
+            using var dlg = new RecurrencePropertiesDlg();
+            
+            try
             {
-                try
-                {
-                    Recurrence r = new Recurrence(txtRRULE.Text) { StartDateTime = dtpStartDate.Value };
+                var r = new Recurrence(txtRRULE.Text) { StartDateTime = dtpStartDate.Value };
 
-                    dlg.SetRecurrence(r);
+                dlg.SetRecurrence(r);
 
-                    if(dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        dlg.GetRecurrence(r);
-                        txtRRULE.Text = r.ToString();
-                    }
-                }
-                catch(Exception ex)
+                if(dlg.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show(ex.ToString());
+                    dlg.GetRecurrence(r);
+                    txtRRULE.Text = r.ToString();
                 }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -185,7 +188,7 @@ namespace PDIWinFormsTest
         {
             try
             {
-                Recurrence r = new Recurrence(txtRRULE.Text);
+                var r = new Recurrence(txtRRULE.Text);
                 MessageBox.Show(r.ToDescription(), "Recurrence Description");
             }
             catch(Exception ex)

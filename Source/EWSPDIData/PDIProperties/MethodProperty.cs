@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MethodProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Method property used by the Personal Data Interchange (PDI) iCalendar classes
 //
@@ -36,7 +35,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private CalendarMethod calendarMethod;
-        private string otherMethod;
+        private string? otherMethod;
 
         #endregion
 
@@ -84,7 +83,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Setting this parameter automatically sets the <see cref="CalendarMethod"/> property to
         /// <c>Other</c>.</value>
-        public string OtherMethod
+        public string? OtherMethod
         {
             get => otherMethod;
             set
@@ -102,11 +101,11 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle converting the text value to a <see cref="CalendarMethod"/>
         /// value.
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
-                string method;
+                string? method;
 
                 switch(calendarMethod)
                 {
@@ -182,7 +181,7 @@ namespace EWSoftware.PDI.Properties
         /// This property is overridden to handle converting the text value to a <see cref="CalendarMethod"/>
         /// value.
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -211,7 +210,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            MethodProperty o = new MethodProperty();
+            MethodProperty o = new();
             o.Clone(this);
             return o;
         }

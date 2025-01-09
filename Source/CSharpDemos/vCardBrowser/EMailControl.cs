@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : EMailControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/01/2020
-// Note    : Copyright 2004-2020, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a vCard's e-mail address information.  It's nothing elaborate but does let you edit the
 // collection fairly well.
@@ -35,7 +35,7 @@ namespace vCardBrowser
         #region Private data members
         //=====================================================================
 
-        private static Regex reEMailAddress = new Regex(@"^([a-z0-9_\-])([a-z0-9_\-\.]*)@" +
+        private static readonly Regex reEMailAddress = new(@"^([a-z0-9_\-])([a-z0-9_\-\.]*)@" +
             @"(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-z0-9\-]+)\.)+))([a-z]" +
             @"{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$",
             RegexOptions.IgnoreCase);
@@ -96,25 +96,25 @@ namespace vCardBrowser
 
             // For the checkboxes, the Format and Parse events are needed to get and set the checked state.  We
             // aren't going to check for all of the older less common ones.
-            Binding b = new Binding("Checked", this.BindingSource, "EMailTypes");
+            Binding b = new("Checked", this.BindingSource, "EMailTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkAOL.Tag = EMailTypes.AOL;
             chkAOL.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "EMailTypes");
+            b = new("Checked", this.BindingSource, "EMailTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkInternet.Tag = EMailTypes.Internet;
             chkInternet.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "EMailTypes");
+            b = new("Checked", this.BindingSource, "EMailTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkX400.Tag = EMailTypes.X400;
             chkX400.DataBindings.Add(b);
 
-            b = new Binding("Checked", this.BindingSource, "EMailTypes");
+            b = new("Checked", this.BindingSource, "EMailTypes");
             b.Format += CheckBox_Format;
             b.Parse += CheckBox_Parse;
             chkPreferred.Tag = EMailTypes.Preferred;
@@ -130,11 +130,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Format(object sender, ConvertEventArgs e)
+        private void CheckBox_Format(object? sender, ConvertEventArgs e)
         {
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            EMailTypes checkType = (EMailTypes)cb.Tag;
-            EMailTypes emailTypes = (EMailTypes)e.Value;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            EMailTypes checkType = (EMailTypes)cb.Tag!;
+            EMailTypes emailTypes = (EMailTypes)e.Value!;
 
             e.Value = (emailTypes & checkType) == checkType;
         }
@@ -144,11 +144,11 @@ namespace vCardBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void CheckBox_Parse(object sender, ConvertEventArgs e)
+        private void CheckBox_Parse(object? sender, ConvertEventArgs e)
         {
             EMailProperty email = (EMailProperty)this.BindingSource.Current;
-            CheckBox cb = (CheckBox)((Binding)sender).Control;
-            EMailTypes checkType = (EMailTypes)cb.Tag;
+            CheckBox cb = (CheckBox)((Binding)sender!).Control;
+            EMailTypes checkType = (EMailTypes)cb.Tag!;
 
             if(cb.Checked)
                 email.EMailTypes |= checkType;

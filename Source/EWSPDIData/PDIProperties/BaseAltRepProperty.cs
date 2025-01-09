@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseAltRepProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/18/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains an abstract base class used for the various iCalenar property classes that support the
 // Alternate Representation (ALTREP) parameter.
@@ -20,7 +19,6 @@
 //===============================================================================================================
 
 using System;
-using System.Globalization;
 using System.Text;
 
 namespace EWSoftware.PDI.Properties
@@ -41,7 +39,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects.  It specifies a URI that points to
         /// an alternate representation for a textual property value.</value>
-        public string AlternateRepresentation { get; set; }
+        public string? AlternateRepresentation { get; set; }
 
         #endregion
 
@@ -100,6 +98,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "ALTREP=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -114,6 +113,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

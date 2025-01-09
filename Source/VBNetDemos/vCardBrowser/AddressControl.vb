@@ -209,7 +209,10 @@ Public Partial Class AddressControl
         End If
 
         Try
-            System.Diagnostics.Process.Start(sb.ToString())
+            Process.Start(New ProcessStartInfo With {
+                .FileName = sb.ToString(),
+                .UseShellExecute = True
+            })
 
         Catch ex As Exception
             MessageBox.Show("Unable to start web browser", "Launch Error", MessageBoxButtons.OK,

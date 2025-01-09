@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RDatePropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for RDateProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCalendar and iCalendar classes.
@@ -65,9 +64,9 @@ namespace EWSoftware.PDI.Properties
         /// <overloads>There are two overloads for this method</overloads>
         public RDateProperty Add(DateTime dt)
         {
-            RDateProperty rdt = new RDateProperty { DateTimeValue = dt };
+            RDateProperty rdt = new() { DateTimeValue = dt };
 
-            base.Add(rdt);
+            this.Add(rdt);
 
             return rdt;
         }
@@ -79,9 +78,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public RDateProperty Add(Period p)
         {
-            RDateProperty rdt = new RDateProperty { PeriodValue = p };
+            RDateProperty rdt = new() { PeriodValue = p };
 
-            base.Add(rdt);
+            this.Add(rdt);
 
             return rdt;
         }

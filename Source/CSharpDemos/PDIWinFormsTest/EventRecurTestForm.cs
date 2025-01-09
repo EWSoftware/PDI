@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : EventRecurTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration used to test the event recurrence generation features of the calendar classes
 //
@@ -67,11 +67,11 @@ namespace PDIWinFormsTest
             cboTimeZone.Items.Add("No time zone");
 
             foreach(VTimeZone vtz in VCalendar.TimeZones)
-                cboTimeZone.Items.Add(vtz.TimeZoneId.Value);
+                cboTimeZone.Items.Add(vtz.TimeZoneId.Value!);
 
             cboTimeZone.SelectedIndex = 0;
 
-            DateTime dtDate = new DateTime(DateTime.Today.Year, 1, 1);
+            DateTime dtDate = new(DateTime.Today.Year, 1, 1);
             dtpStartDate.Value = dtDate;
             dtpEndDate.Value = dtDate.AddMonths(3);
 
@@ -102,7 +102,7 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnTest_Click(object sender, EventArgs e)
         {
-            RecurringObject ro = null;
+            RecurringObject? ro = null;
             DateTimeInstanceCollection instances;
             string calendar;
             int start;
@@ -121,11 +121,15 @@ namespace PDIWinFormsTest
                 if(cal.Events.Count > 0)
                     ro = cal.Events[0];
                 else
+                {
                     if(cal.ToDos.Count > 0)
                         ro = cal.ToDos[0];
                     else
+                    {
                         if(cal.Journals.Count > 0)
                             ro = cal.Journals[0];
+                    }
+                }
 
                 if(ro == null)
                 {

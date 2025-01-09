@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RDateProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class for the RDATE property used by the Personal Data Interchange (PDI) classes such as
 // vCalendar and iCalendar.
@@ -40,8 +39,8 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private Period period;
-        private string timeZoneId;
+        private Period? period;
+        private string? timeZoneId;
 
         #endregion
 
@@ -88,7 +87,7 @@ namespace EWSoftware.PDI.Properties
         /// value, the time part of the property value is considered to be expressed in local time for the given
         /// time zone rather than universal time.  The ID should match a time zone ID on a VTIMEZONE component in
         /// the owning calendar.  If set, the <see cref="IsFloating"/> property is ignored.</value>
-        public string TimeZoneId
+        public string? TimeZoneId
         {
             get => timeZoneId;
             set
@@ -233,7 +232,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the date/time or period to/from its string form
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -299,7 +298,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the date/time to/from its string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -328,7 +327,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            RDateProperty o = new RDateProperty();
+            RDateProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -359,7 +358,7 @@ namespace EWSoftware.PDI.Properties
                 sb.Append(ParameterNames.TimeZoneId);
                 sb.Append('=');
 
-                if(timeZoneId.IndexOfAny(new char[] { ',', ';', ':' }) != -1)
+                if(timeZoneId.IndexOfAny([',', ';', ':']) != -1)
                 {
                     sb.Append('\"');
                     sb.Append(timeZoneId);
@@ -380,6 +379,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "TZID=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -394,6 +394,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

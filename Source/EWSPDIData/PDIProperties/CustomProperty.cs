@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : CustomProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the custom property class.  It is used with the Personal Data Interchange (PDI) classes
 // such as vCalendar, iCalendar, and vCard to contain non-standard property names and values.
@@ -34,7 +33,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private string customName;
+        private string customName = null!;
 
         #endregion
 
@@ -86,7 +85,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Since we don't know what it is, we may not be able to tell if it's encoded or not.  It will
         /// get passed through unchanged.</value>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => base.Value;
             set => base.Value = value;
@@ -123,7 +122,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            CustomProperty o = new CustomProperty(customName);
+            CustomProperty o = new(customName);
             o.Clone(this);
             return o;
         }

@@ -15,11 +15,8 @@ namespace vCardBrowser
         {
             if(disposing)
             {
-                if(sf != null)
-                    sf.Dispose();
-
-                if(components != null)
-                    components.Dispose();
+                sf?.Dispose();
+                components?.Dispose();
             }
             base.Dispose(disposing);
         }

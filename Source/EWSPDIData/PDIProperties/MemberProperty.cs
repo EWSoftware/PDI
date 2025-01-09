@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : MemberProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2019-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the member property class used by the Personal Data Interchange (PDI) vCard class
 //
@@ -67,7 +67,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            MemberProperty o = new MemberProperty();
+            MemberProperty o = new();
             o.Clone(this);
             return o;
         }

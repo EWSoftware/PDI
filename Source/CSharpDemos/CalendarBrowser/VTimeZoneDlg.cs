@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VTimeZoneDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2004-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a VTimeZone object's properties
 //
@@ -35,7 +35,7 @@ namespace CalendarBrowser
         #region Private data members
         //=====================================================================
 
-        private string originalId;
+        private string? originalId;
 
         #endregion
 
@@ -119,12 +119,14 @@ namespace CalendarBrowser
             {
                 // Disallow duplicate time zone IDs
                 if(originalId == null || txtTimeZoneId.Text != originalId)
+                {
                     if(VCalendar.TimeZones[txtTimeZoneId.Text] != null)
                     {
                         epErrors.SetError(txtTimeZoneId, "A time zone with the specified ID already exists");
                         e.Cancel = true;
                         txtTimeZoneId.Focus();
                     }
+                }
             }
         }
         #endregion

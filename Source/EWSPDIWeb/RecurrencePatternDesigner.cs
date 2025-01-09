@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI ASP.NET Web Server Controls
 // File    : RecurrencePatternDesigner.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/14/2014
-// Note    : Copyright 2005-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2005-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a designer for the recurrence pattern control
 //
@@ -29,33 +28,30 @@ namespace EWSoftware.PDI.Web.Design
 {
     /// <summary>
     /// This provides design time support for the web server
-    /// <see cref="EWSoftware.PDI.Web.Controls.RecurrencePattern"/> control.
+    /// <see cref="RecurrencePattern"/> control.
     /// </summary>
     internal sealed class RecurrencePatternDesigner : System.Web.UI.Design.ControlDesigner
     {
         /// <summary>
-        /// This returns the design time HTML for the <see cref="EWSoftware.PDI.Web.Controls.RecurrencePattern"/>
+        /// This returns the design time HTML for the <see cref="RecurrencePattern"/>
         /// control.
         /// </summary>
         /// <returns>The design time HTML</returns>
         public override string GetDesignTimeHtml()
         {
-            EWSoftware.PDI.Web.Controls.RecurrencePattern rp = (RecurrencePattern)this.Component;
+            RecurrencePattern rp = (RecurrencePattern)this.Component;
             bool isVisible = rp.Visible;
 
             try
             {
-                using(var tw = new StringWriter(CultureInfo.InvariantCulture))
-                {
-                    using(var writer = new HtmlTextWriter(tw))
-                    {
-                        if(!isVisible)
-                            rp.Visible = true;
+                using var tw = new StringWriter(CultureInfo.InvariantCulture);
+                using var writer = new HtmlTextWriter(tw);
+                
+                if(!isVisible)
+                    rp.Visible = true;
 
-                        writer.Write(rp.RenderAtDesignTime());
-                        return tw.ToString();
-                    }
-                }
+                writer.Write(rp.RenderAtDesignTime());
+                return tw.ToString();
             }
             catch(Exception e)
             {

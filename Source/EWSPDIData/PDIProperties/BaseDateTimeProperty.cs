@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseDateTimeProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 05/17/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains an abstract base date/time property class used to create the other date/time property
 // classes.
@@ -40,7 +39,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private DateTime propDate;
-        private string timeZoneId;
+        private string? timeZoneId;
 
         #endregion
 
@@ -68,7 +67,7 @@ namespace EWSoftware.PDI.Properties
         /// value, the time part of the property value is considered to be expressed in local time for the given
         /// time zone rather than universal time.  The ID should match a time zone ID on a VTIMEZONE component in
         /// the owning calendar.  If set, the <see cref="IsFloating"/> property is ignored.</value>
-        public string TimeZoneId
+        public string? TimeZoneId
         {
             get => timeZoneId;
             set
@@ -84,7 +83,7 @@ namespace EWSoftware.PDI.Properties
         /// This is used to get or set the calendar scale (CALSCALE) parameter value
         /// </summary>
         /// <value>This property is only applicable to vCard 4.0 date/time objects</value>
-        public string CalendarScale { get; set; }
+        public string? CalendarScale { get; set; }
 
         /// <summary>
         /// This is used to get or set the value as a <see cref="System.DateTime"/> object expressed in the
@@ -171,7 +170,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the date/time to/from its string form
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -254,7 +253,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the date/time to/from its string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -305,7 +304,7 @@ namespace EWSoftware.PDI.Properties
                 sb.Append(ParameterNames.TimeZoneId);
                 sb.Append('=');
 
-                if(timeZoneId.IndexOfAny(new char[] { ',', ';', ':' }) != -1)
+                if(timeZoneId.IndexOfAny([',', ';', ':']) != -1)
                 {
                     sb.Append('\"');
                     sb.Append(timeZoneId);

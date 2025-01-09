@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : YearlyFrequency.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/25/2020
-// Note    : Copyright 2003-2020, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class used to implements the Yearly frequency rules
 //
@@ -35,12 +35,12 @@ namespace EWSoftware.PDI
         /// <param name="from">The start date of the range limiting the instances generated</param>
         /// <param name="to">The end date of the range limiting the instances generated</param>
         /// <returns>The first instance date or null if there are no more instances</returns>
-        public RecurDateTime FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
+        public RecurDateTime? FindStart(Recurrence r, RecurDateTime start, RecurDateTime end, RecurDateTime from,
           RecurDateTime to)
         {
             int adjust;
 
-            RecurDateTime rdt = new RecurDateTime(start);
+            RecurDateTime rdt = new(start);
 
             // Adjust the year if the starting date is before the limiting range start date
             if(rdt.Year < from.Year)
@@ -92,6 +92,7 @@ namespace EWSoftware.PDI
 
             // Don't bother if either collection is empty
             if(count != 0 && byMonth.Count != 0)
+            {
                 for(int idx = 0; idx < count; idx++)
                 {
                     rdt = dates[0];
@@ -104,6 +105,7 @@ namespace EWSoftware.PDI
                         dates.Add(rdtNew);
                     }
                 }
+            }
 
             return dates.Count;
         }
@@ -126,6 +128,7 @@ namespace EWSoftware.PDI
 
             // Don't bother if either collection is empty
             if(count != 0 && byWeekNo.Count != 0)
+            {
                 for(int idx = 0; idx < count; idx++)
                 {
                     rdt = dates[0];
@@ -157,6 +160,7 @@ namespace EWSoftware.PDI
                         dates.Add(rdtNew);
                     }
                 }
+            }
 
             return dates.Count;
         }
@@ -179,6 +183,7 @@ namespace EWSoftware.PDI
 
             // Don't bother if either collection is empty
             if(count != 0 && byYearDay.Count != 0)
+            {
                 for(int idx = 0; idx < count; idx++)
                 {
                     rdt = dates[0];
@@ -206,6 +211,7 @@ namespace EWSoftware.PDI
                         dates.Add(rdtNew);
                     }
                 }
+            }
 
             return dates.Count;
         }
@@ -241,6 +247,7 @@ namespace EWSoftware.PDI
 
             // Don't bother if either collection is empty
             if(count != 0 && byDay.Count != 0)
+            {
                 for(int idx = 0; idx < count; idx++)
                 {
                     rdt = dates[0];
@@ -287,6 +294,7 @@ namespace EWSoftware.PDI
                         dates.Add(new RecurDateTime(rdtNew));
                     }
                 }
+            }
 
             return dates.Count;
         }

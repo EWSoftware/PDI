@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for AddressProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -99,10 +98,12 @@ namespace EWSoftware.PDI.Properties
                 throw new ArgumentOutOfRangeException(nameof(idx), idx, LR.GetString("ExAddrInvalidIndex"));
 
             for(int addrIdx = 0; addrIdx < base.Count; addrIdx++)
+            {
                 if(addrIdx == idx)
                     this[addrIdx].AddressTypes |= AddressTypes.Preferred;
                 else
                     this[addrIdx].AddressTypes &= ~AddressTypes.Preferred;
+            }
 
             base.OnListChanged(new ListChangedEventArgs(ListChangedType.Reset, -1));
         }
@@ -116,15 +117,19 @@ namespace EWSoftware.PDI.Properties
         /// the one with the <c>Preferred</c> flag set.  If a preferred address with one of the given types
         /// cannot be found, it will return the first address matching one of the given types without the
         /// <c>Preferred</c> flag set.  If no address can be found, it returns null.</remarks>
-        public AddressProperty FindFirstByType(AddressTypes addrType)
+        public AddressProperty? FindFirstByType(AddressTypes addrType)
         {
             AddressTypes addrNoPref = addrType & ~AddressTypes.Preferred;
             bool usePreferred = (addrNoPref != addrType);
 
             foreach(AddressProperty addr in this)
+            {
                 if((addr.AddressTypes & addrNoPref) != 0 && (!usePreferred ||
                   (addr.AddressTypes & AddressTypes.Preferred) != 0))
+                {
                     return addr;
+                }
+            }
 
             // Try again without the preferred flag?
             if(usePreferred)

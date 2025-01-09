@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RelatedToPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for RelatedToProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCalendar and iCalendar class.
@@ -63,7 +63,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public RelatedToProperty Add(RelationshipType rType, string relation)
         {
-            RelatedToProperty rt = new RelatedToProperty { RelationshipType = rType, Value = relation };
+            RelatedToProperty rt = new() { RelationshipType = rType, Value = relation };
 
             base.Add(rt);
 

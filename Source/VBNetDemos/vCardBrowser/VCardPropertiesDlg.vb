@@ -114,7 +114,10 @@ Partial Public Class VCardPropertiesDlg
             MessageBox.Show("Enter a web page URL first", "No URL", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             Try
-                System.Diagnostics.Process.Start(txtWebPage.Text)
+                Process.Start(New ProcessStartInfo With {
+                    .FileName = txtWebPage.Text,
+                    .UseShellExecute = True
+                })
 
             Catch ex As Exception
                 MessageBox.Show("Unable to start web browser for this URL", "URL Error", MessageBoxButtons.OK,

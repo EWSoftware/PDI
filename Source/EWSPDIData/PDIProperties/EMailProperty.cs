@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EMailProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/16/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the e-mail property class.  It is used with the Personal Data Interchange (PDI) vCard
 // class.
@@ -40,25 +40,26 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static readonly Regex reSplit = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplit = new(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         // This private array is used to translate parameter names and values to email types
-        private static readonly NameToValue<EMailTypes>[] ntv = {
-            new NameToValue<EMailTypes>("TYPE", EMailTypes.None, false),
-            new NameToValue<EMailTypes>("PREF", EMailTypes.Preferred, true),
-            new NameToValue<EMailTypes>("AOL", EMailTypes.AOL, true),
-            new NameToValue<EMailTypes>("AppleLink", EMailTypes.AppleLink, true),
-            new NameToValue<EMailTypes>("ATTMail", EMailTypes.ATTMail, true),
-            new NameToValue<EMailTypes>("CIS", EMailTypes.CompuServe, true),
-            new NameToValue<EMailTypes>("eWorld", EMailTypes.eWorld, true),
-            new NameToValue<EMailTypes>("INTERNET", EMailTypes.Internet, true),
-            new NameToValue<EMailTypes>("IBMMail", EMailTypes.IBMMail, true),
-            new NameToValue<EMailTypes>("MCIMail", EMailTypes.MCIMail, true),
-            new NameToValue<EMailTypes>("POWERSHARE", EMailTypes.PowerShare, true),
-            new NameToValue<EMailTypes>("PRODIGY", EMailTypes.Prodigy, true),
-            new NameToValue<EMailTypes>("TLX", EMailTypes.Telex, true),
-            new NameToValue<EMailTypes>("X400", EMailTypes.X400, true)
-        };
+        private static readonly NameToValue<EMailTypes>[] ntv =
+        [
+            new("TYPE", EMailTypes.None, false),
+            new("PREF", EMailTypes.Preferred, true),
+            new("AOL", EMailTypes.AOL, true),
+            new("AppleLink", EMailTypes.AppleLink, true),
+            new("ATTMail", EMailTypes.ATTMail, true),
+            new("CIS", EMailTypes.CompuServe, true),
+            new("eWorld", EMailTypes.eWorld, true),
+            new("INTERNET", EMailTypes.Internet, true),
+            new("IBMMail", EMailTypes.IBMMail, true),
+            new("MCIMail", EMailTypes.MCIMail, true),
+            new("POWERSHARE", EMailTypes.PowerShare, true),
+            new("PRODIGY", EMailTypes.Prodigy, true),
+            new("TLX", EMailTypes.Telex, true),
+            new("X400", EMailTypes.X400, true)
+        ];
 
         private short preferredOrder;
 
@@ -131,7 +132,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            EMailProperty o = new EMailProperty();
+            EMailProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -175,9 +176,10 @@ namespace EWSoftware.PDI.Properties
             // Serialize the e-mail types if necessary
             if(parameterValue != EMailTypes.None && parameterValue != EMailTypes.Internet)
             {
-                StringBuilder sbTypes = new StringBuilder(50);
+                StringBuilder sbTypes = new(50);
 
                 for(int idx = 1; idx < ntv.Length; idx++)
+                {
                     if((parameterValue & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
@@ -185,6 +187,7 @@ namespace EWSoftware.PDI.Properties
 
                         sbTypes.Append(ntv[idx].Name);
                     }
+                }
 
                 // The format is different for the 3.0 and later specs
                 if(this.Version == SpecificationVersions.vCard21)
@@ -245,8 +248,10 @@ namespace EWSoftware.PDI.Properties
                         foreach(string s in types)
                         {
                             for(subIdx = 1; subIdx < ntv.Length; subIdx++)
+                            {
                                 if(ntv[subIdx].IsMatch(s))
                                     break;
+                            }
 
                             // Unrecognized ones are ignored
                             if(subIdx < ntv.Length)

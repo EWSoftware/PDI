@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeTransparencyProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Time Transparency property class used by the Personal Data Interchange (PDI) vCalendar
 // and iCalendar classes.
@@ -63,7 +62,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Instead of throwing an exception, the property will convert unrecognized non-numeric values
         /// to false.</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -79,7 +78,7 @@ namespace EWSoftware.PDI.Properties
                 if(!String.IsNullOrWhiteSpace(value))
                 {
                     // vCalendar 1.0 uses numeric values.  iCalendar 2.0 uses OPAQUE or TRANSPARENT.
-                    this.IsTransparent = ((Char.IsDigit(value[0]) && value[0] != '0') ||
+                    this.IsTransparent = ((Char.IsDigit(value![0]) && value[0] != '0') ||
                         String.Compare(value.Trim(), "TRANSPARENT", StringComparison.OrdinalIgnoreCase) == 0);
                 }
                 else
@@ -90,7 +89,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to a Boolean value
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -119,7 +118,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TimeTransparencyProperty o = new TimeTransparencyProperty();
+            TimeTransparencyProperty o = new();
             o.Clone(this);
             return o;
         }

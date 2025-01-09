@@ -1,5 +1,4 @@
-EWSoftware.PDI.Data Library
----------------------------
+# EWSoftware.PDI.Data Library
 This library contains classes used to create and consume vCard, vCalendar, and iCalendar files used to exchange
 contact and appointment information between applications such as Microsoft Outlook.
 

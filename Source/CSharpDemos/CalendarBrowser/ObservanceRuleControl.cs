@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : ObservanceRuleControl.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/29/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/05/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is used to edit a VTimeZone object's observance rule collection
 //
@@ -38,7 +37,7 @@ namespace CalendarBrowser
         #region Private data members
         //=====================================================================
 
-        private ObservanceRule currentRule;
+        private ObservanceRule? currentRule;
 
         #endregion
 
@@ -52,11 +51,11 @@ namespace CalendarBrowser
 		{
 			InitializeComponent();
 
-            List<ListItem> rules = new List<ListItem>
-            {
-                new ListItem(ObservanceRuleType.Standard, "Standard"),
-                new ListItem(ObservanceRuleType.Daylight, "Daylight")
-            };
+            List<ListItem> rules =
+            [
+                new(ObservanceRuleType.Standard, "Standard"),
+                new(ObservanceRuleType.Daylight, "Daylight")
+            ];
 
             cboRuleType.ValueMember = "Value";
             cboRuleType.DisplayMember = "Display";
@@ -100,7 +99,7 @@ namespace CalendarBrowser
             txtComment.DataBindings.Add("Text", this.BindingSource, "Comment_Value");
 
             // We'll use the Format event to set a valid default date
-            Binding b = new Binding("Value", this.BindingSource, "StartDateTime_TimeZoneDateTime");
+            Binding b = new("Value", this.BindingSource, "StartDateTime_TimeZoneDateTime");
             b.Format += StartDate_Format;
 
             dtpStartDate.DataBindings.Add(b);
@@ -167,9 +166,9 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void StartDate_Format(object sender, ConvertEventArgs e)
+        private void StartDate_Format(object? sender, ConvertEventArgs e)
         {
-            DateTime date = (DateTime)e.Value;
+            DateTime date = (DateTime)e.Value!;
 
             if(date < dtpStartDate.MinDate || date > dtpStartDate.MaxDate)
                 e.Value = DateTime.Today;
@@ -199,7 +198,7 @@ namespace CalendarBrowser
         /// <param name="e">The event arguments</param>
         private void Minutes_Validating(object sender, CancelEventArgs e)
         {
-            NumericUpDown udcHours, udcMins = sender as NumericUpDown;
+            NumericUpDown udcHours, udcMins = (sender as NumericUpDown)!;
 
             this.ErrorProvider.Clear();
 
@@ -222,7 +221,7 @@ namespace CalendarBrowser
         /// </summary>
         /// <param name="sender">The sender of the event</param>
         /// <param name="e">The event arguments</param>
-        private void BindingSource_PositionChanged(object sender, EventArgs e)
+        private void BindingSource_PositionChanged(object? sender, EventArgs e)
         {
             ObservanceRule newItem = (ObservanceRule)this.BindingSource.Current;
             int hours, minutes;

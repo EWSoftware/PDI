@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AddressProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/18/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Address property.  It is used with the Personal Data Interchange (PDI) vCard class
 //
@@ -41,25 +41,26 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static readonly Regex reSplitSemiColon = new Regex(@"(?:^[;])|(?<=(?:[^\\]))[;]");
-        private static readonly Regex reSplitComma = new Regex(@"(?:^[,])|(?<=(?:[^\\]))[,]");
+        private static readonly Regex reSplitSemiColon = new(@"(?:^[;])|(?<=(?:[^\\]))[;]");
+        private static readonly Regex reSplitComma = new(@"(?:^[,])|(?<=(?:[^\\]))[,]");
 
         //=====================================================================
 
         // This private array is used to translate parameter names and values to address types.
-        private static readonly NameToValue<AddressTypes>[] ntv = {
-            new NameToValue<AddressTypes>("GEO", AddressTypes.None, false),
-            new NameToValue<AddressTypes>("LABEL", AddressTypes.None, false),
-            new NameToValue<AddressTypes>("TZ", AddressTypes.None, false),
-            new NameToValue<AddressTypes>("TYPE", AddressTypes.None, false),
-            new NameToValue<AddressTypes>("DOM", AddressTypes.Domestic, true),
-            new NameToValue<AddressTypes>("INTL", AddressTypes.International, true),
-            new NameToValue<AddressTypes>("POSTAL", AddressTypes.Postal, true),
-            new NameToValue<AddressTypes>("PARCEL", AddressTypes.Parcel, true),
-            new NameToValue<AddressTypes>("HOME", AddressTypes.Home, true),
-            new NameToValue<AddressTypes>("WORK", AddressTypes.Work, true),
-            new NameToValue<AddressTypes>("PREF", AddressTypes.Preferred, true)
-        };
+        private static readonly NameToValue<AddressTypes>[] ntv =
+        [
+            new("GEO", AddressTypes.None, false),
+            new("LABEL", AddressTypes.None, false),
+            new("TZ", AddressTypes.None, false),
+            new("TYPE", AddressTypes.None, false),
+            new("DOM", AddressTypes.Domestic, true),
+            new("INTL", AddressTypes.International, true),
+            new("POSTAL", AddressTypes.Postal, true),
+            new("PARCEL", AddressTypes.Parcel, true),
+            new("HOME", AddressTypes.Home, true),
+            new("WORK", AddressTypes.Work, true),
+            new("PREF", AddressTypes.Preferred, true)
+        ];
 
         private short preferredOrder;
 
@@ -111,65 +112,65 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is used to get or set the geocoded location
         /// </summary>
-        public string Geo { get; set; }
+        public string? Geo { get; set; }
 
         /// <summary>
         /// This property is used to get or set the label (the address in a format suitable for printing as an
         /// address label.
         /// </summary>
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         /// This property is used to get or set the time zone associated with the address
         /// </summary>
-        public string TimeZone { get; set; }
+        public string? TimeZone { get; set; }
 
         /// <summary>
         /// This property is used to set or get the PO Box
         /// </summary>
-        public string POBox { get; set; }
+        public string ?POBox { get; set; }
 
         /// <summary>
         /// This property is used to set or get the extended address
         /// </summary>
-        public string ExtendedAddress { get; set; }
+        public string? ExtendedAddress { get; set; }
 
         /// <summary>
         /// This property is used to set or get the street address
         /// </summary>
-        public string StreetAddress { get; set; }
+        public string? StreetAddress { get; set; }
 
         /// <summary>
         /// This property is used to set or get the locality (i.e. city)
         /// </summary>
-        public string Locality { get; set; }
+        public string? Locality { get; set; }
 
         /// <summary>
         /// This property is used to set or get the region (i.e. state or province)
         /// </summary>
-        public string Region { get; set; }
+        public string? Region { get; set; }
 
         /// <summary>
         /// This property is used to set or get the postal (zip) code
         /// </summary>
-        public string PostalCode { get; set; }
+        public string? PostalCode { get; set; }
 
         /// <summary>
         /// This property is used to set or get the country
         /// </summary>
-        public string Country { get; set; }
+        public string? Country { get; set; }
 
         /// <summary>
         /// This property is overridden to handle parsing the address components and concatenating them when
         /// requested.
         /// </summary>
         /// <value>The component parts are escaped as needed</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
                 SpecificationVersions v = this.Version;
-                string[] parts = new string[8];
+                string?[] parts = new string[8];
                 int count = 0;
 
                 // Only include as much as necessary
@@ -290,15 +291,15 @@ namespace EWSoftware.PDI.Properties
         /// requested.
         /// </summary>
         /// <value>The component parts are escaped as needed</value>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
-                string addrValue = this.Value;
+                string? addrValue = this.Value;
 
                 // Encode using the character set?  If so, unescape the backslashes as they get double-encoded.
                 if(addrValue != null && this.Version == SpecificationVersions.vCard21)
-                    addrValue = base.Encode(addrValue).Replace(@"\\", @"\");
+                    addrValue = base.Encode(addrValue)?.Replace(@"\\", @"\");
 
                 return addrValue;
             }
@@ -329,7 +330,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            AddressProperty o = new AddressProperty();
+            AddressProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -388,9 +389,10 @@ namespace EWSoftware.PDI.Properties
             // Serialize the address types if necessary
             if(parameterValue != AddressTypes.None && parameterValue != defaultValue)
             {
-                StringBuilder sbTypes = new StringBuilder(50);
+                StringBuilder sbTypes = new(50);
 
                 for(int idx = 1; idx < ntv.Length; idx++)
+                {
                     if((parameterValue & ntv[idx].EnumValue) != 0)
                     {
                         if(sbTypes.Length > 0)
@@ -398,6 +400,7 @@ namespace EWSoftware.PDI.Properties
 
                         sbTypes.Append(ntv[idx].Name);
                     }
+                }
 
                 // The format is different for the 3.0 and later specs
                 if(this.Version == SpecificationVersions.vCard21)
@@ -476,8 +479,10 @@ namespace EWSoftware.PDI.Properties
                                 foreach(string s in types)
                                 {
                                     for(subIdx = 1; subIdx < ntv.Length; subIdx++)
+                                    {
                                         if(ntv[subIdx].IsMatch(s))
                                             break;
+                                    }
 
                                     // Unrecognized ones are ignored
                                     if(subIdx < ntv.Length)

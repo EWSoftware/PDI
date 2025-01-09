@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VAlarm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the VAlarm object used by vCalendar and iCalendar objects
 //
@@ -41,20 +40,20 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single alarm properties
-        private ActionProperty      action;
-        private TriggerProperty     trigger;
-        private RepeatProperty      repeat;
-        private DurationProperty    duration;
-        private SummaryProperty     summary;
-        private DescriptionProperty desc;
+        private ActionProperty      action = null!;
+        private TriggerProperty     trigger = null!;
+        private RepeatProperty      repeat = null!;
+        private DurationProperty    duration = null!;
+        private SummaryProperty     summary = null!;
+        private DescriptionProperty desc = null!;
 
         // Alarm property collections.  There can be one or more of each of these properties so they are stored
         // in a collection.
-        private AttendeePropertyCollection attendees;
-        private AttachPropertyCollection   attachments;
+        private AttendeePropertyCollection attendees = null!;
+        private AttachPropertyCollection   attachments = null!;
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         #endregion
 
@@ -76,8 +75,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(action == null)
-                    action = new ActionProperty();
+                action ??= new ActionProperty();
 
                 return action;
             }
@@ -91,8 +89,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(trigger == null)
-                    trigger = new TriggerProperty();
+                trigger ??= new TriggerProperty();
 
                 return trigger;
             }
@@ -105,8 +102,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(repeat == null)
-                    repeat = new RepeatProperty();
+                repeat ??= new RepeatProperty();
 
                 return repeat;
             }
@@ -119,8 +115,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(duration == null)
-                    duration = new DurationProperty();
+                duration ??= new DurationProperty();
 
                 return duration;
             }
@@ -134,8 +129,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(summary == null)
-                    summary = new SummaryProperty();
+                summary ??= new SummaryProperty();
 
                 return summary;
             }
@@ -150,8 +144,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(desc == null)
-                    desc = new DescriptionProperty();
+                desc ??= new DescriptionProperty();
 
                 return desc;
             }
@@ -166,8 +159,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(attendees == null)
-                    attendees = new AttendeePropertyCollection();
+                attendees ??= [];
 
                 return attendees;
             }
@@ -185,8 +177,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(attachments == null)
-                    attachments = new AttachPropertyCollection();
+                attachments ??= [];
 
                 return attachments;
             }
@@ -200,8 +191,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -230,7 +220,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            VAlarm o = new VAlarm();
+            VAlarm o = new();
             o.Clone(this);
             return o;
         }
@@ -263,16 +253,16 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public override void ClearProperties()
         {
-            action = null;
-            trigger = null;
-            repeat = null;
-            duration = null;
-            summary = null;
-            desc = null;
+            action = null!;
+            trigger = null!;
+            repeat = null!;
+            duration = null!;
+            summary = null!;
+            desc = null!;
 
-            attendees = null;
-            attachments = null;
-            customProps = null;
+            attendees = null!;
+            attachments = null!;
+            customProps = null!;
         }
 
         /// <summary>
@@ -298,14 +288,9 @@ namespace EWSoftware.PDI.Objects
             if(desc != null)
                 desc.Version = this.Version;
 
-            if(attendees != null)
-                attendees.PropagateVersion(this.Version);
-
-            if(attachments != null)
-                attachments.PropagateVersion(this.Version);
-
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            attendees?.PropagateVersion(this.Version);
+            attachments?.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
         }
 
         /// <summary>
@@ -315,7 +300,7 @@ namespace EWSoftware.PDI.Objects
         /// unique time zone IDs used by the calendar objects.</param>
         public override void TimeZonesUsed(StringCollection timeZoneIds)
         {
-            CalendarObject.AddTimeZoneIfUsed(trigger, timeZoneIds);
+            AddTimeZoneIfUsed(trigger, timeZoneIds);
         }
 
         /// <summary>
@@ -324,9 +309,9 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public override void UpdateTimeZoneId(string oldId, string newId)
+        public override void UpdateTimeZoneId(string? oldId, string? newId)
         {
-            CalendarObject.UpdatePropertyTimeZoneId(trigger, oldId, newId);
+            UpdatePropertyTimeZoneId(trigger, oldId, newId);
         }
 
         /// <summary>
@@ -336,9 +321,9 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public override void ApplyTimeZone(VTimeZone vTimeZone)
+        public override void ApplyTimeZone(VTimeZone? vTimeZone)
         {
-            CalendarObject.ApplyPropertyTimeZone(trigger, vTimeZone);
+            ApplyPropertyTimeZone(trigger, vTimeZone);
         }
 
         /// <summary>
@@ -348,9 +333,9 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public override void SetTimeZone(VTimeZone vTimeZone)
+        public override void SetTimeZone(VTimeZone? vTimeZone)
         {
-            CalendarObject.SetPropertyTimeZone(trigger, vTimeZone);
+            SetPropertyTimeZone(trigger, vTimeZone);
         }
 
         /// <summary>
@@ -361,15 +346,15 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="CalendarObject.ToString"/> as well as owning objects when they
         /// convert themselves to a string or write themselves to a PDI data stream.</remarks>
-        public override void WriteToStream(TextWriter tw, StringBuilder sb)
+        public override void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
-            StringBuilder sbVCal = null;
-
             PropagateVersion();
 
             // If vCalendar 1.0, write in alternate format
             if(this.Version == SpecificationVersions.vCalendar10)
             {
+                StringBuilder? sbVCal;
+
                 // If using a StringWriter, append directly to it
                 if(sb == null)
                     sbVCal = ((StringWriter)tw).GetStringBuilder();
@@ -574,19 +559,25 @@ namespace EWSoftware.PDI.Objects
                     BaseProperty.WriteToStream(desc, sb, tw);
 
                     if(attendees != null && attendees.Count != 0)
+                    {
                         foreach(AttendeeProperty a in attendees)
                             BaseProperty.WriteToStream(a, sb, tw);
+                    }
 
                     if(attachments != null && attachments.Count != 0)
+                    {
                         foreach(AttachProperty a in attachments)
                             BaseProperty.WriteToStream(a, sb, tw);
+                    }
                     break;
             }
 
             // Add any custom properties
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             tw.Write("END:VALARM\r\n");
         }
@@ -598,12 +589,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is VAlarm a))
+            if(obj is not VAlarm a)
                 return false;
 
             // The ToString() method returns a text representation of the alarm based on all of its settings so
             // it's a reliable way to tell if two instances are the same.
-            return (this == a || this.ToString() == a.ToString());
+            return this == a || this.ToString() == a.ToString();
         }
 
         /// <summary>

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RelatedToProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Related To property.  It is used with the vCalendar and iCalendar Personal Data
 // Interchange (PDI) classes.
@@ -37,7 +36,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private RelationshipType relType;
-        private string otherType;
+        private string? otherType;
 
         #endregion
 
@@ -88,7 +87,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>This parameter is only applicable to iCalendar 2.0 objects.  Setting this parameter
         /// automatically sets the <see cref="RelationshipType"/> property to <c>Other</c>.</value>
-        public string OtherRelationship
+        public string? OtherRelationship
         {
             get => otherType;
             set
@@ -126,7 +125,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            RelatedToProperty o = new RelatedToProperty();
+            RelatedToProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -200,6 +199,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "RELTYPE=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -233,6 +233,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

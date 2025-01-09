@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : AlarmProperties.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Trigger property used by the Personal Data Interchange (PDI) vCalendar and iCalendar
 // VAlarm class.
@@ -26,10 +25,10 @@ namespace EWSoftware.PDI.Properties
 {
     /// <summary>
     /// This class is used to represent the trigger (TRIGGER) property of an iCalendar
-    /// <see cref="EWSoftware.PDI.Objects.VAlarm"/> object.
+    /// <see cref="Objects.VAlarm"/> object.
     /// </summary>
     /// <remarks>This property class parses the <see cref="BaseProperty.Value"/> property to allow access to its
-    /// content as an actual <see cref="System.DateTime"/> object or <see cref="Duration"/> object.  The property
+    /// content as an actual <see cref="DateTime"/> object or <see cref="Duration"/> object.  The property
     /// value is a character string conforming to ISO 8601.</remarks>
     public class TriggerProperty : BaseDateTimeProperty
     {
@@ -68,7 +67,7 @@ namespace EWSoftware.PDI.Properties
 
         /// <summary>
         /// This property is used to set or get the duration to use for the trigger.  If set, the
-        /// <see cref="TriggerProperty.DateTimeValue"/> and <see cref="TimeZoneDateTime"/> properties will be
+        /// <see cref="DateTimeValue"/> and <see cref="TimeZoneDateTime"/> properties will be
         /// ignored.
         /// </summary>
         public Duration DurationValue
@@ -84,7 +83,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is overridden to set or get the date/time to use for the trigger expressed in the
         /// <see cref="BaseDateTimeProperty.TimeZoneId"/> time rather than local time on the current system.  If
-        /// set, the <see cref="TriggerProperty.DurationValue"/> will be ignored.
+        /// set, the <see cref="DurationValue"/> will be ignored.
         /// </summary>
         public override DateTime TimeZoneDateTime
         {
@@ -98,7 +97,7 @@ namespace EWSoftware.PDI.Properties
 
         /// <summary>
         /// This is overridden to set or get the date/time to use for the trigger expressed in local time.  If
-        /// set, the <see cref="TriggerProperty.DurationValue"/> will be ignored.
+        /// set, the <see cref="DurationValue"/> will be ignored.
         /// </summary>
         public override DateTime DateTimeValue
         {
@@ -113,14 +112,14 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to a duration or date/time value
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
                 // If it's not a date/time, it's a duration.  If it has no length, it isn't saved.
                 if(this.ValueLocation != ValLocValue.DateTime)
                 {
-                    if(this.DurationValue == PDI.Duration.Zero)
+                    if(this.DurationValue == Duration.Zero)
                         return null;
 
                     return this.DurationValue.ToString();
@@ -150,7 +149,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to a numeric value
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -179,7 +178,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TriggerProperty o = new TriggerProperty();
+            TriggerProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -221,6 +220,7 @@ namespace EWSoftware.PDI.Properties
                 return;
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
+            {
                 if(String.Compare(parameters[paramIdx], "RELATED=", StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     // Remove the parameter name
@@ -236,6 +236,7 @@ namespace EWSoftware.PDI.Properties
                     }
                     break;
                 }
+            }
 
             // Let the base class handle all other parameters
             base.DeserializeParameters(parameters);

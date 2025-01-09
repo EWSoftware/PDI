@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PublicKeyProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Public Key property that support binary encoded public key values.  It is used with
 // the Personal Data Interchange (PDI) vCard class.
@@ -39,11 +38,12 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         // This private array is used to translate parameter names and values to public key types
-        private static NameToValue<int>[] ntv = {
-            new NameToValue<int>("TYPE", 0, false),
-            new NameToValue<int>("X509", 1, true),
-            new NameToValue<int>("PGP",  2, true)
-        };
+        private static readonly NameToValue<int>[] ntv =
+        [
+            new("TYPE", 0, false),
+            new("X509", 1, true),
+            new("PGP",  2, true)
+        ];
         #endregion
 
         #region Properties
@@ -70,7 +70,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>The value is a string defining the type of key that the property value represents such as
         /// X509, PGP, etc.</value>
-        public string KeyType { get; set; }
+        public string? KeyType { get; set; }
 
         #endregion
 
@@ -95,7 +95,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            PublicKeyProperty o = new PublicKeyProperty();
+            PublicKeyProperty o = new();
             o.Clone(this);
             return o;
         }
@@ -148,8 +148,10 @@ namespace EWSoftware.PDI.Properties
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
             {
                 for(idx = 0; idx < ntv.Length; idx++)
+                {
                     if(ntv[idx].IsMatch(parameters[paramIdx]))
                         break;
+                }
 
                 if(idx == ntv.Length)
                 {

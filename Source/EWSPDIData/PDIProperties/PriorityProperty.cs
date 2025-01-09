@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : PriorityProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Priority property class used by the Personal Data Interchange (PDI) vCalendar and
 // iCalendar classes.
@@ -81,7 +80,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>The value should be between 0 and 9.  Instead of throwing an exception, the property will
         /// convert invalid values to the undefined priority (0).</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -103,7 +102,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to a numeric value
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -130,7 +129,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            PriorityProperty o = new PriorityProperty();
+            PriorityProperty o = new();
             o.Clone(this);
             return o;
         }

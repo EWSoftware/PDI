@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : YearlyPattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/21/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
 // parameters.  This one is used to specify the settings for a yearly recurrence pattern.
@@ -78,37 +77,37 @@ namespace EWSoftware.PDI.Windows.Forms
             if(rbDayXEveryYYears.Checked)
             {
                 recurrence.Interval = (int)udcYears.Value;
-                recurrence.ByMonth.Add((int)cboMonth.SelectedValue);
+                recurrence.ByMonth.Add((int)cboMonth.SelectedValue!);
                 recurrence.ByMonthDay.Add((int)udcDay.Value);
             }
             else
             {
                 recurrence.Interval = (int)udcDOWYears.Value;
-                recurrence.ByMonth.Add((int)cboDOWMonth.SelectedValue);
+                recurrence.ByMonth.Add((int)cboDOWMonth.SelectedValue!);
 
                 // If it's a single day, use ByDay.  If it's a combination, use ByDay with BySetPos.
-                rd = (DaysOfWeek)cboDOW.SelectedValue;
-                instance = ((DayOccurrence)cboOccurrence.SelectedValue == DayOccurrence.Last) ? -1 :
+                rd = (DaysOfWeek)cboDOW.SelectedValue!;
+                instance = ((DayOccurrence)cboOccurrence.SelectedValue! == DayOccurrence.Last) ? -1 :
                     (int)cboOccurrence.SelectedValue;
 
                 switch(rd)
                 {
                     case DaysOfWeek.EveryDay:
                         recurrence.BySetPos.Add(instance);
-                        recurrence.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Sunday, DayOfWeek.Monday,
+                        recurrence.ByDay.AddRange([ DayOfWeek.Sunday, DayOfWeek.Monday,
                             DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday,
-                            DayOfWeek.Saturday });
+                            DayOfWeek.Saturday ]);
                         break;
 
                     case DaysOfWeek.Weekdays:
                         recurrence.BySetPos.Add(instance);
-                        recurrence.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Monday, DayOfWeek.Tuesday,
-                            DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday });
+                        recurrence.ByDay.AddRange([ DayOfWeek.Monday, DayOfWeek.Tuesday,
+                            DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday ]);
                         break;
 
                     case DaysOfWeek.Weekends:
                         recurrence.BySetPos.Add(instance);
-                        recurrence.ByDay.AddRange(new DayOfWeek[] { DayOfWeek.Sunday, DayOfWeek.Saturday });
+                        recurrence.ByDay.AddRange([DayOfWeek.Sunday, DayOfWeek.Saturday]);
                         break;
 
                     default:
@@ -187,6 +186,7 @@ namespace EWSoftware.PDI.Windows.Forms
 
                         // Figure out days
                         foreach(DayInstance di in recurrence.ByDay)
+                        {
                             switch(di.DayOfWeek)
                             {
                                 case DayOfWeek.Sunday:
@@ -217,11 +217,14 @@ namespace EWSoftware.PDI.Windows.Forms
                                     rd |= DaysOfWeek.Saturday;
                                     break;
                             }
+                        }
 
                         // If not EveryDay, Weekdays, or Weekends, force it to a single day of the week
                         if(rd == DaysOfWeek.None || (rd != DaysOfWeek.EveryDay && rd != DaysOfWeek.Weekdays &&
                           rd != DaysOfWeek.Weekends))
+                        {
                             rd = DateUtils.ToDaysOfWeek(DateUtils.ToDayOfWeek(rd));
+                        }
 
                         cboDOW.SelectedValue = rd;
                     }
@@ -240,10 +243,8 @@ namespace EWSoftware.PDI.Windows.Forms
         /// <param name="e">The event parameters</param>
         private void Yearly_CheckedChanged(object sender, System.EventArgs e)
         {
-            RadioButton r = sender as RadioButton;
-
-            cboMonth.Enabled = udcDay.Enabled = udcYears.Enabled = (r == rbDayXEveryYYears);
-            cboOccurrence.Enabled = cboDOW.Enabled = cboDOWMonth.Enabled = udcDOWYears.Enabled = (r == rbDayOfWeek);
+            cboMonth.Enabled = udcDay.Enabled = udcYears.Enabled = sender == rbDayXEveryYYears;
+            cboOccurrence.Enabled = cboDOW.Enabled = cboDOWMonth.Enabled = udcDOWYears.Enabled = sender == rbDayOfWeek;
         }
 
         /// <summary>

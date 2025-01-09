@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains Time Zone property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar and vCard.
@@ -98,7 +97,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>The value assigned can be a time zone value alone or a time zone value with descriptive text
         /// (VALUE=TEXT).</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -112,7 +111,7 @@ namespace EWSoftware.PDI.Properties
             {
                 // If not a UTC offset, don't set the time span
                 if(this.ValueLocation == ValLocValue.UtcOffset && !String.IsNullOrWhiteSpace(value))
-                    timeSpan = DateUtils.FromISO8601TimeZone(value);
+                    timeSpan = DateUtils.FromISO8601TimeZone(value!);
                 else
                     timeSpan = TimeSpan.MinValue;
 
@@ -124,7 +123,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle parsing the time zone to/from its string form
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get
             {
@@ -138,7 +137,7 @@ namespace EWSoftware.PDI.Properties
             {
                 // If not a UTC offset, don't set the time span
                 if(this.ValueLocation == ValLocValue.UtcOffset && !String.IsNullOrWhiteSpace(value))
-                    timeSpan = DateUtils.FromISO8601TimeZone(value);
+                    timeSpan = DateUtils.FromISO8601TimeZone(value!);
                 else
                     timeSpan = TimeSpan.MinValue;
 
@@ -168,7 +167,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TimeZoneProperty o = new TimeZoneProperty();
+            TimeZoneProperty o = new();
             o.Clone(this);
             return o;
         }

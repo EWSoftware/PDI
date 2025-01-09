@@ -2,8 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : VTimeZoneTestForm.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/02/2023
-// Note    : Copyright 2003-2023, Eric Woodruff, All rights reserved
+// Updated : 01/05/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is a simple demonstration used to test the EWSoftware PDI time zone classes and methods.  This
 // demonstration depends on the time zone information present in the Windows registry.
@@ -138,56 +138,54 @@ namespace PDIWinFormsTest
         /// <param name="e">The event arguments</param>
         private void btnSaveTZs_Click(object sender, EventArgs e)
         {
-            using(SaveFileDialog dlg = new SaveFileDialog())
+            using var dlg = new SaveFileDialog();
+            
+            dlg.Title = "Save Time Zone Database";
+            dlg.Filter = "ICS files (*.ics)|*.ics|All files (*.*)|*.*";
+            dlg.DefaultExt = "ics";
+            dlg.FilterIndex = 1;
+            dlg.InitialDirectory = Environment.CurrentDirectory;
+            dlg.FileName = "TimeZoneDB.ics";
+
+            if(dlg.ShowDialog() == DialogResult.OK)
             {
-                dlg.Title = "Save Time Zone Database";
-                dlg.Filter = "ICS files (*.ics)|*.ics|All files (*.*)|*.*";
-                dlg.DefaultExt = "ics";
-                dlg.FilterIndex = 1;
-                dlg.InitialDirectory = Environment.CurrentDirectory;
-                dlg.FileName = "TimeZoneDB.ics";
-
-                if(dlg.ShowDialog() == DialogResult.OK)
+                try
                 {
-                    try
+                    this.Cursor = Cursors.WaitCursor;
+
+                    // Open the file and write the time zone data to it
+                    using var sw = new StreamWriter(dlg.FileName);
+                    
+                    // Since we are writing out the time zone collection by itself, we'll need to provide
+                    // the calender wrapper.
+                    sw.WriteLine("BEGIN:VCALENDAR");
+                    sw.WriteLine("VERSION:2.0");
+                    sw.WriteLine("PRODID:-//EWSoftware//PDI Class Library//EN");
+
+                    foreach(VTimeZone tz in VCalendar.TimeZones)
+                        tz.WriteToStream(sw);
+
+                    sw.WriteLine("END:VCALENDAR");
+                }
+                catch(Exception ex)
+                {
+                    string errorMsg = $"Unable to save time zone info:\n{ex.Message}";
+
+                    if(ex.InnerException != null)
                     {
-                        this.Cursor = Cursors.WaitCursor;
+                        errorMsg += ex.InnerException.Message + "\n";
 
-                        // Open the file and write the time zone data to it
-                        using(var sw = new StreamWriter(dlg.FileName))
-                        {
-                            // Since we are writing out the time zone collection by itself, we'll need to provide
-                            // the calender wrapper.
-                            sw.WriteLine("BEGIN:VCALENDAR");
-                            sw.WriteLine("VERSION:2.0");
-                            sw.WriteLine("PRODID:-//EWSoftware//PDI Class Library//EN");
-
-                            foreach(VTimeZone tz in VCalendar.TimeZones)
-                                tz.WriteToStream(sw);
-
-                            sw.WriteLine("END:VCALENDAR");
-                        }
+                        if(ex.InnerException.InnerException != null)
+                            errorMsg += ex.InnerException.InnerException.Message;
                     }
-                    catch(Exception ex)
-                    {
-                        string errorMsg = $"Unable to save time zone info:\n{ex.Message}";
 
-                        if(ex.InnerException != null)
-                        {
-                            errorMsg += ex.InnerException.Message + "\n";
+                    System.Diagnostics.Debug.Write(ex);
 
-                            if(ex.InnerException.InnerException != null)
-                                errorMsg += ex.InnerException.InnerException.Message;
-                        }
-
-                        System.Diagnostics.Debug.Write(ex);
-
-                        MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        this.Cursor = Cursors.Default;
-                    }
+                    MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    this.Cursor = Cursors.Default;
                 }
             }
         }

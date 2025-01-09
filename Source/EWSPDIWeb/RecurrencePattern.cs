@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI ASP.NET Web Server Controls
 // File    : RecurrencePattern.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains one of several user controls that are combined to allow the editing of various recurrence
 // parameters.  This one is used to contain all the other user controls and sets the overall pattern to use for
@@ -24,7 +23,7 @@
 //                  Bootstrap.
 //===============================================================================================================
 
-// Ignore Spelling: runat args
+// Ignore Spelling: runat args Css
 
 using System;
 using System.Collections.Specialized;
@@ -49,7 +48,7 @@ namespace EWSoftware.PDI.Web.Controls
     /// cause the default style to be use for the associated elements.</remarks>
 	[DefaultProperty("ShowCanOccurOnHoliday"), ToolboxData("<{0}:RecurrencePattern runat=server />"),
       Designer(typeof(RecurrencePatternDesigner)), ParseChildren(true)]
-	public class RecurrencePattern : System.Web.UI.Control, INamingContainer, IPostBackDataHandler
+	public class RecurrencePattern : Control, INamingContainer, IPostBackDataHandler
 	{
         #region Private data members
         //=====================================================================
@@ -59,13 +58,10 @@ namespace EWSoftware.PDI.Web.Controls
         internal const string RecurrencePatternScripts = "EWSoftware.PDI.Web.Controls.Scripts.";
 
         // The current recurrence pattern
-        private Recurrence rRecur;
+        private Recurrence rRecur = null!;
 
         // Set focus flag
         private bool setFocusToPattern;
-
-        // The validator
-        private CustomValidator validator;
 
         #endregion
 
@@ -181,7 +177,7 @@ namespace EWSoftware.PDI.Web.Controls
             get
             {
                 object oShowWeekStartDay = this.ViewState["ShowWSD"];
-                return (oShowWeekStartDay == null) ? true : (bool)oShowWeekStartDay;
+                return oShowWeekStartDay == null || (bool)oShowWeekStartDay;
             }
             set => this.ViewState["ShowWSD"] = value;
         }
@@ -199,7 +195,7 @@ namespace EWSoftware.PDI.Web.Controls
             get
             {
                 object oShowHoliday = this.ViewState["ShowHol"];
-                return (oShowHoliday == null) ? true : (bool)oShowHoliday;
+                return oShowHoliday == null || (bool)oShowHoliday;
             }
             set => this.ViewState["ShowHol"] = value;
         }
@@ -218,7 +214,7 @@ namespace EWSoftware.PDI.Web.Controls
             get
             {
                 object oShowAdvanced = this.ViewState["ShowAdv"];
-                return (oShowAdvanced == null) ? true : (bool)oShowAdvanced;
+                return oShowAdvanced == null || (bool)oShowAdvanced;
             }
             set => this.ViewState["ShowAdv"] = value;
         }
@@ -479,7 +475,7 @@ namespace EWSoftware.PDI.Web.Controls
         {
             int idx, instance;
             string dayPart;
-            string[] dayInstances, days = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+            string[] dayInstances, days = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
             rRecur.Frequency = (RecurFrequency)Convert.ToInt32(options[1], CultureInfo.InvariantCulture);
             rRecur.Interval = Convert.ToInt32(options[2], CultureInfo.InvariantCulture);
@@ -528,7 +524,7 @@ namespace EWSoftware.PDI.Web.Controls
         internal string RenderAtDesignTime()
         {
             Assembly asm = Assembly.GetExecutingAssembly();
-            StringBuilder sb = new StringBuilder(4096);
+            StringBuilder sb = new(4096);
 
             using(var sr = new StreamReader(asm.GetManifestResourceStream(RecurrencePatternHtml +
               "RecurrencePattern.html")))
@@ -602,7 +598,7 @@ namespace EWSoftware.PDI.Web.Controls
         public bool LoadPostData(string postDataKey, NameValueCollection postCollection)
         {
             string[] options;
-            string pattern = null;
+            string? pattern = null;
             DaysOfWeek daysOfWeek = DaysOfWeek.None;
             int val;
 
@@ -613,7 +609,7 @@ namespace EWSoftware.PDI.Web.Controls
             {
                 // Parse and load the recurrence
                 rRecur = new Recurrence();
-                options = pattern.Split('\xFF');
+                options = pattern!.Split('\xFF');
 
                 // Parse the pattern options
                 if(options[0] == "1")
@@ -713,8 +709,8 @@ namespace EWSoftware.PDI.Web.Controls
                                 // Every week day
                                 rRecur.Frequency = RecurFrequency.Daily;
                                 rRecur.Interval = 1;
-                                rRecur.ByDay.AddRange(new [] { DayOfWeek.Monday, DayOfWeek.Tuesday,
-                                    DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday });
+                                rRecur.ByDay.AddRange([ DayOfWeek.Monday, DayOfWeek.Tuesday,
+                                    DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Friday ]);
                             }
                             else
                                 rRecur.RecurDaily(Convert.ToInt32(options[3], CultureInfo.InvariantCulture));
@@ -771,7 +767,7 @@ namespace EWSoftware.PDI.Web.Controls
                 return;
 
             Assembly asm = Assembly.GetExecutingAssembly();
-            StringBuilder sb = new StringBuilder(4096);
+            StringBuilder sb = new(4096);
 
             if(rRecur == null)
             {
@@ -880,7 +876,7 @@ namespace EWSoftware.PDI.Web.Controls
               String.IsNullOrWhiteSpace(this.CssPanelBody) || String.IsNullOrWhiteSpace(this.CssPanelHeading) ||
               String.IsNullOrWhiteSpace(this.CssPanelTitle) || String.IsNullOrWhiteSpace(this.CssSelect))
             {
-                LiteralControl cssLink = new LiteralControl(String.Format(CultureInfo.InvariantCulture,
+                LiteralControl cssLink = new(String.Format(CultureInfo.InvariantCulture,
                     "<link rel=\"stylesheet\" type=\"text/css\" href=\"{0}\">",
                     this.Page.ClientScript.GetWebResourceUrl(typeof(RecurrencePattern),
                         RecurrencePattern.RecurrencePatternHtml + "RecurrenceStyle.css")))
@@ -900,7 +896,7 @@ namespace EWSoftware.PDI.Web.Controls
             // Page_ClientValidate function for __doPostBack (added by OnPreRender).
             if(this.DetermineRenderUplevel)
             {
-                validator = new CustomValidator
+                var validator = new CustomValidator
                 {
                     ID = this.ID + "_Validator",
                     ClientValidationFunction = this.ID + "_Validate",
@@ -911,10 +907,10 @@ namespace EWSoftware.PDI.Web.Controls
                 this.Controls.Add(validator);
             }
             else
-                this.Page.ClientScript.RegisterOnSubmitStatement(typeof(RecurrencePattern), this.ID + "_Submit",
+                this.Page!.ClientScript.RegisterOnSubmitStatement(typeof(RecurrencePattern), this.ID + "_Submit",
                     "return RP_" + this.ID + ".ValidateRecurrence();");
 
-            this.Page.RegisterRequiresPostBack(this);
+            this.Page!.RegisterRequiresPostBack(this);
         }
 
         /// <summary>
@@ -924,7 +920,7 @@ namespace EWSoftware.PDI.Web.Controls
         /// <param name="e">The event arguments</param>
         protected override void OnPreRender(EventArgs e)
         {
-            StringBuilder sb = new StringBuilder(1024);
+            StringBuilder sb = new(1024);
             string patternId;
             int range;
 
@@ -1072,7 +1068,7 @@ namespace EWSoftware.PDI.Web.Controls
         public void GetRecurrence(Recurrence recurrence)
         {
             if(recurrence == null)
-                throw new ArgumentNullException("recurrence", LR.GetString("ExRPRecurrenceIsNull"));
+                throw new ArgumentNullException(nameof(recurrence), LR.GetString("ExRPRecurrenceIsNull"));
 
             recurrence.Parse(rRecur.ToString());
         }

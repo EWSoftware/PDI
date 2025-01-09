@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ActionProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Action property used by the Personal Data Interchange (PDI) vCalendar and iCalendar
 // VAlarm class.
@@ -35,7 +34,7 @@ namespace EWSoftware.PDI.Properties
         //=====================================================================
 
         private AlarmAction alarmAction;
-        private string otherAction;
+        private string? otherAction;
 
         #endregion
 
@@ -74,8 +73,10 @@ namespace EWSoftware.PDI.Properties
                 if(alarmAction != AlarmAction.Other)
                     otherAction = null;
                 else
+                {
                     if(String.IsNullOrWhiteSpace(otherAction))
-                    otherAction = "X-UNKNOWN";
+                        otherAction = "X-UNKNOWN";
+                }
             }
         }
 
@@ -85,7 +86,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <value>Setting this parameter automatically sets the <see cref="AlarmAction"/> property to
         /// <c>Other</c>.</value>
-        public string OtherAction
+        public string? OtherAction
         {
             get => otherAction;
             set
@@ -102,7 +103,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to an <see cref="AlarmAction"/> value
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -151,7 +152,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property is overridden to handle converting the text value to an <see cref="AlarmAction"/> value
         /// </summary>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -179,7 +180,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            ActionProperty o = new ActionProperty();
+            ActionProperty o = new();
             o.Clone(this);
             return o;
         }

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : FreeBusyPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for FreeBusyProperty objects.  It is used by the Personal Data
 // Interchange (PDI) VFreeBusy class.
@@ -65,9 +64,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public FreeBusyProperty Add(FreeBusyType type, Period p)
         {
-            FreeBusyProperty fb = new FreeBusyProperty { FreeBusyType = type, PeriodValue = p };
+            FreeBusyProperty fb = new() { FreeBusyType = type, PeriodValue = p };
 
-            base.Add(fb);
+            this.Add(fb);
 
             return fb;
         }

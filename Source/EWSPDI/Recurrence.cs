@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Recurrence.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class that can be used to generate recurring date/time sequences based on a pattern
 // defined by the RRULE property in the iCalender 2.0 specification.
@@ -51,22 +50,20 @@ namespace EWSoftware.PDI
         //=====================================================================
 
         // Regular expressions used for parsing
-        private static Regex reSplit = new Regex(@"\s");
-        private static Regex reFreqPresent = new Regex("FREQ=", RegexOptions.IgnoreCase);
-        private static Regex reParse = new Regex("(?:(?:R|EX)RULE:)?(?:(?<Prop>[^=;]+)=(?<Value>[^;]*))?");
-        private static Regex reDays = new Regex(@"(?<Instance>[\-0-9]*)?(?<DOW>[A-Z]*)");
+        private static readonly Regex reSplit = new(@"\s");
+        private static readonly Regex reFreqPresent = new("FREQ=", RegexOptions.IgnoreCase);
+        private static readonly Regex reParse = new("(?:(?:R|EX)RULE:)?(?:(?<Prop>[^=;]+)=(?<Value>[^;]*))?");
+        private static readonly Regex reDays = new(@"(?<Instance>[\-0-9]*)?(?<DOW>[A-Z]*)");
 
         // This is used to convert the days of the week to their string form.  This is convenient for generating
         // its iCalendar representation.
-        private static readonly string[] abbrevDays = { "SU", "MO", "TU", "WE", "TH", "FR", "SA" };
+        private static readonly string[] abbrevDays = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
         private DateTime startDate;
 
         // Until date (UNTIL) and maximum occurrences (COUNT) are mutually exclusive
         private DateTime untilDate;
         private int maxOccur;
-
-        private bool canOccurOnHoliday;
 
         private RecurFrequency  frequency;
 
@@ -75,12 +72,12 @@ namespace EWSoftware.PDI
         private DayOfWeek weekStart;
 
         // Collections of unique integer values representing the BY* rules
-        private UniqueIntegerCollection byMonth, byWeekNo, byYearDay, byMonthDay, byHour, byMinute, bySecond,
-            bySetPos;
+        private readonly UniqueIntegerCollection byMonth, byWeekNo, byYearDay, byMonthDay, byHour, byMinute,
+            bySecond, bySetPos;
 
         // A collection of BYDAY rules.  These can be week days or instances of weekdays (i.e. 1st Monday, second
         // to last Friday, etc).
-        private DayInstanceCollection byDay;
+        private readonly DayInstanceCollection byDay;
 
         // Arrays for some of the above.  These are used during the recurrence calculation for speed.  They are
         // marked internal so that the filter functions can access them directly.
@@ -92,19 +89,15 @@ namespace EWSoftware.PDI
         internal int weekdayOffset;
 
         // This is used to reference the frequency rules used to expand the recurrence
-        private IFrequencyRules freqRules;
+        private IFrequencyRules? freqRules;
 
         // These are used to contain holidays for the CanOccurOnHoliday option when it is set to false.  Note
         // that the holiday collection is static and will be shared by all Recurrence instances.
-        private static HolidayCollection holidays;
-
-        // These are used to contain holidays for the CanOccurOnHoliday option when it is set to false on
-        // a per-recurrence instance basis.
-        private HolidayCollection instanceHolidays;
-        private HashSet<DateTime> holDates;
+        private static HolidayCollection holidays = null!;
+        private HashSet<DateTime>? holDates;
 
         // This is used to preserve custom properties not supported by this class
-        private StringCollection customProps;
+        private readonly StringCollection customProps;
 
         #endregion
 
@@ -204,17 +197,7 @@ namespace EWSoftware.PDI
         /// on holiday dates.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex1"]/*' />
         /// <seealso cref="Holidays"/>
-        public bool CanOccurOnHoliday
-        {
-            get => canOccurOnHoliday;
-            set
-            {
-                canOccurOnHoliday = value;
-
-                if(!value && holidays == null)
-                    holidays = new HolidayCollection();
-            }
-        }
+        public bool CanOccurOnHoliday { get; set; }
 
         /// <summary>
         /// This property is used to set or get the current recurrence frequency
@@ -390,8 +373,7 @@ namespace EWSoftware.PDI
         {
             get
             {
-                if(holidays == null)
-                    holidays = new HolidayCollection();
+                holidays ??= [];
 
                 return holidays;
             }
@@ -404,11 +386,7 @@ namespace EWSoftware.PDI
         /// <remarks>Note that the holiday list is not static and will not be shared amongst all instances of the
         /// <c>Recurrence</c> classes.</remarks>
         /// <seealso cref="CanOccurOnHoliday"/>
-        public HolidayCollection InstanceHolidays
-        {
-            get => instanceHolidays;
-            set => instanceHolidays = value;
-        }
+        public HolidayCollection? InstanceHolidays { get; set; }
 
         /// <summary>
         /// This returns a set of custom properties (if any) found when the recurrence properties where parsed
@@ -436,8 +414,8 @@ namespace EWSoftware.PDI
             byMinute = new UniqueIntegerCollection(0, 59, true);
             bySecond = new UniqueIntegerCollection(0, 59, true);
             bySetPos = new UniqueIntegerCollection(-366, 366, false);
-            byDay = new DayInstanceCollection();
-            customProps = new StringCollection();
+            byDay = [];
+            customProps = [];
 
             isSecondUsed = new bool[60];
             isMinuteUsed = new bool[60];
@@ -682,7 +660,7 @@ namespace EWSoftware.PDI
             RecurDateTime rdt;
             int idx, count, lastYear = -1;
 
-            DateTimeCollection dcDates = new DateTimeCollection();
+            DateTimeCollection dcDates = [];
 
             // If undefined or if the requested range is outside that of the recurrence, don't bother.  Just
             // return an empty collection.  Note that for defined recurrences that use a count, we'll always
@@ -690,16 +668,14 @@ namespace EWSoftware.PDI
             if(frequency == RecurFrequency.Undefined || startDate > toDate || untilDate < fromDate)
                 return dcDates;
 
-            RecurDateTime start = new RecurDateTime(startDate), end = new RecurDateTime(untilDate),
-                from = new RecurDateTime(fromDate), to = new RecurDateTime(toDate);
-
-            RecurDateTime current = freqRules.FindStart(this, start, end, from, to);
+            RecurDateTime start = new(startDate), end = new(untilDate), from = new(fromDate), to = new(toDate);
+            RecurDateTime? current = freqRules?.FindStart(this, start, end, from, to);
 
             // If there's nothing to generate, stop now
             if(current == null)
                 return dcDates;
 
-            rdtc = new RecurDateTimeCollection();
+            rdtc = [];
 
             // Initialize the filtering arrays.  These help speed up the filtering process by letting us do one
             // look up as opposed to comparing all elements in the collection.
@@ -714,41 +690,59 @@ namespace EWSoftware.PDI
             Array.Clear(isMonthUsed, 0, isMonthUsed.Length);
 
             if(bySecond.Count != 0)
+            {
                 foreach(int second in bySecond)
                     isSecondUsed[second] = true;
+            }
 
             if(byMinute.Count != 0)
+            {
                 foreach(int minute in byMinute)
                     isMinuteUsed[minute] = true;
+            }
 
             if(byHour.Count != 0)
+            {
                 foreach(int hour in byHour)
                     isHourUsed[hour] = true;
+            }
 
             if(byMonth.Count != 0)
+            {
                 foreach(int month in byMonth)
                     isMonthUsed[month - 1] = true;
+            }
 
             // When filtering, the instance is ignored
             if(byDay.Count != 0)
+            {
                 foreach(DayInstance di in byDay)
                     isDayUsed[(int)di.DayOfWeek] = true;
+            }
 
             // Negative days are from the end of the month
             if(byMonthDay.Count != 0)
+            {
                 foreach(int monthDay in byMonthDay)
+                {
                     if(monthDay > 0)
                         isMonthDayUsed[monthDay] = true;
                     else
                         isNegMonthDayUsed[0 - monthDay] = true;
+                }
+            }
 
             // Negative days are from the end of the year
             if(byYearDay.Count != 0)
+            {
                 foreach(int yearDay in byYearDay)
+                {
                     if(yearDay > 0)
                         isYearDayUsed[yearDay] = true;
                     else
                         isNegYearDayUsed[0 - yearDay] = true;
+                }
+            }
 
             do
             {
@@ -770,7 +764,8 @@ namespace EWSoftware.PDI
                         break;
 
                     case RecurFrequency.Monthly:
-                        if(freqRules.ByMonth(this, rdtc) != 0)
+                        if(freqRules!.ByMonth(this, rdtc) != 0)
+                        {
                             if(freqRules.ByYearDay(this, rdtc) != 0)
                             {
                                 // If BYMONTHDAY and BYDAY are specified, expand by month day and filter by day.
@@ -779,6 +774,7 @@ namespace EWSoftware.PDI
                                 if(byMonthDay.Count != 0 && byDay.Count != 0)
                                 {
                                     if(Expand.ByMonthDay(this, rdtc) != 0)
+                                    {
                                         if(Filter.ByDay(this, rdtc) != 0)
                                         {
                                             // These always expand if used
@@ -786,9 +782,12 @@ namespace EWSoftware.PDI
                                             Expand.ByMinute(this, rdtc);
                                             Expand.BySecond(this, rdtc);
                                         }
+                                    }
                                 }
                                 else
+                                {
                                     if(Expand.ByMonthDay(this, rdtc) != 0)
+                                    {
                                         if(freqRules.ByDay(this, rdtc) != 0)
                                         {
                                             // These always expand if used
@@ -796,19 +795,32 @@ namespace EWSoftware.PDI
                                             Expand.ByMinute(this, rdtc);
                                             Expand.BySecond(this, rdtc);
                                         }
+                                    }
+                                }
                             }
+                        }
                         break;
 
                     default:
                         // Everything else is fairly straightforward.  We just expand or filter based on the
                         // frequency type and what rules are specified.
-                        if(freqRules.ByMonth(this, rdtc) != 0)
+                        if(freqRules!.ByMonth(this, rdtc) != 0)
+                        {
                             if(freqRules.ByYearDay(this, rdtc) != 0)
+                            {
                                 if(freqRules.ByMonthDay(this, rdtc) != 0)
+                                {
                                     if(freqRules.ByDay(this, rdtc) != 0)
+                                    {
                                         if(freqRules.ByHour(this, rdtc) != 0)
+                                        {
                                             if(freqRules.ByMinute(this, rdtc) != 0)
                                                 freqRules.BySecond(this, rdtc);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                         break;
                 }
 
@@ -829,13 +841,13 @@ namespace EWSoftware.PDI
                     }
 
                     // Discard it if it falls on a holiday
-                    if(!canOccurOnHoliday)
+                    if(!this.CanOccurOnHoliday)
                     {
                         // If this is the first call or the year changes, get the holidays in the date's year
                         // and the next year.
                         if(holDates == null || lastYear != rdt.Year)
                         {
-                            var holidayCollection = instanceHolidays ?? holidays;
+                            var holidayCollection = this.InstanceHolidays ?? Holidays;
                             holDates = new HashSet<DateTime>(holidayCollection.HolidaysBetween(rdt.Year, rdt.Year + 1));
                             lastYear = rdt.Year;
                         }
@@ -877,14 +889,20 @@ namespace EWSoftware.PDI
                                 idx = nPos - 1;
 
                             if(idx >= 0 && idx < rdtc.Count)
+                            {
                                 if(rdtc[idx] >= start && rdtc[idx] <= end && rdtc[idx] >= from && rdtc[idx] <= to)
                                     dcDates.Add(rdtc[idx].ToDateTime());
+                            }
                         }
                     }
                     else
+                    {
                         for(idx = 0; idx < rdtc.Count; idx++)
+                        {
                             if(rdtc[idx] >= start && rdtc[idx] <= end && rdtc[idx] >= from && rdtc[idx] <= to)
                                 dcDates.Add(rdtc[idx].ToDateTime());
+                        }
+                    }
 
                     // Handle MaxOccurrences property.  Note that if it's used, it is assumed that the limiting
                     // range starts at the recurrence start.  Otherwise, we have no way of knowing how many
@@ -894,7 +912,7 @@ namespace EWSoftware.PDI
                 }
 
                 // Loop until the end of the recurrence or the range
-            } while(freqRules.FindNext(this, end, to, current) && (maxOccur == 0 || dcDates.Count < maxOccur));
+            } while(freqRules!.FindNext(this, end, to, current) && (maxOccur == 0 || dcDates.Count < maxOccur));
 
             // Sort the collection one last time.  There's no guaranteed order of selection if BYSETPOS was used.
             dcDates.Sort(true);
@@ -911,7 +929,7 @@ namespace EWSoftware.PDI
         /// </remarks>
         private void ExpandYearly(RecurDateTimeCollection dates)
         {
-            RecurDateTimeCollection rdtcMonth = null, rdtcMoDay = null, rdtcWeek = null, rdtcYrDay = null,
+            RecurDateTimeCollection? rdtcMonth = null, rdtcMoDay = null, rdtcWeek = null, rdtcYrDay = null,
                 rdtcDay = null;
             bool isExpanded = false;
 
@@ -923,7 +941,7 @@ namespace EWSoftware.PDI
                 // Expand by month
                 isExpanded = true;
                 rdtcMonth = new RecurDateTimeCollection(dates);
-                freqRules.ByMonth(this, rdtcMonth);
+                freqRules!.ByMonth(this, rdtcMonth);
 
                 // If BYMONTHDAY and BYDAY are both specified, we need to expand by month day and then filter by
                 // day.  If we expand by day alone, note that we do so only in the months specified in the
@@ -944,7 +962,7 @@ namespace EWSoftware.PDI
                     // Expand by month day if specified without any by month rule part
                     isExpanded = true;
                     rdtcMoDay = new RecurDateTimeCollection(dates);
-                    freqRules.ByMonthDay(this, rdtcMoDay);
+                    freqRules!.ByMonthDay(this, rdtcMoDay);
                 }
 
                 // As long as by week number isn't specified either, we'll expand the by day rule here too
@@ -952,7 +970,7 @@ namespace EWSoftware.PDI
                 {
                     isExpanded = true;
                     rdtcDay = new RecurDateTimeCollection(dates);
-                    freqRules.ByDay(this, rdtcDay);
+                    freqRules!.ByDay(this, rdtcDay);
                 }
             }
 
@@ -961,7 +979,7 @@ namespace EWSoftware.PDI
                 // Expand by week number
                 isExpanded = true;
                 rdtcWeek = new RecurDateTimeCollection(dates);
-                freqRules.ByWeekNo(this, rdtcWeek);
+                freqRules!.ByWeekNo(this, rdtcWeek);
 
                 // Expand by days of the week in those weeks
                 Expand.ByDayInWeeks(this, rdtcWeek);
@@ -972,7 +990,7 @@ namespace EWSoftware.PDI
                 // Expand by year day
                 isExpanded = true;
                 rdtcYrDay = new RecurDateTimeCollection(dates);
-                freqRules.ByYearDay(this, rdtcYrDay);
+                freqRules!.ByYearDay(this, rdtcYrDay);
             }
 
             // Combine the various expansions.  If nothing was done, leave the original date in the collection.
@@ -1033,13 +1051,13 @@ namespace EWSoftware.PDI
         /// vCalendar format, only the basic recurrence rule grammar is supported.  Full support is provided for
         /// the iCalendar format.</remarks>
         /// <include file='DateExamples.xml' path='Examples/Recurrence/HelpEx[@name="Ex15"]/*' />
-        public void Parse(string recur)
+        public void Parse(string? recur)
         {
             string property, value;
             string[] values;
             int dayIdx;
 
-            canOccurOnHoliday = true;
+            this.CanOccurOnHoliday = true;
 
             untilDate = DateTime.MaxValue;
 
@@ -1059,18 +1077,18 @@ namespace EWSoftware.PDI
             byDay.Clear();
             customProps.Clear();
 
-            if(recur == null || recur.Length == 0)
+            if(String.IsNullOrWhiteSpace(recur))
                 return;
 
             // If there is no frequency, try parsing it in vCalendar format
             if(!reFreqPresent.IsMatch(recur))
             {
-                this.ParseVCalendar(recur);
+                this.ParseVCalendar(recur!);
                 return;
             }
 
             // Split the string into its properties
-            MatchCollection matches = reParse.Matches(recur.ToUpperInvariant());
+            MatchCollection matches = reParse.Matches(recur!.ToUpperInvariant());
 
             foreach(Match m in matches)
             {
@@ -1206,10 +1224,10 @@ namespace EWSoftware.PDI
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is Recurrence r))
+            if(obj is not Recurrence r)
                 return false;
 
-            return (this == r || this.ToString() == r.ToString());
+            return this == r || this.ToString() == r.ToString();
         }
 
         /// <summary>
@@ -1229,7 +1247,7 @@ namespace EWSoftware.PDI
         /// Since the start date is not part of the recurrence for iCalendar, it is omitted.</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder(256);
+            StringBuilder sb = new(256);
 
             sb.AppendFormat("FREQ={0}", this.Frequency.ToString().ToUpperInvariant());
 
@@ -1239,9 +1257,13 @@ namespace EWSoftware.PDI
             if(this.MaximumOccurrences != 0)
                 sb.AppendFormat(";COUNT={0}", this.MaximumOccurrences);
             else
+            {
                 if(this.RecurUntil != DateTime.MaxValue)
+                {
                     sb.AppendFormat(";UNTIL={0}", this.RecurUntil.ToUniversalTime().ToString(
                         ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture));
+                }
+            }
 
             if(this.WeekStart != DayOfWeek.Monday)
                 sb.AppendFormat(";WKST={0}", abbrevDays[(int)this.WeekStart]);
@@ -1340,11 +1362,13 @@ namespace EWSoftware.PDI
                 sb.Append(";X-EWSOFTWARE-OCCURONHOL=0");
 
             if(customProps.Count != 0)
+            {
                 foreach(string s in customProps)
                 {
                     sb.Append(';');
                     sb.Append(s);
                 }
+            }
 
             return sb.ToString();
         }
@@ -1370,7 +1394,7 @@ namespace EWSoftware.PDI
         /// Any options that are not part of the basic grammar are ignored.</remarks>
         public string ToVCalendarString()
         {
-            StringBuilder sb = new StringBuilder(256);
+            StringBuilder sb = new(256);
 
             switch(this.Frequency)
             {
@@ -1382,8 +1406,10 @@ namespace EWSoftware.PDI
                     sb.AppendFormat("W{0}", this.Interval);
 
                     if(byDay.Count != 0)
+                    {
                         foreach(DayInstance d in byDay)
                             sb.AppendFormat(" {0}", abbrevDays[(int)d.DayOfWeek]);
+                    }
                     break;
 
                 case RecurFrequency.Monthly:
@@ -1392,10 +1418,12 @@ namespace EWSoftware.PDI
                         sb.AppendFormat("MD{0}", this.Interval);
 
                         foreach(int day in byMonthDay)
+                        {
                             if(day < 0)
                                 sb.AppendFormat(" {0}-", day * -1);
                             else
                                 sb.AppendFormat(" {0}", day);
+                        }
                     }
                     else
                     {
@@ -1407,16 +1435,20 @@ namespace EWSoftware.PDI
                             if(d.Instance == 0)
                             {
                                 foreach(int p in bySetPos)
+                                {
                                     if(p < 0)
                                         sb.AppendFormat(" {0}- {1}", p * -1, abbrevDays[(int)d.DayOfWeek]);
                                     else
                                         sb.AppendFormat(" {0}+ {1}", p, abbrevDays[(int)d.DayOfWeek]);
+                                }
                             }
                             else
+                            {
                                 if(d.Instance < 0)
                                     sb.AppendFormat(" {0}- {1}", d.Instance * -1, abbrevDays[(int)d.DayOfWeek]);
                                 else
                                     sb.AppendFormat(" {0}+ {1}", d.Instance, abbrevDays[(int)d.DayOfWeek]);
+                            }
                         }
                     }
                     break;
@@ -1436,10 +1468,12 @@ namespace EWSoftware.PDI
                         // There don't appear to be any examples that suggest a negative year day value is
                         // supported but we'll assume it is.
                         foreach(int day in byYearDay)
+                        {
                             if(day < 0)
                                 sb.AppendFormat(" {0}-", day * -1);
                             else
                                 sb.AppendFormat(" {0}", day);
+                        }
                     }
                     break;
 
@@ -1449,15 +1483,21 @@ namespace EWSoftware.PDI
             }
 
             if(sb.Length > 0)
+            {
                 if(this.MaximumOccurrences != 0)
                     sb.AppendFormat(" #{0}", this.MaximumOccurrences);
                 else
+                {
                     if(this.RecurUntil == DateTime.MaxValue)
                         sb.Append(" #0");   // Forever
                     else
+                    {
                         sb.AppendFormat(" {0}",
                             this.RecurUntil.ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal,
                                 CultureInfo.InvariantCulture));
+                    }
+                }
+            }
 
             return sb.ToString();
         }
@@ -1657,10 +1697,12 @@ namespace EWSoftware.PDI
                     byDay[0].Instance = (int)occur;
             }
             else
+            {
                 if(occur == DayOccurrence.Last)
                     bySetPos.Add(-1);
                 else
                     bySetPos.Add((int)occur);
+            }
         }
 
         /// <summary>
@@ -1777,10 +1819,12 @@ namespace EWSoftware.PDI
                     byDay[0].Instance = (int)occur;
             }
             else
+            {
                 if(occur == DayOccurrence.Last)
                     bySetPos.Add(-1);
                 else
                     bySetPos.Add((int)occur);
+            }
         }
 
         /// <summary>
@@ -1847,11 +1891,13 @@ namespace EWSoftware.PDI
 
                 // Filter out dates outside the requested range
                 for(idx = 0; idx < dtc.Count; idx++)
+                {
                     if(dtc[idx] < fromDate || dtc[idx] > toDate)
                     {
                         dtc.RemoveAt(idx);
                         idx--;
                     }
+                }
             }
             else
                 dtc = GenerateInstances(fromDate, toDate);
@@ -1891,11 +1937,13 @@ namespace EWSoftware.PDI
 
                 // Filter out dates outside the requested range
                 for(idx = 0; idx < dtc.Count; idx++)
+                {
                     if(dtc[idx] >= fromDate)
                     {
                         instance = dtc[idx];
                         break;
                     }
+                }
             }
             else
             {
@@ -1927,6 +1975,7 @@ namespace EWSoftware.PDI
                 while(fromDate < untilDate)
                 {
                     dtc = GenerateInstances(fromDate, fromDate.Add(ts));
+
                     if(dtc.Count > 0)
                     {
                         instance = dtc[0];
@@ -1974,8 +2023,7 @@ namespace EWSoftware.PDI
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             // Since the string form is the most compact, use that
-            if(info != null)
-                info.AddValue("Recurrence", this.ToStringWithStartDateTime());
+            info?.AddValue("Recurrence", this.ToStringWithStartDateTime());
         }
         #endregion
 
@@ -1988,15 +2036,9 @@ namespace EWSoftware.PDI
         /// <returns>The XML schema</returns>
         public XmlSchema GetSchema()
         {
-            XmlSchema xs = null;
-
-            using(StreamReader sr = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(
-              "EWSoftware.PDI.Schemas.Recurrence.xsd")))
-            {
-                xs = XmlSchema.Read(sr, null);
-            }
-
-            return xs;
+            using StreamReader sr = new(Assembly.GetExecutingAssembly().GetManifestResourceStream(
+              "EWSoftware.PDI.Schemas.Recurrence.xsd"));
+            return XmlSchema.Read(sr, null);
         }
 
         /// <summary>
@@ -2007,20 +2049,18 @@ namespace EWSoftware.PDI
         /// RRULE.  As such, when serializing we'll use that compact form rather than a more verbose form with
         /// the various properties all spelled out with separate entities.
         /// </remarks>
-        public void WriteXml(XmlWriter writer)
+        public void WriteXml(XmlWriter? writer)
         {
-            if(writer != null)
-                writer.WriteString(this.ToStringWithStartDateTime());
+            writer?.WriteString(this.ToStringWithStartDateTime());
         }
 
         /// <summary>
         /// This is called to deserialize the instance from XML
         /// </summary>
         /// <param name="reader">The XML reader from which the instance is deserialized</param>
-        public void ReadXml(XmlReader reader)
+        public void ReadXml(XmlReader? reader)
         {
-            if(reader != null)
-                this.Parse(reader.ReadString());
+            this.Parse(reader?.ReadString());
         }
         #endregion
 
@@ -2069,6 +2109,7 @@ namespace EWSoftware.PDI
                             isAdvanced = true;
                         }
                         else
+                        {
                             if(byDayCount == 5)
                             {
                                 // Any interval other than one makes it advanced
@@ -2078,24 +2119,31 @@ namespace EWSoftware.PDI
                                 {
                                     // If it's just weekdays, it's still simple
                                     for(idx = 0; idx < 5; idx++)
+                                    {
                                         if(this.ByDay[idx].Instance != 0 ||
                                           this.ByDay[idx].DayOfWeek == DayOfWeek.Saturday ||
                                           this.ByDay[idx].DayOfWeek == DayOfWeek.Sunday)
                                         {
                                             isAdvanced = true;
                                         }
+                                    }
                                 }
                             }
                             else
+                            {
                                 if(byDayCount != 0)
                                     isAdvanced = true;
+                            }
+                        }
                         break;
 
                     case RecurFrequency.Weekly:
                         // Anything but an interval and ByDay on this is advanced
                         if(byMonthCount + byYearDayCount + byMonthDayCount + byHourCount + byMinuteCount +
                           bySecondCount + bySetPosCount != 0)
+                        {
                             isAdvanced = true;
+                        }
                         break;
 
                     case RecurFrequency.Monthly:
@@ -2104,6 +2152,7 @@ namespace EWSoftware.PDI
                         if(byMonthCount + byYearDayCount + byHourCount + byMinuteCount + bySecondCount != 0)
                             isAdvanced = true;
                         else
+                        {
                             if(byDayCount < 2)
                             {
                                 if((byDayCount == 0 && byMonthDayCount != 1) ||
@@ -2121,6 +2170,7 @@ namespace EWSoftware.PDI
                                 count = 0;
 
                                 foreach(DayInstance di in this.ByDay)
+                                {
                                     switch(di.DayOfWeek)
                                     {
                                         case DayOfWeek.Sunday:
@@ -2158,6 +2208,7 @@ namespace EWSoftware.PDI
                                             count++;
                                             break;
                                     }
+                                }
 
                                 // If not EveryDay, Weekdays, Weekends, or a single day, it's advanced
                                 if(bySetPosCount != 1 || byMonthDayCount != 0 || (count > 1 &&
@@ -2167,6 +2218,7 @@ namespace EWSoftware.PDI
                                     isAdvanced = true;
                                 }
                             }
+                        }
                         break;
 
                     case RecurFrequency.Yearly:
@@ -2178,6 +2230,7 @@ namespace EWSoftware.PDI
                             isAdvanced = true;
                         }
                         else
+                        {
                             if(byDayCount < 2)
                             {
                                 if((byDayCount == 0 && byMonthDayCount != 1) || (byDayCount == 1 &&
@@ -2194,6 +2247,7 @@ namespace EWSoftware.PDI
                                 count = 0;
 
                                 foreach(DayInstance di in this.ByDay)
+                                {
                                     switch(di.DayOfWeek)
                                     {
                                         case DayOfWeek.Sunday:
@@ -2231,6 +2285,7 @@ namespace EWSoftware.PDI
                                             count++;
                                             break;
                                     }
+                                }
 
                                 // If not EveryDay, Weekdays, Weekends, or a single day, it's advanced
                                 if(bySetPosCount != 1 || byMonthDayCount != 0 || (count > 1 &&
@@ -2240,6 +2295,7 @@ namespace EWSoftware.PDI
                                     isAdvanced = true;
                                 }
                             }
+                        }
                         break;
                 }
 
@@ -2277,8 +2333,10 @@ namespace EWSoftware.PDI
 
                     // Note the week start if it will be relevant
                     if(interval > 1 && byDay.Count != 0)
+                    {
                         weekStartDesc = LR.GetString("RDWeekStart",
                             CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)weekStart]);
+                    }
                     break;
 
                 case RecurFrequency.Daily:
@@ -2305,13 +2363,15 @@ namespace EWSoftware.PDI
             if(untilDate == DateTime.MaxValue && maxOccur == 0)
                 range = LR.GetString("RDForever");
             else
+            {
                 if(maxOccur != 0)
                     range = LR.GetString("RDMaxOccur", maxOccur);
                 else
                     range = LR.GetString("RDRecurUntil", untilDate);
+            }
 
             // Note if instances cannot occur on holidays
-            if(!canOccurOnHoliday)
+            if(!this.CanOccurOnHoliday)
                 holidayDesc = LR.GetString("RDNoHolidays");
 
             return desc + range + weekStartDesc + holidayDesc;
@@ -2322,7 +2382,7 @@ namespace EWSoftware.PDI
         /// </summary>
         private string ToWeeklyDescription()
         {
-            StringBuilder sb = new StringBuilder(LR.GetString("RDWeekly", interval), 256);
+            StringBuilder sb = new(LR.GetString("RDWeekly", interval), 256);
 
             if(byDay.Count != 0)
             {
@@ -2337,13 +2397,15 @@ namespace EWSoftware.PDI
                     if(idx < byDay.Count - 2)
                         sb.Append(", ");
                     else
+                    {
                         if(idx < byDay.Count - 1)
                         {
                             if(idx != 0)
-                                sb.Append(",");
+                                sb.Append(',');
 
                             sb.Append(LR.GetString("RDAnd"));
                         }
+                    }
                 }
             }
 
@@ -2375,6 +2437,7 @@ namespace EWSoftware.PDI
 
             // Figure out days used
             foreach(DayInstance di in byDay)
+            {
                 switch(di.DayOfWeek)
                 {
                     case DayOfWeek.Sunday:
@@ -2405,6 +2468,7 @@ namespace EWSoftware.PDI
                         rd |= DaysOfWeek.Saturday;
                         break;
                 }
+            }
 
             // If not EveryDay, Weekdays, or Weekends, force it to a single day of the week
             if(rd == DaysOfWeek.None || (rd != DaysOfWeek.EveryDay && rd != DaysOfWeek.Weekdays &&
@@ -2431,8 +2495,10 @@ namespace EWSoftware.PDI
             int occurrence;
 
             if(byDay.Count == 0)
+            {
                 return LR.GetString("RDYearlyDayX", CultureInfo.CurrentCulture.DateTimeFormat.MonthNames[
                     byMonth[0] - 1], byMonthDay[0], DayInstance.NumericSuffix(byMonthDay[0]), interval);
+            }
 
             // If it's a single day, use ByDay.  If it's a combination, use ByDay with BySetPos.
             if(byDay.Count == 1)
@@ -2449,6 +2515,7 @@ namespace EWSoftware.PDI
 
             // Figure out days used
             foreach(DayInstance di in byDay)
+            {
                 switch(di.DayOfWeek)
                 {
                     case DayOfWeek.Sunday:
@@ -2479,6 +2546,7 @@ namespace EWSoftware.PDI
                         rd |= DaysOfWeek.Saturday;
                         break;
                 }
+            }
 
             // If not EveryDay, Weekdays, or Weekends, force it to a single day of the week
             if(rd == DaysOfWeek.None || (rd != DaysOfWeek.EveryDay && rd != DaysOfWeek.Weekdays &&
@@ -2502,8 +2570,8 @@ namespace EWSoftware.PDI
         /// </summary>
         private string ToAdvancedDescription()
         {
-            StringBuilder sb = new StringBuilder(256);
-            string weekStartDesc = null;
+            StringBuilder sb = new(256);
+            string? weekStartDesc = null;
             bool addComma = false;
             int idx;
 
@@ -2515,8 +2583,10 @@ namespace EWSoftware.PDI
 
                     // Note the week start if it will be relevant
                     if(byWeekNo.Count != 0)
+                    {
                         weekStartDesc = LR.GetString("RDWeekStart",
                             CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)weekStart]);
+                    }
                     break;
 
                 case RecurFrequency.Monthly:
@@ -2528,8 +2598,10 @@ namespace EWSoftware.PDI
 
                     // Note the week start if it will be relevant
                     if(interval > 1 && byDay.Count != 0)
+                    {
                         weekStartDesc = LR.GetString("RDWeekStart",
                             CultureInfo.CurrentCulture.DateTimeFormat.DayNames[(int)weekStart]);
+                    }
                     break;
 
                 case RecurFrequency.Daily:
@@ -2553,17 +2625,19 @@ namespace EWSoftware.PDI
             if(untilDate == DateTime.MaxValue && maxOccur == 0)
                 sb.Append(LR.GetString("RDForever"));
             else
+            {
                 if(maxOccur != 0)
                     sb.Append(LR.GetString("RDMaxOccur", maxOccur));
                 else
                     sb.Append(LR.GetString("RDRecurUntil", untilDate));
+            }
 
             // Note if the week start is different
             if(weekStartDesc != null)
                 sb.Append(weekStartDesc);
 
             // Note if instances cannot occur on holidays
-            if(!canOccurOnHoliday)
+            if(!this.CanOccurOnHoliday)
                 sb.Append(LR.GetString("RDNoHolidays"));
             else
                 sb.Append('.');
@@ -2589,18 +2663,20 @@ namespace EWSoftware.PDI
                     if(idx < byMonth.Count - 2)
                         sb.Append(", ");
                     else
+                    {
                         if(idx < byMonth.Count - 1)
                         {
                             if(idx != 0)
-                                sb.Append(",");
+                                sb.Append(',');
 
                             sb.Append(LR.GetString("RDAnd"));
                         }
+                    }
                 }
 
-                Recurrence.AddIntegerCollection(sb, byWeekNo, "RDByWeekNo", ref addComma);
-                Recurrence.AddIntegerCollection(sb, byYearDay, "RDByYearDay", ref addComma);
-                Recurrence.AddIntegerCollection(sb, byMonthDay, "RDByMonthDay", ref addComma);
+                AddIntegerCollection(sb, byWeekNo, "RDByWeekNo", ref addComma);
+                AddIntegerCollection(sb, byYearDay, "RDByYearDay", ref addComma);
+                AddIntegerCollection(sb, byMonthDay, "RDByMonthDay", ref addComma);
 
                 string[] dayNames = CultureInfo.CurrentCulture.DateTimeFormat.DayNames;
 
@@ -2609,7 +2685,7 @@ namespace EWSoftware.PDI
                     if(idx == 0)
                     {
                         if(addComma)
-                            sb.Append(",");
+                            sb.Append(',');
                         else
                             addComma = true;
 
@@ -2624,21 +2700,23 @@ namespace EWSoftware.PDI
                     if(idx < byDay.Count - 2)
                         sb.Append(", ");
                     else
+                    {
                         if(idx < byDay.Count - 1)
                         {
                             if(idx != 0)
-                                sb.Append(",");
+                                sb.Append(',');
 
                             sb.Append(LR.GetString("RDAnd"));
                         }
+                    }
                 }
 
-                Recurrence.AddIntegerCollection(sb, byHour, "RDByHour", ref addComma);
-                Recurrence.AddIntegerCollection(sb, byMinute, "RDByMinute", ref addComma);
-                Recurrence.AddIntegerCollection(sb, bySecond, "RDBySecond", ref addComma);
-                Recurrence.AddIntegerCollection(sb, bySetPos, "RDBySetPos", ref addComma);
+                AddIntegerCollection(sb, byHour, "RDByHour", ref addComma);
+                AddIntegerCollection(sb, byMinute, "RDByMinute", ref addComma);
+                AddIntegerCollection(sb, bySecond, "RDBySecond", ref addComma);
+                AddIntegerCollection(sb, bySetPos, "RDBySetPos", ref addComma);
 
-                sb.Append(".");
+                sb.Append('.');
             }
 
             return sb.ToString();
@@ -2655,7 +2733,7 @@ namespace EWSoftware.PDI
                 if(idx == 0)
                 {
                     if(addComma)
-                        sb.Append(",");
+                        sb.Append(',');
                     else
                         addComma = true;
 
@@ -2678,13 +2756,15 @@ namespace EWSoftware.PDI
                 if(idx < uic.Count - 2)
                     sb.Append(", ");
                 else
+                {
                     if(idx < uic.Count - 1)
                     {
                         if(idx != 0)
-                            sb.Append(",");
+                            sb.Append(',');
 
                         sb.Append(LR.GetString("RDAnd"));
                     }
+                }
             }
 
             if(uic.Count != 0)

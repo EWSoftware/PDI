@@ -2,9 +2,8 @@
 // System  : EWSoftware PDI Demonstration Applications
 // File    : RFC2445RecurTest.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/20/2018
-// Note    : Copyright 2003-2018, Eric Woodruff, All rights reserved
-// Compiler: Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This creates the example recurrence patterns given in the RFC 2445 iCalendar specification starting on page
 // 118 and generates the instances for each one.  Rather than parsing the information from strings, it shows how
@@ -20,6 +19,8 @@
 // 10/22/2004  EFW  Created the code
 //===============================================================================================================
 
+#pragma warning disable CA1861
+
 using System;
 
 using EWSoftware.PDI;
@@ -31,7 +32,7 @@ namespace RFC2445RecurTest
 	/// <summary>
 	/// Test the various RFC 2445 iCalendar recurrence patterns found in the spec starting on page 118
 	/// </summary>
-	class RFC2445RecurTest
+	sealed class RFC2445RecurTest
 	{
 		/// <summary>
 		/// Create each pattern using the API and generate the instances.
@@ -39,7 +40,7 @@ namespace RFC2445RecurTest
 		[STAThread]
 		static void Main()
 		{
-            Recurrence r = new Recurrence();
+            Recurrence r = new();
             int idx;
 
             Console.WriteLine("The first part will calculate instances using only the Recurrence class.  All " +
@@ -137,8 +138,8 @@ namespace RFC2445RecurTest
 
             // When adding days without an instance value, you can use the helper method on the collection that
             // takes an array of DayOfWeek values rather than constructing an array of DayInstance objects.
-            r.ByDay.AddRange(new[] { DayOfWeek.Sunday, DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
-                DayOfWeek.Thursday, DayOfWeek.Friday, DayOfWeek.Saturday });
+            r.ByDay.AddRange([ DayOfWeek.Sunday, DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
+                DayOfWeek.Thursday, DayOfWeek.Friday, DayOfWeek.Saturday ]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -229,7 +230,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Weekly;
             r.RecurUntil = new DateTime(1997, 10, 07, 0, 0, 0);
             r.WeekStart = DayOfWeek.Sunday;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Thursday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -249,7 +250,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Weekly;
             r.MaximumOccurrences = 10;
             r.WeekStart = DayOfWeek.Sunday;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Thursday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -273,7 +274,7 @@ namespace RFC2445RecurTest
             r.Interval = 2;
             r.WeekStart = DayOfWeek.Sunday;
             r.RecurUntil = new DateTime(1997, 12, 24, 0, 0, 0);
-            r.ByDay.AddRange(new[] { DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday });
+            r.ByDay.AddRange([DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -293,7 +294,7 @@ namespace RFC2445RecurTest
             r.Interval = 2;
             r.WeekStart = DayOfWeek.Sunday;
             r.MaximumOccurrences = 8;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Thursday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -350,7 +351,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Monthly;
             r.Interval = 2;
             r.MaximumOccurrences = 10;
-            r.ByDay.AddRange(new[] { new DayInstance(1, DayOfWeek.Sunday), new DayInstance(-1, DayOfWeek.Sunday) });
+            r.ByDay.AddRange([new DayInstance(1, DayOfWeek.Sunday), new DayInstance(-1, DayOfWeek.Sunday)]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -404,7 +405,7 @@ namespace RFC2445RecurTest
             r.StartDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.MaximumOccurrences = 10;
-            r.ByMonthDay.AddRange(new[] { 2, 15 });
+            r.ByMonthDay.AddRange([2, 15]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -422,7 +423,7 @@ namespace RFC2445RecurTest
             r.StartDateTime = new DateTime(1997, 9, 30, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.MaximumOccurrences = 10;
-            r.ByMonthDay.AddRange(new[] { 1, -1 });
+            r.ByMonthDay.AddRange([1, -1]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -441,7 +442,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Monthly;
             r.Interval = 18;
             r.MaximumOccurrences = 10;
-            r.ByMonthDay.AddRange(new[] { 10, 11, 12, 13, 14, 15 });
+            r.ByMonthDay.AddRange([10, 11, 12, 13, 14, 15]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -478,7 +479,7 @@ namespace RFC2445RecurTest
             r.StartDateTime = new DateTime(1997, 6, 10, 9, 0, 0);
             r.Frequency = RecurFrequency.Yearly;
             r.MaximumOccurrences = 10;
-            r.ByMonth.AddRange(new[] { 6, 7 });
+            r.ByMonth.AddRange([6, 7]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -497,7 +498,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Yearly;
             r.Interval = 2;
             r.MaximumOccurrences = 10;
-            r.ByMonth.AddRange(new[] { 1, 2, 3 });
+            r.ByMonth.AddRange([1, 2, 3]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -516,7 +517,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Yearly;
             r.Interval = 3;
             r.MaximumOccurrences = 10;
-            r.ByYearDay.AddRange(new[] { 1, 100, 200 });
+            r.ByYearDay.AddRange([1, 100, 200]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -589,7 +590,7 @@ namespace RFC2445RecurTest
             r.Reset();
             r.StartDateTime = new DateTime(1997, 6, 5, 9, 0, 0);
             r.Frequency = RecurFrequency.Yearly;
-            r.ByMonth.AddRange(new[] { 6, 7, 8 });
+            r.ByMonth.AddRange([6, 7, 8]);
             r.ByDay.Add(DayOfWeek.Thursday);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
@@ -628,7 +629,7 @@ namespace RFC2445RecurTest
             r.StartDateTime = new DateTime(1997, 9, 13, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.ByDay.Add(DayOfWeek.Saturday);
-            r.ByMonthDay.AddRange(new[] { 7, 8, 9, 10, 11, 12, 13 });
+            r.ByMonthDay.AddRange([7, 8, 9, 10, 11, 12, 13]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -650,7 +651,7 @@ namespace RFC2445RecurTest
             r.Interval = 4;
             r.ByMonth.Add(11);
             r.ByDay.Add(DayOfWeek.Tuesday);
-            r.ByMonthDay.AddRange(new[] { 2, 3, 4, 5, 6, 7, 8 });
+            r.ByMonthDay.AddRange([2, 3, 4, 5, 6, 7, 8]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -671,7 +672,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Monthly;
             r.MaximumOccurrences = 3;
             r.BySetPos.Add(3);
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -689,8 +690,8 @@ namespace RFC2445RecurTest
             r.StartDateTime = new DateTime(1997, 9, 29, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.BySetPos.Add(-2);
-            r.ByDay.AddRange(new[] { DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
-                DayOfWeek.Thursday, DayOfWeek.Friday });
+            r.ByDay.AddRange([ DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
+                DayOfWeek.Thursday, DayOfWeek.Friday ]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -762,8 +763,8 @@ namespace RFC2445RecurTest
             r.Reset();
             r.StartDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
             r.Frequency = RecurFrequency.Daily;
-            r.ByHour.AddRange(new[] { 9, 10, 11, 12, 13, 14, 15, 16 });
-            r.ByMinute.AddRange( new[] { 0, 20, 40 });
+            r.ByHour.AddRange([9, 10, 11, 12, 13, 14, 15, 16]);
+            r.ByMinute.AddRange([0, 20, 40]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -783,7 +784,7 @@ namespace RFC2445RecurTest
             r.StartDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
             r.Frequency = RecurFrequency.Minutely;
             r.Interval = 20;
-            r.ByHour.AddRange(new[] { 9, 10, 11, 12, 13, 14, 15, 16 });
+            r.ByHour.AddRange([9, 10, 11, 12, 13, 14, 15, 16]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -803,7 +804,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Weekly;
             r.Interval = 2;
             r.MaximumOccurrences = 4;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Sunday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -823,7 +824,7 @@ namespace RFC2445RecurTest
             r.Interval = 2;
             r.MaximumOccurrences = 4;
             r.WeekStart = DayOfWeek.Sunday;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Sunday]);
 
             Console.WriteLine(r.ToStringWithStartDateTime());
 
@@ -842,7 +843,7 @@ namespace RFC2445RecurTest
 
             // First, set up the time zone information.  If you don't care about the time zone, you can skip this
             // stuff and everything will be calculated in local time.
-            VTimeZone vtz = new VTimeZone();
+            VTimeZone vtz = new();
             vtz.TimeZoneId.Value = "US-Eastern";
 
             // Set the standard time observance rule
@@ -852,7 +853,7 @@ namespace RFC2445RecurTest
             obr.OffsetFrom.TimeSpanValue = TimeSpan.FromHours(-4);
             obr.OffsetTo.TimeSpanValue = TimeSpan.FromHours(-5);
 
-            RRuleProperty rrule = new RRuleProperty();
+            RRuleProperty rrule = new();
             rrule.Recurrence.RecurYearly(DayOccurrence.Last, DaysOfWeek.Sunday, 10, 1);
             obr.RecurrenceRules.Add(rrule);
 
@@ -875,7 +876,7 @@ namespace RFC2445RecurTest
 
             // Now we'll set up an event to use for the calculations.  We don't need a VCalendar object as we are
             // just generating recurring instances.
-            VEvent vevent = new VEvent();
+            VEvent vevent = new();
 
             // Add an RRULE property
             rrule = new RRuleProperty();
@@ -1015,8 +1016,8 @@ namespace RFC2445RecurTest
 
             // When adding days without an instance value, you can use the helper method on the collection that
             // takes an array of DayOfWeek values rather than constructing an array of DayInstance objects.
-            r.ByDay.AddRange(new[] { DayOfWeek.Sunday, DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
-                DayOfWeek.Thursday, DayOfWeek.Friday, DayOfWeek.Saturday });
+            r.ByDay.AddRange([ DayOfWeek.Sunday, DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
+                DayOfWeek.Thursday, DayOfWeek.Friday, DayOfWeek.Saturday ]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1138,7 +1139,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Weekly;
             r.RecurUntil = new DateTime(1997, 10, 07, 4, 0, 0).ToLocalTime();
             r.WeekStart = DayOfWeek.Sunday;
-            r.ByDay.AddRange(new [] { DayOfWeek.Tuesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Thursday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1164,7 +1165,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Weekly;
             r.MaximumOccurrences = 10;
             r.WeekStart = DayOfWeek.Sunday;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Thursday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1193,7 +1194,7 @@ namespace RFC2445RecurTest
             r.Interval = 2;
             r.WeekStart = DayOfWeek.Sunday;
             r.RecurUntil = new DateTime(1997, 12, 24, 5, 0, 0).ToLocalTime();
-            r.ByDay.AddRange(new[] { DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday });
+            r.ByDay.AddRange([DayOfWeek.Monday, DayOfWeek.Wednesday, DayOfWeek.Friday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1219,7 +1220,7 @@ namespace RFC2445RecurTest
             r.Interval = 2;
             r.WeekStart = DayOfWeek.Sunday;
             r.MaximumOccurrences = 8;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Thursday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1294,7 +1295,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Monthly;
             r.Interval = 2;
             r.MaximumOccurrences = 10;
-            r.ByDay.AddRange(new[] { new DayInstance(1, DayOfWeek.Sunday), new DayInstance(-1, DayOfWeek.Sunday) });
+            r.ByDay.AddRange([new DayInstance(1, DayOfWeek.Sunday), new DayInstance(-1, DayOfWeek.Sunday)]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1367,7 +1368,7 @@ namespace RFC2445RecurTest
             startDateTime.TimeZoneDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.MaximumOccurrences = 10;
-            r.ByMonthDay.AddRange(new[] { 2, 15 });
+            r.ByMonthDay.AddRange([2, 15]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1391,7 +1392,7 @@ namespace RFC2445RecurTest
             startDateTime.TimeZoneDateTime = new DateTime(1997, 9, 30, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.MaximumOccurrences = 10;
-            r.ByMonthDay.AddRange(new[] { 1, -1 });
+            r.ByMonthDay.AddRange([1, -1]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1416,7 +1417,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Monthly;
             r.Interval = 18;
             r.MaximumOccurrences = 10;
-            r.ByMonthDay.AddRange(new[] { 10, 11, 12, 13, 14, 15 });
+            r.ByMonthDay.AddRange([10, 11, 12, 13, 14, 15]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1466,7 +1467,7 @@ namespace RFC2445RecurTest
             startDateTime.TimeZoneDateTime = new DateTime(1997, 6, 10, 9, 0, 0);
             r.Frequency = RecurFrequency.Yearly;
             r.MaximumOccurrences = 10;
-            r.ByMonth.AddRange(new[] { 6, 7 });
+            r.ByMonth.AddRange([6, 7]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1491,7 +1492,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Yearly;
             r.Interval = 2;
             r.MaximumOccurrences = 10;
-            r.ByMonth.AddRange(new[] { 1, 2, 3 });
+            r.ByMonth.AddRange([1, 2, 3]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1516,7 +1517,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Yearly;
             r.Interval = 3;
             r.MaximumOccurrences = 10;
-            r.ByYearDay.AddRange(new[] { 1, 100, 200 });
+            r.ByYearDay.AddRange([1, 100, 200]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1615,7 +1616,7 @@ namespace RFC2445RecurTest
             r.Reset();
             startDateTime.TimeZoneDateTime = new DateTime(1997, 6, 5, 9, 0, 0);
             r.Frequency = RecurFrequency.Yearly;
-            r.ByMonth.AddRange(new[] { 6, 7, 8 });
+            r.ByMonth.AddRange([6, 7, 8]);
             r.ByDay.Add(DayOfWeek.Thursday);
 
             // Not forever for the test
@@ -1676,7 +1677,7 @@ namespace RFC2445RecurTest
             startDateTime.TimeZoneDateTime = new DateTime(1997, 9, 13, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.ByDay.Add(DayOfWeek.Saturday);
-            r.ByMonthDay.AddRange(new[] { 7, 8, 9, 10, 11, 12, 13 });
+            r.ByMonthDay.AddRange([7, 8, 9, 10, 11, 12, 13]);
 
             // Not forever for the test
             dtiTZ = vevent.InstancesBetween(startDateTime.TimeZoneDateTime, new DateTime(1998, 7, 1), false);
@@ -1705,7 +1706,7 @@ namespace RFC2445RecurTest
             r.Interval = 4;
             r.ByMonth.Add(11);
             r.ByDay.Add(DayOfWeek.Tuesday);
-            r.ByMonthDay.AddRange(new[] { 2, 3, 4, 5, 6, 7, 8 });
+            r.ByMonthDay.AddRange([2, 3, 4, 5, 6, 7, 8]);
 
             // Not forever for the test
             dtiTZ = vevent.InstancesBetween(startDateTime.TimeZoneDateTime, new DateTime(2004, 11, 3), false);
@@ -1733,7 +1734,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Monthly;
             r.MaximumOccurrences = 3;
             r.BySetPos.Add(3);
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Wednesday, DayOfWeek.Thursday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1757,8 +1758,8 @@ namespace RFC2445RecurTest
             startDateTime.TimeZoneDateTime = new DateTime(1997, 9, 29, 9, 0, 0);
             r.Frequency = RecurFrequency.Monthly;
             r.BySetPos.Add(-2);
-            r.ByDay.AddRange(new[] { DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
-                DayOfWeek.Thursday, DayOfWeek.Friday });
+            r.ByDay.AddRange([ DayOfWeek.Monday, DayOfWeek.Tuesday, DayOfWeek.Wednesday,
+                DayOfWeek.Thursday, DayOfWeek.Friday ]);
 
             // Not forever for the test
             dtiTZ = vevent.InstancesBetween(startDateTime.TimeZoneDateTime, new DateTime(1998, 9, 29), false);
@@ -1855,8 +1856,8 @@ namespace RFC2445RecurTest
             r.Reset();
             startDateTime.TimeZoneDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
             r.Frequency = RecurFrequency.Daily;
-            r.ByHour.AddRange(new[] { 9, 10, 11, 12, 13, 14, 15, 16 });
-            r.ByMinute.AddRange( new[] { 0, 20, 40 });
+            r.ByHour.AddRange([9, 10, 11, 12, 13, 14, 15, 16]);
+            r.ByMinute.AddRange([0, 20, 40]);
 
             // Not forever for the test
             dtiTZ = vevent.InstancesBetween(startDateTime.TimeZoneDateTime, new DateTime(1997, 9, 4), false);
@@ -1883,7 +1884,7 @@ namespace RFC2445RecurTest
             startDateTime.TimeZoneDateTime = new DateTime(1997, 9, 2, 9, 0, 0);
             r.Frequency = RecurFrequency.Minutely;
             r.Interval = 20;
-            r.ByHour.AddRange(new[] { 9, 10, 11, 12, 13, 14, 15, 16 });
+            r.ByHour.AddRange([9, 10, 11, 12, 13, 14, 15, 16]);
 
             // Not forever for the test
             dtiTZ = vevent.InstancesBetween(startDateTime.TimeZoneDateTime, new DateTime(1997, 9, 4), false);
@@ -1910,7 +1911,7 @@ namespace RFC2445RecurTest
             r.Frequency = RecurFrequency.Weekly;
             r.Interval = 2;
             r.MaximumOccurrences = 4;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Sunday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);
@@ -1936,7 +1937,7 @@ namespace RFC2445RecurTest
             r.Interval = 2;
             r.MaximumOccurrences = 4;
             r.WeekStart = DayOfWeek.Sunday;
-            r.ByDay.AddRange(new[] { DayOfWeek.Tuesday, DayOfWeek.Sunday });
+            r.ByDay.AddRange([DayOfWeek.Tuesday, DayOfWeek.Sunday]);
 
             dtiTZ = vevent.AllInstances(false);
             dtiLocal = vevent.AllInstances(true);

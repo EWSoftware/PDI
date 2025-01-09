@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : BaseProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/18/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the base property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -37,42 +37,43 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private string propValue,   // The value of the property
-            encMethod,      // The encoding method used on the property value
-            charSet,        // The character set used for the property value
-            language,       // The language used for the property value
+        private string encMethod = null!,   // The encoding method used on the property value
+            charSet = null!,        // The character set used for the property value
+            language = null!;       // The language used for the property value
+        private string? propValue,   // The value of the property
             location;       // The data type/location of the property value
 
         private EncodingType encType; // This is kept in sync with encMethod
 
         // This is used to map parameter name and value strings to a ParameterType enumeration
-        private static NameToValue<ParameterType>[] ntv = {
-            new NameToValue<ParameterType>(ParameterNames.Encoding, ParameterType.Encoding),
-            new NameToValue<ParameterType>(ParameterNames.CharacterSet, ParameterType.CharacterSet),
-            new NameToValue<ParameterType>(ParameterNames.Language, ParameterType.Language),
-            new NameToValue<ParameterType>(ParameterNames.ValueLocation, ParameterType.ValueLocation),
-            new NameToValue<ParameterType>(ParameterNames.PropertyId, ParameterType.PropertyId),
-            new NameToValue<ParameterType>(EncodingValue.SevenBit, ParameterType.Encoding, true),
-            new NameToValue<ParameterType>(EncodingValue.EightBit, ParameterType.Encoding, true),
-            new NameToValue<ParameterType>(EncodingValue.QuotedPrintable, ParameterType.Encoding, true),
-            new NameToValue<ParameterType>(EncodingValue.Base64, ParameterType.Encoding, true),
-            new NameToValue<ParameterType>(EncodingValue.BEncoding, ParameterType.Encoding, true),
-            new NameToValue<ParameterType>(CharSetValue.ASCII, ParameterType.CharacterSet, true),
-            new NameToValue<ParameterType>(LanguageValue.USEnglish, ParameterType.Language, true),
-            new NameToValue<ParameterType>(ValLocValue.Inline, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.Text, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.Date, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.DateTime, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.Binary, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.Url, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.Uri, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.ContentId, ParameterType.ValueLocation, true),
-            new NameToValue<ParameterType>(ValLocValue.Cid, ParameterType.ValueLocation, true),
+        private static readonly NameToValue<ParameterType>[] ntv =
+        [
+            new(ParameterNames.Encoding, ParameterType.Encoding),
+            new(ParameterNames.CharacterSet, ParameterType.CharacterSet),
+            new(ParameterNames.Language, ParameterType.Language),
+            new(ParameterNames.ValueLocation, ParameterType.ValueLocation),
+            new(ParameterNames.PropertyId, ParameterType.PropertyId),
+            new(EncodingValue.SevenBit, ParameterType.Encoding, true),
+            new(EncodingValue.EightBit, ParameterType.Encoding, true),
+            new(EncodingValue.QuotedPrintable, ParameterType.Encoding, true),
+            new(EncodingValue.Base64, ParameterType.Encoding, true),
+            new(EncodingValue.BEncoding, ParameterType.Encoding, true),
+            new(CharSetValue.ASCII, ParameterType.CharacterSet, true),
+            new(LanguageValue.USEnglish, ParameterType.Language, true),
+            new(ValLocValue.Inline, ParameterType.ValueLocation, true),
+            new(ValLocValue.Text, ParameterType.ValueLocation, true),
+            new(ValLocValue.Date, ParameterType.ValueLocation, true),
+            new(ValLocValue.DateTime, ParameterType.ValueLocation, true),
+            new(ValLocValue.Binary, ParameterType.ValueLocation, true),
+            new(ValLocValue.Url, ParameterType.ValueLocation, true),
+            new(ValLocValue.Uri, ParameterType.ValueLocation, true),
+            new(ValLocValue.ContentId, ParameterType.ValueLocation, true),
+            new(ValLocValue.Cid, ParameterType.ValueLocation, true),
 
             // The last entry should always be Custom to catch all unrecognized parameters.  The actual property
             // name is not relevant.
             new NameToValue<ParameterType>("X-", ParameterType.Custom)
-        };
+        ];
         #endregion
 
         #region Properties
@@ -118,8 +119,10 @@ namespace EWSoftware.PDI.Properties
                         this.EncodingMethod = EncodingType.BEncoding;
                 }
                 else
+                {
                     if(this.EncodingMethod == EncodingType.BEncoding)
                         this.EncodingMethod = EncodingType.Base64;
+                }
             }
         }
 
@@ -129,7 +132,7 @@ namespace EWSoftware.PDI.Properties
         /// <remarks>vCard properties support grouping.  If grouped, this property will contain the name of the
         /// group with which it is associated.  This property is ignored for vCalendar and iCalendar
         /// properties.</remarks>
-        public string Group { get; set; }
+        public string? Group { get; set; }
 
         /// <summary>
         /// Set or get the encoding method for this property's value as a string
@@ -265,7 +268,7 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         /// <remarks>This is only valid for vCard 4.0 objects.  There may be a single value or multiple values
         /// separated by commas.  It is up to the user to decode and make use of these values.</remarks>
-        public string PropertyId { get; set; }
+        public string? PropertyId { get; set; }
 
         /// <summary>
         /// The value (data) type or location of this property's value
@@ -277,7 +280,7 @@ namespace EWSoftware.PDI.Properties
         /// 
         /// <para>If necessary, the encoding method is reset to an appropriate setting based on the new
         /// location/type (i.e. Base64 for binary, 7-bit for non-binary data, etc).</para></remarks>
-        public string ValueLocation
+        public string? ValueLocation
         {
             get => location ?? this.DefaultValueLocation;
             set
@@ -306,7 +309,7 @@ namespace EWSoftware.PDI.Properties
         /// <value>The parameters are returned in a string containing each parameter and its value separated by
         /// semi-colons (i.e. "X-ABC-Custom1=Value;X-ABC-Custom2=3".  It is up to the caller to determine what to
         /// do with them.  It can be overridden in derived classes to alter its behavior.</value>
-        public virtual string CustomParameters { get; set; }
+        public virtual string? CustomParameters { get; set; }
 
         /// <summary>
         /// This is used to set or get the value of the property in its unencoded string form
@@ -322,7 +325,7 @@ namespace EWSoftware.PDI.Properties
         /// <para>Derived classes can override this to parse the value and provide access to it via type-specific
         /// value properties.  If this property is overridden, override <c>EncodedValue</c> as well to ensure the
         /// value is stored correctly in either form.</para></remarks>
-        public virtual string Value
+        public virtual string? Value
         {
             get => propValue;
             set => propValue = value;
@@ -346,7 +349,7 @@ namespace EWSoftware.PDI.Properties
         /// 
         /// <para>If this property is overridden, override <c>Value</c> as well to ensure the value is stored
         /// correctly in either form.</para></remarks>
-        public virtual string EncodedValue
+        public virtual string? EncodedValue
         {
             get
             {
@@ -368,9 +371,9 @@ namespace EWSoftware.PDI.Properties
         /// </summary>
         protected BaseProperty()
         {
-            this.CharacterSet = null;
-            this.Language = null;
-            this.EncodingString = null;
+            this.CharacterSet = null!;
+            this.Language = null!;
+            this.EncodingString = null!;
             this.ValueLocation = null;
         }
         #endregion
@@ -448,9 +451,10 @@ namespace EWSoftware.PDI.Properties
         /// directly to the TextWriter as they may need to manipulate the string to fold lines, etc.</remarks>
         /// <exception cref="InvalidCastException">This is thrown if the StringBuilder parameter is null and the
         /// TextWriter is not a StringWriter.</exception>
-        public static void WriteToStream(BaseProperty prop, StringBuilder sb, TextWriter tw)
+        public static void WriteToStream(BaseProperty? prop, StringBuilder? sb, TextWriter tw)
         {
             if(prop != null)
+            {
                 if(sb != null)
                 {
                     sb.Length = 0;
@@ -461,6 +465,7 @@ namespace EWSoftware.PDI.Properties
                 }
                 else
                     prop.ToString(((StringWriter)tw).GetStringBuilder());
+            }
         }
 
         /// <summary>
@@ -470,12 +475,12 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is BaseProperty bp))
+            if(obj is not BaseProperty bp)
                 return false;
 
             // The ToString() method returns a text representation of the property based on all of its settings
             // so it's a reliable way to tell if two instances are the same.
-            return (this == bp || this.ToString() == bp.ToString());
+            return this == bp || this.ToString() == bp.ToString();
         }
 
         /// <summary>
@@ -500,7 +505,7 @@ namespace EWSoftware.PDI.Properties
         /// <overloads>There are two overloads for this method</overloads>
         public sealed override string ToString()
         {
-            StringBuilder sb = new StringBuilder(256);
+            StringBuilder sb = new(256);
 
             // Let the derived class format the rest of the property
             this.ToString(sb);
@@ -523,7 +528,7 @@ namespace EWSoftware.PDI.Properties
             int priorLength, length;
 
             // If the value is null or empty, don't add it
-            string encVal = this.EncodedValue;
+            string? encVal = this.EncodedValue;
 
             if(encVal == null || encVal.Length == 0)
                 return;
@@ -778,7 +783,7 @@ namespace EWSoftware.PDI.Properties
             if(parameters == null || parameters.Count == 0)
                 return;
 
-            StringBuilder sb = new StringBuilder(80);
+            StringBuilder sb = new(80);
 
             for(int paramIdx = 0; paramIdx < parameters.Count; paramIdx++)
             {
@@ -844,7 +849,7 @@ namespace EWSoftware.PDI.Properties
                         }
 
                         // If it contains a semi-colon, colon, or comma, enclose the value in quotes
-                        if(parameters[paramIdx].IndexOfAny(new[] { ',', ';', ':' }) != -1)
+                        if(parameters[paramIdx].IndexOfAny([',', ';', ':']) != -1)
                         {
                             sb.Append('\"');
                             sb.Append(parameters[paramIdx]);
@@ -873,14 +878,16 @@ namespace EWSoftware.PDI.Properties
         /// <para>For vCard 2.1 and vCalendar 1.0 properties, if a <see cref="CharacterSet"/> parameter has been
         /// specified, the value is converted from the one specified by the <see cref="DefaultEncoding"/>
         /// property to the one specified by the <c>CharacterSet</c> property before encoding it.</para></remarks>
-        public virtual string Encode(string data)
+        public virtual string? Encode(string? data)
         {
-            string encoded;
+            string? encoded;
 
             // It's only done if the value is inline, text, or binary
             if(this.ValueLocation != ValLocValue.Inline && this.ValueLocation != ValLocValue.Text &&
               this.ValueLocation != ValLocValue.Binary)
+            {
                 return data;
+            }
 
             if((this.Version == SpecificationVersions.vCard21 || this.Version == SpecificationVersions.vCalendar10) &&
               String.Compare(this.CharacterSet, CharSetValue.ASCII, StringComparison.OrdinalIgnoreCase) != 0)
@@ -890,7 +897,7 @@ namespace EWSoftware.PDI.Properties
 
                 // Use the literal bytes.  If we get the string, the encoder gives us the decoded values which is
                 // not what we want to write out.
-                StringBuilder sb = new StringBuilder(destBytes.Length);
+                StringBuilder sb = new(destBytes.Length);
 
                 for(int nIdx = 0; nIdx < destBytes.Length; nIdx++)
                     sb.Append((char)destBytes[nIdx]);
@@ -905,19 +912,19 @@ namespace EWSoftware.PDI.Properties
                     // Escape characters for these if necessary.  vCard 2.1 and vCalendar 1.0 do not escape
                     // commas and semi-colons.
                     if(this.Version == SpecificationVersions.vCard21 || this.Version == SpecificationVersions.vCalendar10)
-                        encoded = EncodingUtils.RestrictedEscape(data);
+                        encoded = EncodingUtils.RestrictedEscape(data)!;
                     else
-                        encoded = EncodingUtils.Escape(data);
+                        encoded = EncodingUtils.Escape(data)!;
                     break;
 
                 case EncodingType.QuotedPrintable:
-                    encoded = EncodingUtils.ToQuotedPrintable(data, 75);
+                    encoded = EncodingUtils.ToQuotedPrintable(data, 75)!;
                     break;
 
                 case EncodingType.Base64:
                 case EncodingType.BEncoding:
                     // Base 64 encoding
-                    encoded = EncodingUtils.ToBase64(data, 75, (this.EncodingMethod == EncodingType.Base64));
+                    encoded = EncodingUtils.ToBase64(data, 75, this.EncodingMethod == EncodingType.Base64)!;
                     break;
 
                 default:    // Custom, can't do anything with it
@@ -941,14 +948,16 @@ namespace EWSoftware.PDI.Properties
         /// <para>For vCard 2.1 and vCalendar 1.0 properties, if a <see cref="CharacterSet"/> parameter has been
         /// specified, the value is converted from the specified character set to the one specified by the
         /// <see cref="DefaultEncoding"/> property after decoding.</para></remarks>
-        public virtual string Decode(string data)
+        public virtual string? Decode(string? data)
         {
-            string decoded;
+            string? decoded;
 
             // It's only done if the value is inline, text, or binary
             if(this.ValueLocation != ValLocValue.Inline && this.ValueLocation != ValLocValue.Text &&
               this.ValueLocation != ValLocValue.Binary)
+            {
                 return data;
+            }
 
             switch(this.EncodingMethod)
             {

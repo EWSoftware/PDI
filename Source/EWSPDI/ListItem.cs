@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ListItem.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 10/22/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a simple list item object that can be used to obtain a list of values suitable for binding
 // to a combo box, list box, etc.  The Windows Forms user controls use this to bind the values and descriptions
@@ -41,7 +40,7 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <remarks>Specify this property name for the <c>ValueMember</c> or <c>DataValueField</c> property of
         /// the control using the item as part of its data source.</remarks>
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         /// <summary>
         /// This returns the display text for the item
@@ -69,7 +68,7 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <param name="value">The value for the item</param>
         /// <remarks>The display text will be set to the string representation of the value</remarks>
-        public ListItem(object value) : this(value, null)
+        public ListItem(object? value) : this(value, null)
         {
         }
 
@@ -102,14 +101,14 @@ namespace EWSoftware.PDI
         /// cboSortOrder.SelectedIndex = 0
         /// </code>
         /// </example>
-        public ListItem(object value, string text)
+        public ListItem(object? value, string? text)
         {
             this.Value = value;
 
             if(String.IsNullOrEmpty(text))
                 this.Display = (value != null) ? value.ToString() : String.Empty;
             else
-                this.Display = text;
+                this.Display = text!;
         }
         #endregion
 

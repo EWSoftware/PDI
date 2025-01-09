@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VJournal.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the definition for the VJournal object used by iCalendar objects
 //
@@ -38,32 +37,32 @@ namespace EWSoftware.PDI.Objects
         //=====================================================================
 
         // Single journal properties
-        private ClassificationProperty classification;
-        private CategoriesProperty     categories;
-        private UrlProperty            url;
-        private UniqueIdProperty       uid;
-        private LastModifiedProperty   lastMod;
-        private DateCreatedProperty    dateCreated;
-        private StartDateProperty      startDate;
-        private TimeStampProperty      timeStamp;
-        private SummaryProperty        summary;
-        private DescriptionProperty    desc;
-        private SequenceProperty       sequence;
-        private CommentProperty        comment;
-        private OrganizerProperty      organizer;
-        private RecurrenceIdProperty   recurId;
-        private StatusProperty         status;
+        private ClassificationProperty classification = null!;
+        private CategoriesProperty     categories = null!;
+        private UrlProperty            url = null!;
+        private UniqueIdProperty       uid = null!;
+        private LastModifiedProperty   lastMod = null!;
+        private DateCreatedProperty    dateCreated = null!;
+        private StartDateProperty      startDate = null!;
+        private TimeStampProperty      timeStamp = null!;
+        private SummaryProperty        summary = null!;
+        private DescriptionProperty    desc = null!;
+        private SequenceProperty       sequence = null!;
+        private CommentProperty        comment = null!;
+        private OrganizerProperty      organizer = null!;
+        private RecurrenceIdProperty   recurId = null!;
+        private StatusProperty         status = null!;
 
         // Journal property collections.  There can be one or more of each of these properties so they are stored
         // in a collection.
-        private ContactPropertyCollection   contacts;
-        private AttendeePropertyCollection  attendees;
-        private RelatedToPropertyCollection relatedTo;
-        private AttachPropertyCollection    attachments;
-        private RequestStatusPropertyCollection reqStats;
+        private ContactPropertyCollection   contacts = null!;
+        private AttendeePropertyCollection  attendees = null!;
+        private RelatedToPropertyCollection relatedTo = null!;
+        private AttachPropertyCollection    attachments = null!;
+        private RequestStatusPropertyCollection reqStats = null!;
 
         // This is a catch-all that holds all unknown or extension properties
-        private CustomPropertyCollection customProps;
+        private CustomPropertyCollection customProps = null!;
 
         #endregion
 
@@ -83,8 +82,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(url == null)
-                    url = new UrlProperty();
+                url ??= new UrlProperty();
 
                 return url;
             }
@@ -116,8 +114,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(lastMod == null)
-                    lastMod = new LastModifiedProperty();
+                lastMod ??= new LastModifiedProperty();
 
                 return lastMod;
             }
@@ -130,8 +127,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(classification == null)
-                    classification = new ClassificationProperty();
+                classification ??= new ClassificationProperty();
 
                 return classification;
             }
@@ -145,8 +141,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(categories == null)
-                    categories = new CategoriesProperty();
+                categories ??= new CategoriesProperty();
 
                 return categories;
             }
@@ -159,8 +154,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(dateCreated == null)
-                    dateCreated = new DateCreatedProperty();
+                dateCreated ??= new DateCreatedProperty();
 
                 return dateCreated;
             }
@@ -173,8 +167,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(startDate == null)
-                    startDate = new StartDateProperty();
+                startDate ??= new StartDateProperty();
 
                 return startDate;
             }
@@ -188,8 +181,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(timeStamp == null)
-                    timeStamp = new TimeStampProperty { DateTimeValue = DateTime.Now };
+                timeStamp ??= new TimeStampProperty { DateTimeValue = DateTime.Now };
 
                 return timeStamp;
             }
@@ -202,8 +194,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(summary == null)
-                    summary = new SummaryProperty();
+                summary ??= new SummaryProperty();
 
                 return summary;
             }
@@ -216,8 +207,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(desc == null)
-                    desc = new DescriptionProperty();
+                desc ??= new DescriptionProperty();
 
                 return desc;
             }
@@ -230,8 +220,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(sequence == null)
-                    sequence = new SequenceProperty();
+                sequence ??= new SequenceProperty();
 
                 return sequence;
             }
@@ -244,8 +233,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(comment == null)
-                    comment = new CommentProperty();
+                comment ??= new CommentProperty();
 
                 return comment;
             }
@@ -258,8 +246,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(organizer == null)
-                    organizer = new OrganizerProperty();
+                organizer ??= new OrganizerProperty();
 
                 return organizer;
             }
@@ -274,8 +261,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(recurId == null)
-                    recurId = new RecurrenceIdProperty();
+                recurId ??= new RecurrenceIdProperty();
 
                 return recurId;
             }
@@ -288,8 +274,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(status == null)
-                    status = new StatusProperty();
+                status ??= new StatusProperty();
 
                 return status;
             }
@@ -303,8 +288,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(contacts == null)
-                    contacts = new ContactPropertyCollection();
+                contacts ??= [];
 
                 return contacts;
             }
@@ -318,8 +302,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(attendees == null)
-                    attendees = new AttendeePropertyCollection();
+                attendees ??= [];
 
                 return attendees;
             }
@@ -333,8 +316,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(relatedTo == null)
-                    relatedTo = new RelatedToPropertyCollection();
+                relatedTo ??= [];
 
                 return relatedTo;
             }
@@ -348,8 +330,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(attachments == null)
-                    attachments = new AttachPropertyCollection();
+                attachments ??= [];
 
                 return attachments;
             }
@@ -363,8 +344,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(reqStats == null)
-                    reqStats = new RequestStatusPropertyCollection();
+                reqStats ??= [];
 
                 return reqStats;
             }
@@ -378,8 +358,7 @@ namespace EWSoftware.PDI.Objects
         {
             get
             {
-                if(customProps == null)
-                    customProps = new CustomPropertyCollection();
+                customProps ??= [];
 
                 return customProps;
             }
@@ -406,7 +385,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <remarks>It returns the <see cref="BaseDateTimeProperty.TimeZoneId"/> of the <see cref="StartDateTime"/>
         /// property.</remarks>
-        public override string TimeZoneId => this.StartDateTime.TimeZoneId;
+        public override string? TimeZoneId => this.StartDateTime.TimeZoneId;
 
         #endregion
 
@@ -431,7 +410,7 @@ namespace EWSoftware.PDI.Objects
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            VJournal o = new VJournal();
+            VJournal o = new();
             o.Clone(this);
             return o;
         }
@@ -478,28 +457,28 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         public override void ClearProperties()
         {
-            classification = null;
-            categories = null;
-            url = null;
-            uid = null;
-            lastMod = null;
-            dateCreated = null;
-            startDate = null;
-            timeStamp = null;
-            summary = null;
-            desc = null;
-            sequence = null;
-            comment = null;
-            organizer = null;
-            recurId = null;
-            status = null;
+            classification = null!;
+            categories = null!;
+            url = null!;
+            uid = null!;
+            lastMod = null!;
+            dateCreated = null!;
+            startDate = null!;
+            timeStamp = null!;
+            summary = null!;
+            desc = null!;
+            sequence = null!;
+            comment = null!;
+            organizer = null!;
+            recurId = null!;
+            status = null!;
 
-            contacts = null;
-            attendees = null;
-            relatedTo = null;
-            attachments = null;
-            reqStats = null;
-            customProps = null;
+            contacts = null!;
+            attendees = null!;
+            relatedTo = null!;
+            attachments = null!;
+            reqStats = null!;
+            customProps = null!;
 
             base.ClearProperties();
         }
@@ -554,23 +533,12 @@ namespace EWSoftware.PDI.Objects
             if(status != null)
                 status.Version = this.Version;
 
-            if(contacts != null)
-                contacts.PropagateVersion(this.Version);
-
-            if(attendees != null)
-                attendees.PropagateVersion(this.Version);
-
-            if(relatedTo != null)
-                relatedTo.PropagateVersion(this.Version);
-
-            if(attachments != null)
-                attachments.PropagateVersion(this.Version);
-
-            if(reqStats != null)
-                reqStats.PropagateVersion(this.Version);
-
-            if(customProps != null)
-                customProps.PropagateVersion(this.Version);
+            contacts?.PropagateVersion(this.Version);
+            attendees?.PropagateVersion(this.Version);
+            relatedTo?.PropagateVersion(this.Version);
+            attachments?.PropagateVersion(this.Version);
+            reqStats?.PropagateVersion(this.Version);
+            customProps?.PropagateVersion(this.Version);
 
             base.PropagateVersion();
         }
@@ -582,8 +550,8 @@ namespace EWSoftware.PDI.Objects
         /// unique time zone IDs used by the calendar objects.</param>
         public override void TimeZonesUsed(StringCollection timeZoneIds)
         {
-            CalendarObject.AddTimeZoneIfUsed(startDate, timeZoneIds);
-            CalendarObject.AddTimeZoneIfUsed(recurId, timeZoneIds);
+            AddTimeZoneIfUsed(startDate, timeZoneIds);
+            AddTimeZoneIfUsed(recurId, timeZoneIds);
 
             base.TimeZonesUsed(timeZoneIds);
         }
@@ -594,10 +562,10 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public override void UpdateTimeZoneId(string oldId, string newId)
+        public override void UpdateTimeZoneId(string? oldId, string? newId)
         {
-            CalendarObject.UpdatePropertyTimeZoneId(startDate, oldId, newId);
-            CalendarObject.UpdatePropertyTimeZoneId(recurId, oldId, newId);
+            UpdatePropertyTimeZoneId(startDate, oldId, newId);
+            UpdatePropertyTimeZoneId(recurId, oldId, newId);
 
             base.UpdateTimeZoneId(oldId, newId);
         }
@@ -609,10 +577,10 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public override void ApplyTimeZone(VTimeZone vTimeZone)
+        public override void ApplyTimeZone(VTimeZone? vTimeZone)
         {
-            CalendarObject.ApplyPropertyTimeZone(startDate, vTimeZone);
-            CalendarObject.ApplyPropertyTimeZone(recurId, vTimeZone);
+            ApplyPropertyTimeZone(startDate, vTimeZone);
+            ApplyPropertyTimeZone(recurId, vTimeZone);
 
             base.ApplyTimeZone(vTimeZone);
         }
@@ -624,10 +592,10 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public override void SetTimeZone(VTimeZone vTimeZone)
+        public override void SetTimeZone(VTimeZone? vTimeZone)
         {
-            CalendarObject.SetPropertyTimeZone(startDate, vTimeZone);
-            CalendarObject.SetPropertyTimeZone(recurId, vTimeZone);
+            SetPropertyTimeZone(startDate, vTimeZone);
+            SetPropertyTimeZone(recurId, vTimeZone);
 
             base.SetTimeZone(vTimeZone);
         }
@@ -640,7 +608,7 @@ namespace EWSoftware.PDI.Objects
         /// buffer.  This can be null if the TextWriter is a <see cref="System.IO.StringWriter"/>.</param>
         /// <remarks>This is called by <see cref="CalendarObject.ToString"/> as well as owning objects when they
         /// convert themselves to a string or write themselves to a PDI data stream.</remarks>
-        public override void WriteToStream(TextWriter tw, StringBuilder sb)
+        public override void WriteToStream(TextWriter tw, StringBuilder? sb)
         {
             // DTSTAMP is always updated and written to reflect when the object was saved to the stream
             this.TimeStamp.DateTimeValue = DateTime.Now;
@@ -668,30 +636,42 @@ namespace EWSoftware.PDI.Objects
             BaseProperty.WriteToStream(lastMod, sb, tw);
 
             if(contacts != null && contacts.Count != 0)
+            {
                 foreach(ContactProperty c in contacts)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             if(attendees != null && attendees.Count != 0)
+            {
                 foreach(AttendeeProperty a in attendees)
                     BaseProperty.WriteToStream(a, sb, tw);
+            }
 
             if(relatedTo != null && relatedTo.Count != 0)
+            {
                 foreach(RelatedToProperty r in relatedTo)
                     BaseProperty.WriteToStream(r, sb, tw);
+            }
 
             if(reqStats != null && reqStats.Count != 0)
+            {
                 foreach(RequestStatusProperty r in reqStats)
                     BaseProperty.WriteToStream(r, sb, tw);
+            }
 
             base.WriteToStream(tw, sb);
 
             if(attachments != null && attachments.Count != 0)
+            {
                 foreach(AttachProperty a in attachments)
                     BaseProperty.WriteToStream(a, sb, tw);
+            }
 
             if(customProps != null && customProps.Count != 0)
+            {
                 foreach(CustomProperty c in customProps)
                     BaseProperty.WriteToStream(c, sb, tw);
+            }
 
             tw.Write("END:VJOURNAL\r\n");
         }
@@ -703,12 +683,12 @@ namespace EWSoftware.PDI.Objects
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
         public override bool Equals(object obj)
         {
-            if(!(obj is VJournal j))
+            if(obj is not VJournal j)
                 return false;
 
             // The ToString() method returns a text representation of the journal based on all of its settings so
             // it's a reliable way to tell if two instances are the same.
-            return (this == j || this.ToString() == j.ToString());
+            return this == j || this.ToString() == j.ToString();
         }
 
         /// <summary>

@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeZoneIdChangedEventArgs.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/19/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This is a custom EventArgs class for the TimeZoneIdChanged event
 //
@@ -31,19 +30,19 @@ namespace EWSoftware.PDI.Properties
 	    /// <summary>
         /// This property returns the old time zone ID
         /// </summary>
-    	public string OldId { get; private set; }
+    	public string? OldId { get; private set; }
 
 	    /// <summary>
         /// This property returns the new ID
         /// </summary>
-    	public string NewId { get; private set; }
+    	public string? NewId { get; private set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="oldTimeZoneId">The old time zone ID</param>
         /// <param name="newTimeZoneId">The new time zone ID</param>
-        public TimeZoneIdChangedEventArgs(string oldTimeZoneId, string newTimeZoneId)
+        public TimeZoneIdChangedEventArgs(string? oldTimeZoneId, string? newTimeZoneId)
         {
             this.OldId = oldTimeZoneId;
             this.NewId = newTimeZoneId;

@@ -2,9 +2,8 @@
 // System  : EWSoftware.PDI ASP.NET Web Server Controls
 // File    : LocalizedResources.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains some internal classes used to manage the localized resources for the assembly
 //
@@ -18,11 +17,10 @@
 // 01/24/2004  EFW  Created the code
 //===============================================================================================================
 
-using System;
 using System.Reflection;
 using System.Resources;
 
-namespace EWSoftware.PDI
+namespace EWSoftware.PDI.Web.Controls
 {
     /// <summary>
     /// This class is used to load resources for the assembly
@@ -37,10 +35,10 @@ namespace EWSoftware.PDI
         private const string ResourcesKey = "PDIWebControls";
 
         // The resource manager
-        private static ResourceManager rm;
+        private static ResourceManager rm = null!;
 
         // This is a helper object used to quickly lock the class when creating the resource manager
-        private static readonly object syncRoot = new Object();
+        private static readonly object syncRoot = new();
 
         #endregion
 
@@ -83,12 +81,7 @@ namespace EWSoftware.PDI
         /// "[?:&lt;key&gt;]" if not found.</returns>
         internal static string GetString(string name)
         {
-            string s = Resources.GetString(name, null);
-
-            if(s == null)
-                s = $"[?:{name}]";
-
-            return s;
+            return Resources.GetString(name, null) ?? $"[?:{name}]";
         }
         #endregion
     }

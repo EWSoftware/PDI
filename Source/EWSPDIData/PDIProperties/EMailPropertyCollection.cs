@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : EMailPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for EMailProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -64,9 +63,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public EMailProperty Add(string email)
         {
-            EMailProperty e = new EMailProperty { Value = email };
+            EMailProperty e = new() { Value = email };
 
-            base.Add(e);
+            this.Add(e);
 
             return e;
         }
@@ -79,9 +78,9 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public EMailProperty Add(EMailTypes emailTypes, string email)
         {
-            EMailProperty e = new EMailProperty { EMailTypes = emailTypes, Value = email };
+            EMailProperty e = new() { EMailTypes = emailTypes, Value = email };
 
-            base.Add(e);
+            this.Add(e);
 
             return e;
         }
@@ -147,14 +146,16 @@ namespace EWSoftware.PDI.Properties
         /// the one with the <c>Preferred</c> flag set.  If a preferred e-mail address with one of the given
         /// types cannot be found, it will return the first e-mail address matching one of the given types
         /// without the <c>Preferred</c> flag set.  If no e-mail address can be found, it returns null.</remarks>
-        public EMailProperty FindFirstByType(EMailTypes emailType)
+        public EMailProperty? FindFirstByType(EMailTypes emailType)
         {
             EMailTypes emailNoPref = emailType & ~EMailTypes.Preferred;
             bool usePreferred = (emailNoPref != emailType);
 
             foreach(EMailProperty email in this)
+            {
                 if((email.EMailTypes & emailNoPref) != 0 && (!usePreferred || (email.EMailTypes & EMailTypes.Preferred) != 0))
                     return email;
+            }
 
             // Try again without the preferred flag?
             if(usePreferred)

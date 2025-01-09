@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : RelatedPropertyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 12/20/2019
-// Note    : Copyright 2019, Eric Woodruff, All rights reserved
+// Updated : 01/03/2025
+// Note    : Copyright 2019-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for RelatedProperty objects.  It is used with the Personal Data
 // Interchange (PDI) vCard class.
@@ -45,8 +45,8 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// Construct the collection using a list of <see cref="RelatedProperty"/> objects
         /// </summary>
-        /// <param name="Relateds">The <see cref="IList{T}"/> of related-to items to add</param>
-        public RelatedPropertyCollection(IList<RelatedProperty> Relateds) : base(Relateds)
+        /// <param name="relateds">The <see cref="IList{T}"/> of related-to items to add</param>
+        public RelatedPropertyCollection(IList<RelatedProperty> relateds) : base(relateds)
         {
         }
         #endregion
@@ -62,7 +62,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>Returns the new property that was created and added to the collection</returns>
         public RelatedProperty Add(RelatedTypes relatedTypes, string relation)
         {
-            RelatedProperty rt = new RelatedProperty { RelatedTypes = relatedTypes, Value = relation };
+            RelatedProperty rt = new() { RelatedTypes = relatedTypes, Value = relation };
 
             base.Add(rt);
 
@@ -87,11 +87,13 @@ namespace EWSoftware.PDI.Properties
         /// <param name="relatedTypes">The phone type to match</param>
         /// <returns>The entry with a related type matching one of those specified or null if not found</returns>
         /// <remarks>Multiple related types can be specified.  If no entry can be found, it returns null.</remarks>
-        public RelatedProperty FindFirstByType(RelatedTypes relatedTypes)
+        public RelatedProperty? FindFirstByType(RelatedTypes relatedTypes)
         {
             foreach(var r in this)
+            {
                 if((r.RelatedTypes & relatedTypes) != 0)
                     return r;
+            }
 
             return null;
         }

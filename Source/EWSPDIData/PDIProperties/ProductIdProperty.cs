@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : ProductIdProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 01/03/2019
-// Note    : Copyright 2004-2019, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the Product ID property class used by the Personal Data Interchange (PDI) classes such as
 // vCalendar, iCalendar, and vCard.
@@ -37,7 +36,7 @@ namespace EWSoftware.PDI.Properties
         #region Private data members
         //=====================================================================
 
-        private static Regex reSplit = new Regex("//");
+        private static readonly Regex reSplit = new("//");
 
         #endregion
 
@@ -69,24 +68,24 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This is used to set or get the product owner name
         /// </summary>
-        public string OwnerName { get; set; }
+        public string? OwnerName { get; set; }
 
         /// <summary>
         /// This is used to set or get the keyword description
         /// </summary>
-        public string KeywordDescription { get; set; }
+        public string? KeywordDescription { get; set; }
 
         /// <summary>
         /// This is used to set or get the language
         /// </summary>
-        public string ProductLanguage { get; set; }
+        public string? ProductLanguage { get; set; }
 
         /// <summary>
         /// This property is overridden to handle parsing the product ID components and concatenating them when
         /// requested.
         /// </summary>
         /// <value>If some but not all parts are specified, default values are used for the missing parts</value>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -109,8 +108,8 @@ namespace EWSoftware.PDI.Properties
                     this.IsRegistered = false;
                 }
 
-                return String.Join("//", new[] { (this.IsRegistered ? "+" : "-"), this.OwnerName,
-                    this.KeywordDescription, this.ProductLanguage });
+                return String.Join("//", [ (this.IsRegistered ? "+" : "-"), this.OwnerName,
+                    this.KeywordDescription, this.ProductLanguage ]);
             }
             set
             {
@@ -141,7 +140,7 @@ namespace EWSoftware.PDI.Properties
         /// requested.
         /// </summary>
         /// <value>If some but not all parts are specified, default values are used for the missing parts</value>
-        public override string EncodedValue
+        public override string? EncodedValue
         {
             get => this.Value;
             set => this.Value = value;
@@ -168,7 +167,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            ProductIdProperty o = new ProductIdProperty();
+            ProductIdProperty o = new();
             o.Clone(this);
             return o;
         }

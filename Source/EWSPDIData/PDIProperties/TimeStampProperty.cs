@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : TimeStampProperty.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/24/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/04/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains the time stamp property class used by the Personal Data Interchange (PDI) iCalendar class
 //
@@ -28,7 +27,7 @@ namespace EWSoftware.PDI.Properties
     /// This class is used to represent the Time Stamp (DTSTAMP) property of an iCalendar object
     /// </summary>
     /// <remarks><para>This property class parses the <see cref="BaseProperty.Value"/> property to allow access
-    /// to its content as an actual <see cref="System.DateTime"/> object.  The property value is a character
+    /// to its content as an actual <see cref="DateTime"/> object.  The property value is a character
     /// string conforming to the basic format of ISO 8601.  The value is in universal time.</para>
     /// 
     /// <para>This property represents the date and time that the object was converted to vCalendar or iCalendar
@@ -60,7 +59,7 @@ namespace EWSoftware.PDI.Properties
         /// <summary>
         /// This property does not allow a time zone and is always a UTC date/time value
         /// </summary>
-        public override string Value
+        public override string? Value
         {
             get
             {
@@ -97,7 +96,7 @@ namespace EWSoftware.PDI.Properties
         /// <returns>A clone of the object</returns>
         public override object Clone()
         {
-            TimeStampProperty o = new TimeStampProperty();
+            TimeStampProperty o = new();
             o.Clone(this);
             return o;
         }

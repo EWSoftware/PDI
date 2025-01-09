@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Period.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2018
-// Note    : Copyright 2004-2018, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/02/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a class that represents a period of time
 //
@@ -71,7 +70,7 @@ namespace EWSoftware.PDI
         /// <value>The <see cref="EndDateTime"/> property is updated automatically based on the new value</value>
         public Duration Duration
         {
-            get => new Duration(this.EndDateTime - this.StartDateTime);
+            get => new(this.EndDateTime - this.StartDateTime);
             set => this.EndDateTime = this.StartDateTime + value.TimeSpan;
         }
 
@@ -126,7 +125,7 @@ namespace EWSoftware.PDI
         /// Copy constructor
         /// </summary>
         /// <param name="period">The period to copy</param>
-        public Period(Period period)
+        public Period(Period? period)
         {
             if(period != null)
             {
@@ -147,7 +146,7 @@ namespace EWSoftware.PDI
         /// format of the string received.</remarks>
         /// <exception cref="ArgumentException">This is thrown if the specified period string or any of its parts
         /// are not valid.</exception>
-        public Period(string period)
+        public Period(string? period)
         {
             if(String.IsNullOrWhiteSpace(period))
             {
@@ -157,7 +156,7 @@ namespace EWSoftware.PDI
                 return;
             }
 
-            string[] parts = period.Split('/');
+            string[] parts = period!.Split('/');
 
             if(parts.Length != 2)
                 throw new ArgumentException(LR.GetString("ExPeriodInvalidISOFormat"), nameof(period));
@@ -189,7 +188,7 @@ namespace EWSoftware.PDI
         /// specified by s, or an empty period object if the conversion failed. This parameter is passed in
         /// uninitialized.</param>
         /// <returns>True if successfully parsed or false if the value could not be parsed</returns>
-        public static bool TryParse(string period, out Period result)
+        public static bool TryParse(string? period, out Period result)
         {
             try
             {
@@ -219,7 +218,7 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period to compare</param>
         /// <param name="p2">The second period to compare</param>
         /// <returns>Returns true if the periods are equal, false if they are not</returns>
-        public static bool Equals(Period p1, Period p2)
+        public static bool Equals(Period? p1, Period? p2)
         {
             if(p1 is null && p2 is null)
                 return true;
@@ -235,11 +234,9 @@ namespace EWSoftware.PDI
         /// </summary>
         /// <param name="obj">The object to which this instance is compared</param>
         /// <returns>Returns true if the object equals this instance, false if it does not</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
-            Period p = obj as Period;
-
-            if(p == null)
+            if(obj is not Period p)
                 return false;
 
             return (this.StartDateTime == p.StartDateTime && this.EndDateTime == p.EndDateTime);
@@ -266,9 +263,11 @@ namespace EWSoftware.PDI
         public override string ToString()
         {
             if(this.Format == PeriodFormat.StartDuration)
+            {
                 return String.Format(CultureInfo.InvariantCulture, "{0}/{1}",
                     this.StartDateTime.ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture),
                     this.Duration.ToString(Duration.MaxUnit.Weeks));
+            }
 
             return String.Format(CultureInfo.InvariantCulture, "{0}/{1}",
                 this.StartDateTime.ToUniversalTime().ToString(ISO8601Format.BasicDateTimeUniversal, CultureInfo.InvariantCulture),
@@ -289,10 +288,10 @@ namespace EWSoftware.PDI
         /// <c>Period</c>.</exception>
         public int CompareTo(object obj)
         {
-            if(!(obj is Period p))
+            if(obj is not Period p)
                 throw new ArgumentException(LR.GetString("ExPeriodBadCompareObject"));
 
-            return Period.Compare(this, p);
+            return Compare(this, p);
         }
 
         /// <summary>
@@ -302,18 +301,18 @@ namespace EWSoftware.PDI
         /// <param name="p2">The second period</param>
         /// <returns>Returns -1 if the first instance is less than the second, 0 if they are equal, or 1 if the
         /// first instance is greater than the second.</returns>
-        public static int Compare(Period p1, Period p2)
+        public static int Compare(Period? p1, Period? p2)
         {
             if(p1 is null && p2 is null)
                 return 0;
 
-            if(!(p1 is null) && p2 is null)
+            if(p1 is not null && p2 is null)
                 return 1;
 
-            if(p1 is null && !(p2 is null))
+            if(p1 is null && p2 is not null)
                 return -1;
 
-            if(p1.StartDateTime > p2.StartDateTime)
+            if(p1!.StartDateTime > p2!.StartDateTime)
                 return 1;
 
             if(p1.StartDateTime < p2.StartDateTime)
@@ -334,9 +333,9 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period object</param>
         /// <param name="p2">The second period object</param>
         /// <returns>True if equal, false if not</returns>
-        public static bool operator == (Period p1, Period p2)
+        public static bool operator == (Period? p1, Period? p2)
         {
-            return (Period.Compare(p1, p2) == 0);
+            return Compare(p1, p2) == 0;
         }
 
         /// <summary>
@@ -345,9 +344,9 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period object</param>
         /// <param name="p2">The second period object</param>
         /// <returns>True if not equal, false if they are equal</returns>
-        public static bool operator != (Period p1, Period p2)
+        public static bool operator != (Period? p1, Period? p2)
         {
-            return (Period.Compare(p1, p2) != 0);
+            return Compare(p1, p2) != 0;
         }
 
         /// <summary>
@@ -356,9 +355,9 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period object</param>
         /// <param name="p2">The second period object</param>
         /// <returns>True if r1 is less than r2, false if not</returns>
-        public static bool operator < (Period p1, Period p2)
+        public static bool operator < (Period? p1, Period? p2)
         {
-            return (Period.Compare(p1, p2) < 0);
+            return Compare(p1, p2) < 0;
         }
 
         /// <summary>
@@ -367,9 +366,9 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period object</param>
         /// <param name="p2">The second period object</param>
         /// <returns>True if r1 is greater than r2, false if not</returns>
-        public static bool operator > (Period p1, Period p2)
+        public static bool operator > (Period? p1, Period? p2)
         {
-            return (Period.Compare(p1, p2) > 0);
+            return Compare(p1, p2) > 0;
         }
 
         /// <summary>
@@ -378,9 +377,9 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period object</param>
         /// <param name="p2">The second period object</param>
         /// <returns>True if r1 is less than or equal to r2, false if not</returns>
-        public static bool operator <= (Period p1, Period p2)
+        public static bool operator <= (Period? p1, Period? p2)
         {
-            return (Period.Compare(p1, p2) <= 0);
+            return Compare(p1, p2) <= 0;
         }
 
         /// <summary>
@@ -389,9 +388,9 @@ namespace EWSoftware.PDI
         /// <param name="p1">The first period object</param>
         /// <param name="p2">The second period object</param>
         /// <returns>True if r1 is greater than or equal to r2, false if not</returns>
-        public static bool operator >= (Period p1, Period p2)
+        public static bool operator >= (Period? p1, Period? p2)
         {
-            return (Period.Compare(p1, p2) >= 0);
+            return Compare(p1, p2) >= 0;
         }
         #endregion
     }

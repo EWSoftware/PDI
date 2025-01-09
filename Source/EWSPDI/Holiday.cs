@@ -2,8 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : Holidays.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/22/2021
-// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This file contains an abstract base classes used to automatically calculate holiday dates
 //
@@ -41,7 +41,7 @@ namespace EWSoftware.PDI
         /// <summary>
         /// This sets or gets the month used for the holiday
         /// </summary>
-        /// <exception cref="System.ArgumentOutOfRangeException">An exception will be thrown if the month is not
+        /// <exception cref="ArgumentOutOfRangeException">An exception will be thrown if the month is not
         /// between 1 and 12.
         /// </exception>
         [XmlAttribute]
@@ -61,7 +61,7 @@ namespace EWSoftware.PDI
         /// This sets or gets a description for the holiday
         /// </summary>
         [XmlText]
-        public string Description { get; set; }
+        public string Description { get; set; } = null!;
 
         /// <summary>
         /// The minimum year for the holiday

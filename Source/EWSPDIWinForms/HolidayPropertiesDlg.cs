@@ -2,8 +2,8 @@
 // System  : EWSoftware.PDI Windows Forms Controls
 // File    : HolidayPropertiesDlg.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/23/2021
-// Note    : Copyright 2003-2021, Eric Woodruff, All rights reserved
+// Updated : 01/02/2025
+// Note    : Copyright 2003-2025, Eric Woodruff, All rights reserved
 //
 // This is used to add or edit holiday object information
 //
@@ -30,7 +30,7 @@ namespace EWSoftware.PDI.Windows.Forms
         #region Private data members
         //=====================================================================
 
-        private Holiday holiday;
+        private Holiday holiday = null!;
 
         #endregion
 
@@ -89,8 +89,6 @@ namespace EWSoftware.PDI.Windows.Forms
 		{
 			InitializeComponent();
 
-            holiday = null;
-
             cboMonth.DisplayMember = "Display";
             cboMonth.ValueMember = "Value";
             cboMonth.DataSource = RecurOptsDataSource.MonthsOfYear;
@@ -102,20 +100,13 @@ namespace EWSoftware.PDI.Windows.Forms
             cboDayOfWeek.DisplayMember = "Display";
             cboDayOfWeek.ValueMember = "Value";
             cboDayOfWeek.DataSource = RecurOptsDataSource.DayOfWeek;
-		}
+
+            this.HolidayInfo = new FixedHoliday(1, 1, true, String.Empty);
+        }
         #endregion
 
         #region Event handlers
         //=====================================================================
-
-        /// <summary>
-        /// If loaded without setting a holiday object, create a new one
-        /// </summary>
-        private void HolidayPropertiesDlg_Load(object sender, System.EventArgs e)
-        {
-            if(holiday == null)
-                this.HolidayInfo = new FixedHoliday(1, 1, true, String.Empty);
-        }
 
         /// <summary>
         /// Perform validation and store the changes
@@ -144,7 +135,7 @@ namespace EWSoftware.PDI.Windows.Forms
             }
 
             // Leap years aren't accepted so always use a non-leap year to check the date
-            if(rbFixed.Checked && udcDayOfMonth.Value > DateTime.DaysInMonth(2003, (int)cboMonth.SelectedValue))
+            if(rbFixed.Checked && udcDayOfMonth.Value > DateTime.DaysInMonth(2003, (int)cboMonth.SelectedValue!))
             {
                 epErrors.SetError(udcDayOfMonth, LR.GetString("EditHAEBadDayOfMonth"));
                 e.Cancel = true;
@@ -155,23 +146,23 @@ namespace EWSoftware.PDI.Windows.Forms
             {
                 if(!rbFixed.Checked)
                 {
-                    FloatingHoliday fl = new FloatingHoliday();
+                    FloatingHoliday fl = new();
                     holiday = fl;
 
-                    fl.Occurrence = (DayOccurrence)cboOccurrence.SelectedValue;
-                    fl.Weekday = (System.DayOfWeek)cboDayOfWeek.SelectedValue;
+                    fl.Occurrence = (DayOccurrence)cboOccurrence.SelectedValue!;
+                    fl.Weekday = (DayOfWeek)cboDayOfWeek.SelectedValue!;
                     fl.Offset = (int)udcOffset.Value;
                 }
                 else
                 {
-                    FixedHoliday fx = new FixedHoliday();
+                    FixedHoliday fx = new();
                     holiday = fx;
 
                     fx.AdjustFixedDate = chkAdjustDate.Checked;
                     fx.Day = (int)udcDayOfMonth.Value;
                 }
 
-                holiday.Month = (int)cboMonth.SelectedValue;
+                holiday.Month = (int)cboMonth.SelectedValue!;
                 holiday.Description = txtDescription.Text;
                 holiday.MinimumYear = (int)udcMinimumYear.Value;
                 holiday.MaximumYear = (int)udcMaximumYear.Value;

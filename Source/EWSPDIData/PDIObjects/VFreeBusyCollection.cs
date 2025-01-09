@@ -2,9 +2,8 @@
 // System  : Personal Data Interchange Classes
 // File    : VFreeBusyCollection.cs
 // Author  : Eric Woodruff  (Eric@EWoodruff.us)
-// Updated : 11/06/2014
-// Note    : Copyright 2004-2014, Eric Woodruff, All rights reserved
-// Compiler: Microsoft Visual C#
+// Updated : 01/03/2025
+// Note    : Copyright 2004-2025, Eric Woodruff, All rights reserved
 //
 // This file contains a collection class for VFreeBusy objects.
 //
@@ -64,24 +63,28 @@ namespace EWSoftware.PDI.Objects
         /// returned if it does not exist in the collection.</param>
         /// <exception cref="ArgumentException">This is thrown if an attempt is made to set an item using a
         /// unique ID that does not exist in the collection.</exception>
-        public VFreeBusy this[string uniqueId]
+        public VFreeBusy? this[string uniqueId]
         {
             get
             {
                 for(int idx = 0; idx < base.Count; idx++)
+                {
                     if(base[idx].UniqueId.Value == uniqueId)
                         return base[idx];
+                }
 
                 return null;
             }
             set
             {
                 for(int idx = 0; idx < base.Count; idx++)
+                {
                     if(base[idx].UniqueId.Value == uniqueId)
                     {
-                        base[idx] = value;
+                        base[idx] = value!;
                         return;
                     }
+                }
 
                 throw new ArgumentException(LR.GetString("ExUIDNotFound"));
             }
@@ -133,7 +136,7 @@ namespace EWSoftware.PDI.Objects
         /// </summary>
         /// <param name="oldId">The old ID being replaced</param>
         /// <param name="newId">The new ID to use</param>
-        public void UpdateTimeZoneId(string oldId, string newId)
+        public void UpdateTimeZoneId(string? oldId, string? newId)
         {
             foreach(VFreeBusy f in this)
                 f.UpdateTimeZoneId(oldId, newId);
@@ -148,7 +151,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>When applied, all date/time values in the object will be converted to the new time zone</remarks>
-        public void ApplyTimeZone(VTimeZone vTimeZone)
+        public void ApplyTimeZone(VTimeZone? vTimeZone)
         {
             foreach(VFreeBusy f in this)
                 f.ApplyTimeZone(vTimeZone);
@@ -163,7 +166,7 @@ namespace EWSoftware.PDI.Objects
         /// <param name="vTimeZone">A <see cref="VTimeZone"/> object that will be used for all date/time objects
         /// in the component.</param>
         /// <remarks>This method does not affect the date/time values</remarks>
-        public void SetTimeZone(VTimeZone vTimeZone)
+        public void SetTimeZone(VTimeZone? vTimeZone)
         {
             foreach(VFreeBusy f in this)
                 f.SetTimeZone(vTimeZone);
