@@ -14,7 +14,7 @@ IF EXIST "%ProgramFiles%\Microsoft Visual Studio\2022\Community\MSBuild\Current"
 IF EXIST "%ProgramFiles%\Microsoft Visual Studio\2022\Professional\MSBuild\Current" SET "MSBUILD=%ProgramFiles%\Microsoft Visual Studio\2022\Professional\MSBuild\Current\bin\MSBuild.exe"
 IF EXIST "%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current" SET "MSBUILD=%ProgramFiles%\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\bin\MSBuild.exe"
 
-"%MSBUILD%" /nologo /v:m /m Source\EWSPDI.sln /t:Clean;Build "/p:Configuration=Release;Platform=Any CPU"
+"%MSBUILD%" /nologo /v:m /m Source\EWSPDI.sln /t:Clean;Restore;Build "/p:Configuration=Release;Platform=Any CPU"
 
 COPY Source\EWSPDI\bin\Release\*.nupkg .\Deployment
 COPY Source\EWSPDIData\bin\Release\*.nupkg .\Deployment

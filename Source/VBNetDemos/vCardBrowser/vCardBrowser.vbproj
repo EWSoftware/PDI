@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net8.0-windows;net40</TargetFrameworks>
+    <TargetFrameworks>net8.0-windows;net48</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
     <GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
@@ -25,7 +25,7 @@
     <ProjectReference Include="..\..\EWSPDI\EWSoftware.PDI.csproj" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net48' ">
     <Reference Include="System.Web" />
   </ItemGroup>
 

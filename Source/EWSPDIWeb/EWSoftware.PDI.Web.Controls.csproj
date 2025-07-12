@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net40</TargetFrameworks>
+		<TargetFrameworks>net48</TargetFrameworks>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Company>Eric Woodruff</Company>
@@ -20,7 +20,7 @@
 		<PackageTags>PDI personal data interchange web controls recurrence RFC 2445</PackageTags>
 		<PackageProjectUrl>https://github.com/EWSoftware/PDI</PackageProjectUrl>
 		<PackageLicenseExpression>MS-PL</PackageLicenseExpression>
-		<PackageReleaseNotes>Targets .NET Framework 4.0 and later (Windows platform only)</PackageReleaseNotes>
+		<PackageReleaseNotes>Targets .NET Framework 4.8 and later (Windows platform only)</PackageReleaseNotes>
 		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
 		<GenerateAssemblyTitleAttribute>False</GenerateAssemblyTitleAttribute>
 		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
