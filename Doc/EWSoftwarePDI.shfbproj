@@ -99,7 +99,8 @@
       <Argument Key="RobotsMetadata" Value="" />
       <Argument Key="BibliographyDataFile" Value="" />
       <Argument Key="RootBreadcrumbTitleText" Value="PDI" />
-      <Argument Key="CollapsibleSections" Value="True" />
+      <Argument Key="ResizableTocColumn" Value="False" />
+      <Argument Key="CollapsibleSections" Value="False" />
       <Argument Key="LogoFile" Value="EWSPDI.bmp" />
       <Argument Key="LogoHeight" Value="" />
       <Argument Key="LogoWidth" Value="" />
@@ -113,8 +114,11 @@
       <Argument Key="EnumMemberSortOrder" Value="Value" />
       <Argument Key="FlagsEnumValueFormat" Value="IntegerValue" />
       <Argument Key="FlagsEnumSeparatorSize" Value="0" />
+      <Argument Key="IncludeIntegerEnumSeparators" Value="true" />
       <Argument Key="BaseSourceCodeUrl" Value="https://github.com/EWSoftware/PDI/blob/master/Source/" />
       <Argument Key="RequestExampleUrl" Value="https://github.com/EWSoftware/PDI/issues/new" />
+      <Argument Key="ShowParametersOnAllMethods" Value="False" />
+      <Argument Key="AlwaysShowTopLevelAutoOutline" Value="False" />
     </TransformComponentArguments>
     <ComponentPath />
     <MaximumGroupParts>2</MaximumGroupParts>
@@ -176,50 +180,50 @@
     <Folder Include="media" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Donate.aml" />
-    <None Include="Content\UsageNotes\Recurrence.aml" />
-    <None Include="Content\UsageNotes\UsageNotes.aml" />
-    <None Include="Content\VersionHistory\v2015.1.19.0.aml" />
-    <None Include="Content\VersionHistory\v2018.12.1.0.aml" />
-    <None Include="Content\VersionHistory\v2020.1.18.0.aml" />
-    <None Include="Content\VersionHistory\v2020.11.25.0.aml" />
-    <None Include="Content\VersionHistory\v2020.7.24.0.aml" />
-    <None Include="Content\VersionHistory\v2021.11.23.0.aml" />
-    <None Include="Content\VersionHistory\v2023.1.2.0.aml" />
-    <None Include="Content\VersionHistory\v2025.1.9.0.aml" />
-    <None Include="Content\Welcome.aml" />
-    <None Include="Content\VersionHistory\v2.0.0.2.aml" />
-    <None Include="Content\VersionHistory\v2.0.0.0.aml" />
-    <None Include="Content\VersionHistory\v1.2.1.0.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.9.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.8.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.6.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.7.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.5.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.4.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.3.aml" />
-    <None Include="Content\VersionHistory\v1.2.0.0.aml" />
-    <None Include="Content\VersionHistory\v1.1.1.0.aml" />
-    <None Include="Content\VersionHistory\v1.1.0.0.aml" />
-    <None Include="Content\VersionHistory\v1.0.0.0.aml" />
-    <None Include="Content\UsageNotes\SpecCompliance.aml" />
-    <None Include="Content\UsageNotes\InteractOutlook.aml" />
-    <None Include="Content\UsageNotes\Encoding.aml" />
-    <None Include="Content\UsageNotes\DateTimeValues.aml" />
-    <None Include="Content\UsageNotes\DataBinding.aml" />
-    <None Include="Content\PDIRoadMap\VToDoClasses.aml" />
-    <None Include="Content\PDIRoadMap\VTimeZoneClasses.aml" />
-    <None Include="Content\PDIRoadMap\VNoteClasses.aml" />
-    <None Include="Content\PDIRoadMap\VJournalClasses.aml" />
-    <None Include="Content\PDIRoadMap\VFreeBusyClasses.aml" />
-    <None Include="Content\PDIRoadMap\VEventClasses.aml" />
-    <None Include="Content\PDIRoadMap\VCardClasses.aml" />
-    <None Include="Content\PDIRoadMap\VCalendarClasses.aml" />
-    <None Include="Content\PDIRoadMap\VAlarmClasses.aml" />
-    <None Include="Content\PDIRoadMap\StdDaylightClasses.aml" />
-    <None Include="Content\PDIRoadMap\PDIRoadMap.aml" />
-    <None Include="Content\VersionHistory\VersionHistory.aml" />
-    <None Include="Content\License.aml" />
+    <None Include="Content\PDIRoadMap\VToDoClasses.md" />
+    <None Include="Content\PDIRoadMap\VTimeZoneClasses.md" />
+    <None Include="Content\PDIRoadMap\VJournalClasses.md" />
+    <None Include="Content\PDIRoadMap\VFreeBusyClasses.md" />
+    <None Include="Content\PDIRoadMap\VEventClasses.md" />
+    <None Include="Content\PDIRoadMap\VAlarmClasses.md" />
+    <None Include="Content\PDIRoadMap\StdDaylightClasses.md" />
+    <None Include="Content\PDIRoadMap\VCalendarClasses.md" />
+    <None Include="Content\PDIRoadMap\VNoteClasses.md" />
+    <None Include="Content\PDIRoadMap\VCardClasses.md" />
+    <None Include="Content\PDIRoadMap\PDIRoadMap.md" />
+    <None Include="Content\UsageNotes\InteractOutlook.md" />
+    <None Include="Content\UsageNotes\Encoding.md" />
+    <None Include="Content\UsageNotes\DataBinding.md" />
+    <None Include="Content\UsageNotes\DateTimeValues.md" />
+    <None Include="Content\UsageNotes\Recurrence.md" />
+    <None Include="Content\UsageNotes\SpecCompliance.md" />
+    <None Include="Content\UsageNotes\UsageNotes.md" />
+    <None Include="Content\License.md" />
+    <None Include="Content\Welcome.md" />
+    <None Include="Content\Donate.md" />
+    <None Include="Content\VersionHistory\v1.0.0.0.md" />
+    <None Include="Content\VersionHistory\v1.1.0.0.md" />
+    <None Include="Content\VersionHistory\v1.1.1.0.md" />
+    <None Include="Content\VersionHistory\v1.2.0.0.md" />
+    <None Include="Content\VersionHistory\v1.2.0.3.md" />
+    <None Include="Content\VersionHistory\v1.2.0.4.md" />
+    <None Include="Content\VersionHistory\v1.2.0.5.md" />
+    <None Include="Content\VersionHistory\v1.2.0.6.md" />
+    <None Include="Content\VersionHistory\v1.2.0.7.md" />
+    <None Include="Content\VersionHistory\v1.2.0.8.md" />
+    <None Include="Content\VersionHistory\v1.2.0.9.md" />
+    <None Include="Content\VersionHistory\v1.2.1.0.md" />
+    <None Include="Content\VersionHistory\v2.0.0.0.md" />
+    <None Include="Content\VersionHistory\v2.0.0.2.md" />
+    <None Include="Content\VersionHistory\v2015.1.19.0.md" />
+    <None Include="Content\VersionHistory\v2018.12.1.0.md" />
+    <None Include="Content\VersionHistory\v2020.1.18.0.md" />
+    <None Include="Content\VersionHistory\v2020.7.24.0.md" />
+    <None Include="Content\VersionHistory\v2020.11.25.0.md" />
+    <None Include="Content\VersionHistory\v2021.11.23.0.md" />
+    <None Include="Content\VersionHistory\v2023.1.2.0.md" />
+    <None Include="Content\VersionHistory\v2025.1.9.0.md" />
+    <None Include="Content\VersionHistory\VersionHistory.md" />
   </ItemGroup>
   <ItemGroup>
     <ContentLayout Include="ContentLayout.content" />
